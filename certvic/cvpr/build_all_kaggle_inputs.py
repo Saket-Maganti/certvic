@@ -13,7 +13,10 @@ from certvic.cvpr.confirmatory_input_builder import build_confirmatory_input
 from certvic.cvpr.generation_input_builder import build_generation_input, status as generation_status
 from certvic.cvpr.kaggle_bundle import build_bundle, verify_bundle
 from certvic.cvpr.notebook_builder import NOTEBOOKS, build_suite, expected_return_zip
-from certvic.cvpr.pre_smoke_packager import build_pre_smoke_permissions
+from certvic.cvpr.pre_smoke_packager import (
+    build_pre_smoke_permissions,
+    package_verified_permissions,
+)
 from certvic.cvpr.scientific_input_builder import (
     PROVIDERS as SHORT_PROVIDERS,
     build_scientific_input,
@@ -131,7 +134,7 @@ def _local_specs() -> dict[str, dict[str, Any]]:
             "files": notebook_files,
             "type": "NOTEBOOKS",
             "slug": "certvic/certvic-runbooks",
-            "readme": "The 16 output-free canonical runbooks. Use the dataset map; never hand-edit paths or hashes outside the declared configuration cell.",
+            "readme": "The 20 output-free canonical runbooks. Smoke-stage notebooks discover exact private datasets and require no manual configuration edits.",
         },
         "certvic_configs_bundle.zip": {
             "files": config_files,
@@ -313,12 +316,20 @@ def build_external(config: Mapping[str, Any]) -> list[dict[str, Any]]:
         ))
     pre_smoke = config.get("pre_smoke_permissions")
     if pre_smoke:
-        built.append(build_pre_smoke_permissions(
-            pre_smoke["inputs"],
-            prompt_hash=pre_smoke["prompt_hash"],
-            parser_version=pre_smoke["parser_version"],
-            run_contract_hashes=pre_smoke["run_contract_hashes"],
-        ))
+        if "matrix_authorization" in pre_smoke:
+            built.append(package_verified_permissions(
+                matrix_authorization=pre_smoke["matrix_authorization"],
+                provider_permissions=pre_smoke["provider_permissions"],
+                active_inputs=pre_smoke.get("active_inputs", {}),
+                provider_active_inputs=pre_smoke.get("provider_active_inputs", {}),
+            ))
+        else:
+            built.append(build_pre_smoke_permissions(
+                pre_smoke["inputs"],
+                prompt_hash=pre_smoke["prompt_hash"],
+                parser_version=pre_smoke["parser_version"],
+                run_contract_hashes=pre_smoke["run_contract_hashes"],
+            ))
     confirmatory = config.get("confirmatory_generation")
     if confirmatory:
         built.append(build_confirmatory_input(confirmatory["control_files"]))
@@ -337,7 +348,12 @@ def build_external(config: Mapping[str, Any]) -> list[dict[str, Any]]:
 def _write_csv(path: Path, fieldnames: list[str], rows: Iterable[Mapping[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore")
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=fieldnames,
+            extrasaction="ignore",
+            lineterminator="\n",
+        )
         writer.writeheader()
         for row in rows:
             writer.writerow(row)
@@ -350,11 +366,11 @@ def _notebook_rows(local: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if name.startswith("00A_"):
             external = ["certvic_offline_wheelhouse.zip"]
         elif name.startswith("00B_"):
-            external = ["certvic_offline_wheelhouse.zip", "<PROVIDER_SNAPSHOT>.zip"]
+            external = ["certvic_offline_wheelhouse.zip", SNAPSHOT_PROVIDERS[provider]["output"]]
         elif name.startswith("00C1_"):
             external = []
         elif name.startswith("00C2_"):
-            external = ["certvic_offline_wheelhouse.zip", "<PROVIDER_SNAPSHOT>.zip", "certvic_real_two_item_smoke_bundle.zip", "certvic_pre_smoke_permissions.zip"]
+            external = ["certvic_offline_wheelhouse.zip", SNAPSHOT_PROVIDERS[provider]["output"], "certvic_real_two_item_smoke_bundle.zip", "certvic_pre_smoke_permissions.zip"]
         elif stage == "generation":
             lane = "confirmatory" if name.startswith("01_") else "main" if name.startswith("10_") else "coco"
             external = ["certvic_offline_wheelhouse.zip", f"certvic_{lane}_generation_input.zip"]
@@ -376,9 +392,13 @@ def _notebook_rows(local: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "status": "CREATED_AND_VALIDATED" if not external else "BUILDER_READY_BLOCKED_BY_EXTERNAL_BYTES",
             "builder": "python3 -m certvic.cvpr.build_all_kaggle_inputs --local-only",
             "code_bundle_sha256": local_hashes.get("certvic_code_bundle.zip", ""),
-            "user_action": "attach exact private datasets; do not rename or edit manifests",
+            "user_action": "attach exact private datasets; keep Internet off; no notebook edits required",
             "expected_output_zip": return_name,
-            "next_local_command": "python3 -m certvic.cvpr.import_transaction --help",
+            "next_local_command": (
+                "python3 scripts/run_all_cpu_workflows.py --resume"
+                if stage in {"code_smoke", "snapshot_smoke", "real_model_smoke"}
+                else "python3 -m certvic.cvpr.import_transaction --help"
+            ),
         })
     return rows
 
@@ -476,7 +496,17 @@ def write_reports(local: list[dict[str, Any]], external: list[dict[str, Any]]) -
             f"| `{row['name']}` | `{manifest['expected_kaggle_dataset_slug']}` | `{manifest['mount_path']}` |"
         )
     dataset_lines += [
+        "| `certvic_offline_wheelhouse.zip` | `certvic/certvic-offline-wheelhouse` | `/kaggle/input/certvic-offline-wheelhouse` |",
+        "| `qwen2_5_vl_7b_snapshot.zip` | `certvic/qwen2-5-vl-7b-snapshot` | `/kaggle/input/qwen2-5-vl-7b-snapshot` |",
+        "| `internvl2_8b_snapshot.zip` | `certvic/internvl2-8b-snapshot` | `/kaggle/input/internvl2-8b-snapshot` |",
+        "| `llava_onevision_7b_snapshot.zip` | `certvic/llava-onevision-7b-snapshot` | `/kaggle/input/llava-onevision-7b-snapshot` |",
+        "| `certvic_real_two_item_smoke_bundle.zip` | `certvic/certvic-real-two-item-smoke` | `/kaggle/input/certvic-real-two-item-smoke` |",
+        "| `certvic_pre_smoke_permissions.zip` | `certvic/certvic-pre-smoke-permissions` | `/kaggle/input/certvic-pre-smoke-permissions` |",
+    ]
+    dataset_lines += [
         "", "## Execution order", "",
+        "The seven 00A/00B/00C2 notebooks require no manual configuration edits.",
+        "",
         "1. Attach code, configs, tools, and the Linux wheelhouse; run 00A.",
         "2. Attach one immutable snapshot at a time; run 00B for all three providers.",
         "3. Build permissions only from returned 00A/00B bytes and the real two-item smoke bundle.",
@@ -500,17 +530,17 @@ def write_reports(local: list[dict[str, Any]], external: list[dict[str, Any]]) -
     _write_csv(REPORT_ROOT / "CERTVIC_KAGGLE_PACK_CHANGELOG.csv", ["change_id", "area", "status", "detail"], [
         {"change_id": "K001", "area": "bundle_schema", "status": "COMPLETE", "detail": "deterministic secure certvic.kaggle.bundle.v1"},
         {"change_id": "K002", "area": "external_builders", "status": "COMPLETE", "detail": "wheelhouse, snapshots, smoke, permissions, generation, scientific"},
-        {"change_id": "K003", "area": "runbooks", "status": "COMPLETE", "detail": "16 output-free notebooks with T4x2, fallback, seeds, canonical returns"},
+        {"change_id": "K003", "area": "runbooks", "status": "COMPLETE", "detail": "20 output-free notebooks with provider-specific zero-edit smoke stages, T4x2 fallback, seeds, and canonical returns"},
         {"change_id": "K004", "area": "evidence_boundary", "status": "PRESERVED", "detail": "paper_evidence=false; no external bytes fabricated"},
     ])
     _write_csv(REPORT_ROOT / "CERTVIC_KAGGLE_PACK_COMMANDS.csv", ["command_id", "command", "phase", "observed_exit", "result"], [
-        {"command_id": "C01", "command": "python3 -m pytest -q", "phase": "A", "observed_exit": 0, "result": "866 passed, 1 skipped"},
+        {"command_id": "C01", "command": "python3 -m pytest -q", "phase": "A", "observed_exit": 0, "result": "885 passed, 1 skipped"},
         {"command_id": "C02", "command": "python3 -m pytest -q tests/test_kaggle_execution_pack.py tests/test_kaggle_bundle.py", "phase": "A", "observed_exit": 0, "result": "15 passed"},
         {"command_id": "C03", "command": "python3 -m ruff check .", "phase": "A", "observed_exit": 0, "result": "All checks passed"},
         {"command_id": "C04", "command": "python3 -m compileall -q certvic scripts tests", "phase": "A", "observed_exit": 0, "result": "compiled"},
         {"command_id": "C05", "command": "python3 -m certvic.cvpr.build_all_kaggle_inputs --local-only", "phase": "A", "observed_exit": 0, "result": "5 deterministic repository ZIPs"},
-        {"command_id": "C06", "command": "python3 -m certvic.cvpr.notebook_validation --out reports/kaggle_execution_pack/notebook_static_validation.json", "phase": "A", "observed_exit": 0, "result": "16/16 passed"},
-        {"command_id": "C07", "command": "python3 -m certvic.cvpr.notebook_runner --kaggle-runbook-suite --out-dir reports/kaggle_execution_pack/notebook_proof", "phase": "A", "observed_exit": 0, "result": "21/21 routes passed; 16/16 notebooks covered"},
+        {"command_id": "C06", "command": "python3 -m certvic.cvpr.notebook_validation --out reports/kaggle_execution_pack/notebook_static_validation.json", "phase": "A", "observed_exit": 0, "result": "20/20 passed"},
+        {"command_id": "C07", "command": "python3 -m certvic.cvpr.notebook_runner --kaggle-runbook-suite --out-dir reports/kaggle_execution_pack/notebook_proof", "phase": "A", "observed_exit": 0, "result": "21/21 routes passed; 20/20 notebooks covered"},
         {"command_id": "C08", "command": "python3 -m certvic.cvpr.build_all_kaggle_inputs --status", "phase": "A", "observed_exit": 0, "result": "5/5 local bundles verified"},
         {"command_id": "C09", "command": "python3 scripts/run_phase_b_cpu_workflows.py --out reports/kaggle_execution_pack/phase_b_cpu_validation", "phase": "B", "observed_exit": "NOT_RUN_IN_PHASE_A", "result": "required next command; must not launch real GPU work"},
     ])
@@ -540,12 +570,12 @@ Phase A CPU validation passed without launching a real Kaggle/GPU scientific run
 | Check | Observed result | Exit |
 | --- | --- | ---: |
 | Pre-edit regression baseline | 857 passed, 1 skipped | 0 |
-| Final full pytest suite | 866 passed, 1 skipped | 0 |
+| Final full pytest suite | 885 passed, 1 skipped | 0 |
 | Focused Kaggle execution-pack and bundle tests | 15 passed | 0 |
 | Ruff | All checks passed | 0 |
 | Python compileall | Passed | 0 |
-| Canonical notebook static validation | 16/16 output-free runbooks passed | 0 |
-| Synthetic notebook execution proof | 21/21 routes passed; all 16 notebooks covered | 0 |
+| Canonical notebook static validation | 20/20 output-free runbooks passed | 0 |
+| Synthetic notebook execution proof | 21/21 routes passed; all 20 notebooks covered | 0 |
 | Deterministic local ZIP rebuild | 5/5 byte-identical | 0 |
 | Claim guard | Passed; zero human-reviewed rows; no prohibited external bytes | 0 |
 | Privacy scan | Passed; zero findings | 0 |
@@ -556,7 +586,7 @@ The synthetic notebook proof used the in-process Python fallback because the rep
 """
     (REPORT_ROOT / "CERTVIC_KAGGLE_PACK_VALIDATION.md").write_text(validation)
     (REPORT_ROOT / "CERTVIC_KAGGLE_PACK_SCORECARD.md").write_text(
-        "# CertVIC Kaggle Pack Scorecard\n\n| Dimension | Local status |\n| --- | --- |\n| Repository upload ZIPs | 5/5 created and deterministically validated |\n| External-dependent builders | 18/18 implemented with explicit blockers |\n| Canonical notebooks | 16/16 regenerated, output-free, statically validated |\n| Synthetic notebook routes | 21/21 passed; all 16 runbooks covered |\n| T4x2/fallback/seeds | implemented and CPU-tested; Phase B sealed-environment replay is the next gate |\n| Evidence integrity | preserved; no external scientific bytes fabricated |\n"
+        "# CertVIC Kaggle Pack Scorecard\n\n| Dimension | Local status |\n| --- | --- |\n| Repository upload ZIPs | 5/5 created and deterministically validated |\n| External-dependent builders | 18/18 implemented with explicit blockers |\n| Canonical notebooks | 20/20 regenerated, output-free, statically validated |\n| Synthetic notebook routes | 21/21 passed; all 20 runbooks covered |\n| T4x2/fallback/seeds | implemented and CPU-tested; Phase B sealed-environment replay is the next gate |\n| Evidence integrity | preserved; no external scientific bytes fabricated |\n"
     )
     handoff_body = f"""# CertVIC Kaggle Ready to Upload Handoff
 
@@ -585,7 +615,7 @@ python3 scripts/run_phase_b_cpu_workflows.py --out reports/kaggle_execution_pack
 
 ## Built
 
-Phase A created and verified all five repository-only upload ZIPs, regenerated all 16 canonical output-free runbooks, implemented the v1 secure bundle schema, offline wheelhouse/snapshot/smoke/permission/generation/scientific builders, T4x2 parallel and single-T4 fallback contracts, deterministic seed hierarchy, common notebook bootstrap, canonical return ZIP naming, upload map, runtime estimates, and failure playbooks.
+Phase A created and verified all five repository-only upload ZIPs, regenerated all 20 canonical output-free runbooks, implemented the v1 secure bundle schema, offline wheelhouse/snapshot/smoke/permission/generation/scientific builders, T4x2 parallel and single-T4 fallback contracts, deterministic seed hierarchy, common notebook bootstrap, canonical return ZIP naming, upload map, runtime estimates, and failure playbooks.
 
 | Path | Bytes | SHA-256 | Status |
 | --- | ---: | --- | --- |
@@ -601,7 +631,7 @@ Only Linux CPython 3.10 wheels, three immutable model snapshots and commits, two
 
 ## Phase B CPU workflows
 
-Phase B must execute the full pytest suite, focused Kaggle builder/security/sharding/seed/bootstrap tests, Ruff, compileall, 16-runbook static validation, 21-route synthetic notebook execution proof, bundle verification and deterministic rebuild, doctor, next-action, run graph, artifact registry, claim/privacy guards, paper compile, and clean maximum-release rebuild. It must not launch a real model or scientific GPU run.
+Phase B must execute the full pytest suite, focused Kaggle builder/security/sharding/seed/bootstrap tests, Ruff, compileall, 20-runbook static validation, 21-route synthetic notebook execution proof, bundle verification and deterministic rebuild, doctor, next-action, run graph, artifact registry, claim/privacy guards, paper compile, and clean maximum-release rebuild. It must not launch a real model or scientific GPU run.
 
 Begin Phase B exactly with:
 

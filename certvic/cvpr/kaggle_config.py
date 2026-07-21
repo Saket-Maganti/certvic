@@ -16,19 +16,31 @@ PROVIDERS = ("qwen2_5_vl_7b", "internvl_8b", "llava_onevision_7b")
 NOTEBOOKS: dict[str, dict[str, Any]] = {
     "00A": {
         "file": "00A_certvic_code_and_environment_smoke.ipynb",
-        "datasets": ["certvic-code-bundle", "certvic-offline-wheelhouse"],
-        "output": "00A_environment.json",
+        "datasets": [
+            "certvic/certvic-code", "certvic/certvic-configs",
+            "certvic/certvic-execution-tools", "certvic/certvic-offline-wheelhouse",
+        ],
+        "output": "00A_environment_bundle.zip",
         "providers": False,
     },
     "00B": {
-        "file": "00B_certvic_model_snapshot_smoke.ipynb",
-        "datasets": ["certvic-code-bundle", "certvic-offline-wheelhouse", "provider-snapshot"],
-        "output": "00B_{provider}_snapshot.json",
+        "file": "00B_{provider}_snapshot_smoke.ipynb",
+        "datasets": [
+            "certvic/certvic-code", "certvic/certvic-configs",
+            "certvic/certvic-execution-tools", "certvic/certvic-offline-wheelhouse",
+            "provider-snapshot",
+        ],
+        "output": "00B_{provider}_snapshot_bundle.zip",
         "providers": True,
     },
     "00C2": {
-        "file": "00C2_certvic_real_model_two_item_smoke.ipynb",
-        "datasets": ["certvic-portable-smoke-bundle", "provider-snapshot"],
+        "file": "00C2_{provider}_real_model_two_item_smoke.ipynb",
+        "datasets": [
+            "certvic/certvic-code", "certvic/certvic-configs",
+            "certvic/certvic-execution-tools", "certvic/certvic-offline-wheelhouse",
+            "provider-snapshot", "certvic/certvic-real-two-item-smoke",
+            "certvic/certvic-pre-smoke-permissions",
+        ],
         "output": "00C2_{provider}_real_model_smoke.zip",
         "providers": True,
     },
@@ -80,7 +92,9 @@ def generate_config(
     filename = str(spec["file"])
     if provider:
         prefix = {"qwen2_5_vl_7b": "qwen", "internvl_8b": "internvl", "llava_onevision_7b": "llava"}[provider]
-        if key in {"confirmatory", "main", "coco"}:
+        if key in {"00B", "00C2"}:
+            filename = filename.format(provider=provider)
+        elif key in {"confirmatory", "main", "coco"}:
             candidates = {
                 "confirmatory": {
                     "qwen": "02_qwen_specificity_confirmatory_T4x2.ipynb",
@@ -179,4 +193,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

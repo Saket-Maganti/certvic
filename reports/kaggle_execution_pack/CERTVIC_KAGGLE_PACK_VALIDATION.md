@@ -5,12 +5,12 @@ Phase A CPU validation passed without launching a real Kaggle/GPU scientific run
 | Check | Observed result | Exit |
 | --- | --- | ---: |
 | Pre-edit regression baseline | 857 passed, 1 skipped | 0 |
-| Final full pytest suite | 866 passed, 1 skipped | 0 |
+| Final full pytest suite | 885 passed, 1 skipped | 0 |
 | Focused Kaggle execution-pack and bundle tests | 15 passed | 0 |
 | Ruff | All checks passed | 0 |
 | Python compileall | Passed | 0 |
-| Canonical notebook static validation | 16/16 output-free runbooks passed | 0 |
-| Synthetic notebook execution proof | 21/21 routes passed; all 16 notebooks covered | 0 |
+| Canonical notebook static validation | 20/20 output-free runbooks passed | 0 |
+| Synthetic notebook execution proof | 21/21 routes passed; all 20 notebooks covered | 0 |
 | Deterministic local ZIP rebuild | 5/5 byte-identical | 0 |
 | Claim guard | Passed; zero human-reviewed rows; no prohibited external bytes | 0 |
 | Privacy scan | Passed; zero findings | 0 |

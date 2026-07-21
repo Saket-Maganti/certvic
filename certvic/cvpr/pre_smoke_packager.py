@@ -9,6 +9,10 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from certvic.cvpr.kaggle_bundle import build_bundle, verify_bundle
+from certvic.cvpr.reconcile_provider_permissions import (
+    verify_matrix_authorization,
+    verify_provider_permission,
+)
 
 
 PROVIDERS = ("qwen2_5_vl_7b", "internvl_8b", "llava_onevision_7b")
@@ -97,7 +101,7 @@ def build_pre_smoke_permissions(
         study="pre_smoke",
         stage="authorization",
         provider=None,
-        required_notebook="00C2_certvic_real_model_two_item_smoke.ipynb",
+        required_notebook="ALL_3_PROVIDER_SPECIFIC_00C2_NOTEBOOKS",
         dataset_slug="certvic/certvic-pre-smoke-permissions",
         mount_path="/kaggle/input/certvic-pre-smoke-permissions",
         external_dependency_status="UPSTREAM_NON_EVIDENCE_ARTIFACTS_VERIFIED",
@@ -106,6 +110,65 @@ def build_pre_smoke_permissions(
         readme=(
             "# CertVIC pre-smoke permissions\n\nThese permissions authorize only the two-item real-model "
             "smoke. They never authorize confirmatory, Main, COCO, or paper evidence execution."
+        ),
+    )
+
+
+def package_verified_permissions(
+    *,
+    matrix_authorization: str | Path,
+    provider_permissions: Mapping[str, str | Path],
+    active_inputs: Mapping[str, str | Path],
+    provider_active_inputs: Mapping[str, Mapping[str, str | Path]],
+    output: str | Path = "kaggle_uploads/04_permissions/certvic_pre_smoke_permissions.zip",
+) -> dict[str, Any]:
+    """Package current signed permissions and their otherwise-unattached input artifacts."""
+    matrix_path = Path(matrix_authorization).resolve()
+    matrix = verify_matrix_authorization(matrix_path)
+    if set(provider_permissions) != set(PROVIDERS):
+        raise PreSmokePackagerError("verified permission package must cover exactly three providers")
+    files: dict[str, Path] = {"authorization/matrix_authorization.json": matrix_path}
+    unique_inputs: dict[str, Path] = {}
+    for provider in PROVIDERS:
+        permission_path = Path(provider_permissions[provider]).resolve()
+        permission = verify_provider_permission(
+            permission_path, matrix=matrix, expected_provider=provider
+        )
+        if permission.get("runtime_class") != "REAL_MODEL_SMOKE":
+            raise PreSmokePackagerError(f"{provider}: permission is not REAL_MODEL_SMOKE")
+        files[f"authorization/{provider}_permission.json"] = permission_path
+        supplied = {
+            **{role: Path(path).resolve() for role, path in active_inputs.items()},
+            **{
+                role: Path(path).resolve()
+                for role, path in provider_active_inputs.get(provider, {}).items()
+            },
+        }
+        if set(supplied) != set(permission["active_input_hashes"]):
+            raise PreSmokePackagerError(f"{provider}: active input role matrix is incomplete")
+        for role, expected_hash in permission["active_input_hashes"].items():
+            path = supplied[role]
+            if not path.is_file() or path.is_symlink() or _sha(path) != expected_hash:
+                raise PreSmokePackagerError(f"{provider}: active input hash mismatch for {role}")
+            unique_inputs.setdefault(expected_hash, path)
+    for digest, path in sorted(unique_inputs.items()):
+        files[f"active_inputs/{digest}/{path.name}"] = path
+    return build_bundle(
+        output,
+        files,
+        bundle_type="PRE_SMOKE_PERMISSIONS",
+        study=str(matrix["study"]),
+        stage="authorization",
+        provider=None,
+        required_notebook="ALL_3_PROVIDER_SPECIFIC_00C2_NOTEBOOKS",
+        dataset_slug="certvic/certvic-pre-smoke-permissions",
+        mount_path="/kaggle/input/certvic-pre-smoke-permissions",
+        external_dependency_status="UPSTREAM_NON_EVIDENCE_ARTIFACTS_VERIFIED",
+        evidence_class="REAL_MODEL_SMOKE_AUTHORIZATION_ONLY",
+        builder_command="python3 -m certvic.cvpr.pre_smoke_packager --config <INPUTS_JSON>",
+        readme=(
+            "# CertVIC pre-smoke permissions\n\nCurrent signed REAL_MODEL_SMOKE parent and "
+            "provider permissions plus deduplicated byte-bound input artifacts."
         ),
     )
 
@@ -127,13 +190,22 @@ def main(argv: list[str] | None = None) -> int:
         }
     else:
         config = json.loads(Path(args.config).read_text())
-        result = build_pre_smoke_permissions(
-            config["inputs"],
-            prompt_hash=config["prompt_hash"],
-            parser_version=config["parser_version"],
-            run_contract_hashes=config["run_contract_hashes"],
-            output=args.output,
-        )
+        if "matrix_authorization" in config:
+            result = package_verified_permissions(
+                matrix_authorization=config["matrix_authorization"],
+                provider_permissions=config["provider_permissions"],
+                active_inputs=config.get("active_inputs", {}),
+                provider_active_inputs=config.get("provider_active_inputs", {}),
+                output=args.output,
+            )
+        else:
+            result = build_pre_smoke_permissions(
+                config["inputs"],
+                prompt_hash=config["prompt_hash"],
+                parser_version=config["parser_version"],
+                run_contract_hashes=config["run_contract_hashes"],
+                output=args.output,
+            )
     print(json.dumps(result, indent=2, sort_keys=True))
     return 0
 

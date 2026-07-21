@@ -70,15 +70,16 @@ def test_notebooks_use_active_bindings_provider_permissions_and_one_smoke_shard(
         assert text.index("derive_permission_binding(globals())") < text.index(
             "pathlib.Path(OUTPUT_DIR).mkdir"
         )
-    notebook = json.loads(
-        (tmp_path / "00C2_certvic_real_model_two_item_smoke.ipynb").read_text()
-    )
-    smoke = "".join("".join(cell["source"]) for cell in notebook["cells"])
-    assert '"--num-shards", "1"' in smoke
-    assert 'expected_shards = 1 if STAGE in {"mock_smoke", "real_model_smoke"}' in smoke
-    for field in ("task_bundle_root", "task_bundle_manifest", "task_bundle_hash"):
-        assert field in smoke
-    assert "00C2_{PROVIDER}_real_model_smoke.zip" in smoke
+    for provider in ("qwen2_5_vl_7b", "internvl_8b", "llava_onevision_7b"):
+        notebook = json.loads(
+            (tmp_path / f"00C2_{provider}_real_model_two_item_smoke.ipynb").read_text()
+        )
+        smoke = "".join("".join(cell["source"]) for cell in notebook["cells"])
+        assert '"--num-shards", "1"' in smoke
+        for field in ("task_bundle_root", "task_bundle_manifest", "task_bundle_hash"):
+            assert field in smoke
+        assert f"00C2_{provider}_real_model_smoke.zip" in smoke
+        assert "REQUIRED_USER_FILL" not in smoke
 
 
 def test_active_permission_binding_detects_worker_drift(tmp_path: Path) -> None:

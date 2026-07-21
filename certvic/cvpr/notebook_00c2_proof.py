@@ -14,11 +14,11 @@ from certvic.cvpr.synthetic_smoke import PROVIDERS, run as run_synthetic_smoke
 
 ROUTE_MARKERS = (
     "verify_matrix_authorization(MATRIX_AUTHORIZATION)",
-    "active_run_contract = build_run_contract(",
     "permission = verify_provider_permission(",
+    "active_run_contract = build_run_contract(",
     '"-m", "certvic.cvpr.worker"',
     '"-m", "certvic.cvpr.package_run"',
-    "00C2_{PROVIDER}_real_model_smoke.zip",
+    "KAGGLE_ZERO_EDIT_CANONICAL_RETURN_MISSING",
 )
 
 
@@ -35,7 +35,7 @@ def execute_generated_route(root: str | Path) -> dict[str, Any]:
     out.mkdir(parents=True, exist_ok=True)
     notebook_root = out / "generated_notebooks"
     build_suite(notebook_root)
-    notebook_path = notebook_root / "00C2_certvic_real_model_two_item_smoke.ipynb"
+    notebook_path = notebook_root / "00C2_qwen2_5_vl_7b_real_model_two_item_smoke.ipynb"
     notebook_bytes = notebook_path.read_bytes()
     notebook = json.loads(notebook_bytes)
     source = "\n".join(

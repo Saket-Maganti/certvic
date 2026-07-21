@@ -80,6 +80,8 @@ def _json(path: Path) -> dict[str, Any] | None:
 
 
 def _notebook_check(root: Path) -> dict[str, Any]:
+    from certvic.cvpr.notebook_builder import NOTEBOOKS
+
     folder = root / "notebooks/kaggle/cvpr"
     notebooks = sorted(folder.glob("*.ipynb"))
     invalid: list[str] = []
@@ -99,10 +101,10 @@ def _notebook_check(root: Path) -> dict[str, Any]:
             invalid.append(notebook.relative_to(root).as_posix())
     return {
         "count": len(notebooks),
-        "expected_count": 16,
+        "expected_count": len(NOTEBOOKS),
         "invalid": invalid,
         "code_cells_with_outputs": output_cells,
-        "passed": len(notebooks) == 16 and not invalid and output_cells == 0,
+        "passed": len(notebooks) == len(NOTEBOOKS) and not invalid and output_cells == 0,
     }
 
 
@@ -144,7 +146,7 @@ def diagnose(root: str | Path | None = None, *, study: str = "specificity_confir
             "DOCTOR_NOTEBOOK_SUITE_INVALID",
             "notebooks/kaggle/cvpr",
             "python3 -m certvic.cvpr.notebook_validation --root notebooks/kaggle/cvpr",
-            "Regenerate the 16-notebook suite and clear every stored output.",
+            f"Regenerate the {notebook['expected_count']}-notebook suite and clear every stored output.",
             scope="local",
         ))
 

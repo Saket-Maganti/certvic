@@ -12,7 +12,9 @@ from certvic.cvpr.confirmatory_input_builder import build_confirmatory_input
 from certvic.cvpr.kaggle_bundle import KaggleBundleError, build_bundle, diff_bundles, verify_bundle
 from certvic.cvpr.notebook_bootstrap import (
     NotebookBootstrapError,
+    discover_unique_file,
     locate_dataset,
+    materialize_dataset,
     offline_install_command,
     validate_run_identity,
 )
@@ -121,6 +123,34 @@ def test_bootstrap_discovery_identity_and_offline_command(tmp_path: Path) -> Non
     assert len(identity["identity_sha256"]) == 64
     with pytest.raises(NotebookBootstrapError, match="IDENTITY_INCOMPLETE"):
         validate_run_identity({})
+
+
+def test_zero_edit_materialization_preserves_exact_mount_and_verified_extraction(
+    tmp_path: Path,
+) -> None:
+    mount = tmp_path / "input" / "test"
+    mount.mkdir(parents=True)
+    archive = mount / "input.zip"
+    _bundle(archive, {"nested/marker.json": b'{"verified": true}\n'})
+    result = materialize_dataset(
+        slug="certvic/test",
+        filename="input.zip",
+        destination=tmp_path / "working" / "test",
+        expected_type="TEST",
+        input_root=tmp_path / "input",
+    )
+    marker = discover_unique_file(result["root"], "marker.json")
+    assert json.loads(marker.read_text()) == {"verified": True}
+    assert result["archive_sha256"] == verify_bundle(archive)["sha256"]
+    wrong_mount = tmp_path / "input" / "wrong-slug"
+    wrong_mount.mkdir()
+    (wrong_mount / "wrong.zip").write_bytes(archive.read_bytes())
+    with pytest.raises(NotebookBootstrapError, match="DATASET_NOT_FOUND"):
+        locate_dataset(
+            slug="certvic/not-attached",
+            expected_filename="wrong.zip",
+            input_root=tmp_path / "input",
+        )
 
 
 def test_locks_are_exact_and_macos_wheel_is_rejected(tmp_path: Path) -> None:

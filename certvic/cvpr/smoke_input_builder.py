@@ -159,7 +159,7 @@ def build_smoke_bundle(
         study="pre_smoke",
         stage="real_model_smoke",
         provider=None,
-        required_notebook="00C2_certvic_real_model_two_item_smoke.ipynb",
+        required_notebook="ALL_3_PROVIDER_SPECIFIC_00C2_NOTEBOOKS",
         dataset_slug="certvic/certvic-real-two-item-smoke",
         mount_path="/kaggle/input/certvic-real-two-item-smoke",
         external_dependency_status="EXTERNAL_BYTES_VERIFIED" if not synthetic_fixture else "SYNTHETIC_PROOF_ONLY",
@@ -208,4 +208,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

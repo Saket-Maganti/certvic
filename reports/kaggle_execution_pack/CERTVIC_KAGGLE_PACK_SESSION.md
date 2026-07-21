@@ -6,11 +6,11 @@ Phase A built the complete local packaging layer without launching any real Kagg
 
 | Path | Bytes | SHA-256 | Status |
 | --- | ---: | --- | --- |
-| `kaggle_uploads/00_code/certvic_code_bundle.zip` | 1157930 | `bc038cc970c3a32e31f9452fc5af656399723177e2158485b67cf9f958c07853` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_notebooks_bundle.zip` | 125212 | `a7e38a50c1959e193dde7acfc0a952715b6be8e891341f0233f3ff2e239e8fbf` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_code_bundle.zip` | 1167565 | `e670d70146f79471d0163fbf6024b49aa1a068befb769b2d6ac345e730ffb46e` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_notebooks_bundle.zip` | 146054 | `db5fbd9cd7e342761036fb422bb41ddaad888310a37182434e42db3cf9fe319b` | CREATED_AND_VALIDATED |
 | `kaggle_uploads/00_code/certvic_configs_bundle.zip` | 45697 | `0a10cf9b570dd7769d2c24c84d406be1d7c64cc0fabd774c4354572a7bda1db8` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_execution_tools_bundle.zip` | 118204 | `f08f2c8bad76c0f2e43dee539710b34dcc023efb96bfa79159af0c8376321d1f` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip` | 37309 | `d99b00066596d3ea2c5deda798cf93353b667173d260c4a0655123b7a60c3479` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_execution_tools_bundle.zip` | 121856 | `d06e1d6a25ae6689dfc5a5d3b8e37170f46c567ea25ffb2b669acc0ca8f3c1b8` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip` | 37638 | `bb80db8bcb15e3f2d00a8f7f8665bc8606479b141976d66904126cfec04b6b81` | CREATED_AND_VALIDATED |
 
 ## External-byte builders
 

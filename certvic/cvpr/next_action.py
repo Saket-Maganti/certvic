@@ -29,12 +29,14 @@ ACTIONS: dict[str, dict[str, Any]] = {
     },
     "READY_FOR_00B": {
         "kind": "external",
-        "command": ["Kaggle", "00B_certvic_model_snapshot_smoke.ipynb", "per provider"],
+        "command": ["Kaggle", "00B_<provider>_snapshot_smoke.ipynb", "per provider"],
         "description": "Verify each immutable model/processor snapshot with 00B.",
     },
     "READY_FOR_00C2": {
         "kind": "external",
-        "command": ["Kaggle", "00C2_certvic_real_model_two_item_smoke.ipynb", "three sessions"],
+        "command": [
+            "Kaggle", "00C2_<provider>_real_model_two_item_smoke.ipynb", "three sessions"
+        ],
         "description": "Run each provider's authorized two-item real-model smoke separately.",
     },
     "READY_FOR_CONFIRMATORY_BUILD": {

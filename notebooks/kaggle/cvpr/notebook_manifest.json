@@ -1,10 +1,14 @@
 {
   "mode": "RUNTIME_HARDENED_NOT_EXECUTED_LOCALLY",
   "notebooks": {
-    "00A_certvic_code_and_environment_smoke.ipynb": "d818cafd6d11fd2089e79b39fd952a15e1c6a8b1b4828532e941d842b52590c6",
-    "00B_certvic_model_snapshot_smoke.ipynb": "9eb28c4673316424f19b234290bacfc024a302ab493dab0df2cde062bb1d1a6d",
+    "00A_certvic_code_and_environment_smoke.ipynb": "db283dcc104480e8308aa892be8297967f40d1243297275edc8c6203162b3747",
+    "00B_internvl_8b_snapshot_smoke.ipynb": "175351733a4fa681cc26d9f77418015e11744323ffa3895bf0cb7fd9dfe2820e",
+    "00B_llava_onevision_7b_snapshot_smoke.ipynb": "a09943ff18f79fd651a878fd8856b82061f433ab8c1a6807c5fb90bf4085e13c",
+    "00B_qwen2_5_vl_7b_snapshot_smoke.ipynb": "7db2af74e44dbbfa02eb4fcddb0ddd41968ef728a73a8796dbd94a804590bdba",
     "00C1_certvic_mock_adapter_smoke.ipynb": "24f93e35198441394aebe4d20ba86a458f58db13f8ce3b620a12501bdf2bab3f",
-    "00C2_certvic_real_model_two_item_smoke.ipynb": "c0f512f7cafa3145dc62ea7cc18243842406808a94d0b1de6003d9ce3f69a46a",
+    "00C2_internvl_8b_real_model_two_item_smoke.ipynb": "074d844aa585933480773aebb5acabb58f428852e7f3bfcac22f7ede108d008b",
+    "00C2_llava_onevision_7b_real_model_two_item_smoke.ipynb": "c60862790cfa4ca6ea8b57190ff317c197e3d3c7705ca502b92ca187e0455dbf",
+    "00C2_qwen2_5_vl_7b_real_model_two_item_smoke.ipynb": "951f63dbd728872d7405935cd4bf49494274b5eff88acb0e0df58e7146d35e1e",
     "01_specificity_confirmatory_generation_T4x2.ipynb": "13fec31402ced3c35763e4b7e82983e96711b32ffe44ce5c85f4f6e7b6c490a4",
     "02_qwen_specificity_confirmatory_T4x2.ipynb": "58c0af70e598061b789dc19f4b1020ef67bf1d8f1e09a4732eaf68b7bc4acb1a",
     "03_internvl_specificity_confirmatory_T4x2.ipynb": "5bf0038dba7f96fdad8ae86f15ccc9079920f51e0c62ce7c5f7da6b14d121ca5",

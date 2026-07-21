@@ -318,8 +318,6 @@ def _kaggle_proof_routes() -> list[dict[str, str]]:
     routes: list[dict[str, str]] = []
     for notebook_name, (stage, configured_provider) in NOTEBOOKS.items():
         providers = [configured_provider]
-        if stage in {"snapshot_smoke", "real_model_smoke"}:
-            providers = ["qwen2_5_vl_7b", "internvl_8b", "llava_onevision_7b"]
         for provider in providers:
             return_zip = expected_return_zip(notebook_name, stage, provider).format(
                 PROVIDER=provider
@@ -347,7 +345,7 @@ def execute_kaggle_runbook_suite(
     notebook_root: str | Path | None = None,
     timeout: int = 180,
 ) -> dict[str, Any]:
-    """Execute 21 CPU proof routes covering all 16 runbooks and provider variants."""
+    """Execute 21 CPU proof routes covering all 20 canonical runbooks and handoff."""
     try:
         import nbformat
     except ImportError as error:  # pragma: no cover
@@ -365,8 +363,15 @@ import hashlib
 import json
 import zipfile
 from certvic.cvpr.t4x2 import assign_shards, derive_seed_manifest, detect_topology
+from certvic.cvpr.notebook_bootstrap import materialize_dataset
 
 cfg = CERTVIC_CONFIG
+mounted = materialize_dataset(
+    slug="certvic/zero-edit-proof", filename="zero_edit_fixture.zip",
+    expected_type="SYNTHETIC_ZERO_EDIT_MOUNT",
+    input_root=cfg["fixture_input_root"], destination=cfg["fixture_working_root"],
+)
+assert mounted["bundle_manifest"]["expected_kaggle_dataset_slug"] == "certvic/zero-edit-proof"
 dual = detect_topology(device_names=["NVIDIA T4", "NVIDIA T4"]).as_dict()
 single = detect_topology(device_names=["NVIDIA T4"]).as_dict()
 tasks = [f"synthetic-{index}" for index in range(4)]
@@ -426,6 +431,25 @@ print({"status": "SYNTHETIC_RUNBOOK_PROOF_PASSED", "return_zip": cfg["return_zip
                     )
             workdir = proof_root / route["route"]
             workdir.mkdir()
+            fixture_input = workdir / "kaggle/input/zero-edit-proof"
+            fixture_input.mkdir(parents=True)
+            from certvic.cvpr.kaggle_bundle import build_bundle
+
+            build_bundle(
+                fixture_input / "zero_edit_fixture.zip",
+                {"fixture/mount.json": b'{"synthetic_fixture": true}\n'},
+                bundle_type="SYNTHETIC_ZERO_EDIT_MOUNT",
+                study="synthetic",
+                stage="notebook_proof",
+                provider=None,
+                required_notebook=route["notebook"],
+                dataset_slug="certvic/zero-edit-proof",
+                mount_path="/kaggle/input/zero-edit-proof",
+                external_dependency_status="SYNTHETIC_FIXTURE",
+                evidence_class="SYNTHETIC_FIXTURE",
+                builder_command="certvic.cvpr.notebook_runner",
+                readme="Synthetic mount-flow proof only.",
+            )
             proof_notebook = nbformat.v4.new_notebook(cells=[
                 nbformat.v4.new_markdown_cell(
                     f"# Synthetic proof for {route['notebook']}\n\n"
@@ -441,6 +465,8 @@ print({"status": "SYNTHETIC_RUNBOOK_PROOF_PASSED", "return_zip": cfg["return_zip
                 config={
                     **route,
                     "notebook_sha256": canonical_hash,
+                    "fixture_input_root": str(workdir / "kaggle/input"),
+                    "fixture_working_root": str(workdir / "kaggle/working/materialized"),
                     "synthetic_fixture": True,
                     "artifact_globs": [route["return_zip"], "seed_manifest.json"],
                 },

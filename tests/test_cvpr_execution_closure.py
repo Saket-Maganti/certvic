@@ -251,9 +251,13 @@ def test_semantic_review_qualification_and_sheet_schema(tmp_path: Path) -> None:
 def test_notebook_suite_has_global_bound_concurrency_and_separate_smokes(tmp_path: Path) -> None:
     expected = {
         "00A_certvic_code_and_environment_smoke.ipynb",
-        "00B_certvic_model_snapshot_smoke.ipynb",
+        "00B_qwen2_5_vl_7b_snapshot_smoke.ipynb",
+        "00B_internvl_8b_snapshot_smoke.ipynb",
+        "00B_llava_onevision_7b_snapshot_smoke.ipynb",
         "00C1_certvic_mock_adapter_smoke.ipynb",
-        "00C2_certvic_real_model_two_item_smoke.ipynb",
+        "00C2_qwen2_5_vl_7b_real_model_two_item_smoke.ipynb",
+        "00C2_internvl_8b_real_model_two_item_smoke.ipynb",
+        "00C2_llava_onevision_7b_real_model_two_item_smoke.ipynb",
         "01_specificity_confirmatory_generation_T4x2.ipynb",
         "02_qwen_specificity_confirmatory_T4x2.ipynb", "03_internvl_specificity_confirmatory_T4x2.ipynb",
         "04_llava_specificity_confirmatory_T4x2.ipynb", "10_main_study_generation_T4x2.ipynb",
@@ -268,7 +272,10 @@ def test_notebook_suite_has_global_bound_concurrency_and_separate_smokes(tmp_pat
     assert "bounded_rows = rows if MAX_ITEMS is None else rows[:MAX_ITEMS]" in text
     assert "subprocess.Popen(command" in text
     assert "SYNTHETIC_MOCK_RUNTIME" in text and "NON_EVIDENCE_REAL_MODEL_SMOKE" in text
-    assert "USE_REAL_MODEL is not True" in text
+    assert "USE_REAL_MODEL = True" in text
+    for name in expected:
+        if name.startswith(("00A_", "00B_", "00C2_")):
+            assert "REQUIRED_USER_FILL" not in (tmp_path / name).read_text()
 
 
 def test_environment_lock_and_internvl_t4_policy_are_explicit() -> None:

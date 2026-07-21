@@ -33,10 +33,10 @@ python3 -m certvic.cvpr.run_graph status
 | 4 | Provision snapshots | model registry | external checklist | networked provisioner / 2–6 h | three unified all-file manifests | resume per provider and rehash; then smoke bundle |
 | 5 | Create portable smoke bundle | code, wheelhouse, configs | package-run tooling | local CPU / 5–15 min | deterministic private bundle | atomic rebuild; then 00A |
 | 6 | Run 00A | bundle, wheelhouse, env lock | `00A_certvic_code_and_environment_smoke.ipynb` | Kaggle CPU, accelerator off / 10–20 min | exact environment artifacts, offline pass; no model load | new session, same bytes; then 00B |
-| 7 | Run 00B per provider | accepted 00A, one snapshot | `00B_certvic_model_snapshot_smoke.ipynb` | Kaggle CPU, accelerator off / 15–30 min each | exact snapshot, configuration, processor, and tokenizer integrity; no model load | isolate failed provider; then pre-smoke authorization |
+| 7 | Run 00B per provider | accepted 00A, one snapshot | provider-specific `00B_<provider>_snapshot_smoke.ipynb` | Kaggle CPU, accelerator off / 15–30 min each | exact snapshot, configuration, processor, and tokenizer integrity; no model load | isolate failed provider; then pre-smoke authorization |
 | 8 | Issue pre-smoke matrix | 00A + three 00B artifacts | `reconcile_provider_permissions issue-matrix ...` using smoke-only inputs | local CPU / <5 min | parent binds only 00C2 bytes | regenerate only on input-byte change; then children |
 | 9 | Derive three pre-smoke permissions | parent, provider config, smoke gate | `reconcile_provider_permissions derive-provider ...` | local CPU / <5 min | three expiring one-run nonces | never reset nonce; then 00C2 |
-| 10 | Run 00C2 separately | parent/child, fixtures, snapshot | `00C2_certvic_real_model_two_item_smoke.ipynb` | Kaggle T4x2 / 20–60 min each | first genuine model load and inference; one ten-member canonical ZIP per provider | audited failure + new permission; then handoff |
+| 10 | Run 00C2 separately | parent/child, fixtures, snapshot | provider-specific `00C2_<provider>_real_model_two_item_smoke.ipynb` | Kaggle T4x2 / 20–60 min each | first genuine model load and inference; one ten-member canonical ZIP per provider | audited failure + new permission; then handoff |
 | 11 | Run smoke handoff | exact 00A/00B/00C2 returns | `python3 -m certvic.cvpr.smoke_handoff ...` | local CPU / <5 min | all-three real-model importer-grade pass | preserve bytes, follow stable error; then candidates |
 | 12 | Build confirmatory candidates | licensed ADE20K, exclusion inventory | `01_specificity_confirmatory_generation_T4x2.ipynb` | Kaggle T4x2 / 2–8 h | outcome-unseen candidates, zero overlap | frozen queue resume; then controls/QA |
 | 13 | Generate controls and QA | candidates, frozen study policy | confirmatory QA/generation tools | local CPU or Kaggle / 30–90 min | protected geometry, quality, license, reserve checks | retry exact candidate only; then review |
@@ -92,6 +92,7 @@ ZIP or destination under the same nonce is replay and fails closed.
 
 ## Exact continuation
 
-Follow `execution_pack/00_READ_ME_FIRST.md`, provision the offline wheelhouse and three snapshots,
-then run 00A, 00B for each provider, pre-smoke authorization, and 00C2 for each provider. Do not run
-another repair prompt and do not begin confirmatory scientific inference before all intervening gates.
+Follow `reports/non_human_closure/CERTVIC_KAGGLE_ZERO_EDIT_SMOKE_HANDOFF.md`, provision the offline
+wheelhouse and three snapshots, then run 00A, the three provider-specific 00B notebooks, pre-smoke
+authorization, and the three provider-specific 00C2 notebooks. These seven notebooks require no
+manual cell edits. Do not begin confirmatory scientific inference before all intervening gates.

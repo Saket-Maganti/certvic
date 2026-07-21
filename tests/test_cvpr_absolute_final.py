@@ -333,11 +333,14 @@ def test_all_route_synthetic_proof_permission_and_notebooks(tmp_path: Path) -> N
     verify_permission(main_permission, study="main_study_cvpr", allow_synthetic=True)
     notebook_root = tmp_path / "notebooks"
     build_suite(notebook_root)
-    assert len(NOTEBOOKS) == 16
+    assert len(NOTEBOOKS) == 20
     for name in NOTEBOOKS:
         notebook = json.loads((notebook_root / name).read_text())
         assert all(cell.get("outputs", []) == [] for cell in notebook["cells"])
         text = "".join("".join(cell["source"]) for cell in notebook["cells"])
-        assert "EXECUTION_PERMISSION" in text
+        if NOTEBOOKS[name][0] in {"code_smoke", "snapshot_smoke", "real_model_smoke"}:
+            assert "REQUIRED_USER_FILL" not in text and "materialize_dataset" in text
+        else:
+            assert "EXECUTION_PERMISSION" in text
         if "generation" in name:
             assert "--assemble-shards" in text and "certvic.cvpr.package_generation" in text

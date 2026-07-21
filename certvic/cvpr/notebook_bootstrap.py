@@ -7,10 +7,12 @@ import importlib
 import importlib.metadata
 import json
 import os
+import shutil
+import stat
 import subprocess
 import sys
 import zipfile
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any, Iterable, Mapping
 
 from certvic.cvpr.kaggle_bundle import verify_bundle
@@ -26,6 +28,8 @@ ERRORS = {
     "IMPORT": "KAGGLE_BOOTSTRAP_06_IMPORT_SMOKE_FAILED",
     "GPU": "KAGGLE_BOOTSTRAP_07_GPU_CONTRACT_FAILED",
     "IDENTITY": "KAGGLE_BOOTSTRAP_08_RUN_IDENTITY_INCOMPLETE",
+    "EXTRACT": "KAGGLE_BOOTSTRAP_09_UNSAFE_EXTRACTION",
+    "DISCOVERY": "KAGGLE_BOOTSTRAP_10_AMBIGUOUS_CONTENT",
 }
 
 OFFLINE_ENVIRONMENT = {
@@ -69,8 +73,6 @@ def locate_dataset(
     ] if root.is_dir() else []
     if expected_filename:
         exact = [path for base in candidate_roots for path in base.rglob(expected_filename)]
-        if not exact and root.is_dir():
-            exact = list(root.glob(f"*/{expected_filename}"))
         candidates = exact
     else:
         candidates = candidate_roots
@@ -86,7 +88,12 @@ def locate_dataset(
     return candidates[0]
 
 
-def verify_attached_bundle(path: str | Path, *, expected_type: str | None = None) -> dict[str, Any]:
+def verify_attached_bundle(
+    path: str | Path,
+    *,
+    expected_type: str | None = None,
+    expected_slug: str | None = None,
+) -> dict[str, Any]:
     result = verify_bundle(path)
     if not result["passed"]:
         raise NotebookBootstrapError(f"{ERRORS['BUNDLE']}: {result['errors']}")
@@ -95,16 +102,188 @@ def verify_attached_bundle(path: str | Path, *, expected_type: str | None = None
         raise NotebookBootstrapError(
             f"{ERRORS['BUNDLE']}: expected type {expected_type}, observed {observed_type}"
         )
+    observed_slug = result["bundle_manifest"].get("expected_kaggle_dataset_slug")
+    if expected_slug is not None and observed_slug != expected_slug:
+        raise NotebookBootstrapError(
+            f"{ERRORS['BUNDLE']}: expected slug {expected_slug}, observed {observed_slug}"
+        )
     return result
 
 
-def extract_verified_bundle(path: str | Path, destination: str | Path) -> Path:
-    verify_attached_bundle(path)
-    target = Path(destination)
-    target.mkdir(parents=True, exist_ok=True)
-    with zipfile.ZipFile(path) as archive:
-        archive.extractall(target)
+def _safe_member(info: zipfile.ZipInfo) -> str:
+    name = info.filename
+    normalized = name.replace("\\", "/")
+    member = PurePosixPath(normalized)
+    mode = (info.external_attr >> 16) & 0xFFFF
+    if (
+        not normalized
+        or normalized != name
+        or normalized.endswith("/")
+        or member.is_absolute()
+        or ".." in member.parts
+        or "." in member.parts
+        or normalized.startswith("~")
+        or "\x00" in normalized
+        or info.is_dir()
+        or stat.S_ISLNK(mode)
+        or (mode and not stat.S_ISREG(mode))
+    ):
+        raise NotebookBootstrapError(f"{ERRORS['EXTRACT']}: unsafe member {name!r}")
+    return member.as_posix()
+
+
+def _verify_extracted_files(target: Path, verification: Mapping[str, Any]) -> dict[str, str]:
+    def digest(path: Path) -> str:
+        value = hashlib.sha256()
+        with path.open("rb") as handle:
+            for block in iter(lambda: handle.read(1024 * 1024), b""):
+                value.update(block)
+        return value.hexdigest()
+
+    with zipfile.ZipFile(verification["path"]) as archive:
+        hash_manifest = json.loads(archive.read("hash_manifest.json"))
+    expected = dict(hash_manifest.get("files", {}))
+    expected["hash_manifest.json"] = {
+        "sha256": digest(target / "hash_manifest.json"),
+        "size": (target / "hash_manifest.json").stat().st_size,
+    }
+    observed_paths = {
+        path.relative_to(target).as_posix(): path
+        for path in target.rglob("*")
+        if path.is_file() and not path.is_symlink()
+    }
+    if set(observed_paths) != set(expected):
+        raise NotebookBootstrapError(
+            f"{ERRORS['EXTRACT']}: extracted file universe mismatch"
+        )
+    hashes: dict[str, str] = {}
+    for name, record in sorted(expected.items()):
+        path = observed_paths[name]
+        observed_digest = digest(path)
+        hashes[name] = observed_digest
+        if path.stat().st_size != int(record["size"]) or observed_digest != record["sha256"]:
+            raise NotebookBootstrapError(
+                f"{ERRORS['EXTRACT']}: extracted byte mismatch {name}"
+            )
+    return hashes
+
+
+def extract_verified_bundle(
+    path: str | Path,
+    destination: str | Path,
+    *,
+    expected_type: str | None = None,
+    expected_slug: str | None = None,
+) -> Path:
+    """Verify and safely extract a canonical bundle to one deterministic directory."""
+    verification = verify_attached_bundle(
+        path, expected_type=expected_type, expected_slug=expected_slug
+    )
+    target = Path(destination).resolve()
+    if target.exists():
+        if target.is_symlink() or not target.is_dir():
+            raise NotebookBootstrapError(
+                f"{ERRORS['EXTRACT']}: destination is not a regular directory: {target}"
+            )
+        shutil.rmtree(target)
+    target.mkdir(parents=True)
+    try:
+        with zipfile.ZipFile(path) as archive:
+            infos = archive.infolist()
+            names = [_safe_member(info) for info in infos]
+            if len(names) != len(set(names)):
+                raise NotebookBootstrapError(
+                    f"{ERRORS['EXTRACT']}: duplicate archive members"
+                )
+            if archive.testzip() is not None:
+                raise NotebookBootstrapError(f"{ERRORS['EXTRACT']}: corrupt archive member")
+            for info, name in zip(infos, names, strict=True):
+                output = (target / name).resolve()
+                try:
+                    output.relative_to(target)
+                except ValueError as error:
+                    raise NotebookBootstrapError(
+                        f"{ERRORS['EXTRACT']}: traversal member {name!r}"
+                    ) from error
+                output.parent.mkdir(parents=True, exist_ok=True)
+                with archive.open(info) as source, output.open("xb") as sink:
+                    shutil.copyfileobj(source, sink, length=1024 * 1024)
+        _verify_extracted_files(target, verification)
+    except Exception:
+        shutil.rmtree(target, ignore_errors=True)
+        raise
     return target
+
+
+def discover_unique_file(root: str | Path, filename: str) -> Path:
+    """Return exactly one regular, non-symlink file with the requested basename."""
+    base = Path(root).resolve()
+    matches = sorted(
+        path.resolve() for path in base.rglob(filename)
+        if path.is_file() and not path.is_symlink()
+    ) if base.is_dir() else []
+    if len(matches) != 1:
+        raise NotebookBootstrapError(
+            f"{ERRORS['DISCOVERY']}: filename={filename} matches={[str(path) for path in matches]}"
+        )
+    return matches[0]
+
+
+def discover_unique_root(
+    root: str | Path,
+    marker: str,
+    *,
+    required_relative: Iterable[str] = (),
+) -> Path:
+    """Discover one root from a marker and required files below the marker's parent."""
+    base = Path(root).resolve()
+    candidates = []
+    for path in base.rglob(marker) if base.is_dir() else []:
+        candidate = path.parent.resolve()
+        if path.is_file() and not path.is_symlink() and all(
+            (candidate / relative).is_file() for relative in required_relative
+        ):
+            candidates.append(candidate)
+    candidates = sorted(set(candidates))
+    if len(candidates) != 1:
+        raise NotebookBootstrapError(
+            f"{ERRORS['DISCOVERY']}: marker={marker} roots={[str(path) for path in candidates]}"
+        )
+    return candidates[0]
+
+
+def materialize_dataset(
+    *,
+    slug: str,
+    filename: str,
+    destination: str | Path,
+    expected_type: str,
+    input_root: str | Path = "/kaggle/input",
+) -> dict[str, Any]:
+    """Locate, authenticate, safely extract, and describe one attached dataset archive."""
+    archive = locate_dataset(
+        slug=slug, expected_filename=filename, input_root=input_root
+    )
+    verification = verify_attached_bundle(
+        archive, expected_type=expected_type, expected_slug=slug
+    )
+    extracted = extract_verified_bundle(
+        archive,
+        destination,
+        expected_type=expected_type,
+        expected_slug=slug,
+    )
+    return {
+        "schema": "certvic.kaggle.materialized_dataset.v1",
+        "slug": slug,
+        "filename": filename,
+        "archive": str(archive.resolve()),
+        "archive_sha256": verification["sha256"],
+        "archive_size": verification["size"],
+        "bundle_manifest": verification["bundle_manifest"],
+        "root": str(extracted),
+        "paper_evidence": False,
+    }
 
 
 def offline_install_command(

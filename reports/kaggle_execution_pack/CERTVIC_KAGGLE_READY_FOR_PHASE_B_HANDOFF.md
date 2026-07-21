@@ -2,15 +2,15 @@
 
 ## Built
 
-Phase A created and verified all five repository-only upload ZIPs, regenerated all 16 canonical output-free runbooks, implemented the v1 secure bundle schema, offline wheelhouse/snapshot/smoke/permission/generation/scientific builders, T4x2 parallel and single-T4 fallback contracts, deterministic seed hierarchy, common notebook bootstrap, canonical return ZIP naming, upload map, runtime estimates, and failure playbooks.
+Phase A created and verified all five repository-only upload ZIPs, regenerated all 20 canonical output-free runbooks, implemented the v1 secure bundle schema, offline wheelhouse/snapshot/smoke/permission/generation/scientific builders, T4x2 parallel and single-T4 fallback contracts, deterministic seed hierarchy, common notebook bootstrap, canonical return ZIP naming, upload map, runtime estimates, and failure playbooks.
 
 | Path | Bytes | SHA-256 | Status |
 | --- | ---: | --- | --- |
-| `kaggle_uploads/00_code/certvic_code_bundle.zip` | 1157930 | `bc038cc970c3a32e31f9452fc5af656399723177e2158485b67cf9f958c07853` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_notebooks_bundle.zip` | 125212 | `a7e38a50c1959e193dde7acfc0a952715b6be8e891341f0233f3ff2e239e8fbf` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_code_bundle.zip` | 1167565 | `e670d70146f79471d0163fbf6024b49aa1a068befb769b2d6ac345e730ffb46e` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_notebooks_bundle.zip` | 146054 | `db5fbd9cd7e342761036fb422bb41ddaad888310a37182434e42db3cf9fe319b` | CREATED_AND_VALIDATED |
 | `kaggle_uploads/00_code/certvic_configs_bundle.zip` | 45697 | `0a10cf9b570dd7769d2c24c84d406be1d7c64cc0fabd774c4354572a7bda1db8` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_execution_tools_bundle.zip` | 118204 | `f08f2c8bad76c0f2e43dee539710b34dcc023efb96bfa79159af0c8376321d1f` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip` | 37309 | `d99b00066596d3ea2c5deda798cf93353b667173d260c4a0655123b7a60c3479` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_execution_tools_bundle.zip` | 121856 | `d06e1d6a25ae6689dfc5a5d3b8e37170f46c567ea25ffb2b669acc0ca8f3c1b8` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip` | 37638 | `bb80db8bcb15e3f2d00a8f7f8665bc8606479b141976d66904126cfec04b6b81` | CREATED_AND_VALIDATED |
 
 ## External bytes still absent
 
@@ -39,7 +39,7 @@ Only Linux CPython 3.10 wheels, three immutable model snapshots and commits, two
 
 ## Phase B CPU workflows
 
-Phase B must execute the full pytest suite, focused Kaggle builder/security/sharding/seed/bootstrap tests, Ruff, compileall, 16-runbook static validation, 21-route synthetic notebook execution proof, bundle verification and deterministic rebuild, doctor, next-action, run graph, artifact registry, claim/privacy guards, paper compile, and clean maximum-release rebuild. It must not launch a real model or scientific GPU run.
+Phase B must execute the full pytest suite, focused Kaggle builder/security/sharding/seed/bootstrap tests, Ruff, compileall, 20-runbook static validation, 21-route synthetic notebook execution proof, bundle verification and deterministic rebuild, doctor, next-action, run graph, artifact registry, claim/privacy guards, paper compile, and clean maximum-release rebuild. It must not launch a real model or scientific GPU run.
 
 Begin Phase B exactly with:
 

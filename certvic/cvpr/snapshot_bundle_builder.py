@@ -210,7 +210,7 @@ def build_snapshot_bundle(
         study="all",
         stage="model_snapshot",
         provider=provider,
-        required_notebook="00B_certvic_model_snapshot_smoke.ipynb",
+        required_notebook=f"00B_{provider}_snapshot_smoke.ipynb",
         dataset_slug=spec["dataset"],
         mount_path=f"/kaggle/input/{spec['dataset'].split('/', 1)[1]}",
         external_dependency_status=(

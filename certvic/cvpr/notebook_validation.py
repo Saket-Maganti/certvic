@@ -1,14 +1,15 @@
-"""Closure-specific static validation for the exact 16 CVPR notebooks."""
+"""Closure-specific static validation for the canonical CVPR notebooks."""
 
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import json
 from pathlib import Path
 from typing import Any
 
-from certvic.cvpr.notebook_builder import NOTEBOOKS
+from certvic.cvpr.notebook_builder import NOTEBOOKS, expected_return_zip
 
 
 def validate_suite(root: str | Path) -> dict[str, Any]:
@@ -36,12 +37,44 @@ def validate_suite(root: str | Path) -> dict[str, Any]:
         if any(cell.get("execution_count") is not None or cell.get("outputs")
                for cell in payload.get("cells", []) if cell.get("cell_type") == "code"):
             errors.append("notebook contains execution state")
-        for token in ("HF_HUB_OFFLINE", "ENVIRONMENT_LOCK_HASH", "ATTACHED_INPUT_HASHES",
-                      "hardware_report", "ALLOW_SINGLE_GPU_FALLBACK", "--resume",
-                      "runtime_manifest.json", "hash_manifest.json", "local_import_command"):
+        stage, provider = NOTEBOOKS[name]
+        zero_edit = stage in {"code_smoke", "snapshot_smoke", "real_model_smoke"}
+        required_tokens = (
+            "HF_HUB_OFFLINE", "ENVIRONMENT_LOCK_HASH", "ATTACHED_INPUT_HASHES",
+            "hardware_report", "ALLOW_SINGLE_GPU_FALLBACK",
+        )
+        if not zero_edit:
+            required_tokens += (
+                "--resume", "runtime_manifest.json", "hash_manifest.json",
+                "local_import_command",
+            )
+        for token in required_tokens:
             if token not in text:
                 errors.append(f"missing contract token: {token}")
-        stage, _provider = NOTEBOOKS[name]
+        if zero_edit:
+            if "REQUIRED_USER_FILL" in text:
+                errors.append("zero-edit notebook contains an unresolved runtime placeholder")
+            for index, cell in enumerate(payload.get("cells", [])):
+                if cell.get("cell_type") != "code":
+                    continue
+                try:
+                    ast.parse("".join(cell.get("source", [])), filename=f"{name}:cell-{index}")
+                except SyntaxError as error:
+                    errors.append(f"code cell is not Ruff-compatible Python: {error}")
+            for token in (
+                "materialize_dataset", "certvic/certvic-code", "certvic/certvic-configs",
+                "certvic/certvic-execution-tools", "certvic/certvic-offline-wheelhouse",
+                "certvic_offline_wheelhouse.zip", "wheelhouse_manifest.json",
+                "KAGGLE_BOOTSTRAP_09_UNSAFE_EXTRACTION", "LOCAL_DESTINATION=",
+                "python3 scripts/run_all_cpu_workflows.py --resume",
+            ):
+                if token not in text:
+                    errors.append(f"zero-edit discovery contract missing: {token}")
+            expected_gpus = 0 if stage in {"code_smoke", "snapshot_smoke"} else 2
+            if f"EXPECTED_GPUS = {expected_gpus}" not in text:
+                errors.append("zero-edit notebook has the wrong accelerator contract")
+            if f"CANONICAL_RETURN_ZIP = {expected_return_zip(name, stage, provider)!r}" not in text:
+                errors.append("zero-edit notebook has the wrong canonical return filename")
         if stage in {"generation", "evaluation"} and "subprocess.Popen" not in text:
             errors.append("GPU stage does not use concurrent process launch")
         if stage == "generation":
@@ -52,16 +85,39 @@ def validate_suite(root: str | Path) -> dict[str, Any]:
         if stage in {"evaluation", "snapshot_smoke", "real_model_smoke"}:
             if "verify_manifest" not in text or "SNAPSHOT_MANIFEST_HASH" not in text:
                 errors.append("model stage does not verify snapshot bytes")
+        if stage == "snapshot_smoke":
+            slug = {
+                "qwen2_5_vl_7b": "certvic/qwen2-5-vl-7b-snapshot",
+                "internvl_8b": "certvic/internvl2-8b-snapshot",
+                "llava_onevision_7b": "certvic/llava-onevision-7b-snapshot",
+            }[provider]
+            if slug not in text or "EXPECTED_GPUS = 0" not in text:
+                errors.append("00B is not provider-specific CPU-only discovery")
         if stage == "mock_smoke":
             if "SYNTHETIC_SMOKE" not in text or 'command.append("--mock-runtime")' not in text:
                 errors.append("00C1 is not unambiguously mock-only")
         if stage == "real_model_smoke":
             if (
                 "REAL_MODEL_SMOKE" not in text
-                or "USE_REAL_MODEL is not True" not in text
-                or "00C2_{PROVIDER}_real_model_smoke.zip" not in text
+                or "USE_REAL_MODEL = True" not in text
+                or expected_return_zip(name, stage, provider) not in text
             ):
                 errors.append("00C2 is not fail-closed real-model smoke")
+            for token in (
+                "certvic/certvic-real-two-item-smoke",
+                "certvic/certvic-pre-smoke-permissions",
+                "KAGGLE_ZERO_EDIT_00C2_PERMISSION",
+                "verify_matrix_authorization", "verify_provider_permission",
+            ):
+                if token not in text:
+                    errors.append(f"00C2 permission discovery missing: {token}")
+            permission_position = text.find("verify_provider_permission(")
+            hardware_position = text.find("hardware = hardware_report()")
+            worker_position = text.find('"-m", "certvic.cvpr.worker"')
+            if min(permission_position, hardware_position, worker_position) < 0 or not (
+                permission_position < hardware_position < worker_position
+            ):
+                errors.append("00C2 does not fail closed before hardware/model execution")
         expected_hash = manifest.get("notebooks", {}).get(name)
         if expected_hash != hashlib.sha256(path.read_bytes()).hexdigest():
             errors.append("notebook hash differs from suite manifest")

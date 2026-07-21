@@ -270,10 +270,13 @@ def test_joint_exact_selection_solves_source_collision_that_greedy_misses() -> N
 
 def test_notebooks_verify_and_claim_before_output_creation(tmp_path: Path) -> None:
     build_suite(tmp_path)
-    assert len(NOTEBOOKS) == 16
+    assert len(NOTEBOOKS) == 20
     for name, (stage, _) in NOTEBOOKS.items():
         text = (tmp_path / name).read_text()
-        assert "verify_bundle" in text and "TASK_BUNDLE_ROOT" in text
+        if stage in {"code_smoke", "snapshot_smoke", "real_model_smoke"}:
+            assert "materialize_dataset" in text and "REQUIRED_USER_FILL" not in text
+        else:
+            assert "verify_bundle" in text and "TASK_BUNDLE_ROOT" in text
         if stage == "evaluation":
             assert "PERMISSION_INPUT_PATHS" in text and "expected_provider=PROVIDER" in text
             assert "claim_permission" in text

@@ -373,10 +373,12 @@ def test_analysis_branches_and_artifacts_use_validated_pair_contract(tmp_path: P
 
 
 def test_notebooks_config_and_internvl_contract_are_runtime_hardened() -> None:
-    assert len(NOTEBOOKS) == 16
+    assert len(NOTEBOOKS) == 20
     for smoke in ("00A_certvic_code_and_environment_smoke.ipynb",
-                  "00B_certvic_model_snapshot_smoke.ipynb",
-                  "00C_certvic_adapter_two_item_smoke.ipynb"):
+                  "00B_qwen2_5_vl_7b_snapshot_smoke.ipynb",
+                  "00B_internvl_8b_snapshot_smoke.ipynb",
+                  "00B_llava_onevision_7b_snapshot_smoke.ipynb",
+                  "00C1_certvic_mock_adapter_smoke.ipynb"):
         assert smoke in NOTEBOOKS
     text = "\n".join(path.read_text() for path in (ROOT / "notebooks/kaggle/cvpr").glob("*.ipynb"))
     assert "diffusers_inpaint_optional" not in text
