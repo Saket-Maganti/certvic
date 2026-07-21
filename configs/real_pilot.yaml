@@ -1,0 +1,10 @@
+mode: real_pilot
+target_items: 200
+source_strategy: ADE20K-first
+open_models_enabled: false
+quality_gates_enabled: true
+external_downloads: false
+paid_services_enabled: false
+alpha: 0.05
+gap_threshold: 0.05
+notes: "User supplies local data paths; no automatic downloads."

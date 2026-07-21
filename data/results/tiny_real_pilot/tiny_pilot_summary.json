@@ -1,0 +1,44 @@
+{
+  "ade20k_root": "/Users/saketmaganti/Projects/ade20k_root/ADEChallengeData2016",
+  "config": "configs/real_pilot_ade20k.yaml",
+  "dry_run": false,
+  "evidence_status": "PIPELINE_NON_EVIDENCE",
+  "max_items": 20,
+  "next_commands": [],
+  "out_dir": "data/results/tiny_real_pilot",
+  "stages_attempted": [
+    "pilot_readiness",
+    "manifests",
+    "label_policy_report",
+    "selection",
+    "edit_planning",
+    "task_preview",
+    "pilot_plan_report",
+    "edit_generation",
+    "quality_report",
+    "materialization",
+    "visual_review_sheet"
+  ],
+  "stages_completed": [
+    "label_policy_report",
+    "manifests",
+    "pilot_readiness",
+    "selection",
+    "edit_planning",
+    "task_preview",
+    "pilot_plan_report",
+    "edit_generation",
+    "quality_report",
+    "materialization",
+    "visual_review_sheet"
+  ],
+  "stages_failed": [],
+  "zero_cost_audit": {
+    "downloads_attempted": false,
+    "dry_run": false,
+    "evidence_status": "PIPELINE_NON_EVIDENCE",
+    "gpu_required": false,
+    "paid_services": false,
+    "vlm_inference_run": false
+  }
+}

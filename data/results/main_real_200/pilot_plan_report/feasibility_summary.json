@@ -1,0 +1,17 @@
+{
+  "all_planned_statuses": [
+    "PLANNED_ONLY"
+  ],
+  "candidate_count": 200,
+  "edits_generated": false,
+  "evidence_claims_allowed": false,
+  "generation_statuses": [
+    "not_generated"
+  ],
+  "planned_count": 168,
+  "rejected_count": 32,
+  "rejection_reasons": {
+    "edit type incompatible with task family": 32
+  },
+  "vlm_inference_run": false
+}

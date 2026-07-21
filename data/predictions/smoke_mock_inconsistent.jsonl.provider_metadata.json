@@ -1,0 +1,12 @@
+{
+  "cost_policy_runtime": "zero_cost_mock_only",
+  "cost_status": "zero_cost_mock",
+  "expected_gpu_memory_gb": 0,
+  "model_family": "mock",
+  "provider_name": "mock_inconsistent",
+  "provider_type": "mock",
+  "provider_type_runtime": "mock",
+  "supports_4bit": false,
+  "supports_batching": false,
+  "tested_status": "deterministic_mock"
+}

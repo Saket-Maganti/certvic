@@ -1,0 +1,22 @@
+\section{Introduction: Visual Decision Updates}
+
+A VLM can answer an original image correctly and still fail to update that
+decision after the visual evidence changes. CertVIC focuses on this narrower and
+testable property: the visual decision update. The unit of evidence is not an
+image, an edited image, or a model output in isolation. It is a certified
+original/edit pair whose confounds have been checked before scoring.
+
+The central measurement is the intervention-consistency gap: original-image
+accuracy minus the rate at which the original and edited answers change in the
+direction required by the intervention. This gap is only paper-relevant after
+item-validity certification. Naive all-item gaps, smoke outputs, planned
+artifacts, and unreviewed edits are analysis scaffolds, not evidence.
+
+The tiny pilot is therefore decisive. Before any VLM inference begins, edit
+detectability and visual quality must pass. If edit detectability is high, the
+paper does not have a clean decision-update measurement; it has an artifact
+confound. If detectability and item validity pass, CertVIC can proceed to
+open-model inference and anytime-valid certification with claims scoped to the
+models actually run.
+
+Empirical findings remain [RESULT REQUIRED].

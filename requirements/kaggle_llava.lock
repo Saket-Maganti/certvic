@@ -1,0 +1,8 @@
+-r kaggle_base.lock
+accelerate==1.1.1
+bitsandbytes==0.44.1
+safetensors==0.4.5
+sentencepiece==0.2.0
+tokenizers==0.20.3
+transformers==4.46.3
+

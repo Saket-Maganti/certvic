@@ -1,0 +1,798 @@
+{
+  "before_audit_json": "data/results/main_real_200/v10_1_correction/privacy_audit_before_fix.json",
+  "before_private_path_findings": 140,
+  "before_total_findings": 140,
+  "canonical_result_json_modified": [],
+  "deleted_files": [],
+  "files_touched": [
+    {
+      "after_sha256": "e4c80930be08207f03e8458f0b3162bad327b73af8211dd75e8228f156995333",
+      "before_sha256": "8e4ed1ee4c82b862b5abd9b3ce32fcff017260f346727ab98d1f78d29a976416",
+      "changed": true,
+      "file": "AUTORUN_LEDGER_V2.jsonl",
+      "finding_count_before": 64,
+      "finding_lines_before": [
+        {
+          "kind": "private_absolute_path",
+          "line": 1,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 1,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 2,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 2,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 3,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 3,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 4,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 4,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 5,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 5,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 6,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 6,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 7,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 7,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 8,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 8,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 9,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 9,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 10,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 10,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 11,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 11,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 12,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 12,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 13,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 13,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 14,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 14,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 15,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 15,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 16,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 16,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 17,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 17,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 18,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 18,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 19,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 19,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 20,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 20,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 21,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 21,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 22,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 22,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 23,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 23,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 24,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 24,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 25,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 25,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 26,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 26,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 27,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 27,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 28,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 28,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 29,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 29,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 30,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 30,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 31,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 31,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 32,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 32,
+          "match_label": "home_dir_path"
+        }
+      ],
+      "redaction_replacement_counts": {
+        "<PROJECT_ROOT>": 32
+      }
+    },
+    {
+      "after_sha256": "7056ba81b50c4cbd038d5c343ce2f72fd573cd3bee603482a60a32ac00487dac",
+      "before_sha256": "7761685bca00a877fcc292db45d09d63815b2492fa41fd6c88a84e8669549327",
+      "changed": true,
+      "file": "AUTORUN_STATUS.md",
+      "finding_count_before": 2,
+      "finding_lines_before": [
+        {
+          "kind": "private_absolute_path",
+          "line": 3,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 3,
+          "match_label": "home_dir_path"
+        }
+      ],
+      "redaction_replacement_counts": {
+        "<PROJECT_ROOT>": 1
+      }
+    },
+    {
+      "after_sha256": "bd3474e032ff202eb917bd8c4162e98a84d480429afe9ee956ff4ae8eeb17a1d",
+      "before_sha256": "cdd4f9a10eaf9d27c69b444ee54fdd7f89a091bac12c5ba8369aa45eaf22ce35",
+      "changed": true,
+      "file": "AUTORUN_STATUS_V2.md",
+      "finding_count_before": 2,
+      "finding_lines_before": [
+        {
+          "kind": "private_absolute_path",
+          "line": 5,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 5,
+          "match_label": "home_dir_path"
+        }
+      ],
+      "redaction_replacement_counts": {
+        "<PROJECT_ROOT>": 1
+      }
+    },
+    {
+      "after_sha256": "21dc37ef9bf5e40214756790b42f467094069483ea68773913d1404be66f10d4",
+      "before_sha256": "f5670de656413bbfc01017994613d141f5f4e721be240dc71e946c1af0f1cde7",
+      "changed": true,
+      "file": "certVIC_report.md",
+      "finding_count_before": 6,
+      "finding_lines_before": [
+        {
+          "kind": "private_absolute_path",
+          "line": 5,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 5,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 9,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 9,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 10,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 10,
+          "match_label": "home_dir_path"
+        }
+      ],
+      "redaction_replacement_counts": {
+        "<PROJECT_ROOT>": 3
+      }
+    },
+    {
+      "after_sha256": "db6c3ebfcc024c86e3c594f49f08baf884954b73ef6518bd218e13dfed398095",
+      "before_sha256": "4624e1c0bacfd7d906017d50bf78f7c79a3db83ba49cb33e2b293b95ef2dc8ec",
+      "changed": true,
+      "file": "certVIC_report_v2.md",
+      "finding_count_before": 66,
+      "finding_lines_before": [
+        {
+          "kind": "private_absolute_path",
+          "line": 5,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 5,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 11,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 11,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 12,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 12,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 59,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 59,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 74,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 74,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 89,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 89,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 104,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 104,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 119,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 119,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 134,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 134,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 149,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 149,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 164,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 164,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 179,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 179,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 194,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 194,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 209,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 209,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 224,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 224,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 239,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 239,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 254,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 254,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 269,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 269,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 284,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 284,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 299,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 299,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 314,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 314,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 329,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 329,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 344,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 344,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 359,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 359,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 374,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 374,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 389,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 389,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 404,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 404,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 419,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 419,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 434,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 434,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 449,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 449,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 464,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 464,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 479,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 479,
+          "match_label": "home_dir_path"
+        },
+        {
+          "kind": "private_absolute_path",
+          "line": 494,
+          "match_label": "project_root_path"
+        },
+        {
+          "kind": "home_dir_path",
+          "line": 494,
+          "match_label": "home_dir_path"
+        }
+      ],
+      "redaction_replacement_counts": {
+        "<PROJECT_ROOT>": 33
+      }
+    }
+  ],
+  "finding_counts_by_file": {
+    "AUTORUN_LEDGER_V2.jsonl": 64,
+    "AUTORUN_STATUS.md": 2,
+    "AUTORUN_STATUS_V2.md": 2,
+    "certVIC_report.md": 6,
+    "certVIC_report_v2.md": 66
+  },
+  "gates_weakened": false,
+  "generated_utc": "2026-07-09T15:08:32.733842+00:00",
+  "notes": "Only stale root-level documentation/ledger artifacts named by the privacy audit were redacted. No predictions, canonical metric files, or gate code were changed.",
+  "operation": "redact_private_paths_in_safe_docs_only",
+  "paper_evidence_changed": false,
+  "prediction_files_modified": [],
+  "quarantined_files": [],
+  "redaction_policy": [
+    {
+      "replacement": "<PROJECT_ROOT>",
+      "source_label": "private_project_root"
+    },
+    {
+      "replacement": "<PROJECT_PARENT>",
+      "source_label": "private_project_parent"
+    },
+    {
+      "replacement": "<USER_HOME>",
+      "source_label": "private_user_home"
+    }
+  ],
+  "schema": "certvic.v10_1.privacy_fix_manifest.v1"
+}

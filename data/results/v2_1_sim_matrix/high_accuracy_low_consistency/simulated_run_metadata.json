@@ -1,0 +1,133 @@
+{
+  "created_utc": "2026-06-22T00:00:00+00:00",
+  "evidence_status": "SIMULATED_ONLY",
+  "n_items": 200,
+  "not_for_paper_claims": true,
+  "outputs": {
+    "pair_scores": "data/results/v2_1_sim_matrix/high_accuracy_low_consistency/simulated_pair_scores.jsonl",
+    "predictions": "data/results/v2_1_sim_matrix/high_accuracy_low_consistency/simulated_predictions.jsonl",
+    "tasks": "data/results/v2_1_sim_matrix/high_accuracy_low_consistency/simulated_tasks.jsonl"
+  },
+  "run_id": "sim_high_accuracy_low_consistency_seed_0_n_200",
+  "scenario": "high_accuracy_low_consistency",
+  "seed": 0,
+  "simulated": true,
+  "simulation_scenario": "high_accuracy_low_consistency",
+  "simulation_seed": 0,
+  "summary": {
+    "by_domain": {
+      "driving": {
+        "consistency_rate": 0.76,
+        "edited_accuracy": 0.72,
+        "intervention_consistency_gap": 0.17999999999999994,
+        "n": 100,
+        "original_accuracy": 0.94,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": 0.21999999999999997
+      },
+      "household": {
+        "consistency_rate": 0.69,
+        "edited_accuracy": 0.67,
+        "intervention_consistency_gap": 0.27,
+        "n": 100,
+        "original_accuracy": 0.96,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": 0.28
+      }
+    },
+    "by_required_change": {
+      "change": {
+        "consistency_rate": 0.7,
+        "edited_accuracy": 0.67,
+        "intervention_consistency_gap": 0.25,
+        "n": 100,
+        "original_accuracy": 0.95,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      },
+      "no_change": {
+        "consistency_rate": 0.75,
+        "edited_accuracy": 0.72,
+        "intervention_consistency_gap": 0.19999999999999996,
+        "n": 100,
+        "original_accuracy": 0.95,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": 0.25
+      }
+    },
+    "by_task_family": {
+      "affordance_reachability": {
+        "consistency_rate": 0.68,
+        "edited_accuracy": 0.62,
+        "intervention_consistency_gap": 0.2599999999999999,
+        "n": 50,
+        "original_accuracy": 0.94,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      },
+      "control_irrelevant": {
+        "consistency_rate": 0.84,
+        "edited_accuracy": 0.78,
+        "intervention_consistency_gap": 0.09999999999999998,
+        "n": 50,
+        "original_accuracy": 0.94,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": 0.16000000000000003
+      },
+      "occlusion_safety": {
+        "consistency_rate": 0.66,
+        "edited_accuracy": 0.66,
+        "intervention_consistency_gap": 0.29999999999999993,
+        "n": 50,
+        "original_accuracy": 0.96,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": 0.33999999999999997
+      },
+      "support_stability": {
+        "consistency_rate": 0.72,
+        "edited_accuracy": 0.72,
+        "intervention_consistency_gap": 0.24,
+        "n": 50,
+        "original_accuracy": 0.96,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      }
+    },
+    "consistency_rate": 0.725,
+    "control_edit": {
+      "consistency_rate": 0.84,
+      "n": 50,
+      "spurious_flip_rate": 0.16000000000000003
+    },
+    "edited_accuracy": 0.695,
+    "intervention_consistency_gap": 0.22499999999999998,
+    "n": 200,
+    "original_accuracy": 0.95,
+    "parse_failure_rate": 0.0,
+    "parse_failure_sensitivity": {
+      "metrics_parse_fail_as_inconsistent": {
+        "consistency_rate": 0.725,
+        "edited_accuracy": 0.695,
+        "intervention_consistency_gap": 0.22499999999999998,
+        "n": 200,
+        "original_accuracy": 0.95,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": 0.25
+      },
+      "metrics_parse_ok_only": {
+        "consistency_rate": 0.725,
+        "edited_accuracy": 0.695,
+        "intervention_consistency_gap": 0.22499999999999998,
+        "n": 200,
+        "original_accuracy": 0.95,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": 0.25
+      },
+      "n_parse_failures": 0,
+      "note": "Descriptive sensitivity only; parse-failure handling is never a certification substitute.",
+      "parse_failure_rate": 0.0
+    },
+    "spurious_flip_rate": 0.25
+  },
+  "zero_cost": true
+}

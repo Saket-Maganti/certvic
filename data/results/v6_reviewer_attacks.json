@@ -1,0 +1,68 @@
+{
+  "attacks": [
+    {
+      "attack": "This is just another benchmark.",
+      "blocker_if_missing": true,
+      "id": "just_another_benchmark",
+      "required_empirical_defense": "Show validity gating, item certificates, and naive-vs-gated shifts."
+    },
+    {
+      "attack": "Edits are detectable artifacts.",
+      "blocker_if_missing": true,
+      "id": "edits_are_artifacts",
+      "required_empirical_defense": "Detectability AUC must pass before VLM inference."
+    },
+    {
+      "attack": "The item certificate is over-engineered.",
+      "blocker_if_missing": true,
+      "id": "certificate_over_engineered",
+      "required_empirical_defense": "Report whether certificate gating changes admissible evidence and the measured gap."
+    },
+    {
+      "attack": "Confidence sequences are unnecessary.",
+      "blocker_if_missing": true,
+      "id": "cs_unnecessary",
+      "required_empirical_defense": "Tie optional stopping and small-budget evaluation to the native CS implementation."
+    },
+    {
+      "attack": "Open-only models are weak.",
+      "blocker_if_missing": true,
+      "id": "open_only_weak",
+      "required_empirical_defense": "Scope claims to open VLMs actually run and present frontier comparisons as non-core future work."
+    },
+    {
+      "attack": "The paper has no mechanism.",
+      "blocker_if_missing": true,
+      "id": "no_mechanism",
+      "required_empirical_defense": "Use diagnostic prompt/intervention probes as exploratory mechanism evidence."
+    },
+    {
+      "attack": "Scale is too small.",
+      "blocker_if_missing": true,
+      "id": "small_scale",
+      "required_empirical_defense": "Use the CVPR bar checker and stop/scale decisions after the tiny pilot."
+    },
+    {
+      "attack": "Human validation is too subjective.",
+      "blocker_if_missing": true,
+      "id": "human_validation_subjective",
+      "required_empirical_defense": "Report review overlap, IAA, answerability, and certificate pass rates."
+    },
+    {
+      "attack": "The detectability probe is too weak.",
+      "blocker_if_missing": true,
+      "id": "detectability_probe_weak",
+      "required_empirical_defense": "Block if AUC is high and require stronger edits/probes before VLM runs."
+    },
+    {
+      "attack": "Answer keys are ambiguous.",
+      "blocker_if_missing": true,
+      "id": "ambiguous_answer_keys",
+      "required_empirical_defense": "Answerability and single-factor gates reject ambiguous items."
+    }
+  ],
+  "evidence_status": "REVIEWER_ATTACK_PLAN_NON_EVIDENCE",
+  "harness": "v6_reviewer_attacks",
+  "n_attacks": 10,
+  "passed": true
+}

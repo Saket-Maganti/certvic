@@ -1,0 +1,3 @@
+mode,parse_ok_rate,certification_claim
+drop_parse_failures,1.0,False
+count_parse_failures_as_inconsistent,1.0,False

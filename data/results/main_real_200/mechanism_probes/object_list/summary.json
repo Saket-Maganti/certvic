@@ -1,0 +1,13 @@
+{
+  "answer_format": "object_list",
+  "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+  "flag_condition": "target_appears_in_list",
+  "image_role": "edited",
+  "mechanism_interpretation": "If the reviewed gold says the target is no longer clearly visible but the model still lists it, that indicates context-anchoring or a residual cue.",
+  "n_tasks": 91,
+  "paper_evidence": false,
+  "probe_family": "object_list",
+  "prompt_template": "List the clearly visible objects in this image. Respond with a comma-separated list of object names only.",
+  "run_label": "mech_objlist",
+  "tasks_path": "data/results/main_real_200/mechanism_probes/object_list/tasks.jsonl"
+}

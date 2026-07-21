@@ -1,0 +1,42 @@
+figures:
+  - id: pipeline_overview
+    path: paper/figures/pipeline_overview.pdf
+    generator: manual_diagram
+    source_artifact: docs/V4_COMMAND_INDEX.md
+    claim_status: method_only
+  - id: edit_examples
+    path: paper/figures/edit_examples.pdf
+    generator: certvic.paper.qualitative_figures
+    source_artifact: paper/figures/qualitative/figure_manifest.json
+    claim_status: result_required
+  - id: cs_trajectory
+    path: paper/figures/cs_trajectory.pdf
+    generator: certvic.reporting.build_v2_report
+    source_artifact: data/results/v2_report/figures/cs_trajectory.png
+    claim_status: result_required
+  - id: main_result_gap
+    path: paper/figures/main_result_gap.pdf
+    generator: certvic.reporting.build_v2_report
+    source_artifact: data/results/v2_report/main_results_table.csv
+    claim_status: result_required
+  - id: control_spurious_flip
+    path: paper/figures/control_spurious_flip.pdf
+    generator: certvic.reporting.build_v2_report
+    source_artifact: data/results/v2_report/figures/control_spurious_flip.png
+    claim_status: result_required
+  - id: ablation_summary
+    path: paper/figures/ablation_summary.pdf
+    generator: certvic.reporting.ablation_interpreter
+    source_artifact: data/results/ablation_report
+    claim_status: result_required
+  - id: failure_gallery
+    path: paper/figures/failure_gallery.pdf
+    generator: certvic.paper.qualitative_figures
+    source_artifact: data/results/failure_gallery_v2/failure_gallery.jsonl
+    claim_status: descriptive_only
+  - id: artifact_release_diagram
+    path: paper/figures/artifact_release_diagram.pdf
+    generator: manual_diagram
+    source_artifact: docs/V4_STOP_BUILDING_EXECUTE_RUNS.md
+    claim_status: method_only
+

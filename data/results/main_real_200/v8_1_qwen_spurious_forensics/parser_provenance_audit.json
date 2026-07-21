@@ -1,0 +1,182 @@
+{
+  "could_affect_qwen_12_of_94": false,
+  "ctrl_path_resolution": {
+    "__CTRL___handled": true,
+    "n_edited_paths_resolved": 94,
+    "n_original_paths_resolved": 94,
+    "n_tasks": 94,
+    "tasks_path": "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl"
+  },
+  "issues_affecting_qwen_12_of_94": [],
+  "providers": {
+    "internvl_8b": {
+      "duplicate_item_variant_rows": 0,
+      "expected_item_id_repeats_due_to_variants": 94,
+      "extra_task_ids": [],
+      "missing_task_ids": [],
+      "missing_variants": [],
+      "n_rows": 188,
+      "n_unique_item_ids": 94,
+      "parse_ok": 188,
+      "path": "data/results/main_real_200/kaggle_spurious/pred_internvl_8b_spurious_merged.jsonl",
+      "provider_names": {
+        "internvl_8b": 188
+      },
+      "provider_ok": true,
+      "raw_yes_no_token_anomalies": 0,
+      "row_count_ok": true,
+      "sha256": "68712ead859aeb1d3e93a0926a5650701cd06f8db7e995f11fa4a4a2fc6781fd",
+      "variant_pairing_ok": true
+    },
+    "llava_onevision_7b": {
+      "duplicate_item_variant_rows": 0,
+      "expected_item_id_repeats_due_to_variants": 94,
+      "extra_task_ids": [],
+      "missing_task_ids": [],
+      "missing_variants": [],
+      "n_rows": 188,
+      "n_unique_item_ids": 94,
+      "parse_ok": 188,
+      "path": "data/results/main_real_200/kaggle_spurious/pred_llava_onevision_7b_spurious_merged.jsonl",
+      "provider_names": {
+        "llava_onevision_7b": 188
+      },
+      "provider_ok": true,
+      "raw_yes_no_token_anomalies": 0,
+      "row_count_ok": true,
+      "sha256": "81d40e6942b8db147472987b22d55f876eda3c88ed370a20b9fe7b3ab457c67c",
+      "variant_pairing_ok": true
+    },
+    "qwen2_5_vl_7b": {
+      "duplicate_item_variant_rows": 0,
+      "expected_item_id_repeats_due_to_variants": 94,
+      "extra_task_ids": [],
+      "missing_task_ids": [],
+      "missing_variants": [],
+      "n_rows": 188,
+      "n_unique_item_ids": 94,
+      "parse_ok": 188,
+      "path": "data/results/main_real_200/kaggle_spurious/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+      "provider_names": {
+        "qwen2_5_vl_7b": 188
+      },
+      "provider_ok": true,
+      "raw_yes_no_token_anomalies": 0,
+      "row_count_ok": true,
+      "sha256": "4be34d6826587eca851855c2f407e6b82964a83ca47ae6fe2a64831d809a8049",
+      "variant_pairing_ok": true
+    }
+  },
+  "qwen_auxiliary_ingestion": {
+    "qwen2_5_vl_7b__mechanism": {
+      "destination": "data/results/main_real_200/kaggle_mechanism/pred_qwen2_5_vl_7b_mechanism.jsonl",
+      "n_rows": 364,
+      "provider_ok": true,
+      "row_count_ok": true,
+      "source": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_mechanism.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "used_top_level_shard0": false
+    },
+    "qwen2_5_vl_7b__polarity": {
+      "destination": "data/results/main_real_200/kaggle_polarity/pred_qwen2_5_vl_7b_polarity.jsonl",
+      "n_rows": 728,
+      "provider_ok": true,
+      "row_count_ok": true,
+      "source": "data/results/main_real_200/v8_upgrade/staging/newruns_extracted/qwen2_5_vl_7b_polarity_preds/pred_qwen2_5_vl_7b_polarity.jsonl",
+      "source_kind": "zip_member",
+      "status": "complete",
+      "used_top_level_shard0": false
+    }
+  },
+  "shards": {
+    "internvl_8b": {
+      "exists": true,
+      "members": [
+        "log_internvl_8b_spurious_shard0.txt",
+        "log_internvl_8b_spurious_shard1.txt",
+        "pred_internvl_8b_spurious_merged.jsonl",
+        "pred_internvl_8b_spurious_shard0.jsonl",
+        "pred_internvl_8b_spurious_shard0.jsonl.environment.json",
+        "pred_internvl_8b_spurious_shard0.jsonl.provider_metadata.json",
+        "pred_internvl_8b_spurious_shard0.jsonl.run_manifest.json",
+        "pred_internvl_8b_spurious_shard1.jsonl",
+        "pred_internvl_8b_spurious_shard1.jsonl.environment.json",
+        "pred_internvl_8b_spurious_shard1.jsonl.provider_metadata.json",
+        "pred_internvl_8b_spurious_shard1.jsonl.run_manifest.json",
+        "runtime_manifest_internvl_8b_spurious.json",
+        "summary_internvl_8b_spurious.json"
+      ],
+      "merged_member_matches_canonical": true,
+      "merged_member_rows": 188,
+      "shard_concat_matches_canonical": false,
+      "shard_concat_rows": 188,
+      "shard_multiset_matches_canonical": true,
+      "shard_rows": {
+        "pred_internvl_8b_spurious_shard0.jsonl": 94,
+        "pred_internvl_8b_spurious_shard1.jsonl": 94
+      },
+      "zip_path": "kaggleoutputs/newruns/internvl_8b_spurious_preds.zip"
+    },
+    "llava_onevision_7b": {
+      "exists": true,
+      "members": [
+        "log_llava_onevision_7b_spurious_shard0.txt",
+        "log_llava_onevision_7b_spurious_shard1.txt",
+        "pred_llava_onevision_7b_spurious_merged.jsonl",
+        "pred_llava_onevision_7b_spurious_shard0.jsonl",
+        "pred_llava_onevision_7b_spurious_shard0.jsonl.environment.json",
+        "pred_llava_onevision_7b_spurious_shard0.jsonl.provider_metadata.json",
+        "pred_llava_onevision_7b_spurious_shard0.jsonl.run_manifest.json",
+        "pred_llava_onevision_7b_spurious_shard1.jsonl",
+        "pred_llava_onevision_7b_spurious_shard1.jsonl.environment.json",
+        "pred_llava_onevision_7b_spurious_shard1.jsonl.provider_metadata.json",
+        "pred_llava_onevision_7b_spurious_shard1.jsonl.run_manifest.json",
+        "runtime_manifest_llava_onevision_7b_spurious.json",
+        "summary_llava_onevision_7b_spurious.json"
+      ],
+      "merged_member_matches_canonical": true,
+      "merged_member_rows": 188,
+      "shard_concat_matches_canonical": false,
+      "shard_concat_rows": 188,
+      "shard_multiset_matches_canonical": true,
+      "shard_rows": {
+        "pred_llava_onevision_7b_spurious_shard0.jsonl": 94,
+        "pred_llava_onevision_7b_spurious_shard1.jsonl": 94
+      },
+      "zip_path": "kaggleoutputs/newruns/llava_onevision_7b_spurious_preds.zip"
+    },
+    "qwen2_5_vl_7b": {
+      "exists": true,
+      "members": [
+        "log_qwen2_5_vl_7b_spurious_shard0.txt",
+        "log_qwen2_5_vl_7b_spurious_shard1.txt",
+        "pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+        "pred_qwen2_5_vl_7b_spurious_shard0.jsonl",
+        "pred_qwen2_5_vl_7b_spurious_shard0.jsonl.environment.json",
+        "pred_qwen2_5_vl_7b_spurious_shard0.jsonl.provider_metadata.json",
+        "pred_qwen2_5_vl_7b_spurious_shard0.jsonl.run_manifest.json",
+        "pred_qwen2_5_vl_7b_spurious_shard1.jsonl",
+        "pred_qwen2_5_vl_7b_spurious_shard1.jsonl.environment.json",
+        "pred_qwen2_5_vl_7b_spurious_shard1.jsonl.provider_metadata.json",
+        "pred_qwen2_5_vl_7b_spurious_shard1.jsonl.run_manifest.json",
+        "runtime_manifest_qwen2_5_vl_7b_spurious.json",
+        "summary_qwen2_5_vl_7b_spurious.json"
+      ],
+      "merged_member_matches_canonical": true,
+      "merged_member_rows": 188,
+      "shard_concat_matches_canonical": false,
+      "shard_concat_rows": 188,
+      "shard_multiset_matches_canonical": true,
+      "shard_rows": {
+        "pred_qwen2_5_vl_7b_spurious_shard0.jsonl": 94,
+        "pred_qwen2_5_vl_7b_spurious_shard1.jsonl": 94
+      },
+      "zip_path": "kaggleoutputs/newruns/qwen2_5_vl_7b_spurious_preds.zip"
+    }
+  },
+  "top_level_shard_files": [
+    "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_polarity_shard0.jsonl"
+  ],
+  "top_level_shard_only_affects_qwen_spurious": false
+}

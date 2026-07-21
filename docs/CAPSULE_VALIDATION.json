@@ -1,0 +1,18 @@
+{
+  "checksums": {
+    "README.md": "b3d9cac3304873e7b3161ae5603f02f3d4b9b6a63a7b4489b164d0e5faa9885f",
+    "ZERO_COST_POLICY.txt": "257770fdfad741f8621279d910fc9587531657a261f0df5718e1591017e88fc6",
+    "commands.sh": "bdc9b2868eed984e076ca1b6905abc884f30c5031e07406850cf45b41e3c22fb",
+    "expected_inputs.md": "4aecb7332b0abcec7a6d118d6c447e55db7c061e97cd5a69c1a7d0ab037ec4ba",
+    "expected_outputs.md": "af9f290e237a64acb85e98d529ca6c3667260d2717808834d80be119ce6ea4bb",
+    "manifest.json": "0934fec1d5806d8c7986640fe35a9d243c429ab4f44641b4a3e35411c9d4747a",
+    "preflight.sh": "47f8143ee3b396152d1f26a727a85735a7a62cf3e966d1d8332fee6a47e374f2"
+  },
+  "commands_present": true,
+  "exists": true,
+  "n_files": 7,
+  "nonredistributable_pixel_risk_files": [],
+  "passed": true,
+  "path_leaks": [],
+  "release_dir": "compute_bundles/kaggle_vlm_tiny"
+}

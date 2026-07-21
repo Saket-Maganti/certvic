@@ -1,0 +1,45 @@
+{
+  "all_model_specificity_claim_allowed": false,
+  "branch": "MODEL_DEPENDENT_SPECIFICITY_V2_PENDING",
+  "forbidden_language": [
+    "all models pass specificity",
+    "all-model specificity",
+    "Qwen specificity resolved"
+  ],
+  "main500_allowed": false,
+  "paper_evidence": false,
+  "required_claim_language": [
+    "InternVL and LLaVA pass the irrelevant-edit specificity gate.",
+    "Qwen shows a strong update-gap result but elevated sensitivity to irrelevant controls.",
+    "The evidence supports model-dependent specificity, not all-model specificity.",
+    "Main conclusions must be conditioned on this limitation."
+  ],
+  "schema": "certvic.v9.specificity_branch_decision.v1",
+  "v1_provider_results": {
+    "internvl_8b": {
+      "flipped": 1,
+      "gate_pass": true,
+      "gate_threshold": 0.1,
+      "n_items": 94,
+      "raw_prediction": "data/results/main_real_200/kaggle_spurious/pred_internvl_8b_spurious_merged.jsonl",
+      "spurious_flip_rate": 0.0106
+    },
+    "llava_onevision_7b": {
+      "flipped": 3,
+      "gate_pass": true,
+      "gate_threshold": 0.1,
+      "n_items": 94,
+      "raw_prediction": "data/results/main_real_200/kaggle_spurious/pred_llava_onevision_7b_spurious_merged.jsonl",
+      "spurious_flip_rate": 0.0319
+    },
+    "qwen2_5_vl_7b": {
+      "flipped": 12,
+      "gate_pass": false,
+      "gate_threshold": 0.1,
+      "n_items": 94,
+      "raw_prediction": "data/results/main_real_200/kaggle_spurious/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+      "spurious_flip_rate": 0.1277
+    }
+  },
+  "v2_status": "BLOCKED_MISSING_PREDICTIONS"
+}

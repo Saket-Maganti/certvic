@@ -1,0 +1,97 @@
+{
+  "by_domain": {
+    "household": {
+      "consistency_rate": 0.10989010989010989,
+      "edited_accuracy": 0.6593406593406593,
+      "intervention_consistency_gap": 0.2967032967032967,
+      "n": 91,
+      "original_accuracy": 0.4065934065934066,
+      "parse_failure_rate": 0.0,
+      "spurious_flip_rate": 0.0
+    }
+  },
+  "by_required_change": {
+    "change": {
+      "consistency_rate": 0.047058823529411764,
+      "edited_accuracy": 0.6352941176470588,
+      "intervention_consistency_gap": 0.3176470588235294,
+      "n": 85,
+      "original_accuracy": 0.36470588235294116,
+      "parse_failure_rate": 0.0,
+      "spurious_flip_rate": null
+    },
+    "no_change": {
+      "consistency_rate": 1.0,
+      "edited_accuracy": 1.0,
+      "intervention_consistency_gap": 0.0,
+      "n": 6,
+      "original_accuracy": 1.0,
+      "parse_failure_rate": 0.0,
+      "spurious_flip_rate": 0.0
+    }
+  },
+  "by_task_family": {
+    "affordance_reachability": {
+      "consistency_rate": 0.0,
+      "edited_accuracy": 1.0,
+      "intervention_consistency_gap": 0.0,
+      "n": 31,
+      "original_accuracy": 0.0,
+      "parse_failure_rate": 0.0,
+      "spurious_flip_rate": null
+    },
+    "occlusion_safety": {
+      "consistency_rate": 1.0,
+      "edited_accuracy": 1.0,
+      "intervention_consistency_gap": 0.0,
+      "n": 6,
+      "original_accuracy": 1.0,
+      "parse_failure_rate": 0.0,
+      "spurious_flip_rate": 0.0
+    },
+    "support_stability": {
+      "consistency_rate": 0.07407407407407407,
+      "edited_accuracy": 0.42592592592592593,
+      "intervention_consistency_gap": 0.5,
+      "n": 54,
+      "original_accuracy": 0.5740740740740741,
+      "parse_failure_rate": 0.0,
+      "spurious_flip_rate": null
+    }
+  },
+  "consistency_rate": 0.10989010989010989,
+  "control_edit": {
+    "consistency_rate": null,
+    "n": 0,
+    "spurious_flip_rate": null
+  },
+  "edited_accuracy": 0.6593406593406593,
+  "intervention_consistency_gap": 0.2967032967032967,
+  "n": 91,
+  "original_accuracy": 0.4065934065934066,
+  "parse_failure_rate": 0.0,
+  "parse_failure_sensitivity": {
+    "metrics_parse_fail_as_inconsistent": {
+      "consistency_rate": 0.10989010989010989,
+      "edited_accuracy": 0.6593406593406593,
+      "intervention_consistency_gap": 0.2967032967032967,
+      "n": 91,
+      "original_accuracy": 0.4065934065934066,
+      "parse_failure_rate": 0.0,
+      "spurious_flip_rate": 0.0
+    },
+    "metrics_parse_ok_only": {
+      "consistency_rate": 0.10989010989010989,
+      "edited_accuracy": 0.6593406593406593,
+      "intervention_consistency_gap": 0.2967032967032967,
+      "n": 91,
+      "original_accuracy": 0.4065934065934066,
+      "parse_failure_rate": 0.0,
+      "spurious_flip_rate": 0.0
+    },
+    "n_parse_failures": 0,
+    "note": "Descriptive sensitivity only; parse-failure handling is never a certification substitute.",
+    "parse_failure_rate": 0.0
+  },
+  "spurious_flip_rate": 0.0
+}

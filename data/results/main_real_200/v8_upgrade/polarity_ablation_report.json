@@ -1,0 +1,418 @@
+{
+  "evidence_status": "DIAGNOSTIC_NON_EVIDENCE",
+  "expected_providers": [
+    "qwen2_5_vl_7b",
+    "internvl_8b",
+    "llava_onevision_7b"
+  ],
+  "expected_rows_per_provider": 728,
+  "interpretation_limits": [
+    "Flat diagnostic rows; not a TaskItem run_eval certification path.",
+    "The current deterministic task manifests are authoritative for gold labels.",
+    "Embedded raw-prediction gold is preserved and audited; mismatches are not used for scoring.",
+    "This does not promote any pilot result to paper evidence."
+  ],
+  "missing_files": [],
+  "paper_evidence": false,
+  "pred_dir": "data/results/main_real_200/kaggle_polarity",
+  "providers": {
+    "internvl_8b": {
+      "duplicate_prediction_ids": [],
+      "exists": true,
+      "expected_rows": 728,
+      "extra_families": [],
+      "families": {
+        "negative": {
+          "answer_changed_pairs": 4,
+          "answer_changed_rate": 0.044,
+          "answer_counts": {
+            "no": 174,
+            "yes": 8
+          },
+          "both_rows_correct_pairs": 4,
+          "both_rows_correct_rate": 0.044,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.522,
+          "row_correct": 95
+        },
+        "pixel_only": {
+          "answer_changed_pairs": 15,
+          "answer_changed_rate": 0.1648,
+          "answer_counts": {
+            "no": 31,
+            "yes": 151
+          },
+          "both_rows_correct_pairs": 14,
+          "both_rows_correct_rate": 0.1538,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.5714,
+          "row_correct": 104
+        },
+        "positive": {
+          "answer_changed_pairs": 17,
+          "answer_changed_rate": 0.1868,
+          "answer_counts": {
+            "no": 35,
+            "yes": 147
+          },
+          "both_rows_correct_pairs": 16,
+          "both_rows_correct_rate": 0.1758,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.5824,
+          "row_correct": 106
+        },
+        "short": {
+          "answer_changed_pairs": 0,
+          "answer_changed_rate": 0.0,
+          "answer_counts": {
+            "None": 182
+          },
+          "both_rows_correct_pairs": 0,
+          "both_rows_correct_rate": 0.0,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 0,
+          "parse_rate": 0.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.0,
+          "row_correct": 0
+        }
+      },
+      "gold_source": "current_task_manifest",
+      "missing_families": [],
+      "missing_task_gold_keys": [],
+      "n_duplicate_prediction_ids": 0,
+      "n_missing_task_gold": 0,
+      "n_rows": 728,
+      "path": "data/results/main_real_200/kaggle_polarity/pred_internvl_8b_polarity.jsonl",
+      "provider": "internvl_8b",
+      "provider_names": [
+        "internvl_8b"
+      ],
+      "provider_ok": true,
+      "raw_metadata_gold_mismatch_keys": [
+        "negative::preview_pilot_7d2acefd3647::original",
+        "negative::preview_pilot_7d2acefd3647::edited",
+        "negative::preview_pilot_bceacc91c7dd::original",
+        "negative::preview_pilot_bceacc91c7dd::edited",
+        "negative::preview_pilot_65a2baa96527::original",
+        "negative::preview_pilot_65a2baa96527::edited",
+        "negative::preview_pilot_d24e8a304df6::original",
+        "negative::preview_pilot_d24e8a304df6::edited",
+        "negative::preview_pilot_fe56617894f8::original",
+        "negative::preview_pilot_fe56617894f8::edited",
+        "negative::preview_pilot_bf5dc60f7821::original",
+        "negative::preview_pilot_bf5dc60f7821::edited",
+        "negative::preview_pilot_1a52adcb9b61::original",
+        "negative::preview_pilot_1a52adcb9b61::edited",
+        "negative::preview_pilot_1de6086e7f7e::original",
+        "negative::preview_pilot_1de6086e7f7e::edited",
+        "negative::preview_pilot_305c8d329d20::original",
+        "negative::preview_pilot_305c8d329d20::edited",
+        "negative::preview_pilot_08288a674ccd::original",
+        "negative::preview_pilot_08288a674ccd::edited"
+      ],
+      "raw_metadata_gold_mismatches": 360,
+      "row_count_ok": true
+    },
+    "llava_onevision_7b": {
+      "duplicate_prediction_ids": [],
+      "exists": true,
+      "expected_rows": 728,
+      "extra_families": [],
+      "families": {
+        "negative": {
+          "answer_changed_pairs": 12,
+          "answer_changed_rate": 0.1319,
+          "answer_counts": {
+            "no": 158,
+            "yes": 24
+          },
+          "both_rows_correct_pairs": 10,
+          "both_rows_correct_rate": 0.1099,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.544,
+          "row_correct": 99
+        },
+        "pixel_only": {
+          "answer_changed_pairs": 11,
+          "answer_changed_rate": 0.1209,
+          "answer_counts": {
+            "no": 19,
+            "yes": 163
+          },
+          "both_rows_correct_pairs": 11,
+          "both_rows_correct_rate": 0.1209,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.5604,
+          "row_correct": 102
+        },
+        "positive": {
+          "answer_changed_pairs": 14,
+          "answer_changed_rate": 0.1538,
+          "answer_counts": {
+            "no": 28,
+            "yes": 154
+          },
+          "both_rows_correct_pairs": 11,
+          "both_rows_correct_rate": 0.1209,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.544,
+          "row_correct": 99
+        },
+        "short": {
+          "answer_changed_pairs": 12,
+          "answer_changed_rate": 0.1319,
+          "answer_counts": {
+            "no": 30,
+            "yes": 152
+          },
+          "both_rows_correct_pairs": 9,
+          "both_rows_correct_rate": 0.0989,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.533,
+          "row_correct": 97
+        }
+      },
+      "gold_source": "current_task_manifest",
+      "missing_families": [],
+      "missing_task_gold_keys": [],
+      "n_duplicate_prediction_ids": 0,
+      "n_missing_task_gold": 0,
+      "n_rows": 728,
+      "path": "data/results/main_real_200/kaggle_polarity/pred_llava_onevision_7b_polarity.jsonl",
+      "provider": "llava_onevision_7b",
+      "provider_names": [
+        "llava_onevision_7b"
+      ],
+      "provider_ok": true,
+      "raw_metadata_gold_mismatch_keys": [
+        "negative::preview_pilot_7d2acefd3647::original",
+        "negative::preview_pilot_7d2acefd3647::edited",
+        "negative::preview_pilot_bceacc91c7dd::original",
+        "negative::preview_pilot_bceacc91c7dd::edited",
+        "negative::preview_pilot_65a2baa96527::original",
+        "negative::preview_pilot_65a2baa96527::edited",
+        "negative::preview_pilot_d24e8a304df6::original",
+        "negative::preview_pilot_d24e8a304df6::edited",
+        "negative::preview_pilot_fe56617894f8::original",
+        "negative::preview_pilot_fe56617894f8::edited",
+        "negative::preview_pilot_bf5dc60f7821::original",
+        "negative::preview_pilot_bf5dc60f7821::edited",
+        "negative::preview_pilot_1a52adcb9b61::original",
+        "negative::preview_pilot_1a52adcb9b61::edited",
+        "negative::preview_pilot_1de6086e7f7e::original",
+        "negative::preview_pilot_1de6086e7f7e::edited",
+        "negative::preview_pilot_305c8d329d20::original",
+        "negative::preview_pilot_305c8d329d20::edited",
+        "negative::preview_pilot_08288a674ccd::original",
+        "negative::preview_pilot_08288a674ccd::edited"
+      ],
+      "raw_metadata_gold_mismatches": 360,
+      "row_count_ok": true
+    },
+    "qwen2_5_vl_7b": {
+      "duplicate_prediction_ids": [],
+      "exists": true,
+      "expected_rows": 728,
+      "extra_families": [],
+      "families": {
+        "negative": {
+          "answer_changed_pairs": 8,
+          "answer_changed_rate": 0.0879,
+          "answer_counts": {
+            "no": 170,
+            "yes": 12
+          },
+          "both_rows_correct_pairs": 8,
+          "both_rows_correct_rate": 0.0879,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.544,
+          "row_correct": 99
+        },
+        "pixel_only": {
+          "answer_changed_pairs": 17,
+          "answer_changed_rate": 0.1868,
+          "answer_counts": {
+            "no": 21,
+            "yes": 161
+          },
+          "both_rows_correct_pairs": 16,
+          "both_rows_correct_rate": 0.1758,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.5824,
+          "row_correct": 106
+        },
+        "positive": {
+          "answer_changed_pairs": 21,
+          "answer_changed_rate": 0.2308,
+          "answer_counts": {
+            "no": 33,
+            "yes": 149
+          },
+          "both_rows_correct_pairs": 21,
+          "both_rows_correct_rate": 0.2308,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 182,
+          "parse_rate": 1.0,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.6154,
+          "row_correct": 112
+        },
+        "short": {
+          "answer_changed_pairs": 0,
+          "answer_changed_rate": 0.0,
+          "answer_counts": {
+            "None": 37,
+            "yes": 145
+          },
+          "both_rows_correct_pairs": 0,
+          "both_rows_correct_rate": 0.0,
+          "expected_rows": 182,
+          "gold_rows": 182,
+          "gold_source": "current_task_manifest",
+          "n_missing_task_gold": 0,
+          "n_rows": 182,
+          "paired_items": 91,
+          "parse_ok": 145,
+          "parse_rate": 0.7967,
+          "raw_metadata_gold_mismatches": 90,
+          "row_accuracy": 0.4396,
+          "row_correct": 80
+        }
+      },
+      "gold_source": "current_task_manifest",
+      "missing_families": [],
+      "missing_task_gold_keys": [],
+      "n_duplicate_prediction_ids": 0,
+      "n_missing_task_gold": 0,
+      "n_rows": 728,
+      "path": "data/results/main_real_200/kaggle_polarity/pred_qwen2_5_vl_7b_polarity.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "provider_names": [
+        "qwen2_5_vl_7b"
+      ],
+      "provider_ok": true,
+      "raw_metadata_gold_mismatch_keys": [
+        "negative::preview_pilot_7d2acefd3647::original",
+        "negative::preview_pilot_7d2acefd3647::edited",
+        "negative::preview_pilot_bceacc91c7dd::original",
+        "negative::preview_pilot_bceacc91c7dd::edited",
+        "negative::preview_pilot_65a2baa96527::original",
+        "negative::preview_pilot_65a2baa96527::edited",
+        "negative::preview_pilot_d24e8a304df6::original",
+        "negative::preview_pilot_d24e8a304df6::edited",
+        "negative::preview_pilot_fe56617894f8::original",
+        "negative::preview_pilot_fe56617894f8::edited",
+        "negative::preview_pilot_bf5dc60f7821::original",
+        "negative::preview_pilot_bf5dc60f7821::edited",
+        "negative::preview_pilot_1a52adcb9b61::original",
+        "negative::preview_pilot_1a52adcb9b61::edited",
+        "negative::preview_pilot_1de6086e7f7e::original",
+        "negative::preview_pilot_1de6086e7f7e::edited",
+        "negative::preview_pilot_305c8d329d20::original",
+        "negative::preview_pilot_305c8d329d20::edited",
+        "negative::preview_pilot_08288a674ccd::original",
+        "negative::preview_pilot_08288a674ccd::edited"
+      ],
+      "raw_metadata_gold_mismatches": 360,
+      "row_count_ok": true
+    }
+  },
+  "schema": "certvic.v8.polarity_ablation_report.v2",
+  "status": "complete",
+  "task_manifest_audit": {
+    "duplicate_keys": [],
+    "expected_task_gold_rows": 728,
+    "gold_source": "current_task_manifest",
+    "invalid_gold_keys": [],
+    "missing_files": [],
+    "n_duplicate_keys": 0,
+    "n_invalid_gold_keys": 0,
+    "n_task_gold_rows": 728,
+    "row_count_ok": true,
+    "task_dir": "data/results/main_real_200/prompt_ablations",
+    "valid": true
+  }
+}

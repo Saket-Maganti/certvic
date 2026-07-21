@@ -1,0 +1,9 @@
+{
+  "blinded": true,
+  "human_fields_blank": true,
+  "n_items": 91,
+  "paper_evidence": false,
+  "schema": "certvic.v8.second_rater_iaa_export.v1",
+  "sheet_path": "data/annotations/v8_second_rater_iaa/second_rater_review_sheet.csv",
+  "status": "second_rater_pending"
+}

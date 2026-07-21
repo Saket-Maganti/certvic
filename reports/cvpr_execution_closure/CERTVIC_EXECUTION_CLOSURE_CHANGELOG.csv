@@ -1,0 +1,7 @@
+area,change,evidence_boundary
+semantic,Main answer-changing edits plus optional offline inpainting,HUMAN_REVIEW_PENDING
+COCO,offline feasibility adapter and masks,LICENSE_AND_REVIEW_PENDING
+runtime,"global bound, concurrent workers, full run contract",REAL_SMOKE_PENDING
+review,one qualification-to-finalization CLI,NO_REAL_JUDGMENTS
+lineage,raw/canonical/promoted hashes and human-aware analysis,NO_REAL_OUTPUTS
+release,transitive source and clean extraction exercise,SOFTWARE_ONLY

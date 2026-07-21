@@ -1,0 +1,18 @@
+tables:
+  - id: main_validity_gated_model_family_table
+    title: Per-model and per-family validity-gated decision-update results
+    status: RESULT_REQUIRED
+    columns:
+      - n_valid
+      - naive_gap
+      - validity_gated_gap
+      - certified_lower_bound
+      - detectability_auc
+      - control_spurious_flip_rate
+      - parse_failure_rate
+      - human_iaa
+      - certificate_pass_rate
+    source_artifacts:
+      - data/results/validity_shift/validity_shift_table.csv
+      - data/results/naive_vs_validity_gated/naive_vs_validity_gated_table.csv
+      - data/results/v2_report/main_results_table.csv

@@ -1,0 +1,13 @@
+blind_order,blind_pair_id,image_a,image_b,question,prompt_unambiguous,image_answerable,target_visible_a,target_visible_b,target_unaffected,expected_answer_relation_valid,expected_answer_unchanged,perturbation_acceptable,artifact_severity,retention_decision,confidence,notes,reviewer_code,reviewed_at_utc
+1,CV11-D-4E725A52A064A989,images/CV11-D-4E725A52A064A989_A.jpg,images/CV11-D-4E725A52A064A989_B.jpg,Is there a clearly visible chair in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+2,CV11-D-3A2FA44CB1271CA6,images/CV11-D-3A2FA44CB1271CA6_A.jpg,images/CV11-D-3A2FA44CB1271CA6_B.jpg,Is there a clearly visible chair in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+3,CV11-D-A486B4F587E8F97B,images/CV11-D-A486B4F587E8F97B_A.jpg,images/CV11-D-A486B4F587E8F97B_B.jpg,Is there a clearly visible chair in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+4,CV11-D-36079E59055F8A95,images/CV11-D-36079E59055F8A95_A.jpg,images/CV11-D-36079E59055F8A95_B.jpg,Is there a clearly visible sofa in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+5,CV11-D-C7A46CE335B3510C,images/CV11-D-C7A46CE335B3510C_A.jpg,images/CV11-D-C7A46CE335B3510C_B.jpg,Is there a clearly visible car in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+6,CV11-D-D5B62E81570D4847,images/CV11-D-D5B62E81570D4847_A.jpg,images/CV11-D-D5B62E81570D4847_B.jpg,Is there a clearly visible chair in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+7,CV11-D-5663976D6304D859,images/CV11-D-5663976D6304D859_A.jpg,images/CV11-D-5663976D6304D859_B.jpg,Is there a clearly visible car in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+8,CV11-D-FE303ACBF6C2782F,images/CV11-D-FE303ACBF6C2782F_A.jpg,images/CV11-D-FE303ACBF6C2782F_B.jpg,Is there a clearly visible chair in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+9,CV11-D-AC8C953EB9487A46,images/CV11-D-AC8C953EB9487A46_A.jpg,images/CV11-D-AC8C953EB9487A46_B.jpg,Is there a clearly visible table in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+10,CV11-D-7794F6CA9A6DA2D0,images/CV11-D-7794F6CA9A6DA2D0_A.jpg,images/CV11-D-7794F6CA9A6DA2D0_B.jpg,Is there a clearly visible chair in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+11,CV11-D-2FB157B2CE4227EB,images/CV11-D-2FB157B2CE4227EB_A.jpg,images/CV11-D-2FB157B2CE4227EB_B.jpg,Is there a clearly visible car in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,
+12,CV11-D-E3CB051F1EA2C25A,images/CV11-D-E3CB051F1EA2C25A_A.jpg,images/CV11-D-E3CB051F1EA2C25A_B.jpg,Is there a clearly visible sofa in the image? Respond with exactly one token: yes or no.,,,,,,,,,,,,,,

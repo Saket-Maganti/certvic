@@ -1,0 +1,13 @@
+item_id,target_object,qwen_flipped,internvl_flipped,llava_flipped,all_three_flip,only_qwen_flips,qwen_original_parsed,qwen_edited_parsed,internvl_original_parsed,internvl_edited_parsed,llava_original_parsed,llava_edited_parsed,raw_response_anomalies
+sflip_table_ADE_train_00000377,table,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_sofa_ADE_train_00000704,sofa,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_sofa_ADE_train_00000719,sofa,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_chair_ADE_train_00000194,chair,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_chair_ADE_train_00000617,chair,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_chair_ADE_train_00000436,chair,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_chair_ADE_train_00000630,chair,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_chair_ADE_train_00000268,chair,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_chair_ADE_train_00001105,chair,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_car_ADE_train_00002029,car,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_car_ADE_train_00002034,car,True,False,False,False,True,yes,no,yes,yes,yes,yes,
+sflip_car_ADE_train_00003061,car,True,False,False,False,True,yes,no,yes,yes,yes,yes,

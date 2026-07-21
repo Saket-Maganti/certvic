@@ -1,0 +1,59 @@
+{
+  "evidence_status": "PROMPT_ABLATION_NON_EVIDENCE",
+  "families": {
+    "negative": {
+      "ablation_family": "negative",
+      "evidence_status": "PROMPT_ABLATION_NON_EVIDENCE",
+      "n_items": 91,
+      "n_tasks": 182,
+      "paper_evidence": false,
+      "polarity": "negative",
+      "run_label": "abl_negative",
+      "tasks_path": "data/results/main_real_200/prompt_ablations/negative/tasks.jsonl",
+      "template": "Is the {obj} absent from the image? Answer yes or no.",
+      "variants_per_item": 2
+    },
+    "pixel_only": {
+      "ablation_family": "pixel_only",
+      "evidence_status": "PROMPT_ABLATION_NON_EVIDENCE",
+      "n_items": 91,
+      "n_tasks": 182,
+      "paper_evidence": false,
+      "polarity": "positive",
+      "run_label": "abl_pixelonly",
+      "tasks_path": "data/results/main_real_200/prompt_ablations/pixel_only/tasks.jsonl",
+      "template": "Answer from visible pixels only, not scene context: is there a clearly visible {obj}? Answer yes or no.",
+      "variants_per_item": 2
+    },
+    "positive": {
+      "ablation_family": "positive",
+      "evidence_status": "PROMPT_ABLATION_NON_EVIDENCE",
+      "n_items": 91,
+      "n_tasks": 182,
+      "paper_evidence": false,
+      "polarity": "positive",
+      "run_label": "abl_positive",
+      "tasks_path": "data/results/main_real_200/prompt_ablations/positive/tasks.jsonl",
+      "template": "Is there a clearly visible {obj} in the image? Answer yes or no.",
+      "variants_per_item": 2
+    },
+    "short": {
+      "ablation_family": "short",
+      "evidence_status": "PROMPT_ABLATION_NON_EVIDENCE",
+      "n_items": 91,
+      "n_tasks": 182,
+      "paper_evidence": false,
+      "polarity": "positive",
+      "run_label": "abl_short",
+      "tasks_path": "data/results/main_real_200/prompt_ablations/short/tasks.jsonl",
+      "template": "Visible {obj}? yes/no.",
+      "variants_per_item": 2
+    }
+  },
+  "n_reviewed_items": 91,
+  "note": "Distinct run labels per ablation; source labels are first normalized to positive-presence semantics, then negated-form gold is inverted and validated. Run later on Kaggle; not evidence.",
+  "paper_evidence": false,
+  "polarity_validation": "passed",
+  "schema": "certvic.prompt_ablations.v1",
+  "source_reviewed_tasks": "data/results/main_real_200/pilot_eval_tasks_reviewed_v2.jsonl"
+}

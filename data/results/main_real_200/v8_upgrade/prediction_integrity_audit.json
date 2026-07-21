@@ -1,0 +1,491 @@
+{
+  "entries": {
+    "internvl_8b__mechanism": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 364,
+          "n_duplicate_ids": 0,
+          "n_rows": 364,
+          "parse_ok": 364,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "internvl_8b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_internvl_8b_mechanism.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_mechanism/pred_internvl_8b_mechanism.jsonl",
+      "provider": "internvl_8b",
+      "run_tag": "mechanism",
+      "sha256": "801de03b47fef4ef4e45572cbc0c8935d6a3dff7cfb2d3acb7065ed42c94689c",
+      "source": "kaggleoutputs/newruns/pred_internvl_8b_mechanism.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 364,
+        "n_duplicate_ids": 0,
+        "n_rows": 364,
+        "parse_ok": 364,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "internvl_8b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "internvl_8b__perception_scaled": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 738,
+          "n_duplicate_ids": 0,
+          "n_rows": 738,
+          "parse_ok": 738,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "internvl_8b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_internvl_8b_perception_scaled_merged.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_perception_scaled/pred_internvl_8b_perception_scaled_merged.jsonl",
+      "provider": "internvl_8b",
+      "run_tag": "perception_scaled",
+      "sha256": "1a8bec5fcc8b6e6eb5cdabc4f05f421a0384c9fd0d716ba02746905e4f8fbc26",
+      "source": "kaggleoutputs/newruns/pred_internvl_8b_perception_scaled_merged.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 738,
+        "n_duplicate_ids": 0,
+        "n_rows": 738,
+        "parse_ok": 738,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "internvl_8b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "internvl_8b__polarity": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 728,
+          "n_duplicate_ids": 0,
+          "n_rows": 728,
+          "parse_ok": 546,
+          "parse_rate": 0.75,
+          "provider_names": [
+            "internvl_8b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_internvl_8b_polarity.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_polarity/pred_internvl_8b_polarity.jsonl",
+      "provider": "internvl_8b",
+      "run_tag": "polarity",
+      "sha256": "73f5f1a3534a9a217dc1debbd8e467a055508ba3d0cc5abb6b9f83416d56d6e9",
+      "source": "kaggleoutputs/newruns/pred_internvl_8b_polarity.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 728,
+        "n_duplicate_ids": 0,
+        "n_rows": 728,
+        "parse_ok": 546,
+        "parse_rate": 0.75,
+        "provider_names": [
+          "internvl_8b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "internvl_8b__spurious": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 188,
+          "n_duplicate_ids": 0,
+          "n_rows": 188,
+          "parse_ok": 188,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "internvl_8b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_internvl_8b_spurious_merged.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_spurious/pred_internvl_8b_spurious_merged.jsonl",
+      "provider": "internvl_8b",
+      "run_tag": "spurious",
+      "sha256": "68712ead859aeb1d3e93a0926a5650701cd06f8db7e995f11fa4a4a2fc6781fd",
+      "source": "kaggleoutputs/newruns/pred_internvl_8b_spurious_merged.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 188,
+        "n_duplicate_ids": 0,
+        "n_rows": 188,
+        "parse_ok": 188,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "internvl_8b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "llava_onevision_7b__mechanism": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 364,
+          "n_duplicate_ids": 0,
+          "n_rows": 364,
+          "parse_ok": 364,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "llava_onevision_7b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_llava_onevision_7b_mechanism.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_mechanism/pred_llava_onevision_7b_mechanism.jsonl",
+      "provider": "llava_onevision_7b",
+      "run_tag": "mechanism",
+      "sha256": "0361bb310caedfa69cd1a0f92d61cc1a210f9599d99ebebeb481ca2f1d6979a9",
+      "source": "kaggleoutputs/newruns/pred_llava_onevision_7b_mechanism.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 364,
+        "n_duplicate_ids": 0,
+        "n_rows": 364,
+        "parse_ok": 364,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "llava_onevision_7b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "llava_onevision_7b__perception_scaled": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 738,
+          "n_duplicate_ids": 0,
+          "n_rows": 738,
+          "parse_ok": 738,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "llava_onevision_7b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_llava_onevision_7b_perception_scaled_merged.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_perception_scaled/pred_llava_onevision_7b_perception_scaled_merged.jsonl",
+      "provider": "llava_onevision_7b",
+      "run_tag": "perception_scaled",
+      "sha256": "e42223879642fc4b08bc86747ce0a96568d08c4fd12afbf8f3f6f112446acb55",
+      "source": "kaggleoutputs/newruns/pred_llava_onevision_7b_perception_scaled_merged.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 738,
+        "n_duplicate_ids": 0,
+        "n_rows": 738,
+        "parse_ok": 738,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "llava_onevision_7b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "llava_onevision_7b__polarity": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 728,
+          "n_duplicate_ids": 0,
+          "n_rows": 728,
+          "parse_ok": 728,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "llava_onevision_7b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_llava_onevision_7b_polarity.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_polarity/pred_llava_onevision_7b_polarity.jsonl",
+      "provider": "llava_onevision_7b",
+      "run_tag": "polarity",
+      "sha256": "20678b9bc7e83ebcf9415e4cef8da51c31e41ce2dd1ac539cf5781cbadd587ac",
+      "source": "kaggleoutputs/newruns/pred_llava_onevision_7b_polarity.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 728,
+        "n_duplicate_ids": 0,
+        "n_rows": 728,
+        "parse_ok": 728,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "llava_onevision_7b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "llava_onevision_7b__spurious": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 188,
+          "n_duplicate_ids": 0,
+          "n_rows": 188,
+          "parse_ok": 188,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "llava_onevision_7b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_llava_onevision_7b_spurious_merged.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_spurious/pred_llava_onevision_7b_spurious_merged.jsonl",
+      "provider": "llava_onevision_7b",
+      "run_tag": "spurious",
+      "sha256": "81d40e6942b8db147472987b22d55f876eda3c88ed370a20b9fe7b3ab457c67c",
+      "source": "kaggleoutputs/newruns/pred_llava_onevision_7b_spurious_merged.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 188,
+        "n_duplicate_ids": 0,
+        "n_rows": 188,
+        "parse_ok": 188,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "llava_onevision_7b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "qwen2_5_vl_7b__mechanism": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 364,
+          "n_duplicate_ids": 0,
+          "n_rows": 364,
+          "parse_ok": 364,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "qwen2_5_vl_7b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_mechanism.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_mechanism/pred_qwen2_5_vl_7b_mechanism.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "run_tag": "mechanism",
+      "sha256": "577a87d5f0bec8f0a5d27411442d084302ff04e2813943b264cbd860c634bfec",
+      "source": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_mechanism.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 364,
+        "n_duplicate_ids": 0,
+        "n_rows": 364,
+        "parse_ok": 364,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "qwen2_5_vl_7b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "qwen2_5_vl_7b__perception_scaled": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 738,
+          "n_duplicate_ids": 0,
+          "n_rows": 738,
+          "parse_ok": 738,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "qwen2_5_vl_7b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_perception_scaled_merged.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_perception_scaled/pred_qwen2_5_vl_7b_perception_scaled_merged.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "run_tag": "perception_scaled",
+      "sha256": "14def3f2758bd8ed7cd741b88662d29771504a02f6057e17b93cb6819ad9eae5",
+      "source": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_perception_scaled_merged.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 738,
+        "n_duplicate_ids": 0,
+        "n_rows": 738,
+        "parse_ok": 738,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "qwen2_5_vl_7b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "qwen2_5_vl_7b__polarity": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 728,
+          "extracted_path": "data/results/main_real_200/v8_upgrade/staging/newruns_extracted/qwen2_5_vl_7b_polarity_preds/pred_qwen2_5_vl_7b_polarity.jsonl",
+          "n_duplicate_ids": 0,
+          "n_rows": 728,
+          "parse_ok": 691,
+          "parse_rate": 0.9492,
+          "provider_names": [
+            "qwen2_5_vl_7b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/qwen2_5_vl_7b_polarity_preds.zip::pred_qwen2_5_vl_7b_polarity.jsonl",
+          "source_kind": "zip_member"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_polarity/pred_qwen2_5_vl_7b_polarity.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "run_tag": "polarity",
+      "sha256": "ee2c3d80867ec3e90c28ab55c73dc3b197c1eb5760051a9179baca5dca741ab7",
+      "source": "data/results/main_real_200/v8_upgrade/staging/newruns_extracted/qwen2_5_vl_7b_polarity_preds/pred_qwen2_5_vl_7b_polarity.jsonl",
+      "source_kind": "zip_member",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 728,
+        "n_duplicate_ids": 0,
+        "n_rows": 728,
+        "parse_ok": 691,
+        "parse_rate": 0.9492,
+        "provider_names": [
+          "qwen2_5_vl_7b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    },
+    "qwen2_5_vl_7b__spurious": {
+      "attempts": [
+        {
+          "duplicate_ids_preview": [],
+          "expected_rows": 188,
+          "n_duplicate_ids": 0,
+          "n_rows": 188,
+          "parse_ok": 188,
+          "parse_rate": 1.0,
+          "provider_names": [
+            "qwen2_5_vl_7b"
+          ],
+          "provider_ok": true,
+          "row_count_ok": true,
+          "source": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+          "source_kind": "direct"
+        }
+      ],
+      "copy_status": "already_identical",
+      "destination": "data/results/main_real_200/kaggle_spurious/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "run_tag": "spurious",
+      "sha256": "4be34d6826587eca851855c2f407e6b82964a83ca47ae6fe2a64831d809a8049",
+      "source": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+      "source_kind": "direct",
+      "status": "complete",
+      "validation": {
+        "duplicate_ids_preview": [],
+        "expected_rows": 188,
+        "n_duplicate_ids": 0,
+        "n_rows": 188,
+        "parse_ok": 188,
+        "parse_rate": 1.0,
+        "provider_names": [
+          "qwen2_5_vl_7b"
+        ],
+        "provider_ok": true,
+        "row_count_ok": true
+      }
+    }
+  },
+  "failures": [],
+  "ingested_existing_kaggle_predictions": true,
+  "paper_evidence": false,
+  "produced_model_results_by_this_script": false,
+  "schema": "certvic.v8.canonical_prediction_manifest.v1",
+  "status": "complete"
+}

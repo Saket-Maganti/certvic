@@ -1,0 +1,13 @@
+defect_id,defect,repair,status
+AF01,multiple task schemas and hidden aliases,task_schema.py and canonical consumers,REPAIRED
+AF02,Main builder output incompatible with generator,direct three-family canonical build,REPAIRED
+AF03,Main analysis used alternate gold fields,canonical exact task-result join,REPAIRED
+AF04,generation notebooks bypassed strict package,shard assembly plus mandatory global packager,REPAIRED
+AF05,review did not constrain selection,signed final-review join and complete exclusions,REPAIRED
+AF06,negative policy was configuration only,protected-scene negative builder,REPAIRED
+AF07,engine policy was advisory,prospective engine controls generation,REPAIRED
+AF08,smoke validation accepted sparse reports,trusted two-item importer-grade contract,REPAIRED
+AF09,execution relied on a mutable boolean,expiring hash-bound one-run permission,REPAIRED
+AF10,Main stopped at candidates,QA/review/selection/reserve/freeze finalizer,REPAIRED
+AF11,attribute fallback could be implicit,verified registered exact transitions only,REPAIRED
+AF12,solver resource failure was ambiguous,pruning/memoization/limits/resource-limit verdict,REPAIRED

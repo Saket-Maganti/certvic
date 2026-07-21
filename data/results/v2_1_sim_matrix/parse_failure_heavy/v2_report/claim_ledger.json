@@ -1,0 +1,21 @@
+{
+  "allowed_claim": "Not certified; report descriptive smoke metrics only.",
+  "certified": false,
+  "cs_lower_bound": null,
+  "descriptive_consistency_rate": 0.545,
+  "descriptive_gap": 0.029999999999999916,
+  "evidence_context": {
+    "evidence_statuses": [
+      "SIMULATED_ONLY"
+    ],
+    "has_synthetic_smoke_fixtures": false,
+    "provider_types": [
+      "baseline"
+    ],
+    "splits": [
+      "simulation"
+    ]
+  },
+  "note": "SIMULATED_ONLY artifacts are not real data, not model evidence, and not paper claims.",
+  "simulation_only": true
+}

@@ -1,0 +1,41 @@
+{
+  "cuda_contract": {
+    "bf16_allowed": false,
+    "device_class": "NVIDIA_T4_X2_OR_DECLARED_SINGLE_T4_FALLBACK",
+    "minimum_cuda_runtime": "12.1",
+    "required_compute_capability": "7.5"
+  },
+  "lock_status": "STRUCTURED_TARGET_REQUIRES_LEVEL3_KAGGLE_VERIFICATION",
+  "offline_install": {
+    "allow_index": false,
+    "command_template": "python -m pip install --no-index --find-links WHEELHOUSE --require-hashes -r REQUIREMENTS_LOCK",
+    "wheelhouse_manifest_required": true
+  },
+  "packages": {
+    "accelerate": "1.1.1",
+    "bitsandbytes": "0.44.1",
+    "diffusers": "0.31.0",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "pillow": "11.0.0",
+    "pyyaml": "6.0.2",
+    "safetensors": "0.4.5",
+    "scipy": "1.14.1",
+    "tokenizers": "0.20.3",
+    "torch": "2.4.1",
+    "torchvision": "0.19.1",
+    "transformers": "4.46.3"
+  },
+  "python": {
+    "implementation": "CPython",
+    "version": "3.10"
+  },
+  "schema": "certvic.cvpr.kaggle_environment_lock.v1",
+  "scientific_status": "PLANNED_NOT_EXECUTED",
+  "verification_ladder": [
+    "LOCAL_SCHEMA_AND_HASH_CHECK",
+    "WHEELHOUSE_ALL_BYTES_HASHED",
+    "KAGGLE_T4X2_IMPORT_AND_CUDA_SMOKE",
+    "TWO_ITEM_REAL_MODEL_SMOKE"
+  ]
+}

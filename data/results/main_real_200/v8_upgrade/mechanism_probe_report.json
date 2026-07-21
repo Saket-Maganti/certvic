@@ -1,0 +1,365 @@
+{
+  "evidence_status": "DIAGNOSTIC_NON_EVIDENCE",
+  "expected_providers": [
+    "qwen2_5_vl_7b",
+    "internvl_8b",
+    "llava_onevision_7b"
+  ],
+  "expected_rows_per_provider": 364,
+  "interpretation_limits": [
+    "Flat diagnostic rows; not a TaskItem run_eval certification path.",
+    "Two-step yes/no decisions are parsed deterministically from the last yes/no token when present.",
+    "Object-list target mentions are substring/list checks and are reported as diagnostic indicators.",
+    "original_vs_edited is excluded because the spec marks it blocked."
+  ],
+  "missing_files": [],
+  "paper_evidence": false,
+  "pred_dir": "data/results/main_real_200/kaggle_mechanism",
+  "providers": {
+    "internvl_8b": {
+      "duplicate_prediction_ids": [],
+      "excluded_spec_blocked_families": [
+        "original_vs_edited"
+      ],
+      "exists": true,
+      "expected_rows": 364,
+      "extra_families": [],
+      "families": {
+        "context_suppression": {
+          "answer_counts_top10": {
+            "no": 22,
+            "yes": 69
+          },
+          "decision_accuracy": 0.2418,
+          "decision_correct": 22,
+          "decision_parse_rate": 1.0,
+          "decision_rows": 91,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": null,
+          "object_list_false_target_mentions": null,
+          "object_list_target_mention_rate": null,
+          "object_list_target_mentions": null,
+          "object_list_target_rows": 0,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        },
+        "object_list": {
+          "answer_counts_top10": {
+            "Telephone booth, building, grass, sidewalk, street, car, window,": 1,
+            "bed, nightstand, lamp, window, door, star, wreath": 1,
+            "bed, pillow, bedspread, lamp, window, curtain, nightstand,": 1,
+            "bus, pedestrian, crosswalk, traffic light, building, car, umbrella,": 1,
+            "ceiling fan, television, fireplace, curtain, window, door, sofa,": 1,
+            "fireplace, candles, mirror, lamp, sofa, armchair, rug,": 1,
+            "kitchen, dining table, chairs, vases, flowers, bottles, microwave": 1,
+            "lamp, sofa, chair, desk, television, fireplace, window, mirror": 1,
+            "road, bridge, water, trees, buildings, sky": 1,
+            "sign, road, tree, car, street, pole": 1
+          },
+          "decision_accuracy": null,
+          "decision_correct": 0,
+          "decision_parse_rate": 0.0,
+          "decision_rows": 0,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": 0.6813,
+          "object_list_false_target_mentions": 62,
+          "object_list_target_mention_rate": 0.6813,
+          "object_list_target_mentions": 62,
+          "object_list_target_rows": 91,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        },
+        "region_focused": {
+          "answer_counts_top10": {
+            "no": 35,
+            "yes": 56
+          },
+          "decision_accuracy": 0.3846,
+          "decision_correct": 35,
+          "decision_parse_rate": 1.0,
+          "decision_rows": 91,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": null,
+          "object_list_false_target_mentions": null,
+          "object_list_target_mention_rate": null,
+          "object_list_target_mentions": null,
+          "object_list_target_rows": 0,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        },
+        "two_step": {
+          "answer_counts_top10": {
+            "The image shows a cozy bedroom with a bed, nightstands, and a": 2,
+            "The image shows a cozy living room with a beige sofa, a fireplace,": 2,
+            "The image shows a cozy living room with a fireplace, a sofa, and a": 2,
+            "The image shows a cozy living room with a fireplace, bookshelves, and": 2,
+            "The image shows a cozy living room with a fireplace, large windows, and a": 2,
+            "The image shows a man crossing a wet street with a bus and a truck in": 1,
+            "The image shows a modern kitchen with a dining area featuring a round table and chairs": 1,
+            "The image shows a neatly arranged bedroom with a bed, nightstands,": 2,
+            "The image shows a road sign indicating an exit to Paya Lebar Rd,": 1,
+            "The image shows a well-lit bedroom with a bed, nightstands,": 2
+          },
+          "decision_accuracy": 0.0,
+          "decision_correct": 0,
+          "decision_parse_rate": 0.011,
+          "decision_rows": 1,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": null,
+          "object_list_false_target_mentions": null,
+          "object_list_target_mention_rate": null,
+          "object_list_target_mentions": null,
+          "object_list_target_rows": 0,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        }
+      },
+      "missing_families": [],
+      "n_duplicate_prediction_ids": 0,
+      "n_rows": 364,
+      "path": "data/results/main_real_200/kaggle_mechanism/pred_internvl_8b_mechanism.jsonl",
+      "provider": "internvl_8b",
+      "provider_names": [
+        "internvl_8b"
+      ],
+      "provider_ok": true,
+      "row_count_ok": true
+    },
+    "llava_onevision_7b": {
+      "duplicate_prediction_ids": [],
+      "excluded_spec_blocked_families": [
+        "original_vs_edited"
+      ],
+      "exists": true,
+      "expected_rows": 364,
+      "extra_families": [],
+      "families": {
+        "context_suppression": {
+          "answer_counts_top10": {
+            "no": 13,
+            "yes": 78
+          },
+          "decision_accuracy": 0.1429,
+          "decision_correct": 13,
+          "decision_parse_rate": 1.0,
+          "decision_rows": 91,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": null,
+          "object_list_false_target_mentions": null,
+          "object_list_target_mention_rate": null,
+          "object_list_target_mentions": null,
+          "object_list_target_rows": 0,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        },
+        "object_list": {
+          "answer_counts_top10": {
+            "bed": 13,
+            "bed, chair": 2,
+            "bed, tvmonitor": 2,
+            "car": 2,
+            "sofa, chair": 20,
+            "sofa, chair, dining table": 7,
+            "sofa, chair, pottedplant": 7,
+            "sofa, chair, tvmonitor": 5,
+            "sofa, pottedplant": 5,
+            "sofa, tvmonitor": 5
+          },
+          "decision_accuracy": null,
+          "decision_correct": 0,
+          "decision_parse_rate": 0.0,
+          "decision_rows": 0,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": 0.5714,
+          "object_list_false_target_mentions": 52,
+          "object_list_target_mention_rate": 0.5714,
+          "object_list_target_mentions": 52,
+          "object_list_target_rows": 91,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        },
+        "region_focused": {
+          "answer_counts_top10": {
+            "no": 15,
+            "yes": 76
+          },
+          "decision_accuracy": 0.1648,
+          "decision_correct": 15,
+          "decision_parse_rate": 1.0,
+          "decision_rows": 91,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": null,
+          "object_list_false_target_mentions": null,
+          "object_list_target_mention_rate": null,
+          "object_list_target_mentions": null,
+          "object_list_target_rows": 0,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        },
+        "two_step": {
+          "answer_counts_top10": {
+            "A man is crossing the street in front of a bus.": 1,
+            "The image shows a bedroom with two beds, striped blankets, and a table with": 1,
+            "The image shows a curved road next to a body of water with trees and a": 1,
+            "The image shows a living room with a fireplace, a sliding glass door, and": 1,
+            "The image shows a living room with a fireplace, a television, a desk with": 1,
+            "The image shows a living room with a sofa, a coffee table, a fireplace": 2,
+            "The image shows a modern kitchen with a dining table, various decorative items, and": 1,
+            "The image shows a road with a green exit sign, a blue and white sign": 1,
+            "The image shows a spacious living room with large windows, a view of the city": 2,
+            "The image shows a well-decorated living room with a sofa, chairs,": 2
+          },
+          "decision_accuracy": 0.3333,
+          "decision_correct": 1,
+          "decision_parse_rate": 0.033,
+          "decision_rows": 3,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": null,
+          "object_list_false_target_mentions": null,
+          "object_list_target_mention_rate": null,
+          "object_list_target_mentions": null,
+          "object_list_target_rows": 0,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        }
+      },
+      "missing_families": [],
+      "n_duplicate_prediction_ids": 0,
+      "n_rows": 364,
+      "path": "data/results/main_real_200/kaggle_mechanism/pred_llava_onevision_7b_mechanism.jsonl",
+      "provider": "llava_onevision_7b",
+      "provider_names": [
+        "llava_onevision_7b"
+      ],
+      "provider_ok": true,
+      "row_count_ok": true
+    },
+    "qwen2_5_vl_7b": {
+      "duplicate_prediction_ids": [],
+      "excluded_spec_blocked_families": [
+        "original_vs_edited"
+      ],
+      "exists": true,
+      "expected_rows": 364,
+      "extra_families": [],
+      "families": {
+        "context_suppression": {
+          "answer_counts_top10": {
+            "no": 24,
+            "yes": 67
+          },
+          "decision_accuracy": 0.2637,
+          "decision_correct": 24,
+          "decision_parse_rate": 1.0,
+          "decision_rows": 91,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": null,
+          "object_list_false_target_mentions": null,
+          "object_list_target_mention_rate": null,
+          "object_list_target_mentions": null,
+          "object_list_target_rows": 0,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        },
+        "object_list": {
+          "answer_counts_top10": {
+            "bed, nightstand, lamp, star decoration, armoire, rug, trunk": 1,
+            "bed, pillow, lamp, nightstand, window, curtain": 1,
+            "bus, pedestrian crossing, traffic light, truck, person, umbrella, street,": 1,
+            "cabinet, microwave, sink, wine bottle, vase, flower, table,": 1,
+            "couch, chair, television, fireplace, rug, curtains, lamp, coffee": 1,
+            "couch, coffee table, lamp, television, chair, desk, bookshelf": 1,
+            "fireplace, rug, chair, ottoman, lamp, mirror, candles,": 1,
+            "road, sign, car, trees, lamp post": 1,
+            "telephone booth, grass, street, car, building": 1,
+            "trees, road, water, buildings, streetlights": 1
+          },
+          "decision_accuracy": null,
+          "decision_correct": 0,
+          "decision_parse_rate": 0.0,
+          "decision_rows": 0,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": 0.4176,
+          "object_list_false_target_mentions": 38,
+          "object_list_target_mention_rate": 0.4176,
+          "object_list_target_mentions": 38,
+          "object_list_target_rows": 91,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        },
+        "region_focused": {
+          "answer_counts_top10": {
+            "no": 27,
+            "yes": 64
+          },
+          "decision_accuracy": 0.2967,
+          "decision_correct": 27,
+          "decision_parse_rate": 1.0,
+          "decision_rows": 91,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": null,
+          "object_list_false_target_mentions": null,
+          "object_list_target_mention_rate": null,
+          "object_list_target_mentions": null,
+          "object_list_target_rows": 0,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        },
+        "two_step": {
+          "answer_counts_top10": {
+            "A man walks across a wet street near a bus and other vehicles in an urban": 1,
+            "A red telephone booth stands on a grassy area near a street lined with houses": 1,
+            "The cozy living room features a beige sofa, a fireplace, and large windows letting": 1,
+            "The image shows a cozy living room with a fireplace, a patterned rug,": 1,
+            "The image shows a cozy living room with a sofa, coffee table, and a": 1,
+            "The image shows a curved road alongside a body of water with trees and buildings in": 1,
+            "The image shows a modern kitchen with a dining area featuring a round table and colorful": 1,
+            "The image shows a road sign indicating the exit for Paya Lebar Road and": 1,
+            "The image shows a rustic bedroom with wooden furniture and decorative stars on the wall.": 1,
+            "The image shows two beds with striped bedding in a room with windows and a lamp": 1
+          },
+          "decision_accuracy": 0.0,
+          "decision_correct": 0,
+          "decision_parse_rate": 0.022,
+          "decision_rows": 2,
+          "expected_rows": 91,
+          "n_rows": 91,
+          "object_list_false_target_mention_rate": null,
+          "object_list_false_target_mentions": null,
+          "object_list_target_mention_rate": null,
+          "object_list_target_mentions": null,
+          "object_list_target_rows": 0,
+          "raw_parse_ok": 91,
+          "raw_parse_rate": 1.0
+        }
+      },
+      "missing_families": [],
+      "n_duplicate_prediction_ids": 0,
+      "n_rows": 364,
+      "path": "data/results/main_real_200/kaggle_mechanism/pred_qwen2_5_vl_7b_mechanism.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "provider_names": [
+        "qwen2_5_vl_7b"
+      ],
+      "provider_ok": true,
+      "row_count_ok": true
+    }
+  },
+  "schema": "certvic.v8.mechanism_probe_report.v1",
+  "spec_blocked_families_excluded": [
+    "original_vs_edited"
+  ],
+  "status": "complete",
+  "task_root": "data/results/main_real_200/mechanism_probes"
+}

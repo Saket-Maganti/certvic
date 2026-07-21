@@ -1,0 +1,11 @@
+{
+  "status": "BLOCKED_NO_VALIDATED_CONFIRMATORY_RESULTS",
+  "active_branch": null,
+  "branches": [
+    "qwen_fails_again",
+    "qwen_passes",
+    "multiple_models_fail",
+    "all_models_pass"
+  ],
+  "paper_evidence": false
+}

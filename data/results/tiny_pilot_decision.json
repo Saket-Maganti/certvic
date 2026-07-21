@@ -1,0 +1,36 @@
+{
+  "answerability_review_count": 0,
+  "dashboard": "tiny_pilot_decision",
+  "detectability_auc": 0.9231,
+  "dry_run_status": "present",
+  "edit_generation_count": 13,
+  "evidence_status": "DASHBOARD_ONLY_NON_EVIDENCE",
+  "gate": {
+    "artifact_confounded": true,
+    "blockers": [
+      "artifact_confounded_auc_ge_0_80",
+      "edit_detectability_too_high"
+    ],
+    "detectability_auc": 0.9231,
+    "evidence_status": "GATE_ONLY_NON_EVIDENCE",
+    "gate": "tiny_pilot_detectability_first",
+    "guidance": "VLM inference should not begin until detectability and visual quality pass.",
+    "may_begin_vlm_inference": false,
+    "n_detectability_items": 13,
+    "quality_passed": true,
+    "status": "NO_GO",
+    "warnings": [
+      "insufficient_detectability_n"
+    ]
+  },
+  "go_no_go_status": "NO_GO",
+  "item_certificate_pass_rate": null,
+  "may_begin_vlm_eval": false,
+  "pilot_dir": "data/results/tiny_real_pilot",
+  "quality_pass_rate": null,
+  "top_blockers": [
+    "artifact_confounded_auc_ge_0_80",
+    "edit_detectability_too_high"
+  ],
+  "visual_review_count": 0
+}

@@ -1,0 +1,77 @@
+{
+  "created_utc": "2026-07-21T07:50:46.610625+00:00",
+  "files": [
+    {
+      "sha256": "c4ba4ca8c62f41c6848b47f6792cfdcd689f1f8120c0a86bcc0d06555b3ed3ee",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/pilot_report/pilot_result.json",
+      "source": "data/results/main_real_200/pilot_report/pilot_result.json"
+    },
+    {
+      "sha256": "4a36ab1430a10a9e18ea94e08a14afdbc44d60d1d7b043aba180742df62a6897",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/pilot_report__internvl_8b/pilot_result.json",
+      "source": "data/results/main_real_200/pilot_report__internvl_8b/pilot_result.json"
+    },
+    {
+      "sha256": "02b2fb1b4349b11546e820b60d8c2bd73c36b8441475709679999d5f6374139c",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/pilot_report__llava_onevision_7b/pilot_result.json",
+      "source": "data/results/main_real_200/pilot_report__llava_onevision_7b/pilot_result.json"
+    },
+    {
+      "sha256": "246d12c445731159c8d21b0f0cd80506cb6a80847880c81140bc64166e9b2055",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/pilot_report/pilot_result.md",
+      "source": "data/results/main_real_200/pilot_report/pilot_result.md"
+    },
+    {
+      "sha256": "ff97805b83ec7dab689cb1bc6abf1f3b47505ddcd311d69613ebb04bdfb06770",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/pilot_report__internvl_8b/pilot_result.md",
+      "source": "data/results/main_real_200/pilot_report__internvl_8b/pilot_result.md"
+    },
+    {
+      "sha256": "fc5c1f32059dfb8e10963f6b99d85b6065d1ae064ad04af5e709c1acad811d41",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/pilot_report__llava_onevision_7b/pilot_result.md",
+      "source": "data/results/main_real_200/pilot_report__llava_onevision_7b/pilot_result.md"
+    },
+    {
+      "sha256": "ff7d864c20b9d60014a4eb32cd3a429a3dc417b315234e32261c5c82f6df496b",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/raw_predictions/provenance.json",
+      "source": "data/results/main_real_200/raw_predictions/provenance.json"
+    },
+    {
+      "sha256": "498a76be0dc3939ff626203cb1435873011285993ec641ad4e61de4baacd8cc8",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/raw_predictions__internvl_8b/provenance.json",
+      "source": "data/results/main_real_200/raw_predictions__internvl_8b/provenance.json"
+    },
+    {
+      "sha256": "5e6b93b03f60ee779a01301d728f096b9bc193f555edcb4338dc6c87305f0b3d",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/raw_predictions__llava_onevision_7b/provenance.json",
+      "source": "data/results/main_real_200/raw_predictions__llava_onevision_7b/provenance.json"
+    },
+    {
+      "sha256": "04a39dbd964192e141c0a4dcebb80a41f1230c409a76ed5394e860ecaa9b00e1",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/tables/main200_control_results.csv",
+      "source": "data/results/main_real_200/tables/main200_control_results.csv"
+    },
+    {
+      "sha256": "c3fc523e1af458fe18e9d20795ab252e559c0acdabd1f45da749a6c1a9eef6b5",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/tables/main200_multimodel_results.csv",
+      "source": "data/results/main_real_200/tables/main200_multimodel_results.csv"
+    },
+    {
+      "sha256": "dfaa6bd088fc2af39b3da78f18abbdf61d0f398e0c6dde12d37c099bf5ffbfe2",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/tables/main200_per_edit_type.csv",
+      "source": "data/results/main_real_200/tables/main200_per_edit_type.csv"
+    },
+    {
+      "sha256": "547857d1db5a82df53f7f2bfcdcd6d55a111d6d55f269381eee8bc6ad5b3759d",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/tables/main200_control_results.tex",
+      "source": "data/results/main_real_200/tables/main200_control_results.tex"
+    },
+    {
+      "sha256": "51ed9f035c16196ce886a1112305e4677c6a94f3b1156553e8ba9d615183d22e",
+      "snapshot": "data/results/main_real_200/v8_upgrade/staging/pre_v8_canonical_snapshots/tables/main200_multimodel_results.tex",
+      "source": "data/results/main_real_200/tables/main200_multimodel_results.tex"
+    }
+  ],
+  "n_files": 14,
+  "schema": "certvic.v8.pre_snapshot.v1"
+}

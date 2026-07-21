@@ -1,0 +1,36 @@
+{
+  "evidence_status": "HELDOUT_PERCEPTION_CONTROL_PILOT_NON_EVIDENCE",
+  "interpretation": "Held-out perception control; not main-scale intervention evidence.",
+  "paper_evidence": false,
+  "providers": {
+    "internvl_8b": {
+      "absent": "160/177",
+      "absent_accuracy": 0.904,
+      "n": 369,
+      "overall_accuracy": 0.935,
+      "present": "185/192",
+      "present_accuracy": 0.9635,
+      "raw_prediction": "data/results/main_real_200/kaggle_perception_scaled/pred_internvl_8b_perception_scaled_merged.jsonl"
+    },
+    "llava_onevision_7b": {
+      "absent": "156/177",
+      "absent_accuracy": 0.8814,
+      "n": 369,
+      "overall_accuracy": 0.9322,
+      "present": "188/192",
+      "present_accuracy": 0.9792,
+      "raw_prediction": "data/results/main_real_200/kaggle_perception_scaled/pred_llava_onevision_7b_perception_scaled_merged.jsonl"
+    },
+    "qwen2_5_vl_7b": {
+      "absent": "165/177",
+      "absent_accuracy": 0.9322,
+      "n": 369,
+      "overall_accuracy": 0.897,
+      "present": "166/192",
+      "present_accuracy": 0.8646,
+      "raw_prediction": "data/results/main_real_200/kaggle_perception_scaled/pred_qwen2_5_vl_7b_perception_scaled_merged.jsonl"
+    }
+  },
+  "schema": "certvic.v8.scaled_perception_control_report.v1",
+  "status": "complete"
+}

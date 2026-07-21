@@ -1,0 +1,410 @@
+{
+  "absent_object_control": {
+    "absent_accuracy": 1.0,
+    "absent_correct": 60,
+    "absent_n": 60,
+    "n": 120,
+    "overall_accuracy": 0.9833,
+    "overall_correct": 118,
+    "per_object": {
+      "car": {
+        "correct": 30,
+        "n": 30
+      },
+      "chair": {
+        "correct": 30,
+        "n": 30
+      },
+      "sofa": {
+        "correct": 30,
+        "n": 30
+      },
+      "table": {
+        "correct": 28,
+        "n": 30
+      }
+    },
+    "present_accuracy": 0.9667,
+    "present_correct": 58,
+    "present_n": 60
+  },
+  "answer_update": {
+    "presence": {
+      "n_items": 91,
+      "non_update_rate": 0.8242,
+      "same_answer": 75,
+      "updated_answer": 16
+    }
+  },
+  "display_name": "llava-onevision-qwen2-7b-ov",
+  "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+  "generated_utc": "2026-06-24T19:22:59.618619+00:00",
+  "model": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+  "paid_services_used": false,
+  "paper_evidence": false,
+  "presence_intervention": {
+    "by_edit_type": {
+      "displace": {
+        "consistency_rate": 0.1481,
+        "gap": 0.8148,
+        "n": 54,
+        "original_accuracy": 0.963
+      },
+      "occlude": {
+        "consistency_rate": 0.3333,
+        "gap": 0.5,
+        "n": 6,
+        "original_accuracy": 0.8333
+      },
+      "remove": {
+        "consistency_rate": 0.1935,
+        "gap": 0.5806,
+        "n": 31,
+        "original_accuracy": 0.7742
+      }
+    },
+    "certification": {
+      "alpha": 0.05,
+      "certification_gate_errors": [],
+      "certified": true,
+      "confidence_sequence": {
+        "alpha": 0.05,
+        "available": true,
+        "hi": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "latest": {
+          "hi": 1.0,
+          "lo": 0.330991384213863
+        },
+        "lo": [
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -0.9414500432935735,
+          -0.812835987195889,
+          -0.8346644178126974,
+          -0.7912278649956712,
+          -0.6940441351476305,
+          -0.6076270680504814,
+          -0.5829086336301899,
+          -0.5606343996813954,
+          -0.5404555326132303,
+          -0.5220866161646054,
+          -0.461813604359532,
+          -0.40654145288283416,
+          -0.3956703189188848,
+          -0.3471541764059298,
+          -0.30221307233927197,
+          -0.26046418528992843,
+          -0.2560602511214599,
+          -0.21860030355894822,
+          -0.18354156174047143,
+          -0.15065908884883727,
+          -0.18036127038246774,
+          -0.1494790315516472,
+          -0.14891976026090947,
+          -0.120601131813725,
+          -0.09380107014889716,
+          -0.06839982045820259,
+          -0.044289908065664574,
+          -0.021374603472767983,
+          0.0004333879708235955,
+          0.021213049208550716,
+          0.04103601790263145,
+          0.05996742107608255,
+          0.05584437624848326,
+          0.07364860112071647,
+          0.09070379649282856,
+          0.10705668965179305,
+          0.10234203163137856,
+          0.117823794801996,
+          0.13270603349026988,
+          0.1277924914512294,
+          0.12307153679744465,
+          0.11853240045547064,
+          0.11416509770063632,
+          0.12781750095677902,
+          0.14099728212660811,
+          0.1537288264058665,
+          0.16603486672725465,
+          0.1779366214272886,
+          0.18945391837277814,
+          0.20060530707565816,
+          0.2114081601307809,
+          0.20625376514444715,
+          0.21664779279311985,
+          0.2267319344530423,
+          0.23652002004258388,
+          0.24602506664364432,
+          0.25525933738827566,
+          0.2642343952982764,
+          0.27296115257533904,
+          0.26756102689515493,
+          0.26231316704755203,
+          0.2707248764980317,
+          0.278916403064692,
+          0.2868964030946417,
+          0.2946730837568212,
+          0.3022542318253909,
+          0.3096472402773014,
+          0.2918591328952931,
+          0.29920522902399616,
+          0.29418058895386423,
+          0.30132870421732694,
+          0.2964052814354279,
+          0.3033657590696035,
+          0.3101676485863214,
+          0.31681639232319125,
+          0.3233171855916501,
+          0.3296749905481784,
+          0.3358945491409264,
+          0.330991384213863
+        ],
+        "method": "certvic.anytime_cs.hoeffding_mixture",
+        "t_opt": 91
+      },
+      "cs_threshold_passed": true,
+      "lower_bound": 0.330991384213863,
+      "safe_claim": "Under the configured item order and anytime-valid CS, the intervention-consistency gap lower bound exceeds 0.05 at alpha=0.05 for this run.",
+      "statement": "Under the configured item order and anytime-valid CS, the intervention-consistency gap lower bound exceeds 0.05 at alpha=0.05 for this run.",
+      "threshold": 0.05,
+      "upper_bound": 1.0
+    },
+    "positive_subset": {
+      "consistency_rate": 0.1957,
+      "gap": 0.6739,
+      "n": 46,
+      "original_accuracy": 0.8696
+    },
+    "summary": {
+      "by_domain": {
+        "household": {
+          "consistency_rate": 0.17582417582417584,
+          "edited_accuracy": 0.21978021978021978,
+          "intervention_consistency_gap": 0.7142857142857142,
+          "n": 91,
+          "original_accuracy": 0.8901098901098901,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        }
+      },
+      "by_required_change": {
+        "change": {
+          "consistency_rate": 0.17582417582417584,
+          "edited_accuracy": 0.21978021978021978,
+          "intervention_consistency_gap": 0.7142857142857142,
+          "n": 91,
+          "original_accuracy": 0.8901098901098901,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        }
+      },
+      "by_task_family": {
+        "affordance_reachability": {
+          "consistency_rate": 0.1935483870967742,
+          "edited_accuracy": 0.22580645161290322,
+          "intervention_consistency_gap": 0.5806451612903225,
+          "n": 31,
+          "original_accuracy": 0.7741935483870968,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "occlusion_safety": {
+          "consistency_rate": 0.3333333333333333,
+          "edited_accuracy": 0.5,
+          "intervention_consistency_gap": 0.5,
+          "n": 6,
+          "original_accuracy": 0.8333333333333334,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "support_stability": {
+          "consistency_rate": 0.14814814814814814,
+          "edited_accuracy": 0.18518518518518517,
+          "intervention_consistency_gap": 0.8148148148148148,
+          "n": 54,
+          "original_accuracy": 0.9629629629629629,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        }
+      },
+      "consistency_rate": 0.17582417582417584,
+      "control_edit": {
+        "consistency_rate": null,
+        "n": 0,
+        "spurious_flip_rate": null
+      },
+      "edited_accuracy": 0.21978021978021978,
+      "intervention_consistency_gap": 0.7142857142857142,
+      "n": 91,
+      "original_accuracy": 0.8901098901098901,
+      "parse_failure_rate": 0.0,
+      "parse_failure_sensitivity": {
+        "metrics_parse_fail_as_inconsistent": {
+          "consistency_rate": 0.17582417582417584,
+          "edited_accuracy": 0.21978021978021978,
+          "intervention_consistency_gap": 0.7142857142857142,
+          "n": 91,
+          "original_accuracy": 0.8901098901098901,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "metrics_parse_ok_only": {
+          "consistency_rate": 0.17582417582417584,
+          "edited_accuracy": 0.21978021978021978,
+          "intervention_consistency_gap": 0.7142857142857142,
+          "n": 91,
+          "original_accuracy": 0.8901098901098901,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "n_parse_failures": 0,
+        "note": "Descriptive sensitivity only; parse-failure handling is never a certification substitute.",
+        "parse_failure_rate": 0.0
+      },
+      "spurious_flip_rate": null
+    }
+  },
+  "provenance": {
+    "ingest_dir": "data/results/main_real_200/raw_predictions__llava_onevision_7b",
+    "ingested": [
+      {
+        "arm": "presence",
+        "ingested_path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_presence_merged.jsonl",
+        "n_records": 182,
+        "run_manifests": [
+          {
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_control_merged.jsonl.run_manifest.json",
+            "sha256": "9bf2f5c02ad2e18c16d36c3b4910705c674cc2da5b7528ce1ba444802fbffcbf"
+          },
+          {
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_presence_merged.jsonl.run_manifest.json",
+            "sha256": "0664c53d7db7fa979f293dc64fed6ffc7c3d58473a6ad935363eaf72da28863a"
+          }
+        ],
+        "sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+        "source_path": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_presence_merged.jsonl"
+      },
+      {
+        "arm": "control",
+        "ingested_path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/control__pred_llava_onevision_7b_control_merged.jsonl",
+        "n_records": 240,
+        "run_manifests": [
+          {
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/control__pred_llava_onevision_7b_control_merged.jsonl.run_manifest.json",
+            "sha256": "9bf2f5c02ad2e18c16d36c3b4910705c674cc2da5b7528ce1ba444802fbffcbf"
+          },
+          {
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/control__pred_llava_onevision_7b_presence_merged.jsonl.run_manifest.json",
+            "sha256": "0664c53d7db7fa979f293dc64fed6ffc7c3d58473a6ad935363eaf72da28863a"
+          }
+        ],
+        "sha256": "f25b6f341a20568f5e768f6d83d45a8a46396a809f82caa54f25fcf5158bccb8",
+        "source_path": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/raw_predictions__llava_onevision_7b/control__pred_llava_onevision_7b_control_merged.jsonl"
+      }
+    ]
+  },
+  "provider": "llava_onevision_7b",
+  "run_label": "llava_onevision_7b",
+  "spurious_flip_control": null
+}

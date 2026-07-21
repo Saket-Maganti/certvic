@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "coco_generation_return.zip",
+      "sha256": "978ff339474616e9fff695b875f996438d31327b121c5e8f29450491e42955cb",
+      "size": 3551
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "bfab56f28f0ff73c268e4111b17d2a7333c3f5a2f86360ba46b9390209e6451c",
+      "size": 956
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "fee89c677ece2af6cbb11f540e8ebaa542a7154c14a6e649155abd4c4bd54d6c",
+  "config": {
+    "artifact_globs": [
+      "coco_generation_return.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "20_second_domain_generation_T4x2.ipynb",
+    "notebook_sha256": "66b0311ad49ede591f4e8780b9c6c8f5950439c62c664cc823eb27bd8e2ee37b",
+    "provider": "coco_object_presence",
+    "return_zip": "coco_generation_return.zip",
+    "route": "20_second_domain_generation_T4x2__coco_object_presence",
+    "stage": "generation",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "5889c7bf3bf75f57b48171528cfa39c1617c55a3d53797804184c297c4e4c2c2",
+  "status": "PASS"
+}

@@ -1,0 +1,28 @@
+{
+  "allow_full_run": false,
+  "by_edit_type": {
+    "control_irrelevant": 7,
+    "displace": 6
+  },
+  "by_engine": {
+    "simple_control": 7,
+    "simple_displace": 6
+  },
+  "duplicates_detected": 0,
+  "edit_plan_path": "data/results/tiny_real_pilot/pilot_edit_plan.jsonl",
+  "engine": "per_edit_type_default",
+  "engine_version": "certvic.edit.engines.v2",
+  "evidence_status": "GENERATED_EDIT_ONLY",
+  "generated": 13,
+  "input_plans": 13,
+  "max_items": 20,
+  "out_dir": "data/results/tiny_real_pilot/edits",
+  "paper_evidence": false,
+  "quality_failed": 0,
+  "quality_passed": 13,
+  "rejected": 0,
+  "resume": true,
+  "seed": 0,
+  "vlm_inference_run": false,
+  "zero_cost": true
+}

@@ -1,0 +1,26 @@
+run_id,command,start_utc,end_utc,exit_code,status,log
+baseline_validation,python3 scripts/run_phase_b_cpu_workflows.py --out reports/kaggle_execution_pack/phase_b_cpu_validation,2026-07-21T02:50:02+00:00,2026-07-21T02:50:59+00:00,0,COMPLETED,reports/cpu_execution/logs/baseline_validation.log
+repository_kaggle_bundles,python3 -m certvic.cvpr.build_all_kaggle_inputs --local-only,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,ALREADY_VALID,
+wheelhouse_preflight,python3 -m certvic.cvpr.wheelhouse_builder --mode LOCAL_VERIFY_ONLY --status,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,ALREADY_VALID,
+snapshot_preflight_qwen,python3 -m certvic.cvpr.snapshot_bundle_builder --provider qwen2_5_vl_7b --status,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,ALREADY_VALID,
+snapshot_preflight_internvl,python3 -m certvic.cvpr.snapshot_bundle_builder --provider internvl_8b --status,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,ALREADY_VALID,
+snapshot_preflight_llava,python3 -m certvic.cvpr.snapshot_bundle_builder --provider llava_onevision_7b --status,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,ALREADY_VALID,
+data_license_overlap_inventory,python3 scripts/run_all_cpu_workflows.py --internal data_inventory,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,ALREADY_VALID,
+first_gpu_wave_return_validation,python3 scripts/run_all_cpu_workflows.py --internal first_wave_returns,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_GPU_OUTPUT,
+real_smoke_preparation,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_EXTERNAL_BYTES,
+pre_smoke_permissions,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_UPSTREAM_GATE,
+confirmatory_source_preparation,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_EXTERNAL_BYTES,
+generated_edit_cpu_qa,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_GPU_OUTPUT,
+review_packet_preparation,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_UPSTREAM_GATE,
+exact_selection,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_GENUINE_HUMAN_REVIEW,
+detectability_gate,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_UPSTREAM_GATE,
+freeze_and_permissions,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_UPSTREAM_GATE,
+process_kaggle_returns,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_GPU_OUTPUT,
+statistical_analysis,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_UPSTREAM_GATE,
+main_cpu_preparation,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_UPSTREAM_GATE,
+coco_cpu_preparation,,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,,BLOCKED_BY_EXTERNAL_BYTES,
+runtime_upload_map,python3 -m certvic.cvpr.build_all_kaggle_inputs --local-only,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,ALREADY_VALID,
+paper_evidence_and_release,python3 scripts/run_phase_b_cpu_workflows.py --out reports/kaggle_execution_pack/phase_b_cpu_validation,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,ALREADY_VALID,
+refresh_release_lineage,python3 scripts/refresh_kaggle_release_lineage.py --include-release,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,COMPLETED,reports/cpu_execution/logs/refresh_release_lineage.log
+register_repository_bundles,python3 scripts/run_all_cpu_workflows.py --internal register_bundles,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,COMPLETED,reports/cpu_execution/logs/register_repository_bundles.log
+final_registry_verification,python3 -m certvic.cvpr.artifact_registry verify,2026-07-21T02:50:59+00:00,2026-07-21T02:50:59+00:00,0,COMPLETED,reports/cpu_execution/logs/final_registry_verification.log

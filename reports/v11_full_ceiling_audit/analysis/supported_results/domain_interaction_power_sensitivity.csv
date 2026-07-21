@@ -1,0 +1,5 @@
+domain_interaction_effect_assumption,two_sided_alpha,target_power,conservative_required_pairs_per_domain,method,evidence_class
+0.05,0.05,0.8,6280,bounded_difference_conservative_normal_approximation,PLANNED_NOT_EXECUTED
+0.1,0.05,0.8,1570,bounded_difference_conservative_normal_approximation,PLANNED_NOT_EXECUTED
+0.15,0.05,0.8,698,bounded_difference_conservative_normal_approximation,PLANNED_NOT_EXECUTED
+0.2,0.05,0.8,393,bounded_difference_conservative_normal_approximation,PLANNED_NOT_EXECUTED

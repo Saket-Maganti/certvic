@@ -1,0 +1,79 @@
+{
+  "all_eligible": false,
+  "any_eligible": false,
+  "claim_ledger": null,
+  "downloads_attempted": false,
+  "entries": [
+    {
+      "artifact": "data/results/smoke_report/certification.json",
+      "basename": "certification.json",
+      "eligible": false,
+      "evidence_status": "UNKNOWN",
+      "kind": "data",
+      "provider_type": "unknown",
+      "sha256": "4ae62ee90b3e68076efd483a5a35529d5b2f5bf791f011bb9988b21f0e8dfd99"
+    },
+    {
+      "artifact": "data/results/smoke_report/claim_ledger.json",
+      "basename": "claim_ledger.json",
+      "eligible": false,
+      "evidence_status": "UNKNOWN",
+      "kind": "data",
+      "provider_type": "unknown",
+      "sha256": "757acf1700663e8abe185f933d401a48c83614fa9e46f7856ef133f37d20956c"
+    },
+    {
+      "artifact": "data/results/smoke_report/main_table.tex",
+      "basename": "main_table.tex",
+      "eligible": false,
+      "evidence_status": "UNKNOWN",
+      "kind": "table",
+      "provider_type": "unknown",
+      "sha256": "8a748cfdb030d667746c9da82227c0bdcd973a14cba13662c52def3d7fc4df4d"
+    },
+    {
+      "artifact": "data/results/smoke_report/metrics_by_domain.csv",
+      "basename": "metrics_by_domain.csv",
+      "eligible": false,
+      "evidence_status": "UNKNOWN",
+      "kind": "data",
+      "provider_type": "unknown",
+      "sha256": "62e6013e60c193d80efb6b8b74356266780cadcdf6bd58254b2443ba69291f55"
+    },
+    {
+      "artifact": "data/results/smoke_report/metrics_by_family.csv",
+      "basename": "metrics_by_family.csv",
+      "eligible": false,
+      "evidence_status": "UNKNOWN",
+      "kind": "data",
+      "provider_type": "unknown",
+      "sha256": "db4eee57672d385c270bfe79512c33d479ff586bb9161234f55fd51cfe9c3f6c"
+    },
+    {
+      "artifact": "data/results/smoke_report/metrics_by_required_change.csv",
+      "basename": "metrics_by_required_change.csv",
+      "eligible": false,
+      "evidence_status": "UNKNOWN",
+      "kind": "data",
+      "provider_type": "unknown",
+      "sha256": "65eeb58dfd7fb1a27006e96fe03d86e37b48004523c086a904ed05a0b34e55b8"
+    },
+    {
+      "artifact": "data/results/smoke_report/summary.json",
+      "basename": "summary.json",
+      "eligible": false,
+      "evidence_status": "UNKNOWN",
+      "kind": "data",
+      "provider_type": "unknown",
+      "sha256": "8f711b781974ecc533026c0c71e6264d1b50d2c63428d91c344c3e838b200e63"
+    }
+  ],
+  "evidence_claims_made": false,
+  "generated": "2026-06-22",
+  "manifest": "certvic_result_manifest",
+  "n_eligible": 0,
+  "n_entries": 7,
+  "report_dir": "data/results/smoke_report",
+  "report_evidence_status": "UNKNOWN",
+  "report_provider_type": "unknown"
+}

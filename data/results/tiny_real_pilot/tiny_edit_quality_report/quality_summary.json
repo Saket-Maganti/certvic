@@ -1,0 +1,16 @@
+{
+  "by_edit_type": {
+    "control_irrelevant": 7,
+    "displace": 6
+  },
+  "evidence_status": "GENERATED_EDIT_ONLY",
+  "generated_edits_are_evidence": false,
+  "generated_manifest_rows": 13,
+  "human_validity_required": true,
+  "quality_failed": 0,
+  "quality_passed": 13,
+  "rejected_rows": 0,
+  "rejection_reasons": {},
+  "vlm_inference_run": false,
+  "warning_counts": {}
+}

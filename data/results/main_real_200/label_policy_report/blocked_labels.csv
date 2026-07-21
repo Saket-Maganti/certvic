@@ -1,0 +1,6 @@
+label_id,label_name,mask_count,block_reason
+1,wall,920,background_stuff_not_a_manipulable_object
+3,sky,88,background_stuff_not_a_manipulable_object
+4,floor,846,background_stuff_not_a_manipulable_object
+6,ceiling,688,background_stuff_not_a_manipulable_object
+7,road,16,background_stuff_not_a_manipulable_object

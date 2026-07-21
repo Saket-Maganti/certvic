@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "00A_environment_bundle.zip",
+      "sha256": "f526faf8b8c716239a20fb25a1abee96c2f3e7c191308fcb24134c961c35d16e",
+      "size": 3541
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "d820d1065c5bd9b9ef0739ce9e76bfb6244fd291720763cdbe50acc5f5857978",
+      "size": 939
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "0ab5125e1330578e8d9e792334d94dc32235cfd796670da382947ea15de47f89",
+  "config": {
+    "artifact_globs": [
+      "00A_environment_bundle.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "00A_certvic_code_and_environment_smoke.ipynb",
+    "notebook_sha256": "4c1d37bc3399cc8080292f87bd06e118a98550c88207b3e340d3d9ca875a3f69",
+    "provider": "all",
+    "return_zip": "00A_environment_bundle.zip",
+    "route": "00A_certvic_code_and_environment_smoke__all",
+    "stage": "code_smoke",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "89f312c72aa5eabb688c26d5e88bf99d31a0799df9a1054fba93d36202567990",
+  "status": "PASS"
+}

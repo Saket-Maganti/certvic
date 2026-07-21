@@ -1,0 +1,37 @@
+schema: certvic.data.license_registry.v1
+paper_evidence: false
+policy: unresolved source or insertion-asset licenses fail closed before task freezing or release
+sources:
+  - dataset: CERTVIC_SYNTHETIC_SMOKE
+    split: synthetic
+    origin: project_generated_non_photographic_fixture
+    local_root: data/smoke
+    redistribution: ALLOW_PROJECT_FIXTURE_BYTES
+    paper_use: SYNTHETIC_METHOD_TEST_ONLY
+    image_level_license: PROJECT_AUTHORED_FIXTURE
+    insertion_asset_license: NOT_APPLICABLE
+    reviewer_visibility: ALLOW_SYNTHETIC_QA_ONLY
+    release_inclusion: ALLOW_BYTES
+    verification_status: VERIFIED
+  - dataset: ADE20K
+    split: validation
+    origin: external_dataset_runtime_mount
+    local_root: EXTERNAL_PROVISIONING_REQUIRED
+    redistribution: DO_NOT_REDISTRIBUTE_SOURCE_IMAGE_BYTES
+    paper_use: POINTERS_AND_DERIVED_AGGREGATES_AFTER_VERIFICATION
+    image_level_license: RUNTIME_SOURCE_MANIFEST_REQUIRED
+    insertion_asset_license: PER_ASSET_VERIFICATION_REQUIRED
+    reviewer_visibility: PRIVATE_REVIEW_PACKET_ONLY
+    release_inclusion: POINTERS_HASHES_AND_RECIPES_ONLY
+    verification_status: EXTERNAL_VERIFICATION_REQUIRED
+  - dataset: COCO
+    split: validation2017
+    origin: external_dataset_not_present
+    local_root: EXTERNAL_PROVISIONING_REQUIRED
+    redistribution: DO_NOT_REDISTRIBUTE_SOURCE_IMAGE_BYTES
+    paper_use: BLOCKED_UNTIL_REAL_LICENSED_ASSETS_EXIST
+    image_level_license: RUNTIME_SOURCE_MANIFEST_REQUIRED
+    insertion_asset_license: PER_ASSET_VERIFICATION_REQUIRED
+    reviewer_visibility: PRIVATE_REVIEW_PACKET_ONLY
+    release_inclusion: POINTERS_HASHES_AND_RECIPES_ONLY
+    verification_status: EXTERNAL_VERIFICATION_REQUIRED

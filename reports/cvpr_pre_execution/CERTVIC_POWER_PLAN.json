@@ -1,0 +1,270 @@
+{
+  "design_targets": {
+    "minimum_viable": 120,
+    "primary": 240,
+    "reserve": 60
+  },
+  "grid": [
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 1,
+      "n": 60,
+      "pass_probability": 0.8787667286881923,
+      "threshold": 0.1,
+      "true_rate": 0.01
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 1,
+      "n": 60,
+      "pass_probability": 0.45921079710285273,
+      "threshold": 0.1,
+      "true_rate": 0.03
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 1,
+      "n": 60,
+      "pass_probability": 0.19155337473522127,
+      "threshold": 0.1,
+      "true_rate": 0.05
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 1,
+      "n": 60,
+      "pass_probability": 0.041771285636090366,
+      "threshold": 0.1,
+      "true_rate": 0.08
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 6,
+      "n": 120,
+      "pass_probability": 0.9997778095847838,
+      "threshold": 0.1,
+      "true_rate": 0.01
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 6,
+      "n": 120,
+      "pass_probability": 0.92974742396148,
+      "threshold": 0.1,
+      "true_rate": 0.03
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 6,
+      "n": 120,
+      "pass_probability": 0.6063380008651832,
+      "threshold": 0.1,
+      "true_rate": 0.05
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 6,
+      "n": 120,
+      "pass_probability": 0.14653693353194713,
+      "threshold": 0.1,
+      "true_rate": 0.08
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 11,
+      "n": 180,
+      "pass_probability": 0.9999996476875712,
+      "threshold": 0.1,
+      "true_rate": 0.01
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 11,
+      "n": 180,
+      "pass_probability": 0.9914316976175278,
+      "threshold": 0.1,
+      "true_rate": 0.03
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 11,
+      "n": 180,
+      "pass_probability": 0.8080507241219007,
+      "threshold": 0.1,
+      "true_rate": 0.05
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 11,
+      "n": 180,
+      "pass_probability": 0.21683234600525667,
+      "threshold": 0.1,
+      "true_rate": 0.08
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 16,
+      "n": 240,
+      "pass_probability": 0.9999999994443489,
+      "threshold": 0.1,
+      "true_rate": 0.01
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 16,
+      "n": 240,
+      "pass_probability": 0.9989446835803525,
+      "threshold": 0.1,
+      "true_rate": 0.03
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 16,
+      "n": 240,
+      "pass_probability": 0.9042766964969133,
+      "threshold": 0.1,
+      "true_rate": 0.05
+    },
+    {
+      "alpha": 0.05,
+      "maximum_passing_flips": 16,
+      "n": 240,
+      "pass_probability": 0.26680865352542293,
+      "threshold": 0.1,
+      "true_rate": 0.08
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 1,
+      "n": 60,
+      "pass_probability": 0.8787667286881923,
+      "threshold": 0.1,
+      "true_rate": 0.01
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 1,
+      "n": 60,
+      "pass_probability": 0.45921079710285273,
+      "threshold": 0.1,
+      "true_rate": 0.03
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 1,
+      "n": 60,
+      "pass_probability": 0.19155337473522127,
+      "threshold": 0.1,
+      "true_rate": 0.05
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 1,
+      "n": 60,
+      "pass_probability": 0.041771285636090366,
+      "threshold": 0.1,
+      "true_rate": 0.08
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 5,
+      "n": 120,
+      "pass_probability": 0.9986162764755888,
+      "threshold": 0.1,
+      "true_rate": 0.01
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 5,
+      "n": 120,
+      "pass_probability": 0.847081857835012,
+      "threshold": 0.1,
+      "true_rate": 0.03
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 5,
+      "n": 120,
+      "pass_probability": 0.441548158392599,
+      "threshold": 0.1,
+      "true_rate": 0.05
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 5,
+      "n": 120,
+      "pass_probability": 0.07525628391623035,
+      "threshold": 0.1,
+      "true_rate": 0.08
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 9,
+      "n": 180,
+      "pass_probability": 0.9999836739211715,
+      "threshold": 0.1,
+      "true_rate": 0.01
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 9,
+      "n": 180,
+      "pass_probability": 0.9538911119740849,
+      "threshold": 0.1,
+      "true_rate": 0.03
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 9,
+      "n": 180,
+      "pass_probability": 0.5874371333384201,
+      "threshold": 0.1,
+      "true_rate": 0.05
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 9,
+      "n": 180,
+      "pass_probability": 0.08280571902181688,
+      "threshold": 0.1,
+      "true_rate": 0.08
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 14,
+      "n": 240,
+      "pass_probability": 0.999999970046126,
+      "threshold": 0.1,
+      "true_rate": 0.01
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 14,
+      "n": 240,
+      "pass_probability": 0.9935742860362314,
+      "threshold": 0.1,
+      "true_rate": 0.03
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 14,
+      "n": 240,
+      "pass_probability": 0.7767320459537074,
+      "threshold": 0.1,
+      "true_rate": 0.05
+    },
+    {
+      "alpha": 0.016666666666666666,
+      "maximum_passing_flips": 14,
+      "n": 240,
+      "pass_probability": 0.12932997549511766,
+      "threshold": 0.1,
+      "true_rate": 0.08
+    }
+  ],
+  "method": "exact_binomial_operating_characteristic",
+  "note": "Planning probabilities only; not observed outcomes.",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.specificity_power_plan.v1",
+  "threshold": 0.1
+}

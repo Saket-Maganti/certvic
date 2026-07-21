@@ -1,0 +1,13 @@
+{
+  "answer_format": "describe_then_yes_no",
+  "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+  "flag_condition": "final_token_yes",
+  "image_role": "edited",
+  "mechanism_interpretation": "Lets us separate the model's free description from its yes/no decision; a confident description of the absent target signals anchoring.",
+  "n_tasks": 91,
+  "paper_evidence": false,
+  "probe_family": "two_step",
+  "prompt_template": "First, briefly describe what you see in this image in one sentence. Then answer: is there a clearly visible {target}? Finish your reply with exactly one token on its own: yes or no.",
+  "run_label": "mech_2step",
+  "tasks_path": "data/results/main_real_200/mechanism_probes/two_step/tasks.jsonl"
+}

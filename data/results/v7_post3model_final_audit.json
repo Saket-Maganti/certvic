@@ -1,0 +1,186 @@
+{
+  "audit": "v7_post3model_final_audit",
+  "categories": [
+    {
+      "category": "canonical_result_artifacts",
+      "evidence": [
+        "registry/results/main200_pilot_result_ledger.json"
+      ],
+      "note": "ledger audit passed=True (6 rows hash-locked)",
+      "status": "pass"
+    },
+    {
+      "category": "multi_model_replication",
+      "evidence": [
+        "data/results/main_real_200/multimodel_pilot_summary.json"
+      ],
+      "note": "3/3 open VLMs certified under the pilot protocol",
+      "status": "pass"
+    },
+    {
+      "category": "control_status",
+      "evidence": [
+        "data/results/main_real_200/control_irrelevant_report/INTEGRATION_BLOCKED.json"
+      ],
+      "note": "spurious-flip predictions missing -> specificity BLOCKED",
+      "status": "blocked"
+    },
+    {
+      "category": "human_review_iaa",
+      "evidence": [
+        "docs/HUMAN_REVIEW_IAA_PROTOCOL.md",
+        "data/results/main_real_200/review_iaa/iaa_report.json"
+      ],
+      "note": "single-rater only; two-rater IAA status=second_rater_pending",
+      "status": "partial"
+    },
+    {
+      "category": "scale_readiness",
+      "evidence": [
+        "docs/SCALE_PLAN_MAIN_800_2000.md",
+        "data/results/scale_plans/scale_plan_summary.json"
+      ],
+      "note": "gated scale plan exists (projections); not executed",
+      "status": "ready_plan"
+    },
+    {
+      "category": "second_domain_readiness",
+      "evidence": [
+        "docs/SECOND_DOMAIN_READINESS.md",
+        "registry/datasets/second_domain_candidates.json"
+      ],
+      "note": "COCO recommended; not executed",
+      "status": "ready_plan"
+    },
+    {
+      "category": "mechanism_probes",
+      "evidence": [
+        "docs/MAIN200_MECHANISM_PROBES_PLAN.md",
+        "data/results/main_real_200/mechanism_probes/summary.json"
+      ],
+      "note": "probe tasks generated; predictions pending",
+      "status": "ready_plan"
+    },
+    {
+      "category": "statistical_validity",
+      "evidence": [
+        "data/results/main_real_200/statistical_sensitivity.json"
+      ],
+      "note": "anytime-valid CS; optional-stopping Type-I controlled",
+      "status": "pass"
+    },
+    {
+      "category": "paper_report_language",
+      "evidence": [
+        "paper/sections/pilot_results_main200.tex",
+        "paper/sections/limitations_current_pilot.tex"
+      ],
+      "note": "claim-language guard clean on V7 paper/report deliverables; pilot-only scaffold written",
+      "status": "pass"
+    },
+    {
+      "category": "release_privacy_security",
+      "evidence": [
+        "data/results/release_candidate_manifest.json"
+      ],
+      "note": "privacy audit passed=True; release_ready=False (path relativization pending)",
+      "status": "pass"
+    }
+  ],
+  "category_status": {
+    "canonical_result_artifacts": "pass",
+    "control_status": "blocked",
+    "human_review_iaa": "partial",
+    "mechanism_probes": "ready_plan",
+    "multi_model_replication": "pass",
+    "paper_report_language": "pass",
+    "release_privacy_security": "pass",
+    "scale_readiness": "ready_plan",
+    "second_domain_readiness": "ready_plan",
+    "statistical_validity": "pass"
+  },
+  "evidence_claims_made": false,
+  "evidence_status": "FINAL_AUDIT_NON_EVIDENCE",
+  "next_highest_leverage_action": "Run the spurious-flip / control_irrelevant VLM predictions for all 3 models on free Kaggle, then integrate (python3 -m certvic.v7.spurious_control_integration). It is the lone high-severity blocker and gates both the specificity claim and scaling.",
+  "paper_evidence": false,
+  "paper_grade_gate": {
+    "control_pass": false,
+    "note": "All three must hold for paper-grade readiness.",
+    "scale_executed": false,
+    "two_rater_iaa": false
+  },
+  "paper_grade_ready": false,
+  "reviewer_attacks": {
+    "n_unresolved": 7,
+    "top_unresolved": [
+      {
+        "claim": "Models are sticky under any perturbation (no specificity).",
+        "id": 4,
+        "remaining_action": "Run spurious-flip / control_irrelevant VLM predictions for all 3 models, then integrate (V7 prompt 14). BLOCKER until predictions exist.",
+        "severity": "high",
+        "status": "blocked"
+      },
+      {
+        "claim": "Only one dataset (ADE20K).",
+        "id": 5,
+        "remaining_action": "Execute the recommended COCO second-domain arm; readiness is assessed but not run.",
+        "severity": "medium",
+        "status": "unanswered"
+      },
+      {
+        "claim": "Only one reviewer (no IAA).",
+        "id": 6,
+        "remaining_action": "Collect a second rater and compute Cohen's kappa (scripts/compute_review_iaa.py); tooling ready, two-rater IAA not yet computed.",
+        "severity": "medium",
+        "status": "unanswered"
+      }
+    ]
+  },
+  "stop_build_policy": [
+    {
+      "task": "More generic V7+ infrastructure",
+      "verdict": "DO_NOT_DO",
+      "why": "Elevation infra is complete; further generic building does not add evidence."
+    },
+    {
+      "task": "Spurious-flip / control_irrelevant predictions + integration",
+      "verdict": "RUN_NOW",
+      "why": "Lone high-severity blocker; integration code is ready and gated."
+    },
+    {
+      "task": "Scale to main_500/800+",
+      "verdict": "BUILD_ONLY_IF_BLOCKED",
+      "why": "Run after the specificity control passes; plan + gates already exist."
+    },
+    {
+      "task": "Second-rater IAA collection",
+      "verdict": "RUN_NOW",
+      "why": "Blinded export + kappa tooling ready; needs one human rater."
+    },
+    {
+      "task": "Residual-cue human review",
+      "verdict": "RUN_NOW",
+      "why": "Blank sheet + summarizer ready; needs human labels."
+    },
+    {
+      "task": "Mechanism / prompt-ablation predictions",
+      "verdict": "RUN_NOW",
+      "why": "Task manifests generated; cheap free-tier inference."
+    },
+    {
+      "task": "Second domain (COCO) execution",
+      "verdict": "BUILD_ONLY_IF_BLOCKED",
+      "why": "Only if a reviewer demands cross-domain before scale; readiness assessed."
+    },
+    {
+      "task": "More models beyond 3",
+      "verdict": "BUILD_ONLY_IF_BLOCKED",
+      "why": "Only on explicit reviewer need; 3-model replication already holds."
+    },
+    {
+      "task": "Paper pilot result + limitations section",
+      "verdict": "WRITE_NOW",
+      "why": "Fresh, guard-clean, pilot-only scaffold already written; keep it current."
+    }
+  ]
+}

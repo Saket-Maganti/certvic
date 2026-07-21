@@ -1,0 +1,24 @@
+{
+  "attacks": [
+    {
+      "id": "specificity",
+      "status": "blocked"
+    },
+    {
+      "id": "scale",
+      "status": "unanswered"
+    },
+    {
+      "id": "human_iaa",
+      "status": "unanswered"
+    },
+    {
+      "id": "second_domain",
+      "status": "unanswered"
+    }
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.v8.reviewer_attack_harness.v1",
+  "status": "blocked",
+  "top_blocker": "spurious_specificity_gate_failed"
+}

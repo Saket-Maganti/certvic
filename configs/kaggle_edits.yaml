@@ -1,0 +1,7 @@
+mode: kaggle_edits
+edit_backend: smoke_cpu_stub
+optional_diffusers_enabled: false
+batch_size: 4
+resume: true
+paid_services_enabled: false
+out_manifest: data/manifests/edits.jsonl

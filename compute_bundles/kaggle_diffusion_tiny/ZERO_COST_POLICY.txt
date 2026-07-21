@@ -1,0 +1,3 @@
+This job uses only free Kaggle/Colab GPU, open models, and user-supplied local data.
+No paid APIs, paid cloud, paid datasets, paid annotation, or paid tracking.
+No credentials and no private pixels are included in this bundle.

@@ -1,0 +1,572 @@
+{
+  "bootstrap": {
+    "by_domain": {
+      "synthetic_sanity": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      }
+    },
+    "by_required_change": {
+      "change": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      },
+      "no_change": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      }
+    },
+    "by_task_family": {
+      "affordance_reachability": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      },
+      "control_irrelevant": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      },
+      "occlusion_safety": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      },
+      "support_stability": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      }
+    },
+    "overall": {
+      "certification_eligible": false,
+      "consistency_rate": {
+        "alpha": 0.05,
+        "estimate": 0.0,
+        "lower": 0.0,
+        "n_boot": 500,
+        "upper": 0.0
+      },
+      "intervention_consistency_gap": {
+        "alpha": 0.05,
+        "estimate": 0.0,
+        "lower": 0.0,
+        "n_boot": 500,
+        "upper": 0.0
+      },
+      "label": "descriptive_only_not_anytime_valid",
+      "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+      "original_accuracy": {
+        "alpha": 0.05,
+        "estimate": 0.0,
+        "lower": 0.0,
+        "n_boot": 500,
+        "upper": 0.0
+      }
+    }
+  },
+  "certification": {
+    "alpha": 0.05,
+    "certification_gate_errors": [
+      "certified claim blocked: split is smoke",
+      "certified claim blocked: evidence_status is MOCK_ONLY",
+      "certified claim blocked: provider_type is mock",
+      "certified claim blocked: data are synthetic smoke fixtures",
+      "certified claim blocked: anytime-valid CS unavailable",
+      "certified claim blocked: missing CS lower bound",
+      "certified claim lacks CS lower bound"
+    ],
+    "certified": false,
+    "confidence_sequence": {
+      "alpha": 0.05,
+      "available": false,
+      "hi": [],
+      "latest": {
+        "hi": null,
+        "lo": null
+      },
+      "lo": [],
+      "method": "confseq.betting.betting_cs",
+      "reason": "confseq optional dependency is not installed or adapter call failed"
+    },
+    "cs_threshold_passed": false,
+    "lower_bound": null,
+    "safe_claim": "Not certified; report descriptive smoke metrics only.",
+    "statement": "No certified intervention-consistency gap claim is available for this run.",
+    "threshold": 0.05,
+    "upper_bound": null
+  },
+  "claim_ledger_compatible": true,
+  "descriptive_ci": {
+    "by_domain": {
+      "synthetic_sanity": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      }
+    },
+    "by_required_change": {
+      "change": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      },
+      "no_change": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      }
+    },
+    "by_task_family": {
+      "affordance_reachability": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      },
+      "control_irrelevant": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      },
+      "occlusion_safety": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      },
+      "support_stability": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        }
+      }
+    },
+    "overall": {
+      "certification_eligible": false,
+      "consistency_rate": {
+        "alpha": 0.05,
+        "estimate": 0.0,
+        "lower": 0.0,
+        "n_boot": 500,
+        "upper": 0.0
+      },
+      "intervention_consistency_gap": {
+        "alpha": 0.05,
+        "estimate": 0.0,
+        "lower": 0.0,
+        "n_boot": 500,
+        "upper": 0.0
+      },
+      "label": "descriptive_only_not_anytime_valid",
+      "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+      "original_accuracy": {
+        "alpha": 0.05,
+        "estimate": 0.0,
+        "lower": 0.0,
+        "n_boot": 500,
+        "upper": 0.0
+      }
+    }
+  },
+  "summary": {
+    "by_domain": {
+      "synthetic_sanity": {
+        "consistency_rate": 0.0,
+        "edited_accuracy": 0.0,
+        "intervention_consistency_gap": 0.0,
+        "n": 12,
+        "original_accuracy": 0.0,
+        "parse_failure_rate": 1.0,
+        "spurious_flip_rate": 1.0
+      }
+    },
+    "by_required_change": {
+      "change": {
+        "consistency_rate": 0.0,
+        "edited_accuracy": 0.0,
+        "intervention_consistency_gap": 0.0,
+        "n": 6,
+        "original_accuracy": 0.0,
+        "parse_failure_rate": 1.0,
+        "spurious_flip_rate": null
+      },
+      "no_change": {
+        "consistency_rate": 0.0,
+        "edited_accuracy": 0.0,
+        "intervention_consistency_gap": 0.0,
+        "n": 6,
+        "original_accuracy": 0.0,
+        "parse_failure_rate": 1.0,
+        "spurious_flip_rate": 1.0
+      }
+    },
+    "by_task_family": {
+      "affordance_reachability": {
+        "consistency_rate": 0.0,
+        "edited_accuracy": 0.0,
+        "intervention_consistency_gap": 0.0,
+        "n": 3,
+        "original_accuracy": 0.0,
+        "parse_failure_rate": 1.0,
+        "spurious_flip_rate": null
+      },
+      "control_irrelevant": {
+        "consistency_rate": 0.0,
+        "edited_accuracy": 0.0,
+        "intervention_consistency_gap": 0.0,
+        "n": 3,
+        "original_accuracy": 0.0,
+        "parse_failure_rate": 1.0,
+        "spurious_flip_rate": 1.0
+      },
+      "occlusion_safety": {
+        "consistency_rate": 0.0,
+        "edited_accuracy": 0.0,
+        "intervention_consistency_gap": 0.0,
+        "n": 3,
+        "original_accuracy": 0.0,
+        "parse_failure_rate": 1.0,
+        "spurious_flip_rate": 1.0
+      },
+      "support_stability": {
+        "consistency_rate": 0.0,
+        "edited_accuracy": 0.0,
+        "intervention_consistency_gap": 0.0,
+        "n": 3,
+        "original_accuracy": 0.0,
+        "parse_failure_rate": 1.0,
+        "spurious_flip_rate": null
+      }
+    },
+    "consistency_rate": 0.0,
+    "control_edit": {
+      "consistency_rate": 0.0,
+      "n": 3,
+      "spurious_flip_rate": 1.0
+    },
+    "edited_accuracy": 0.0,
+    "intervention_consistency_gap": 0.0,
+    "n": 12,
+    "original_accuracy": 0.0,
+    "parse_failure_rate": 1.0,
+    "parse_failure_sensitivity": {
+      "metrics_parse_fail_as_inconsistent": {
+        "consistency_rate": 0.0,
+        "edited_accuracy": 0.0,
+        "intervention_consistency_gap": 0.0,
+        "n": 12,
+        "original_accuracy": 0.0,
+        "parse_failure_rate": 1.0,
+        "spurious_flip_rate": 1.0
+      },
+      "metrics_parse_ok_only": {
+        "consistency_rate": null,
+        "edited_accuracy": null,
+        "intervention_consistency_gap": null,
+        "n": 0,
+        "original_accuracy": null,
+        "parse_failure_rate": null,
+        "spurious_flip_rate": null
+      },
+      "n_parse_failures": 12,
+      "note": "Descriptive sensitivity only; parse-failure handling is never a certification substitute.",
+      "parse_failure_rate": 1.0
+    },
+    "spurious_flip_rate": 1.0
+  }
+}

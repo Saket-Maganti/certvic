@@ -1,0 +1,20 @@
+figures:
+  - id: detectability_vs_certified_gap
+    title: Detectability vs certified decision-update gap
+    status: RESULT_REQUIRED
+    x_axis: edit_detectability_auc
+    y_axis: certified_gap_lower_bound_or_descriptive_gap_if_uncertified
+    marks:
+      - chance_line_at_0_5
+      - danger_region_auc_ge_0_8
+      - point_per_model_family_task_family
+    source_artifacts:
+      - data/results/tiny_real_pilot/edit_detectability/detectability_summary.json
+      - data/results/validity_shift/validity_shift_summary.json
+      - data/results/v2_report/certification_table.csv
+  - id: qualitative_triptychs
+    title: Original, edited, and mask triptychs near the main figure
+    status: RESULT_REQUIRED
+    source_artifacts:
+      - paper/figures/qualitative/figure_manifest.json
+      - data/results/tiny_real_pilot/pilot_generated_edits.jsonl

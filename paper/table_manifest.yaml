@@ -1,0 +1,46 @@
+tables:
+  - id: main_result
+    source_artifact: data/results/v2_report/main_results_table.csv
+    latex_path: paper/tables/main_results_table.tex
+    claim_status: certified_if_eligible
+  - id: by_family
+    source_artifact: data/results/v2_report/by_family_table.csv
+    latex_path: paper/tables/by_family_table.tex
+    claim_status: descriptive_only
+  - id: by_domain
+    source_artifact: data/results/v2_report/by_domain_table.csv
+    latex_path: paper/tables/by_domain_table.tex
+    claim_status: descriptive_only
+  - id: by_edit_type
+    source_artifact: data/results/v2_report/by_edit_type_table.csv
+    latex_path: paper/tables/by_edit_type_table.tex
+    claim_status: descriptive_only
+  - id: model_comparison
+    source_artifact: data/results/model_comparison/model_rankings.csv
+    latex_path: paper/tables/model_comparison.tex
+    claim_status: descriptive_only
+  - id: baselines_ablations
+    source_artifact: data/results/ablation_report
+    latex_path: paper/tables/ablation_table.tex
+    claim_status: descriptive_only
+  - id: parser_sensitivity
+    source_artifact: data/results/stat_sensitivity/parse_handling_sensitivity.csv
+    latex_path: paper/tables/parser_sensitivity.tex
+    claim_status: descriptive_only
+  - id: certification
+    source_artifact: data/results/v2_report/certification_table.csv
+    latex_path: paper/tables/certification_table.tex
+    claim_status: certified_if_eligible
+  - id: human_review_quality
+    source_artifact: data/annotations/reviewer_quality/reviewer_quality_summary.json
+    latex_path: paper/tables/human_review_quality.tex
+    claim_status: quality_only
+  - id: edit_detectability
+    source_artifact: data/results/edit_detectability
+    latex_path: paper/tables/edit_detectability.tex
+    claim_status: quality_only
+  - id: cluster_diagnostics
+    source_artifact: data/results/cluster_diagnostics
+    latex_path: paper/tables/cluster_diagnostics.tex
+    claim_status: diagnostic_only
+

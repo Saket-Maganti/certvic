@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "post_run_handoff_proof.zip",
+      "sha256": "f69a8037c15105d03380eba50ae1d57b0cf73e2565bbf9bd8db7909c37795f55",
+      "size": 3539
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "e6eb8aa05126f878a2db4118b745e1291b8f891c70a45de491c0addfef1595ba",
+      "size": 936
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "efc806e663d8d543971ce0c484d9bb9971a0b63d49d0c83e1c7b11f9f3085937",
+  "config": {
+    "artifact_globs": [
+      "post_run_handoff_proof.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "POST_RUN_TRANSACTIONAL_HANDOFF",
+    "notebook_sha256": "4eea739246d92fba05e7ea97f2bab11b9e17122b7bb353d819ed819a5507cffe",
+    "provider": "all",
+    "return_zip": "post_run_handoff_proof.zip",
+    "route": "post_run_transactional_handoff",
+    "stage": "post_run",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "c1b682d6c52f92541081a1aed958ddee33e4bc979b422761b50308b55d7e2f13",
+  "status": "PASS"
+}

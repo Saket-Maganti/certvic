@@ -1,0 +1,62 @@
+{
+  "schema": "certvic.wheelhouse.clean_linux_validation.v1",
+  "status": "PASS",
+  "passed": true,
+  "validated_on": "2026-07-21",
+  "platform": "linux/amd64",
+  "python": "3.10",
+  "container_image": "python:3.10-slim",
+  "container_image_digest": "sha256:c1e4e6c01eb489c422288b2de34b0761ca316f7a2d98e2c33f47659a73ed108a",
+  "wheel_count": 81,
+  "bundle": {
+    "path": "kaggle_uploads/01_wheelhouse/certvic_offline_wheelhouse.zip",
+    "size": 3188416530,
+    "sha256": "d62fe562ee7d012062c03fad3537f0a4da71e0e860b04b9dc7b6f942f4d15bda",
+    "member_count": 94
+  },
+  "lockfiles": [
+    "requirements/kaggle_qwen.lock",
+    "requirements/kaggle_internvl.lock",
+    "requirements/kaggle_llava.lock",
+    "requirements/kaggle_generation.lock",
+    "requirements/kaggle_analysis.lock"
+  ],
+  "offline_install": {
+    "network_disabled_by_pip": true,
+    "pip_no_index": true,
+    "result": "PASS"
+  },
+  "import_smoke": {
+    "result": "PASS",
+    "torch": "2.4.1+cu121",
+    "torchvision": "0.19.1+cu121",
+    "transformers": "4.46.3",
+    "cuda_available_in_validation_container": false,
+    "imports": [
+      "torch",
+      "torchvision",
+      "transformers",
+      "accelerate",
+      "diffusers",
+      "cv2",
+      "pandas",
+      "scipy",
+      "sklearn"
+    ]
+  },
+  "dependency_resolution": {
+    "selected_av": "17.1.0",
+    "selected_pyzmq": "27.1.0",
+    "superseded_generated_wheels_removed": [
+      "av-14.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "pyzmq-26.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    ]
+  },
+  "deterministic_rebuild": {
+    "result": "PASS",
+    "byte_identical": true,
+    "first_sha256": "d62fe562ee7d012062c03fad3537f0a4da71e0e860b04b9dc7b6f942f4d15bda",
+    "second_sha256": "d62fe562ee7d012062c03fad3537f0a4da71e0e860b04b9dc7b6f942f4d15bda"
+  },
+  "scientific_evidence": false
+}

@@ -1,0 +1,15 @@
+phase,command,exit_code,result
+baseline,python3 -m pytest -q,1,815 passed 6 privacy-allowlist failures
+focused,python3 -m pytest -q tests/test_cvpr_final_runtime_patch.py,0,24 passed
+cvpr_regression,python3 -m pytest -q tests/test_cvpr_*.py,0,93 passed
+notebooks,python3 -m certvic.cvpr.notebook_validation --root notebooks/kaggle/cvpr,0,16 of 16 passed
+historical_notebooks,python3 scripts/validate_t4x2_notebooks.py,0,6 of 6 passed static only
+full_pytest,python3 -m pytest -q,0,845 passed in 61.07 seconds
+ruff,python3 -m ruff check certvic scripts tests,0,All checks passed
+compileall,python3 -m compileall -q certvic scripts tests,0,PASS
+claim_guard,python3 -m certvic.validation.claim_language_guard --root README.md docs paper paper_cvpr reports/cvpr_pre_execution reports/cvpr_final_integration reports/cvpr_10of10_readiness reports/cvpr_final_runtime_patch --out reports/cvpr_final_runtime_patch/claim_guard.md,0,0 findings
+privacy_guard,python3 -m certvic.security.release_privacy_audit --root . --out reports/cvpr_final_runtime_patch/privacy_audit.md --json-out reports/cvpr_final_runtime_patch/privacy_audit.json,0,0 findings
+paper,pdflatex -interaction=nonstopmode -halt-on-error main.tex twice,0,3 pages both passes
+release_build_1,python3 -c from scripts.build_cvpr_execution_closure import build_release,0,555 members clean extraction and internal deterministic rebuild passed
+release_audit,python3 scripts/audit_cvpr_execution_closure_release.py --archive release/certvic_cvpr_execution_closure.zip --out reports/cvpr_final_runtime_patch/release_audit.json,0,555 members 554 manifested 0 errors
+release_build_2,python3 -c from scripts.build_cvpr_execution_closure import build_release,0,Independent byte-identical rebuild passed; final digest stored outside the archive

@@ -1,0 +1,31 @@
+{
+  "alpha": 0.05,
+  "certification_gate_errors": [
+    "certified claim blocked: split is smoke",
+    "certified claim blocked: evidence_status is MOCK_ONLY",
+    "certified claim blocked: provider_type is mock",
+    "certified claim blocked: data are synthetic smoke fixtures",
+    "certified claim blocked: anytime-valid CS unavailable",
+    "certified claim blocked: missing CS lower bound",
+    "certified claim lacks CS lower bound"
+  ],
+  "certified": false,
+  "confidence_sequence": {
+    "alpha": 0.05,
+    "available": false,
+    "hi": [],
+    "latest": {
+      "hi": null,
+      "lo": null
+    },
+    "lo": [],
+    "method": "confseq.betting.betting_cs",
+    "reason": "confseq optional dependency is not installed or adapter call failed"
+  },
+  "cs_threshold_passed": false,
+  "lower_bound": null,
+  "safe_claim": "Not certified; report descriptive smoke metrics only.",
+  "statement": "No certified intervention-consistency gap claim is available for this run.",
+  "threshold": 0.05,
+  "upper_bound": null
+}

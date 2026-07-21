@@ -1,0 +1,110 @@
+{
+  "counts": {
+    "expected": 16,
+    "observed": 16,
+    "passed": 16
+  },
+  "execution_scope": "STATIC_ONLY_NOT_EXECUTED_ON_KAGGLE",
+  "notebooks": [
+    {
+      "errors": [],
+      "notebook": "00A_certvic_code_and_environment_smoke.ipynb",
+      "passed": true,
+      "stage": "code_smoke"
+    },
+    {
+      "errors": [],
+      "notebook": "00B_certvic_model_snapshot_smoke.ipynb",
+      "passed": true,
+      "stage": "snapshot_smoke"
+    },
+    {
+      "errors": [],
+      "notebook": "00C1_certvic_mock_adapter_smoke.ipynb",
+      "passed": true,
+      "stage": "mock_smoke"
+    },
+    {
+      "errors": [],
+      "notebook": "00C2_certvic_real_model_two_item_smoke.ipynb",
+      "passed": true,
+      "stage": "real_model_smoke"
+    },
+    {
+      "errors": [],
+      "notebook": "01_specificity_confirmatory_generation_T4x2.ipynb",
+      "passed": true,
+      "stage": "generation"
+    },
+    {
+      "errors": [],
+      "notebook": "02_qwen_specificity_confirmatory_T4x2.ipynb",
+      "passed": true,
+      "stage": "evaluation"
+    },
+    {
+      "errors": [],
+      "notebook": "03_internvl_specificity_confirmatory_T4x2.ipynb",
+      "passed": true,
+      "stage": "evaluation"
+    },
+    {
+      "errors": [],
+      "notebook": "04_llava_specificity_confirmatory_T4x2.ipynb",
+      "passed": true,
+      "stage": "evaluation"
+    },
+    {
+      "errors": [],
+      "notebook": "10_main_study_generation_T4x2.ipynb",
+      "passed": true,
+      "stage": "generation"
+    },
+    {
+      "errors": [],
+      "notebook": "11_qwen_main_study_T4x2.ipynb",
+      "passed": true,
+      "stage": "evaluation"
+    },
+    {
+      "errors": [],
+      "notebook": "12_internvl_main_study_T4x2.ipynb",
+      "passed": true,
+      "stage": "evaluation"
+    },
+    {
+      "errors": [],
+      "notebook": "13_llava_main_study_T4x2.ipynb",
+      "passed": true,
+      "stage": "evaluation"
+    },
+    {
+      "errors": [],
+      "notebook": "20_second_domain_generation_T4x2.ipynb",
+      "passed": true,
+      "stage": "generation"
+    },
+    {
+      "errors": [],
+      "notebook": "21_second_domain_qwen_T4x2.ipynb",
+      "passed": true,
+      "stage": "evaluation"
+    },
+    {
+      "errors": [],
+      "notebook": "22_second_domain_internvl_T4x2.ipynb",
+      "passed": true,
+      "stage": "evaluation"
+    },
+    {
+      "errors": [],
+      "notebook": "23_second_domain_llava_T4x2.ipynb",
+      "passed": true,
+      "stage": "evaluation"
+    }
+  ],
+  "paper_evidence": false,
+  "passed": true,
+  "schema": "certvic.cvpr.notebook_static_validation.v1",
+  "suite_errors": []
+}

@@ -1,0 +1,42 @@
+{
+  "downloads_attempted": false,
+  "gpu_required": false,
+  "passed": true,
+  "safe_commands": [
+    {
+      "command": "python3 -m certvic.validation.rater_training --out-dir data/results/v5_smoke/rater_training",
+      "returncode": 0,
+      "status": "pass",
+      "stderr_tail": "",
+      "stdout_tail": "{\"guide_generated\": true, \"out_dir\": \"data/results/v5_smoke/rater_training\", \"paid_annotation\": false}\n"
+    },
+    {
+      "command": "python3 -m certvic.cards.model_card --provider qwen2_5_vl_7b --out data/results/v5_smoke/model_card.md",
+      "returncode": 0,
+      "status": "pass",
+      "stderr_tail": "",
+      "stdout_tail": "{\"out\": \"data/results/v5_smoke/model_card.md\", \"provider\": \"qwen2_5_vl_7b\", \"unknown\": false}\n"
+    },
+    {
+      "command": "python3 -m certvic.experiments.registry validate --config configs/experiments.yaml",
+      "returncode": 0,
+      "status": "pass",
+      "stderr_tail": "",
+      "stdout_tail": "{\"config\": \"configs/experiments.yaml\", \"errors\": [], \"n_experiments\": 10, \"passed\": true}\n"
+    },
+    {
+      "command": "python3 -m certvic.contracts.result_contracts validate --contracts configs/result_contracts.yaml --root data/results",
+      "returncode": 0,
+      "status": "pass",
+      "stderr_tail": "",
+      "stdout_tail": "{\"contracts\": \"configs/result_contracts.yaml\", \"errors\": [\"smoke_pair_scores.jsonl cannot be evidence under contract\", \"smoke_report/claim_ledger.json missing fields: entries\", \"smoke_report/claim_ledger.json cannot be evidence under contract\"], \"passed\": false, \"root\": \"data/results\", \"warnings\": [\"smoke_pair_scores.jsonl extra fields: notes\", \"model_comparison/comparison_summary.json extra fields: descriptive_vs_certified_separated, parse_failures_included, score_dirs\"]}\n"
+    }
+  ],
+  "skipped_unsafe": [
+    "real ADE20K pipeline execution",
+    "diffusion GPU generation",
+    "open-local VLM inference",
+    "dataset or model downloads"
+  ],
+  "vlm_inference_run": false
+}

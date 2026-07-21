@@ -1,0 +1,510 @@
+[
+  {
+    "acceptable_to_defer": "Yes for the next Kaggle run; no for any large-n V2 claim.",
+    "blocks_execution": "NO for Spurious V2 Kaggle execution; YES for a 200-300 item claim.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "data/edits/spurious_v2_control/pilot_eval_tasks_reviewed.jsonl"
+      },
+      {
+        "exists": true,
+        "path": "data/edits/spurious_v2_control/spurious_v2_manifest.json"
+      },
+      {
+        "exists": true,
+        "path": "data/edits/spurious_v2_control/bundle_manifest.json"
+      },
+      {
+        "exists": true,
+        "path": "dist/kaggle_remaining_runs/certvic_spurious_v2_control.zip"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/SPURIOUS_V2_QUALITY_REPORT.md"
+      }
+    ],
+    "filename": "02_SPURIOUS_V2_LARGE_CANDIDATE_EXPANSION.md",
+    "missing": "A 200-300 item strict V2 pool is not available from the current local candidates; current strict set is 30 rows.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 3,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes for running Kaggle V2 predictions; no for human-validation claims.",
+    "blocks_execution": "NO for V2 Kaggle execution; YES for Main-500 and claim validation.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "data/edits/spurious_v2_control/spurious_v2_examples_gallery.html"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/spurious_v2_quality_report.json"
+      },
+      {
+        "exists": true,
+        "path": "docs/runbooks/HUMAN_REVIEW_RUNBOOK.md"
+      }
+    ],
+    "filename": "03_SPURIOUS_V2_PREHUMAN_REVIEW_AND_QUALITY_DASHBOARD.md",
+    "missing": "Real human labels and adjudicated review outcomes.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 4,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "No if the goal is to clear the specificity blocker.",
+    "blocks_execution": "YES for local V2 ingest, V2 gate decision, and Main-500.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb"
+      },
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/vlm_internvl_8b_spurious_v2_T4x2.ipynb"
+      },
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/vlm_llava_onevision_7b_spurious_v2_T4x2.ipynb"
+      },
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/v10_execution_ready_handoff_t4x2.ipynb"
+      },
+      {
+        "exists": true,
+        "path": "dist/kaggle_remaining_runs/certvic_spurious_v2_control.zip"
+      }
+    ],
+    "filename": "04_SPURIOUS_V2_KAGGLE_RUNTIME_STRESS_TEST_PACK.md",
+    "missing": "Provider prediction outputs from Kaggle.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 5,
+    "v10_blockers": "Spurious V2 provider predictions missing.; Real human labels missing.",
+    "v10_status": "BLOCKED_OR_DEFERRED"
+  },
+  {
+    "acceptable_to_defer": "Yes until Kaggle outputs exist.",
+    "blocks_execution": "YES for V2 gate decision; NO for starting the Kaggle run.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "scripts/import_v9_spurious_v2_outputs.py"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/spurious_v2_ingest_status.json"
+      },
+      {
+        "exists": true,
+        "path": "tests/test_v9_spurious_v2_ingest_decision.py"
+      }
+    ],
+    "filename": "05_UNIFIED_OUTPUT_IMPORTER_AND_VALIDATOR.md",
+    "missing": "Three real provider output zips or merged JSONL files.",
+    "next_command": "python3 scripts/import_v9_spurious_v2_outputs.py --input-dir kaggleoutputs/v9_spurious_v2 --out-dir data/results/main_real_200/v9_mega_upgrade/spurious_v2_ingest --canonical-dir data/results/main_real_200/kaggle_spurious_v2 --report-dir data/results/main_real_200/v9_mega_upgrade",
+    "prompt_index": 6,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes; local zip hashes are available now and Kaggle hash can be recorded after upload.",
+    "blocks_execution": "NO for local readiness; record Kaggle hash when uploaded.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "dist/certvic_kaggle_main200_bundle.zip"
+      },
+      {
+        "exists": true,
+        "path": "dist/kaggle_remaining_runs/certvic_spurious_v2_control.zip"
+      },
+      {
+        "exists": true,
+        "path": "data/edits/spurious_v2_control/bundle_manifest.json"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v10_1_correction/spurious_v2_execution_package_audit.json"
+      }
+    ],
+    "filename": "06_KAGGLE_DATASET_PACKAGE_HASH_LOCK.md",
+    "missing": "Kaggle-side dataset checksum after upload.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 7,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes; local notebook/package validation is enough to start the run.",
+    "blocks_execution": "NO for starting Qwen V2 on Kaggle.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "tests/test_v9_spurious_v2_runbooks.py"
+      },
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb"
+      },
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/vlm_internvl_8b_spurious_v2_T4x2.ipynb"
+      },
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/vlm_llava_onevision_7b_spurious_v2_T4x2.ipynb"
+      }
+    ],
+    "filename": "07_T4X2_NOTEBOOK_SELF_TEST_SUITE.md",
+    "missing": "Actual Kaggle execution logs.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 8,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes.",
+    "blocks_execution": "NO.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "docs/runbooks/KAGGLE_SPURIOUS_V2_T4X2_RUNBOOK.md"
+      },
+      {
+        "exists": true,
+        "path": "docs/runbooks/V10_1_EXACT_SPURIOUS_V2_KAGGLE_CHECKLIST.md"
+      }
+    ],
+    "filename": "09_FAILURE_RECOVERY_AND_RESUME_PROTOCOL.md",
+    "missing": "Actual partial shard artifacts, because no Kaggle run has happened.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 10,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes for V2 execution; no for validation claims.",
+    "blocks_execution": "YES for human-validation claims and Main-500; NO for V2 Kaggle execution.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "docs/HUMAN_REVIEW_OPERATIONS.md"
+      },
+      {
+        "exists": true,
+        "path": "docs/runbooks/HUMAN_REVIEW_RUNBOOK.md"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/QWEN_SPURIOUS_HUMAN_REVIEW_APPLY_REPORT.md"
+      }
+    ],
+    "filename": "10_HUMAN_REVIEW_OPERATIONS_CENTER.md",
+    "missing": "Real human labels.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 11,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes for V2 execution; no for human-review completion.",
+    "blocks_execution": "YES for human-review completion and Main-500; NO for V2 Kaggle execution.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "docs/HUMAN_REVIEW_IAA_PROTOCOL.md"
+      },
+      {
+        "exists": true,
+        "path": "docs/HUMAN_REVIEW_OPERATIONS.md"
+      }
+    ],
+    "filename": "11_IAA_AND_ADJUDICATION_PREP.md",
+    "missing": "Two-rater labels, IAA statistics, and adjudication.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 12,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "No for Main-500.",
+    "blocks_execution": "YES for Main-500.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/spurious_v2_ingest_status.json"
+      }
+    ],
+    "filename": "12_MAIN500_READINESS_RISK_BURNDOWN.md",
+    "missing": "Passing Spurious V2 gate and real human review.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 13,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes until V2 gate clears.",
+    "blocks_execution": "YES for Main-500; NO for V2 Kaggle execution.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v8_upgrade/MAIN500_GO_NOGO_PLAN.md"
+      },
+      {
+        "exists": true,
+        "path": "docs/runbooks/MAIN500_DIFFUSION_T4X2_RUNBOOK.md"
+      },
+      {
+        "exists": true,
+        "path": "docs/runbooks/MAIN500_VLM_T4X2_RUNBOOK.md"
+      }
+    ],
+    "filename": "13_MAIN500_ITEM_SELECTION_STRATIFICATION.md",
+    "missing": "Final post-specificity approved Main-500 item set.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 14,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "No for Main-500.",
+    "blocks_execution": "YES for Main-500.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "docs/runbooks/MAIN500_DIFFUSION_T4X2_RUNBOOK.md"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      }
+    ],
+    "filename": "14_MAIN500_DIFFUSION_QUEUE_PREVALIDATION.md",
+    "missing": "Approved Main-500 go decision and diffusion outputs.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 15,
+    "v10_blockers": "Spurious V2 provider predictions missing.; Real human labels missing.",
+    "v10_status": "BLOCKED_OR_DEFERRED"
+  },
+  {
+    "acceptable_to_defer": "Yes until Main-500 is allowed.",
+    "blocks_execution": "YES for Main-500 review; NO for V2 Kaggle execution.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "docs/HUMAN_REVIEW_OPERATIONS.md"
+      },
+      {
+        "exists": true,
+        "path": "docs/HUMAN_REVIEW_IAA_PROTOCOL.md"
+      }
+    ],
+    "filename": "15_MAIN500_REVIEWER_BLINDING_AND_RANDOMIZATION.md",
+    "missing": "Executed Main-500 review packet and rater assignments.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 16,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes.",
+    "blocks_execution": "NO.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb"
+      },
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/vlm_internvl_8b_spurious_v2_T4x2.ipynb"
+      },
+      {
+        "exists": true,
+        "path": "notebooks/kaggle/vlm_llava_onevision_7b_spurious_v2_T4x2.ipynb"
+      }
+    ],
+    "filename": "16_MODEL_MATRIX_EXPANSION_FEASIBILITY.md",
+    "missing": "Optional expanded provider matrix.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 17,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes; second domain is not the next blocker.",
+    "blocks_execution": "NO for Spurious V2 and Main-500 gate sequencing.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "docs/SECOND_DOMAIN_READINESS.md"
+      },
+      {
+        "exists": true,
+        "path": "registry/datasets/second_domain_candidates.json"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/V9_TASK_LEDGER.md"
+      }
+    ],
+    "filename": "17_SECOND_DOMAIN_CANDIDATE_DEEP_PREP.md",
+    "missing": "Second-domain execution outputs.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 18,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes.",
+    "blocks_execution": "NO.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "dist/certvic_v10_execution_ready_handoff.zip"
+      },
+      {
+        "exists": true,
+        "path": "docs/runbooks/V10_EXECUTION_READY_HANDOFF.md"
+      }
+    ],
+    "filename": "18_OPEN_REPLICATION_MINIPACK.md",
+    "missing": "Post-V2 result package.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 19,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes.",
+    "blocks_execution": "NO.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/mechanism_deep_report.json"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/polarity_deep_report.json"
+      }
+    ],
+    "filename": "21_MECHANISM_POLARITY_PAPER_SYNTHESIS.md",
+    "missing": "No missing local diagnostic files; paper wording remains limited by specificity.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 22,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes until provider outputs exist.",
+    "blocks_execution": "NO for V2 Kaggle execution; YES for final reviewer packet.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "data/edits/spurious_v2_control/spurious_v2_examples_gallery.html"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/QWEN_SPURIOUS_HUMAN_REVIEW_APPLY_REPORT.md"
+      }
+    ],
+    "filename": "22_QUALITATIVE_GALLERY_REVIEWER_MODE.md",
+    "missing": "Reviewer gallery with real Spurious V2 model outcomes.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 23,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes.",
+    "blocks_execution": "NO for V2 Kaggle execution.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "dist/certvic_v10_execution_ready_handoff.zip"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v10_1_correction/privacy_audit_after_fix.json"
+      }
+    ],
+    "filename": "23_RELEASE_CANDIDATE_PRE_SUBMISSION_FREEZE.md",
+    "missing": "Release freeze after V2 predictions and human labels.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 24,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes.",
+    "blocks_execution": "YES for final paper claims; NO for V2 Kaggle execution.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "paper"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/CVPR_READINESS_SCORECARD_V9.md"
+      }
+    ],
+    "filename": "24_PAPER_CVPR_COMPILE_AND_ANONYMIZATION.md",
+    "missing": "Paper update after V2 gate and human review.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 25,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "Yes.",
+    "blocks_execution": "NO for V2 Kaggle execution.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/V9_REVIEWER_ATTACK_RESULTS.md"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v9_mega_upgrade/V9_REVIEWER_ATTACK_RESULTS.json"
+      }
+    ],
+    "filename": "25_REVIEWER_ATTACK_REDTEAM_PHASE2.md",
+    "missing": "Re-run of red-team answers after V2 outputs.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 26,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  },
+  {
+    "acceptable_to_defer": "No for clearing the gate; yes for ending this correction pass.",
+    "blocks_execution": "YES for gate clearance and Main-500; NO for launching Qwen V2.",
+    "concrete_files": [
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v10_1_correction/V10_1_FINAL_HANDOFF.md"
+      },
+      {
+        "exists": true,
+        "path": "data/results/main_real_200/v10_1_correction/SPURIOUS_V2_EXECUTION_PACKAGE_AUDIT.md"
+      },
+      {
+        "exists": true,
+        "path": "docs/runbooks/V10_1_EXACT_SPURIOUS_V2_KAGGLE_CHECKLIST.md"
+      }
+    ],
+    "filename": "29_FINAL_PRE_EXECUTION_VALIDATION.md",
+    "missing": "Actual provider outputs from Kaggle.",
+    "next_command": "Run notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb on Kaggle after uploading the two required zip inputs.",
+    "prompt_index": 30,
+    "v10_blockers": "Local-safe work completed where possible; downstream evidence gates remain.",
+    "v10_status": "PARTIAL"
+  }
+]

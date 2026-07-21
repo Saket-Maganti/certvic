@@ -1,0 +1,20 @@
+{
+  "batch_size": 1,
+  "checkpoint_every_items": 50,
+  "estimate_status": "PRE_SMOKE_ESTIMATE",
+  "expected_zip_mb": 3.88,
+  "gpu_hours": 2.133,
+  "images": 480,
+  "items": 240,
+  "notebook_duration_hours": 2.727,
+  "paper_evidence": false,
+  "provider": "llava_onevision_7b",
+  "rejected_calibration_manifests": [],
+  "required_disk_gb": 36,
+  "review_hours_two_raters_plus_adjudication": 10.4,
+  "schema": "certvic.cvpr.runtime_plan.v1",
+  "seconds_per_image": 16.0,
+  "variants": 2,
+  "vram_gb": 13.8,
+  "warnings": []
+}

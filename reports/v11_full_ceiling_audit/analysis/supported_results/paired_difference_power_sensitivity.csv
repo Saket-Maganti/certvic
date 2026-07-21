@@ -1,0 +1,10 @@
+discordant_fraction_assumption,paired_risk_difference_assumption,two_sided_alpha,target_power,normal_approx_required_pairs,method,evidence_class
+0.1,0.05,0.05,0.8,314,paired_binary_normal_approximation_verify_with_exact_simulation_before_lock,PLANNED_NOT_EXECUTED
+0.1,0.1,0.05,0.8,79,paired_binary_normal_approximation_verify_with_exact_simulation_before_lock,PLANNED_NOT_EXECUTED
+0.1,0.15,0.05,0.8,35,paired_binary_normal_approximation_verify_with_exact_simulation_before_lock,PLANNED_NOT_EXECUTED
+0.2,0.05,0.05,0.8,628,paired_binary_normal_approximation_verify_with_exact_simulation_before_lock,PLANNED_NOT_EXECUTED
+0.2,0.1,0.05,0.8,157,paired_binary_normal_approximation_verify_with_exact_simulation_before_lock,PLANNED_NOT_EXECUTED
+0.2,0.15,0.05,0.8,70,paired_binary_normal_approximation_verify_with_exact_simulation_before_lock,PLANNED_NOT_EXECUTED
+0.3,0.05,0.05,0.8,942,paired_binary_normal_approximation_verify_with_exact_simulation_before_lock,PLANNED_NOT_EXECUTED
+0.3,0.1,0.05,0.8,236,paired_binary_normal_approximation_verify_with_exact_simulation_before_lock,PLANNED_NOT_EXECUTED
+0.3,0.15,0.05,0.8,105,paired_binary_normal_approximation_verify_with_exact_simulation_before_lock,PLANNED_NOT_EXECUTED

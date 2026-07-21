@@ -1,0 +1,17 @@
+defect_id,original_defect,path,result
+D01,review independence/qualification,certvic/cvpr/review.py,REPAIRED
+D02,generation-to-QA bridge,certvic/cvpr/confirmatory_qa.py,REPAIRED
+D03,greedy balanced selection,certvic/cvpr/candidate_selection.py,REPAIRED_EXACT
+D04,ambiguous negative policy,configs/studies/specificity_confirmatory_cvpr.yaml,FROZEN
+D05,self-declared generation validation,certvic/cvpr/package_generation.py,REPAIRED
+D06,wheelhouse not integrated,certvic/cvpr/environment_lock.py,REPAIRED
+D07,snapshot provenance ambiguous,certvic/cvpr/model_snapshot_manifest.py,UNIFIED
+D08,Main task constructor absent,certvic/cvpr/main_task_builder.py,REPAIRED
+D09,semantic QA/engine policy weak,certvic/cvpr/semantic_edits.py,REPAIRED
+D10,master plan stale,CERTVIC_CVPR_EXECUTION_MASTER_PLAN.md,REPLACED_CANONICAL
+D11,exclusion reasons lost,certvic/cvpr/adjudication.py,REPAIRED_ALL_ITEM_LEDGER
+D12,post-run gates incomplete,certvic/cvpr/after_runs.py,REPAIRED
+D13,mixed output schema,certvic/cvpr/schema_contract.py,FROZEN_V2
+D14,COCO boundary narrow/implicit,certvic/data/coco_adapter.py,REPAIRED_LIMITED
+D15,smoke promotion informal,certvic/cvpr/smoke_gate.py,REPAIRED
+D16,prompt privacy regression,promptpacks,REPAIRED_ARTIFACTS_ONLY

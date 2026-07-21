@@ -1,0 +1,12 @@
+gate,status,reason,paper_evidence
+v11_baseline,PASS,V11 raw and derived pilot artifacts retained,False
+historical_v1_qwen,FAIL_FROZEN,12/94 > 0.10,False
+v2_30_independence,FAIL_RETROSPECTIVE_ONLY,30/30 overlaps V1,False
+confirmatory_source_pool,BLOCKED,source manifest and exclusions not supplied,False
+confirmatory_human_validity,BLOCKED,no completed real sheets,False
+model_revision_lock,BLOCKED,six immutable commits required,False
+confirmatory_execution,BLOCKED,tasks/review/revisions absent,False
+main_study_execution,BLOCKED,go requirements false,False
+second_domain_execution,BLOCKED,specificity and COCO feasibility pending,False
+paper_evidence,BLOCKED,paper_evidence=false,False
+release,BLOCKED,license and bibliography work pending,False

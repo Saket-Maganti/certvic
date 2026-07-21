@@ -1,0 +1,7 @@
+{
+  "gpu_available": null,
+  "gpu_checked": false,
+  "gpu_name": null,
+  "torch_available": true,
+  "transformers_available": true
+}

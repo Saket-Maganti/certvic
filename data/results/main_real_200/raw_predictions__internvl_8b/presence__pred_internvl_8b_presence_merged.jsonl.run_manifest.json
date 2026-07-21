@@ -1,0 +1,23 @@
+{
+  "command_args": {
+    "config": "/kaggle/working/kaggle_internvl.yaml",
+    "dry_run": false,
+    "max_items": null,
+    "num_shards": 1,
+    "out": "/kaggle/working/pred_internvl_8b_presence_merged.jsonl",
+    "overwrite": false,
+    "provider": "internvl_8b",
+    "run_id": "main200_internvl_8b_presence",
+    "shard_index": 0,
+    "strict_leakage": true,
+    "tasks": "/kaggle/working/tasks_presence.jsonl"
+  },
+  "config_hash": "094631186f2ec63b6b60270d04deff84692568e93245aa36faf528fd76c14e75",
+  "metadata": {},
+  "paid_services_used": false,
+  "provider": "internvl_8b",
+  "run_id": "main200_internvl_8b_presence",
+  "task_manifest_hash": "cc6497e80a2a3392a11014ddaeb59831834f6b38421a5f65aa70d9ec05d70bf1",
+  "timestamp_utc": "2026-06-24T17:06:35.560781+00:00",
+  "zero_cost_policy_ack": true
+}

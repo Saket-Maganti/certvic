@@ -1,0 +1,331 @@
+{
+  "claim_level": "pilot_only",
+  "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+  "n_rows": 6,
+  "non_canonical_excluded": {
+    "affordance_intervention arm": "original accuracy ~chance; confounded; not certified",
+    "data/results/main_real_200/final_report": "smoke-template markdown (MOCK_ONLY narrative); not canonical",
+    "data/results/main_real_200/final_report_v2": "smoke-template markdown; not canonical"
+  },
+  "note": "Every metric traces to a sha256-locked artifact. Non-canonical reports are excluded by construction; see non_canonical_excluded.",
+  "paper_evidence": false,
+  "rows": [
+    {
+      "artifacts": {
+        "raw_predictions": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/raw_predictions/presence__pred_qwen2_5_vl_7b_merged.jsonl",
+            "provenance_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+            "sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954"
+          }
+        ],
+        "scoring": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report/pilot_result.json",
+            "sha256": "b8f103f3ac34cad2eadf69c7f5722783202b298de1bbfa2e067b4dc11930479a"
+          },
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report/presence_certification.json",
+            "sha256": "6c5c4c07de038923e93598ae2f042c5c038a440eec1c58c1317a2ed1d55b3eb8"
+          },
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report/presence_scores_summary.json",
+            "sha256": "79623a1ef254baead99816e6cad3a010acb71e9e9943075ec47c9e6fb5844250"
+          }
+        ],
+        "task_file": {
+          "exists": true,
+          "path": "data/results/main_real_200/pilot_eval_taskitems_v2.jsonl",
+          "sha256": "ffb3f1918634d3c764ad98518ee5ae82f99057a9fd25f581378b736b8cbff0b4"
+        }
+      },
+      "canonical": true,
+      "caveats": [
+        "presence arm: high original accuracy => gap interpretable as visual-update failure",
+        "certified under the pilot protocol only; single model's gap is not cross-model evidence",
+        "spurious-flip/control_irrelevant specificity control not yet run"
+      ],
+      "claim_level": "pilot_only",
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "generated_by": "scripts/pilot_report_from_raw.py --provider qwen2_5_vl_7b --model-name Qwen/Qwen2.5-VL-7B-Instruct --run-label qwen2_5_vl_7b --raw-presence ... --raw-control ...  ;  scripts/build_multimodel_summary.py",
+      "metrics": {
+        "certified": true,
+        "consistency": 0.1758,
+        "cs_lower_bound": 0.36395841718089605,
+        "cs_upper_bound": 1.0,
+        "gap": 0.7473,
+        "n": 91,
+        "original_accuracy": 0.9231,
+        "parse_failure_rate": 0.0
+      },
+      "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "provider": "qwen2_5_vl_7b",
+      "result_id": "qwen2_5_vl_7b__presence",
+      "run_label": "qwen2_5_vl_7b",
+      "task_set": "presence",
+      "timestamp": "2026-06-24T19:25:19.145661+00:00"
+    },
+    {
+      "artifacts": {
+        "raw_predictions": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/raw_predictions/control__pred_qwen2_5_vl_7b_merged.jsonl",
+            "provenance_sha256": "a78c4b75aa71d4a00c7153a65572ef52f82e015773f2bc1f2654097dd8702282",
+            "sha256": "a78c4b75aa71d4a00c7153a65572ef52f82e015773f2bc1f2654097dd8702282"
+          }
+        ],
+        "scoring": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report/absent_object_control.json",
+            "sha256": "2c4d088ab4b2aa6f698716bb01a4515340e7318c61f08964c71367a4c2aaf7a5"
+          }
+        ],
+        "task_file": {
+          "exists": true,
+          "path": "data/edits/absent_object_control/pilot_eval_tasks_reviewed.jsonl",
+          "sha256": "3f2752734b44ee91b5703fab60b3196d7ee34b03b0d21c92859cacc428028457"
+        }
+      },
+      "canonical": true,
+      "caveats": [
+        "natural absent-object perception (no edits) -- rules out the presupposition confound",
+        "present-side accuracy < 1.0 reflects ordinary VLM error, not an edit"
+      ],
+      "claim_level": "pilot_only",
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "generated_by": "scripts/pilot_report_from_raw.py --provider qwen2_5_vl_7b --model-name Qwen/Qwen2.5-VL-7B-Instruct --run-label qwen2_5_vl_7b --raw-presence ... --raw-control ...  ;  scripts/build_multimodel_summary.py",
+      "metrics": {
+        "absent": "60/60",
+        "absent_accuracy": 1.0,
+        "n": 120,
+        "overall_accuracy": 0.9167,
+        "present": "50/60",
+        "present_accuracy": 0.8333
+      },
+      "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "provider": "qwen2_5_vl_7b",
+      "result_id": "qwen2_5_vl_7b__absent_control",
+      "run_label": "qwen2_5_vl_7b",
+      "task_set": "absent_control",
+      "timestamp": "2026-06-24T19:25:19.145661+00:00"
+    },
+    {
+      "artifacts": {
+        "raw_predictions": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/raw_predictions__internvl_8b/presence__pred_internvl_8b_presence_merged.jsonl",
+            "provenance_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+            "sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7"
+          }
+        ],
+        "scoring": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report__internvl_8b/pilot_result.json",
+            "sha256": "5686cc592f13fa3aec3ba85ca8d88195ca48e28d03d9a419087ab85a57c09b27"
+          },
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report__internvl_8b/presence_certification.json",
+            "sha256": "b171b73d71c90b3ce6dc18038defcb3f8cd8b5ec47761a4f223458a6d4503cd7"
+          },
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report__internvl_8b/presence_scores_summary.json",
+            "sha256": "f08a428e62280c97fd30ded0987f7f904fbcb2dbe3a78feb41ef564d74127b11"
+          }
+        ],
+        "task_file": {
+          "exists": true,
+          "path": "data/results/main_real_200/pilot_eval_taskitems_v2.jsonl",
+          "sha256": "ffb3f1918634d3c764ad98518ee5ae82f99057a9fd25f581378b736b8cbff0b4"
+        }
+      },
+      "canonical": true,
+      "caveats": [
+        "presence arm: high original accuracy => gap interpretable as visual-update failure",
+        "certified under the pilot protocol only; single model's gap is not cross-model evidence",
+        "spurious-flip/control_irrelevant specificity control not yet run"
+      ],
+      "claim_level": "pilot_only",
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "generated_by": "scripts/pilot_report_from_raw.py --provider internvl_8b --model-name OpenGVLab/InternVL2-8B --run-label internvl_8b --raw-presence ... --raw-control ...  ;  scripts/build_multimodel_summary.py",
+      "metrics": {
+        "certified": true,
+        "consistency": 0.0989,
+        "cs_lower_bound": 0.4408814941039729,
+        "cs_upper_bound": 1.0,
+        "gap": 0.8242,
+        "n": 91,
+        "original_accuracy": 0.9231,
+        "parse_failure_rate": 0.0
+      },
+      "model": "OpenGVLab/InternVL2-8B",
+      "provider": "internvl_8b",
+      "result_id": "internvl_8b__presence",
+      "run_label": "internvl_8b",
+      "task_set": "presence",
+      "timestamp": "2026-06-24T19:22:59.383164+00:00"
+    },
+    {
+      "artifacts": {
+        "raw_predictions": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/raw_predictions__internvl_8b/control__pred_internvl_8b_control_merged.jsonl",
+            "provenance_sha256": "559f37abab1f1e3db0e391a8e28c4a20f85926934ae677e291c857cd13a15de3",
+            "sha256": "559f37abab1f1e3db0e391a8e28c4a20f85926934ae677e291c857cd13a15de3"
+          }
+        ],
+        "scoring": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report__internvl_8b/absent_object_control.json",
+            "sha256": "faffbd5d32f38cddb0f5a098a35dbad79372a7d4db78a69d6bbdd1c90f0471e8"
+          }
+        ],
+        "task_file": {
+          "exists": true,
+          "path": "data/edits/absent_object_control/pilot_eval_tasks_reviewed.jsonl",
+          "sha256": "3f2752734b44ee91b5703fab60b3196d7ee34b03b0d21c92859cacc428028457"
+        }
+      },
+      "canonical": true,
+      "caveats": [
+        "natural absent-object perception (no edits) -- rules out the presupposition confound",
+        "present-side accuracy < 1.0 reflects ordinary VLM error, not an edit"
+      ],
+      "claim_level": "pilot_only",
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "generated_by": "scripts/pilot_report_from_raw.py --provider internvl_8b --model-name OpenGVLab/InternVL2-8B --run-label internvl_8b --raw-presence ... --raw-control ...  ;  scripts/build_multimodel_summary.py",
+      "metrics": {
+        "absent": "58/60",
+        "absent_accuracy": 0.9667,
+        "n": 120,
+        "overall_accuracy": 0.9667,
+        "present": "58/60",
+        "present_accuracy": 0.9667
+      },
+      "model": "OpenGVLab/InternVL2-8B",
+      "provider": "internvl_8b",
+      "result_id": "internvl_8b__absent_control",
+      "run_label": "internvl_8b",
+      "task_set": "absent_control",
+      "timestamp": "2026-06-24T19:22:59.383164+00:00"
+    },
+    {
+      "artifacts": {
+        "raw_predictions": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_presence_merged.jsonl",
+            "provenance_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+            "sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f"
+          }
+        ],
+        "scoring": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/pilot_result.json",
+            "sha256": "9539b9f84ca64546cd70aadee806d164e3a55931c775fd5085c13a6b8f8ead8b"
+          },
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/presence_certification.json",
+            "sha256": "4de518b8b15fec30ba61a683c178de8d005df7b0573002c170bd47459539dbd6"
+          },
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/presence_scores_summary.json",
+            "sha256": "a464cc43689a529a1545feb0dc3987a5f92ba68a4115ddb8c68294eb3e4688dd"
+          }
+        ],
+        "task_file": {
+          "exists": true,
+          "path": "data/results/main_real_200/pilot_eval_taskitems_v2.jsonl",
+          "sha256": "ffb3f1918634d3c764ad98518ee5ae82f99057a9fd25f581378b736b8cbff0b4"
+        }
+      },
+      "canonical": true,
+      "caveats": [
+        "presence arm: high original accuracy => gap interpretable as visual-update failure",
+        "certified under the pilot protocol only; single model's gap is not cross-model evidence",
+        "spurious-flip/control_irrelevant specificity control not yet run"
+      ],
+      "claim_level": "pilot_only",
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "generated_by": "scripts/pilot_report_from_raw.py --provider llava_onevision_7b --model-name llava-hf/llava-onevision-qwen2-7b-ov-hf --run-label llava_onevision_7b --raw-presence ... --raw-control ...  ;  scripts/build_multimodel_summary.py",
+      "metrics": {
+        "certified": true,
+        "consistency": 0.1758,
+        "cs_lower_bound": 0.330991384213863,
+        "cs_upper_bound": 1.0,
+        "gap": 0.7143,
+        "n": 91,
+        "original_accuracy": 0.8901,
+        "parse_failure_rate": 0.0
+      },
+      "model": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+      "provider": "llava_onevision_7b",
+      "result_id": "llava_onevision_7b__presence",
+      "run_label": "llava_onevision_7b",
+      "task_set": "presence",
+      "timestamp": "2026-06-24T19:22:59.618619+00:00"
+    },
+    {
+      "artifacts": {
+        "raw_predictions": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/control__pred_llava_onevision_7b_control_merged.jsonl",
+            "provenance_sha256": "f25b6f341a20568f5e768f6d83d45a8a46396a809f82caa54f25fcf5158bccb8",
+            "sha256": "f25b6f341a20568f5e768f6d83d45a8a46396a809f82caa54f25fcf5158bccb8"
+          }
+        ],
+        "scoring": [
+          {
+            "exists": true,
+            "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/absent_object_control.json",
+            "sha256": "3a1d17e1be5092d88f723f3e0bd4a9c2eb8a7fd2669d641dc9e4a67385546014"
+          }
+        ],
+        "task_file": {
+          "exists": true,
+          "path": "data/edits/absent_object_control/pilot_eval_tasks_reviewed.jsonl",
+          "sha256": "3f2752734b44ee91b5703fab60b3196d7ee34b03b0d21c92859cacc428028457"
+        }
+      },
+      "canonical": true,
+      "caveats": [
+        "natural absent-object perception (no edits) -- rules out the presupposition confound",
+        "present-side accuracy < 1.0 reflects ordinary VLM error, not an edit"
+      ],
+      "claim_level": "pilot_only",
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "generated_by": "scripts/pilot_report_from_raw.py --provider llava_onevision_7b --model-name llava-hf/llava-onevision-qwen2-7b-ov-hf --run-label llava_onevision_7b --raw-presence ... --raw-control ...  ;  scripts/build_multimodel_summary.py",
+      "metrics": {
+        "absent": "60/60",
+        "absent_accuracy": 1.0,
+        "n": 120,
+        "overall_accuracy": 0.9833,
+        "present": "58/60",
+        "present_accuracy": 0.9667
+      },
+      "model": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+      "provider": "llava_onevision_7b",
+      "result_id": "llava_onevision_7b__absent_control",
+      "run_label": "llava_onevision_7b",
+      "task_set": "absent_control",
+      "timestamp": "2026-06-24T19:22:59.618619+00:00"
+    }
+  ],
+  "schema": "certvic.result_ledger.v1",
+  "title": "CertVIC main_real_200 pilot result ledger"
+}

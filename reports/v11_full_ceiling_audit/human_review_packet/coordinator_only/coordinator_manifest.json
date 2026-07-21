@@ -1,0 +1,38 @@
+{
+  "distribution_status": "PRIVATE_COORDINATED_REVIEW_ONLY",
+  "evidence_status": "HUMAN_REVIEW_PENDING",
+  "instructions": "Keep this directory private. Issue rater_1.csv and rater_2.csv independently; do not disclose mapping keys or the diagnostic-subset selection provenance.",
+  "overlap_control": {
+    "overlap": "strict_control30 and diagnostic_subset12 reuse control94 pixel pairs",
+    "permitted_alternative": "Direct subset review requires disjoint rater pools and no reviewer access to another track containing the same pixels.",
+    "preferred_operation": "Review control94 once; after both independent sheets are locked, derive strict_control30 and diagnostic_subset12 judgments through coordinator keys."
+  },
+  "paper_evidence": false,
+  "public_release_allowed": false,
+  "reviewer_bundle": "reviewer_bundle",
+  "reviewer_zip": "certvic_v11_blinded_reviewer_bundle.zip",
+  "schema": "certvic.v11.blinded_human_review_coordinator_manifest.v1",
+  "seed": 110713,
+  "tracks": [
+    {
+      "key": "coordinator_only/intervention91_key.csv",
+      "n_pairs": 91,
+      "track_id": "intervention91"
+    },
+    {
+      "key": "coordinator_only/control94_key.csv",
+      "n_pairs": 94,
+      "track_id": "control94"
+    },
+    {
+      "key": "coordinator_only/strict_control30_key.csv",
+      "n_pairs": 30,
+      "track_id": "strict_control30"
+    },
+    {
+      "key": "coordinator_only/diagnostic_subset12_key.csv",
+      "n_pairs": 12,
+      "track_id": "diagnostic_subset12"
+    }
+  ]
+}

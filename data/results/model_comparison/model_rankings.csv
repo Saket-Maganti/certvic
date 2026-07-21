@@ -1,0 +1,2 @@
+model,n,consistency_rate,parse_ok_rate,ranking_type
+mock_inconsistent,10,0.4,1.0,descriptive_not_significance_tested

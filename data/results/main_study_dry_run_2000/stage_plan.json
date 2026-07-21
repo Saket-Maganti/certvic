@@ -1,0 +1,295 @@
+{
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "executed": false,
+  "expected_outputs": [
+    "data/annotations/review_batches/",
+    "data/edits/ade20k_pilot/",
+    "data/manifests/ade20k_masks.jsonl",
+    "data/manifests/ade20k_sources.jsonl",
+    "data/manifests/diffusion_job_queue.jsonl",
+    "data/manifests/pilot_edit_plan.jsonl",
+    "data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl",
+    "data/manifests/pilot_generated_edits.jsonl",
+    "data/manifests/pilot_selection.jsonl",
+    "data/predictions/",
+    "data/results/cluster_diagnostics/",
+    "data/results/edit_detectability/",
+    "data/results/label_policy_report.md",
+    "data/results/pair_scores.jsonl",
+    "data/results/summary.json",
+    "data/results/v2_report/",
+    "preflight report",
+    "readiness report",
+    "release/certvic_recipe_artifact/"
+  ],
+  "gate_sequence": [
+    {
+      "checks": "all systems green before any real work",
+      "command": "python3 -m certvic.v2.pre_run_master_audit",
+      "gate": "pre_run_master_audit"
+    },
+    {
+      "checks": "selection meets target, label policy clean, sources eligible",
+      "command": "python3 -m certvic.pipeline.pilot_gate_check --stage before_edit_generation --config configs/real_pilot_ade20k.yaml",
+      "gate": "before_edit_generation"
+    },
+    {
+      "checks": "edits generated, quality gates pass, detectability acceptable",
+      "command": "python3 -m certvic.pipeline.pilot_gate_check --stage before_visual_review --config configs/real_pilot_ade20k.yaml",
+      "gate": "before_visual_review"
+    },
+    {
+      "checks": "reviewed tasks exist with adequate IAA; only reviewed items proceed",
+      "command": "python3 -m certvic.pipeline.pilot_gate_check --stage before_vlm --config configs/real_pilot_ade20k.yaml",
+      "gate": "before_vlm"
+    },
+    {
+      "checks": "real open-local predictions scored; no high parse failure / control flip",
+      "command": "python3 -m certvic.pipeline.pilot_gate_check --stage before_claims --config configs/real_pilot_ade20k.yaml",
+      "gate": "before_claims"
+    },
+    {
+      "checks": "certified or honest-null report; privacy audit clean; numbers traced",
+      "command": "python3 -m certvic.pipeline.pilot_gate_check --stage before_release --config configs/real_pilot_ade20k.yaml",
+      "gate": "before_release"
+    },
+    {
+      "checks": "no private paths / secrets / pixels leak",
+      "command": "python3 -m certvic.security.release_privacy_audit --root . --release-dir release/certvic_recipe_artifact --out docs/SECURITY_PRIVACY_AUDIT.md",
+      "gate": "security_privacy_audit"
+    },
+    {
+      "checks": "V3 final gate (built in prompt 19)",
+      "command": "python3 -m certvic.v3.final_pre_real_run_audit",
+      "gate": "final_pre_real_run_audit"
+    }
+  ],
+  "n_gpu_stages": 3,
+  "n_stages": 15,
+  "plan": "certvic_main_study",
+  "required_inputs": [
+    "<ADE20K_ROOT>",
+    "<ADE20K_ROOT> (local ADE20K)",
+    "<MODEL_WEIGHTS>",
+    "<WEIGHTS_DIR>"
+  ],
+  "runtime_estimate": {
+    "bottleneck": "free_gpu_quota",
+    "human_hours": 16.67,
+    "storage_gb": 1.776,
+    "total_gpu_hours": 26.11,
+    "wall_clock_weeks_under_quota": 0.87
+  },
+  "scale": 2000,
+  "stages": [
+    {
+      "command": "python3 -m certvic.data.pilot_readiness --config configs/real_pilot_ade20k.yaml --ade20k-root <ADE20K_ROOT> --dry-run",
+      "evidence_status": "READINESS_ONLY",
+      "gpu": false,
+      "id": "pilot_readiness",
+      "inputs": [
+        "<ADE20K_ROOT> (local ADE20K)"
+      ],
+      "name": "ADE20K readiness (dry-run inspection)",
+      "outputs": [
+        "readiness report"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.data.ade20k_adapter --ade20k-root <ADE20K_ROOT> --out-sources data/manifests/ade20k_sources.jsonl --out-masks data/manifests/ade20k_masks.jsonl",
+      "evidence_status": "MANIFEST_ONLY",
+      "gpu": false,
+      "id": "manifests",
+      "inputs": [
+        "<ADE20K_ROOT>"
+      ],
+      "name": "Source + mask manifests",
+      "outputs": [
+        "data/manifests/ade20k_sources.jsonl",
+        "data/manifests/ade20k_masks.jsonl"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.data.label_policy_report --masks data/manifests/ade20k_masks.jsonl --policy configs/ade20k_label_policy.yaml --out data/results/label_policy_report.md",
+      "evidence_status": "POLICY_ONLY",
+      "gpu": false,
+      "id": "label_policy",
+      "inputs": [
+        "data/manifests/ade20k_masks.jsonl"
+      ],
+      "name": "Label policy report",
+      "outputs": [
+        "data/results/label_policy_report.md"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.data.select_pilot_items --config configs/real_pilot_ade20k.yaml --target 2000 --out data/manifests/pilot_selection.jsonl",
+      "evidence_status": "CANDIDATE_ONLY",
+      "gate_after": "before_edit_generation",
+      "gpu": false,
+      "id": "selection",
+      "inputs": [
+        "data/manifests/ade20k_masks.jsonl"
+      ],
+      "name": "Pilot selection (target 2000)",
+      "outputs": [
+        "data/manifests/pilot_selection.jsonl"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.edit.plan_edits --selection data/manifests/pilot_selection.jsonl --label-policy configs/ade20k_label_policy.yaml --out data/manifests/pilot_edit_plan.jsonl",
+      "evidence_status": "PLANNED_ONLY",
+      "gpu": false,
+      "id": "edit_plan",
+      "inputs": [
+        "data/manifests/pilot_selection.jsonl"
+      ],
+      "name": "Edit plan",
+      "outputs": [
+        "data/manifests/pilot_edit_plan.jsonl"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.edit.job_queue build --edit-plan data/manifests/pilot_edit_plan.jsonl --out data/manifests/diffusion_job_queue.jsonl --shards 4",
+      "evidence_status": "JOB_PLANNED_ONLY",
+      "gpu": false,
+      "id": "diffusion_queue",
+      "inputs": [
+        "data/manifests/pilot_edit_plan.jsonl"
+      ],
+      "name": "Diffusion job queue (shard + resume)",
+      "outputs": [
+        "data/manifests/diffusion_job_queue.jsonl"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.edit.generate_edits --edit-plan data/manifests/pilot_edit_plan.jsonl --out-dir data/edits/ade20k_pilot --out-manifest data/manifests/pilot_generated_edits.jsonl --rejected-out data/manifests/pilot_generated_edits_rejected.jsonl --summary-out data/results/edit_generation_summary.json --max-items 2000 --mode diffusers_inpaint --seed 0",
+      "evidence_status": "GENERATED_EDIT_ONLY",
+      "gpu": true,
+      "id": "edit_generation",
+      "inputs": [
+        "data/manifests/pilot_edit_plan.jsonl",
+        "<ADE20K_ROOT>",
+        "<WEIGHTS_DIR>"
+      ],
+      "name": "Photorealistic edit generation (2000)",
+      "outputs": [
+        "data/edits/ade20k_pilot/",
+        "data/manifests/pilot_generated_edits.jsonl"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.validation.edit_detectability --tasks data/manifests/pilot_generated_edits.jsonl --out-dir data/results/edit_detectability",
+      "evidence_status": "QUALITY_ONLY",
+      "gate_after": "before_visual_review",
+      "gpu": false,
+      "id": "quality_gates",
+      "inputs": [
+        "data/manifests/pilot_generated_edits.jsonl"
+      ],
+      "name": "Edit quality report + detectability",
+      "outputs": [
+        "data/results/edit_detectability/"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.validation.review_batches --tasks data/manifests/pilot_eval_tasks_tiny.jsonl --out-dir data/annotations/review_batches --reviewers reviewer_a reviewer_b --overlap-rate 0.2",
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "gate_after": "before_vlm",
+      "gpu": false,
+      "id": "visual_review",
+      "inputs": [
+        "data/manifests/pilot_eval_tasks_tiny.jsonl"
+      ],
+      "name": "Human review (batches + IAA + adjudicate)",
+      "outputs": [
+        "data/annotations/review_batches/",
+        "data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.eval.vlm_preflight --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --provider qwen2_5_vl_7b --check-gpu",
+      "evidence_status": "PREFLIGHT_ONLY",
+      "gpu": true,
+      "id": "vlm_preflight",
+      "inputs": [
+        "data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl"
+      ],
+      "name": "Open-local VLM preflight",
+      "outputs": [
+        "preflight report"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.eval.run_matrix_planner --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --providers qwen2_5_vl_7b internvl_8b llava_onevision_7b --out-dir data/results/model_run_matrix --max-items 2000 --num-shards 4",
+      "evidence_status": "REAL_EVIDENCE",
+      "gpu": true,
+      "id": "vlm_inference",
+      "inputs": [
+        "data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl",
+        "<MODEL_WEIGHTS>"
+      ],
+      "name": "VLM inference (matrix, 2000, resumable)",
+      "outputs": [
+        "data/predictions/"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.metrics.score_predictions --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --preds data/predictions/run.jsonl --out-scores data/results/pair_scores.jsonl --out-summary data/results/summary.json",
+      "evidence_status": "REAL_EVIDENCE",
+      "gate_after": "before_claims",
+      "gpu": false,
+      "id": "scoring",
+      "inputs": [
+        "data/predictions/"
+      ],
+      "name": "Scoring + power + triage",
+      "outputs": [
+        "data/results/pair_scores.jsonl",
+        "data/results/summary.json"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.metrics.cluster_diagnostics --scores data/results/pair_scores.jsonl --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out-dir data/results/cluster_diagnostics",
+      "evidence_status": "REAL_EVIDENCE",
+      "gpu": false,
+      "id": "certification",
+      "inputs": [
+        "data/results/pair_scores.jsonl"
+      ],
+      "name": "Anytime-valid certification + cluster diagnostics",
+      "outputs": [
+        "data/results/cluster_diagnostics/"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.reporting.build_v2_report --scores data/results/pair_scores.jsonl --preds data/predictions/run.jsonl --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out-dir data/results/v2_report",
+      "evidence_status": "REAL_EVIDENCE",
+      "gate_after": "before_release",
+      "gpu": false,
+      "id": "report",
+      "inputs": [
+        "data/results/pair_scores.jsonl"
+      ],
+      "name": "Paper report + result injection",
+      "outputs": [
+        "data/results/v2_report/"
+      ]
+    },
+    {
+      "command": "python3 -m certvic.release.build_artifact --config configs/release_recipe.yaml --out-dir release/certvic_recipe_artifact",
+      "evidence_status": "RELEASE_RECIPE",
+      "gpu": false,
+      "id": "release",
+      "inputs": [
+        "data/manifests/"
+      ],
+      "name": "Recipe-first artifact + privacy audit",
+      "outputs": [
+        "release/certvic_recipe_artifact/"
+      ]
+    }
+  ],
+  "vlm_inference_run": false
+}

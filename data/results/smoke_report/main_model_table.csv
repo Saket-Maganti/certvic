@@ -1,0 +1,2 @@
+n,original_accuracy,edited_accuracy,consistency_rate,intervention_consistency_gap,parse_failure_rate,control_spurious_flip_rate,cs_available,cs_lower_bound,certified,certification_gate_errors
+10,1.0,0.4,0.4,0.6,0.0,0.0,True,-0.5562535818468133,False,certified claim blocked: split is smoke; certified claim blocked: evidence_status is MOCK_ONLY; certified claim blocked: provider_type is mock; certified claim blocked: data are synthetic smoke fixtures; certified claim blocked: CS lower bound does not exceed threshold

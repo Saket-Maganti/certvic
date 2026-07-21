@@ -1,0 +1,3 @@
+python3 -m certvic.data.pilot_readiness --config configs/real_pilot_ade20k.yaml --ade20k-root /Users/saketmaganti/Projects/ade20k_root/ADEChallengeData2016 --dry-run --out-dir data/results/main_real_200/readiness
+python3 -m certvic.data.ade20k_adapter --ade20k-root /Users/saketmaganti/Projects/ade20k_root/ADEChallengeData2016 --out-sources data/results/main_real_200/ade20k_sources.jsonl --out-masks data/results/main_real_200/ade20k_masks.jsonl
+python3 -m certvic.data.label_policy_report --masks data/results/main_real_200/ade20k_masks.jsonl --policy configs/ade20k_label_policy.yaml --out-dir data/results/main_real_200/label_policy_report

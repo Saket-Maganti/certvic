@@ -1,0 +1,10 @@
+command_id,command,phase,observed_exit,result
+C01,python3 -m pytest -q,A,0,"866 passed, 1 skipped"
+C02,python3 -m pytest -q tests/test_kaggle_execution_pack.py tests/test_kaggle_bundle.py,A,0,15 passed
+C03,python3 -m ruff check .,A,0,All checks passed
+C04,python3 -m compileall -q certvic scripts tests,A,0,compiled
+C05,python3 -m certvic.cvpr.build_all_kaggle_inputs --local-only,A,0,5 deterministic repository ZIPs
+C06,python3 -m certvic.cvpr.notebook_validation --out reports/kaggle_execution_pack/notebook_static_validation.json,A,0,16/16 passed
+C07,python3 -m certvic.cvpr.notebook_runner --kaggle-runbook-suite --out-dir reports/kaggle_execution_pack/notebook_proof,A,0,21/21 routes passed; 16/16 notebooks covered
+C08,python3 -m certvic.cvpr.build_all_kaggle_inputs --status,A,0,5/5 local bundles verified
+C09,python3 scripts/run_phase_b_cpu_workflows.py --out reports/kaggle_execution_pack/phase_b_cpu_validation,B,NOT_RUN_IN_PHASE_A,required next command; must not launch real GPU work

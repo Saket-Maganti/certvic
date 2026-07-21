@@ -1,0 +1,13 @@
+defect_id,original_failure,repair_path,regression_test,status
+D01,00C2 omitted portable bundle root manifest and hash,certvic/cvpr/worker.py; certvic/cvpr/notebook_builder.py,test_canonical_smoke_is_directly_consumed_and_synthetic_cannot_authorize,REPAIRED
+D02,00C2 ran one shard while packaging expected visible GPU count,certvic/cvpr/notebook_builder.py; certvic/cvpr/package_run.py,test_notebooks_use_active_bindings_provider_permissions_and_one_smoke_shard,REPAIRED
+D03,00A 00B 00C2 names and ZIP members differed from gate,certvic/cvpr/smoke_artifacts.py; certvic/cvpr/smoke_gate.py,test_canonical_smoke_is_directly_consumed_and_synthetic_cannot_authorize,REPAIRED
+D04,permission role map duplicated active notebook variables,certvic/cvpr/notebook_permission_binding.py,test_active_permission_binding_detects_worker_drift,REPAIRED
+D05,one shared mutable permission ledger was assumed across Kaggle sessions,certvic/cvpr/reconcile_provider_permissions.py,test_provider_reconciliation_failure_matrix_and_transaction_recovery,REPAIRED
+D06,returned provider ZIPs lacked portable authorization state,certvic/cvpr/reconcile_provider_permissions.py; certvic/cvpr/package_run.py,test_provider_reconciliation_failure_matrix_and_transaction_recovery,REPAIRED
+D07,smoke snapshot and environment identities were not semantically joined to children,certvic/cvpr/reconcile_provider_permissions.py,test_provider_reconciliation_failure_matrix_and_transaction_recovery,REPAIRED
+D08,synthetic smoke could enter a real authorization status path,certvic/cvpr/smoke_gate.py; certvic/cvpr/execution_gate.py,test_canonical_smoke_is_directly_consumed_and_synthetic_cannot_authorize,REPAIRED
+D09,detectability bound IDs instead of exact task and image bytes,certvic/cvpr/detectability_gate.py; certvic/cvpr/execution_gate.py,test_detectability_binds_exact_frozen_task_and_image_bytes,REPAIRED
+D10,promotion and permission consumption were separate unrecoverable operations,certvic/cvpr/import_transaction.py,test_provider_reconciliation_failure_matrix_and_transaction_recovery,REPAIRED
+D11,Main candidate totals equaled final plus reserve with no rejection buffer,configs/studies/main_study_cvpr.yaml,test_main_oversampling_preserves_final_quotas_and_has_rejection_buffer,REPAIRED
+D12,real return workflow required inferred filenames hashes and ledger handling,certvic/cvpr/smoke_handoff.py; CERTVIC_CVPR_EXECUTION_MASTER_PLAN.md,test_one_click_handoff_discovers_canonical_names_without_renaming,REPAIRED

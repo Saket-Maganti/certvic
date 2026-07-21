@@ -1,0 +1,7 @@
+mode: kaggle_masks
+provider: existing_dense_masks_first
+optional_sam_enabled: false
+batch_size: 8
+resume: true
+paid_services_enabled: false
+out_manifest: data/manifests/masks.jsonl

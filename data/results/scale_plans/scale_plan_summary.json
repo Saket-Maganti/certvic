@@ -1,0 +1,117 @@
+{
+  "assumptions": {
+    "control_items_fixed": 120,
+    "diffusion_sec_per_edit": 25.0,
+    "kb_per_image_observed": 63.4,
+    "review_min_per_item_primary": 1.5,
+    "review_min_per_item_residual": 1.0,
+    "session_usable_hours": 9.0,
+    "vlm_latency_safety_factor": 2.0,
+    "vlm_mean_latency_s_observed": 1.488
+  },
+  "evidence_status": "SCALE_PROJECTION_NON_EVIDENCE",
+  "first_safe_scale_command": "python3 scripts/plan_scaled_main_run.py  # then run main_500 ONLY after the spurious-flip specificity control passes",
+  "note": "All per-target figures are PROJECTIONS from observed pilot survival rates, not results. Diffusion throughput and review pace are planning assumptions.",
+  "observed_pilot_survival": {
+    "approve_rate": 0.883495145631068,
+    "approved": 91,
+    "candidates": 200,
+    "overall": 0.455,
+    "plan_yield": 0.84,
+    "planned": 168,
+    "task_yield": 0.6130952380952381,
+    "tasks": 103
+  },
+  "observed_vlm_mean_latency_s": 1.488,
+  "paper_evidence": false,
+  "schema": "certvic.scale_plan_summary.v1",
+  "stop_go_gates": [
+    {
+      "conditional_if": "AUC > 0.6",
+      "confounded_if": "AUC >= 0.8",
+      "gate": "detectability_auc",
+      "halt_if": "edit-detectability AUC > 0.7",
+      "pilot_observed": 0.349,
+      "source": "certvic.validation.detectability_gate (canonical thresholds, not weakened)"
+    },
+    {
+      "gate": "human_review_pass_rate",
+      "halt_if": "approve_rate < 0.50 (collapsed)",
+      "pilot_observed": 0.883,
+      "warn_if": "approve_rate < 0.70"
+    },
+    {
+      "gate": "controls",
+      "halt_if": "absent-object control accuracy drops materially, OR spurious-flip specificity control fails when run"
+    },
+    {
+      "gate": "parse_failures",
+      "halt_if": "parse_failure_rate > 0.05",
+      "note": "policy threshold (pilot had 0.0); not an existing gate being weakened",
+      "pilot_observed": 0.0,
+      "warn_if": "> 0.02"
+    },
+    {
+      "gate": "result_ledger_hashing",
+      "halt_if": "certvic.v7.result_ledger_audit cannot hash all artifacts or any hash mismatches"
+    }
+  ],
+  "targets": {
+    "main_1000": {
+      "cost_note": "free-tier only (local CPU + free Kaggle T4); no paid APIs/GPUs/datasets/annotation",
+      "cost_usd": 0,
+      "gpu_sessions_diffusion": 2,
+      "gpu_sessions_vlm_3_models": 3,
+      "gpu_sessions_vlm_per_model": 1,
+      "human_review_hours": 47.2,
+      "is_projection": true,
+      "projected_generated_tasks": 1132,
+      "projected_planned_edits": 1847,
+      "projected_source_items": 2199,
+      "storage_footprint_mb": 236.3,
+      "target_approved_items": 1000
+    },
+    "main_2000": {
+      "cost_note": "free-tier only (local CPU + free Kaggle T4); no paid APIs/GPUs/datasets/annotation",
+      "cost_usd": 0,
+      "gpu_sessions_diffusion": 3,
+      "gpu_sessions_vlm_3_models": 3,
+      "gpu_sessions_vlm_per_model": 1,
+      "human_review_hours": 94.3,
+      "is_projection": true,
+      "projected_generated_tasks": 2264,
+      "projected_planned_edits": 3693,
+      "projected_source_items": 4397,
+      "storage_footprint_mb": 465.0,
+      "target_approved_items": 2000
+    },
+    "main_500": {
+      "cost_note": "free-tier only (local CPU + free Kaggle T4); no paid APIs/GPUs/datasets/annotation",
+      "cost_usd": 0,
+      "gpu_sessions_diffusion": 1,
+      "gpu_sessions_vlm_3_models": 3,
+      "gpu_sessions_vlm_per_model": 1,
+      "human_review_hours": 23.6,
+      "is_projection": true,
+      "projected_generated_tasks": 566,
+      "projected_planned_edits": 924,
+      "projected_source_items": 1100,
+      "storage_footprint_mb": 121.9,
+      "target_approved_items": 500
+    },
+    "main_800": {
+      "cost_note": "free-tier only (local CPU + free Kaggle T4); no paid APIs/GPUs/datasets/annotation",
+      "cost_usd": 0,
+      "gpu_sessions_diffusion": 2,
+      "gpu_sessions_vlm_3_models": 3,
+      "gpu_sessions_vlm_per_model": 1,
+      "human_review_hours": 37.8,
+      "is_projection": true,
+      "projected_generated_tasks": 906,
+      "projected_planned_edits": 1478,
+      "projected_source_items": 1760,
+      "storage_footprint_mb": 190.6,
+      "target_approved_items": 800
+    }
+  }
+}

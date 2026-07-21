@@ -1,0 +1,16 @@
+{
+  "allow": [
+    "scripts/build_v8_upgrade.py",
+    "certvic/v8/*.py",
+    "data/results/main_real_200/v8_upgrade/*.md"
+  ],
+  "deny": [
+    "model weights",
+    "fake predictions",
+    "human labels not actually collected",
+    "private local paths"
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.v8.release_reproducibility_audit.v1",
+  "status": "recipe_first_not_release_ready"
+}

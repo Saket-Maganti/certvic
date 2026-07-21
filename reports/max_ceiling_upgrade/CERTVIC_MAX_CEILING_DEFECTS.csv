@@ -1,0 +1,5 @@
+defect_id,severity,scope,status,artifact,description,remediation
+MC-001,CRITICAL,repository_replacement,OPEN_EXTERNAL_INPUT,certVIC_9_SMOKE_AUTHORIZATION_FIXED_FULL.zip,Required full repaired source archive is absent,Provide the exact full repaired archive and rerun transactional replacement validation
+MC-002,EXPECTED_EXTERNAL,execution,OPEN_EXTERNAL_INPUT,offline wheelhouse and three model snapshots,External execution bytes are not provisioned,Follow execution_pack/01_EXTERNAL_ASSETS_CHECKLIST.md then run 00A and 00B
+MC-003,EXPECTED_EXTERNAL,evidence,OPEN_EXTERNAL_INPUT,genuine review and provider returns,No confirmatory human review or model evidence exists,Complete the gated external route without changing frozen inputs
+

@@ -1,0 +1,9 @@
+{
+  "builder_command": "python3 -m certvic.cvpr.confirmatory_input_builder --config <INPUT_CONFIG_JSON>",
+  "expected_size": "1-20 GB",
+  "name": "certvic_confirmatory_generation_input.zip",
+  "output": "kaggle_uploads/05_confirmatory/certvic_confirmatory_generation_input.zip",
+  "paper_evidence": false,
+  "schema": "certvic.kaggle.external_builder_status.v1",
+  "status": "BUILDER_READY_BLOCKED_BY_EXTERNAL_BYTES"
+}

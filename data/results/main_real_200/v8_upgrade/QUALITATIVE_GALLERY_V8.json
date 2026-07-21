@@ -1,0 +1,57 @@
+{
+  "items": [
+    {
+      "category": "spurious_flip",
+      "edited_answer": "no",
+      "item_id": "sflip_car_ADE_train_00002029",
+      "original_answer": "yes",
+      "provider": "qwen2_5_vl_7b"
+    },
+    {
+      "category": "spurious_flip",
+      "edited_answer": "no",
+      "item_id": "sflip_car_ADE_train_00002034",
+      "original_answer": "yes",
+      "provider": "qwen2_5_vl_7b"
+    },
+    {
+      "category": "spurious_flip",
+      "edited_answer": "no",
+      "item_id": "sflip_car_ADE_train_00003061",
+      "original_answer": "yes",
+      "provider": "qwen2_5_vl_7b"
+    },
+    {
+      "category": "spurious_flip",
+      "edited_answer": "yes",
+      "item_id": "sflip_table_ADE_train_00000220",
+      "original_answer": "no",
+      "provider": "internvl_8b"
+    },
+    {
+      "category": "spurious_flip",
+      "edited_answer": "yes",
+      "item_id": "sflip_table_ADE_train_00000196",
+      "original_answer": "no",
+      "provider": "llava_onevision_7b"
+    },
+    {
+      "category": "spurious_flip",
+      "edited_answer": "yes",
+      "item_id": "sflip_table_ADE_train_00000425",
+      "original_answer": "no",
+      "provider": "llava_onevision_7b"
+    },
+    {
+      "category": "spurious_flip",
+      "edited_answer": "no",
+      "item_id": "sflip_table_ADE_train_00000485",
+      "original_answer": "yes",
+      "provider": "llava_onevision_7b"
+    }
+  ],
+  "note": "No human labels are inferred here; examples are selected from prediction disagreements only.",
+  "paper_evidence": false,
+  "schema": "certvic.v8.qualitative_gallery.v1",
+  "status": "diagnostic_examples_only"
+}

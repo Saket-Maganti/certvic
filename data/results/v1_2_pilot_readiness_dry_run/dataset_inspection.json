@@ -1,0 +1,71 @@
+{
+  "actionable_next_steps": [
+    "Review dataset_inspection.json and confirm image/annotation folders.",
+    "Implement or enable an ADE20K annotation parser before mask manifests are treated as ready.",
+    "Do not generate edits or model predictions until masks and licenses are verified."
+  ],
+  "candidate_annotation_count": 3,
+  "candidate_annotation_dirs": [
+    {
+      "file_count": 3,
+      "relative_path": "annotations",
+      "split": null
+    },
+    {
+      "file_count": 2,
+      "relative_path": "annotations/training",
+      "split": "train"
+    },
+    {
+      "file_count": 1,
+      "relative_path": "annotations/validation",
+      "split": "val"
+    }
+  ],
+  "candidate_image_count": 3,
+  "candidate_image_dirs": [
+    {
+      "file_count": 3,
+      "relative_path": "images",
+      "split": null
+    },
+    {
+      "file_count": 2,
+      "relative_path": "images/training",
+      "split": "train"
+    },
+    {
+      "file_count": 1,
+      "relative_path": "images/validation",
+      "split": "val"
+    }
+  ],
+  "downloads_attempted": false,
+  "dry_run_only": true,
+  "edits_generated": false,
+  "example_annotations": [
+    "annotations/training/ADE_train_00000001.png",
+    "annotations/training/ADE_train_00000002.png",
+    "annotations/validation/ADE_val_00000001.png"
+  ],
+  "example_images": [
+    "images/training/ADE_train_00000001.jpg",
+    "images/training/ADE_train_00000002.jpg",
+    "images/validation/ADE_val_00000001.jpg"
+  ],
+  "example_unmatched_images": [],
+  "exists": true,
+  "gpu_required": false,
+  "layout_status": "parser_required",
+  "mask_parser_status": "parser_required",
+  "pixels_copied": false,
+  "root": "data/results/v1_2_pilot_readiness_fixture/ADEChallengeData2016",
+  "supported_for_mask_manifest": false,
+  "supported_for_source_manifest": true,
+  "train_annotation_count": 2,
+  "train_image_count": 2,
+  "unmatched_image_count": 0,
+  "val_annotation_count": 1,
+  "val_image_count": 1,
+  "warnings": []
+}

@@ -1,0 +1,84 @@
+{
+  "blockers": [
+    {
+      "error_code": "DOCTOR_REPLACEMENT_SOURCE_UNAVAILABLE",
+      "missing_artifact": "certVIC_9_SMOKE_AUTHORIZATION_FIXED_FULL.zip",
+      "next_command": "place the repaired full-project ZIP in the checkout root",
+      "remediation": "Provide the full repaired archive; patch-only and release archives are not substitutes.",
+      "scope": "external"
+    }
+  ],
+  "checks": {
+    "critical_imports": {
+      "errors": {},
+      "passed": true
+    },
+    "notebooks": {
+      "code_cells_with_outputs": 0,
+      "count": 16,
+      "expected_count": 16,
+      "invalid": [],
+      "passed": true
+    },
+    "repository_replacement": {
+      "archive_present": false,
+      "replacement_complete": false,
+      "replacement_record_present": true,
+      "status": "BLOCKED_SOURCE_ARCHIVE_MISSING"
+    },
+    "required_tree": {
+      "missing": [],
+      "passed": true
+    },
+    "study": {
+      "execution_allowed": false,
+      "paper_evidence": false,
+      "path": "configs/studies/specificity_confirmatory_cvpr.yaml",
+      "unresolved_freeze_fields": []
+    }
+  },
+  "generated_at_utc": "2026-07-19T04:39:56.127935+00:00",
+  "inventory": {
+    "analysis": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/analysis/decision_trace.json",
+      "sha256": null
+    },
+    "environment": {
+      "exists": false,
+      "path": "data/runtime/00A_environment.json",
+      "sha256": null
+    },
+    "import": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/canonical_import/study_import_audit.json",
+      "sha256": null
+    },
+    "permission": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/execution_permission.json",
+      "sha256": null
+    },
+    "review": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/review/final_inclusion.json",
+      "sha256": null
+    },
+    "smoke_gate": {
+      "exists": false,
+      "path": "reports/cvpr_final_integration/REAL_MODEL_SMOKE_GATE.json",
+      "sha256": null
+    },
+    "task_bundle": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/task_bundle/task_bundle_manifest.json",
+      "sha256": null
+    }
+  },
+  "local_ready": true,
+  "paper_evidence": false,
+  "repository": ".",
+  "schema": "certvic.cvpr.doctor.v1",
+  "state": "READY_FOR_00A",
+  "study": "specificity_confirmatory_cvpr"
+}

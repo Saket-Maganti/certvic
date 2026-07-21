@@ -1,0 +1,932 @@
+{
+  "files": [
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/00_GLOBAL_RULES_STOP_INFRASTRUCTURE.md",
+          "sha256": "4b89370beccb5e81309426402078e974849dd7270582aad9b02a83ed4a0d3d90",
+          "size_bytes": 2711
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/01_R0_TECHNICAL_CORRECTION_BETTING_CS_AND_BOUNDED_KERNELS.md",
+          "sha256": "4c3947e332babaf5e9712d2a0da9c7933241c2c9222671e0eed34ceee1fa3c70",
+          "size_bytes": 3480
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/02_R1B_REFERENCE_MATERIALIZATION_AND_PACKAGE_GATE.md",
+          "sha256": "615c41df5cf0d845c69a879140abb975d0466ac475e3033df191777c83d73664",
+          "size_bytes": 2929
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/03_KAGGLE_T4X2_GENERATION_1K_PER_MODEL.md",
+          "sha256": "3d62b89ff72de776802b593e425c9c7677b71b402c015422e5407684c79ae49e",
+          "size_bytes": 2708
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/04_CPU_VALIDATE_GENERATED_MANIFESTS_AND_BUILD_PACKAGE.md",
+          "sha256": "e60c801ea42bae950e41c511d2bd396c7753ec988673f3f1f87498a7851bf3d4",
+          "size_bytes": 3050
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/05_KAGGLE_T4X2_FEATURE_EXTRACTION_INCEPTION_CLIP.md",
+          "sha256": "11f78a4c504d55e0fe0977d0a247af528820f3b2ad106f274ed8dab7da57c859",
+          "size_bytes": 2100
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/06_CPU_METRIC_REPRODUCTION_AND_SANITY_GATES.md",
+          "sha256": "c447c624d9b0ba57881c410b2da7873d80d2970cf8fc91d10a42572fc338b452",
+          "size_bytes": 1973
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/07_CPU_FIRST_CERTIFICATE_PILOT_AND_UNDECIDED_FRACTION.md",
+          "sha256": "9be1712cbc67b8a529f918e444eac084c50e0b0d53522f48b3151bf47a97548d",
+          "size_bytes": 2718
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/08_SCALE_TO_10K_AND_50K_IF_GATES_PASS.md",
+          "sha256": "75eb9c98ce93178745687220629d0ae9f57fe93a0bc710ee4db2b1cbb96e76b0",
+          "size_bytes": 1911
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/09_MULTI_BENCHMARK_EXPANSION_PLAN.md",
+          "sha256": "663e1984f84ed6c4076241e8891cd75babccf50c811ec24345c761e52f452c45",
+          "size_bytes": 1469
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/10_CVPR_RESULT_INJECTION_AND_PAPER_POLISH.md",
+          "sha256": "bd13f8ef1b5beddd8a8a3b40fb8c62d9b200de113243b03b14fa2275704c2f15",
+          "size_bytes": 1923
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/11_FINAL_EXECUTION_AUDIT_AND_STOP_RULE.md",
+          "sha256": "bee7be9e174b0f7ab2dc8923803df9cde586a7f37555087a6dc25c411eac238f",
+          "size_bytes": 1860
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/12_ONE_SHOT_MEGA_PROMPT_ALL.md",
+          "sha256": "7cace9fef2daf8dc462f5dbc89ef4f8829969a346b03e595e7e2d3e3d6d1784d",
+          "size_bytes": 2284
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/13_CHANGELOG_AND_EXPECTED_FINAL_STATE.md",
+          "sha256": "3ca74b50f3752dd1e318b645674df51dcf37be52cbb5bf8db8469a7155f263c0",
+          "size_bytes": 1353
+        },
+        {
+          "name": "certgen_mega_prompt_pack_v5_execution/README_MEGA_PROMPT_PACK_V5.md",
+          "sha256": "305ad3d7ba984e9d1b346e4633754c074771157e61f2a9b1aaa2d3bcaefae85e",
+          "size_bytes": 1924
+        }
+      ],
+      "path": "kaggleoutputs/newruns/certgen_mega_prompt_pack_v5_execution.zip",
+      "sha256": "b174e0e8ca4ab6b3b84e8bdc46baece5d0040487854d1a352dd213aa0e11b5c3",
+      "size_bytes": 20330
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_internvl_8b_mechanism_shard0.txt",
+          "sha256": "df74231719e6adae9830dfdfd45ee51a474f06e039cabdf251b5ff6bd0c702fc",
+          "size_bytes": 1977
+        },
+        {
+          "name": "log_internvl_8b_mechanism_shard1.txt",
+          "sha256": "647f306357b8a89268c84f2046cf8fbf882ac41753ab76abaa30959c0e90ebcf",
+          "size_bytes": 1706
+        },
+        {
+          "name": "pred_internvl_8b_mechanism.jsonl",
+          "sha256": "801de03b47fef4ef4e45572cbc0c8935d6a3dff7cfb2d3acb7065ed42c94689c",
+          "size_bytes": 341916
+        },
+        {
+          "name": "pred_internvl_8b_mechanism_shard0.jsonl",
+          "sha256": "23eb13af920a694c626a4eb3ba1376cb2fec9ff4a9b207339a291993734d2216",
+          "size_bytes": 170811
+        },
+        {
+          "name": "pred_internvl_8b_mechanism_shard1.jsonl",
+          "sha256": "35c049f98bed372fd41335595d55917d14fc1e58cab59edd6f99812b7d5e41ea",
+          "size_bytes": 171105
+        },
+        {
+          "name": "runtime_manifest_internvl_8b_mechanism.json",
+          "sha256": "149ae2ae1d0839d74034b6a49ec71addf16a0a401d0461b8e02504a0a2a2be41",
+          "size_bytes": 603
+        },
+        {
+          "name": "summary_internvl_8b_mechanism.json",
+          "sha256": "9b4506a2e3d64c35d9beb7466589c3e3cdcf277a66b9b775cf42153103f83fde",
+          "size_bytes": 13327
+        }
+      ],
+      "path": "kaggleoutputs/newruns/internvl_8b_mechanism_preds.zip",
+      "sha256": "65ec58fca5e0699ccc66a5d2d79b984d456287441881f5dbceff49ae7f5f3c6c",
+      "size_bytes": 41417
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_internvl_8b_perception_scaled_shard0.txt",
+          "sha256": "2f2eb5337bd89c73087a68b57da2fa19f21eededefe1d6763c449970a8b85ae7",
+          "size_bytes": 2749
+        },
+        {
+          "name": "log_internvl_8b_perception_scaled_shard1.txt",
+          "sha256": "4a6d60a5bd6f7050f05fa94e508f380ce1f93661d9de904e834bca918031e6db",
+          "size_bytes": 2478
+        },
+        {
+          "name": "pred_internvl_8b_perception_scaled_merged.jsonl",
+          "sha256": "1a8bec5fcc8b6e6eb5cdabc4f05f421a0384c9fd0d716ba02746905e4f8fbc26",
+          "size_bytes": 510573
+        },
+        {
+          "name": "pred_internvl_8b_perception_scaled_shard0.jsonl",
+          "sha256": "afbaf26bfe4d0caf59182777a7e8d9793abe7d231a3f10b3c2de18e7f8f84e64",
+          "size_bytes": 255970
+        },
+        {
+          "name": "pred_internvl_8b_perception_scaled_shard0.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_internvl_8b_perception_scaled_shard0.jsonl.provider_metadata.json",
+          "sha256": "62c8085aeb7088a48f975e82e1771764f3d4ff48b25ad40bbf7e9f1fbccb7c40",
+          "size_bytes": 356
+        },
+        {
+          "name": "pred_internvl_8b_perception_scaled_shard0.jsonl.run_manifest.json",
+          "sha256": "b824ebbaab2fb2666ffeca4bc6270a495f975679c10ad0206e36182c4f984c30",
+          "size_bytes": 900
+        },
+        {
+          "name": "pred_internvl_8b_perception_scaled_shard1.jsonl",
+          "sha256": "94f65564d990a6a322bb1a78cb4aa5ac793a3b48a22ee60cd379c0cff34a8d3e",
+          "size_bytes": 254603
+        },
+        {
+          "name": "pred_internvl_8b_perception_scaled_shard1.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_internvl_8b_perception_scaled_shard1.jsonl.provider_metadata.json",
+          "sha256": "62c8085aeb7088a48f975e82e1771764f3d4ff48b25ad40bbf7e9f1fbccb7c40",
+          "size_bytes": 356
+        },
+        {
+          "name": "pred_internvl_8b_perception_scaled_shard1.jsonl.run_manifest.json",
+          "sha256": "640ed20838266ef9debb7acf53406b62e21e2bf0321c697e42dff5642f83d568",
+          "size_bytes": 900
+        },
+        {
+          "name": "runtime_manifest_internvl_8b_perception_scaled.json",
+          "sha256": "73643a7d62bfeb5c9fb4e9bd52cedb8e69a0ead37336970fb1c7c5e7a8c9aca5",
+          "size_bytes": 608
+        },
+        {
+          "name": "summary_internvl_8b_perception_scaled.json",
+          "sha256": "42d1672c07f03aac5acc4960dbcf628851b6dbe5e8e6ecb51b609bbd8e40ac90",
+          "size_bytes": 429
+        }
+      ],
+      "path": "kaggleoutputs/newruns/internvl_8b_perception_scaled_preds.zip",
+      "sha256": "3f23b91a48485d52022273a79f1f80179fd6a967eb87715bcb4d9927b0cad3e6",
+      "size_bytes": 44813
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_internvl_8b_polarity_shard0.txt",
+          "sha256": "4baae0bc86ae42374ffac44f1991251910203dc02204a670f460172124e9ccf0",
+          "size_bytes": 2505
+        },
+        {
+          "name": "log_internvl_8b_polarity_shard1.txt",
+          "sha256": "19c4ab8dcdc506a6c7517ebed60b9e4db408a74555aa9406b274fcce84380620",
+          "size_bytes": 2234
+        },
+        {
+          "name": "pred_internvl_8b_polarity.jsonl",
+          "sha256": "73f5f1a3534a9a217dc1debbd8e467a055508ba3d0cc5abb6b9f83416d56d6e9",
+          "size_bytes": 581311
+        },
+        {
+          "name": "pred_internvl_8b_polarity_shard0.jsonl",
+          "sha256": "c775e82c05b18a965d3506144f3d9fdff6bf870d9dd2cdcff4110a3795def135",
+          "size_bytes": 291407
+        },
+        {
+          "name": "pred_internvl_8b_polarity_shard1.jsonl",
+          "sha256": "12f85be1cd66ade4fc9ebdf70129469b227c19817604bc792318d5f2067c7dbf",
+          "size_bytes": 289904
+        },
+        {
+          "name": "runtime_manifest_internvl_8b_polarity.json",
+          "sha256": "d7f12c7e1e7a0fcc39cfca9c8a934f57d55620ef7badcda2f8af68592733366f",
+          "size_bytes": 602
+        },
+        {
+          "name": "summary_internvl_8b_polarity.json",
+          "sha256": "8e46c96a01633e0de9469af825e617c4351cb6ac89930dc6c3e61f0d4e7aa428",
+          "size_bytes": 425
+        }
+      ],
+      "path": "kaggleoutputs/newruns/internvl_8b_polarity_preds.zip",
+      "sha256": "58d064cc7a254991b1ab16b5104f601ef8ee27f296dc1e149f25b84eeb6bea31",
+      "size_bytes": 51089
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_internvl_8b_spurious_shard0.txt",
+          "sha256": "762c2aa9bd73aced2dd6ca373e46fc7e8c3742237830f8ecac7540f794481ea8",
+          "size_bytes": 1718
+        },
+        {
+          "name": "log_internvl_8b_spurious_shard1.txt",
+          "sha256": "e6144c95b843f7ee4cac6459749d81184f72cb153e043461d617174894546d38",
+          "size_bytes": 1447
+        },
+        {
+          "name": "pred_internvl_8b_spurious_merged.jsonl",
+          "sha256": "68712ead859aeb1d3e93a0926a5650701cd06f8db7e995f11fa4a4a2fc6781fd",
+          "size_bytes": 128217
+        },
+        {
+          "name": "pred_internvl_8b_spurious_shard0.jsonl",
+          "sha256": "061a39fc6c8cfde889ab94f45d1655e2a1049b4f7fa2b082d5d99cf78d50efa1",
+          "size_bytes": 64109
+        },
+        {
+          "name": "pred_internvl_8b_spurious_shard0.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_internvl_8b_spurious_shard0.jsonl.provider_metadata.json",
+          "sha256": "62c8085aeb7088a48f975e82e1771764f3d4ff48b25ad40bbf7e9f1fbccb7c40",
+          "size_bytes": 356
+        },
+        {
+          "name": "pred_internvl_8b_spurious_shard0.jsonl.run_manifest.json",
+          "sha256": "761d04ac0fa48cb2abf36ed5fa0a43cdeb46b5463d3fa7c98b644147916c07b4",
+          "size_bytes": 855
+        },
+        {
+          "name": "pred_internvl_8b_spurious_shard1.jsonl",
+          "sha256": "969405d7977c466669dc2c49aea75e51eb68a6e6e0704fd470cb1242a0599911",
+          "size_bytes": 64108
+        },
+        {
+          "name": "pred_internvl_8b_spurious_shard1.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_internvl_8b_spurious_shard1.jsonl.provider_metadata.json",
+          "sha256": "62c8085aeb7088a48f975e82e1771764f3d4ff48b25ad40bbf7e9f1fbccb7c40",
+          "size_bytes": 356
+        },
+        {
+          "name": "pred_internvl_8b_spurious_shard1.jsonl.run_manifest.json",
+          "sha256": "8c8c399bd35f0b726009e8256da8203440ca4156a440e74be1772f59b836c232",
+          "size_bytes": 855
+        },
+        {
+          "name": "runtime_manifest_internvl_8b_spurious.json",
+          "sha256": "3a5f660c960c84eb25440a9390cd7982e7c888df98752f186e4d80d1b0546d68",
+          "size_bytes": 597
+        },
+        {
+          "name": "summary_internvl_8b_spurious.json",
+          "sha256": "6a7da61dd3c18670c2d06228f38221f6dfff6fa0716016a16d4e17224cb590e7",
+          "size_bytes": 409
+        }
+      ],
+      "path": "kaggleoutputs/newruns/internvl_8b_spurious_preds.zip",
+      "sha256": "d35425472a2578c7148eabd4d4facd21d80de0b5c644356a13152ae6b97f5aa2",
+      "size_bytes": 16625
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_llava_onevision_7b_mechanism_shard0.txt",
+          "sha256": "6ffd466ac58ecb63bdb502e9bfd2596408c9ee9198c358ebf6f64e6eda0c80de",
+          "size_bytes": 1553
+        },
+        {
+          "name": "log_llava_onevision_7b_mechanism_shard1.txt",
+          "sha256": "79f88df29a8d186132de27f84bc9c846a44e2125acd5541c3a7716980817d172",
+          "size_bytes": 1553
+        },
+        {
+          "name": "pred_llava_onevision_7b_mechanism.jsonl",
+          "sha256": "0361bb310caedfa69cd1a0f92d61cc1a210f9599d99ebebeb481ca2f1d6979a9",
+          "size_bytes": 342236
+        },
+        {
+          "name": "pred_llava_onevision_7b_mechanism_shard0.jsonl",
+          "sha256": "218dbf318f34cb407a2edc2a420767f639deb1fe75c02030a63694c9af74ecbd",
+          "size_bytes": 171011
+        },
+        {
+          "name": "pred_llava_onevision_7b_mechanism_shard1.jsonl",
+          "sha256": "05e87d6efc2a9d0062552ef38489836bafa188aeae7a3a4c0a52d40946bf5d3b",
+          "size_bytes": 171225
+        },
+        {
+          "name": "runtime_manifest_llava_onevision_7b_mechanism.json",
+          "sha256": "db34130b3a467ff08d2b69eef33340d0f86baa36c881a6700cd56e01a1d1b23d",
+          "size_bytes": 610
+        },
+        {
+          "name": "summary_llava_onevision_7b_mechanism.json",
+          "sha256": "52d4d622d5654700e21e9936b7bc873f386f0d68d277f30b4be3021ccbd378e8",
+          "size_bytes": 8497
+        }
+      ],
+      "path": "kaggleoutputs/newruns/llava_onevision_7b_mechanism_preds.zip",
+      "sha256": "9be03d3e07a37824849fbed801d1e73221dd3d512dc90e14f6ee5219c46e8ca0",
+      "size_bytes": 37269
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_llava_onevision_7b_perception_scaled_shard0.txt",
+          "sha256": "2a98dc68197dae4eb32d1d24d67a9ea497e2deb4fc4aabcf6da2170047de5e60",
+          "size_bytes": 2388
+        },
+        {
+          "name": "log_llava_onevision_7b_perception_scaled_shard1.txt",
+          "sha256": "5043c3688da6833411558ef1f7d81a70e9087b6659f41ea9da958745920d99ce",
+          "size_bytes": 2388
+        },
+        {
+          "name": "pred_llava_onevision_7b_perception_scaled_merged.jsonl",
+          "sha256": "e42223879642fc4b08bc86747ce0a96568d08c4fd12afbf8f3f6f112446acb55",
+          "size_bytes": 526263
+        },
+        {
+          "name": "pred_llava_onevision_7b_perception_scaled_shard0.jsonl",
+          "sha256": "1a14c74e0ff077a387b903b22728d619e787f1ab3751f0f23d7e37efd66e511a",
+          "size_bytes": 263842
+        },
+        {
+          "name": "pred_llava_onevision_7b_perception_scaled_shard0.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_llava_onevision_7b_perception_scaled_shard0.jsonl.provider_metadata.json",
+          "sha256": "4a3917dc604265ccd6280c1c729b0a53b20ab09b936ad45e3e663b8bff0f70d2",
+          "size_bytes": 371
+        },
+        {
+          "name": "pred_llava_onevision_7b_perception_scaled_shard0.jsonl.run_manifest.json",
+          "sha256": "1ff177292ed4dd27947ded1c4041be1ac25f8a79bd74ca3dc80cbc8e94f9c4e7",
+          "size_bytes": 949
+        },
+        {
+          "name": "pred_llava_onevision_7b_perception_scaled_shard1.jsonl",
+          "sha256": "61d1773da9d1f8715a12d6dc274b1287be8a1afe91c6e58d7ae380bf962918e2",
+          "size_bytes": 262421
+        },
+        {
+          "name": "pred_llava_onevision_7b_perception_scaled_shard1.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_llava_onevision_7b_perception_scaled_shard1.jsonl.provider_metadata.json",
+          "sha256": "4a3917dc604265ccd6280c1c729b0a53b20ab09b936ad45e3e663b8bff0f70d2",
+          "size_bytes": 371
+        },
+        {
+          "name": "pred_llava_onevision_7b_perception_scaled_shard1.jsonl.run_manifest.json",
+          "sha256": "c902a259974d15a276aab1a1008311bceb08793056e07398d1641e560b465748",
+          "size_bytes": 949
+        },
+        {
+          "name": "runtime_manifest_llava_onevision_7b_perception_scaled.json",
+          "sha256": "2b7c54c08f6872b3199a7549e785954c7ca1defb46bb88b2e203fb15c6bca577",
+          "size_bytes": 615
+        },
+        {
+          "name": "summary_llava_onevision_7b_perception_scaled.json",
+          "sha256": "d52354669d199147cbdbb61d9875200e75375064764ada437c245f612ebd6934",
+          "size_bytes": 443
+        }
+      ],
+      "path": "kaggleoutputs/newruns/llava_onevision_7b_perception_scaled_preds.zip",
+      "sha256": "b09382809642bb9e42c1ffcf35ff81f2da69ac385d20579f89cc30a25c174b63",
+      "size_bytes": 44345
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_llava_onevision_7b_polarity_shard0.txt",
+          "sha256": "1f303c14fb1e095410e2166173303d174059de17069b4e371226a4dff505a3b4",
+          "size_bytes": 2144
+        },
+        {
+          "name": "log_llava_onevision_7b_polarity_shard1.txt",
+          "sha256": "02b7b86168633b383fd8c48bb1fc98c420ab022d26d47ffd4bb8f5cf3bf9f4f6",
+          "size_bytes": 2144
+        },
+        {
+          "name": "pred_llava_onevision_7b_polarity.jsonl",
+          "sha256": "20678b9bc7e83ebcf9415e4cef8da51c31e41ce2dd1ac539cf5781cbadd587ac",
+          "size_bytes": 588566
+        },
+        {
+          "name": "pred_llava_onevision_7b_polarity_shard0.jsonl",
+          "sha256": "dfb74683dba46fbd6bd74753956adcb4998a7a7d7d9ae7e1b2d789a154f2085d",
+          "size_bytes": 295031
+        },
+        {
+          "name": "pred_llava_onevision_7b_polarity_shard1.jsonl",
+          "sha256": "c6cb1b92d4cf5ff126d1a68e06697fae65702b688bb94a7903d8ed0a710b49ff",
+          "size_bytes": 293535
+        },
+        {
+          "name": "runtime_manifest_llava_onevision_7b_polarity.json",
+          "sha256": "06686fb8fbfea17c308a63391c521e907481f3577b2565b7cad78834fab98195",
+          "size_bytes": 609
+        },
+        {
+          "name": "summary_llava_onevision_7b_polarity.json",
+          "sha256": "7efff6cc43e926c10de691a580e0495a136823b1cfde5b8afb1e10a8416aa865",
+          "size_bytes": 421
+        }
+      ],
+      "path": "kaggleoutputs/newruns/llava_onevision_7b_polarity_preds.zip",
+      "sha256": "be60bb748ca19e592086663984c18ef0730cc9786ea1fd042e98abc0084e63a8",
+      "size_bytes": 50835
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_llava_onevision_7b_spurious_shard0.txt",
+          "sha256": "04c1a651d218ac6e4c579d5697e87e1cefe137fc574a44a132254f3f7339d53f",
+          "size_bytes": 1259
+        },
+        {
+          "name": "log_llava_onevision_7b_spurious_shard1.txt",
+          "sha256": "8a83c15d52eab70edaa1d44a621c5438927d1d63797c81976f2101387ae52801",
+          "size_bytes": 1259
+        },
+        {
+          "name": "pred_llava_onevision_7b_spurious_merged.jsonl",
+          "sha256": "81d40e6942b8db147472987b22d55f876eda3c88ed370a20b9fe7b3ab457c67c",
+          "size_bytes": 132197
+        },
+        {
+          "name": "pred_llava_onevision_7b_spurious_shard0.jsonl",
+          "sha256": "63839abbfc07258a96285866c302cf2faf6f1db6d267b5c484308f4e504ff270",
+          "size_bytes": 66097
+        },
+        {
+          "name": "pred_llava_onevision_7b_spurious_shard0.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_llava_onevision_7b_spurious_shard0.jsonl.provider_metadata.json",
+          "sha256": "4a3917dc604265ccd6280c1c729b0a53b20ab09b936ad45e3e663b8bff0f70d2",
+          "size_bytes": 371
+        },
+        {
+          "name": "pred_llava_onevision_7b_spurious_shard0.jsonl.run_manifest.json",
+          "sha256": "67a1cd0eb76b1f2aaaa87bb3a72c0e24ae32d603113964ce35ae4310702e7cea",
+          "size_bytes": 904
+        },
+        {
+          "name": "pred_llava_onevision_7b_spurious_shard1.jsonl",
+          "sha256": "2c853266f25f53098d3e0a8bd9646d3078ef0606c1f892cd46582f4c34476dd1",
+          "size_bytes": 66100
+        },
+        {
+          "name": "pred_llava_onevision_7b_spurious_shard1.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_llava_onevision_7b_spurious_shard1.jsonl.provider_metadata.json",
+          "sha256": "4a3917dc604265ccd6280c1c729b0a53b20ab09b936ad45e3e663b8bff0f70d2",
+          "size_bytes": 371
+        },
+        {
+          "name": "pred_llava_onevision_7b_spurious_shard1.jsonl.run_manifest.json",
+          "sha256": "7d4a52773bfef010a605e4e66497efd2b231a675a023c7a5e3e3a4a9a0e9f65f",
+          "size_bytes": 904
+        },
+        {
+          "name": "runtime_manifest_llava_onevision_7b_spurious.json",
+          "sha256": "766e2bd374b0d8982e6493a843cf6c7db549ac251b3b2d86204cf78b6a5e1e82",
+          "size_bytes": 604
+        },
+        {
+          "name": "summary_llava_onevision_7b_spurious.json",
+          "sha256": "cf049a188cc65d43a11a46c0681fcf57834e543ece75d5f566b464176c39990c",
+          "size_bytes": 424
+        }
+      ],
+      "path": "kaggleoutputs/newruns/llava_onevision_7b_spurious_preds.zip",
+      "sha256": "541853e75d13d3a9450757688f11ccdea7fcfe85378c00a7a27e894799fff0a3",
+      "size_bytes": 16402
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_internvl_8b_mechanism.jsonl",
+      "sha256": "801de03b47fef4ef4e45572cbc0c8935d6a3dff7cfb2d3acb7065ed42c94689c",
+      "size_bytes": 341916
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_internvl_8b_perception_scaled_merged.jsonl",
+      "sha256": "1a8bec5fcc8b6e6eb5cdabc4f05f421a0384c9fd0d716ba02746905e4f8fbc26",
+      "size_bytes": 510573
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_internvl_8b_polarity.jsonl",
+      "sha256": "73f5f1a3534a9a217dc1debbd8e467a055508ba3d0cc5abb6b9f83416d56d6e9",
+      "size_bytes": 581311
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_internvl_8b_spurious_merged.jsonl",
+      "sha256": "68712ead859aeb1d3e93a0926a5650701cd06f8db7e995f11fa4a4a2fc6781fd",
+      "size_bytes": 128217
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_llava_onevision_7b_mechanism.jsonl",
+      "sha256": "0361bb310caedfa69cd1a0f92d61cc1a210f9599d99ebebeb481ca2f1d6979a9",
+      "size_bytes": 342236
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_llava_onevision_7b_perception_scaled_merged.jsonl",
+      "sha256": "e42223879642fc4b08bc86747ce0a96568d08c4fd12afbf8f3f6f112446acb55",
+      "size_bytes": 526263
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_llava_onevision_7b_polarity.jsonl",
+      "sha256": "20678b9bc7e83ebcf9415e4cef8da51c31e41ce2dd1ac539cf5781cbadd587ac",
+      "size_bytes": 588566
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_llava_onevision_7b_spurious_merged.jsonl",
+      "sha256": "81d40e6942b8db147472987b22d55f876eda3c88ed370a20b9fe7b3ab457c67c",
+      "size_bytes": 132197
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_mechanism.jsonl",
+      "sha256": "577a87d5f0bec8f0a5d27411442d084302ff04e2813943b264cbd860c634bfec",
+      "size_bytes": 345772
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_perception_scaled_merged.jsonl",
+      "sha256": "14def3f2758bd8ed7cd741b88662d29771504a02f6057e17b93cb6819ad9eae5",
+      "size_bytes": 515178
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_polarity_shard0.jsonl",
+      "sha256": "d03b9c4895a0b8c1b55c7576abb1d8e1da2a0e97f4118202d9cba1af0cf2e1a6",
+      "size_bytes": 290575
+    },
+    {
+      "kind": "jsonl",
+      "path": "kaggleoutputs/newruns/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+      "sha256": "4be34d6826587eca851855c2f407e6b82964a83ca47ae6fe2a64831d809a8049",
+      "size_bytes": 129361
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_qwen2_5_vl_7b_mechanism_shard0.txt",
+          "sha256": "d6a55c3ce3258e313597c5f182b0d6e376970e7ce79f88e541db65811ab0a0c1",
+          "size_bytes": 2142
+        },
+        {
+          "name": "log_qwen2_5_vl_7b_mechanism_shard1.txt",
+          "sha256": "e31c4a2d5e5938201eb6e550131fefa36f8a52ef98e4f7c907123d6903ccafe2",
+          "size_bytes": 2142
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_mechanism.jsonl",
+          "sha256": "577a87d5f0bec8f0a5d27411442d084302ff04e2813943b264cbd860c634bfec",
+          "size_bytes": 345772
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_mechanism_shard0.jsonl",
+          "sha256": "c883b4d84c96c925da9efa3d726cd28ae96473ffc95689ff14c4cbf88aba67ad",
+          "size_bytes": 172761
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_mechanism_shard1.jsonl",
+          "sha256": "d0fb43da7ded0672fb99e7c029c9d00e513185dc6843a51fff4359c5a7f49f80",
+          "size_bytes": 173011
+        },
+        {
+          "name": "runtime_manifest_qwen2_5_vl_7b_mechanism.json",
+          "sha256": "a7ed106beaab4f03a7557914e6469748e631f7318f81c78737a8eba392dfeeb1",
+          "size_bytes": 605
+        },
+        {
+          "name": "summary_qwen2_5_vl_7b_mechanism.json",
+          "sha256": "02bfd6f708f747c29d3f2b5a998e2d264d290cfeb9ecc47aff055cc671d76daa",
+          "size_bytes": 14698
+        }
+      ],
+      "path": "kaggleoutputs/newruns/qwen2_5_vl_7b_mechanism_preds.zip",
+      "sha256": "2b2b8170fb831bfeaedb437e7dc84d6f8a7bbf944e2fdbe0f3bb3dabe39ce564",
+      "size_bytes": 43307
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_qwen2_5_vl_7b_perception_scaled_shard0.txt",
+          "sha256": "07195e8a3a1e6e0855da546606feab90121140b64bca125bcbc65166e5c7a6fd",
+          "size_bytes": 2932
+        },
+        {
+          "name": "log_qwen2_5_vl_7b_perception_scaled_shard1.txt",
+          "sha256": "d22ec36ea6a181559d848709401c4e81cfce5729638e602271d4968e418251dc",
+          "size_bytes": 2932
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_perception_scaled_merged.jsonl",
+          "sha256": "14def3f2758bd8ed7cd741b88662d29771504a02f6057e17b93cb6819ad9eae5",
+          "size_bytes": 515178
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_perception_scaled_shard0.jsonl",
+          "sha256": "fbd7e2672e57401489b69dacf77b1013dd7d6ca369035649f6d3bc31f78dcca3",
+          "size_bytes": 258290
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_perception_scaled_shard0.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_perception_scaled_shard0.jsonl.provider_metadata.json",
+          "sha256": "4f4ecda79a719fa59cee2240444ddae51b8c7c925e163f83651ad0a4281f7dfe",
+          "size_bytes": 360
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_perception_scaled_shard0.jsonl.run_manifest.json",
+          "sha256": "9a8bcd5997e04d8991408bbcd7f92d2e6cad2cbacdd299fd81830c49cca47364",
+          "size_bytes": 914
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_perception_scaled_shard1.jsonl",
+          "sha256": "53956d4597d7b7a5b3c2e62f1b4eab6b1df0657fb06c0de205e2cc5baa23d08a",
+          "size_bytes": 256888
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_perception_scaled_shard1.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_perception_scaled_shard1.jsonl.provider_metadata.json",
+          "sha256": "4f4ecda79a719fa59cee2240444ddae51b8c7c925e163f83651ad0a4281f7dfe",
+          "size_bytes": 360
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_perception_scaled_shard1.jsonl.run_manifest.json",
+          "sha256": "413c4c5fa25b4addeef47c4278b26d3790980b85c74d7235e33ace6322fce24d",
+          "size_bytes": 914
+        },
+        {
+          "name": "runtime_manifest_qwen2_5_vl_7b_perception_scaled.json",
+          "sha256": "d5fd354715a10935384c7b84708432697145c0a605bb38bc95341e41c158fea1",
+          "size_bytes": 610
+        },
+        {
+          "name": "summary_qwen2_5_vl_7b_perception_scaled.json",
+          "sha256": "74f17396e928eb7419b2ce2a63cc2782f98a1a76e2b6daa271b5c1213109181f",
+          "size_bytes": 433
+        }
+      ],
+      "path": "kaggleoutputs/newruns/qwen2_5_vl_7b_perception_scaled_preds.zip",
+      "sha256": "4c8716781bbbad91d044c524785fe160d20d10a17f0b425ca049537fc935c863",
+      "size_bytes": 45249
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_qwen2_5_vl_7b_polarity_shard0.txt",
+          "sha256": "ddf6fc06e6252fd469cd9273f7b48e3711f247fd31453d3ff179ab7af241c43c",
+          "size_bytes": 2688
+        },
+        {
+          "name": "log_qwen2_5_vl_7b_polarity_shard1.txt",
+          "sha256": "b637bf29673a60c3ef672aaeb21a5fa930f9c6f90679b50c82e0712a02d07efd",
+          "size_bytes": 2688
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_polarity.jsonl",
+          "sha256": "ee2c3d80867ec3e90c28ab55c73dc3b197c1eb5760051a9179baca5dca741ab7",
+          "size_bytes": 580498
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_polarity_shard0.jsonl",
+          "sha256": "d03b9c4895a0b8c1b55c7576abb1d8e1da2a0e97f4118202d9cba1af0cf2e1a6",
+          "size_bytes": 290575
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_polarity_shard1.jsonl",
+          "sha256": "383930cee8bc9aacc431ee30e5962e931de9263af1f92b33e653ae8978947ca9",
+          "size_bytes": 289923
+        },
+        {
+          "name": "runtime_manifest_qwen2_5_vl_7b_polarity.json",
+          "sha256": "88fecd010f955f6c6f0f55eebd76b3c6f7ced777adcf04ace37ac94935812814",
+          "size_bytes": 604
+        },
+        {
+          "name": "summary_qwen2_5_vl_7b_polarity.json",
+          "sha256": "34860f8686307143b5ec53305d17294a2406f430428870c30b7cc53934abcd56",
+          "size_bytes": 442
+        }
+      ],
+      "path": "kaggleoutputs/newruns/qwen2_5_vl_7b_polarity_preds.zip",
+      "sha256": "ca92ba9c491d5381e9d5c7bcb8bb1c7bbc37b108724eefe78b5d784ad28a62a9",
+      "size_bytes": 52223
+    },
+    {
+      "kind": "zip",
+      "members": [
+        {
+          "name": "log_qwen2_5_vl_7b_spurious_shard0.txt",
+          "sha256": "8c0c0164c01312774646d9fd11e64ff11af815ba54d55730099e88c1cb335846",
+          "size_bytes": 1873
+        },
+        {
+          "name": "log_qwen2_5_vl_7b_spurious_shard1.txt",
+          "sha256": "23c241f4042e61b889d1473aaa62034ea6187ea5a56dfd0a5d08621625206d8d",
+          "size_bytes": 1873
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+          "sha256": "4be34d6826587eca851855c2f407e6b82964a83ca47ae6fe2a64831d809a8049",
+          "size_bytes": 129361
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_spurious_shard0.jsonl",
+          "sha256": "e0b84a942161233efd0f9bd47ac1a12763fd47a78a80b3b47c11c841369e0c65",
+          "size_bytes": 64686
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_spurious_shard0.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_spurious_shard0.jsonl.provider_metadata.json",
+          "sha256": "4f4ecda79a719fa59cee2240444ddae51b8c7c925e163f83651ad0a4281f7dfe",
+          "size_bytes": 360
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_spurious_shard0.jsonl.run_manifest.json",
+          "sha256": "b02176efb77ff2cb677643091cd3c7390221680613babae559b7faf568fdc502",
+          "size_bytes": 869
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_spurious_shard1.jsonl",
+          "sha256": "90b95c829b9259669d4b8d8b867cc95c7e45fb8db22a851ad4fd973f4edcd240",
+          "size_bytes": 64675
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_spurious_shard1.jsonl.environment.json",
+          "sha256": "26953cd0fd4ff54e6632fabe1da2a4c1385b92362acdb1a9b80e1e58d9c146c8",
+          "size_bytes": 133
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_spurious_shard1.jsonl.provider_metadata.json",
+          "sha256": "4f4ecda79a719fa59cee2240444ddae51b8c7c925e163f83651ad0a4281f7dfe",
+          "size_bytes": 360
+        },
+        {
+          "name": "pred_qwen2_5_vl_7b_spurious_shard1.jsonl.run_manifest.json",
+          "sha256": "e1b27f04b45d57a999ec0e8cf83103d19d3392a8dee20a21092285ea8603f844",
+          "size_bytes": 869
+        },
+        {
+          "name": "runtime_manifest_qwen2_5_vl_7b_spurious.json",
+          "sha256": "8d58d92a8dc2f02abd083720333075ab8b734ba862571a3b0db53cc5c2d9f24e",
+          "size_bytes": 599
+        },
+        {
+          "name": "summary_qwen2_5_vl_7b_spurious.json",
+          "sha256": "3b986728d6a05cb0fdea81f0dd7365a785c0497a3e5d5b13dd09495af23d614a",
+          "size_bytes": 414
+        }
+      ],
+      "path": "kaggleoutputs/newruns/qwen2_5_vl_7b_spurious_preds.zip",
+      "sha256": "8b8afa5281284b51c9f0f526b028a87d9d75e05f570d2f9e665a40ca36ee4f1b",
+      "size_bytes": 16947
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_internvl_8b_mechanism.json",
+      "sha256": "9b4506a2e3d64c35d9beb7466589c3e3cdcf277a66b9b775cf42153103f83fde",
+      "size_bytes": 13327
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_internvl_8b_perception_scaled.json",
+      "sha256": "42d1672c07f03aac5acc4960dbcf628851b6dbe5e8e6ecb51b609bbd8e40ac90",
+      "size_bytes": 429
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_internvl_8b_polarity.json",
+      "sha256": "8e46c96a01633e0de9469af825e617c4351cb6ac89930dc6c3e61f0d4e7aa428",
+      "size_bytes": 425
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_internvl_8b_spurious.json",
+      "sha256": "6a7da61dd3c18670c2d06228f38221f6dfff6fa0716016a16d4e17224cb590e7",
+      "size_bytes": 409
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_llava_onevision_7b_mechanism.json",
+      "sha256": "52d4d622d5654700e21e9936b7bc873f386f0d68d277f30b4be3021ccbd378e8",
+      "size_bytes": 8497
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_llava_onevision_7b_perception_scaled.json",
+      "sha256": "d52354669d199147cbdbb61d9875200e75375064764ada437c245f612ebd6934",
+      "size_bytes": 443
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_llava_onevision_7b_polarity.json",
+      "sha256": "7efff6cc43e926c10de691a580e0495a136823b1cfde5b8afb1e10a8416aa865",
+      "size_bytes": 421
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_llava_onevision_7b_spurious.json",
+      "sha256": "cf049a188cc65d43a11a46c0681fcf57834e543ece75d5f566b464176c39990c",
+      "size_bytes": 424
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_qwen2_5_vl_7b_mechanism.json",
+      "sha256": "02bfd6f708f747c29d3f2b5a998e2d264d290cfeb9ecc47aff055cc671d76daa",
+      "size_bytes": 14698
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_qwen2_5_vl_7b_perception_scaled.json",
+      "sha256": "74f17396e928eb7419b2ce2a63cc2782f98a1a76e2b6daa271b5c1213109181f",
+      "size_bytes": 433
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_qwen2_5_vl_7b_polarity.json",
+      "sha256": "34860f8686307143b5ec53305d17294a2406f430428870c30b7cc53934abcd56",
+      "size_bytes": 442
+    },
+    {
+      "kind": "json",
+      "path": "kaggleoutputs/newruns/summary_qwen2_5_vl_7b_spurious.json",
+      "sha256": "3b986728d6a05cb0fdea81f0dd7365a785c0497a3e5d5b13dd09495af23d614a",
+      "size_bytes": 414
+    }
+  ],
+  "missing_root": false,
+  "n_files": 37,
+  "root": "kaggleoutputs/newruns",
+  "schema": "certvic.v8.newruns_inventory.v1",
+  "status": "complete"
+}

@@ -1,0 +1,19 @@
+{
+  "canonical_files_created": [],
+  "canonical_results_changed": false,
+  "command": "python3 scripts/import_v9_spurious_v2_outputs.py --input-dir /tmp/certvic_empty_spurious_v2_import --out-dir data/results/main_real_200/v10_2_final_pre_run_sanity/importer_empty_out --canonical-dir data/results/main_real_200/v10_2_final_pre_run_sanity/importer_empty_canonical --report-dir data/results/main_real_200/v10_2_final_pre_run_sanity || true",
+  "generated_utc": "2026-07-09T15:30:16.822505+00:00",
+  "log_tail": [
+    "{\"missing\": [\"qwen2_5_vl_7b\", \"internvl_8b\", \"llava_onevision_7b\"], \"status\": \"BLOCKED_MISSING_PREDICTIONS\"}"
+  ],
+  "missing_providers": [
+    "qwen2_5_vl_7b",
+    "internvl_8b",
+    "llava_onevision_7b"
+  ],
+  "out_files_created": [],
+  "paper_evidence": false,
+  "safe_failure": true,
+  "schema": "certvic.v10_2.importer_negative_test.v1",
+  "status": "BLOCKED_MISSING_PREDICTIONS"
+}

@@ -1,0 +1,23 @@
+{
+  "ade20k_root": "/Users/saketmaganti/Projects/certVIC/ade20k_root/ADEChallengeData2016",
+  "by_edit_type_fail": {
+    "control_irrelevant": 65
+  },
+  "by_edit_type_pass": {
+    "displace": 64,
+    "occlude": 6,
+    "remove": 33
+  },
+  "composited": 168,
+  "edits_dir": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200",
+  "evidence_claims_made": false,
+  "evidence_status": "GENERATED_EDIT_ONLY",
+  "input_edits": 168,
+  "out_manifest": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/pilot_generated_edits.jsonl",
+  "postprocess": "composited_single_factor",
+  "quality_failed": 65,
+  "quality_passed": 103,
+  "rejected": 0,
+  "results_zip": "/Users/saketmaganti/Downloads/certvic_main200_diffusion_results.zip",
+  "task_preview_updated": 168
+}

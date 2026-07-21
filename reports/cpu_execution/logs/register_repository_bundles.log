@@ -1,0 +1,9 @@
+$ python3 scripts/run_all_cpu_workflows.py --internal register_bundles
+
+[stdout]
+{
+  "action": "register_bundles",
+  "status": "COMPLETED"
+}
+
+[stderr]

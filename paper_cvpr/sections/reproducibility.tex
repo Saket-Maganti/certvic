@@ -1,0 +1,13 @@
+\section{Reproducibility}
+The release candidate contains source, frozen schemas/configs, clean notebooks, synthetic fixtures,
+tests, guides, data/model cards, paper source, and a deterministic file manifest. Real data and model
+weights are represented by source instructions and immutable manifests. Runtime records include GPU
+topology, revisions, snapshot and code hashes, task/image/prompt hashes, batch/OOM events, shard
+assignment, parser version, raw outputs, and validation reports. A complete run-contract hash binds
+all output-changing inputs for resume. Import records returned-archive, raw-merged, and canonical
+normalized hashes separately, is idempotent for identical bytes, and refuses conflict. Mock and real
+smoke paths have disjoint runtime classes and notebooks.
+The protocol-authority manifest binds the sole live prospective config to the primary-analysis lock.
+The main checkout and separately hashed historical \texttt{kaggleoutputs} archive follow an explicit
+two-part restore contract. Distribution releases exclude weights, private source images, genuine
+review sheets, secrets, caches, and unregistered incoming archives.

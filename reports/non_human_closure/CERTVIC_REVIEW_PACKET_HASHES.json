@@ -1,0 +1,20 @@
+{
+  "genuine_human_reviewed_true_count": 0,
+  "historical_forensic_packet": {
+    "pairs": {
+      "intervention": 91,
+      "v1_irrelevant_control": 94
+    },
+    "path": "reports/v11_full_ceiling_audit/human_review_packet/certvic_v11_blinded_reviewer_bundle.zip",
+    "sha256": "d6e777d035fa806d0b4ffb42cd6c140e08c1187a571770ba87b70c629c3f044f",
+    "status": "READY_BLANK_TEMPLATES"
+  },
+  "paper_evidence": false,
+  "prospective_confirmatory_packet": {
+    "pairs": 0,
+    "path": null,
+    "sha256": null,
+    "status": "BLOCKED_EXTERNAL_GENERATION"
+  },
+  "schema": "certvic.phase_c.review_packet_hashes.v1"
+}

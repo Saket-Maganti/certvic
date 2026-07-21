@@ -1,0 +1,10 @@
+{
+  "bootstrap_never_certification": true,
+  "confidence_sequence_status": "not_computed_here",
+  "consistent_rate": 0.4,
+  "n_scores": 10,
+  "non_evidence_blocked": true,
+  "parse_ok_rate": 1.0,
+  "scores": "data/results/smoke_pair_scores.jsonl",
+  "threshold_conclusions_labeled": true
+}

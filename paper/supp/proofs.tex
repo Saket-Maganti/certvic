@@ -1,0 +1,35 @@
+\section{Proof Appendix Scaffold}
+
+\paragraph{Theorem (time-uniform gap certificate, caveated).}
+For the pre-registered bounded sequence $d_i=(a_i-C_i+1)/2$, an anytime-valid
+confidence sequence controls coverage under optional stopping. A certified
+claim may be drafted only when the lower bound on $\Delta$ exceeds the declared
+threshold and all evidence-eligibility gates pass.
+
+\paragraph{Caveat label.}
+This theorem is conditional on the declared item population, parser, provider
+set, and inclusion rules. Bootstrap summaries are descriptive only.
+
+\section{V6 Confidence-Sequence Bridge}
+
+\paragraph{Bounded variable.}
+For each certificate-eligible item, define the bounded variable
+$d_i=(a_i-C_i+1)/2 \in [0,1]$, where $a_i$ is original-image correctness and
+$C_i$ is visual decision-update consistency.
+
+\paragraph{Estimand.}
+The estimand is the intervention-consistency gap
+$\Delta = \mathbb{E}[a_i] - \mathbb{E}[C_i] = 2\mathbb{E}[d_i]-1$ for the
+declared, validity-gated item population.
+
+\paragraph{Optional stopping.}
+The native implementation in \texttt{certvic/metrics/anytime_cs.py} is intended
+to supply an anytime-valid confidence sequence under the predeclared item order
+and stopping rule. The bridge between implementation assumptions and theorem
+assumptions is proof-required until formal references are added.
+
+\paragraph{Implementation bridge.}
+The reporting path must cite \texttt{certvic/metrics/anytime_cs.py},
+\texttt{certvic/metrics/certification.py}, and
+\texttt{certvic/validity/filter_scores.py}; it must not cite fake papers or
+interpret bootstrap summaries as certification.

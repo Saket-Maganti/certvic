@@ -1,0 +1,31 @@
+{
+  "blocked_mask_count": 241,
+  "eligible_labels_by_family": {
+    "affordance_reachability": 4,
+    "control_irrelevant": 61,
+    "occlusion_safety": 4,
+    "support_stability": 3
+  },
+  "eligible_masks_by_family": {
+    "affordance_reachability": 60,
+    "control_irrelevant": 867,
+    "occlusion_safety": 113,
+    "support_stability": 73
+  },
+  "evidence_status": "DESCRIPTIVE_ONLY",
+  "label_policy_entry_count": 14,
+  "label_policy_hash": "sha256:4bd9136f2940176a",
+  "label_policy_source": "configs/ade20k_label_policy.yaml",
+  "label_policy_verified": false,
+  "label_policy_version": "certvic.ade20k_label_policy.v1",
+  "masks_path": "data/results/tiny_real_pilot/ade20k_masks.jsonl",
+  "n_blocked_labels": 4,
+  "n_distinct_labels": 65,
+  "n_masks": 1108,
+  "n_resolved_labels": 10,
+  "n_unresolved_labels": 55,
+  "out_dir": "data/results/tiny_real_pilot/label_policy_report",
+  "unresolved_mask_count": 746,
+  "vlm_inference_run": false,
+  "zero_cost": true
+}

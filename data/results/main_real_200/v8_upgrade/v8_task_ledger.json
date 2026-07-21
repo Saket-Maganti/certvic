@@ -1,0 +1,150 @@
+{
+  "paper_evidence": false,
+  "schema": "certvic.v8.task_ledger.v1",
+  "summary": {
+    "mechanism_status": "complete",
+    "polarity_status": "complete",
+    "scaled_status": "complete",
+    "spurious_all_provider_gate_pass": false
+  },
+  "tasks": [
+    {
+      "id": "V8_00",
+      "name": "orientation",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_01",
+      "name": "newruns_discovery_inventory",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_02",
+      "name": "prediction_integrity_normalization",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_03",
+      "name": "spurious_ingest_detectability",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_04",
+      "name": "spurious_control_integration",
+      "paper_evidence": false,
+      "status": "blocked_by_failed_spurious_gate"
+    },
+    {
+      "id": "V8_05",
+      "name": "scaled_perception_ingest",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_06",
+      "name": "polarity_ablation_analysis",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_07",
+      "name": "mechanism_probe_analysis",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_08",
+      "name": "evidence_status_policy_audit",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_09",
+      "name": "failure_taxonomy_gallery",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_10",
+      "name": "residual_cue_human_audit_export",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_11",
+      "name": "second_rater_iaa_export",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_12",
+      "name": "statistical_sensitivity_plan",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_13",
+      "name": "paper_tables_figures_scaffold",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_14",
+      "name": "reviewer_attack_harness",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_15",
+      "name": "release_privacy_reproducibility_audit",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_16",
+      "name": "main500_go_nogo",
+      "paper_evidence": false,
+      "status": "blocked_by_failed_spurious_gate"
+    },
+    {
+      "id": "V8_17",
+      "name": "main500_runbook_refresh",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_18",
+      "name": "cvpr_readiness_scorecard",
+      "paper_evidence": false,
+      "status": "blocked_by_failed_spurious_gate"
+    },
+    {
+      "id": "V8_19",
+      "name": "final_validation_handoff",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_20",
+      "name": "single_master_prompt_pack_complete",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_21",
+      "name": "local_tests_and_guards",
+      "paper_evidence": false,
+      "status": "complete"
+    },
+    {
+      "id": "V8_22",
+      "name": "no_commit",
+      "paper_evidence": false,
+      "status": "complete"
+    }
+  ]
+}

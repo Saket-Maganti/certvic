@@ -1,0 +1,17 @@
+defect_id,original_defect,repair_path,status
+D01,Main generation was not answer-changing,certvic/cvpr/semantic_edits.py,REPAIRED
+D02,COCO was a NotImplemented stub,certvic/data/coco_adapter_stub.py,REPAIRED
+D03,Generation workers launched sequentially,certvic/cvpr/notebook_builder.py,REPAIRED
+D04,MAX_ITEMS applied once per shard,certvic/cvpr/notebook_builder.py,REPAIRED
+D05,Inpainting had no verified lifecycle,certvic/cvpr/inpainting.py,REPAIRED
+D06,Candidate eligibility/QA rules incomplete,certvic/cvpr/candidate_selection.py,REPAIRED
+D07,Resume omitted full run provenance,certvic/cvpr/run_contract.py,REPAIRED
+D08,Raw and canonical hashes conflated,certvic/cvpr/whole_study_import.py,REPAIRED
+D09,Review operations were fragmented,certvic/cvpr/review.py,REPAIRED
+D10,Analysis could precede adjudicated inclusion,certvic/cvpr/analysis.py,REPAIRED
+D11,Kaggle dependencies were not offline locked,configs/runtime/kaggle_t4x2_environment.lock.json,REPAIRED
+D12,Mock and real smoke were ambiguous,notebooks/kaggle/cvpr/00C1_certvic_mock_adapter_smoke.ipynb,REPAIRED
+D13,InternVL FP16 policy was unsafe on one T4,certvic/cvpr/adapters.py,REPAIRED_PENDING_REAL_SMOKE
+D14,Snapshot claims lacked authenticity classes,certvic/cvpr/model_snapshot_manifest.py,REPAIRED
+D15,Release omitted transitive local modules,scripts/build_cvpr_execution_closure.py,REPAIRED
+D16,Paper branches were not fail-closed,certvic/cvpr/paper_branch.py,REPAIRED

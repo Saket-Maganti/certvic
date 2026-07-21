@@ -1,0 +1,98 @@
+{
+  "all_provider_gate_pass": false,
+  "detectability_quality": {
+    "exists": true,
+    "json_reports": [
+      {
+        "data": {
+          "artifact_risk": false,
+          "classifier": {
+            "accuracy": 0.6702,
+            "auc": 0.7123,
+            "auc_orientation": "symmetric_separability_max_auc_or_one_minus_auc",
+            "backend": "sklearn_logreg_group_cv",
+            "best_single_feature": "file_size",
+            "cv_grouped_by_item": true,
+            "multivariate_auc": 0.7123,
+            "n_images": 188,
+            "per_feature_auc": {
+              "edge_density": 0.5199,
+              "file_size": 0.6237,
+              "mean_b": 0.5012,
+              "mean_g": 0.5008,
+              "mean_r": 0.5011,
+              "sharpness": 0.5187,
+              "std_gray": 0.5181,
+              "uniform_fraction": 0.5261
+            },
+            "raw_accuracy": 0.6702,
+            "raw_multivariate_auc": 0.7123
+          },
+          "downloads_attempted": false,
+          "evidence_claims_made": false,
+          "evidence_status": "DIAGNOSTIC_ONLY",
+          "flag_auc": 0.8,
+          "gpu_required": false,
+          "n_items": 94,
+          "n_skipped": 0,
+          "paid_services": false,
+          "probe": "edit_detectability",
+          "tasks_path": "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl"
+        },
+        "keys": [
+          "artifact_risk",
+          "classifier",
+          "downloads_attempted",
+          "evidence_claims_made",
+          "evidence_status",
+          "flag_auc",
+          "gpu_required",
+          "n_items",
+          "n_skipped",
+          "paid_services",
+          "probe",
+          "tasks_path"
+        ],
+        "path": "data/results/spurious_flip_control/edit_detectability/detectability_summary.json"
+      }
+    ],
+    "out_dir": "data/results/spurious_flip_control/edit_detectability"
+  },
+  "evidence_status": "SPECIFICITY_CONTROL_PILOT_NON_EVIDENCE",
+  "integration_status": {
+    "gate_errors": [],
+    "path": "data/results/main_real_200/control_irrelevant_report/control_irrelevant_report.json",
+    "specificity_status": "blocked",
+    "status": "blocked"
+  },
+  "interpretation": "Specificity is not cleared unless every provider passes the configured spurious-flip gate.",
+  "paper_evidence": false,
+  "providers": {
+    "internvl_8b": {
+      "flipped": 1,
+      "gate_pass": true,
+      "gate_threshold": 0.1,
+      "n_items": 94,
+      "raw_prediction": "data/results/main_real_200/kaggle_spurious/pred_internvl_8b_spurious_merged.jsonl",
+      "spurious_flip_rate": 0.0106
+    },
+    "llava_onevision_7b": {
+      "flipped": 3,
+      "gate_pass": true,
+      "gate_threshold": 0.1,
+      "n_items": 94,
+      "raw_prediction": "data/results/main_real_200/kaggle_spurious/pred_llava_onevision_7b_spurious_merged.jsonl",
+      "spurious_flip_rate": 0.0319
+    },
+    "qwen2_5_vl_7b": {
+      "flipped": 12,
+      "gate_pass": false,
+      "gate_threshold": 0.1,
+      "n_items": 94,
+      "raw_prediction": "data/results/main_real_200/kaggle_spurious/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+      "spurious_flip_rate": 0.1277
+    }
+  },
+  "schema": "certvic.v8.spurious_specificity_control_report.v1",
+  "status": "blocked_failed_gate"
+}

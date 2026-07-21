@@ -1,0 +1,55 @@
+{
+  "agreement_computed": false,
+  "allow_blank": false,
+  "errors": [
+    "human review is blank; rerun with --allow-blank only for template QA"
+  ],
+  "evidence_status": "HUMAN_REVIEW_PENDING",
+  "paper_evidence": false,
+  "review_complete": false,
+  "schema": "certvic.v11.human_review_validation.v1",
+  "status": "PENDING_BLANK_TEMPLATES",
+  "tracks": [
+    {
+      "adjudication_complete": null,
+      "agreement": null,
+      "independent_reviewer_codes": null,
+      "n_pairs": 91,
+      "n_pairs_requiring_adjudication": null,
+      "rater_1_state": "blank",
+      "rater_2_state": "blank",
+      "track_id": "intervention91"
+    },
+    {
+      "adjudication_complete": null,
+      "agreement": null,
+      "independent_reviewer_codes": null,
+      "n_pairs": 94,
+      "n_pairs_requiring_adjudication": null,
+      "rater_1_state": "blank",
+      "rater_2_state": "blank",
+      "track_id": "control94"
+    },
+    {
+      "adjudication_complete": null,
+      "agreement": null,
+      "independent_reviewer_codes": null,
+      "n_pairs": 30,
+      "n_pairs_requiring_adjudication": null,
+      "rater_1_state": "blank",
+      "rater_2_state": "blank",
+      "track_id": "strict_control30"
+    },
+    {
+      "adjudication_complete": null,
+      "agreement": null,
+      "independent_reviewer_codes": null,
+      "n_pairs": 12,
+      "n_pairs_requiring_adjudication": null,
+      "rater_1_state": "blank",
+      "rater_2_state": "blank",
+      "track_id": "diagnostic_subset12"
+    }
+  ],
+  "valid": false
+}

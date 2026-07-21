@@ -1,0 +1,95 @@
+{
+  "audit": "v2_baseline_audit",
+  "checks": [
+    {
+      "expected": 6,
+      "missing": [],
+      "name": "handoff_docs_exist",
+      "passed": true
+    },
+    {
+      "checked": 11,
+      "errors": [],
+      "name": "core_command_modules_import",
+      "passed": true
+    },
+    {
+      "checked": 7,
+      "errors": [],
+      "name": "schema_modules_import",
+      "passed": true
+    },
+    {
+      "expected": 5,
+      "missing": [],
+      "name": "core_configs_exist",
+      "passed": true,
+      "unreadable": []
+    },
+    {
+      "configs_checked": 5,
+      "errors": [],
+      "name": "no_paid_providers_enabled_by_default",
+      "passed": true
+    },
+    {
+      "missing": [],
+      "name": "v1_5_non_evidence_statuses_recognized",
+      "passed": true,
+      "recognized": [
+        "CANDIDATE_ONLY",
+        "EDIT_READY_NON_EVIDENCE",
+        "GENERATED_EDIT_ONLY",
+        "NOT_GENERATED",
+        "PLANNED_ONLY",
+        "PREVIEW_ONLY"
+      ],
+      "required": [
+        "CANDIDATE_ONLY",
+        "EDIT_READY_NON_EVIDENCE",
+        "GENERATED_EDIT_ONLY",
+        "NOT_GENERATED",
+        "PLANNED_ONLY",
+        "PREVIEW_ONLY"
+      ]
+    },
+    {
+      "errors": [],
+      "name": "paper_contains_no_fake_results",
+      "passed": true,
+      "results_placeholder_present": true,
+      "scan_errors": [],
+      "scan_warnings": []
+    },
+    {
+      "name": "zero_cost_policy_exists",
+      "passed": true,
+      "path": "docs/ZERO_COST_POLICY.md"
+    },
+    {
+      "hits": [],
+      "name": "no_forbidden_claim_phrases",
+      "passed": true,
+      "scanned": [
+        "paper/main.tex",
+        "paper/sections/01_intro.tex",
+        "paper/sections/02_related.tex",
+        "paper/sections/03_method.tex",
+        "paper/sections/04_experiments.tex",
+        "paper/sections/05_results.tex",
+        "paper/sections/06_limitations.tex",
+        "paper/sections/07_conclusion.tex",
+        "docs/CLAIM_LEDGER.md",
+        "docs/PAPER_PLAN.md"
+      ]
+    }
+  ],
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "gpu_required": false,
+  "n_checks": 9,
+  "n_passed": 9,
+  "passed": true,
+  "repo_root": "/Users/saketmaganti/Projects/certVIC",
+  "vlm_inference_run": false
+}

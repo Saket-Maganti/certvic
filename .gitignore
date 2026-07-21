@@ -1,0 +1,54 @@
+# macOS and editor state
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Notebook and document build products
+.ipynb_checkpoints/
+paper_cvpr/*.aux
+paper_cvpr/*.log
+paper_cvpr/*.out
+paper_cvpr/*.pdf
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+kaggle.json
+credentials*.json
+secrets*.json
+
+# External/private inputs and resumable model-download caches
+local_inputs/
+
+# Historical or platform-generated outputs (restored via the tracked manifests)
+kaggleoutputs/
+output/
+tmp/
+
+# Generated binary distributions and externally provisioned runtime bytes
+*.zip
+*.whl
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Miscellaneous generated package metadata
+build/
+dist/*.egg-info/
+*.egg-info/

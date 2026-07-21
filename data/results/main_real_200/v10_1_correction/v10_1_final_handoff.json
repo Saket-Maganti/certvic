@@ -1,0 +1,51 @@
+{
+  "first_kaggle_notebook": "notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb",
+  "generated_utc": "2026-07-09T15:18:58.285844+00:00",
+  "local_import_command": "python3 scripts/import_v9_spurious_v2_outputs.py --input-dir kaggleoutputs/v9_spurious_v2 --out-dir data/results/main_real_200/v9_mega_upgrade/spurious_v2_ingest --canonical-dir data/results/main_real_200/kaggle_spurious_v2 --report-dir data/results/main_real_200/v9_mega_upgrade",
+  "main500_allowed_now": false,
+  "obvious_next_action": "Run Spurious V2 on Kaggle, starting with Qwen.",
+  "paper_evidence_changed": false,
+  "partials_count": 22,
+  "privacy_after_fix_json": "data/results/main_real_200/v10_1_correction/privacy_audit_after_fix.json",
+  "privacy_clean_now": true,
+  "remaining_blockers": [
+    "Spurious V2 provider predictions are missing.",
+    "Real human labels are missing.",
+    "Spurious V2 ingest/gate decision has not run on real provider outputs.",
+    "Main-500 remains blocked.",
+    "Second domain remains plan-only."
+  ],
+  "required_output_downloads": [
+    "qwen2_5_vl_7b_spurious_v2_preds.zip",
+    "internvl_8b_spurious_v2_preds.zip",
+    "llava_onevision_7b_spurious_v2_preds.zip"
+  ],
+  "required_upload_files": [
+    "dist/certvic_kaggle_main200_bundle.zip",
+    "dist/kaggle_remaining_runs/certvic_spurious_v2_control.zip"
+  ],
+  "schema": "certvic.v10_1.final_handoff.v1",
+  "spurious_v2_execution_package_ready": true,
+  "spurious_v2_ready_to_import": false,
+  "strict_v2_rows": 30,
+  "validation": {
+    "claim_guard": {
+      "exists": true,
+      "n_findings": 0,
+      "passed": true,
+      "path": "data/results/main_real_200/v10_1_correction/claim_guard_v10_1.json"
+    },
+    "full_pytest_last_line": "657 passed in 42.72s",
+    "full_pytest_log": "data/results/main_real_200/v10_1_correction/pytest_v10_1_full.log",
+    "full_pytest_log_exists": true,
+    "privacy_audit": {
+      "exists": true,
+      "n_total_findings": 0,
+      "passed": true,
+      "path": "data/results/main_real_200/v10_1_correction/privacy_audit_v10_1.json"
+    },
+    "selected_pytest_last_line": "20 passed in 4.93s",
+    "selected_pytest_log": "data/results/main_real_200/v10_1_correction/pytest_v10_1_selected.log",
+    "selected_pytest_log_exists": true
+  }
+}

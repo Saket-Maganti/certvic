@@ -1,0 +1,24 @@
+# Edit quality-gate thresholds for V2 real-pilot edit generation.
+#
+# The simple engines used in tests/CPU produce crude edits; for real pilots these
+# stricter thresholds catch degenerate or non-photorealistic edits. Enable the
+# uniform / sharpness gates only when generating real (e.g. diffusion) edits.
+
+# Mask area bounds (fraction of image).
+min_mask_area_fraction: 0.01
+max_mask_area_fraction: 0.40
+
+# Region-change limits.
+max_outside_allowed_change_fraction: 0.02
+min_inside_mask_change_fraction: 0.02
+pixel_change_threshold: 8
+
+# Control-edit destructiveness (must NOT change much).
+max_control_changed_fraction: 0.20
+max_control_mean_abs_diff: 15.0
+
+# V2 degenerate-edit detectors. null disables the warning (metrics still
+# reported). Recommended for real diffusion edits: max_uniform_pixel_fraction 0.85,
+# min_sharpness 2.0. Left disabled here so simple/CPU edits are not falsely failed.
+max_uniform_pixel_fraction: null
+min_sharpness: null

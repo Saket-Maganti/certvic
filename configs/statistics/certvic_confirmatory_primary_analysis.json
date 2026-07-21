@@ -1,0 +1,57 @@
+{
+  "schema": "certvic.confirmatory.primary_analysis.v1",
+  "status": "FROZEN_BEFORE_PROSPECTIVE_PROVIDER_OUTPUTS",
+  "study_mode": "FIXED_SAMPLE",
+  "normalization": "unicode_casefold_strip_and_collapse_ascii_whitespace",
+  "primary_endpoints": {
+    "responsiveness": "semantic_update_success = original_correct AND edited_correct AND gold_answer_changes AND model_answer_changes_to_edited_gold",
+    "specificity_failure": "irrelevant_flip = gold_answer_unchanged AND normalized_model_answer_changes"
+  },
+  "thresholds": {
+    "tau_update": 0.5,
+    "tau_spurious": 0.1
+  },
+  "intervals": {
+    "primary": "one_sided_clopper_pearson_fixed_sample",
+    "confidence_sequences": "secondary_operational_only"
+  },
+  "multiplicity": {
+    "family": "three_models_by_two_primary_gates",
+    "family_alpha": 0.05,
+    "method": "bonferroni",
+    "per_model_per_gate_alpha": 0.008333333333333333,
+    "model_claim": "both_bounds_pass",
+    "all_model_claim": "all_six_bounds_pass"
+  },
+  "denominators": {
+    "responsiveness": "all frozen relevant-intervention items",
+    "specificity": "all frozen irrelevant-control items",
+    "family_and_category": "descriptive full-denominator breakdowns; no post-outcome pooling changes"
+  },
+  "fail_closed_handling": {
+    "missing_relevant": "semantic_update_failure",
+    "missing_irrelevant": "irrelevant_flip",
+    "abstention_relevant": "semantic_update_failure",
+    "abstention_irrelevant": "irrelevant_flip",
+    "parser_failure_relevant": "semantic_update_failure",
+    "parser_failure_irrelevant": "irrelevant_flip"
+  },
+  "required_reporting": [
+    "original_accuracy",
+    "edited_accuracy",
+    "raw_answer_change_rate",
+    "correct_semantic_update_rate",
+    "conditional_semantic_update_rate_given_original_correct",
+    "irrelevant_flip_rate",
+    "transition_matrix",
+    "failure_taxonomy",
+    "family_breakdowns",
+    "category_breakdowns"
+  ],
+  "legacy_gap": {
+    "status": "SECONDARY_DESCRIPTIVE_NOT_A_CERTIFICATE",
+    "definition": "original_accuracy_minus_raw_answer_change_rate"
+  },
+  "paper_evidence": false,
+  "synthetic_fixture": false
+}

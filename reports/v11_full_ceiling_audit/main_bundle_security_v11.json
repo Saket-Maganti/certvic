@@ -1,0 +1,11 @@
+{
+  "bundle": "dist/certvic_kaggle_main200_bundle.zip",
+  "evidence_claims_made": false,
+  "findings": [],
+  "findings_by_kind": {},
+  "n_entries": 426,
+  "n_findings": 0,
+  "n_text_scanned": 426,
+  "ok": true,
+  "total_uncompressed_bytes": 3541010
+}

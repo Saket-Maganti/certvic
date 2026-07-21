@@ -1,0 +1,11 @@
+defect_id,component,original_defect,repair,status
+FRP-01,package_run,REAL_MODEL_SMOKE omitted snapshot_manifest.json,Require copy and byte-bind snapshot for REAL_MODEL_SMOKE,PASS
+FRP-02,smoke_gate,Canonical branch ignored teardown OOM and warnings,Require cleanup model release CUDA cleanup zero OOM and no unresolved warnings,PASS
+FRP-03,identity,run_contract_hash was not equal on all surfaces,Bind trusted contract runtime rows validation proof and permission,PASS
+FRP-04,notebook_preflight,Child permission was not verified against parent before hardware,Attach and verify MATRIX_AUTHORIZATION before hardware/model/output,PASS
+FRP-05,prompt_binding,Prompt hash could be manually unrelated to active prompt,Derive prompt_template_hash from exact PROMPT_TEMPLATE and bind full chain,PASS
+FRP-06,packaging_lifecycle,OUTPUT_PACKAGED could precede final ZIP promotion,Use PACKAGING_STARTED PACKAGE_WRITTEN atomic promotion then OUTPUT_PACKAGED,PASS
+FRP-07,packaging_retry,Failed ZIP write could strand one-run permission,Use PACKAGING_FAILED retry rules and idempotent matching-final-ZIP behavior,PASS
+FRP-08,notebook_proof,Prior synthetic proof called modules without generated-route binding,Hash and validate generated 00C2 route then execute worker package_run canonical gate for all providers,PASS
+FRP-09,privacy_baseline,Development promptpacks were scanned as release payload,Classify promptpacks as non-release operational inputs while release directory remains independently scanned,PASS
+

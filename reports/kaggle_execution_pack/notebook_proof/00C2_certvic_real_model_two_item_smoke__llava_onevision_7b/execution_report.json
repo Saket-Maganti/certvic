@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "00C2_llava_onevision_7b_real_model_smoke.zip",
+      "sha256": "d4cdbcd85cdc0b38f9ba2a8b486d916056b993021fb754331bd538f3f469221a",
+      "size": 3576
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "16b25063f0939d01525e5fd27a1d1640e9b389793abb6172e38efcc463526c89",
+      "size": 959
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "76bf080a61d477d0a416441af305beed1c73c0b3d99cb311b0d705414dbff4ad",
+  "config": {
+    "artifact_globs": [
+      "00C2_llava_onevision_7b_real_model_smoke.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "00C2_certvic_real_model_two_item_smoke.ipynb",
+    "notebook_sha256": "3abb3f4680e8739fd26c63e4f009ca02160c144c0781e1d9de004cd3438c8540",
+    "provider": "llava_onevision_7b",
+    "return_zip": "00C2_llava_onevision_7b_real_model_smoke.zip",
+    "route": "00C2_certvic_real_model_two_item_smoke__llava_onevision_7b",
+    "stage": "real_model_smoke",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "3e250ca60caafe0e752bafa584ac821fd2366d251677b1bebadb6437a5a97157",
+  "status": "PASS"
+}

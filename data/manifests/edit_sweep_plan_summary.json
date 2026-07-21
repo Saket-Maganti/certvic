@@ -1,0 +1,9 @@
+{
+  "edit_plan": "data/results/v4_smoke/edit_plan.jsonl",
+  "estimated_runtime_seconds": 724,
+  "evidence_status": "SWEEP_PLANNED_ONLY",
+  "executed": false,
+  "max_combinations": 20,
+  "n_combinations": 20,
+  "out": "data/manifests/edit_sweep_plan.jsonl"
+}

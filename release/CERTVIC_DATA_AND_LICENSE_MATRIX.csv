@@ -1,0 +1,6 @@
+asset,license_status,redistribution,release_action
+ADE20K images/annotations,USER_VERIFY,blocked_pending_verification,ship pointers/manifests only
+COCO 2017,USER_VERIFY,follow_source_terms,ship pointers/manifests only
+model snapshots,per_model,no,"ship IDs, commits, hashes"
+human sheets,private_review_data,no_before_consent,aggregate only after approval
+CertVIC source,REQUIRED_USER_FILL,blocked_until_license_added,add project license

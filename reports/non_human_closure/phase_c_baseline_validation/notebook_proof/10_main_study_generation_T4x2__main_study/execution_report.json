@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "main_generation_return.zip",
+      "sha256": "bf676a4c8587e2a9faf768183277c62a3b122d1c640bb6a3b3fdb5615d330d8a",
+      "size": 3535
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "dcd4270641baac07f02e9fc5440adaa4f62eac43c1cb30933469792a39b5dad2",
+      "size": 947
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "4f7e37648469a3bf28dea535883b4795df6afe09ede3eca7071e3b4306a19837",
+  "config": {
+    "artifact_globs": [
+      "main_generation_return.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "10_main_study_generation_T4x2.ipynb",
+    "notebook_sha256": "8cba1ee09c9e4874626dafd60e5935d0de46349f70ad802d7974d8ac6d3da01a",
+    "provider": "main_study",
+    "return_zip": "main_generation_return.zip",
+    "route": "10_main_study_generation_T4x2__main_study",
+    "stage": "generation",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "2223dea3c9c751e3a4fba2619e8684bc7635e5ee033683d597efcb6837cacee3",
+  "status": "PASS"
+}

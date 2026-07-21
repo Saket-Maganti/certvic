@@ -1,0 +1,216 @@
+{
+  "candidates": {
+    "cityscapes": {
+      "blockers": [
+        "license + mandatory registration friction",
+        "driving-only domain (no household overlap)"
+      ],
+      "free_feasibility_note": "~11GB; registration/login required.",
+      "license": "Non-commercial research license; registration required; redistribution restricted.",
+      "mask_format": "Fine instance + semantic polygons.",
+      "name": "Cityscapes",
+      "overlapping_classes": [
+        "car",
+        "person (no indoor furniture)"
+      ],
+      "requires_manual_verification": [
+        "whether the license permits the intended use"
+      ],
+      "scores": {
+        "annotation_format_simplicity": 3,
+        "class_overlap": 3,
+        "edit_suitability": 4,
+        "free_feasibility": 3,
+        "license_compatibility": 2,
+        "mask_availability": 4,
+        "review_burden_low": 3,
+        "reviewer_objection_low": 3
+      },
+      "usable_without_blockers": false,
+      "weighted_pct": 63.3,
+      "weighted_total": 57
+    },
+    "coco_2017_instances_panoptic": {
+      "blockers": [],
+      "free_feasibility_note": "val2017 ~1GB (5k imgs) is enough for a pilot subset; train2017 large but subsettable. Free.",
+      "license": "Annotations CC-BY 4.0 (COCO Consortium); images sourced from Flickr under varied licenses -- do NOT redistribute pixels (same policy as ADE20K).",
+      "mask_format": "COCO JSON polygons/RLE (pycocotools); panoptic PNG.",
+      "name": "COCO 2017 (instances + panoptic)",
+      "overlapping_classes": [
+        "chair",
+        "couch (sofa)",
+        "car",
+        "dining table"
+      ],
+      "requires_manual_verification": [
+        "per-image license for any image whose pixels are shown in the paper",
+        "confirm pycocotools install is CPU/import-safe & optional"
+      ],
+      "scores": {
+        "annotation_format_simplicity": 4,
+        "class_overlap": 5,
+        "edit_suitability": 5,
+        "free_feasibility": 4,
+        "license_compatibility": 4,
+        "mask_availability": 5,
+        "review_burden_low": 3,
+        "reviewer_objection_low": 4
+      },
+      "usable_without_blockers": true,
+      "weighted_pct": 88.9,
+      "weighted_total": 80
+    },
+    "lvis_v1": {
+      "blockers": [],
+      "free_feasibility_note": "Annotations small; reuses COCO images. Free.",
+      "license": "Annotations CC-BY 4.0; built ON COCO images (same image-license caveat).",
+      "mask_format": "COCO-style instance masks.",
+      "name": "LVIS v1",
+      "overlapping_classes": [
+        "chair",
+        "car",
+        "couch",
+        "table",
+        "+1200 long-tail classes"
+      ],
+      "requires_manual_verification": [
+        "shares COCO images -> not a fully independent domain; reviewer may note image overlap with a COCO arm"
+      ],
+      "scores": {
+        "annotation_format_simplicity": 4,
+        "class_overlap": 5,
+        "edit_suitability": 5,
+        "free_feasibility": 4,
+        "license_compatibility": 4,
+        "mask_availability": 5,
+        "review_burden_low": 3,
+        "reviewer_objection_low": 3
+      },
+      "usable_without_blockers": true,
+      "weighted_pct": 86.7,
+      "weighted_total": 78
+    },
+    "openimages_v7_segmentation": {
+      "blockers": [],
+      "free_feasibility_note": "Very large overall; must subset to mask-bearing classes. Free.",
+      "license": "Annotations CC-BY 4.0; images CC-BY 2.0 (Flickr). Masks for ~350 classes subset.",
+      "mask_format": "Mask PNGs + CSV index + class hierarchy (more moving parts).",
+      "name": "Open Images V7 (segmentation subset)",
+      "overlapping_classes": [
+        "chair",
+        "table",
+        "car"
+      ],
+      "requires_manual_verification": [
+        "mask coverage for our target classes in the chosen split"
+      ],
+      "scores": {
+        "annotation_format_simplicity": 3,
+        "class_overlap": 4,
+        "edit_suitability": 4,
+        "free_feasibility": 3,
+        "license_compatibility": 4,
+        "mask_availability": 4,
+        "review_burden_low": 3,
+        "reviewer_objection_low": 3
+      },
+      "usable_without_blockers": true,
+      "weighted_pct": 73.3,
+      "weighted_total": 66
+    },
+    "sa_1b": {
+      "blockers": [
+        "no semantic class labels -> cannot form object-named presence questions without an extra labeling pass",
+        "size not free-tier feasible"
+      ],
+      "free_feasibility_note": "~11M images / ~10TB -- not zero-cost practical.",
+      "license": "SA-1B research license; faces/plates blurred; redistribution constrained.",
+      "mask_format": "Class-agnostic masks; no object category labels.",
+      "name": "SA-1B (Segment Anything)",
+      "overlapping_classes": [
+        "NONE -- masks are class-agnostic (no semantic labels)"
+      ],
+      "requires_manual_verification": [],
+      "scores": {
+        "annotation_format_simplicity": 2,
+        "class_overlap": 1,
+        "edit_suitability": 2,
+        "free_feasibility": 1,
+        "license_compatibility": 3,
+        "mask_availability": 5,
+        "review_burden_low": 2,
+        "reviewer_objection_low": 2
+      },
+      "usable_without_blockers": false,
+      "weighted_pct": 47.8,
+      "weighted_total": 43
+    }
+  },
+  "criteria_weights": {
+    "annotation_format_simplicity": 1,
+    "class_overlap": 3,
+    "edit_suitability": 3,
+    "free_feasibility": 2,
+    "license_compatibility": 3,
+    "mask_availability": 3,
+    "review_burden_low": 1,
+    "reviewer_objection_low": 2
+  },
+  "current_primary_domain": "ADE20K (semantic masks)",
+  "evidence_status": "READINESS_ASSESSMENT_NON_EVIDENCE",
+  "max_weighted_total": 90,
+  "note": "License facts are standard/public and still REQUIRE manual confirmation against the specific release before any evidence run. No dataset is downloaded here.",
+  "paper_evidence": false,
+  "ranking": [
+    {
+      "blocked": false,
+      "id": "coco_2017_instances_panoptic",
+      "name": "COCO 2017 (instances + panoptic)",
+      "rank": 1,
+      "weighted_pct": 88.9,
+      "weighted_total": 80
+    },
+    {
+      "blocked": false,
+      "id": "lvis_v1",
+      "name": "LVIS v1",
+      "rank": 2,
+      "weighted_pct": 86.7,
+      "weighted_total": 78
+    },
+    {
+      "blocked": false,
+      "id": "openimages_v7_segmentation",
+      "name": "Open Images V7 (segmentation subset)",
+      "rank": 3,
+      "weighted_pct": 73.3,
+      "weighted_total": 66
+    },
+    {
+      "blocked": true,
+      "id": "cityscapes",
+      "name": "Cityscapes",
+      "rank": 4,
+      "weighted_pct": 63.3,
+      "weighted_total": 57
+    },
+    {
+      "blocked": true,
+      "id": "sa_1b",
+      "name": "SA-1B (Segment Anything)",
+      "rank": 5,
+      "weighted_pct": 47.8,
+      "weighted_total": 43
+    }
+  ],
+  "recommended_next_domain": {
+    "first_local_check": "Confirm no COCO files already exist locally, then plan a small val2017 subset (do NOT download yet): ls ade20k_root ade20kdataset && find / -iname 'instances_val2017.json' 2>/dev/null | head",
+    "id": "coco_2017_instances_panoptic",
+    "why": "Direct class overlap (chair/couch/car/dining table) with instance masks ideal for single-object removal, permissive annotation license, mature CPU tooling, and free val2017 subset -- the lowest-friction independent second domain."
+  },
+  "schema": "certvic.second_domain_candidates.v1",
+  "top_2": [
+    "coco_2017_instances_panoptic",
+    "lvis_v1"
+  ]
+}

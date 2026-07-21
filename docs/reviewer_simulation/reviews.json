@@ -1,0 +1,132 @@
+{
+  "all_complain_when_no_results": true,
+  "any_hallucinated_results": false,
+  "evidence_claims_made": false,
+  "mean_score": 2.0,
+  "paper_dir": "paper",
+  "reports_root": "data/results",
+  "reviews": [
+    {
+      "complained_about_missing_results": true,
+      "hallucinated_results": false,
+      "profile": "benchmark_skeptic",
+      "questions": [
+        "What does even a single tiny real open-VLM run on reviewed edits show?",
+        "Why is decision-update under intervention the right target vs fixed-image accuracy?"
+      ],
+      "recommendation": "reject",
+      "score": 2,
+      "strengths": [
+        "The certified-evaluation-protocol framing is more than yet-another accuracy benchmark."
+      ],
+      "weaknesses": [
+        "No empirical results: 7 result cells are still [RESULT REQUIRED] and no certified claim exists. The paper cannot be evaluated on findings yet.",
+        "Dataset/benchmark contribution must be justified beyond standard VQA accuracy."
+      ]
+    },
+    {
+      "complained_about_missing_results": true,
+      "hallucinated_results": false,
+      "profile": "stats_reviewer",
+      "questions": [
+        "What does even a single tiny real open-VLM run on reviewed edits show?",
+        "What is the effective-n after accounting for per-source clustering?"
+      ],
+      "recommendation": "reject",
+      "score": 2,
+      "strengths": [
+        "Anytime-valid CS is the right tool for optional stopping; native + confseq backends exist."
+      ],
+      "weaknesses": [
+        "No empirical results: 7 result cells are still [RESULT REQUIRED] and no certified claim exists. The paper cannot be evaluated on findings yet.",
+        "Multiplicity across subgroups and clustered dependence (repeated sources) must be controlled."
+      ]
+    },
+    {
+      "complained_about_missing_results": true,
+      "hallucinated_results": false,
+      "profile": "vision_editing_reviewer",
+      "questions": [
+        "What does even a single tiny real open-VLM run on reviewed edits show?",
+        "Can a trivial classifier separate edited from original images (artifact confound)?"
+      ],
+      "recommendation": "reject",
+      "score": 2,
+      "strengths": [
+        "An edit-detectability probe quantifies artifact-confound risk."
+      ],
+      "weaknesses": [
+        "No empirical results: 7 result cells are still [RESULT REQUIRED] and no certified claim exists. The paper cannot be evaluated on findings yet.",
+        "Edit realism / single-factor validity is the make-or-break; crude edits would confound the gap."
+      ]
+    },
+    {
+      "complained_about_missing_results": true,
+      "hallucinated_results": false,
+      "profile": "reproducibility_reviewer",
+      "questions": [
+        "What does even a single tiny real open-VLM run on reviewed edits show?",
+        "Can the full pipeline be reproduced on free compute from the released recipe?"
+      ],
+      "recommendation": "reject",
+      "score": 2,
+      "strengths": [
+        "Recipe-first release (pointers/hashes/scripts) avoids rehosting pixels."
+      ],
+      "weaknesses": [
+        "No empirical results: 7 result cells are still [RESULT REQUIRED] and no certified claim exists. The paper cannot be evaluated on findings yet.",
+        "Need exact seeds, environment, and dataset-root instructions for full reproduction."
+      ]
+    },
+    {
+      "complained_about_missing_results": true,
+      "hallucinated_results": false,
+      "profile": "construct_validity_reviewer",
+      "questions": [
+        "What does even a single tiny real open-VLM run on reviewed edits show?",
+        "Do non-visual baselines stay below the consistency threshold, with reported IAA?"
+      ],
+      "recommendation": "reject",
+      "score": 2,
+      "strengths": [
+        "Ablation/baseline infrastructure is present.",
+        "Human review with IAA and adjudication is set up."
+      ],
+      "weaknesses": [
+        "No empirical results: 7 result cells are still [RESULT REQUIRED] and no certified claim exists. The paper cannot be evaluated on findings yet.",
+        "Must show the task is not gameable without vision (text-only / caption-only / answer-prior baselines)."
+      ]
+    },
+    {
+      "complained_about_missing_results": true,
+      "hallucinated_results": false,
+      "profile": "open_model_scope_reviewer",
+      "questions": [
+        "What does even a single tiny real open-VLM run on reviewed edits show?",
+        "How many open VLMs, and how do you scope claims about closed/frontier models?"
+      ],
+      "recommendation": "reject",
+      "score": 2,
+      "strengths": [],
+      "weaknesses": [
+        "No empirical results: 7 result cells are still [RESULT REQUIRED] and no certified claim exists. The paper cannot be evaluated on findings yet.",
+        "Only open-local models are evaluated; generalization claims must be scoped accordingly."
+      ]
+    }
+  ],
+  "simulation": "reviewer_simulation",
+  "state": {
+    "certified_claim": false,
+    "has_results": false,
+    "infrastructure": {
+      "ablations": true,
+      "anytime_valid_cs": true,
+      "cluster_diagnostics": true,
+      "edit_detectability": true,
+      "human_review_ops": true,
+      "paper_number_guard": true,
+      "recipe_release": true
+    },
+    "placeholders_remaining": 7
+  }
+}

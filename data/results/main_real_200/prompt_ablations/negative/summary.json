@@ -1,0 +1,12 @@
+{
+  "ablation_family": "negative",
+  "evidence_status": "PROMPT_ABLATION_NON_EVIDENCE",
+  "n_items": 91,
+  "n_tasks": 182,
+  "paper_evidence": false,
+  "polarity": "negative",
+  "run_label": "abl_negative",
+  "tasks_path": "data/results/main_real_200/prompt_ablations/negative/tasks.jsonl",
+  "template": "Is the {obj} absent from the image? Answer yes or no.",
+  "variants_per_item": 2
+}

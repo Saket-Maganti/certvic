@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "main_internvl_return.zip",
+      "sha256": "c128263de5efc54c211e5c44f5856f0e515c76e98137fd0fc8fc86487d10dcb1",
+      "size": 3547
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "1ceca7d658976c4db23536eea2b5ae7ae8f6f6f3d066064f991d88f249ee454c",
+      "size": 947
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "8874f2bbd1f39325593940641166268fec8f78364bb62f0193886e9fca441277",
+  "config": {
+    "artifact_globs": [
+      "main_internvl_return.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "12_internvl_main_study_T4x2.ipynb",
+    "notebook_sha256": "957bff84dc477800ad647d3a1ef1d660d5de7e6af56ff51a7fd63828d97c51c7",
+    "provider": "internvl_8b",
+    "return_zip": "main_internvl_return.zip",
+    "route": "12_internvl_main_study_T4x2__internvl_8b",
+    "stage": "evaluation",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "10f3e3b47bcbd9b219ad1d892856d2e16dbcc85e35019e30a82cd94ec8273406",
+  "status": "PASS"
+}

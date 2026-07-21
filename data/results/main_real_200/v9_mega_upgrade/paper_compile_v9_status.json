@@ -1,0 +1,6 @@
+{
+  "command": "pdflatex -interaction=nonstopmode main_v9.tex",
+  "log": "Recompiled after replacing literal newline tokens in V9 scaffold.",
+  "pdf_exists": true,
+  "status": "PASS"
+}

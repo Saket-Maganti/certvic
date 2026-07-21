@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "certvic"
+version = "0.1.0"
+description = "Certified Visual Consistency: zero-cost controlled visual intervention evaluation."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "pandas",
+  "pillow",
+  "pydantic",
+  "pyyaml",
+  "tqdm",
+  "scikit-learn",
+  "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+stats = ["confseq"]
+vision = [
+  "torch",
+  "torchvision",
+  "transformers",
+  "accelerate",
+  "bitsandbytes",
+  "diffusers",
+  "opencv-python",
+]
+kaggle = ["ipykernel", "nbclient", "nbformat"]
+
+[tool.setuptools.packages.find]
+include = ["certvic*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+# Notebook cells intentionally repeat imports and configure runtime state across cells;
+# the dedicated notebook validators are the authoritative gate for them.
+extend-exclude = ["notebooks/**/*.ipynb"]

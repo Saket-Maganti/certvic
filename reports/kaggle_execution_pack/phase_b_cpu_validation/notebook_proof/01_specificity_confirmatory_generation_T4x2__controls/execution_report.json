@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "confirmatory_generation_return.zip",
+      "sha256": "0298c3e4d9e7204d366a27b9552462b33f4162db710ffbfe4ae5828545288ad8",
+      "size": 3540
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "218e53942b849bff614618c010b57d1f627ccee3fc711914bb4649b2619589df",
+      "size": 945
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "0eeed4d6d76689fbbae50fa31d56dfaa27fb2060d43d4fd015c820b2c2eb39a5",
+  "config": {
+    "artifact_globs": [
+      "confirmatory_generation_return.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "01_specificity_confirmatory_generation_T4x2.ipynb",
+    "notebook_sha256": "982053d40e015f8e24c049ac66b4e7b5dd796a6bcf8edcbc896672e173f6c8d8",
+    "provider": "controls",
+    "return_zip": "confirmatory_generation_return.zip",
+    "route": "01_specificity_confirmatory_generation_T4x2__controls",
+    "stage": "generation",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "3cf14635a41f2e4cfcd3efdf1f0a43d1f6565edda2ce773d19adaeb6418dd75c",
+  "status": "PASS"
+}

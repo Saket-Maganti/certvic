@@ -1,0 +1,23 @@
+{
+  "anonymization_reminders": [
+    "strip private paths",
+    "strip prompts/chat logs",
+    "keep nonredistributable pixels pointer-only"
+  ],
+  "components": [
+    "main paper",
+    "supplement",
+    "figures",
+    "tables",
+    "checklist",
+    "artifact README",
+    "data card",
+    "model/eval cards",
+    "claim ledger",
+    "reproduction docs",
+    "release package",
+    "anonymization checklist"
+  ],
+  "missing_result_placeholders": true,
+  "paper_dir": "paper"
+}

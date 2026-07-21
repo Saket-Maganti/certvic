@@ -1,0 +1,152 @@
+{
+  "conservative_planning_deltas": {
+    "estimates": [
+      {
+        "alpha": 0.05,
+        "conservative_delta": 0.2,
+        "feasible": true,
+        "gap": 0.2,
+        "method": "normal_approximation_planning",
+        "n": 275,
+        "note": "Planning estimate only; anytime-valid CS may require more.",
+        "power": 0.8,
+        "threshold": 0.05
+      },
+      {
+        "alpha": 0.05,
+        "conservative_delta": 0.3,
+        "feasible": true,
+        "gap": 0.3,
+        "method": "normal_approximation_planning",
+        "n": 99,
+        "note": "Planning estimate only; anytime-valid CS may require more.",
+        "power": 0.8,
+        "threshold": 0.05
+      },
+      {
+        "alpha": 0.05,
+        "conservative_delta": 0.4,
+        "feasible": true,
+        "gap": 0.4,
+        "method": "normal_approximation_planning",
+        "n": 51,
+        "note": "Planning estimate only; anytime-valid CS may require more.",
+        "power": 0.8,
+        "threshold": 0.05
+      }
+    ],
+    "note": "Projections. Pilot gaps (0.71-0.82) are NOT used as guaranteed future effect sizes; planning uses these much smaller deltas."
+  },
+  "evidence_status": "STATISTICAL_PLAN_NON_EVIDENCE",
+  "metric": "Delta = E[a_i - C_i]; certified via anytime-valid CS on d_i=(a_i-C_i+1)/2 in [0,1]",
+  "minimum_detectable_gap_grid": [
+    {
+      "implied_gap": 0.31065338903852574,
+      "minimum_detectable_gap_over_threshold": 0.26065338903852575,
+      "n": 91
+    },
+    {
+      "implied_gap": 0.22582032332428875,
+      "minimum_detectable_gap_over_threshold": 0.17582032332428874,
+      "n": 200
+    },
+    {
+      "implied_gap": 0.16119853613039592,
+      "minimum_detectable_gap_over_threshold": 0.11119853613039593,
+      "n": 500
+    },
+    {
+      "implied_gap": 0.13791016166214437,
+      "minimum_detectable_gap_over_threshold": 0.08791016166214437,
+      "n": 800
+    },
+    {
+      "implied_gap": 0.1286292389558203,
+      "minimum_detectable_gap_over_threshold": 0.07862923895582027,
+      "n": 1000
+    },
+    {
+      "implied_gap": 0.10559926806519797,
+      "minimum_detectable_gap_over_threshold": 0.055599268065197965,
+      "n": 2000
+    }
+  ],
+  "observed_gap_range": [
+    0.7143,
+    0.8242
+  ],
+  "observed_pilot_effect_sizes": [
+    {
+      "consistency_p": 0.1758,
+      "cs_lower_bound": 0.36395841718089605,
+      "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "n": 91,
+      "observed_gap_delta": 0.7473,
+      "original_accuracy_a": 0.9231,
+      "provider": "qwen2_5_vl_7b"
+    },
+    {
+      "consistency_p": 0.0989,
+      "cs_lower_bound": 0.4408814941039729,
+      "model": "OpenGVLab/InternVL2-8B",
+      "n": 91,
+      "observed_gap_delta": 0.8242,
+      "original_accuracy_a": 0.9231,
+      "provider": "internvl_8b"
+    },
+    {
+      "consistency_p": 0.1758,
+      "cs_lower_bound": 0.330991384213863,
+      "model": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+      "n": 91,
+      "observed_gap_delta": 0.7143,
+      "original_accuracy_a": 0.8901,
+      "provider": "llava_onevision_7b"
+    }
+  ],
+  "optional_stopping_plan": {
+    "description": "Item-level anytime-valid CS allows checking after every item without alpha inflation. Simulation: Type-I error under H0 (true gap=0) with peeking at every step should stay <= alpha.",
+    "simulations": [
+      {
+        "alpha": 0.05,
+        "available": true,
+        "n": 200,
+        "n_sims": 100,
+        "note": "Anytime-valid CS controls this even under continuous peeking.",
+        "threshold": 0.0,
+        "true_gap": 0.0,
+        "type_i_error": 0.0
+      },
+      {
+        "alpha": 0.05,
+        "available": true,
+        "n": 500,
+        "n_sims": 100,
+        "note": "Anytime-valid CS controls this even under continuous peeking.",
+        "threshold": 0.0,
+        "true_gap": 0.0,
+        "type_i_error": 0.0
+      }
+    ]
+  },
+  "paper_evidence": false,
+  "policies": {
+    "control_reporting": "Report the absent-object control and (when run) the spurious-flip specificity control as SEPARATE arms with their own status; a passed intervention gap is not evidence of specificity until the control passes.",
+    "exclusion_sensitivity_for_review_uncertainty": "Define a sensitivity set = items with rater disagreement (IAA gate) OR residual_target_visible in {yes, uncertain}. Recompute the CS with that set dropped; report both. Items are not silently removed from the canonical set.",
+    "multiple_model_reporting": "Report each model's OWN anytime-valid certified CS. Cross-model agreement is descriptive; do not pool models into a single certified claim. For a joint claim, pre-register a primary model or apply a multiplicity adjustment across the model family.",
+    "per_family_analysis": "Pre-register the task-family split (support_stability, affordance_reachability, occlusion_safety). Report per-family gaps descriptively; do NOT certify families with tiny n (e.g. occlusion n=6). Certification is at the pooled presence-arm level."
+  },
+  "schema": "certvic.statistical_sensitivity.v1",
+  "thresholds_unchanged": {
+    "alpha": 0.05,
+    "gap_threshold": 0.05
+  },
+  "what_not_to_certify": [
+    "tiny task families (n too small for a meaningful CS)",
+    "a single pooled cross-model claim (models are reported individually)",
+    "anything via a naive fixed-n confidence interval as the primary claim",
+    "the affordance arm (original accuracy ~chance => confounded)",
+    "any mock/smoke/simulated artifact",
+    "specificity, until the spurious-flip control predictions exist and pass"
+  ]
+}

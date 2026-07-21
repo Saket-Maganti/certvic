@@ -1,0 +1,11 @@
+{
+  "dry_run": true,
+  "duplicates": [
+    "v4_item_001"
+  ],
+  "hash_mismatches_fixed": false,
+  "input": "data/results/v4_smoke/broken_predictions.jsonl",
+  "n_input": 2,
+  "n_repaired": 1,
+  "out": "data/results/v4_smoke/repaired_predictions.jsonl"
+}

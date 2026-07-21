@@ -1,0 +1,8 @@
+{
+  "downloads_attempted": false,
+  "dry_run": false,
+  "evidence_status": "PIPELINE_NON_EVIDENCE",
+  "gpu_required": false,
+  "paid_services": false,
+  "vlm_inference_run": false
+}

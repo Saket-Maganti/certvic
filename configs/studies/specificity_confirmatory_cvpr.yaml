@@ -1,0 +1,171 @@
+schema: certvic.cvpr.confirmatory_protocol.v2
+study_id: specificity_confirmatory_cvpr
+status: SCIENTIFIC_PROTOCOL_FROZEN_EXTERNAL_SOURCE_BYTES_PENDING
+protocol_authority: configs/studies/certvic_confirmatory_authority.json
+prospective: true
+outcome_unseen: true
+paper_evidence: false
+execution_allowed: false
+selection_allowed: true
+seed: 12013
+source:
+  datasets: [ADE20K]
+  allowed_splits: [validation]
+  license_verification_required: true
+  source_manifest_supplied_at_runtime: true
+source_rules:
+  allowed_splits: [validation]
+  license_eligible_required: true
+  minimum_short_side: 384
+  allow_controlled_rgb_conversion: false
+  annotation_required: true
+selection_requirements:
+  require_qa_enriched_manifest: true
+  require_license_eligible: true
+  require_generation_qa: true
+  require_salience_review: true
+  require_detectability_review: true
+  final_sequence: source_eligible_then_generation_qa_then_blinded_review_then_adjudication
+negative_item_policy:
+  policy_id: absent_category_protected_scene_v1
+  expected_answer: no
+  queried_category_must_be_absent: true
+  protect_all_annotated_objects_and_text: true
+  edit_region: verified_background_only
+  target_geometry_semantics: protected_scene_union_not_absent_category_geometry
+  minimum_distance_from_any_protected_region_px: 75
+  outcome_unseen_review_required: true
+relevant_item_policy:
+  policy_id: visible_category_semantic_update_v1
+  original_and_edited_gold_must_differ: true
+  original_prediction_must_be_correct_for_item_level_success: true
+  edited_prediction_must_equal_edited_gold: true
+  model_answer_must_change_to_edited_gold: true
+  matched_salience_to_irrelevant_controls_required: true
+  outcome_unseen_review_required: true
+exclusions:
+  zero_v1_overlap: true
+  zero_v2_30_overlap: true
+  frozen_inventory: configs/studies/specificity_confirmatory_exclusions.json
+  perceptual_duplicate_hamming_distance_max: 6
+design:
+  minimum_viable_items: 120
+  primary_items: 240
+  reserve_items: 60
+  endpoint_allocation:
+    primary: {relevant_intervention: 120, irrelevant_control: 120}
+    reserve: {relevant_intervention: 30, irrelevant_control: 30}
+    category_rule: each_category_primary_total_20_split_10_relevant_10_irrelevant
+  category_targets:
+    person: &category_target
+      primary: 20
+      reserve: 5
+      source_availability: REQUIRED_RUNTIME_CENSUS
+      expected_answer_polarities:
+        primary: {yes: 10, no: 10}
+        reserve: {yes: 3, no: 2}
+      size_strata:
+        primary: {small: 7, medium: 7, large: 6}
+        reserve: {small: 2, medium: 2, large: 1}
+      position_strata:
+        primary: {top_left: 4, top_right: 4, bottom_left: 4, bottom_right: 4, center: 4}
+        reserve: {top_left: 1, top_right: 1, bottom_left: 1, bottom_right: 1, center: 1}
+    car: *category_target
+    chair: *category_target
+    table: *category_target
+    dog: *category_target
+    cat: *category_target
+    tree: *category_target
+    building: *category_target
+    bicycle: *category_target
+    bus: *category_target
+    sofa: *category_target
+    television: *category_target
+  target_size_strata: [small, medium, large]
+  target_position_strata: [top_left, top_right, bottom_left, bottom_right, center]
+  perturbation_families:
+    [structured_texture_patch, neutral_color_patch, distant_region_blur]
+  perturbation_area_fraction: {minimum: 0.0025, maximum: 0.02}
+  target_bbox_overlap_fraction_max: 0.0
+  target_mask_overlap_pixels_max: 0
+  minimum_distance_from_target_px: 75
+  salience_score_range: {minimum: 0.015, maximum: 0.12}
+  set_level_symmetric_detectability_auc_max: 0.80
+  image_quality:
+    minimum_short_side_px: 384
+    require_rgb: true
+    require_equal_dimensions: true
+    require_decodable: true
+  expected_answer_invariance: two_independent_outcome_blind_raters_both_accept
+  replacement_rule: first_unused_same_locked_stratum_only
+  rejection_rules:
+    - source_or_pixel_overlap_with_prior_controls
+    - target_geometry_touched
+    - answer_invariance_not_unanimous
+    - image_corrupt_or_quality_below_threshold
+    - duplicate_or_perceptual_duplicate
+    - salience_or_detectability_outside_locked_range
+human_review:
+  raters: 2
+  pair_order_randomized: true
+  provider_outcomes_hidden: true
+  disagreement: outcome_blind_adjudication
+  required_fields:
+    - target_unaffected
+    - expected_answer_unchanged
+    - perturbation_acceptable
+    - image_answerable
+    - prompt_unambiguous
+    - retain
+    - confidence
+    - reason_code
+statistics:
+  analysis_lock: configs/statistics/certvic_confirmatory_primary_analysis.json
+  primary_endpoints:
+    responsiveness: semantic_update_success
+    specificity_failure: irrelevant_flip
+  certificate: BOTH_GATES_MUST_PASS
+  tau_update: 0.50
+  tau_spurious: 0.10
+  one_model_alpha: 0.016666666666666666
+  family_alpha: 0.05
+  multiplicity_family: 3_models_x_2_primary_gates
+  per_model_per_gate_alpha: 0.008333333333333333
+  primary_interval: fixed_sample_one_sided_clopper_pearson
+  simultaneous_rule: all_six_bonferroni_bounds_must_pass
+  missing_or_unparseable:
+    relevant: count_as_semantic_update_failure
+    irrelevant: count_as_irrelevant_flip
+  abstention:
+    relevant: count_as_semantic_update_failure
+    irrelevant: count_as_irrelevant_flip
+  parser_failure:
+    relevant: count_as_semantic_update_failure
+    irrelevant: count_as_irrelevant_flip
+  denominator: all_frozen_items_in_assigned_endpoint_family
+  study_mode: fixed_sample
+  confidence_sequences: secondary_operational_only_no_optional_stopping
+  pairwise: [risk_difference, exact_mcnemar, holm_exploratory]
+  analyses: [raw_primary, preregistered_validity_filtered, sensitivity]
+execution:
+  task_bundle_root: data/studies/specificity_confirmatory_cvpr/task_bundle
+  task_bundle_manifest: data/studies/specificity_confirmatory_cvpr/task_bundle/task_bundle_manifest.json
+  task_manifest: data/studies/specificity_confirmatory_cvpr/task_bundle/tasks.jsonl
+  detectability_gate: data/studies/specificity_confirmatory_cvpr/detectability_gate.json
+  permission_ledger: data/studies/specificity_confirmatory_cvpr/permission_ledger.json
+  run_tag: specificity_confirmatory_cvpr_v1
+  code_bundle_sha256: NOT_FROZEN_EXTERNAL_INPUT
+  expected_providers: [qwen2_5_vl_7b, internvl_8b, llava_onevision_7b]
+  runtime_contract_schema: certvic.cvpr.run_contract.v1
+  environment_lock: configs/runtime/kaggle_t4x2_environment.lock.json
+  permission_artifact: data/studies/specificity_confirmatory_cvpr/execution_permission.json
+  smoke_gate: reports/cvpr_final_integration/REAL_MODEL_SMOKE_GATE.json
+  freeze_manifest: data/studies/specificity_confirmatory_cvpr/final_task_freeze.json
+  human_review_outputs:
+    final_inclusion_manifest: data/studies/specificity_confirmatory_cvpr/review/final_inclusion.json
+    agreement_report: data/studies/specificity_confirmatory_cvpr/review/agreement.json
+    rater_1_qualification: data/studies/specificity_confirmatory_cvpr/review/rater_1_qualification.json
+    rater_2_qualification: data/studies/specificity_confirmatory_cvpr/review/rater_2_qualification.json
+    rater_1_validation: data/studies/specificity_confirmatory_cvpr/review/rater_1_validation.json
+    rater_2_validation: data/studies/specificity_confirmatory_cvpr/review/rater_2_validation.json
+    adjudication_artifact: data/studies/specificity_confirmatory_cvpr/review/adjudication_validation.json

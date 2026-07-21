@@ -1,0 +1,45 @@
+{
+  "audit": "release_privacy",
+  "evidence_claims_made": false,
+  "n_total_findings": 0,
+  "passed": true,
+  "private_paths": {
+    "findings": [],
+    "n_findings": 0,
+    "ok": true,
+    "scan": "private_paths"
+  },
+  "release_pixels": {
+    "n_pixels": 0,
+    "ok": true,
+    "pixels": [],
+    "release_dir": null,
+    "scan": "release_pixels",
+    "skipped": true
+  },
+  "release_private_paths": {
+    "findings": [],
+    "n_findings": 0,
+    "ok": true,
+    "scan": "private_paths",
+    "skipped": true
+  },
+  "release_secrets": {
+    "committed_env_files": [],
+    "n_secret_findings": 0,
+    "ok": true,
+    "paid_endpoints": [],
+    "scan": "secrets",
+    "secret_findings": [],
+    "skipped": true
+  },
+  "root": ".",
+  "secrets": {
+    "committed_env_files": [],
+    "n_secret_findings": 0,
+    "ok": true,
+    "paid_endpoints": [],
+    "scan": "secrets",
+    "secret_findings": []
+  }
+}

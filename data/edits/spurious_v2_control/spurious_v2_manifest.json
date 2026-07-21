@@ -1,0 +1,681 @@
+{
+  "design_status": "RETROSPECTIVE_POST_OUTCOME_V1_SUBSET",
+  "deterministic_seed": 9009,
+  "evidence_class": "DIAGNOSTIC_ONLY",
+  "examples_gallery": "data/edits/spurious_v2_control/spurious_v2_examples_gallery.html",
+  "excluded_items": [
+    {
+      "item_id": "sflip_table_ADE_train_00000279",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000220",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000231",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000219",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000365",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000480",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000485",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000246",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000418",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000377",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000342",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000457",
+      "reason": "detectability_above_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000201",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000360",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000476",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_table_ADE_train_00000256",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000708",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000273",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000738",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000681",
+      "reason": "detectability_above_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000704",
+      "reason": "distance_below_threshold,detectability_above_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000713",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000678",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000719",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000741",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000748",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000662",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000673",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_sofa_ADE_train_00000710",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000617",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000436",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000839",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000753",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00001564",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000268",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000939",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00001571",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000608",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000906",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000631",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000797",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000945",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00001573",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000918",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_chair_ADE_train_00000002",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002093",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002038",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002039",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002054",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00000941",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002029",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002030",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00004616",
+      "reason": "distance_below_threshold,detectability_above_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002008",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold,detectability_above_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002014",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002062",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00004630",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00001018",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00003061",
+      "reason": "detectability_above_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00002026",
+      "reason": "patch_bbox_intersects_target_bbox,distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00004657",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00004567",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00004623",
+      "reason": "distance_below_threshold"
+    },
+    {
+      "item_id": "sflip_car_ADE_train_00001421",
+      "reason": "detectability_above_threshold"
+    }
+  ],
+  "images_dir": "data/edits/spurious_v2_control/images",
+  "independent_confirmatory_set": false,
+  "jpeg_policy": [
+    "pillow_jpeg_quality_95"
+  ],
+  "max_detectability_score": 0.12,
+  "min_distance_px": 75.0,
+  "n_items": 30,
+  "n_source_items": 94,
+  "paper_evidence": false,
+  "prompt_file": "03_SPURIOUS_V2_STRICT_CONTROL_BUILDER.md",
+  "quality_report": "data/results/main_real_200/v9_mega_upgrade/spurious_v2_quality_report.json",
+  "schema": "certvic.v9.spurious_v2_manifest.v1",
+  "selected_items": [
+    {
+      "edited": {
+        "bytes": 108351,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_car_ADE_train_00002034.jpg",
+        "sha256": "597fbc6529bcc3cca119c6583ea0f8bfb1264f849ea476517cdd53a1a1447d65"
+      },
+      "item_id": "sflip_car_ADE_train_00002034",
+      "original": {
+        "bytes": 101714,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_car_ADE_train_00002034.jpg",
+        "sha256": "df24161f2ad3d67e13e9cf07abb12547fc1656392a50298112d5eeb29d555636"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 108480,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_car_ADE_train_00004304.jpg",
+        "sha256": "7ea27109d9b08b1522b9cbb9796d101fa9f9b9f8b24dc2c7e751dd6d84a91035"
+      },
+      "item_id": "sflip_car_ADE_train_00004304",
+      "original": {
+        "bytes": 106850,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_car_ADE_train_00004304.jpg",
+        "sha256": "cbf45dc8499bd0daa26df0a0fbecaa95ab1bf46238e1548d5a29e4264457c0eb"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 141641,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_car_ADE_train_00004561.jpg",
+        "sha256": "5033ec27bfdf163de9b61bf037cb3280da3bf2c9535d6989228f5c0e06321dc1"
+      },
+      "item_id": "sflip_car_ADE_train_00004561",
+      "original": {
+        "bytes": 135676,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_car_ADE_train_00004561.jpg",
+        "sha256": "56001721c1c8ad6ab7b7b83d820048a8f298f3b1c9c722168eda3b7d0db3faa2"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 28294,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000194.jpg",
+        "sha256": "711c86c6d6ed239da95aa43b6edca585e4a18546925b40c1e17001326b594f66"
+      },
+      "item_id": "sflip_chair_ADE_train_00000194",
+      "original": {
+        "bytes": 27796,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000194.jpg",
+        "sha256": "57db8b66fce934acc02aa59ebf05d11511786dcfca7d40d5060f8b89da5e7f35"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 117755,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000374.jpg",
+        "sha256": "ae04e9502a0f9eeeedeae0440a6bf6b9ec45466de703ada45831949345c86fef"
+      },
+      "item_id": "sflip_chair_ADE_train_00000374",
+      "original": {
+        "bytes": 109313,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000374.jpg",
+        "sha256": "19e230df20db5897b4c19ac60ba0938f4ebdb849bc4f56790a100cb501cd7372"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 143664,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000469.jpg",
+        "sha256": "5cf3ff328de5b92c01d4d66273128e36e6c22bfcd5e70b1e58a3c2e3bee8a448"
+      },
+      "item_id": "sflip_chair_ADE_train_00000469",
+      "original": {
+        "bytes": 134178,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000469.jpg",
+        "sha256": "ec0d6d58c45150cf83237dfa1e7e3c928e8aa12a381416834dcff2798dfea803"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 123372,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000622.jpg",
+        "sha256": "fcff3ad3160ca33aaafa174ee8594e61ec21c4bca083aec83a4c06bb2c293275"
+      },
+      "item_id": "sflip_chair_ADE_train_00000622",
+      "original": {
+        "bytes": 114502,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000622.jpg",
+        "sha256": "5492ace2512ab83d3a60ad31ab1923b2b9ccee4c0dab0e27f56231a634173c1d"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 101430,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000630.jpg",
+        "sha256": "bba3d09f2ee3b64ef96d28c3dc2477e0a6e34e511620192156f5c40f17df8b52"
+      },
+      "item_id": "sflip_chair_ADE_train_00000630",
+      "original": {
+        "bytes": 92601,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000630.jpg",
+        "sha256": "2467aca2e03669dd09ecef963f3fd2d5783def17b629bfbc8e31a7f9dbddcb68"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 113185,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000728.jpg",
+        "sha256": "4baf136843d5c1916199cfc1a48a75d00f9b26b4b176f69097d6eaea9d5f0c80"
+      },
+      "item_id": "sflip_chair_ADE_train_00000728",
+      "original": {
+        "bytes": 103255,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000728.jpg",
+        "sha256": "caa28659f3870085859dc97b82da6580ebf0f97999e88fac5ac22ff5d6620b74"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 118139,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000928.jpg",
+        "sha256": "64be8a215134b722b819d89b0f743add7af8461a07d1a3fa812fe968ea540ad3"
+      },
+      "item_id": "sflip_chair_ADE_train_00000928",
+      "original": {
+        "bytes": 106749,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000928.jpg",
+        "sha256": "6616f2addc72e30492019c45fe832c2d01e1d63245e091faf8448518faab8de6"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 87787,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00001105.jpg",
+        "sha256": "bc947596f295f75345609e14f04d015d6ea4eab1ef06f3c79b5bf3dbaac57012"
+      },
+      "item_id": "sflip_chair_ADE_train_00001105",
+      "original": {
+        "bytes": 81086,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00001105.jpg",
+        "sha256": "4746d7704fbaa697bdae0ff245cb2494487d921ed8b42e1471507f8fa5947d69"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 118843,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000653.jpg",
+        "sha256": "1c08ba98265c8fdf635ef047fe9331242468d88e11539e915d75743368aef118"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000653",
+      "original": {
+        "bytes": 119327,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000653.jpg",
+        "sha256": "df69575289b7ba2c7f18f697fb4a4d5d15af138c462b97085604ef4dba654a01"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 105857,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000668.jpg",
+        "sha256": "4554fae2bd5e30946d9aa276e4842e5549d22acf37c235102b2d8cff11789109"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000668",
+      "original": {
+        "bytes": 101005,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000668.jpg",
+        "sha256": "4a85adfdd8a739ec32e0de7a8e71c09539e2e99c87a1b52a654afebaef5b5592"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 78601,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000671.jpg",
+        "sha256": "1d4e5e3759d3ac15b687d1fd8c5153f3e9066ec82f5899343e675d94ce30062d"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000671",
+      "original": {
+        "bytes": 79049,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000671.jpg",
+        "sha256": "35bcf2336a0d14a85301e6dbf8aebdee51d38dc593f55273e823ded3c8b4a450"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 115545,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000675.jpg",
+        "sha256": "167e1f2a5e3e24c70234b5fdda5c44f8ad7c099bf193aaf0588efc0c960a890f"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000675",
+      "original": {
+        "bytes": 105983,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000675.jpg",
+        "sha256": "b2ba101be433e4d28072251b31a2a1820c1bc5c6e938847a06eb4ed2ae2df547"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 97664,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000688.jpg",
+        "sha256": "88e3b95f909677982e2d6620fd4adeb476fd0a14006a339b15ffd4ad5feb6472"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000688",
+      "original": {
+        "bytes": 91573,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000688.jpg",
+        "sha256": "19f2c9eeca90d5212fbe888b12db57c0516c388f6034def081a2294a9be436bd"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 139042,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000693.jpg",
+        "sha256": "c19827f2e9a5813cfaf5fa2d1ad8c7384631c5dbaef73d8a8e7a534f65ba4535"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000693",
+      "original": {
+        "bytes": 134151,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000693.jpg",
+        "sha256": "c5e11e7d8d992b234126dd890aceb2578a8b8c017cbd31d51c08bdc516b4ae8b"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 157465,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000701.jpg",
+        "sha256": "76e7c35d7a00cc03da4409334d520f512fa54e152a599be8186dded16abb176a"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000701",
+      "original": {
+        "bytes": 153181,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000701.jpg",
+        "sha256": "2bfcfcb61ce2401437db0875a1a04a91a7bc8b5e3106cb8595bbaa0b2a2f4043"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 90933,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000706.jpg",
+        "sha256": "ca77411e92b45fd20151c540027ae26fa46b4b81236f73a8321ff228af3bfe83"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000706",
+      "original": {
+        "bytes": 81464,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000706.jpg",
+        "sha256": "a8b592a6a93a4de7bd2e6c2716d7be474096a2e8f400a882feec3daa1cbc47ac"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 137729,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000717.jpg",
+        "sha256": "79c9151e4f97e23ad69d4b24ddeee16c0244f884e095b6abf4a913086535cafb"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000717",
+      "original": {
+        "bytes": 129313,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000717.jpg",
+        "sha256": "72261248034720fe0d36822d6f4db79a5daa153daeaaf793944a1d2fc6d89e72"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 116656,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000732.jpg",
+        "sha256": "466a22f928925413b96be16fd95d1910f5970b7bb5a27b7abdfda1f20cdd71c6"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000732",
+      "original": {
+        "bytes": 112591,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000732.jpg",
+        "sha256": "57bc4e767939a3cb303e6b77348d044de0d22d1f4d8300b69ec9cd56ee2fc269"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 92874,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000740.jpg",
+        "sha256": "6b9955d231ecf64e99ed71245d1744400f196804ecebc6c0552cd3a28fd8d792"
+      },
+      "item_id": "sflip_sofa_ADE_train_00000740",
+      "original": {
+        "bytes": 86294,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000740.jpg",
+        "sha256": "aeb5234a0b45966a352acf735be81e9fbdd467c39ea3aabe51eeb493285301fe"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 116073,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000196.jpg",
+        "sha256": "951bb5b42cf158699eb279a7bc8502c149ce263a8b296a3db00e7f5d731d34ee"
+      },
+      "item_id": "sflip_table_ADE_train_00000196",
+      "original": {
+        "bytes": 116141,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000196.jpg",
+        "sha256": "18c0cc0274601a7b7922d7513281c504902421137e3d628eb8120c4693555635"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 115779,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000218.jpg",
+        "sha256": "b582c0de9d50067554158b7f3ca764b6a5b3d4acea67894a50591aea3f312ffb"
+      },
+      "item_id": "sflip_table_ADE_train_00000218",
+      "original": {
+        "bytes": 102148,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000218.jpg",
+        "sha256": "a3c6abb0ab8ad5d928b631830d4d4e7748e99d59ac8c672e3e8d1aad447d89bc"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 102460,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000228.jpg",
+        "sha256": "a5a6fcf6ccd73030f366cb82411168a47ae12c685c08236925acd4f83cd8a7fd"
+      },
+      "item_id": "sflip_table_ADE_train_00000228",
+      "original": {
+        "bytes": 95225,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000228.jpg",
+        "sha256": "cf6fb9c878ac149dd57c1f44dee554e25fe23acb418cc2530f788fbb40e44f81"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 114887,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000233.jpg",
+        "sha256": "06b3fc2610269d684606f2367b04fae8b9186cbc88135a0f0580b2e2ae6a5064"
+      },
+      "item_id": "sflip_table_ADE_train_00000233",
+      "original": {
+        "bytes": 103752,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000233.jpg",
+        "sha256": "7db80097b5bb320208ed3f567fd69006bb64ad602462f2115adecb8829ebdd7a"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 101875,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000289.jpg",
+        "sha256": "44d3d97bb64b2a349af9f7e4a000b45804ccb21bf8fdea158f9a490b90548fa7"
+      },
+      "item_id": "sflip_table_ADE_train_00000289",
+      "original": {
+        "bytes": 93050,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000289.jpg",
+        "sha256": "d85b75fd5585b1d5203ca55896e9da82b2ae51ddd190d0dc8c82854f82f4f20e"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 79561,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000384.jpg",
+        "sha256": "958e147c15068ab7bcd2a8905e121d5096b8195b7a97b57ee69875154d8ea583"
+      },
+      "item_id": "sflip_table_ADE_train_00000384",
+      "original": {
+        "bytes": 69153,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000384.jpg",
+        "sha256": "8c30fcaeafea5220f63798709d369c9ab50d713c682261f1f00be7336e6b2f65"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 102653,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000425.jpg",
+        "sha256": "93b865d78f06c6e12006490343f3207c5d37494cd26b5a31ce84d2b53382a623"
+      },
+      "item_id": "sflip_table_ADE_train_00000425",
+      "original": {
+        "bytes": 91411,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000425.jpg",
+        "sha256": "2ea12b9dec85d834041928db57092d6ed36bd8015f0445ed5459d7edf58ac74c"
+      }
+    },
+    {
+      "edited": {
+        "bytes": 101084,
+        "path": "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000452.jpg",
+        "sha256": "058a17c900dba119ff54e3cba6089e66af4c5e97a22efea4deafc0bdad23c3da"
+      },
+      "item_id": "sflip_table_ADE_train_00000452",
+      "original": {
+        "bytes": 94763,
+        "path": "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000452.jpg",
+        "sha256": "978b7ba23ddd7959d73a562f7f2a509bb1d09dd3c979e4316c4c0fb4142220db"
+      }
+    }
+  ],
+  "source_audit_file": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_all_items.jsonl",
+  "source_task_file": "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl",
+  "target_n_local_status": "INSUFFICIENT_LOCAL_CANDIDATES_MAX_FEASIBLE_FILTERED_SET",
+  "target_n_requested": "200-300",
+  "task_file": "data/edits/spurious_v2_control/pilot_eval_tasks_reviewed.jsonl",
+  "v11_detectability_score_count": 30,
+  "v11_detectability_score_max": 0.12004629,
+  "v11_detectability_score_mean": 0.067168074,
+  "v11_detectability_score_min": 0.03213473,
+  "v11_detectability_score_role": "post_selection_pre_provider_diagnostic_no_retroactive_exclusion",
+  "v11_detectability_scores_complete": true,
+  "v1_outcomes_existed_before_selection": true
+}

@@ -1,0 +1,10 @@
+artifact_id,artifact_path,evidence_class,paper_evidence,human_reviewed,status
+v11_main91_raw,reports/v11_full_ceiling_audit/CERTVIC_EVIDENCE_LEDGER.json,DERIVED_FROM_REAL_EVIDENCE,False,False,canonical V11 baseline
+v1_specificity_raw,data/results/main_real_200/kaggle_spurious,REAL_OBSERVED_EVIDENCE,False,False,frozen historical V1
+v2_30_tasks,data/edits/spurious_v2_control/pilot_eval_tasks_reviewed.jsonl,RETROSPECTIVE_SENSITIVITY_ONLY,False,False,30/30 overlaps V1
+confirmatory_protocol,configs/studies/specificity_confirmatory_cvpr.yaml,PLANNED_NOT_EXECUTED,False,False,prospective; no items built
+main_protocol,configs/studies/main_study_cvpr.yaml,PLANNED_NOT_EXECUTED,False,False,execution blocked
+second_domain_protocol,configs/studies/second_domain_cvpr.yaml,PLANNED_NOT_EXECUTED,False,False,feasibility not run
+human_templates,docs/methodology/CERTVIC_CVPR_HUMAN_REVIEW_PROTOCOL.md,HUMAN_REVIEW_PENDING,False,False,zero new judgments
+notebook_suite,notebooks/kaggle/cvpr/notebook_manifest.json,PLANNED_NOT_EXECUTED,False,False,CPU-static only
+paper_scaffold,paper_cvpr/main.tex,PLANNED_NOT_EXECUTED,False,False,guarded placeholders

@@ -1,0 +1,8 @@
+{
+  "accepted": 1,
+  "evidence_status": "SHOWCASE_SPLIT_ONLY",
+  "out": "data/manifests/showcase_split.jsonl",
+  "pixels_copied": false,
+  "rejected": 1,
+  "sources": "data/results/v4_smoke/cc0_sources.jsonl"
+}

@@ -1,0 +1,338 @@
+{
+  "any_evidence_eligible": true,
+  "cells": [
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s0of4 --max-items 200 --shard-index 0 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl.run_manifest.json",
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl.provider_metadata.json",
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "qwen2_5_vl_7b",
+      "provider_type": "open_local",
+      "run_id": "qwen2_5_vl_7b_default_s0of4",
+      "shard_index": 0
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s1of4 --max-items 200 --shard-index 1 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl.run_manifest.json",
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl.provider_metadata.json",
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "qwen2_5_vl_7b",
+      "provider_type": "open_local",
+      "run_id": "qwen2_5_vl_7b_default_s1of4",
+      "shard_index": 1
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s2of4 --max-items 200 --shard-index 2 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl.run_manifest.json",
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl.provider_metadata.json",
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "qwen2_5_vl_7b",
+      "provider_type": "open_local",
+      "run_id": "qwen2_5_vl_7b_default_s2of4",
+      "shard_index": 2
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s3of4 --max-items 200 --shard-index 3 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl.run_manifest.json",
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl.provider_metadata.json",
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "qwen2_5_vl_7b",
+      "provider_type": "open_local",
+      "run_id": "qwen2_5_vl_7b_default_s3of4",
+      "shard_index": 3
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s0of4 --max-items 200 --shard-index 0 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl.run_manifest.json",
+        "data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl.provider_metadata.json",
+        "data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 18.0,
+        "expected_gpu_memory_gb_4bit": 8.1,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "internvl_8b",
+      "provider_type": "open_local",
+      "run_id": "internvl_8b_default_s0of4",
+      "shard_index": 0
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s1of4 --max-items 200 --shard-index 1 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl.run_manifest.json",
+        "data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl.provider_metadata.json",
+        "data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 18.0,
+        "expected_gpu_memory_gb_4bit": 8.1,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "internvl_8b",
+      "provider_type": "open_local",
+      "run_id": "internvl_8b_default_s1of4",
+      "shard_index": 1
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s2of4 --max-items 200 --shard-index 2 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl.run_manifest.json",
+        "data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl.provider_metadata.json",
+        "data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 18.0,
+        "expected_gpu_memory_gb_4bit": 8.1,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "internvl_8b",
+      "provider_type": "open_local",
+      "run_id": "internvl_8b_default_s2of4",
+      "shard_index": 2
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s3of4 --max-items 200 --shard-index 3 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl.run_manifest.json",
+        "data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl.provider_metadata.json",
+        "data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 18.0,
+        "expected_gpu_memory_gb_4bit": 8.1,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "internvl_8b",
+      "provider_type": "open_local",
+      "run_id": "internvl_8b_default_s3of4",
+      "shard_index": 3
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s0of4 --max-items 200 --shard-index 0 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl.run_manifest.json",
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl.provider_metadata.json",
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": false
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "llava_onevision_7b",
+      "provider_type": "open_local",
+      "run_id": "llava_onevision_7b_default_s0of4",
+      "shard_index": 0
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s1of4 --max-items 200 --shard-index 1 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl.run_manifest.json",
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl.provider_metadata.json",
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": false
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "llava_onevision_7b",
+      "provider_type": "open_local",
+      "run_id": "llava_onevision_7b_default_s1of4",
+      "shard_index": 1
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s2of4 --max-items 200 --shard-index 2 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl.run_manifest.json",
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl.provider_metadata.json",
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": false
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "llava_onevision_7b",
+      "provider_type": "open_local",
+      "run_id": "llava_onevision_7b_default_s2of4",
+      "shard_index": 2
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s3of4 --max-items 200 --shard-index 3 --num-shards 4 --evidence-run",
+      "evidence_eligible": true,
+      "expected_output_path": "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl",
+      "expected_sidecars": [
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl.run_manifest.json",
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl.provider_metadata.json",
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl.environment.json"
+      ],
+      "max_items": 200,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": false
+      },
+      "num_shards": 4,
+      "prompt_variant": "default",
+      "provider": "llava_onevision_7b",
+      "provider_type": "open_local",
+      "run_id": "llava_onevision_7b_default_s3of4",
+      "shard_index": 3
+    }
+  ],
+  "config": "configs/kaggle_open_vlm.yaml",
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "matrix": "certvic_model_run_matrix",
+  "max_items": 200,
+  "n_cells": 12,
+  "num_shards": 4,
+  "paid_providers": false,
+  "pred_root": "data/predictions",
+  "prompt_variants": [
+    "default"
+  ],
+  "provider_summaries": {
+    "internvl_8b": {
+      "cost_status": "zero_cost_open_local",
+      "evidence_eligible": true,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 18.0,
+        "expected_gpu_memory_gb_4bit": 8.1,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "provider_type": "open_local",
+      "tested_status": "adapter_scaffold"
+    },
+    "llava_onevision_7b": {
+      "cost_status": "zero_cost_open_local",
+      "evidence_eligible": true,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": false
+      },
+      "provider_type": "open_local",
+      "tested_status": "adapter_scaffold"
+    },
+    "qwen2_5_vl_7b": {
+      "cost_status": "zero_cost_open_local",
+      "evidence_eligible": true,
+      "memory_estimate": {
+        "expected_gpu_memory_gb": 16.0,
+        "expected_gpu_memory_gb_4bit": 7.2,
+        "supports_4bit": true,
+        "supports_batching": true
+      },
+      "provider_type": "open_local",
+      "tested_status": "adapter_scaffold"
+    }
+  },
+  "providers": [
+    "qwen2_5_vl_7b",
+    "internvl_8b",
+    "llava_onevision_7b"
+  ],
+  "tasks_path": "data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl",
+  "vlm_inference_run": false
+}

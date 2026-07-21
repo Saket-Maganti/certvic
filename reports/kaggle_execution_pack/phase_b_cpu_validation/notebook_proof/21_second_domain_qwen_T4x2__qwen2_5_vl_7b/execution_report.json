@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "coco_qwen_return.zip",
+      "sha256": "2c752906919c08f9ab4880d71e0f501c1934b1a69d730b50dd39f70348b99d2f",
+      "size": 3541
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "8318cbeca52c4b239830399ac59d7a07b01c16fcdabcb331bc42d1b610a6257e",
+      "size": 948
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "e118ef0b64d17784d36b18ffd199f38f21f0ac4a2280834456758f064bb51323",
+  "config": {
+    "artifact_globs": [
+      "coco_qwen_return.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "21_second_domain_qwen_T4x2.ipynb",
+    "notebook_sha256": "028c0e80dd27e7d6ae84f7df19abda7d49827e54b160c1e99bcad40bcb5e913e",
+    "provider": "qwen2_5_vl_7b",
+    "return_zip": "coco_qwen_return.zip",
+    "route": "21_second_domain_qwen_T4x2__qwen2_5_vl_7b",
+    "stage": "evaluation",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "ef5f07d55e07de689901502b0fdad72bb1b77220826141807b02e0a3af85edcf",
+  "status": "PASS"
+}

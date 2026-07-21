@@ -1,0 +1,13 @@
+artifact,repair,validation
+certvic/cvpr/generation.py,"three deterministic engines, optional offline inpainting, QA, safety",focused + full suite + guards
+certvic/cvpr/candidate_selection.py,"perceptual dedup, strata, proposals, balancing, overlap proof",focused + full suite + guards
+certvic/cvpr/model_snapshot_manifest.py,strict all-file offline snapshot create/verify,focused + full suite + guards
+certvic/cvpr/runtime_preflight.py,safe code discovery/extraction/import and hardware report,focused + full suite + guards
+certvic/cvpr/adapters.py,"shared lifecycle, batching, dynamic InternVL tiling, float16",focused + full suite + guards
+certvic/cvpr/worker.py,"real batching, OOM halving, assignment, quarantine, resume validation",focused + full suite + guards
+certvic/cvpr/review_packets.py,"blinded HTML packets, training, quiz, immutable hashes",focused + full suite + guards
+certvic/cvpr/agreement.py,agreement statistics and bootstrap intervals,focused + full suite + guards
+certvic/cvpr/adjudication.py,disagreement extraction and fail-closed inclusion,focused + full suite + guards
+certvic/cvpr/whole_study_import.py,"three-provider staging, expected hashes, atomic promotion",focused + full suite + guards
+certvic/cvpr/analysis.py,specificity/Main/second-domain branches and artifacts,focused + full suite + guards
+certvic/cvpr/notebook_builder.py,16 runtime-hardened notebooks including 00A/00B/00C,focused + full suite + guards

@@ -1,0 +1,15 @@
+mode: real_main
+target_pairs_min: 2500
+target_pairs_max: 3000
+task_families:
+  - support_stability
+  - occlusion_safety
+  - affordance_reachability
+domains:
+  - household
+  - driving
+strict_leakage_checks: true
+quality_gates_enabled: true
+paid_services_enabled: false
+alpha: 0.05
+gap_threshold: 0.05

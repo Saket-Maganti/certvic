@@ -1,0 +1,88 @@
+{
+  "blockers": [],
+  "checks": {
+    "active_checkout_authority": {
+      "obsolete_replacement_archive_required": false,
+      "passed": true,
+      "status": "LIVE_CHECKOUT_AUTHORITATIVE"
+    },
+    "critical_imports": {
+      "errors": {},
+      "passed": true
+    },
+    "notebooks": {
+      "code_cells_with_outputs": 0,
+      "count": 16,
+      "expected_count": 16,
+      "invalid": [],
+      "passed": true
+    },
+    "protocol_authority": {
+      "analysis_lock_sha256": "a3f3b4a3d8c942f5d753589a079b2c62dab63a7f6bd742d74f4a89022da3920d",
+      "authoritative_protocol": "configs/studies/specificity_confirmatory_cvpr.yaml",
+      "authority_manifest": "configs/studies/certvic_confirmatory_authority.json",
+      "errors": [],
+      "live_prospective_protocols": [
+        "configs/studies/specificity_confirmatory_cvpr.yaml"
+      ],
+      "paper_evidence": false,
+      "passed": true,
+      "protocol_sha256": "bb82612e09346599b0cabe3d1876369a652fc56e3406cd98ac21ce699a62ca25",
+      "schema": "certvic.confirmatory.protocol_authority_validation.v1"
+    },
+    "required_tree": {
+      "missing": [],
+      "passed": true
+    },
+    "study": {
+      "execution_allowed": false,
+      "paper_evidence": false,
+      "path": "configs/studies/specificity_confirmatory_cvpr.yaml",
+      "unresolved_freeze_fields": []
+    }
+  },
+  "generated_at_utc": "2026-07-21T07:51:09.492523+00:00",
+  "inventory": {
+    "analysis": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/analysis/decision_trace.json",
+      "sha256": null
+    },
+    "environment": {
+      "exists": false,
+      "path": "data/runtime/00A_environment.json",
+      "sha256": null
+    },
+    "import": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/canonical_import/study_import_audit.json",
+      "sha256": null
+    },
+    "permission": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/execution_permission.json",
+      "sha256": null
+    },
+    "review": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/review/final_inclusion.json",
+      "sha256": null
+    },
+    "smoke_gate": {
+      "exists": false,
+      "path": "reports/cvpr_final_integration/REAL_MODEL_SMOKE_GATE.json",
+      "sha256": null
+    },
+    "task_bundle": {
+      "exists": false,
+      "path": "data/studies/specificity_confirmatory_cvpr/task_bundle/task_bundle_manifest.json",
+      "sha256": null
+    }
+  },
+  "local_ready": true,
+  "paper_evidence": false,
+  "repository": ".",
+  "schema": "certvic.cvpr.doctor.v1",
+  "state": "READY_FOR_00A",
+  "study": "specificity_confirmatory_cvpr"
+}

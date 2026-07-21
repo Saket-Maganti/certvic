@@ -1,0 +1,2 @@
+NOT CANONICAL. Numbers here are real (presence/v2 arm) but report.md is the smoke
+template hard-stamped "MOCK_ONLY synthetic fixture". Canonical: ../pilot_report/pilot_result.md

@@ -1,0 +1,2 @@
+n,original_accuracy,edited_accuracy,consistency_rate,intervention_consistency_gap,parse_failure_rate,control_spurious_flip_rate,cs_available,cs_lower_bound,certified,certification_gate_errors
+91,0.4065934065934066,0.6593406593406593,0.10989010989010989,0.2967032967032967,0.0,,True,-0.08659103336855445,False,certified claim blocked: CS lower bound does not exceed threshold

@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "nbclient",
+  "paper_evidence": false,
+  "routes": [
+    {
+      "failure": null,
+      "route": "00A",
+      "status": "PASS"
+    },
+    {
+      "failure": null,
+      "route": "00B",
+      "status": "PASS"
+    },
+    {
+      "failure": null,
+      "route": "00C2_qwen",
+      "status": "PASS"
+    },
+    {
+      "failure": null,
+      "route": "00C2_internvl",
+      "status": "PASS"
+    },
+    {
+      "failure": null,
+      "route": "00C2_llava",
+      "status": "PASS"
+    },
+    {
+      "failure": null,
+      "route": "confirmatory_generation",
+      "status": "PASS"
+    },
+    {
+      "failure": null,
+      "route": "scientific_provider",
+      "status": "PASS"
+    },
+    {
+      "failure": null,
+      "route": "post_run",
+      "status": "PASS"
+    }
+  ],
+  "schema": "certvic.cvpr.synthetic_notebook_suite.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,212 @@
+{
+  "all_complete": false,
+  "cells": [
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s0of4 --max-items 200 --shard-index 0 --num-shards 4 --evidence-run",
+      "run_id": "qwen2_5_vl_7b_default_s0of4",
+      "shard_index": 0,
+      "sidecars_present": {
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl.environment.json": false,
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl.provider_metadata.json": false,
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s1of4 --max-items 200 --shard-index 1 --num-shards 4 --evidence-run",
+      "run_id": "qwen2_5_vl_7b_default_s1of4",
+      "shard_index": 1,
+      "sidecars_present": {
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl.environment.json": false,
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl.provider_metadata.json": false,
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s2of4 --max-items 200 --shard-index 2 --num-shards 4 --evidence-run",
+      "run_id": "qwen2_5_vl_7b_default_s2of4",
+      "shard_index": 2,
+      "sidecars_present": {
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl.environment.json": false,
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl.provider_metadata.json": false,
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl",
+      "provider": "qwen2_5_vl_7b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s3of4 --max-items 200 --shard-index 3 --num-shards 4 --evidence-run",
+      "run_id": "qwen2_5_vl_7b_default_s3of4",
+      "shard_index": 3,
+      "sidecars_present": {
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl.environment.json": false,
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl.provider_metadata.json": false,
+        "data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl",
+      "provider": "internvl_8b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s0of4 --max-items 200 --shard-index 0 --num-shards 4 --evidence-run",
+      "run_id": "internvl_8b_default_s0of4",
+      "shard_index": 0,
+      "sidecars_present": {
+        "data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl.environment.json": false,
+        "data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl.provider_metadata.json": false,
+        "data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl",
+      "provider": "internvl_8b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s1of4 --max-items 200 --shard-index 1 --num-shards 4 --evidence-run",
+      "run_id": "internvl_8b_default_s1of4",
+      "shard_index": 1,
+      "sidecars_present": {
+        "data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl.environment.json": false,
+        "data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl.provider_metadata.json": false,
+        "data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl",
+      "provider": "internvl_8b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s2of4 --max-items 200 --shard-index 2 --num-shards 4 --evidence-run",
+      "run_id": "internvl_8b_default_s2of4",
+      "shard_index": 2,
+      "sidecars_present": {
+        "data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl.environment.json": false,
+        "data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl.provider_metadata.json": false,
+        "data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl",
+      "provider": "internvl_8b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s3of4 --max-items 200 --shard-index 3 --num-shards 4 --evidence-run",
+      "run_id": "internvl_8b_default_s3of4",
+      "shard_index": 3,
+      "sidecars_present": {
+        "data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl.environment.json": false,
+        "data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl.provider_metadata.json": false,
+        "data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl",
+      "provider": "llava_onevision_7b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s0of4 --max-items 200 --shard-index 0 --num-shards 4 --evidence-run",
+      "run_id": "llava_onevision_7b_default_s0of4",
+      "shard_index": 0,
+      "sidecars_present": {
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl.environment.json": false,
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl.provider_metadata.json": false,
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl",
+      "provider": "llava_onevision_7b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s1of4 --max-items 200 --shard-index 1 --num-shards 4 --evidence-run",
+      "run_id": "llava_onevision_7b_default_s1of4",
+      "shard_index": 1,
+      "sidecars_present": {
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl.environment.json": false,
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl.provider_metadata.json": false,
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl",
+      "provider": "llava_onevision_7b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s2of4 --max-items 200 --shard-index 2 --num-shards 4 --evidence-run",
+      "run_id": "llava_onevision_7b_default_s2of4",
+      "shard_index": 2,
+      "sidecars_present": {
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl.environment.json": false,
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl.provider_metadata.json": false,
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    },
+    {
+      "n_predictions": 0,
+      "output_path": "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl",
+      "provider": "llava_onevision_7b",
+      "resume_command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s3of4 --max-items 200 --shard-index 3 --num-shards 4 --evidence-run",
+      "run_id": "llava_onevision_7b_default_s3of4",
+      "shard_index": 3,
+      "sidecars_present": {
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl.environment.json": false,
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl.provider_metadata.json": false,
+        "data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl.run_manifest.json": false
+      },
+      "status": "missing"
+    }
+  ],
+  "completion_fraction": 0.0,
+  "evidence_claims_made": false,
+  "matrix_path": "data/results/model_run_matrix/run_matrix.json",
+  "n_cells": 12,
+  "n_completed": 0,
+  "n_missing": 12,
+  "per_provider": {
+    "internvl_8b": {
+      "completed": 0,
+      "missing": 4,
+      "total": 4
+    },
+    "llava_onevision_7b": {
+      "completed": 0,
+      "missing": 4,
+      "total": 4
+    },
+    "qwen2_5_vl_7b": {
+      "completed": 0,
+      "missing": 4,
+      "total": 4
+    }
+  },
+  "pred_root": "data/predictions",
+  "resume_commands": [
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s0of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s0of4 --max-items 200 --shard-index 0 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s1of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s1of4 --max-items 200 --shard-index 1 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s2of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s2of4 --max-items 200 --shard-index 2 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/qwen2_5_vl_7b/qwen2_5_vl_7b_default_s3of4.jsonl --provider qwen2_5_vl_7b --run-id qwen2_5_vl_7b_default_s3of4 --max-items 200 --shard-index 3 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s0of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s0of4 --max-items 200 --shard-index 0 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s1of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s1of4 --max-items 200 --shard-index 1 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s2of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s2of4 --max-items 200 --shard-index 2 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/internvl_8b/internvl_8b_default_s3of4.jsonl --provider internvl_8b --run-id internvl_8b_default_s3of4 --max-items 200 --shard-index 3 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s0of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s0of4 --max-items 200 --shard-index 0 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s1of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s1of4 --max-items 200 --shard-index 1 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s2of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s2of4 --max-items 200 --shard-index 2 --num-shards 4 --evidence-run",
+    "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl --out data/predictions/llava_onevision_7b/llava_onevision_7b_default_s3of4.jsonl --provider llava_onevision_7b --run-id llava_onevision_7b_default_s3of4 --max-items 200 --shard-index 3 --num-shards 4 --evidence-run"
+  ],
+  "status": "model_run_matrix_status"
+}

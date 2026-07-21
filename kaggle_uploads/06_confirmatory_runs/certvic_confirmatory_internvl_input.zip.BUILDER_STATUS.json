@@ -1,0 +1,26 @@
+{
+  "builder_command": "python3 -m certvic.cvpr.scientific_input_builder --study confirmatory --provider internvl --config <ROLE_CONFIG_JSON> --run-tag <RUN_TAG>",
+  "expected_size": "1 MB-25 GB depending on redistributable task-bundle bytes",
+  "name": "certvic_confirmatory_internvl_input.zip",
+  "output": "kaggle_uploads/06_confirmatory_runs/certvic_confirmatory_internvl_input.zip",
+  "paper_evidence": false,
+  "provider": "internvl",
+  "required_roles": [
+    "task_bundle",
+    "task_freeze",
+    "review_ledger",
+    "detectability_gate",
+    "environment_lock",
+    "model_registry",
+    "snapshot_manifest",
+    "code_bundle",
+    "prompt_contract",
+    "run_contract",
+    "parent_authorization",
+    "child_permission",
+    "output_schema"
+  ],
+  "schema": "certvic.kaggle.external_builder_status.v1",
+  "status": "BLOCKED_BY_UPSTREAM_GATE",
+  "study": "confirmatory"
+}

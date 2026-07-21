@@ -1,0 +1,15 @@
+{
+  "cvpr_ready": false,
+  "ingested_existing_kaggle_predictions": true,
+  "paper_evidence": false,
+  "produced_model_results_by_this_script": false,
+  "remaining_to_run": [
+    "resolve spurious specificity failure",
+    "main500 diffusion and VLM scale",
+    "main500 CPU detectability/quality",
+    "human residual cue audit",
+    "second-rater IAA"
+  ],
+  "schema": "certvic.v8.final_handoff.v1",
+  "spurious_control_ready": false
+}

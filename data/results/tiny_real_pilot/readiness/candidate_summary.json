@@ -1,0 +1,106 @@
+{
+  "blockers": [],
+  "candidate_annotation_count": 22210,
+  "candidate_image_count": 22210,
+  "candidate_mask_count": 5714,
+  "dry_run_only": true,
+  "layout_status": "supported_layout",
+  "mask_area_statistics": {
+    "max": 0.7246150942532943,
+    "mean": 0.08495468592565057,
+    "min": 2.3847680097680098e-06,
+    "n": 5714
+  },
+  "matched_pair_count": 22210,
+  "ready_for_mask_manifest": true,
+  "ready_for_pilot_selection": true,
+  "ready_for_source_manifest": true,
+  "target_items": 200,
+  "top_label_ids_by_frequency": [
+    {
+      "count": 497,
+      "label_id": 1
+    },
+    {
+      "count": 443,
+      "label_id": 4
+    },
+    {
+      "count": 313,
+      "label_id": 6
+    },
+    {
+      "count": 300,
+      "label_id": 8
+    },
+    {
+      "count": 259,
+      "label_id": 9
+    },
+    {
+      "count": 255,
+      "label_id": 16
+    },
+    {
+      "count": 244,
+      "label_id": 37
+    },
+    {
+      "count": 225,
+      "label_id": 19
+    },
+    {
+      "count": 201,
+      "label_id": 23
+    },
+    {
+      "count": 196,
+      "label_id": 11
+    },
+    {
+      "count": 189,
+      "label_id": 28
+    },
+    {
+      "count": 178,
+      "label_id": 58
+    },
+    {
+      "count": 168,
+      "label_id": 15
+    },
+    {
+      "count": 151,
+      "label_id": 48
+    },
+    {
+      "count": 150,
+      "label_id": 40
+    },
+    {
+      "count": 120,
+      "label_id": 38
+    },
+    {
+      "count": 115,
+      "label_id": 82
+    },
+    {
+      "count": 101,
+      "label_id": 66
+    },
+    {
+      "count": 93,
+      "label_id": 71
+    },
+    {
+      "count": 87,
+      "label_id": 135
+    }
+  ],
+  "train_annotation_count": 20210,
+  "train_image_count": 20210,
+  "unmatched_image_count": 0,
+  "val_annotation_count": 2000,
+  "val_image_count": 2000
+}

@@ -1,0 +1,13 @@
+{
+  "license_counts": {
+    "cc0": 1
+  },
+  "n_items": 1,
+  "pixels_copied": false,
+  "release_checklist": [
+    "Confirm every row is CC0 or public-domain",
+    "Confirm no ADE20K/nonredistributable pixels are included",
+    "Keep source URLs and license fields in the manifest"
+  ],
+  "split": "data/manifests/showcase_split.jsonl"
+}

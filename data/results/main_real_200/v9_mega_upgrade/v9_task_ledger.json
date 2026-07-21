@@ -1,0 +1,503 @@
+{
+  "schema": "certvic.v9.task_ledger.v1",
+  "tasks": [
+    {
+      "blockers": [
+        "Qwen specificity unresolved",
+        "real human validation absent",
+        "Main-500 not started"
+      ],
+      "commands_run": [
+        "python3 --version",
+        "find data/results/main_real_200 ...",
+        "pytest checks requested after bootstrap"
+      ],
+      "evidence_status": "BOOTSTRAP_FROM_EXISTING_REAL_ARTIFACTS",
+      "input_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/v8_1_go_no_go.json",
+        "data/results/main_real_200/v8_upgrade/spurious_specificity_control_report.json"
+      ],
+      "next_action": "Run V9_01 preliminary label hygiene migration.",
+      "output_files": [
+        "data/results/main_real_200/v9_mega_upgrade/V9_MASTER_STATE.md",
+        "data/results/main_real_200/v9_mega_upgrade/v9_master_state.json"
+      ],
+      "prompt_file": "00_MASTER_V9_ORIENTATION.md",
+      "result_summary": "V9 root created; master state records Qwen 12/94 gate failure and Main-500 blocked status.",
+      "status": "DONE",
+      "task_id": "V9_00_orientation",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "Real human review still pending",
+        "Qwen spurious specificity still failed"
+      ],
+      "commands_run": [
+        "grep -R HUMAN_PRELIM...",
+        "mechanical namespace migration",
+        "python3 -m pytest -q tests/test_v9_prelim_label_hygiene.py"
+      ],
+      "evidence_status": "HYGIENE_REPAIR_ONLY_NO_NEW_RESULTS",
+      "input_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_prelim_labels.json",
+        "scripts/build_v8_1_qwen_spurious_forensics.py"
+      ],
+      "next_action": "Run V9_02 Qwen failure human review packet.",
+      "output_files": [
+        "data/results/main_real_200/v9_mega_upgrade/PRELIM_LABEL_HYGIENE_MIGRATION.md",
+        "data/results/main_real_200/v9_mega_upgrade/prelim_label_hygiene_migration.json",
+        "tests/test_v9_prelim_label_hygiene.py"
+      ],
+      "prompt_file": "01_PRELIM_LABEL_HYGIENE_AND_AUDIT_REPAIR.md",
+      "result_summary": "Migrated unsafe preliminary machine label namespace; total replacements 163; Qwen gate unchanged.",
+      "status": "DONE",
+      "task_id": "V9_01_prelim_label_hygiene",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "A real human has not filled qwen_failed_12_human_review.csv"
+      ],
+      "commands_run": [
+        "python3 -m pytest -q tests/test_v9_qwen_spurious_human_review_packet.py",
+        "python3 scripts/apply_v9_qwen_spurious_human_review.py || true"
+      ],
+      "evidence_status": "PENDING_REAL_HUMAN_REVIEW",
+      "input_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12.csv",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery.html"
+      ],
+      "next_action": "Run V9_03 stricter spurious V2 control builder.",
+      "output_files": [
+        "data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review.csv",
+        "data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review_instructions.md",
+        "data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review_gallery.html",
+        "data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review_manifest.json",
+        "scripts/apply_v9_qwen_spurious_human_review.py",
+        "data/results/main_real_200/v9_mega_upgrade/qwen_spurious_human_review_apply_report.json"
+      ],
+      "prompt_file": "02_QWEN_FAILURE_HUMAN_REVIEW_PACKET.md",
+      "result_summary": "Created 12-item review packet with blank human fields; apply script refuses blank sheet and writes blocked report.",
+      "status": "BLOCKED",
+      "task_id": "V9_02_qwen_failure_human_review_packet",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "Local candidate pool cannot support 200-300 strict items",
+        "No VLM predictions run locally"
+      ],
+      "commands_run": [
+        "find data/edits/spurious_flip_control ...",
+        "bash commands/spurious_v2/build_spurious_v2.sh",
+        "python3 -m pytest -q tests/test_v9_spurious_v2_builder.py"
+      ],
+      "evidence_status": "DATASET_ONLY_NO_VLM_RESULTS",
+      "input_files": [
+        "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_all_items.jsonl"
+      ],
+      "next_action": "Run V9_04 to prepare T4x2 VLM runbooks for Spurious V2.",
+      "output_files": [
+        "scripts/build_spurious_v2_control.py",
+        "certvic/v9/spurious_v2_quality.py",
+        "commands/spurious_v2/build_spurious_v2.sh",
+        "data/edits/spurious_v2_control/pilot_eval_tasks_reviewed.jsonl",
+        "data/edits/spurious_v2_control/spurious_v2_manifest.json",
+        "data/results/main_real_200/v9_mega_upgrade/spurious_v2_quality_report.json",
+        "data/results/main_real_200/v9_mega_upgrade/SPURIOUS_V2_QUALITY_REPORT.md",
+        "dist/kaggle_remaining_runs/certvic_spurious_v2_control.zip",
+        "tests/test_v9_spurious_v2_builder.py"
+      ],
+      "prompt_file": "03_SPURIOUS_V2_STRICT_CONTROL_BUILDER.md",
+      "result_summary": "Built strict local Spurious V2 dataset with 30 feasible items from 94 local V1 candidates; requested 200-300 is blocked by local candidate pool.",
+      "status": "PARTIAL",
+      "task_id": "V9_03_spurious_v2_builder",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "Requires Kaggle GPU T4x2 execution and model downloads/caches"
+      ],
+      "commands_run": [
+        "python3 -m pytest -q tests/test_v9_spurious_v2_runbooks.py"
+      ],
+      "evidence_status": "GPU_DEFERRED_RUNBOOK_READY",
+      "input_files": [
+        "dist/kaggle_remaining_runs/certvic_spurious_v2_control.zip",
+        "dist/certvic_kaggle_main200_bundle.zip"
+      ],
+      "next_action": "Run V9_05 ingest gate after Kaggle outputs are downloaded.",
+      "output_files": [
+        "notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb",
+        "notebooks/kaggle/vlm_internvl_8b_spurious_v2_T4x2.ipynb",
+        "notebooks/kaggle/vlm_llava_onevision_7b_spurious_v2_T4x2.ipynb",
+        "docs/runbooks/KAGGLE_SPURIOUS_V2_T4X2_RUNBOOK.md",
+        "dist/kaggle_remaining_runs/SPURIOUS_V2_INPUTS_MATRIX.md",
+        "dist/kaggle_remaining_runs/SPURIOUS_V2_LOCAL_INGEST_COMMANDS.md",
+        "tests/test_v9_spurious_v2_runbooks.py"
+      ],
+      "prompt_file": "04_SPURIOUS_V2_T4X2_RUNBOOKS_AND_BUNDLES.md",
+      "result_summary": "Prepared three provider-specific Kaggle T4x2 Spurious V2 notebooks with setup/input validation/execution/output validation/packaging/import/runtime sections.",
+      "status": "BLOCKED",
+      "task_id": "V9_04_spurious_v2_t4x2_runbooks",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "Missing pred_qwen2_5_vl_7b_spurious_v2_merged.jsonl",
+        "Missing pred_internvl_8b_spurious_v2_merged.jsonl",
+        "Missing pred_llava_onevision_7b_spurious_v2_merged.jsonl"
+      ],
+      "commands_run": [
+        "find kaggleoutputs/spurious_v2 ... pred_*_spurious_v2_merged.jsonl",
+        "python3 -m pytest -q tests/test_v9_spurious_v2_ingest_decision.py",
+        "python3 scripts/import_v9_spurious_v2_outputs.py || true"
+      ],
+      "evidence_status": "BLOCKED_MISSING_REAL_KAGGLE_OUTPUTS",
+      "input_files": [
+        "notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb",
+        "notebooks/kaggle/vlm_internvl_8b_spurious_v2_T4x2.ipynb",
+        "notebooks/kaggle/vlm_llava_onevision_7b_spurious_v2_T4x2.ipynb"
+      ],
+      "next_action": "Run V9_06 model-dependent specificity reframe while V2 remains pending.",
+      "output_files": [
+        "scripts/import_v9_spurious_v2_outputs.py",
+        "tests/test_v9_spurious_v2_ingest_decision.py",
+        "data/results/main_real_200/v9_mega_upgrade/SPURIOUS_V2_BLOCKED_MISSING_PREDICTIONS.md",
+        "data/results/main_real_200/v9_mega_upgrade/spurious_v2_ingest_status.json"
+      ],
+      "prompt_file": "05_SPURIOUS_V2_INGEST_GATE_AND_DECISION.md",
+      "result_summary": "No Spurious V2 provider outputs were found; importer writes explicit missing-predictions blocker and has tested scoring path for future real files.",
+      "status": "BLOCKED",
+      "task_id": "V9_05_spurious_v2_ingest_gate_decision",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "Spurious V2 real predictions missing",
+        "Qwen V1 specificity failed"
+      ],
+      "commands_run": [
+        "python3 -m pytest -q tests/test_v9_specificity_branch_language.py"
+      ],
+      "evidence_status": "CLAIM_LANGUAGE_REFRAME_ONLY",
+      "input_files": [
+        "data/results/main_real_200/v8_upgrade/spurious_specificity_control_report.json",
+        "data/results/main_real_200/v9_mega_upgrade/spurious_v2_ingest_status.json"
+      ],
+      "next_action": "Run V9_07 Main-500 go/no-go after specificity branch.",
+      "output_files": [
+        "data/results/main_real_200/v9_mega_upgrade/specificity_branch_decision.json",
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "paper/sections/v9_specificity_controls.tex",
+        "paper/sections/v9_model_dependent_limitations.tex",
+        "paper/tables/v9_specificity_controls.tex",
+        "tests/test_v9_specificity_branch_language.py"
+      ],
+      "prompt_file": "06_MODEL_DEPENDENT_SPECIFICITY_REFRAME.md",
+      "result_summary": "Rendered model-dependent specificity branch because Qwen V1 failed and Spurious V2 predictions are missing.",
+      "status": "DONE",
+      "task_id": "V9_06_model_dependent_reframe",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "Spurious V2 missing",
+        "human Qwen review pending",
+        "Qwen V1 specificity failed"
+      ],
+      "commands_run": [
+        "python3 -m pytest -q tests/test_v9_main500_go_nogo.py"
+      ],
+      "evidence_status": "GO_NOGO_CONTROL_DECISION_ONLY",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/specificity_branch_decision.json",
+        "data/results/main_real_200/v9_mega_upgrade/spurious_v2_ingest_status.json",
+        "data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review_manifest.json"
+      ],
+      "next_action": "Run V9_08 planning only; no Main-500 execution.",
+      "output_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md",
+        "tests/test_v9_main500_go_nogo.py"
+      ],
+      "prompt_file": "07_MAIN500_GO_NOGO_AFTER_SPECIFICITY.md",
+      "result_summary": "Main-500 decision is HOLD_FOR_SPURIOUS_V2; Main-500 must not start from current evidence state.",
+      "status": "DONE",
+      "task_id": "V9_07_main500_go_nogo",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "See corresponding report artifact for exact blockers"
+      ],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "BLOCKED_MAIN500_GATE_NOT_GO",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "08_MAIN500_CPU_PLANNING_AND_ITEM_CERTIFICATES.md",
+      "result_summary": "Main-500 planning blocked by HOLD_FOR_SPURIOUS_V2 gate.",
+      "status": "BLOCKED",
+      "task_id": "V9_08_main500_cpu_planning",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "See corresponding report artifact for exact blockers"
+      ],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "GPU_DEFERRED_GATED_RUNBOOK_READY",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "09_MAIN500_DIFFUSION_T4X2_EXECUTION_PACK.md",
+      "result_summary": "Created gated Main-500 diffusion notebook/runbook; execution blocked without planning.",
+      "status": "BLOCKED",
+      "task_id": "V9_09_main500_diffusion_pack",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "See corresponding report artifact for exact blockers"
+      ],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "BLOCKED_MISSING_DIFFUSION_OUTPUTS",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "10_MAIN500_QUALITY_DETECTABILITY_AND_REVIEW_EXPORT.md",
+      "result_summary": "Recorded missing diffusion outputs and blank review gallery status.",
+      "status": "BLOCKED",
+      "task_id": "V9_10_main500_quality_review_export",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "See corresponding report artifact for exact blockers"
+      ],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "BLOCKED_NO_RATER_LABELS",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "11_MAIN500_HUMAN_VALIDATION_AND_IAA.md",
+      "result_summary": "Created blank rater sheets and scripts that refuse missing labels.",
+      "status": "BLOCKED",
+      "task_id": "V9_11_main500_human_validation_iaa",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "See corresponding report artifact for exact blockers"
+      ],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "GPU_DEFERRED_GATED_RUNBOOK_READY",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "12_MAIN500_VLM_T4X2_EVAL_PACK.md",
+      "result_summary": "Created gated Main-500 VLM notebooks/runbook; blocked pending approved review.",
+      "status": "BLOCKED",
+      "task_id": "V9_12_main500_vlm_eval_pack",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [
+        "See corresponding report artifact for exact blockers"
+      ],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "BLOCKED_MISSING_MAIN500_VLM_OUTPUTS",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "13_MAIN500_INGEST_CERTIFICATION_AND_TABLES.md",
+      "result_summary": "Recorded Main-500 certification/table blocker.",
+      "status": "BLOCKED",
+      "task_id": "V9_13_main500_ingest_certification",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "PLAN_ONLY_NO_RESULTS",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "14_SECOND_DOMAIN_FEASIBILITY_AND_MINI_RUN.md",
+      "result_summary": "Prepared optional second-domain plan and gated notebooks.",
+      "status": "PARTIAL",
+      "task_id": "V9_14_second_domain_mini_run",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "DIAGNOSTIC_ONLY_NO_CERTIFICATION_EVIDENCE",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "15_MECHANISM_POLARITY_DEEP_ANALYSIS.md",
+      "result_summary": "Generated diagnostic-only polarity/mechanism reports.",
+      "status": "DONE",
+      "task_id": "V9_15_mechanism_polarity_deep_analysis",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "PLAN_LOCK_NO_NEW_RESULTS",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "16_STATISTICAL_INFERENCE_AND_POWER_LOCK.md",
+      "result_summary": "Locked inference and power plan without weakening thresholds.",
+      "status": "DONE",
+      "task_id": "V9_16_statistical_inference_power_lock",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "EXISTING_ARTIFACT_QUALITATIVE_ONLY",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "17_FAILURE_TAXONOMY_AND_QUAL_GALLERY_FINAL.md",
+      "result_summary": "Built deterministic failure taxonomy/gallery from existing artifacts.",
+      "status": "DONE",
+      "task_id": "V9_17_failure_taxonomy_gallery_final",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "CLAIM_SAFE_PAPER_SCAFFOLD_COMPILED",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "18_PAPER_COMPILE_CVPR_SCAFFOLD.md",
+      "result_summary": "Generated and compiled V9 claim-safe paper scaffold to paper/main_v9.pdf.",
+      "status": "DONE",
+      "task_id": "V9_18_paper_compile_cvpr_scaffold",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "RELEASE_CANDIDATE_NO_RESULTS_PROMOTION",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "19_RELEASE_PRIVACY_REPRODUCIBILITY_PACKAGE.md",
+      "result_summary": "Created V9 release candidate zip and manifest.",
+      "status": "DONE",
+      "task_id": "V9_19_release_privacy_reproducibility",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "REVIEWER_RISK_REPORT",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "20_REVIEWER_ATTACK_AND_REBUTTAL_SIM.md",
+      "result_summary": "Created reviewer attack harness and rebuttal skeleton.",
+      "status": "DONE",
+      "task_id": "V9_20_reviewer_attack_rebuttal_sim",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [],
+      "commands_run": [
+        "generated bounded local artifacts; no GPU/API/provider execution"
+      ],
+      "evidence_status": "READINESS_SCORECARD",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "21_CVPR_READINESS_SCORECARD_AND_STOP_CONDITIONS.md",
+      "result_summary": "Recommendation HOLD_FOR_SPURIOUS_V2.",
+      "status": "DONE",
+      "task_id": "V9_21_cvpr_readiness_stop_conditions",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    },
+    {
+      "blockers": [],
+      "commands_run": [
+        "python3 -m pytest -q",
+        "python3 -m certvic.validation.claim_language_guard --root docs paper data/results/main_real_200/v9_mega_upgrade --out data/results/main_real_200/v9_mega_upgrade/claim_guard_v9_final.json",
+        "python3 -m certvic.security.release_privacy_audit --root . --out data/results/main_real_200/v9_mega_upgrade/privacy_audit_v9_final.md --json-out data/results/main_real_200/v9_mega_upgrade/privacy_audit_v9_final.json",
+        "python3 scripts/build_multimodel_summary.py || true"
+      ],
+      "evidence_status": "FINAL_VALIDATED_HANDOFF",
+      "input_files": [
+        "data/results/main_real_200/v9_mega_upgrade/main500_go_nogo_after_specificity.json"
+      ],
+      "next_action": "See V9_FINAL_HANDOFF.md",
+      "output_files": [],
+      "prompt_file": "22_FINAL_VALIDATION_HANDOFF.md",
+      "result_summary": "Full pytest passed (657), claim guard passed, privacy audit passed, final handoff written.",
+      "status": "DONE",
+      "task_id": "V9_22_final_validation_handoff",
+      "updated_at": "2026-07-09T00:00:00+05:30"
+    }
+  ]
+}

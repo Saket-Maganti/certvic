@@ -1,0 +1,5 @@
+-r kaggle_base.lock
+matplotlib==3.9.2
+nbclient==0.10.0
+nbformat==5.10.4
+

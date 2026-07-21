@@ -1,0 +1,13 @@
+\section{Intervention Construction and Controls}
+The required control path uses three deterministic families outside a protected target region: a
+structured texture patch, a luminance/color-controlled neutral patch, and distant-region blur. Frozen
+area, boundary, overlap, and target-distance rules are enforced before generation. Each output retains
+source dimensions and mode and records placement, parameters, engine version, seeds, source/output
+hashes, and CPU-safe quality metrics. Optional offline diffusion inpainting is a separate diagnostic
+branch available only with a complete local snapshot manifest; its absence cannot disable the three
+required deterministic families. Outputs failing readability, difference, geometry, area, salience,
+similarity, or duplicate checks are rejected before review. Answer-changing Main and cross-domain
+tasks use mask-scoped removal, insertion, or attribute modification with distinct original and edited
+answer targets. Optional inpainting verifies every local snapshot byte, loads once per worker, reduces
+batch size on memory failure, and unloads once. All automated semantic edits remain preliminary until
+independent blinded validity review.

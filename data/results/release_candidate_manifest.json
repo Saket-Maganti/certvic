@@ -1,0 +1,217 @@
+{
+  "blockers": [
+    {
+      "blocker": "absolute_paths",
+      "detail": "12 task/sheet files embed absolute local home-directory paths; relativize before release.",
+      "files_sample": [
+        "data/results/main_real_200/mechanism_probes/context_suppression/tasks.jsonl",
+        "data/results/main_real_200/mechanism_probes/object_list/tasks.jsonl",
+        "data/results/main_real_200/mechanism_probes/region_focused/tasks.jsonl",
+        "data/results/main_real_200/mechanism_probes/two_step/tasks.jsonl",
+        "data/results/main_real_200/pilot_eval_taskitems_v2.jsonl"
+      ],
+      "severity": "high"
+    },
+    {
+      "blocker": "ade20k_pixels",
+      "detail": "ADE20K image pixels must not be redistributed; release recipes + hashes, not pixels. Requires explicit license clearance + user request.",
+      "n_pixel_files": 1562,
+      "severity": "license"
+    }
+  ],
+  "cannot_release": {
+    "categories": {
+      "ade20k_pixels": [
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000006.jpg",
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000008.jpg",
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000010.jpg",
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000016.jpg",
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000017.jpg",
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000021.jpg",
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000034.jpg",
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000042.jpg",
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000043.jpg",
+        "data/edits/absent_object_control/ctrl_car_neg_ADE_train_00000053.jpg"
+      ],
+      "raw_or_rejected_private": [
+        "data/results/main_real_200/pilot_edit_plan_rejected.jsonl",
+        "data/results/main_real_200/pilot_generated_rejected.jsonl"
+      ]
+    },
+    "n": 1566,
+    "n_pixel_files": 1562
+  },
+  "data_dependencies": {
+    "required_to_reproduce_from_scratch": [
+      "ADE20K (user obtains under its own license; pixels not redistributed)",
+      "open VLM weights (downloaded by the user; never packaged)"
+    ],
+    "required_to_reproduce_scoring": [
+      "data/results/main_real_200/raw_predictions*/ (model predictions, sha256-locked)",
+      "data/results/main_real_200/pilot_eval_taskitems_v2.jsonl",
+      "data/edits/absent_object_control/pilot_eval_tasks_reviewed.jsonl"
+    ]
+  },
+  "evidence_status": "RELEASE_READINESS_NON_EVIDENCE",
+  "expected_runtimes": {
+    "kaggle_diffusion_edits": "see scale plan assumptions (~25s/edit on free T4)",
+    "kaggle_vlm_eval_per_model": "~minutes (observed VLM latency ~1.5s/inference x ~300)",
+    "local_scoring_pilot_report_from_raw": "~seconds-to-1min per model on CPU (no model load)"
+  },
+  "license_provenance_blockers": [
+    "ADE20K image pixels (redistribution not permitted; ship recipes + hashes)"
+  ],
+  "model_weight_policy": "Model weights are NEVER packaged. Reproduction downloads open weights (Qwen2.5-VL-7B, InternVL2-8B, LLaVA-OneVision-7B) from their public hubs on free Kaggle.",
+  "needs_path_relativization": {
+    "files": [
+      "data/results/main_real_200/mechanism_probes/context_suppression/tasks.jsonl",
+      "data/results/main_real_200/mechanism_probes/object_list/tasks.jsonl",
+      "data/results/main_real_200/mechanism_probes/region_focused/tasks.jsonl",
+      "data/results/main_real_200/mechanism_probes/two_step/tasks.jsonl",
+      "data/results/main_real_200/pilot_eval_taskitems_v2.jsonl",
+      "data/results/main_real_200/pilot_eval_tasks_reviewed_v2.jsonl",
+      "data/results/main_real_200/prompt_ablations/negative/tasks.jsonl",
+      "data/results/main_real_200/prompt_ablations/pixel_only/tasks.jsonl",
+      "data/results/main_real_200/prompt_ablations/positive/tasks.jsonl",
+      "data/results/main_real_200/prompt_ablations/short/tasks.jsonl",
+      "data/results/main_real_200/residual_cue_review/residual_cue_review_sheet.csv",
+      "data/results/main_real_200/review_iaa/second_rater_review_sheet.csv"
+    ],
+    "n": 12
+  },
+  "paper_evidence": false,
+  "privacy_audit": {
+    "command": "python3 -m certvic.security.release_privacy_audit --root .",
+    "n_total_findings": 0,
+    "passed": true,
+    "secrets_ok": true
+  },
+  "release_ready": false,
+  "release_ready_note": "release-safe set is clean; high-severity blockers must be cleared (path relativization) before packaging.",
+  "release_safe": {
+    "entries": [
+      {
+        "path": "data/results/main_real_200/multimodel_pilot_summary.csv",
+        "sha256": "1e4073e674ba36c288c35b02b44fd88d80a1646e4c385084a8bff1a59dceec71"
+      },
+      {
+        "path": "data/results/main_real_200/multimodel_pilot_summary.json",
+        "sha256": "8fe4f36551021812165a451579b8e4bdbf620cdcc03033485052c77767c8c658"
+      },
+      {
+        "path": "data/results/main_real_200/multimodel_pilot_summary.md",
+        "sha256": "ff7bedf747552b8c770e0b5bff7bee48de0bc8d075cc1f368ba5386688e6fef1"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report/absent_object_control.json",
+        "sha256": "2c4d088ab4b2aa6f698716bb01a4515340e7318c61f08964c71367a4c2aaf7a5"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report/pilot_result.json",
+        "sha256": "b8f103f3ac34cad2eadf69c7f5722783202b298de1bbfa2e067b4dc11930479a"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report/pilot_result.md",
+        "sha256": "246d12c445731159c8d21b0f0cd80506cb6a80847880c81140bc64166e9b2055"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report/presence_by_edit_type.json",
+        "sha256": "72b7900748dfdbbdfee1f5a4b31f4ef898414cd8ca6de06022f78edf12c29a25"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report/presence_certification.json",
+        "sha256": "6c5c4c07de038923e93598ae2f042c5c038a440eec1c58c1317a2ed1d55b3eb8"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report/presence_scores_summary.json",
+        "sha256": "79623a1ef254baead99816e6cad3a010acb71e9e9943075ec47c9e6fb5844250"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__internvl_8b/absent_object_control.json",
+        "sha256": "faffbd5d32f38cddb0f5a098a35dbad79372a7d4db78a69d6bbdd1c90f0471e8"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__internvl_8b/pilot_result.json",
+        "sha256": "5686cc592f13fa3aec3ba85ca8d88195ca48e28d03d9a419087ab85a57c09b27"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__internvl_8b/pilot_result.md",
+        "sha256": "ff97805b83ec7dab689cb1bc6abf1f3b47505ddcd311d69613ebb04bdfb06770"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__internvl_8b/presence_by_edit_type.json",
+        "sha256": "f78c2e71bd7998bec4a1bae92b1ef449782582f47508650fda3a3783900d8d75"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__internvl_8b/presence_certification.json",
+        "sha256": "b171b73d71c90b3ce6dc18038defcb3f8cd8b5ec47761a4f223458a6d4503cd7"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__internvl_8b/presence_scores_summary.json",
+        "sha256": "f08a428e62280c97fd30ded0987f7f904fbcb2dbe3a78feb41ef564d74127b11"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/absent_object_control.json",
+        "sha256": "3a1d17e1be5092d88f723f3e0bd4a9c2eb8a7fd2669d641dc9e4a67385546014"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/pilot_result.json",
+        "sha256": "9539b9f84ca64546cd70aadee806d164e3a55931c775fd5085c13a6b8f8ead8b"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/pilot_result.md",
+        "sha256": "fc5c1f32059dfb8e10963f6b99d85b6065d1ae064ad04af5e709c1acad811d41"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/presence_by_edit_type.json",
+        "sha256": "b294e2bc6205e0d0656366992c7c7bf9d91065a750c60dbdb1b6e2ef56a6538e"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/presence_certification.json",
+        "sha256": "4de518b8b15fec30ba61a683c178de8d005df7b0573002c170bd47459539dbd6"
+      },
+      {
+        "path": "data/results/main_real_200/pilot_report__llava_onevision_7b/presence_scores_summary.json",
+        "sha256": "a464cc43689a529a1545feb0dc3987a5f92ba68a4115ddb8c68294eb3e4688dd"
+      },
+      {
+        "path": "data/results/main_real_200/score_summary_v2.json",
+        "sha256": "79623a1ef254baead99816e6cad3a010acb71e9e9943075ec47c9e6fb5844250"
+      },
+      {
+        "path": "data/results/main_real_200/tables/main200_control_results.csv",
+        "sha256": "04a39dbd964192e141c0a4dcebb80a41f1230c409a76ed5394e860ecaa9b00e1"
+      },
+      {
+        "path": "data/results/main_real_200/tables/main200_control_results.tex",
+        "sha256": "547857d1db5a82df53f7f2bfcdcd6d55a111d6d55f269381eee8bc6ad5b3759d"
+      },
+      {
+        "path": "data/results/main_real_200/tables/main200_multimodel_results.csv",
+        "sha256": "c3fc523e1af458fe18e9d20795ab252e559c0acdabd1f45da749a6c1a9eef6b5"
+      },
+      {
+        "path": "data/results/main_real_200/tables/main200_multimodel_results.tex",
+        "sha256": "51ed9f035c16196ce886a1112305e4677c6a94f3b1156553e8ba9d615183d22e"
+      },
+      {
+        "path": "data/results/main_real_200/tables/main200_per_edit_type.csv",
+        "sha256": "dfaa6bd088fc2af39b3da78f18abbdf61d0f398e0c6dde12d37c099bf5ffbfe2"
+      },
+      {
+        "path": "registry/datasets/second_domain_candidates.json",
+        "sha256": "54c7e632b786294910caed18dcf224db70768e2e488c394362be0a1d75ed3b9a"
+      },
+      {
+        "path": "registry/results/main200_pilot_result_ledger.json",
+        "sha256": "89cb90549ca93b56d48b6086c5aa6fb893c469a4005edfb1b1b77f90e8134aa2"
+      },
+      {
+        "path": "registry/results/main200_pilot_result_ledger.md",
+        "sha256": "23a964db45f250a1577a07dfd688afb541183a58afde3af3ef4fd8eb07b11139"
+      }
+    ],
+    "n": 30
+  },
+  "schema": "certvic.release_candidate.v1"
+}

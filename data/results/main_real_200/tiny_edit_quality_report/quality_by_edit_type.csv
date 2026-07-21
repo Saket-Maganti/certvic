@@ -1,0 +1,5 @@
+edit_type,generated,mean_inside_mask_change_fraction,mean_outside_allowed_change_fraction,mean_outside_mask_change_fraction,quality_failed,quality_passed
+control_irrelevant,65,0.9868962708407124,0.9868962708407124,0.0,65,0
+displace,64,0.9831217257237508,0.0,0.0,0,64
+occlude,6,0.9908809438610384,0.0,0.0,0,6
+remove,33,0.9871297700189349,0.0,0.0,0,33

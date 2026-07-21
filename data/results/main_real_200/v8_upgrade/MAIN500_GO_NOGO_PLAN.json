@@ -1,0 +1,7 @@
+{
+  "blocking_reason": "At least one provider failed the spurious-flip specificity gate.",
+  "go": false,
+  "paper_evidence": false,
+  "schema": "certvic.v8.main500_go_nogo.v1",
+  "verdict": "NO_GO_SPECIFICITY_GATE_FAILED"
+}

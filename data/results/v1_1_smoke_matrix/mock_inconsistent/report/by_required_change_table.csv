@@ -1,0 +1,3 @@
+group,n,original_accuracy,edited_accuracy,consistency_rate,intervention_consistency_gap,parse_failure_rate,spurious_flip_rate
+change,6,1.0,0.0,0.0,1.0,0.0,
+no_change,6,1.0,1.0,1.0,0.0,0.0,0.0

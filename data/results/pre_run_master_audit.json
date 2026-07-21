@@ -1,0 +1,60 @@
+{
+  "audit": "pre_run_master_audit",
+  "cleared_for_real_runs": true,
+  "components": [
+    {
+      "component": "v2_full_system_audit",
+      "detail": {
+        "failed_checks": []
+      },
+      "passed": true,
+      "summary": "13/13 structural checks"
+    },
+    {
+      "component": "reviewer_attack_harness",
+      "detail": {
+        "blocking_unready": [],
+        "enhancement_unready": []
+      },
+      "passed": true,
+      "summary": "10/10 blocking defenses ready"
+    },
+    {
+      "component": "paper_numbers_guard",
+      "detail": {
+        "n_files": 1
+      },
+      "passed": true,
+      "summary": "0 untraced/fabrication violations"
+    },
+    {
+      "component": "anytime_validity_lab",
+      "detail": {
+        "checks": {
+          "cs_coverage_controlled": true,
+          "cs_has_power": true,
+          "cs_type_i_controlled": true,
+          "peeking_fixed_n_inflates_type_i": true
+        }
+      },
+      "passed": true,
+      "summary": "CS Type-I controlled under optional stopping"
+    },
+    {
+      "component": "prompt_task_adversarial_audit",
+      "detail": {
+        "skipped": true
+      },
+      "passed": true,
+      "summary": "skipped (no --tasks manifest supplied); run before real eval"
+    }
+  ],
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "gpu_required": false,
+  "n_components": 5,
+  "n_passed": 5,
+  "passed": true,
+  "repo_root": "/Users/saketmaganti/Projects/certVIC",
+  "vlm_inference_run": false
+}

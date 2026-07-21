@@ -1,0 +1,105 @@
+{
+  "any_certified_claim": false,
+  "dashboard": "certvic_local_run_dashboard",
+  "evidence_claims_made": false,
+  "external_services_used": false,
+  "generated": "2026-06-22",
+  "missing_gates": [
+    "no certified claim (expected until real evidence exists)",
+    "no human-review progress",
+    "no provenance ledger / artifact graph"
+  ],
+  "non_evidence_flags": [],
+  "pixels_copied": false,
+  "results_root": "data/results",
+  "sections": {
+    "artifacts": {
+      "items": [],
+      "name": "artifacts",
+      "notes": [
+        "No provenance artifacts found yet (run certvic.provenance.run_ledger)."
+      ],
+      "status": "missing"
+    },
+    "claims": {
+      "items": [],
+      "name": "claims",
+      "notes": [
+        "No claim ledger found; no certified claims (expected before real evidence)."
+      ],
+      "status": "missing"
+    },
+    "metrics": {
+      "items": [
+        {
+          "certified": null,
+          "consistency_rate": 0.4,
+          "file": "smoke_summary.json",
+          "gap": 0.6,
+          "original_accuracy": 1.0
+        },
+        {
+          "certified": null,
+          "consistency_rate": 0.5,
+          "file": "summary.json",
+          "gap": 0.5,
+          "original_accuracy": 1.0
+        },
+        {
+          "certified": null,
+          "consistency_rate": 0.0,
+          "file": "summary.json",
+          "gap": null,
+          "original_accuracy": 0.0
+        },
+        {
+          "certified": null,
+          "consistency_rate": 1.0,
+          "file": "summary.json",
+          "gap": null,
+          "original_accuracy": 1.0
+        },
+        {
+          "certified": null,
+          "consistency_rate": 0.5,
+          "file": "summary.json",
+          "gap": 0.5,
+          "original_accuracy": 1.0
+        }
+      ],
+      "name": "metrics",
+      "notes": [],
+      "status": "ok"
+    },
+    "quality": {
+      "items": [],
+      "name": "quality",
+      "notes": [
+        "No edit-quality / detectability artifacts found yet."
+      ],
+      "status": "missing"
+    },
+    "review": {
+      "items": [],
+      "name": "review",
+      "notes": [
+        "No human-review progress found yet."
+      ],
+      "status": "missing"
+    },
+    "runs": {
+      "items": [
+        {
+          "paid_services_used": false,
+          "provider": "mock_inconsistent",
+          "run_id": "smoke_mock_inconsistent_v1",
+          "timestamp": "2026-06-22T13:33:47.134997+00:00",
+          "zero_cost_ack": true
+        }
+      ],
+      "name": "runs",
+      "notes": [],
+      "status": "ok"
+    }
+  }
+}

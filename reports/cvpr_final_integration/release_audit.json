@@ -1,0 +1,8 @@
+{
+  "errors": [],
+  "manifested_files": 469,
+  "members": 470,
+  "paper_evidence": false,
+  "passed": true,
+  "schema": "certvic.cvpr.execution_closure_release_audit.v1"
+}

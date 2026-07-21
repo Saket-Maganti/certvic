@@ -1,0 +1,27 @@
+\section{Supplement}
+
+\subsection{Pipeline and reproducibility}
+We document the full recipe-first pipeline: source/mask manifests, the ADE20K
+label policy, edit engines and replay metadata, edit-quality gates, the visual
+review sheet and inter-annotator agreement, the open-local VLM preflight, scoring,
+the certification policy, and the artifact release. All commands are listed in the
+reproducibility appendix.
+
+\subsection{Statistical details}
+We give the bounded-transform construction $d_i = (a_i - C_i + 1)/2$ and the
+betting confidence sequence used to certify $\Delta$, the power-analysis grid
+(required $n$ vs.\ gap), and the optional-stopping simulation establishing
+Type-I control under continuous peeking.
+
+\subsection{Figures and tables}
+\begin{itemize}
+  \item Figure: pipeline diagram (pipeline\_figure).
+  \item Figure: example valid interventions (edit\_examples).
+  \item Figure: CS trajectory (cs\_trajectory).
+  \item Table: main results (main\_results\_table).
+  \item Figure: failure gallery summary (failure\_gallery).
+  \item Figure: artifact release diagram (artifact\_release).
+\end{itemize}
+
+Manifests, validation summaries, baseline/ablation tables, and per-family
+certification remain [RESULT REQUIRED].

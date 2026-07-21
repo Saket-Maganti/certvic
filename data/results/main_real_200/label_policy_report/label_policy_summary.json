@@ -1,0 +1,31 @@
+{
+  "blocked_mask_count": 2558,
+  "eligible_labels_by_family": {
+    "affordance_reachability": 6,
+    "control_irrelevant": 127,
+    "occlusion_safety": 6,
+    "support_stability": 5
+  },
+  "eligible_masks_by_family": {
+    "affordance_reachability": 1903,
+    "control_irrelevant": 10179,
+    "occlusion_safety": 1375,
+    "support_stability": 1812
+  },
+  "evidence_status": "DESCRIPTIVE_ONLY",
+  "label_policy_entry_count": 14,
+  "label_policy_hash": "sha256:4bd9136f2940176a",
+  "label_policy_source": "configs/ade20k_label_policy.yaml",
+  "label_policy_verified": false,
+  "label_policy_version": "certvic.ade20k_label_policy.v1",
+  "masks_path": "data/results/main_real_200/ade20k_masks.jsonl",
+  "n_blocked_labels": 5,
+  "n_distinct_labels": 132,
+  "n_masks": 12737,
+  "n_resolved_labels": 14,
+  "n_unresolved_labels": 118,
+  "out_dir": "data/results/main_real_200/label_policy_report",
+  "unresolved_mask_count": 7469,
+  "vlm_inference_run": false,
+  "zero_cost": true
+}

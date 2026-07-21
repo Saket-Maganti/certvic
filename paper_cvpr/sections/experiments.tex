@@ -1,0 +1,11 @@
+\section{Experimental Setup}
+The planned matrix contains Qwen2.5-VL-7B-Instruct, InternVL2-8B, and LLaVA-OneVision-7B. Exact model
+and processor commits remain external freeze fields. Each mounted snapshot must pass an all-file
+offline manifest, architecture assertion, and tokenizer/processor verification. Qwen and LLaVA use
+native processors with a T4-safe float16/NF4 policy. InternVL uses revision-compatible dynamic tiling,
+a six-patch-plus-thumbnail bound, normalization, image-token prompting, float16 compute, and NF4 on
+each 16 GiB T4 worker. Kaggle
+execution uses one worker per visible GPU, true tensor batching where supported, OOM halving to one,
+single-GPU fallback, and deterministic multi-session resume. An offline environment lock and separate
+real two-item smoke gate precede every scientific run. These descriptions are implementation
+contracts, not observed runtime or compatibility claims.

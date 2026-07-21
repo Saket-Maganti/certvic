@@ -1,0 +1,342 @@
+{
+  "all_simulated_only": true,
+  "n_items": 200,
+  "scenarios": [
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 1.0,
+      "control_spurious_flip_rate": 0.0,
+      "control_spurious_flip_warning": false,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": 0.0,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 1.0,
+      "parse_failure_rate": 0.0,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/perfect_consistent/v2_report",
+      "scenario": "perfect_consistent",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "not_overclaimed": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.725,
+      "control_spurious_flip_rate": 0.16000000000000003,
+      "control_spurious_flip_warning": false,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": 0.22499999999999998,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.95,
+      "parse_failure_rate": 0.0,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/high_accuracy_low_consistency/v2_report",
+      "scenario": "high_accuracy_low_consistency",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "descriptive_high_gap": true,
+        "not_overclaimed": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.725,
+      "control_spurious_flip_rate": 0.33999999999999997,
+      "control_spurious_flip_warning": true,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": -0.015000000000000013,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.71,
+      "parse_failure_rate": 0.0,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/low_accuracy_high_consistency/v2_report",
+      "scenario": "low_accuracy_high_consistency",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "not_overclaimed": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.755,
+      "control_spurious_flip_rate": 0.5800000000000001,
+      "control_spurious_flip_warning": true,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": 0.20999999999999996,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.965,
+      "parse_failure_rate": 0.0,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/spurious_control_flipper/v2_report",
+      "scenario": "spurious_control_flipper",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "control_warning_triggered": true,
+        "not_overclaimed": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.545,
+      "control_spurious_flip_rate": 0.45999999999999996,
+      "control_spurious_flip_warning": true,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": 0.029999999999999916,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.575,
+      "parse_failure_rate": 0.35,
+      "parse_failure_warning": true,
+      "report_dir": "data/results/v2_1_sim_matrix/parse_failure_heavy/v2_report",
+      "scenario": "parse_failure_heavy",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "not_overclaimed": true,
+        "parse_failure_warning_triggered": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.725,
+      "control_spurious_flip_rate": 0.16000000000000003,
+      "control_spurious_flip_warning": false,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": 0.21999999999999997,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.945,
+      "parse_failure_rate": 0.0,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/family_specific_failure/v2_report",
+      "scenario": "family_specific_failure",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "not_overclaimed": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.75,
+      "control_spurious_flip_rate": 0.30000000000000004,
+      "control_spurious_flip_warning": true,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": 0.17000000000000004,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.92,
+      "parse_failure_rate": 0.0,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/domain_specific_failure/v2_report",
+      "scenario": "domain_specific_failure",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "not_overclaimed": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.775,
+      "control_spurious_flip_rate": 0.18000000000000005,
+      "control_spurious_flip_warning": false,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": 0.19999999999999996,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.975,
+      "parse_failure_rate": 0.0,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/edit_type_specific_failure/v2_report",
+      "scenario": "edit_type_specific_failure",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "not_overclaimed": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.73,
+      "control_spurious_flip_rate": 0.31999999999999995,
+      "control_spurious_flip_warning": true,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": -0.04499999999999993,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.685,
+      "parse_failure_rate": 0.0,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/small_gap_borderline/v2_report",
+      "scenario": "small_gap_borderline",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "not_overclaimed": true,
+        "small_gap_not_overclaimed": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.74,
+      "control_spurious_flip_rate": 0.21999999999999997,
+      "control_spurious_flip_warning": false,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": 0.0,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.74,
+      "parse_failure_rate": 0.0,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/null_gap/v2_report",
+      "scenario": "null_gap",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "near_zero_gap": true,
+        "not_overclaimed": true
+      },
+      "zero_cost": true
+    },
+    {
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is SIMULATED_ONLY",
+        "certified claim blocked: anytime-valid CS unavailable",
+        "certified claim blocked: missing CS lower bound",
+        "certified claim lacks CS lower bound"
+      ],
+      "certified": false,
+      "claim_gate_blocks_simulated": true,
+      "consistency": 0.655,
+      "control_spurious_flip_rate": 0.24,
+      "control_spurious_flip_warning": false,
+      "cs_available": false,
+      "cs_lower_bound": null,
+      "evidence_status": "SIMULATED_ONLY",
+      "gap": 0.16999999999999993,
+      "n": 200,
+      "not_for_paper_claims": true,
+      "original_accuracy": 0.825,
+      "parse_failure_rate": 0.05,
+      "parse_failure_warning": false,
+      "report_dir": "data/results/v2_1_sim_matrix/noisy_realistic_mixed/v2_report",
+      "scenario": "noisy_realistic_mixed",
+      "simulated": true,
+      "stress_checks": {
+        "claim_blocked": true,
+        "not_overclaimed": true
+      },
+      "zero_cost": true
+    }
+  ],
+  "seed": 0
+}

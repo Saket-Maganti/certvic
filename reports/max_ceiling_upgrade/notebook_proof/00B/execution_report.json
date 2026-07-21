@@ -1,0 +1,36 @@
+{
+  "artifacts": [
+    {
+      "name": "proof.json",
+      "sha256": "e2f7727d832959e0680ae732b6b77e414740b8aec2281c4ab98160b0c0f3ea58",
+      "size": 42
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 1,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "ecb4218d6996353bed4ec3e9809018d91661ca604d9996e30145d0c4861db996",
+  "config": {
+    "artifact_globs": [
+      "proof.json"
+    ],
+    "route": "00B",
+    "synthetic": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "898d5ad45496b96f40d8230a6fa791b7643e301369565fcf48e608f61453ecbd",
+  "status": "PASS"
+}

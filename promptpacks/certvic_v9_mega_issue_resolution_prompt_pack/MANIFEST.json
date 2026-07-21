@@ -1,0 +1,127 @@
+[
+  {
+    "file": "00_MASTER_V9_ORIENTATION.md",
+    "sha256": "7c7a810f0111bd8f18c186fb26952cea9e22af541e8caa8a53f416c25a1ff436",
+    "bytes": 5070
+  },
+  {
+    "file": "01_PRELIM_LABEL_HYGIENE_AND_AUDIT_REPAIR.md",
+    "sha256": "677bb73f2d1f81e0c60a703994a3c274a28d40339a96cccd0c209e6710b49d87",
+    "bytes": 4638
+  },
+  {
+    "file": "02_QWEN_FAILURE_HUMAN_REVIEW_PACKET.md",
+    "sha256": "c9733fb2a668770e985dc783268d49f6787f15da495d7ef62850050b4bbd549f",
+    "bytes": 4167
+  },
+  {
+    "file": "03_SPURIOUS_V2_STRICT_CONTROL_BUILDER.md",
+    "sha256": "932b45e64661bfdee3e6d481127ca873e2602e3b5a2e22bdc6ef3bb03d15c4c4",
+    "bytes": 4267
+  },
+  {
+    "file": "04_SPURIOUS_V2_T4X2_RUNBOOKS_AND_BUNDLES.md",
+    "sha256": "8bb2a2c0c134d94a7eb841610087a730e7011f9a37f2db235e6d6ffd1b7ff5cb",
+    "bytes": 3373
+  },
+  {
+    "file": "05_SPURIOUS_V2_INGEST_GATE_AND_DECISION.md",
+    "sha256": "bba92bddb92d2fd53ec27397ca1ea3cd871ebde2923a2ed798a78602f73911ea",
+    "bytes": 4018
+  },
+  {
+    "file": "06_MODEL_DEPENDENT_SPECIFICITY_REFRAME.md",
+    "sha256": "4e343e7c75b7e3939169d52ebc003135c7bf600e872a88c6d1d40d9b94e15dea",
+    "bytes": 3350
+  },
+  {
+    "file": "07_MAIN500_GO_NOGO_AFTER_SPECIFICITY.md",
+    "sha256": "3fc6322bb9eb2ba12f8fa545e6806819bd38622c30074aa0c59e76b9852f19d3",
+    "bytes": 3051
+  },
+  {
+    "file": "08_MAIN500_CPU_PLANNING_AND_ITEM_CERTIFICATES.md",
+    "sha256": "6c2bf5baa1b25e7aac2f20278d06f5b0ab3a9442770a17e056ceaf4f7ad03a85",
+    "bytes": 3020
+  },
+  {
+    "file": "09_MAIN500_DIFFUSION_T4X2_EXECUTION_PACK.md",
+    "sha256": "fb95a21c325155a4bf9fc4f4352f0c85c0d9eb1834f9ffbcd1d7dc1818b2ed19",
+    "bytes": 2772
+  },
+  {
+    "file": "10_MAIN500_QUALITY_DETECTABILITY_AND_REVIEW_EXPORT.md",
+    "sha256": "e2ae27f1f0eabe7716400e6b7cee3e48424b3d810bd6464e42147ee483c333a8",
+    "bytes": 2694
+  },
+  {
+    "file": "11_MAIN500_HUMAN_VALIDATION_AND_IAA.md",
+    "sha256": "aa95a2dd5610815adc6d55e144517afbedac846b431adecc116526a1ef8e6188",
+    "bytes": 2654
+  },
+  {
+    "file": "12_MAIN500_VLM_T4X2_EVAL_PACK.md",
+    "sha256": "83c8b4ee1b5dec0db379dad0641ae1588113b81b4367ce843d891829a2b5d5b8",
+    "bytes": 2674
+  },
+  {
+    "file": "13_MAIN500_INGEST_CERTIFICATION_AND_TABLES.md",
+    "sha256": "2deef50284f16b953055d1b6a0f3480dce04fa34ac0fc2909e625f1a5e74011d",
+    "bytes": 2713
+  },
+  {
+    "file": "14_SECOND_DOMAIN_FEASIBILITY_AND_MINI_RUN.md",
+    "sha256": "7f55dbe50d40be74030e793c7e579b1552ce6c2522942237f94820f0708166a7",
+    "bytes": 2672
+  },
+  {
+    "file": "15_MECHANISM_POLARITY_DEEP_ANALYSIS.md",
+    "sha256": "e68ab10bcfccb16afaf75d8515cf68d03c2eab3280ee9e5aa822a572c551b397",
+    "bytes": 2905
+  },
+  {
+    "file": "16_STATISTICAL_INFERENCE_AND_POWER_LOCK.md",
+    "sha256": "0b7a7c7427110b6d56789fe013466f148d0bf9f815f7e203e37297fa0ab2905e",
+    "bytes": 2607
+  },
+  {
+    "file": "17_FAILURE_TAXONOMY_AND_QUAL_GALLERY_FINAL.md",
+    "sha256": "099412a6044638744074da4e495533702daf38d9574551565c57ff053479ff4c",
+    "bytes": 2617
+  },
+  {
+    "file": "18_PAPER_COMPILE_CVPR_SCAFFOLD.md",
+    "sha256": "6ea28948aba68b8fb63c09714d6cbc64f2f3f3960d10892420c5d387292a379b",
+    "bytes": 2758
+  },
+  {
+    "file": "19_RELEASE_PRIVACY_REPRODUCIBILITY_PACKAGE.md",
+    "sha256": "1e0623b09d07a22ea532625d76f1bce553f64d70b552dd9395a623b3c155f03e",
+    "bytes": 2483
+  },
+  {
+    "file": "20_REVIEWER_ATTACK_AND_REBUTTAL_SIM.md",
+    "sha256": "a585e54b3471d2847dcffede5e982be2f7f9200305d32b0df3783403fccb8928",
+    "bytes": 2743
+  },
+  {
+    "file": "21_CVPR_READINESS_SCORECARD_AND_STOP_CONDITIONS.md",
+    "sha256": "3adf74744bb84430288cb2ffe465a2772efbe68e2bd0f419608a097990a1ca63",
+    "bytes": 2798
+  },
+  {
+    "file": "22_FINAL_VALIDATION_HANDOFF.md",
+    "sha256": "23b64449814a5c8e671d2969044557ef334289f322b1318f1db60307a91fe311",
+    "bytes": 2910
+  },
+  {
+    "file": "23_SINGLE_MASTER_PROMPT_RUN_ALL_V9.md",
+    "sha256": "4f05f628dcba929395cfe26bb311845cc7768db0e9809d78ed2ac55b39e750f5",
+    "bytes": 4034
+  },
+  {
+    "file": "README.md",
+    "sha256": "cc4643b987367d28e9d20db3ccb60f0fd12c17c39f0c3a67ed8766a70ef49822",
+    "bytes": 3531
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "cache_root": "/path/to/cache",
+  "cache_root_exists": false,
+  "downloads_attempted": false,
+  "evidence_status": "CACHE_MANIFEST_ONLY",
+  "files": [],
+  "manifest": "certvic_model_cache_manifest",
+  "missing": [
+    "cache_root_missing"
+  ],
+  "n_files": 0,
+  "provider": "qwen2_5_vl_7b",
+  "provider_metadata": {
+    "cost_status": "zero_cost_open_local",
+    "expected_gpu_memory_gb": 16,
+    "model_family": "qwen2_5_vl",
+    "provider_name": "qwen2_5_vl_7b",
+    "provider_type": "open_local",
+    "supports_4bit": true,
+    "supports_batching": true,
+    "tested_status": "adapter_scaffold"
+  },
+  "total_size_bytes": 0
+}

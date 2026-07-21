@@ -1,0 +1,2 @@
+item_id,original_answerable,edited_answerable,expected_change_unambiguous,human_expected_original,human_expected_edited,agreement_with_manifest,notes
+smoke_000,yes,yes,yes,yes,no,yes,smoke calibration only

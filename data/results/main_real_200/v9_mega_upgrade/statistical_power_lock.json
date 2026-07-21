@@ -1,0 +1,17 @@
+{
+  "anytime_valid_cs": "required for sequential reports",
+  "control_spurious_flip_max": 0.1,
+  "main2000_power": "future large-scale only",
+  "main500_power": "planned only; no results",
+  "multiple_model_correction": "report per-model plus family-wise sensitivity when making cross-model claims",
+  "paper_evidence": false,
+  "primary_estimand": "paired original-vs-edited answer-change/update gap on reviewed items",
+  "schema": "certvic.v9.statistical_power_lock.v1",
+  "status": "DONE_PLAN_LOCK",
+  "stop_rules": [
+    "stop if specificity unresolved and no reframe",
+    "stop if human validation missing for claimed reviewed items",
+    "stop if parse/quality gates fail"
+  ],
+  "threshold_weakened": false
+}

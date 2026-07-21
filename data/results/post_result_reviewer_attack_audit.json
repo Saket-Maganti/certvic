@@ -1,0 +1,197 @@
+{
+  "attacks": [
+    {
+      "artifact_evidence": [
+        "data/results/main_real_200/multimodel_pilot_summary.md",
+        "data/results/main_real_200/pilot_report/absent_object_control.json"
+      ],
+      "claim": "Models simply do not perceive the object.",
+      "id": 1,
+      "missing_evidence": [],
+      "remaining_action": "None: original-image accuracy is 0.89-0.92 and absent-object present-accuracy is high, so the object is perceived; the gap is a post-edit update failure.",
+      "severity": "low",
+      "status": "answered"
+    },
+    {
+      "artifact_evidence": [
+        "data/results/main_real_200/pilot_report/absent_object_control.json"
+      ],
+      "claim": "The question presupposes the object (answers without looking).",
+      "id": 2,
+      "missing_evidence": [],
+      "remaining_action": "None: on naturally absent objects the models answer 'no' at 58-60/60.",
+      "severity": "low",
+      "status": "answered"
+    },
+    {
+      "artifact_evidence": [
+        "data/results/main_real_200/go_no_go.json",
+        "data/results/main_real_200/residual_cue_review/residual_cue_summary.json"
+      ],
+      "claim": "The edited images have residual artifacts the VLM exploits.",
+      "id": 3,
+      "missing_evidence": [],
+      "remaining_action": "Complete the human residual-cue review (scripts/apply_residual_cue_review.py); detectability AUC=0.349 already argues against trivial artifacts.",
+      "severity": "medium",
+      "status": "partially_answered"
+    },
+    {
+      "artifact_evidence": [
+        "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl"
+      ],
+      "claim": "Models are sticky under any perturbation (no specificity).",
+      "id": 4,
+      "missing_evidence": [
+        "data/results/main_real_200/control_irrelevant_report/control_irrelevant_report.json"
+      ],
+      "remaining_action": "Run spurious-flip / control_irrelevant VLM predictions for all 3 models, then integrate (V7 prompt 14). BLOCKER until predictions exist.",
+      "severity": "high",
+      "status": "blocked"
+    },
+    {
+      "artifact_evidence": [
+        "docs/SECOND_DOMAIN_READINESS.md",
+        "registry/datasets/second_domain_candidates.json"
+      ],
+      "claim": "Only one dataset (ADE20K).",
+      "id": 5,
+      "missing_evidence": [],
+      "remaining_action": "Execute the recommended COCO second-domain arm; readiness is assessed but not run.",
+      "severity": "medium",
+      "status": "unanswered"
+    },
+    {
+      "artifact_evidence": [
+        "docs/HUMAN_REVIEW_IAA_PROTOCOL.md",
+        "data/results/main_real_200/review_iaa/iaa_report.json"
+      ],
+      "claim": "Only one reviewer (no IAA).",
+      "id": 6,
+      "missing_evidence": [],
+      "remaining_action": "Collect a second rater and compute Cohen's kappa (scripts/compute_review_iaa.py); tooling ready, two-rater IAA not yet computed.",
+      "severity": "medium",
+      "status": "unanswered"
+    },
+    {
+      "artifact_evidence": [
+        "docs/SCALE_PLAN_MAIN_800_2000.md",
+        "data/results/scale_plans/scale_plan_summary.json"
+      ],
+      "claim": "n=91 is too small.",
+      "id": 7,
+      "missing_evidence": [],
+      "remaining_action": "Execute a scaled run (main_500+) after the specificity control passes; plan ready.",
+      "severity": "medium",
+      "status": "unanswered"
+    },
+    {
+      "artifact_evidence": [
+        "docs/MAIN200_PROMPT_ABLATION_PLAN.md",
+        "data/results/main_real_200/prompt_ablations/summary.json"
+      ],
+      "claim": "Prompt polarity caused the effect.",
+      "id": 8,
+      "missing_evidence": [],
+      "remaining_action": "Run the polarity-validated ablation tasks (positive/negative/pixel-only/short). The canonical effect already holds across mixed phrasing.",
+      "severity": "medium",
+      "status": "partially_answered"
+    },
+    {
+      "artifact_evidence": [
+        "data/results/main_real_200/multimodel_pilot_summary.md",
+        "registry/results/main200_pilot_result_ledger.json"
+      ],
+      "claim": "The result is not reproduced across models.",
+      "id": 9,
+      "missing_evidence": [],
+      "remaining_action": "None: 3/3 open VLMs are certified under the pilot protocol (Qwen, InternVL, LLaVA).",
+      "severity": "low",
+      "status": "answered"
+    },
+    {
+      "artifact_evidence": [
+        "data/results/main_real_200/statistical_sensitivity.json"
+      ],
+      "claim": "The statistics are optional-stopping hacked.",
+      "id": 10,
+      "missing_evidence": [],
+      "remaining_action": "None: anytime-valid CS controls Type-I error under continuous peeking (statistical_sensitivity simulation).",
+      "severity": "low",
+      "status": "answered"
+    },
+    {
+      "artifact_evidence": [
+        "registry/results/main200_pilot_result_ledger.json",
+        "docs/V7_POST3MODEL_PROJECT_STATE.md"
+      ],
+      "claim": "Old reports are mock-labeled / non-canonical.",
+      "id": 11,
+      "missing_evidence": [],
+      "remaining_action": "None: the result ledger excludes final_report*/ by construction; canonical = pilot_report*/ only, documented in the project-state memo.",
+      "severity": "low",
+      "status": "answered"
+    },
+    {
+      "artifact_evidence": [
+        "data/results/main_real_200/pilot_report/absent_object_control.json",
+        "registry/results/main200_pilot_result_ledger.json",
+        "data/results/main_real_200/failure_gallery/gallery.json"
+      ],
+      "claim": "The benchmark is just another edited-image dataset.",
+      "id": 12,
+      "missing_evidence": [],
+      "remaining_action": "The natural-absence-vs-edited-absence dissociation, certification, and controls differentiate it; full differentiation needs the specificity control + scale.",
+      "severity": "medium",
+      "status": "partially_answered"
+    }
+  ],
+  "audit": "v7_post_result_reviewer_attacks",
+  "evidence_claims_made": false,
+  "evidence_status": "REVIEWER_ATTACK_AUDIT_NON_EVIDENCE",
+  "n_attacks": 12,
+  "n_unresolved": 7,
+  "paper_evidence": false,
+  "status_counts": {
+    "answered": 5,
+    "blocked": 1,
+    "partially_answered": 3,
+    "unanswered": 3
+  },
+  "top_unresolved": [
+    {
+      "claim": "Models are sticky under any perturbation (no specificity).",
+      "id": 4,
+      "remaining_action": "Run spurious-flip / control_irrelevant VLM predictions for all 3 models, then integrate (V7 prompt 14). BLOCKER until predictions exist.",
+      "severity": "high",
+      "status": "blocked"
+    },
+    {
+      "claim": "Only one dataset (ADE20K).",
+      "id": 5,
+      "remaining_action": "Execute the recommended COCO second-domain arm; readiness is assessed but not run.",
+      "severity": "medium",
+      "status": "unanswered"
+    },
+    {
+      "claim": "Only one reviewer (no IAA).",
+      "id": 6,
+      "remaining_action": "Collect a second rater and compute Cohen's kappa (scripts/compute_review_iaa.py); tooling ready, two-rater IAA not yet computed.",
+      "severity": "medium",
+      "status": "unanswered"
+    },
+    {
+      "claim": "n=91 is too small.",
+      "id": 7,
+      "remaining_action": "Execute a scaled run (main_500+) after the specificity control passes; plan ready.",
+      "severity": "medium",
+      "status": "unanswered"
+    },
+    {
+      "claim": "The edited images have residual artifacts the VLM exploits.",
+      "id": 3,
+      "remaining_action": "Complete the human residual-cue review (scripts/apply_residual_cue_review.py); detectability AUC=0.349 already argues against trivial artifacts.",
+      "severity": "medium",
+      "status": "partially_answered"
+    }
+  ]
+}

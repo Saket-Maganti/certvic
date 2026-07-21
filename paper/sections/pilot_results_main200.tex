@@ -1,0 +1,51 @@
+% ============================================================================
+% PILOT result section for the main_200 3-model study.
+% PILOT ONLY -- evidence_status = HUMAN_REVIEWED_NON_EVIDENCE, paper_evidence = false.
+% All numbers come from canonical artifacts via \input of generated tables; no number
+% is hand-typed in prose. Real values are recorded in comments for traceability only.
+% Regenerate tables: python3 scripts/build_main200_paper_tables.py
+% ============================================================================
+\section{Pilot Results (Main Study, Three Open VLMs)}
+
+\paragraph{Method recap.}
+We measure visual decision updates with the CertVIC protocol: for each reviewed item we
+ask a presence question on the original image and on a single-factor edited image
+(removal, occlusion, or displacement) that passed a detectability and quality gate, and
+record the original-image accuracy $a$ and the post-edit answer consistency $p$. The
+reported gap is $\Delta = a - p$, certified per run via an anytime-valid confidence
+sequence on the bounded transform of the per-item gap at $\alpha = 0.05$.
+
+\subsection{Three-model intervention result}
+% Source: data/results/main_real_200/pilot_report*/pilot_result.json (presence arm).
+% Qwen2.5-VL-7B  : a=0.923, p=0.176, Delta=0.747, CS LB=0.364, certified.
+% InternVL2-8B   : a=0.923, p=0.099, Delta=0.824, CS LB=0.441, certified.
+% LLaVA-OneVision: a=0.890, p=0.176, Delta=0.714, CS LB=0.331, certified.
+The same reviewed items and protocol are applied to three open VLMs. Each model is
+certified \emph{under the pilot protocol} (its own run's CS lower bound on $\Delta$ exceeds
+the threshold). Cross-model agreement is descriptive, not a pooled claim.
+\input{../../data/results/main_real_200/tables/main200_multimodel_results.tex}
+
+\subsection{Absent-object control (natural absence, no edits)}
+% Source: data/results/main_real_200/pilot_report*/absent_object_control.json
+% absent correct: Qwen 60/60, InternVL 58/60, LLaVA 60/60; present accuracy high for all.
+When the queried object is \emph{naturally} absent (no edit), all three models answer
+``no'' at high rates, ruling out the objection that the question is answered from its
+presupposition rather than from the image.
+\input{../../data/results/main_real_200/tables/main200_control_results.tex}
+
+\subsection{Per-edit-type discussion}
+% Source: data/results/main_real_200/pilot_report*/presence_by_edit_type.json
+% Removal shows the largest gap (post-edit consistency near zero); displacement and
+% occlusion show smaller but consistent gaps. control_irrelevant (specificity) = not_available.
+The gap is largest for removals, where the target is fully gone yet the presence judgment
+often does not revise; displacement and occlusion show smaller but consistent gaps. The
+\texttt{control\_irrelevant} (spurious-flip) specificity column is \emph{not available}: its
+images and tasks exist but its VLM predictions have not been produced.
+
+\subsection{Natural absence vs.\ edited absence (the dissociation)}
+The control and intervention together describe a dissociation: the models reliably detect
+\emph{natural} absence, yet frequently fail to revise a presence judgment after a
+controlled, low-detectability \emph{edited} removal. This dissociation is the core pilot
+observation and is consistent across the three models.
+
+% No citations are included here; add only verified references when the study is scaled.

@@ -1,0 +1,29 @@
+{
+  "schema": "certvic.confirmatory.protocol_authority.v1",
+  "status": "AUTHORITATIVE_AND_FROZEN",
+  "authoritative_config_path": "configs/studies/specificity_confirmatory_cvpr.yaml",
+  "authoritative_schema_version": "certvic.cvpr.confirmatory_protocol.v2",
+  "protocol_sha256": "bb82612e09346599b0cabe3d1876369a652fc56e3406cd98ac21ce699a62ca25",
+  "superseded_config_paths": [
+    "configs/certvic_v11_protocol.yaml"
+  ],
+  "deprecation_reason": "The V11 prospective path used the flawed accuracy-minus-change gap and did not define the corrected two-gate primary certificate. Historical observations remain frozen.",
+  "effective_date": "2026-07-21",
+  "allowed_amendments": [
+    "A versioned feasibility amendment before any prospective provider output, with rationale, power analysis, new hashes, and a new authority-manifest version."
+  ],
+  "amendment_lock": "LOCKED_NO_IN_PLACE_AMENDMENTS",
+  "analysis_lock_path": "configs/statistics/certvic_confirmatory_primary_analysis.json",
+  "analysis_lock_sha256": "a3f3b4a3d8c942f5d753589a079b2c62dab63a7f6bd742d74f4a89022da3920d",
+  "task_freeze_prerequisites": [
+    "licensed source manifest",
+    "zero-overlap audit",
+    "complete automated QA",
+    "two independent outcome-blind human reviews and adjudication",
+    "exact primary/reserve selection",
+    "selected-set detectability pass",
+    "immutable model registry and environment identity"
+  ],
+  "prospective_provider_outputs_observed": false,
+  "paper_evidence": false
+}

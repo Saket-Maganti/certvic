@@ -1,0 +1,80 @@
+{
+  "audit": "v3_final_pre_real_run_audit",
+  "blockers": [],
+  "checks": [
+    {
+      "checked": 40,
+      "errors": [],
+      "name": "v3_modules_import",
+      "passed": true
+    },
+    {
+      "missing": [],
+      "name": "v3_handoff_docs_exist",
+      "passed": true
+    },
+    {
+      "missing": [],
+      "name": "v3_docs_exist",
+      "passed": true
+    },
+    {
+      "name": "zero_cost_policy_exists",
+      "passed": true
+    },
+    {
+      "name": "no_paid_providers",
+      "paid": [],
+      "passed": true
+    },
+    {
+      "n_violations": 0,
+      "name": "paper_number_guard_passes",
+      "passed": true
+    },
+    {
+      "name": "no_fake_paper_results",
+      "passed": true,
+      "results_placeholder": true
+    },
+    {
+      "name": "non_evidence_statuses_blocked",
+      "passed": true
+    },
+    {
+      "name": "reviewer_defenses_available",
+      "passed": true
+    },
+    {
+      "n_findings": 0,
+      "name": "security_privacy_audit_passes",
+      "passed": true
+    },
+    {
+      "n_ok": 4,
+      "name": "reproduction_scripts_audit_passes",
+      "passed": true
+    },
+    {
+      "name": "related_work_no_fabrication",
+      "passed": true
+    },
+    {
+      "n_checks": 13,
+      "n_passed": 13,
+      "name": "v2_full_audit_passes",
+      "passed": true
+    }
+  ],
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "gpu_required": false,
+  "guidance": "V3 infrastructure is complete and green. STOP building infrastructure. Provide a local ADE20K root and a free GPU, then start the real run with the next_real_run_command (dry-run first, then drop --dry-run). Do not add more infrastructure unless a real run exposes a concrete missing gate.",
+  "n_checks": 13,
+  "n_passed": 13,
+  "next_real_run_command": "python3 -m certvic.pipeline.main_study_dry_run --scale 200 --out-dir data/results/main_study_dry_run_200 && python3 -m certvic.pipeline.run_tiny_pilot --config configs/real_pilot_ade20k.yaml --ade20k-root <ADE20K_ROOT> --out-dir data/results/tiny_real_pilot --dry-run",
+  "paid_services": false,
+  "passed": true,
+  "repo_root": "/Users/saketmaganti/Projects/certVIC",
+  "vlm_inference_run": false
+}

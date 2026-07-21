@@ -1,0 +1,23 @@
+{
+  "mode": "RUNTIME_HARDENED_NOT_EXECUTED_LOCALLY",
+  "notebooks": {
+    "00A_certvic_code_and_environment_smoke.ipynb": "d818cafd6d11fd2089e79b39fd952a15e1c6a8b1b4828532e941d842b52590c6",
+    "00B_certvic_model_snapshot_smoke.ipynb": "9eb28c4673316424f19b234290bacfc024a302ab493dab0df2cde062bb1d1a6d",
+    "00C1_certvic_mock_adapter_smoke.ipynb": "24f93e35198441394aebe4d20ba86a458f58db13f8ce3b620a12501bdf2bab3f",
+    "00C2_certvic_real_model_two_item_smoke.ipynb": "c0f512f7cafa3145dc62ea7cc18243842406808a94d0b1de6003d9ce3f69a46a",
+    "01_specificity_confirmatory_generation_T4x2.ipynb": "13fec31402ced3c35763e4b7e82983e96711b32ffe44ce5c85f4f6e7b6c490a4",
+    "02_qwen_specificity_confirmatory_T4x2.ipynb": "58c0af70e598061b789dc19f4b1020ef67bf1d8f1e09a4732eaf68b7bc4acb1a",
+    "03_internvl_specificity_confirmatory_T4x2.ipynb": "5bf0038dba7f96fdad8ae86f15ccc9079920f51e0c62ce7c5f7da6b14d121ca5",
+    "04_llava_specificity_confirmatory_T4x2.ipynb": "9b461dfe1a6932171c7aed9ade493ce86e6b4d3fed3ad4082dbcbeb2f7c27a4c",
+    "10_main_study_generation_T4x2.ipynb": "50daaddcb122492711c3057bdd5b317afc236f783b3d5e8f23e7acad960556a6",
+    "11_qwen_main_study_T4x2.ipynb": "32f28285112c09d6611189ed59eae6ef1c50ed68bd7d6427ac9e4ee2b9125b06",
+    "12_internvl_main_study_T4x2.ipynb": "9dfc15d619b5ba3322fbf29784e08df9c268f7435b122e65f5206e3afcdac389",
+    "13_llava_main_study_T4x2.ipynb": "6153065fc4629680a73de5a210ac71db42386b5e895a145e6e067053ea80d9ad",
+    "20_second_domain_generation_T4x2.ipynb": "f15120f1e295b0f59ea9742957431fa3d0a5ce929e6066ace47147c08296397f",
+    "21_second_domain_qwen_T4x2.ipynb": "6e17cc4249df722b83b11609376fcbe9f7e033f9a4ce4baaae4eb49d13a1f259",
+    "22_second_domain_internvl_T4x2.ipynb": "5471c6cb533f6cc77d7a907c73c50c419ec43a1846cc896094ce469a3dc21b4f",
+    "23_second_domain_llava_T4x2.ipynb": "96673d302bb4e052b5c25f680e38046ccc6f43c4087134644e3b8ba683ffab95"
+  },
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_suite.v2"
+}

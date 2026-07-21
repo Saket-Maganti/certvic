@@ -1,0 +1,16 @@
+mode: smoke
+provider: mock_inconsistent
+device: cpu
+external_downloads: false
+gpu_required: false
+max_items: 10
+alpha: 0.05
+gap_threshold: 0.05
+input_manifest: data/manifests/smoke_tasks.jsonl
+prediction_output: data/predictions/smoke_mock_inconsistent.jsonl
+zero_cost_policy_ack: true
+paid_services_enabled: false
+quality_gates:
+  min_mask_area_fraction: 0.01
+  max_mask_area_fraction: 0.50
+  max_outside_mask_change_fraction: 0.08

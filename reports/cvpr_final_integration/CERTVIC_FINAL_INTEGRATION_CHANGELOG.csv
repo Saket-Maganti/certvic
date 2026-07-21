@@ -1,0 +1,11 @@
+path,change,evidence_created
+certvic/cvpr/review.py,strict final review state and adjudication provenance,False
+certvic/cvpr/confirmatory_qa.py,deterministic byte-derived QA enrichment,False
+certvic/cvpr/candidate_selection.py,joint exact constraint solver,False
+certvic/cvpr/package_generation.py,global validator and deterministic ZIP,False
+certvic/cvpr/environment_lock.py,verified offline install and exact recheck,False
+certvic/cvpr/main_task_builder.py,annotation-backed Main candidates,False
+certvic/cvpr/smoke_gate.py,three-model real smoke promotion,False
+certvic/cvpr/after_runs.py,review-aware post-run closure,False
+certvic/data/coco_adapter.py,canonical limited COCO feasibility adapter,False
+notebooks/kaggle/cvpr,"output v2, wheelhouse, unified snapshot, smoke gate",False

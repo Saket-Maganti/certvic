@@ -1,0 +1,30 @@
+mode: v2_1_simulation_stress_lab
+zero_cost: true
+no_downloads: true
+no_gpu: true
+no_vlm_inference: true
+no_real_edit_generation: true
+no_evidence_claims: true
+default_n_items: 500
+seed: 0
+output_root: data/results/v2_1_sim_matrix
+scenarios:
+  - perfect_consistent
+  - high_accuracy_low_consistency
+  - low_accuracy_high_consistency
+  - spurious_control_flipper
+  - parse_failure_heavy
+  - family_specific_failure
+  - domain_specific_failure
+  - edit_type_specific_failure
+  - small_gap_borderline
+  - null_gap
+  - noisy_realistic_mixed
+alpha: 0.05
+gap_threshold: 0.05
+parse_failure_warning_threshold: 0.20
+control_spurious_flip_warning_threshold: 0.25
+evidence_status: SIMULATED_ONLY
+simulated: true
+zero_cost_artifacts: true
+not_for_paper_claims: true

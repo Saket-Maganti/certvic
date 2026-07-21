@@ -1,0 +1,12 @@
+$ python3 -m certvic.cvpr.artifact_registry verify
+
+[stdout]
+{
+  "artifact_count": 24,
+  "errors": [],
+  "paper_evidence": false,
+  "passed": true,
+  "schema": "certvic.cvpr.artifact_registry_verification.v1"
+}
+
+[stderr]

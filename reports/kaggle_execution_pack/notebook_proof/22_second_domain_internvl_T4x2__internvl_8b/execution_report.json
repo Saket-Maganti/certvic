@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "coco_internvl_return.zip",
+      "sha256": "9cd4867baf6705c167b92b9c82c72134dd0a90b3d8601e8cb91f9d1362488772",
+      "size": 3544
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "1ceca7d658976c4db23536eea2b5ae7ae8f6f6f3d066064f991d88f249ee454c",
+      "size": 947
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "9f84871502249f27adc05d350803479d393db3ce34d2cb66afc0fa69ab7c3680",
+  "config": {
+    "artifact_globs": [
+      "coco_internvl_return.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "22_second_domain_internvl_T4x2.ipynb",
+    "notebook_sha256": "ff2e5b1438cdfe2b9a83529839c0b3c242c8a4240dae8ae242bc97339a0e1408",
+    "provider": "internvl_8b",
+    "return_zip": "coco_internvl_return.zip",
+    "route": "22_second_domain_internvl_T4x2__internvl_8b",
+    "stage": "evaluation",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "96330997274c8892191f8f4d65f709591db53b836a0377eb4988fbfcd0ba6ca3",
+  "status": "PASS"
+}

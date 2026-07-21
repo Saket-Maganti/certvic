@@ -1,0 +1,59 @@
+{
+  "current_blockers": [
+    "no real human validation of preliminary labels",
+    "raw Qwen gate remains failed",
+    "no claim-valid recompute scenario passes",
+    "Main-500 remains blocked unless the paper is reframed honestly"
+  ],
+  "current_real_evidence": {
+    "detectability": {
+      "artifact_risk": false,
+      "auc_about": 0.6682,
+      "n_items": 94
+    },
+    "providers": {
+      "internvl_8b": {
+        "flipped": 1,
+        "gate_pass": true,
+        "gate_threshold": 0.1,
+        "n_items": 94,
+        "raw_prediction": "data/results/main_real_200/kaggle_spurious/pred_internvl_8b_spurious_merged.jsonl",
+        "spurious_flip_rate": 0.0106
+      },
+      "llava_onevision_7b": {
+        "flipped": 3,
+        "gate_pass": true,
+        "gate_threshold": 0.1,
+        "n_items": 94,
+        "raw_prediction": "data/results/main_real_200/kaggle_spurious/pred_llava_onevision_7b_spurious_merged.jsonl",
+        "spurious_flip_rate": 0.0319
+      },
+      "qwen2_5_vl_7b": {
+        "flipped": 12,
+        "gate_pass": false,
+        "gate_threshold": 0.1,
+        "n_items": 94,
+        "raw_prediction": "data/results/main_real_200/kaggle_spurious/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+        "spurious_flip_rate": 0.1277
+      }
+    },
+    "qwen_failed_spurious_gate": true,
+    "qwen_failure_count": 12,
+    "qwen_rate": 0.1277,
+    "qwen_total": 94,
+    "v8_newruns_ingested": true
+  },
+  "main500_status": "BLOCKED_UNLESS_QWEN_RESOLVED_OR_MODEL_SPECIFIC_REFRAME_ACCEPTED",
+  "must_not_be_claimed": [
+    "CVPR-ready submission status",
+    "clean all-provider spurious specificity",
+    "real human validation of V8.1 preliminary labels",
+    "Main-500 results",
+    "paper_evidence=true for V9 scaffolds"
+  ],
+  "next_prompt": "01_PRELIM_LABEL_HYGIENE_AND_AUDIT_REPAIR.md",
+  "paper_evidence": false,
+  "prompt_file": "00_MASTER_V9_ORIENTATION.md",
+  "schema": "certvic.v9.master_state.v1",
+  "why_main500_blocked": "Qwen remains above the preregistered control_spurious_flip_max <= 0.10 gate: 12/94 = 0.1277; real human validation is absent."
+}

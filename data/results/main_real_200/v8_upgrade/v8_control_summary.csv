@@ -1,0 +1,4 @@
+provider,spurious_flip_rate,spurious_gate_pass,scaled_absent_accuracy,scaled_present_accuracy
+qwen2_5_vl_7b,0.1277,False,0.9322,0.8646
+internvl_8b,0.0106,True,0.904,0.9635
+llava_onevision_7b,0.0319,True,0.8814,0.9792

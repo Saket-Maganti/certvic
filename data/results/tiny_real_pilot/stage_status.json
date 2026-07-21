@@ -1,0 +1,226 @@
+{
+  "stages": {
+    "edit_generation": {
+      "result_keys": [
+        "allow_full_run",
+        "by_edit_type",
+        "by_engine",
+        "duplicates_detected",
+        "edit_plan_path",
+        "engine",
+        "engine_version",
+        "evidence_status",
+        "generated",
+        "input_plans",
+        "max_items",
+        "out_dir",
+        "paper_evidence",
+        "quality_failed",
+        "quality_passed",
+        "rejected",
+        "resume",
+        "seed",
+        "vlm_inference_run",
+        "zero_cost"
+      ],
+      "seconds": 0.48,
+      "status": "completed"
+    },
+    "edit_planning": {
+      "result_keys": [
+        "by_edit_type",
+        "edit_plan_path",
+        "edit_type_ratios",
+        "edits_generated",
+        "evidence_status",
+        "generation_status",
+        "input_candidates",
+        "label_policy_entry_count",
+        "label_policy_hash",
+        "label_policy_source",
+        "label_policy_verified",
+        "label_policy_version",
+        "max_mask_area_fraction",
+        "min_mask_area_fraction",
+        "planned",
+        "rejected",
+        "rejected_path",
+        "rejection_reasons",
+        "rejections_by_edit_type",
+        "rejections_by_family",
+        "rejections_by_label",
+        "seed",
+        "selection_path",
+        "vlm_inference_run",
+        "zero_cost"
+      ],
+      "seconds": 0.005,
+      "status": "completed"
+    },
+    "label_policy_report": {
+      "result_keys": [
+        "blocked_mask_count",
+        "eligible_labels_by_family",
+        "eligible_masks_by_family",
+        "evidence_status",
+        "label_policy_entry_count",
+        "label_policy_hash",
+        "label_policy_source",
+        "label_policy_verified",
+        "label_policy_version",
+        "masks_path",
+        "n_blocked_labels",
+        "n_distinct_labels",
+        "n_masks",
+        "n_resolved_labels",
+        "n_unresolved_labels",
+        "out_dir",
+        "unresolved_mask_count",
+        "vlm_inference_run",
+        "zero_cost"
+      ],
+      "seconds": 0.008,
+      "status": "completed"
+    },
+    "manifests": {
+      "result_keys": [
+        "binary_masks_exported",
+        "mask_out_dir",
+        "mask_status",
+        "masks",
+        "matched_pairs",
+        "missing_annotations",
+        "note",
+        "release_mode_default",
+        "sources"
+      ],
+      "seconds": 3.412,
+      "status": "completed"
+    },
+    "materialization": {
+      "result_keys": [
+        "by_task_family",
+        "evidence_status",
+        "generated_edits_path",
+        "generated_quality_pass_rows",
+        "leakage_rejected",
+        "materialized_tasks",
+        "missing_or_quality_failed",
+        "out",
+        "paper_evidence",
+        "preview_rows",
+        "task_preview_path",
+        "vlm_inference_run"
+      ],
+      "seconds": 0.001,
+      "status": "completed"
+    },
+    "pilot_plan_report": {
+      "result_keys": [
+        "edits_generated",
+        "evidence_status",
+        "leakage_warning_count",
+        "out_dir",
+        "planned_edits",
+        "rejected_candidates",
+        "report_path",
+        "selection",
+        "task_previews",
+        "vlm_inference_run"
+      ],
+      "seconds": 0.001,
+      "status": "completed"
+    },
+    "pilot_readiness": {
+      "result_keys": [
+        "blockers",
+        "out_dir",
+        "passed",
+        "ready_for_mask_manifest",
+        "ready_for_pilot_selection"
+      ],
+      "seconds": 3.09,
+      "status": "completed"
+    },
+    "quality_report": {
+      "result_keys": [
+        "evidence_status",
+        "generated",
+        "out_dir",
+        "paper_evidence",
+        "quality_failed",
+        "quality_passed",
+        "rejected",
+        "vlm_inference_run"
+      ],
+      "seconds": 0.001,
+      "status": "completed"
+    },
+    "selection": {
+      "result_keys": [
+        "allow_duplicate_sources",
+        "allowed_task_families",
+        "by_domain",
+        "by_split",
+        "by_task_family",
+        "domains",
+        "effective_max_masks_per_source",
+        "evidence_status",
+        "label_allowlist",
+        "label_blocklist",
+        "label_policy_entry_count",
+        "label_policy_hash",
+        "label_policy_source",
+        "label_policy_verified",
+        "label_policy_version",
+        "mask_records",
+        "max_mask_area_fraction",
+        "max_masks_per_source",
+        "min_mask_area_fraction",
+        "per_family_target",
+        "rejected",
+        "seed",
+        "selected",
+        "selection_path",
+        "source_records",
+        "splits",
+        "target",
+        "unique_source_records",
+        "unresolved_label_count",
+        "unresolved_label_ids",
+        "valid_candidates",
+        "warnings"
+      ],
+      "seconds": 0.017,
+      "status": "completed"
+    },
+    "task_preview": {
+      "result_keys": [
+        "by_required_change",
+        "by_task_family",
+        "edit_plan_path",
+        "edited_images_available",
+        "edited_images_required",
+        "edits_generated",
+        "evidence_status",
+        "generation_status",
+        "input_planned_edits",
+        "leakage_warning_count",
+        "leakage_warnings",
+        "preview_tasks",
+        "runnable_eval_tasks",
+        "task_preview_path",
+        "vlm_inference_run"
+      ],
+      "seconds": 0.001,
+      "status": "completed"
+    },
+    "visual_review_sheet": {
+      "result_keys": [
+        "rows"
+      ],
+      "seconds": 0.0,
+      "status": "completed"
+    }
+  }
+}

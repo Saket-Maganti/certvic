@@ -1,0 +1,16 @@
+\section{Protocol}
+Candidate construction is outcome blind: model predictions are unavailable to mining, placement,
+quality screening, human review, and replacement. The authoritative CVPR v2 prospective protocol
+supersedes the non-executable V11 configuration. It targets 240 primary items (120 relevant
+interventions and 120 irrelevant controls) and 60 same-stratum reserve items across twelve frozen
+categories. Relevant and irrelevant edits require matched salience. V1/V2 item, source-image,
+exact-pixel, and perceptual overlap is prohibited. Selection balances target size, target position,
+answer polarity, category, and perturbation family using a frozen seed. Shortages stop selection rather
+than silently changing targets.
+
+Every run binds tasks, prompts, image bytes, parser, code ZIP, model files, processor files, decoding,
+and sharding to hashes. Workers write partial state frequently, validate it against the live contract,
+quarantine stale rows, and promote only complete shards. The required three-provider import is atomic.
+Model, processor, tokenizer, and remote-code identities use immutable repository commits; local
+snapshot-root hashes remain mandatory before execution. Two independent outcome-blind raters and
+outcome-blind adjudication precede exact selection and the final task freeze.

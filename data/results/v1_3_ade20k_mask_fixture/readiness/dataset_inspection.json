@@ -1,0 +1,126 @@
+{
+  "actionable_next_steps": [
+    "Review dataset_inspection.json and confirm matched image/annotation counts.",
+    "Build pointer-only source and mask manifests without exporting binary masks by default.",
+    "Run pilot selection only after mask-area thresholds and source-link checks pass."
+  ],
+  "candidate_annotation_count": 4,
+  "candidate_annotation_dirs": [
+    {
+      "file_count": 4,
+      "relative_path": "annotations",
+      "split": null
+    },
+    {
+      "file_count": 2,
+      "relative_path": "annotations/training",
+      "split": "train"
+    },
+    {
+      "file_count": 2,
+      "relative_path": "annotations/validation",
+      "split": "val"
+    }
+  ],
+  "candidate_image_count": 4,
+  "candidate_image_dirs": [
+    {
+      "file_count": 4,
+      "relative_path": "images",
+      "split": null
+    },
+    {
+      "file_count": 2,
+      "relative_path": "images/training",
+      "split": "train"
+    },
+    {
+      "file_count": 2,
+      "relative_path": "images/validation",
+      "split": "val"
+    }
+  ],
+  "candidate_mask_count": 10,
+  "downloads_attempted": false,
+  "dry_run_only": true,
+  "edits_generated": false,
+  "example_annotations": [
+    "annotations/training/ADE_train_00000001.png",
+    "annotations/training/ADE_train_00000002.png",
+    "annotations/validation/ADE_val_00000001.png",
+    "annotations/validation/ADE_val_00000002.png"
+  ],
+  "example_images": [
+    "images/training/ADE_train_00000001.jpg",
+    "images/training/ADE_train_00000002.jpg",
+    "images/validation/ADE_val_00000001.jpg",
+    "images/validation/ADE_val_00000002.jpg"
+  ],
+  "example_missing_annotations": [],
+  "exists": true,
+  "gpu_required": false,
+  "layout_status": "supported_layout",
+  "mask_area_statistics": {
+    "max": 0.3125,
+    "mean": 0.225,
+    "min": 0.125,
+    "n": 10
+  },
+  "mask_parser_status": "semantic_png_supported",
+  "matched_pair_count": 4,
+  "missing_annotation_count": 0,
+  "pixels_copied": false,
+  "root": "data/results/v1_3_ade20k_mask_fixture/ADEChallengeData2016",
+  "supported_annotation_count": 4,
+  "supported_for_mask_manifest": true,
+  "supported_for_source_manifest": true,
+  "top_label_ids_by_frequency": [
+    {
+      "count": 1,
+      "label_id": 1
+    },
+    {
+      "count": 1,
+      "label_id": 2
+    },
+    {
+      "count": 1,
+      "label_id": 3
+    },
+    {
+      "count": 1,
+      "label_id": 4
+    },
+    {
+      "count": 1,
+      "label_id": 5
+    },
+    {
+      "count": 1,
+      "label_id": 6
+    },
+    {
+      "count": 1,
+      "label_id": 7
+    },
+    {
+      "count": 1,
+      "label_id": 8
+    },
+    {
+      "count": 1,
+      "label_id": 9
+    },
+    {
+      "count": 1,
+      "label_id": 10
+    }
+  ],
+  "train_annotation_count": 2,
+  "train_image_count": 2,
+  "unmatched_image_count": 0,
+  "unsupported_annotations": [],
+  "val_annotation_count": 2,
+  "val_image_count": 2,
+  "warnings": []
+}

@@ -1,0 +1,42 @@
+{
+  "audit": "release_privacy",
+  "evidence_claims_made": false,
+  "n_total_findings": 0,
+  "passed": true,
+  "private_paths": {
+    "findings": [],
+    "n_findings": 0,
+    "ok": true,
+    "scan": "private_paths"
+  },
+  "release_pixels": {
+    "n_pixels": 0,
+    "ok": true,
+    "pixels": [],
+    "release_dir": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/tmp.KVAgJ68YJg",
+    "scan": "release_pixels"
+  },
+  "release_private_paths": {
+    "findings": [],
+    "n_findings": 0,
+    "ok": true,
+    "scan": "private_paths"
+  },
+  "release_secrets": {
+    "committed_env_files": [],
+    "n_secret_findings": 0,
+    "ok": true,
+    "paid_endpoints": [],
+    "scan": "secrets",
+    "secret_findings": []
+  },
+  "root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/tmp.KVAgJ68YJg",
+  "secrets": {
+    "committed_env_files": [],
+    "n_secret_findings": 0,
+    "ok": true,
+    "paid_endpoints": [],
+    "scan": "secrets",
+    "secret_findings": []
+  }
+}

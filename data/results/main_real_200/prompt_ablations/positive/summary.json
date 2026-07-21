@@ -1,0 +1,12 @@
+{
+  "ablation_family": "positive",
+  "evidence_status": "PROMPT_ABLATION_NON_EVIDENCE",
+  "n_items": 91,
+  "n_tasks": 182,
+  "paper_evidence": false,
+  "polarity": "positive",
+  "run_label": "abl_positive",
+  "tasks_path": "data/results/main_real_200/prompt_ablations/positive/tasks.jsonl",
+  "template": "Is there a clearly visible {obj} in the image? Answer yes or no.",
+  "variants_per_item": 2
+}

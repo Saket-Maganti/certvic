@@ -1,0 +1,207 @@
+schema: certvic.v11.protocol.v1
+status: DEPRECATED_NOT_FOR_EXECUTION
+execution_allowed: false
+superseded_by: configs/studies/specificity_confirmatory_cvpr.yaml
+deprecation_reason: The CVPR v2 prospective protocol corrects the semantic-update endpoint and freezes a separate two-gate certificate; historical V1/V2 observations below remain immutable.
+paper_evidence: false
+created_date: 2026-07-11
+
+historical_v1:
+  decision_rule: observed_flip_rate_lte_threshold
+  threshold: 0.10
+  frozen_decision: true
+  retroactive_change_allowed: false
+  report_raw_and_filtered_separately: true
+
+spurious_v2:
+  current_set:
+    item_count: 30
+    source_pool_count: 94
+    seed: 9009
+    minimum_patch_to_target_bbox_distance_px: 75.0
+    maximum_detectability_score: 0.12
+    detectability_threshold_interpretation:
+      stored_scores_available_for_selected_items_at_selection: 4
+      selected_items_without_stored_score: 26
+      missing_scores_were_allowed: true
+      verified_cap_for_all_items: false
+      v11_complete_scores_are_post_selection_pre_provider_diagnostic_only: true
+    patch_target_mask_overlap_pixels: 0
+    patch_target_bbox_overlap_allowed: false
+    status: DIAGNOSTIC_ONLY_RETROSPECTIVE_STRICTER_CONTROL
+    v1_qwen_failures_retained: 4
+    v1_qwen_failures_filtered_out: 8
+    limitation: reuses V1 items after V1 outcomes; cannot serve as an independent confirmatory set
+  independent_confirmatory_set:
+    required: true
+    minimum_item_count: determined_by_locked_power_analysis
+    items_seen_in_v1_allowed: false
+    construction_rules_frozen_before_any_provider_outputs: true
+    selection_allowed_now: false
+    construction_rules:
+      minimum_patch_to_target_bbox_distance_px: 75.0
+      target_bbox_overlap_allowed: false
+      target_mask_overlap_pixels_max: 0
+      perturbation_area_fraction_range: TBD_BEFORE_BUILD
+      per_item_salience_threshold: TBD_BEFORE_BUILD
+      set_level_low_level_detectability_auc_max: 0.80
+      category_targets: TBD_BEFORE_BUILD
+      category_balance_rule: counts_differ_by_at_most_one_after_locked_targets_exist
+      spatial_bins: [top_left, top_right, bottom_left, bottom_right]
+      spatial_balance_rule: counts_differ_by_at_most_one_within_category_where_feasible
+      image_requirements:
+        decodable: true
+        rgb: true
+        original_edited_dimensions_equal: true
+        image_quality_thresholds: TBD_BEFORE_BUILD
+      expected_answer_invariance:
+        task_gold_unchanged: true
+        two_independent_raters_required: true
+        outcome_blind: true
+      duplicate_prevention:
+        source_id_unique: true
+        exact_image_sha256_unique: true
+        perceptual_duplicate_threshold: TBD_BEFORE_BUILD
+      human_acceptance:
+        minimum_independent_raters: 2
+        required_fields_all_accept: true
+        disagreements_require_outcome_blind_adjudication: true
+      unresolved_tbd_blocks_selection: true
+  primary_model: qwen2_5_vl_7b
+  primary_endpoint: paired_original_edited_answer_flip_rate_on_independent_set
+  missing_or_unparseable_pair: count_as_flip_primary_and_report_separately
+  primary_decision:
+    method: one_sided_clopper_pearson_upper_bound
+    alpha: 0.05
+    pass_if_upper_bound_lte: 0.10
+  three_model_joint_claim:
+    method: bonferroni_one_sided_clopper_pearson
+    family_alpha: 0.05
+    per_model_alpha: 0.016666666666666666
+    pass_if_each_upper_bound_lte: 0.10
+  historical_continuity_output:
+    method: observed_flip_rate_lte_threshold
+    threshold: 0.10
+    label: historical_rule_sensitivity_only
+  current_30_item_output_label: retrospective_stricter_control_sensitivity_only
+  review_must_precede_unblinding: true
+  minimum_independent_raters: 2
+  exclusion_rule:
+    provider_outcomes_visible: false
+    require_item_id: true
+    require_objective_reason: true
+    require_reviewer_or_rule_source: true
+    require_timestamp: true
+    require_evidence_reference: true
+    require_pre_result_flag: true
+    report_raw_and_validity_filtered: true
+
+main500:
+  execution_allowed_now: false
+  design_seed: 11011
+  source_pool: local_ADE20K_only_until_amended
+  outcome_blind_selection_required: true
+  replacement_policy: same_locked_stratum_first_unused_item_only
+  required_strata:
+    - target_object
+    - image_complexity
+    - target_size
+    - target_position
+    - edit_type
+    - edit_magnitude
+    - answer_polarity
+    - question_template
+    - source_split
+  go_requirements:
+    - valid_spurious_v2_outputs_for_all_declared_models
+    - pre_unblinding_human_review_complete
+    - transactional_importer_pass
+    - specificity_branch_signed_off
+    - objective_quality_and_detectability_gates_pass
+    - exact_model_revisions_pinned
+
+models:
+  qwen2_5_vl_7b:
+    repository_id: Qwen/Qwen2.5-VL-7B-Instruct
+    revision: null
+    revision_required_before_run: true
+    precision: nf4_4bit_planned
+    max_new_tokens: 16
+    do_sample: false
+    temperature: 0.0
+  internvl_8b:
+    repository_id: OpenGVLab/InternVL2-8B
+    revision: null
+    revision_required_before_run: true
+    precision: bfloat16_planned
+    max_new_tokens: 16
+    do_sample: false
+    temperature: 0.0
+  llava_onevision_7b:
+    repository_id: llava-hf/llava-onevision-qwen2-7b-ov-hf
+    revision: null
+    revision_required_before_run: true
+    precision: nf4_4bit_planned
+    max_new_tokens: 16
+    do_sample: false
+    temperature: 0.0
+    image_preprocessing: thumbnail_384_and_grid_384_when_supported
+
+evidence_policy:
+  allowed_classes:
+    - REAL_OBSERVED_EVIDENCE
+    - DERIVED_FROM_REAL_EVIDENCE
+    - DIAGNOSTIC_ONLY
+    - MACHINE_ASSISTED_PRELIMINARY
+    - HUMAN_REVIEW_PENDING
+    - PLANNED_NOT_EXECUTED
+    - SYNTHETIC_TEST_FIXTURE
+    - DEPRECATED_OR_STALE
+    - UNKNOWN_REQUIRES_AUDIT
+  paper_claim_eligible_classes:
+    - DERIVED_FROM_REAL_EVIDENCE
+  machine_assisted_labels_are_human_labels: false
+  planned_outputs_are_observed_results: false
+  historical_embedded_status_overrides:
+    rationale: preserve hash-bound historical task manifests while superseding misleading embedded review labels
+    mappings:
+      - artifact_path: data/results/main_real_200/pilot_eval_tasks_reviewed_v2.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: MACHINE_ASSISTED_PRELIMINARY
+        human_reviewed: false
+      - artifact_path: data/results/main_real_200/pilot_eval_taskitems_v2.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: MACHINE_ASSISTED_PRELIMINARY
+        human_reviewed: false
+      - artifact_path: data/results/main_real_200/pilot_eval_tasks_reviewed.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: MACHINE_ASSISTED_PRELIMINARY
+        human_reviewed: false
+      - artifact_path: data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: MACHINE_ASSISTED_PRELIMINARY
+        human_reviewed: false
+      - artifact_path: data/results/main_real_200/raw_predictions/presence__pred_qwen2_5_vl_7b_merged.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: REAL_OBSERVED_EVIDENCE
+        human_reviewed: false
+      - artifact_path: data/results/main_real_200/raw_predictions__internvl_8b/presence__pred_internvl_8b_presence_merged.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: REAL_OBSERVED_EVIDENCE
+        human_reviewed: false
+      - artifact_path: data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_presence_merged.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: REAL_OBSERVED_EVIDENCE
+        human_reviewed: false
+      - artifact_path: data/results/main_real_200/kaggle_spurious/pred_qwen2_5_vl_7b_spurious_merged.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: REAL_OBSERVED_EVIDENCE
+        human_reviewed: false
+      - artifact_path: data/results/main_real_200/kaggle_spurious/pred_internvl_8b_spurious_merged.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: REAL_OBSERVED_EVIDENCE
+        human_reviewed: false
+      - artifact_path: data/results/main_real_200/kaggle_spurious/pred_llava_onevision_7b_spurious_merged.jsonl
+        embedded_status: HUMAN_REVIEWED_NON_EVIDENCE
+        canonical_v11_class: REAL_OBSERVED_EVIDENCE
+        human_reviewed: false

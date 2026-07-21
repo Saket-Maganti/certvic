@@ -1,0 +1,101 @@
+{
+  "commands": [
+    {
+      "command": "-c import certvic.cvpr.worker, certvic.cvpr.semantic_edits, certvic.cvpr.review, certvic.cvpr.whole_study_import, certvic.cvpr.after_runs, certvic.cvpr.confirmatory_qa, certvic.cvpr.package_generation, certvic.cvpr.main_task_builder, certvic.cvpr.smoke_gate, certvic.cvpr.smoke_contract, certvic.cvpr.smoke_artifacts, certvic.cvpr.smoke_handoff, certvic.cvpr.notebook_permission_binding, certvic.cvpr.reconcile_provider_permissions, certvic.cvpr.import_transaction, certvic.cvpr.kaggle_session_simulator, certvic.cvpr.notebook_00c2_proof, certvic.cvpr.task_schema, certvic.cvpr.task_bundle, certvic.cvpr.permission_ledger, certvic.cvpr.detectability_gate, certvic.cvpr.negative_item_builder, certvic.cvpr.execution_gate, certvic.cvpr.synthetic_closure",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.worker --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.semantic_edits --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.review --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.confirmatory_qa --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.package_generation --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.main_task_builder --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.smoke_gate --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.smoke_contract --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.task_schema --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.task_bundle --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.permission_ledger --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.detectability_gate --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.negative_item_builder --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.execution_gate --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.smoke_artifacts --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.smoke_handoff --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.reconcile_provider_permissions --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.import_transaction --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.kaggle_session_simulator --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.cvpr.plan --help",
+      "exit": 0
+    },
+    {
+      "command": "-m certvic.data.coco_adapter --help",
+      "exit": 0
+    },
+    {
+      "command": "synthetic_closure",
+      "exit": 0
+    }
+  ],
+  "paper_evidence": false,
+  "paper_scaffold_present": true,
+  "passed": true,
+  "schema": "certvic.cvpr.clean_extraction_test.v1",
+  "synthetic_status": "SYNTHETIC_ALL_STUDY_ROUTES_COMPLETE"
+}

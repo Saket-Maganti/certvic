@@ -1,0 +1,19 @@
+{
+  "disagreements": [
+    "v4_item_001"
+  ],
+  "fatigue_warnings": [],
+  "n_rows": 2,
+  "paid_annotation_required": false,
+  "ratings": "data/results/v4_smoke/visual_review_sheet.csv",
+  "reviewer_counts": {
+    "reviewer_7eb677b7": 1,
+    "reviewer_db0b0bf3": 1
+  },
+  "reviewers_anonymized": true,
+  "sentinel_summary": {
+    "n_sentinel_failures": 0,
+    "n_sentinels": 1,
+    "sentinels_optional": true
+  }
+}

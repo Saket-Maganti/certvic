@@ -1,0 +1,534 @@
+{
+  "absent_object_control": {
+    "absent_accuracy": 1.0,
+    "absent_correct": 60,
+    "absent_n": 60,
+    "n": 120,
+    "overall_accuracy": 0.9167,
+    "overall_correct": 110,
+    "per_object": {
+      "car": {
+        "correct": 28,
+        "n": 30
+      },
+      "chair": {
+        "correct": 28,
+        "n": 30
+      },
+      "sofa": {
+        "correct": 28,
+        "n": 30
+      },
+      "table": {
+        "correct": 26,
+        "n": 30
+      }
+    },
+    "present_accuracy": 0.8333,
+    "present_correct": 50,
+    "present_n": 60
+  },
+  "affordance_intervention": {
+    "note": "confounded: original acc approx chance; descriptive only, NOT certified",
+    "summary": {
+      "by_domain": {
+        "household": {
+          "consistency_rate": 0.10989010989010989,
+          "edited_accuracy": 0.6593406593406593,
+          "intervention_consistency_gap": 0.2967032967032967,
+          "n": 91,
+          "original_accuracy": 0.4065934065934066,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": 0.0
+        }
+      },
+      "by_required_change": {
+        "change": {
+          "consistency_rate": 0.047058823529411764,
+          "edited_accuracy": 0.6352941176470588,
+          "intervention_consistency_gap": 0.3176470588235294,
+          "n": 85,
+          "original_accuracy": 0.36470588235294116,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "no_change": {
+          "consistency_rate": 1.0,
+          "edited_accuracy": 1.0,
+          "intervention_consistency_gap": 0.0,
+          "n": 6,
+          "original_accuracy": 1.0,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": 0.0
+        }
+      },
+      "by_task_family": {
+        "affordance_reachability": {
+          "consistency_rate": 0.0,
+          "edited_accuracy": 1.0,
+          "intervention_consistency_gap": 0.0,
+          "n": 31,
+          "original_accuracy": 0.0,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "occlusion_safety": {
+          "consistency_rate": 1.0,
+          "edited_accuracy": 1.0,
+          "intervention_consistency_gap": 0.0,
+          "n": 6,
+          "original_accuracy": 1.0,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": 0.0
+        },
+        "support_stability": {
+          "consistency_rate": 0.07407407407407407,
+          "edited_accuracy": 0.42592592592592593,
+          "intervention_consistency_gap": 0.5,
+          "n": 54,
+          "original_accuracy": 0.5740740740740741,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        }
+      },
+      "consistency_rate": 0.10989010989010989,
+      "control_edit": {
+        "consistency_rate": null,
+        "n": 0,
+        "spurious_flip_rate": null
+      },
+      "edited_accuracy": 0.6593406593406593,
+      "intervention_consistency_gap": 0.2967032967032967,
+      "n": 91,
+      "original_accuracy": 0.4065934065934066,
+      "parse_failure_rate": 0.0,
+      "parse_failure_sensitivity": {
+        "metrics_parse_fail_as_inconsistent": {
+          "consistency_rate": 0.10989010989010989,
+          "edited_accuracy": 0.6593406593406593,
+          "intervention_consistency_gap": 0.2967032967032967,
+          "n": 91,
+          "original_accuracy": 0.4065934065934066,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": 0.0
+        },
+        "metrics_parse_ok_only": {
+          "consistency_rate": 0.10989010989010989,
+          "edited_accuracy": 0.6593406593406593,
+          "intervention_consistency_gap": 0.2967032967032967,
+          "n": 91,
+          "original_accuracy": 0.4065934065934066,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": 0.0
+        },
+        "n_parse_failures": 0,
+        "note": "Descriptive sensitivity only; parse-failure handling is never a certification substitute.",
+        "parse_failure_rate": 0.0
+      },
+      "spurious_flip_rate": 0.0
+    }
+  },
+  "answer_update": {
+    "affordance": {
+      "n_items": 91,
+      "non_update_rate": 0.956,
+      "same_answer": 87,
+      "updated_answer": 4
+    },
+    "presence": {
+      "n_items": 91,
+      "non_update_rate": 0.8242,
+      "same_answer": 75,
+      "updated_answer": 16
+    }
+  },
+  "display_name": "Qwen2.5-VL-7B",
+  "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+  "generated_utc": "2026-06-24T19:25:19.145661+00:00",
+  "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+  "paid_services_used": false,
+  "paper_evidence": false,
+  "perception_control_scaled": null,
+  "presence_intervention": {
+    "by_edit_type": {
+      "displace": {
+        "consistency_rate": 0.2593,
+        "gap": 0.6667,
+        "n": 54,
+        "original_accuracy": 0.9259
+      },
+      "occlude": {
+        "consistency_rate": 0.3333,
+        "gap": 0.5,
+        "n": 6,
+        "original_accuracy": 0.8333
+      },
+      "remove": {
+        "consistency_rate": 0.0,
+        "gap": 0.9355,
+        "n": 31,
+        "original_accuracy": 0.9355
+      }
+    },
+    "certification": {
+      "alpha": 0.05,
+      "certification_gate_errors": [],
+      "certified": true,
+      "confidence_sequence": {
+        "alpha": 0.05,
+        "available": true,
+        "hi": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "latest": {
+          "hi": 1.0,
+          "lo": 0.36395841718089605
+        },
+        "lo": [
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -0.9787278649956712,
+          -0.8705147233829247,
+          -0.7742937347171479,
+          -0.6881717915249268,
+          -0.6606343996813955,
+          -0.6356936278513254,
+          -0.5675411616191508,
+          -0.5052918652290972,
+          -0.4482081195495007,
+          -0.3956703189188848,
+          -0.3856157148674684,
+          -0.37628714641334615,
+          -0.3676070424327854,
+          -0.35950852698352886,
+          -0.3519336368922815,
+          -0.31257381980498766,
+          -0.2756590888488373,
+          -0.24096733098852852,
+          -0.20830256096341193,
+          -0.17749118883233816,
+          -0.1483789095915029,
+          -0.12082809717592413,
+          -0.09471560993188666,
+          -0.06993093370669012,
+          -0.07137460347276803,
+          -0.07273734373649354,
+          -0.05021552222002068,
+          -0.02873142395783368,
+          -0.03094166983300828,
+          -0.010822290418183389,
+          0.008431209816368579,
+          0.026874009258786025,
+          0.023723356318459565,
+          0.04111754183546035,
+          0.057823794801995954,
+          0.07388250407850538,
+          0.08933095298969107,
+          0.10420361226914254,
+          0.11853240045547064,
+          0.1323469158824544,
+          0.1456746438139218,
+          0.15854114177573098,
+          0.1537288264058665,
+          0.16603486672725465,
+          0.1779366214272886,
+          0.18945391837277814,
+          0.18447627481759366,
+          0.19553514425776508,
+          0.20625376514444715,
+          0.21664779279311985,
+          0.2267319344530423,
+          0.23652002004258388,
+          0.24602506664364432,
+          0.25525933738827566,
+          0.2642343952982764,
+          0.27296115257533904,
+          0.28144991578404377,
+          0.28971042732152474,
+          0.28423839001154527,
+          0.278916403064692,
+          0.2868964030946417,
+          0.2816860707698081,
+          0.2894337190048779,
+          0.2969890124292003,
+          0.30435913289529326,
+          0.31155090803634167,
+          0.3185708328563033,
+          0.3254250897594959,
+          0.3321195671497137,
+          0.3386598767166622,
+          0.345051369516554,
+          0.351299150943881,
+          0.3574080946825593,
+          0.352146900660538,
+          0.35811677136314857,
+          0.36395841718089605
+        ],
+        "method": "certvic.anytime_cs.hoeffding_mixture",
+        "t_opt": 91
+      },
+      "cs_threshold_passed": true,
+      "lower_bound": 0.36395841718089605,
+      "safe_claim": "Under the configured item order and anytime-valid CS, the intervention-consistency gap lower bound exceeds 0.05 at alpha=0.05 for this run.",
+      "statement": "Under the configured item order and anytime-valid CS, the intervention-consistency gap lower bound exceeds 0.05 at alpha=0.05 for this run.",
+      "threshold": 0.05,
+      "upper_bound": 1.0
+    },
+    "positive_subset": {
+      "consistency_rate": 0.2174,
+      "gap": 0.6522,
+      "n": 46,
+      "original_accuracy": 0.8696
+    },
+    "summary": {
+      "by_domain": {
+        "household": {
+          "consistency_rate": 0.17582417582417584,
+          "edited_accuracy": 0.25274725274725274,
+          "intervention_consistency_gap": 0.7472527472527473,
+          "n": 91,
+          "original_accuracy": 0.9230769230769231,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        }
+      },
+      "by_required_change": {
+        "change": {
+          "consistency_rate": 0.17582417582417584,
+          "edited_accuracy": 0.25274725274725274,
+          "intervention_consistency_gap": 0.7472527472527473,
+          "n": 91,
+          "original_accuracy": 0.9230769230769231,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        }
+      },
+      "by_task_family": {
+        "affordance_reachability": {
+          "consistency_rate": 0.0,
+          "edited_accuracy": 0.06451612903225806,
+          "intervention_consistency_gap": 0.9354838709677419,
+          "n": 31,
+          "original_accuracy": 0.9354838709677419,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "occlusion_safety": {
+          "consistency_rate": 0.3333333333333333,
+          "edited_accuracy": 0.5,
+          "intervention_consistency_gap": 0.5,
+          "n": 6,
+          "original_accuracy": 0.8333333333333334,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "support_stability": {
+          "consistency_rate": 0.25925925925925924,
+          "edited_accuracy": 0.3333333333333333,
+          "intervention_consistency_gap": 0.6666666666666667,
+          "n": 54,
+          "original_accuracy": 0.9259259259259259,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        }
+      },
+      "consistency_rate": 0.17582417582417584,
+      "control_edit": {
+        "consistency_rate": null,
+        "n": 0,
+        "spurious_flip_rate": null
+      },
+      "edited_accuracy": 0.25274725274725274,
+      "intervention_consistency_gap": 0.7472527472527473,
+      "n": 91,
+      "original_accuracy": 0.9230769230769231,
+      "parse_failure_rate": 0.0,
+      "parse_failure_sensitivity": {
+        "metrics_parse_fail_as_inconsistent": {
+          "consistency_rate": 0.17582417582417584,
+          "edited_accuracy": 0.25274725274725274,
+          "intervention_consistency_gap": 0.7472527472527473,
+          "n": 91,
+          "original_accuracy": 0.9230769230769231,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "metrics_parse_ok_only": {
+          "consistency_rate": 0.17582417582417584,
+          "edited_accuracy": 0.25274725274725274,
+          "intervention_consistency_gap": 0.7472527472527473,
+          "n": 91,
+          "original_accuracy": 0.9230769230769231,
+          "parse_failure_rate": 0.0,
+          "spurious_flip_rate": null
+        },
+        "n_parse_failures": 0,
+        "note": "Descriptive sensitivity only; parse-failure handling is never a certification substitute.",
+        "parse_failure_rate": 0.0
+      },
+      "spurious_flip_rate": null
+    }
+  },
+  "provenance": {
+    "ingest_dir": "data/results/main_real_200/raw_predictions",
+    "ingested": [
+      {
+        "arm": "presence",
+        "ingested_path": "data/results/main_real_200/raw_predictions/presence__pred_qwen2_5_vl_7b_merged.jsonl",
+        "n_records": 182,
+        "run_manifests": [
+          {
+            "path": "data/results/main_real_200/raw_predictions/presence__pred_qwen2_5_vl_7b_shard0.jsonl.run_manifest.json",
+            "sha256": "be326ad0a35c64d02e3097c8b9022e6298e9a07bdded70e32059d57e67d76d81"
+          },
+          {
+            "path": "data/results/main_real_200/raw_predictions/presence__pred_qwen2_5_vl_7b_shard1.jsonl.run_manifest.json",
+            "sha256": "0425fbcfd768d57127c93be1aa85b09f5e5dd72c1f361be287a6835acb9ce45f"
+          }
+        ],
+        "sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+        "source_path": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/raw_predictions/presence__pred_qwen2_5_vl_7b_merged.jsonl"
+      },
+      {
+        "arm": "control",
+        "ingested_path": "data/results/main_real_200/raw_predictions/control__pred_qwen2_5_vl_7b_merged.jsonl",
+        "n_records": 240,
+        "run_manifests": [
+          {
+            "path": "data/results/main_real_200/raw_predictions/control__pred_qwen2_5_vl_7b_shard0.jsonl.run_manifest.json",
+            "sha256": "cd9d98b06d706fc4f399afea75b4c3e8da4a687f192e0a9c45e536a432b6ae2e"
+          },
+          {
+            "path": "data/results/main_real_200/raw_predictions/control__pred_qwen2_5_vl_7b_shard1.jsonl.run_manifest.json",
+            "sha256": "a3f9f801e71eccc14292264b82540af42345e2eabac7e86ca1a13075feed88c1"
+          }
+        ],
+        "sha256": "a78c4b75aa71d4a00c7153a65572ef52f82e015773f2bc1f2654097dd8702282",
+        "source_path": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/raw_predictions/control__pred_qwen2_5_vl_7b_merged.jsonl"
+      },
+      {
+        "arm": "affordance",
+        "ingested_path": "data/results/main_real_200/raw_predictions/affordance__pred_qwen2_5_vl_7b_merged.jsonl",
+        "n_records": 182,
+        "run_manifests": [
+          {
+            "path": "data/results/main_real_200/raw_predictions/affordance__pred_qwen2_5_vl_7b_shard0.jsonl.run_manifest.json",
+            "sha256": "5a1f3f4069a5a97f40bb23a8aed0f183be5ddddce66cac75171559db713f0205"
+          },
+          {
+            "path": "data/results/main_real_200/raw_predictions/affordance__pred_qwen2_5_vl_7b_shard1.jsonl.run_manifest.json",
+            "sha256": "1b778f072c2273d2e2df0f82bc44b63f29dcd8fb7410bab01f6e2dc216f0fef2"
+          }
+        ],
+        "sha256": "f89ba378995c54ca2379f144d2df54059d60063f15197e39258f3ef69a4a1eb6",
+        "source_path": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/raw_predictions/affordance__pred_qwen2_5_vl_7b_merged.jsonl"
+      }
+    ]
+  },
+  "provider": "qwen2_5_vl_7b",
+  "run_label": "qwen2_5_vl_7b",
+  "spurious_flip_control": null
+}

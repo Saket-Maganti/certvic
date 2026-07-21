@@ -1,0 +1,11 @@
+defect_id,defect,repair,status
+RR01,Host-specific task paths changed task identity,task_bundle.py,REPAIRED
+RR02,Notebook permission ignored current mounts,notebook_builder.py/worker.py,REPAIRED
+RR03,One-run permission was replayable,permission_ledger.py,REPAIRED
+RR04,Synthetic smoke injected hand PASS,synthetic_smoke.py/smoke_gate.py,REPAIRED
+RR05,Confirmatory fixture stopped before import/analysis,synthetic_closure.py,REPAIRED
+RR06,COCO fixture stopped at construction,synthetic_closure.py,REPAIRED
+RR07,Set-level detectability gate absent,detectability_gate.py,REPAIRED
+RR08,Main finalization was greedy,main_task_builder.py,REPAIRED
+RR09,Main locked strata were prose only,main_study_cvpr.yaml,REPAIRED
+RR10,Exact solver lacked fallback,candidate_selection.py,REPAIRED

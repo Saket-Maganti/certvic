@@ -1,0 +1,69 @@
+{
+  "blockers": [
+    "candidate image count 4 is below target 200",
+    "candidate mask count 10 is below target 200"
+  ],
+  "candidate_annotation_count": 4,
+  "candidate_image_count": 4,
+  "candidate_mask_count": 10,
+  "dry_run_only": true,
+  "layout_status": "supported_layout",
+  "mask_area_statistics": {
+    "max": 0.3125,
+    "mean": 0.225,
+    "min": 0.125,
+    "n": 10
+  },
+  "matched_pair_count": 4,
+  "ready_for_mask_manifest": true,
+  "ready_for_pilot_selection": false,
+  "ready_for_source_manifest": true,
+  "target_items": 200,
+  "top_label_ids_by_frequency": [
+    {
+      "count": 1,
+      "label_id": 1
+    },
+    {
+      "count": 1,
+      "label_id": 2
+    },
+    {
+      "count": 1,
+      "label_id": 3
+    },
+    {
+      "count": 1,
+      "label_id": 4
+    },
+    {
+      "count": 1,
+      "label_id": 5
+    },
+    {
+      "count": 1,
+      "label_id": 6
+    },
+    {
+      "count": 1,
+      "label_id": 7
+    },
+    {
+      "count": 1,
+      "label_id": 8
+    },
+    {
+      "count": 1,
+      "label_id": 9
+    },
+    {
+      "count": 1,
+      "label_id": 10
+    }
+  ],
+  "train_annotation_count": 2,
+  "train_image_count": 2,
+  "unmatched_image_count": 0,
+  "val_annotation_count": 2,
+  "val_image_count": 2
+}

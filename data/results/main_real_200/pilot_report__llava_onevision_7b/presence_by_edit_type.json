@@ -1,0 +1,20 @@
+{
+  "displace": {
+    "consistency_rate": 0.1481,
+    "gap": 0.8148,
+    "n": 54,
+    "original_accuracy": 0.963
+  },
+  "occlude": {
+    "consistency_rate": 0.3333,
+    "gap": 0.5,
+    "n": 6,
+    "original_accuracy": 0.8333
+  },
+  "remove": {
+    "consistency_rate": 0.0968,
+    "gap": 0.6774,
+    "n": 31,
+    "original_accuracy": 0.7742
+  }
+}

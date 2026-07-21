@@ -1,0 +1,19 @@
+command_id,command,exit_code,result
+MC-V01,python3 -m pytest -q (baseline before upgrades),0,845 passed
+MC-V02,python3 -m compileall -q certvic scripts tests,0,PASS
+MC-V03,python3 -m ruff check .,0,PASS
+MC-V04,python3 -m certvic.cvpr.notebook_runner --synthetic-suite --out-dir reports/max_ceiling_upgrade/notebook_proof --timeout 120,0,8 routes PASS via nbclient
+MC-V05,python3 -m certvic.cvpr.chaos --out reports/max_ceiling_upgrade/chaos_report.json,0,21 scenarios PASS
+MC-V06,python3 -m certvic.cvpr.artifact_registry verify,0,18 registered artifacts PASS before release registration
+MC-V07,python3 -m certvic.cvpr.notebook_validation --root notebooks/kaggle/cvpr,0,16 of 16 PASS and output-free
+MC-V08,python3 scripts/validate_t4x2_notebooks.py,0,6 of 6 PASS static validation
+MC-V09,python3 -m certvic.validation.claim_language_guard ...,0,0 findings
+MC-V10,python3 -m certvic.security.release_privacy_audit --root . ...,0,0 findings
+MC-V11,pdflatex -interaction=nonstopmode -halt-on-error main.tex (first),0,3-page guarded PDF
+MC-V12,pdflatex -interaction=nonstopmode -halt-on-error main.tex (second),0,PDF SHA-256 71e743b47b565eb7a0d641f33ae394b1743a81d1e68120dd2670bfcb037b83c1
+MC-V13,python3 -m certvic.cvpr.paper_evidence_compiler ...,2,EXPECTED FAIL-CLOSED: real analysis and genuine review absent
+MC-V14,python3 scripts/build_maximum_ceiling_release.py --deterministic-rebuild --clean-extraction,0,PASS byte-identical rebuild and five clean-extraction CLI probes
+MC-V15,release privacy audit on clean extraction,0,0 findings
+MC-V16,python3 -m pytest -q (final sandbox suite),0,857 passed and 1 optional notebook-runtime duplicate skipped
+MC-V17,separate actual notebook execution proof,0,8 of 8 nbclient routes PASS
+MC-V18,configured type checks,N/A,No type checker is configured in pyproject.toml

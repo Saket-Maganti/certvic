@@ -1,0 +1,35 @@
+{
+  "audit": "v5_cvpr_ready_except_results",
+  "checks": [
+    {
+      "name": "v4_final_audit_passes",
+      "passed": true
+    },
+    {
+      "errors": [],
+      "name": "v5_modules_import",
+      "passed": true
+    },
+    {
+      "missing": [],
+      "name": "v5_required_files_exist",
+      "passed": true
+    },
+    {
+      "name": "paper_number_guard_passes",
+      "passed": true
+    },
+    {
+      "name": "no_evidence_claims_from_planned_artifacts",
+      "passed": true
+    }
+  ],
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "gpu_required": false,
+  "guidance": "CVPR-ready except empirical result artifacts. Stop infrastructure work and execute real runs.",
+  "n_checks": 5,
+  "n_passed": 5,
+  "passed": true,
+  "vlm_inference_run": false
+}

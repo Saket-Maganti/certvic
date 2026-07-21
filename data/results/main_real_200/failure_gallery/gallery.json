@@ -1,0 +1,838 @@
+{
+  "absent_object_control_context": {
+    "internvl_8b": {
+      "absent": "58/60",
+      "present": "58/60"
+    },
+    "llava_onevision_7b": {
+      "absent": "60/60",
+      "present": "58/60"
+    },
+    "qwen2_5_vl_7b": {
+      "absent": "60/60",
+      "present": "50/60"
+    }
+  },
+  "categories": {
+    "all_model_failure": {
+      "examples": [
+        {
+          "edit_id": "pilot_019f0637cabf",
+          "edit_type": "displace",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_019f0637cabf.jpg",
+          "edited_sha256": "51fbc0ce388ce7c81f569456a45cc36650cc46fa67c45153b488d74f133e96ac",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_019f0637cabf",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 0,
+          "model_fail_count": 3,
+          "model_update_count": 0,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_019f0637cabf.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible sofa in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000865",
+          "target_object": "sofa",
+          "task_family": "support_stability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_01fc561f2ad1",
+          "edit_type": "displace",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_01fc561f2ad1.jpg",
+          "edited_sha256": "322060fe314445e9c3ad6a2b4ce9ef5af1c2836a4d1d31984c59f876488ff6ca",
+          "expected_edited_answer": "yes",
+          "expected_original_answer": "no",
+          "item_id": "preview_pilot_01fc561f2ad1",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 0,
+          "model_fail_count": 3,
+          "model_update_count": 0,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_01fc561f2ad1.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is the sofa absent or not clearly visible in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000701",
+          "target_object": "sofa",
+          "task_family": "support_stability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_059c9c1b14f2",
+          "edit_type": "displace",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_059c9c1b14f2.jpg",
+          "edited_sha256": "6f3ff8c563af48b66223a0366c75c4a58aa362cb19049e2c1f0aa35446bfbee3",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_059c9c1b14f2",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 0,
+          "model_fail_count": 3,
+          "model_update_count": 0,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_059c9c1b14f2.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible sofa in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000848",
+          "target_object": "sofa",
+          "task_family": "support_stability",
+          "visual_review_status": "approved"
+        }
+      ],
+      "n_matching": 58,
+      "selection_criteria": "all 3 models post-edit-incorrect (edited_correct=False)",
+      "selection_rule": "deterministic: items matching criteria, sorted by item_id, first 3"
+    },
+    "full_non_update_after_removal": {
+      "examples": [
+        {
+          "edit_id": "pilot_0c14103036aa",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_0c14103036aa.jpg",
+          "edited_sha256": "f8c7aa43c415c9fb356c0ec2cb26557067740339114c0b585699348befdfdb23",
+          "expected_edited_answer": "yes",
+          "expected_original_answer": "no",
+          "item_id": "preview_pilot_0c14103036aa",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 0,
+          "model_fail_count": 3,
+          "model_update_count": 0,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_0c14103036aa.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is the table absent or not clearly visible in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000741",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_1754bf5e0dc4",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_1754bf5e0dc4.jpg",
+          "edited_sha256": "a17f6b993794af492761fdb9326c8b1d0566da99ecaf3f9d73311dc967ee0a4b",
+          "expected_edited_answer": "yes",
+          "expected_original_answer": "no",
+          "item_id": "preview_pilot_1754bf5e0dc4",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 0,
+          "model_fail_count": 3,
+          "model_update_count": 0,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_1754bf5e0dc4.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is the table absent or not clearly visible in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000457",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_299953cec30c",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_299953cec30c.jpg",
+          "edited_sha256": "c6baec35a4287feaec7ed52cdf6a91aebf73534b2446c62871ab3417e91ceac8",
+          "expected_edited_answer": "yes",
+          "expected_original_answer": "no",
+          "item_id": "preview_pilot_299953cec30c",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 0,
+          "model_fail_count": 3,
+          "model_update_count": 0,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_299953cec30c.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is the table absent or not clearly visible in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000201",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        }
+      ],
+      "n_matching": 25,
+      "selection_criteria": "edit_type=remove AND all 3 models kept their original answer (no update)",
+      "selection_rule": "deterministic: items matching criteria, sorted by item_id, first 3"
+    },
+    "llava_only_update": {
+      "examples": [
+        {
+          "edit_id": "pilot_305c8d329d20",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_305c8d329d20.jpg",
+          "edited_sha256": "b00fae21a29f36031ad08d0a592c32dda5844291f080d27532219be22e051f0e",
+          "expected_edited_answer": "yes",
+          "expected_original_answer": "no",
+          "item_id": "preview_pilot_305c8d329d20",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": true,
+              "edited_pred": "yes",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": true
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_305c8d329d20.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is the table absent or not clearly visible in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000544",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_e7a4280b4ffa",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_e7a4280b4ffa.jpg",
+          "edited_sha256": "abca82ff7d729ba82d9d566cd59046c4ce2ae0a899b529ae5184dfecedbdb5a8",
+          "expected_edited_answer": "yes",
+          "expected_original_answer": "no",
+          "item_id": "preview_pilot_e7a4280b4ffa",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": true,
+              "edited_pred": "yes",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": true
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_e7a4280b4ffa.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is the table absent or not clearly visible in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000217",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_ff8eed607a75",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_ff8eed607a75.jpg",
+          "edited_sha256": "cd310f42704ed0d6648cfb5313f2cbb0413d019cc862e2c964adc23927040fe7",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_ff8eed607a75",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": true,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 0,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_ff8eed607a75.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible table in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000304",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        }
+      ],
+      "n_matching": 3,
+      "selection_criteria": "llava_onevision_7b post-edit-correct AND qwen & internvl both fail",
+      "selection_rule": "deterministic: items matching criteria, sorted by item_id, first 3"
+    },
+    "natural_absence_success_vs_edited_failure": {
+      "examples": [
+        {
+          "edit_id": "pilot_21bcefc89fec",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_21bcefc89fec.jpg",
+          "edited_sha256": "6d43f7ace796550b5fd0ba4baaedadea289a1ba9c05f1f50c718ce5ec4e744d8",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_21bcefc89fec",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": true,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": true
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_21bcefc89fec.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible table in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000357",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_46e1bd3d5152",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_46e1bd3d5152.jpg",
+          "edited_sha256": "9f0dc5fdd212f07ab44db6e375e00c62c78774b83925b405fc962a911060ed76",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_46e1bd3d5152",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": true,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": true
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_46e1bd3d5152.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible table in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000346",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_667aa11a75bc",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_667aa11a75bc.jpg",
+          "edited_sha256": "92821cc628a93a4d10cabe5eda937fbb1bc92349cabde01cbe2b3edf2a4d4a50",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_667aa11a75bc",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 0,
+          "model_fail_count": 3,
+          "model_update_count": 0,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_667aa11a75bc.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible table in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000297",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        }
+      ],
+      "n_matching": 13,
+      "selection_criteria": "edit_type=remove, gold edited='no', >=2 models fail on edited absence (contrast with absent-object control success rates)",
+      "selection_rule": "deterministic: items matching criteria, sorted by item_id, first 3"
+    },
+    "partial_update_single_model": {
+      "examples": [
+        {
+          "edit_id": "pilot_176c9612c64a",
+          "edit_type": "displace",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_176c9612c64a.jpg",
+          "edited_sha256": "7aec28720f1749bce2326f9f0f2b17514fd5e4cb9c1f17431c75826978365d0e",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_176c9612c64a",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": true,
+              "edited_pred": "no",
+              "original_pred": "yes",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": true
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_176c9612c64a.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible sofa in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000834",
+          "target_object": "sofa",
+          "task_family": "support_stability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_1ff79de6fa95",
+          "edit_type": "displace",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_1ff79de6fa95.jpg",
+          "edited_sha256": "333ea80590c725e5f9098130fbcd9675c0b65162fd547bb4bc7d2d47912cf1be",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_1ff79de6fa95",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": true,
+              "edited_pred": "no",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": true
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_1ff79de6fa95.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible sofa in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000675",
+          "target_object": "sofa",
+          "task_family": "support_stability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_21bcefc89fec",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_21bcefc89fec.jpg",
+          "edited_sha256": "6d43f7ace796550b5fd0ba4baaedadea289a1ba9c05f1f50c718ce5ec4e744d8",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_21bcefc89fec",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": true,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": true
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_21bcefc89fec.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible table in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000357",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        }
+      ],
+      "n_matching": 15,
+      "selection_criteria": "exactly 1 of 3 models post-edit-correct, other 2 fail",
+      "selection_rule": "deterministic: items matching criteria, sorted by item_id, first 3"
+    },
+    "prompt_polarity_sensitive": {
+      "examples": [],
+      "n_matching": 0,
+      "selection_criteria": "items whose verdict flips across abl_positive/abl_negative/abl_pixelonly/abl_short",
+      "selection_rule": "pending: requires prompt-ablation predictions (see prompt 08); none yet",
+      "status": "pending_ablation_predictions"
+    },
+    "residual_cue_candidate_uncertain": {
+      "examples": [
+        {
+          "edit_id": "pilot_176c9612c64a",
+          "edit_type": "displace",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_176c9612c64a.jpg",
+          "edited_sha256": "7aec28720f1749bce2326f9f0f2b17514fd5e4cb9c1f17431c75826978365d0e",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_176c9612c64a",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": true,
+              "edited_pred": "no",
+              "original_pred": "yes",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": true
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_176c9612c64a.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible sofa in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000834",
+          "target_object": "sofa",
+          "task_family": "support_stability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_1ff79de6fa95",
+          "edit_type": "displace",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_1ff79de6fa95.jpg",
+          "edited_sha256": "333ea80590c725e5f9098130fbcd9675c0b65162fd547bb4bc7d2d47912cf1be",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_1ff79de6fa95",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": false
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": true,
+              "edited_pred": "no",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": true
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_1ff79de6fa95.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible sofa in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000675",
+          "target_object": "sofa",
+          "task_family": "support_stability",
+          "visual_review_status": "approved"
+        },
+        {
+          "edit_id": "pilot_21bcefc89fec",
+          "edit_type": "remove",
+          "edited_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/pilot_21bcefc89fec.jpg",
+          "edited_sha256": "6d43f7ace796550b5fd0ba4baaedadea289a1ba9c05f1f50c718ce5ec4e744d8",
+          "expected_edited_answer": "no",
+          "expected_original_answer": "yes",
+          "item_id": "preview_pilot_21bcefc89fec",
+          "model_answers": {
+            "internvl_8b": {
+              "edited_correct": true,
+              "edited_pred": "no",
+              "original_pred": "no",
+              "presence_pred_sha256": "34ff7244fac79006408b4ba500afca5551a3d3c6f997c4098e0913423f8882e7",
+              "updated": false
+            },
+            "llava_onevision_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "no",
+              "presence_pred_sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+              "updated": true
+            },
+            "qwen2_5_vl_7b": {
+              "edited_correct": false,
+              "edited_pred": "yes",
+              "original_pred": "yes",
+              "presence_pred_sha256": "becb2b59f6a4199fa8a1fb319a07ff78a7c84ab4d3c72c9da087f4e9e1353954",
+              "updated": false
+            }
+          },
+          "model_correct_count": 1,
+          "model_fail_count": 2,
+          "model_update_count": 1,
+          "original_image_path": "/Users/saketmaganti/Projects/certVIC/data/edits/main_real_200/orig/pilot_21bcefc89fec.jpg",
+          "quality_gate_status": "pass",
+          "question": "Is there a clearly visible table in the image? Respond with exactly one token: yes or no.",
+          "source_id": "ade20k_train_images_training_ade_train_00000357",
+          "target_object": "table",
+          "task_family": "affordance_reachability",
+          "visual_review_status": "approved"
+        }
+      ],
+      "n_matching": 25,
+      "selection_criteria": "models DISAGREE (model_fail_count in {1,2}) -> candidate for residual-cue review; NOT an asserted residual cue (no human label yet)",
+      "selection_rule": "deterministic: items matching criteria, sorted by item_id, first 3"
+    }
+  },
+  "evidence_status": "QUALITATIVE_GALLERY_NON_EVIDENCE",
+  "k_per_category": 3,
+  "n_reviewed_items": 91,
+  "note": "Examples reference image paths + sha256; pixels are not duplicated. All items are human-approved. Model answers come only from canonical raw predictions.",
+  "paper_evidence": false,
+  "schema": "certvic.failure_gallery.v1",
+  "source_reviewed_tasks": "data/results/main_real_200/pilot_eval_tasks_reviewed_v2.jsonl",
+  "taxonomy_counts": {
+    "all_model_failure": 58,
+    "full_non_update_after_removal": 25,
+    "llava_only_update": 3,
+    "natural_absence_success_vs_edited_failure": 13,
+    "partial_update_single_model": 15,
+    "residual_cue_candidate_uncertain": 25
+  }
+}

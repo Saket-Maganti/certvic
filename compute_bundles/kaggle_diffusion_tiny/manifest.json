@@ -1,0 +1,35 @@
+{
+  "anonymized": true,
+  "bundle": "certvic_free_compute_job",
+  "config": "configs/real_pilot_ade20k.yaml",
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "evidence_status": "JOB_PLANNED_ONLY",
+  "executed": false,
+  "file_hashes": {
+    "README.md": "adf4eefea5f39baf58917e541238a8570a3e9ea4cddb95e17b4973e9a0f6e0ec",
+    "ZERO_COST_POLICY.txt": "257770fdfad741f8621279d910fc9587531657a261f0df5718e1591017e88fc6",
+    "commands.sh": "3fa17595e33a038599ae063645a0637505b2691ec8088e920825fde3dfae023c",
+    "expected_inputs.md": "67b20e8d7486c3e6f27c7796e0dadbd31953bc01153a267cfff9a7a46ecfc551",
+    "expected_outputs.md": "ebb8709be3e9255dc9a73540490971f0c43720e4772ebb68a0ba8066ec02fd9a",
+    "preflight.sh": "dc794b6c620b217b101ce3b116f02b4a0671fc9a39b2052d005b3d48584be888"
+  },
+  "files": [
+    "README.md",
+    "ZERO_COST_POLICY.txt",
+    "commands.sh",
+    "expected_inputs.md",
+    "expected_outputs.md",
+    "preflight.sh"
+  ],
+  "forbidden_markers_found": [],
+  "generated": "2026-06-22",
+  "heavy_gpu_required": true,
+  "job": "diffusion_tiny",
+  "n_commands": 2,
+  "paid_services": false,
+  "platform": "kaggle",
+  "safe": true,
+  "scale": 20,
+  "stage": "edit_generation"
+}

@@ -1,0 +1,31 @@
+\section{Theory and Validity Guarantees}
+
+\paragraph{Intervention pair.}
+For each item $i$, CertVIC records an original image, an edited image, and a
+single declared intervention. The intervention pair is valid only when the edit
+metadata, human review, and provenance certificate agree that the visual change
+targets the intended factor.
+
+\paragraph{Consistency indicator.}
+Let $C_i \in \{0,1\}$ indicate whether the model answer changes when the task
+requires a change, or stays fixed when the task requires no change. Let $a_i$
+denote correctness on the original image.
+
+\paragraph{Intervention-consistency gap.}
+The primary estimand is $\Delta = \mathbb{E}[a_i] - \mathbb{E}[C_i]$ for the
+pre-registered population. We analyze the bounded transform
+$d_i=(a_i-C_i+1)/2 \in [0,1]$ for anytime-valid confidence sequences.
+
+\paragraph{Optional stopping.}
+Theorem statements in this paper are caveated: the confidence sequence is valid
+under optional stopping for the declared bounded sequence and pre-registered
+endpoint, not for post-hoc subgroup claims.
+
+\paragraph{Descriptive intervals.}
+Bootstrap intervals are descriptive only and are never certification.
+
+\paragraph{Assumptions and limitations.}
+The guarantee depends on the item-validity protocol, parser policy, and
+pre-registered inclusion rules. It does not establish causal understanding or
+deployment safety.
+

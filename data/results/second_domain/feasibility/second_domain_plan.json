@@ -1,0 +1,12 @@
+{
+  "blockers": [
+    "No second-domain local data materialized",
+    "GPU edit/VLM runs deferred"
+  ],
+  "candidate_n_target": "50-100",
+  "does_not_block_qwen_specificity": true,
+  "paper_evidence": false,
+  "schema": "certvic.v9.second_domain_plan.v1",
+  "selected_domain": "COCO_or_LVIS_if_available_as_free_dataset",
+  "status": "PLAN_ONLY_NO_RESULTS"
+}

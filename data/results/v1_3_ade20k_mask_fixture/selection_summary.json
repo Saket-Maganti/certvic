@@ -1,0 +1,24 @@
+{
+  "allow_duplicate_sources": false,
+  "by_task_family": {
+    "unassigned": 3
+  },
+  "mask_records": 10,
+  "max_mask_area_fraction": 0.6,
+  "min_mask_area_fraction": 0.05,
+  "rejected": {
+    "duplicate_source_id": 0,
+    "invalid_bbox": 0,
+    "mask_area_too_large": 0,
+    "mask_area_too_small": 0,
+    "missing_mask": 0,
+    "missing_source": 0
+  },
+  "seed": 0,
+  "selected": 3,
+  "selection_path": "data/results/v1_3_ade20k_mask_fixture/pilot_selection.jsonl",
+  "source_records": 4,
+  "target": 3,
+  "unique_source_records": 4,
+  "valid_candidates": 4
+}

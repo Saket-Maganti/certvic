@@ -1,0 +1,31 @@
+{
+  "artifact_risk": true,
+  "classifier": {
+    "accuracy": 0.9615,
+    "auc": 0.9231,
+    "backend": "sklearn_logreg_cv",
+    "best_single_feature": "file_size",
+    "multivariate_auc": 0.9231,
+    "n_images": 26,
+    "per_feature_auc": {
+      "edge_density": 0.5059,
+      "file_size": 1.0,
+      "mean_b": 0.5385,
+      "mean_g": 0.5118,
+      "mean_r": 0.5503,
+      "sharpness": 0.5385,
+      "std_gray": 0.5385,
+      "uniform_fraction": 0.5947
+    }
+  },
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "evidence_status": "CONSTRUCT_VALIDITY_DIAGNOSTIC_NON_EVIDENCE",
+  "flag_auc": 0.8,
+  "gpu_required": false,
+  "n_items": 13,
+  "n_skipped": 0,
+  "paid_services": false,
+  "probe": "edit_detectability",
+  "tasks_path": "data/results/tiny_real_pilot/pilot_eval_tasks_tiny.jsonl"
+}

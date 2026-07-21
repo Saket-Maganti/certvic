@@ -1,0 +1,80 @@
+{
+  "audit": "v2_full_system_audit",
+  "checks": [
+    {
+      "expected": 6,
+      "missing": [],
+      "name": "v1_handoffs_exist",
+      "passed": true
+    },
+    {
+      "expected": 14,
+      "missing": [],
+      "name": "v2_handoffs_exist",
+      "passed": true
+    },
+    {
+      "expected": 5,
+      "missing": [],
+      "name": "v2_configs_exist",
+      "passed": true
+    },
+    {
+      "expected": 4,
+      "missing": [],
+      "name": "runbooks_exist",
+      "passed": true
+    },
+    {
+      "checked": 19,
+      "errors": [],
+      "name": "v2_commands_import",
+      "passed": true
+    },
+    {
+      "name": "no_paid_provider_enabled",
+      "paid": [],
+      "passed": true
+    },
+    {
+      "name": "zero_cost_policy_exists",
+      "passed": true
+    },
+    {
+      "name": "claim_policy_exists",
+      "passed": true
+    },
+    {
+      "name": "release_audit_available",
+      "passed": true
+    },
+    {
+      "name": "gate_checks_available",
+      "passed": true
+    },
+    {
+      "hits": [],
+      "name": "no_forbidden_claims",
+      "passed": true
+    },
+    {
+      "name": "no_fake_paper_results",
+      "passed": true,
+      "results_placeholder": true
+    },
+    {
+      "n_checks": 9,
+      "n_passed": 9,
+      "name": "baseline_audit_passes",
+      "passed": true
+    }
+  ],
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "gpu_required": false,
+  "n_checks": 13,
+  "n_passed": 13,
+  "passed": true,
+  "repo_root": "/Users/saketmaganti/Projects/certVIC",
+  "vlm_inference_run": false
+}

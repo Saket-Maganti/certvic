@@ -1,0 +1,16 @@
+{
+  "blocking_conditions": [
+    "spurious specificity gate failed",
+    "main500 not executed",
+    "second-rater IAA not complete",
+    "human residual-cue audit not complete"
+  ],
+  "completed_controls": {
+    "mechanism": true,
+    "polarity": true,
+    "scaled_perception": true
+  },
+  "paper_evidence": false,
+  "ready": false,
+  "schema": "certvic.v8.cvpr_readiness_scorecard.v1"
+}

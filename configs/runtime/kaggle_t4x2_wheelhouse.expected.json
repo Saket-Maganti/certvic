@@ -1,0 +1,18 @@
+{
+  "environment_lock": "configs/runtime/kaggle_t4x2_environment.lock.json",
+  "files": {},
+  "required_file_fields": [
+    "filename",
+    "package",
+    "version",
+    "python_tag",
+    "platform_tag",
+    "size",
+    "sha256",
+    "dependency_role"
+  ],
+  "required_packages_from_environment_lock": true,
+  "network_used": false,
+  "schema": "certvic.cvpr.wheelhouse_expected_manifest.v1",
+  "status": "WHEEL_BYTES_NOT_PROVISIONED_EXTERNAL_ACTION_REQUIRED"
+}

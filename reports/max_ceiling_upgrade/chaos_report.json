@@ -1,0 +1,150 @@
+{
+  "canonical_corruption": false,
+  "idempotent_retry_required": true,
+  "paper_evidence": false,
+  "scenario_count": 22,
+  "scenarios": [
+    {
+      "expected_code": "CHAOS_CORRUPT_ZIP",
+      "observed_code": "CHAOS_CORRUPT_ZIP",
+      "passed": true,
+      "scenario": "corrupt_zip"
+    },
+    {
+      "expected_code": "CHAOS_DUPLICATE_MEMBER",
+      "observed_code": "CHAOS_DUPLICATE_MEMBER",
+      "passed": true,
+      "scenario": "duplicate_member"
+    },
+    {
+      "expected_code": "CHAOS_PATH_TRAVERSAL",
+      "observed_code": "CHAOS_PATH_TRAVERSAL",
+      "passed": true,
+      "scenario": "path_traversal"
+    },
+    {
+      "expected_code": "CHAOS_UNSAFE_SYMLINK",
+      "observed_code": "CHAOS_UNSAFE_SYMLINK",
+      "passed": true,
+      "scenario": "unsafe_symlink"
+    },
+    {
+      "expected_code": "CHAOS_ZIP_BOMB",
+      "observed_code": "CHAOS_ZIP_BOMB",
+      "passed": true,
+      "scenario": "zip_bomb"
+    },
+    {
+      "expected_code": "CHAOS_ARCHIVE_HASH_MISMATCH",
+      "observed_code": "CHAOS_ARCHIVE_HASH_MISMATCH",
+      "passed": true,
+      "scenario": "hash_mismatch"
+    },
+    {
+      "expected_code": "CHAOS_WRONG_PROVIDER",
+      "observed_code": "CHAOS_WRONG_PROVIDER",
+      "passed": true,
+      "scenario": "wrong_provider"
+    },
+    {
+      "expected_code": "CHAOS_WRONG_SNAPSHOT",
+      "observed_code": "CHAOS_WRONG_SNAPSHOT",
+      "passed": true,
+      "scenario": "wrong_snapshot"
+    },
+    {
+      "expected_code": "CHAOS_WRONG_ENVIRONMENT",
+      "observed_code": "CHAOS_WRONG_ENVIRONMENT",
+      "passed": true,
+      "scenario": "wrong_environment"
+    },
+    {
+      "expected_code": "CHAOS_WRONG_PROMPT",
+      "observed_code": "CHAOS_WRONG_PROMPT",
+      "passed": true,
+      "scenario": "wrong_prompt"
+    },
+    {
+      "expected_code": "CHAOS_WRONG_PARSER",
+      "observed_code": "CHAOS_WRONG_PARSER",
+      "passed": true,
+      "scenario": "wrong_parser"
+    },
+    {
+      "expected_code": "CHAOS_WRONG_RUN_CONTRACT",
+      "observed_code": "CHAOS_WRONG_RUN_CONTRACT",
+      "passed": true,
+      "scenario": "wrong_run_contract"
+    },
+    {
+      "expected_code": "CHAOS_STALE_PERMISSION",
+      "observed_code": "CHAOS_STALE_PERMISSION",
+      "passed": true,
+      "scenario": "stale_permission"
+    },
+    {
+      "expected_code": "CHAOS_NONCE_REPLAY",
+      "observed_code": "CHAOS_NONCE_REPLAY",
+      "passed": true,
+      "scenario": "replay"
+    },
+    {
+      "canonical_unchanged": true,
+      "expected_code": "CHAOS_PACKAGING_INTERRUPTION",
+      "observed_code": "CHAOS_PACKAGING_INTERRUPTION",
+      "passed": true,
+      "scenario": "packaging_failure"
+    },
+    {
+      "canonical_unchanged": true,
+      "expected_code": "CHAOS_TRANSACTION_INTERRUPTION",
+      "observed_code": "CHAOS_TRANSACTION_INTERRUPTION",
+      "passed": true,
+      "scenario": "transaction_failure"
+    },
+    {
+      "canonical_unchanged": true,
+      "expected_code": "CHAOS_DISK_FAILURE",
+      "observed_code": "CHAOS_DISK_FAILURE",
+      "passed": true,
+      "scenario": "disk_failure"
+    },
+    {
+      "expected_code": "CHAOS_INCOMPLETE_REVIEW",
+      "observed_code": "CHAOS_INCOMPLETE_REVIEW",
+      "passed": true,
+      "recovery": "repair missing prerequisite and retry without changing frozen bytes",
+      "scenario": "incomplete_review"
+    },
+    {
+      "expected_code": "CHAOS_DETECTABILITY_FAILURE",
+      "observed_code": "CHAOS_DETECTABILITY_FAILURE",
+      "passed": true,
+      "recovery": "repair missing prerequisite and retry without changing frozen bytes",
+      "scenario": "detectability_failure"
+    },
+    {
+      "expected_code": "CHAOS_SOLVER_TIMEOUT",
+      "observed_code": "CHAOS_SOLVER_TIMEOUT",
+      "passed": true,
+      "recovery": "repair missing prerequisite and retry without changing frozen bytes",
+      "scenario": "solver_timeout"
+    },
+    {
+      "expected_code": "CHAOS_MISSING_IMAGES",
+      "observed_code": "CHAOS_MISSING_IMAGES",
+      "passed": true,
+      "recovery": "repair missing prerequisite and retry without changing frozen bytes",
+      "scenario": "missing_images"
+    },
+    {
+      "expected_code": "CHAOS_MISSING_PROVIDER_RETURNS",
+      "observed_code": "CHAOS_MISSING_PROVIDER_RETURNS",
+      "passed": true,
+      "recovery": "repair missing prerequisite and retry without changing frozen bytes",
+      "scenario": "missing_provider_returns"
+    }
+  ],
+  "schema": "certvic.cvpr.chaos_suite.v1",
+  "status": "PASS"
+}

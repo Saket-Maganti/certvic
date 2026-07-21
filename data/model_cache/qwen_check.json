@@ -1,0 +1,11 @@
+{
+  "changed": [],
+  "checked_files": 0,
+  "downloads_attempted": false,
+  "manifest": "data/model_cache/qwen_manifest.json",
+  "missing": [
+    "cache_root_missing"
+  ],
+  "passed": false,
+  "provider": "qwen2_5_vl_7b"
+}

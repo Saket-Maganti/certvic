@@ -1,0 +1,16 @@
+{
+  "owner": "scripts/build_cvpr_execution_closure.py",
+  "paper_evidence": false,
+  "protected_surfaces": [
+    "notebooks/kaggle/cvpr",
+    "CERTVIC_CVPR_EXECUTION_MASTER_PLAN.md",
+    "reports/cvpr_execution_closure",
+    "release/cvpr_execution_closure",
+    "release/certvic_cvpr_execution_closure.zip"
+  ],
+  "schema": "certvic.cvpr.builder_ownership.v2",
+  "supersedes": [
+    "scripts/build_cvpr_pre_execution.py",
+    "scripts/build_cvpr_runtime_hardening.py"
+  ]
+}

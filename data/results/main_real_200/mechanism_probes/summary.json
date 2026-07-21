@@ -1,0 +1,74 @@
+{
+  "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+  "families": {
+    "context_suppression": {
+      "answer_format": "yes_no",
+      "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+      "flag_condition": "model_says_yes",
+      "image_role": "edited",
+      "mechanism_interpretation": "If an explicit pixel-only instruction does not reduce the failure, the effect is unlikely to be mere prompt framing.",
+      "n_tasks": 91,
+      "paper_evidence": false,
+      "probe_family": "context_suppression",
+      "prompt_template": "Answer only from the visible pixels, not from scene context or what is usually present in such scenes. Is there a clearly visible {target}? Answer with exactly one token: yes or no.",
+      "run_label": "mech_ctxsupp",
+      "tasks_path": "data/results/main_real_200/mechanism_probes/context_suppression/tasks.jsonl"
+    },
+    "object_list": {
+      "answer_format": "object_list",
+      "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+      "flag_condition": "target_appears_in_list",
+      "image_role": "edited",
+      "mechanism_interpretation": "If the reviewed gold says the target is no longer clearly visible but the model still lists it, that indicates context-anchoring or a residual cue.",
+      "n_tasks": 91,
+      "paper_evidence": false,
+      "probe_family": "object_list",
+      "prompt_template": "List the clearly visible objects in this image. Respond with a comma-separated list of object names only.",
+      "run_label": "mech_objlist",
+      "tasks_path": "data/results/main_real_200/mechanism_probes/object_list/tasks.jsonl"
+    },
+    "original_vs_edited": {
+      "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+      "interface_change_required": "Add a two-image (or side-by-side composite) input path to the VLM eval notebook + provider adapter, then re-generate this family.",
+      "n_tasks": 0,
+      "paper_evidence": false,
+      "planned_prompt": "Here are two images of the same scene (left=A, right=B). In which image, if any, is there a clearly visible {target}? Answer A, B, both, or neither.",
+      "reason": "Forced original-vs-edited comparison needs a two-image prompt; the current free Kaggle VLM notebooks (and the registered providers' single-image eval path) accept one image per turn. Marked blocked rather than faked.",
+      "run_label": "mech_origvsedit",
+      "status": "blocked"
+    },
+    "region_focused": {
+      "answer_format": "yes_no",
+      "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+      "flag_condition": "model_says_yes",
+      "image_role": "edited_crop",
+      "mechanism_interpretation": "A 'yes' inside the edited region (where the target was removed/occluded) points to a residual visual cue rather than scene-context anchoring.",
+      "n_tasks": 91,
+      "n_with_bbox": 91,
+      "n_without_bbox": 0,
+      "paper_evidence": false,
+      "probe_family": "region_focused",
+      "prompt_template": "Looking only at this cropped region of an image, is there a clearly visible {target}? Answer with exactly one token: yes or no.",
+      "run_label": "mech_region",
+      "tasks_path": "data/results/main_real_200/mechanism_probes/region_focused/tasks.jsonl"
+    },
+    "two_step": {
+      "answer_format": "describe_then_yes_no",
+      "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+      "flag_condition": "final_token_yes",
+      "image_role": "edited",
+      "mechanism_interpretation": "Lets us separate the model's free description from its yes/no decision; a confident description of the absent target signals anchoring.",
+      "n_tasks": 91,
+      "paper_evidence": false,
+      "probe_family": "two_step",
+      "prompt_template": "First, briefly describe what you see in this image in one sentence. Then answer: is there a clearly visible {target}? Finish your reply with exactly one token on its own: yes or no.",
+      "run_label": "mech_2step",
+      "tasks_path": "data/results/main_real_200/mechanism_probes/two_step/tasks.jsonl"
+    }
+  },
+  "n_reviewed_items": 91,
+  "note": "Mechanism probes are not evidence. Run later on Kaggle; see notebooks/kaggle/07_mechanism_probes.md.",
+  "paper_evidence": false,
+  "schema": "certvic.mechanism_probes.v1",
+  "source_reviewed_tasks": "data/results/main_real_200/pilot_eval_tasks_reviewed_v2.jsonl"
+}

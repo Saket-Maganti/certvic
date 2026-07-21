@@ -1,0 +1,9 @@
+{
+  "conflicts": 0,
+  "duplicates": 0,
+  "input_rows": 20,
+  "merged_rows": 20,
+  "missing_items": 2,
+  "mock_or_evidence_status_preserved": true,
+  "out": "data/predictions/merged.jsonl"
+}

@@ -1,0 +1,8 @@
+{
+  "main500_go": false,
+  "note": "No new sequential claim is made by V8 ingestion. Main-500 remains blocked if specificity fails.",
+  "paper_evidence": false,
+  "power_plan_csv": "data/results/main_real_200/v8_upgrade/v8_power_plan.csv",
+  "schema": "certvic.v8.statistical_sensitivity.v1",
+  "status": "planning_only"
+}

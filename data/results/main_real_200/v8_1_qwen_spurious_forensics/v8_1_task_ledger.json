@@ -1,0 +1,262 @@
+{
+  "paper_evidence": false,
+  "schema": "certvic.v8_1.task_ledger.v1",
+  "summary": {
+    "claim_valid_recompute_pass": false,
+    "main500_should_start_now": false,
+    "qwen_raw_flip_rate": 0.1277,
+    "qwen_raw_flips": 12,
+    "qwen_raw_n": 94
+  },
+  "tasks": [
+    {
+      "blockers": [],
+      "command_run": "pwd; git status --short; find data/results/main_real_200 ...; find data/edits/spurious_flip_control ...; find kaggleoutputs/newruns ...; find data/results/main_real_200/v8_upgrade ...",
+      "evidence_status": "ARTIFACT_DISCOVERY_NON_EVIDENCE",
+      "id": "V8_1_00_input_discovery",
+      "input_files": [
+        "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl",
+        "kaggleoutputs/newruns",
+        "data/results/main_real_200/v8_upgrade/spurious_specificity_control_report.json"
+      ],
+      "limitations": "Discovery is filesystem-local only.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Inputs discovered. Repository folder is not a Git checkout; V8 spurious and newruns artifacts are present.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "REAL_ARTIFACT_RECOMPUTE_NON_EVIDENCE",
+      "id": "V8_1_01_qwen_failure_extraction",
+      "input_files": [
+        "data/results/main_real_200/kaggle_spurious/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+        "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl"
+      ],
+      "limitations": "No model rerun performed.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_all_items.csv",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12.csv"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Extracted 12 Qwen flips from 94 paired items.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "FORENSIC_GALLERY_NON_EVIDENCE",
+      "id": "V8_1_02_failure_gallery",
+      "input_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12.csv",
+        "data/edits/spurious_flip_control"
+      ],
+      "limitations": "Gallery pixels are local diagnostic artifacts, not release assets.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery.html",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Built 12-item side-by-side gallery with copied local images, heatmaps, and overlays.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [
+        "real human review required before any claim use"
+      ],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "CODEX_PRELIMINARY_EVAL_TRIAGE_ONLY",
+      "id": "V8_1_03_machine_preliminary_eval",
+      "input_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12.csv",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/spurious_control_quality_audit.csv"
+      ],
+      "limitations": "AI-assisted triage only; not real human validation.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_prelim_labels.csv",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/human_claim.md"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Assigned CODEX_PRELIMINARY_EVAL triage labels: {'CODEX_PRELIM_PATCH_NEAR_TARGET': 6, 'CODEX_PRELIM_PATCH_TOO_SALIENT': 2, 'CODEX_PRELIM_OBJECT_REGION_AFFECTED': 2, 'CODEX_PRELIM_VALID_FAILURE': 2}.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "RULE_BASED_RECOMPUTE_NON_EVIDENCE",
+      "id": "V8_1_04_rule_based_recompute",
+      "input_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_all_items.csv",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_prelim_labels.csv"
+      ],
+      "limitations": "Non-raw scenarios are separated and do not update the canonical gate.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_recompute_scenarios.csv",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_recompute_report.md"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Raw gate remains 12/94 = 0.1277; claim-valid pass exists: False.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "CROSS_MODEL_DIAGNOSTIC_NON_EVIDENCE",
+      "id": "V8_1_05_cross_model_comparison",
+      "input_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12.csv",
+        "data/results/main_real_200/kaggle_spurious"
+      ],
+      "limitations": "Comparison is limited to the 12 Qwen-failed items.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_failed_items_cross_model_comparison.csv",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_failed_items_cross_model_comparison.md"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Only-Qwen flips on Qwen-failed set: 12/12.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "PROVENANCE_AUDIT_NON_EVIDENCE",
+      "id": "V8_1_06_parser_and_provenance_audit",
+      "input_files": [
+        "data/results/main_real_200/kaggle_spurious",
+        "kaggleoutputs/newruns",
+        "data/results/main_real_200/v8_upgrade/canonical_prediction_manifest.json"
+      ],
+      "limitations": "Zip-member equality checks are file-artifact checks only.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/parser_provenance_audit.json",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/PARSER_PROVENANCE_AUDIT.md"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Rows/provider and pairing OK; issue could affect Qwen 12/94: False.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [
+        "task manifest lacks original patch metadata"
+      ],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "CPU_GEOMETRY_DIAGNOSTIC_NON_EVIDENCE",
+      "id": "V8_1_07_spurious_control_quality_audit",
+      "input_files": [
+        "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl",
+        "data/edits/spurious_flip_control",
+        "ade20k_root/ADEChallengeData2016/annotations/training"
+      ],
+      "limitations": "Patch geometry was recomputed from the preserved image pairs, while target-mask geometry was reused from the frozen derived-real-evidence audit because the external ADE annotation tree is not currently mounted. This is not a fresh annotation rerun.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/spurious_control_quality_audit.csv",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/SPURIOUS_CONTROL_QUALITY_AUDIT.md"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Mask overlap items: 0; bbox-intersection items: 20.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "DESIGN_ONLY_NON_EVIDENCE",
+      "id": "V8_1_08_stricter_spurious_v2_design",
+      "input_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/SPURIOUS_CONTROL_QUALITY_AUDIT.md",
+        "scripts/build_spurious_flip_control.py"
+      ],
+      "limitations": "V2 commands are not run and produce no prediction results here.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/SPURIOUS_CONTROL_V2_DESIGN.md",
+        "commands/spurious_v2/build_spurious_v2.sh"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Designed stricter V2 control and runbooks; no GPU run performed.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "CLAIM_REFRAME_NON_EVIDENCE",
+      "id": "V8_1_09_paper_claim_reframe",
+      "input_files": [
+        "data/results/main_real_200/v8_upgrade/spurious_specificity_control_report.json",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_recompute_report.md"
+      ],
+      "limitations": "Does not change main result artifacts or paper_evidence.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/CLAIM_SAFE_SUMMARY.md",
+        "paper/sections/v8_1_spurious_specificity_limitations.tex",
+        "paper/sections/v8_1_control_diagnostics.tex"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Wrote claim-safe text: Qwen fails specificity; clean all-model specificity is blocked.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [
+        "Main-500 blocked"
+      ],
+      "command_run": "python3 scripts/build_v8_1_qwen_spurious_forensics.py",
+      "evidence_status": "GO_NOGO_NON_EVIDENCE",
+      "id": "V8_1_10_go_nogo_decision",
+      "input_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_recompute_report.md",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/PARSER_PROVENANCE_AUDIT.md"
+      ],
+      "limitations": "Decision can change only after real human review, V2, or an honest reframe.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/V8_1_GO_NO_GO.md",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/v8_1_go_no_go.json"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Decision: GO_HUMAN_AUDIT_FIRST; Main-500 should not start now.",
+      "status": "DONE"
+    },
+    {
+      "blockers": [],
+      "command_run": "python3 -m pytest -q tests/test_v8_1_qwen_spurious_forensics.py; python3 -m pytest -q; python3 -m certvic.validation.claim_language_guard ...; python3 -m certvic.security.release_privacy_audit ...",
+      "evidence_status": "VALIDATION_STATUS",
+      "id": "V8_1_11_tests_and_guards",
+      "input_files": [
+        "tests/test_v8_1_qwen_spurious_forensics.py"
+      ],
+      "limitations": "Full pytest duration depends on local environment.",
+      "output_files": [
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/pytest_v8_1_qwen_spurious_forensics.txt",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/pytest_full.txt",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/claim_guard_v8_1.json",
+        "data/results/main_real_200/v8_1_qwen_spurious_forensics/privacy_audit_v8_1.json"
+      ],
+      "paper_evidence": false,
+      "result_summary": "Test/guard logs detected.",
+      "status": "DONE"
+    }
+  ],
+  "test_status": {
+    "all_expected_outputs_present": true,
+    "claim_guard": "data/results/main_real_200/v8_1_qwen_spurious_forensics/claim_guard_v8_1.json",
+    "claim_guard_passed": true,
+    "focused_pytest_log": "data/results/main_real_200/v8_1_qwen_spurious_forensics/pytest_v8_1_qwen_spurious_forensics.txt",
+    "focused_pytest_tail": [
+      ".......                                                                  [100%]",
+      "7 passed in 1.73s"
+    ],
+    "full_pytest_log": "data/results/main_real_200/v8_1_qwen_spurious_forensics/pytest_full.txt",
+    "full_pytest_tail": [
+      "........................................................................ [ 68%]",
+      "........................................................................ [ 79%]",
+      "........................................................................ [ 90%]",
+      "..........................................................               [100%]",
+      "634 passed in 41.48s"
+    ],
+    "privacy_json": "data/results/main_real_200/v8_1_qwen_spurious_forensics/privacy_audit_v8_1.json",
+    "privacy_passed": true
+  },
+  "thresholds": {
+    "control_spurious_flip_max": 0.1
+  }
+}

@@ -1,0 +1,80 @@
+schema: certvic.cvpr.model_registry.v1
+status: REMOTE_IDENTITIES_LOCKED_LOCAL_SNAPSHOTS_PENDING
+paper_evidence: false
+primary_models:
+  - qwen2_5_vl_7b
+  - internvl_8b
+  - llava_onevision_7b
+optional_model: null
+models:
+  qwen2_5_vl_7b:
+    model_id: Qwen/Qwen2.5-VL-7B-Instruct
+    model_commit: cc594898137f460bfe9f0759e9844b3ce807cfb5
+    processor_id: Qwen/Qwen2.5-VL-7B-Instruct
+    processor_commit: cc594898137f460bfe9f0759e9844b3ce807cfb5
+    tokenizer_commit: cc594898137f460bfe9f0759e9844b3ce807cfb5
+    remote_code_commit: null
+    license: apache-2.0
+    expected_architecture: Qwen2_5_VLForConditionalGeneration
+    snapshot_manifest_sha256: REQUIRED_USER_FILL
+    snapshot_manifest_path: REQUIRED_USER_FILL
+    snapshot_verification: strict_offline_all_files_sha256_no_extras
+    preprocessing: rgb_processor_native_no_additional_resize
+    prompt_template: certification_yes_no_v1
+    dtype: float16_t4_safe
+    quantization: nf4_4bit_if_hash_locked_environment_supports_it
+    attention_implementation: sdpa
+    device_map: one_process_one_gpu
+    batch_strategy: conservative_probe_then_oom_halving_minimum_one
+    generation_parameters: {do_sample: false, temperature: 0.0, max_new_tokens: 16}
+    tokenizer_settings: {padding_side: left, truncation: false}
+    parser_mode: strict_certification_yes_no
+    retry_policy: retry_transient_once_never_change_prompt_or_decoding
+  internvl_8b:
+    model_id: OpenGVLab/InternVL2-8B
+    model_commit: 6fb9ad6924f69424e57fab2ab061d707688f0296
+    processor_id: OpenGVLab/InternVL2-8B
+    processor_commit: 6fb9ad6924f69424e57fab2ab061d707688f0296
+    tokenizer_commit: 6fb9ad6924f69424e57fab2ab061d707688f0296
+    remote_code_commit: 6fb9ad6924f69424e57fab2ab061d707688f0296
+    license: mit
+    expected_architecture: InternVLChatModel
+    snapshot_manifest_sha256: REQUIRED_USER_FILL
+    snapshot_manifest_path: REQUIRED_USER_FILL
+    snapshot_verification: strict_offline_all_files_sha256_no_extras
+    preprocessing: rgb_dynamic_tiles_native_contract
+    prompt_template: certification_yes_no_v1
+    dtype: float16_t4_safe_bfloat16_forbidden_without_capability_proof
+    quantization: nf4_4bit
+    attention_implementation: sdpa
+    device_map: one_process_one_gpu
+    batch_strategy: native_batch_chat_then_oom_halving_minimum_one
+    dynamic_tiling: {image_size: 448, min_patches: 1, max_patches: 6, thumbnail: true}
+    t4_deployment_proof: REQUIRES_00C2_REAL_MODEL_SMOKE
+    generation_parameters: {do_sample: false, temperature: 0.0, max_new_tokens: 16}
+    tokenizer_settings: {padding_side: left, truncation: false}
+    parser_mode: strict_certification_yes_no
+    retry_policy: retry_transient_once_never_change_prompt_or_decoding
+  llava_onevision_7b:
+    model_id: llava-hf/llava-onevision-qwen2-7b-ov-hf
+    model_commit: 0d50680527681998e456c7b78950205bedd8a068
+    processor_id: llava-hf/llava-onevision-qwen2-7b-ov-hf
+    processor_commit: 0d50680527681998e456c7b78950205bedd8a068
+    tokenizer_commit: 0d50680527681998e456c7b78950205bedd8a068
+    remote_code_commit: null
+    license: apache-2.0
+    expected_architecture: LlavaOnevisionForConditionalGeneration
+    snapshot_manifest_sha256: REQUIRED_USER_FILL
+    snapshot_manifest_path: REQUIRED_USER_FILL
+    snapshot_verification: strict_offline_all_files_sha256_no_extras
+    preprocessing: processor_native_thumbnail_and_grid_contract
+    prompt_template: certification_yes_no_v1
+    dtype: float16_t4_safe
+    quantization: nf4_4bit_if_hash_locked_environment_supports_it
+    attention_implementation: sdpa
+    device_map: one_process_one_gpu
+    batch_strategy: conservative_probe_then_oom_halving_minimum_one
+    generation_parameters: {do_sample: false, temperature: 0.0, max_new_tokens: 16}
+    tokenizer_settings: {padding_side: left, truncation: false}
+    parser_mode: strict_certification_yes_no
+    retry_policy: retry_transient_once_never_change_prompt_or_decoding

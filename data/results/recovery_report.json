@@ -1,0 +1,22 @@
+{
+  "dry_run": true,
+  "duplicates": [
+    {
+      "file": "data/results/v4_smoke/broken_predictions.jsonl",
+      "key": "v4_item_001"
+    }
+  ],
+  "exists": true,
+  "hash_mismatches_fixed": false,
+  "jsonl_counts": {
+    "data/results/v4_smoke/broken_predictions.jsonl": 2,
+    "data/results/v4_smoke/cc0_sources.jsonl": 2,
+    "data/results/v4_smoke/edit_plan.jsonl": 2
+  },
+  "missing_sidecar_candidates": [
+    "data/results/v4_smoke/broken_predictions.jsonl",
+    "data/results/v4_smoke/cc0_sources.jsonl",
+    "data/results/v4_smoke/edit_plan.jsonl"
+  ],
+  "run_dir": "data/results/v4_smoke"
+}

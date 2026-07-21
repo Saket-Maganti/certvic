@@ -1,0 +1,186 @@
+schema: certvic.cvpr.main_study.v1
+study_id: main_study_cvpr
+historical_name: Main-500
+status: DESIGN_LOCKED_EXECUTION_BLOCKED
+paper_evidence: false
+execution_allowed: false
+seed: 15001
+target_items: 500
+reserve_items: 125
+sample_size_rationale: paired three-model primary estimates plus coverage across locked strata
+estimands:
+  - original_correctness
+  - edited_correctness
+  - raw_answer_change_rate
+  - correct_semantic_update_rate
+  - secondary_descriptive_old_gap
+  - irrelevant_edit_specificity
+  - joint_specificity_responsiveness
+  - confidence_sequence_decision
+strata:
+  - object_family
+  - source_dataset
+  - target_size
+  - target_position
+  - image_complexity
+  - original_answer_polarity
+  - edited_answer_polarity
+  - question_template
+  - edit_family
+  - edit_magnitude
+  - baseline_difficulty
+  - control_validity
+replacement_rule: first_unused_same_locked_stratum_only
+semantic_interventions:
+  required_change: true
+  allowed_families: [object_removal, object_insertion, attribute_modification]
+  output_status_before_review: MACHINE_ASSISTED_PRELIMINARY
+  target_mask_semantics: 255_regenerate_or_modify_target_0_preserve
+  non_target_change_fraction_max: 0.01
+  human_validity_required: true
+  deterministic_preliminary_allowed: true
+  optional_inpainting_requires_local_byte_verified_snapshot: true
+  prospective_engine_selection_policy:
+    simple_validated_attribute_case: verified_attribute_transform_v1
+    complex_removal: manifest_verified_offline_inpainting_v1
+    insertion: manifest_verified_offline_inpainting_v1
+    deterministic_fallback: reject_unless_candidate_specific_quality_passes
+  automated_quality_required:
+    - semantic_success
+    - boundary_artifact_check
+    - non_target_preservation
+    - answerability
+    - license_verification
+  failure_policy: reject_before_human_review
+task_builder:
+  schema: certvic.cvpr.main_task_builder_contract.v1
+  source_manifest_required: true
+  supported_categories: [person, car, chair, table, dog, cat, tree, building, bicycle, bus, sofa, television]
+  family_candidate_targets:
+    object_removal: 400
+    object_insertion: 500
+    attribute_modification: 250
+  candidate_oversampling:
+    schema: certvic.cvpr.main_candidate_oversampling.v1
+    policy_status: FROZEN_BEFORE_REAL_OUTCOMES
+    total_candidate_target: 1150
+    final_plus_reserve_requirement: 625
+    overall_ratio: 1.84
+    family_ratios_against_final_plus_reserve:
+      object_removal: 1.60
+      object_insertion: 2.00
+      attribute_modification: 2.00
+    difficult_stratum_minimum_ratios:
+      target_size_small: 2.00
+      target_position_corner: 2.00
+      low_frequency_category: 2.00
+      licensed_insertion_asset: 2.50
+    planning_retention_assumptions:
+      automated_qa: 0.80
+      human_review: 0.80
+    projected_post_qa:
+      object_removal: 320
+      object_insertion: 400
+      attribute_modification: 200
+      total: 920
+    projected_post_review:
+      object_removal: 256
+      object_insertion: 320
+      attribute_modification: 160
+      total: 736
+    projected_surplus_after_final_plus_reserve:
+      object_removal: 6
+      object_insertion: 70
+      attribute_modification: 35
+      total: 111
+    shortage_action: BLOCK_AND_ADD_SAME_LOCKED_FAMILY_OR_STRATUM_CANDIDATES
+  insertion_assets: {}
+  insertion_asset_policy: hash_and_license_verified_external_manifest_required
+  relation_and_count_tasks: disabled_unless_annotation_semantics_are_complete
+main_finalization:
+  primary_family_targets:
+    object_removal: 200
+    object_insertion: 200
+    attribute_modification: 100
+  reserve_family_targets:
+    object_removal: 50
+    object_insertion: 50
+    attribute_modification: 25
+  maximum_tasks_per_source: 1
+  selection_order: deterministic_sha256_outcome_unseen
+  solver_limits:
+    max_states: 1000000
+    timeout_seconds: 120
+    progress_interval_states: 10000
+  locked_strata_targets:
+    category:
+      primary: {person: 42, car: 42, chair: 42, table: 42, dog: 42, cat: 42, tree: 42, building: 42, bicycle: 41, bus: 41, sofa: 41, television: 41}
+      reserve: {person: 11, car: 11, chair: 11, table: 11, dog: 11, cat: 10, tree: 10, building: 10, bicycle: 10, bus: 10, sofa: 10, television: 10}
+    answer_transition:
+      primary: {yes_to_no: 300, no_to_yes: 200}
+      reserve: {yes_to_no: 75, no_to_yes: 50}
+    target_size:
+      primary: {small: 167, medium: 167, large: 166}
+      reserve: {small: 42, medium: 42, large: 41}
+    target_position:
+      primary: {center: 100, top_left: 100, top_right: 100, bottom_left: 100, bottom_right: 100}
+      reserve: {center: 25, top_left: 25, top_right: 25, bottom_left: 25, bottom_right: 25}
+    image_complexity:
+      primary: {low: 167, medium: 167, high: 166}
+      reserve: {low: 42, medium: 42, high: 41}
+    difficulty:
+      primary: {easy: 167, medium: 167, hard: 166}
+      reserve: {easy: 42, medium: 42, hard: 41}
+    engine_family:
+      primary: {deterministic_context_fill_preliminary_v1: 100, manifest_verified_offline_inpainting_v1: 100, hash_locked_asset_composite_v1: 200, verified_attribute_transform_v1: 100}
+      reserve: {deterministic_context_fill_preliminary_v1: 25, manifest_verified_offline_inpainting_v1: 25, hash_locked_asset_composite_v1: 50, verified_attribute_transform_v1: 25}
+    question_template:
+      primary: {object_presence_yes_no: 400, attribute_yes_no: 100}
+      reserve: {object_presence_yes_no: 100, attribute_yes_no: 25}
+    edit_magnitude:
+      primary: {small: 167, medium: 167, large: 166}
+      reserve: {small: 42, medium: 42, large: 41}
+  source_diversity:
+    primary_minimum_unique_sources: 500
+    reserve_minimum_unique_sources: 125
+    global_maximum_tasks_per_source: 1
+  same_stratum_replacement_key: [semantic_edit_family, selection_category, answer_transition, target_size_stratum, target_position_stratum, image_complexity_stratum, edit_difficulty_stratum, engine_family, question_template, edit_magnitude_stratum]
+attribute_transform_registry:
+  - red_to_blue
+  - blue_to_red
+  - saturated_to_desaturated
+  - desaturated_to_saturated
+go_requirements:
+  independent_specificity_completed: false
+  human_review_policy_completed: false
+  model_revisions_pinned: false
+  study_config_frozen: true
+  item_pool_valid: false
+  edit_pipeline_preflight_passed: false
+  notebook_hashes_locked: false
+  importer_tests_passed: true
+  paper_strategy_approved: false
+statistics:
+  family_alpha: 0.05
+  confidence_sequence_minimum_n: 100
+  missing_or_unparseable: count_as_failure_primary
+execution:
+  code_bundle_sha256: NOT_FROZEN_EXTERNAL_INPUT
+  task_bundle_root: data/studies/main_study_cvpr/task_bundle
+  task_bundle_manifest: data/studies/main_study_cvpr/task_bundle/task_bundle_manifest.json
+  task_manifest: data/studies/main_study_cvpr/task_bundle/tasks.jsonl
+  permission_ledger: data/studies/main_study_cvpr/permission_ledger.json
+  run_tag: main_study_cvpr_v1
+  runtime_contract_schema: certvic.cvpr.run_contract.v1
+  environment_lock: configs/runtime/kaggle_t4x2_environment.lock.json
+  permission_artifact: data/studies/main_study_cvpr/execution_permission.json
+  smoke_gate: reports/cvpr_final_integration/REAL_MODEL_SMOKE_GATE.json
+  freeze_manifest: data/studies/main_study_cvpr/main_freeze_manifest.json
+  human_review_outputs:
+    final_inclusion_manifest: data/studies/main_study_cvpr/review/final_inclusion.json
+    agreement_report: data/studies/main_study_cvpr/review/agreement.json
+    rater_1_qualification: data/studies/main_study_cvpr/review/rater_1_qualification.json
+    rater_2_qualification: data/studies/main_study_cvpr/review/rater_2_qualification.json
+    rater_1_validation: data/studies/main_study_cvpr/review/rater_1_validation.json
+    rater_2_validation: data/studies/main_study_cvpr/review/rater_2_validation.json
+    adjudication_artifact: data/studies/main_study_cvpr/review/adjudication_validation.json

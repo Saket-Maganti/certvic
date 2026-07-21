@@ -1,0 +1,2 @@
+provider,n,parse_ok_rate,refusal_rate,mean_output_chars,mean_latency_s,n_unique_raw,top_repeat_fraction,mode_answer,mode_answer_fraction,answer_prior_flag,degenerate_repeat_flag,high_parse_failure_flag,high_refusal_flag
+qwen2_5_vl_7b,182,1.0,0.0,2.3,1.387,2,0.6593,no,0.6593,False,False,False,False

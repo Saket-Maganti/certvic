@@ -1,0 +1,9 @@
+{
+  "builder_command": "python3 -m certvic.cvpr.smoke_input_builder --task-manifest local_inputs/smoke/real_smoke_tasks.jsonl --output kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip",
+  "expected_size": "1-50 MB",
+  "name": "certvic_real_two_item_smoke_bundle.zip",
+  "output": "kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip",
+  "paper_evidence": false,
+  "schema": "certvic.kaggle.external_builder_status.v1",
+  "status": "BUILDER_READY_BLOCKED_BY_EXTERNAL_BYTES"
+}

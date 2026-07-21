@@ -1,0 +1,18 @@
+{
+  "by_task_family": {
+    "affordance_reachability": 33,
+    "occlusion_safety": 6,
+    "support_stability": 64
+  },
+  "evidence_status": "EDIT_READY_NON_EVIDENCE",
+  "generated_edits_path": "data/results/main_real_200/pilot_generated_edits.jsonl",
+  "generated_quality_pass_rows": 103,
+  "leakage_rejected": 0,
+  "materialized_tasks": 103,
+  "missing_or_quality_failed": 65,
+  "out": "data/results/main_real_200/pilot_eval_tasks_tiny.jsonl",
+  "paper_evidence": false,
+  "preview_rows": 168,
+  "task_preview_path": "data/results/main_real_200/pilot_task_preview.jsonl",
+  "vlm_inference_run": false
+}

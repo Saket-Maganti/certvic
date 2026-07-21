@@ -1,0 +1,26 @@
+{
+  "agreement_computed": false,
+  "deterministic": true,
+  "distribution_reason": "ADE-derived image redistribution has not been cleared",
+  "distribution_status": "PRIVATE_COORDINATED_REVIEW_ONLY",
+  "evidence_status": "HUMAN_REVIEW_PENDING",
+  "human_fields_blank": true,
+  "n_copied_images": 454,
+  "n_tracks": 4,
+  "n_unique_review_rows": 227,
+  "paper_evidence": false,
+  "portable": true,
+  "public_release_allowed": false,
+  "reviewer_zip": "certvic_v11_blinded_reviewer_bundle.zip",
+  "reviewer_zip_bytes": 31929394,
+  "reviewer_zip_sha256": "d6e777d035fa806d0b4ffb42cd6c140e08c1187a571770ba87b70c629c3f044f",
+  "schema": "certvic.v11.blinded_human_review_packet.v1",
+  "seed": 110713,
+  "track_counts": {
+    "control94": 94,
+    "diagnostic_subset12": 12,
+    "intervention91": 91,
+    "strict_control30": 30
+  },
+  "warning": "No human labels are present. Run validate_v11_human_review.py after two independent reviews."
+}

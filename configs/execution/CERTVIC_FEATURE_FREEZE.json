@@ -1,0 +1,22 @@
+{
+  "allowed_repairs": [
+    "real execution failure",
+    "scientific-integrity defect",
+    "security or privacy defect",
+    "external-byte binding update without scientific-policy change"
+  ],
+  "amendment_policy": "Version, justify, hash-lock, and complete before prospective provider outputs.",
+  "effective_date": "2026-07-21",
+  "paper_evidence": false,
+  "primary_analysis_sha256": "a3f3b4a3d8c942f5d753589a079b2c62dab63a7f6bd742d74f4a89022da3920d",
+  "prohibited_without_versioned_amendment": [
+    "new broad infrastructure layer",
+    "new primary endpoint",
+    "post-outcome threshold change",
+    "gate weakening",
+    "unregistered model or dataset substitution"
+  ],
+  "protocol_authority_sha256": "9e5d2164307d3ca8c24b6add40e919eec70d0e4f720914c76c6a80fd119a9b68",
+  "schema": "certvic.phase_c.feature_freeze.v1",
+  "status": "FROZEN"
+}

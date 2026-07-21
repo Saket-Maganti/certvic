@@ -1,0 +1,35 @@
+{
+  "ade20k_root": "/Users/saketmaganti/Projects/ade20k_root/ADEChallengeData2016",
+  "config": "configs/real_pilot_ade20k.yaml",
+  "dry_run": true,
+  "evidence_status": "PIPELINE_NON_EVIDENCE",
+  "max_items": 200,
+  "next_commands": [
+    "python3 -m certvic.data.select_pilot_items --sources data/results/main_real_200/ade20k_sources.jsonl --masks data/results/main_real_200/ade20k_masks.jsonl --out data/results/main_real_200/pilot_selection.jsonl --target 200 --label-policy configs/ade20k_label_policy.yaml --allow-partial",
+    "python3 -m certvic.edit.plan_edits --selection data/results/main_real_200/pilot_selection.jsonl --out data/results/main_real_200/pilot_edit_plan.jsonl --summary-out data/results/main_real_200/pilot_edit_plan_summary.json --label-policy configs/ade20k_label_policy.yaml",
+    "python3 -m certvic.data.preview_tasks --edit-plan data/results/main_real_200/pilot_edit_plan.jsonl --out data/results/main_real_200/pilot_task_preview.jsonl --summary-out data/results/main_real_200/pilot_task_preview_summary.json",
+    "python3 -m certvic.edit.engines --edit-plan data/results/main_real_200/pilot_edit_plan.jsonl --out-dir data/results/main_real_200/edits --out-manifest data/results/main_real_200/pilot_generated_edits.jsonl --rejected-out data/results/main_real_200/pilot_generated_rejected.jsonl --summary-out data/results/main_real_200/pilot_generation_summary.json --max-items 200",
+    "python3 -m certvic.data.materialize_tasks --task-preview data/results/main_real_200/pilot_task_preview.jsonl --generated-edits data/results/main_real_200/pilot_generated_edits.jsonl --out data/results/main_real_200/pilot_eval_tasks_tiny.jsonl --summary-out data/results/main_real_200/pilot_eval_tasks_tiny_summary.json",
+    "python3 -m certvic.validation.export_visual_review --tasks data/results/main_real_200/pilot_eval_tasks_tiny.jsonl --generated-edits data/results/main_real_200/pilot_generated_edits.jsonl --out data/results/main_real_200/visual_review_sheet.csv --max-items 200 --seed 0"
+  ],
+  "out_dir": "data/results/main_real_200",
+  "stages_attempted": [
+    "pilot_readiness",
+    "manifests",
+    "label_policy_report"
+  ],
+  "stages_completed": [
+    "pilot_readiness",
+    "manifests",
+    "label_policy_report"
+  ],
+  "stages_failed": [],
+  "zero_cost_audit": {
+    "downloads_attempted": false,
+    "dry_run": true,
+    "evidence_status": "PIPELINE_NON_EVIDENCE",
+    "gpu_required": false,
+    "paid_services": false,
+    "vlm_inference_run": false
+  }
+}

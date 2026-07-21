@@ -1,0 +1,9 @@
+{
+  "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+  "interface_change_required": "Add a two-image (or side-by-side composite) input path to the VLM eval notebook + provider adapter, then re-generate this family.",
+  "paper_evidence": false,
+  "planned_prompt": "Here are two images of the same scene (left=A, right=B). In which image, if any, is there a clearly visible {target}? Answer A, B, both, or neither.",
+  "reason": "Forced original-vs-edited comparison needs a two-image prompt; the current free Kaggle VLM notebooks (and the registered providers' single-image eval path) accept one image per turn. Marked blocked rather than faked.",
+  "run_label": "mech_origvsedit",
+  "status": "blocked"
+}

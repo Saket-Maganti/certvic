@@ -1,0 +1,27 @@
+{
+  "all_eligible": true,
+  "any_eligible": true,
+  "entries": [
+    {
+      "artifact": "data/results/main_real_200/tables/main200_multimodel_results.tex",
+      "basename": "main200_multimodel_results.tex",
+      "eligible": true,
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "kind": "table",
+      "provider_type": "open_local",
+      "sha256": "376dab68c8a7754e6f80c9b8342cd62336b28f41c457217624c948c08467c8de"
+    },
+    {
+      "artifact": "data/results/main_real_200/tables/main200_control_results.tex",
+      "basename": "main200_control_results.tex",
+      "eligible": true,
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "kind": "table",
+      "provider_type": "open_local",
+      "sha256": "547857d1db5a82df53f7f2bfcdcd6d55a111d6d55f269381eee8bc6ad5b3759d"
+    }
+  ],
+  "note": "Pilot tables generated from canonical artifacts; eligible=non-mock/real run, still pilot-only (paper_evidence=false).",
+  "paper_evidence": false,
+  "schema": "certvic.results_provenance.v1"
+}

@@ -1,0 +1,60 @@
+bars:
+  borderline:
+    minimums:
+      reviewed_item_count: 20
+      model_count: 1
+      human_iaa: 0.60
+    maximums:
+      detectability_auc: 0.70
+      control_spurious_flip_rate: 0.20
+      parse_failure_rate: 0.20
+    required_true:
+      main_figure_present
+      main_table_present
+  weak_accept:
+    minimums:
+      reviewed_item_count: 100
+      model_count: 2
+      human_iaa: 0.70
+      certified_lower_bound: 0.02
+    maximums:
+      detectability_auc: 0.65
+      control_spurious_flip_rate: 0.12
+      parse_failure_rate: 0.10
+    required_true:
+      ablations_present
+      main_figure_present
+      main_table_present
+      related_work_complete
+  strong_accept:
+    minimums:
+      reviewed_item_count: 200
+      model_count: 3
+      human_iaa: 0.75
+      certified_lower_bound: 0.05
+    maximums:
+      detectability_auc: 0.60
+      control_spurious_flip_rate: 0.08
+      parse_failure_rate: 0.05
+    required_true:
+      ablations_present
+      main_figure_present
+      main_table_present
+      related_work_complete
+      proof_complete
+  highlight_possible:
+    minimums:
+      reviewed_item_count: 500
+      model_count: 4
+      human_iaa: 0.80
+      certified_lower_bound: 0.08
+    maximums:
+      detectability_auc: 0.58
+      control_spurious_flip_rate: 0.05
+      parse_failure_rate: 0.03
+    required_true:
+      ablations_present
+      main_figure_present
+      main_table_present
+      related_work_complete
+      proof_complete

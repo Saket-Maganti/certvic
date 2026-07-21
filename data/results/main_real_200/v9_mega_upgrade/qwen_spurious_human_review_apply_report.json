@@ -1,0 +1,34 @@
+{
+  "blank_rows": [
+    "sflip_table_ADE_train_00000377",
+    "sflip_sofa_ADE_train_00000704",
+    "sflip_sofa_ADE_train_00000719",
+    "sflip_chair_ADE_train_00000194",
+    "sflip_chair_ADE_train_00000617",
+    "sflip_chair_ADE_train_00000436",
+    "sflip_chair_ADE_train_00000630",
+    "sflip_chair_ADE_train_00000268",
+    "sflip_chair_ADE_train_00001105",
+    "sflip_car_ADE_train_00002029",
+    "sflip_car_ADE_train_00002034",
+    "sflip_car_ADE_train_00003061"
+  ],
+  "blockers": [
+    "At least one required human review field is blank."
+  ],
+  "canonical_results_changed": false,
+  "input": "data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review.csv",
+  "invalid_failure_causes": [],
+  "invalid_human_valid_control": [],
+  "n_rows": 12,
+  "paper_evidence": false,
+  "raw_gate": {
+    "flipped": 12,
+    "gate_pass": false,
+    "n_items": 94,
+    "rate": 0.1277,
+    "threshold": 0.1
+  },
+  "schema": "certvic.v9.qwen_spurious_human_review_apply_report.v1",
+  "status": "BLOCKED_BLANK_HUMAN_REVIEW"
+}

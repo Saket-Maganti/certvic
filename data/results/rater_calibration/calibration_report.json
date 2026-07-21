@@ -1,0 +1,21 @@
+{
+  "gold": "data/results/v5_smoke/gold_labels.csv",
+  "low_calibration_raters": [
+    "reviewer_b"
+  ],
+  "paid_annotation": false,
+  "rater_status": {
+    "reviewer_a": {
+      "accuracy": 1.0,
+      "approved": true,
+      "n": 1
+    },
+    "reviewer_b": {
+      "accuracy": 0.0,
+      "approved": false,
+      "n": 1
+    }
+  },
+  "ratings": "data/results/v4_smoke/visual_review_sheet.csv",
+  "threshold": 0.8
+}

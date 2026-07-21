@@ -1,0 +1,2 @@
+candidate_id,qa_status,reason
+NO_REAL_CANDIDATES,NOT_RUN,external generation return absent

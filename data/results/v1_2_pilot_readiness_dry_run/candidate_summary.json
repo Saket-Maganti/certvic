@@ -1,0 +1,19 @@
+{
+  "blockers": [
+    "candidate image count 3 is below target 200",
+    "ADE20K mask parser is not implemented in V1.2; parser_required before selection"
+  ],
+  "candidate_annotation_count": 3,
+  "candidate_image_count": 3,
+  "dry_run_only": true,
+  "layout_status": "parser_required",
+  "ready_for_mask_manifest": false,
+  "ready_for_pilot_selection": false,
+  "ready_for_source_manifest": true,
+  "target_items": 200,
+  "train_annotation_count": 2,
+  "train_image_count": 2,
+  "unmatched_image_count": 0,
+  "val_annotation_count": 1,
+  "val_image_count": 1
+}

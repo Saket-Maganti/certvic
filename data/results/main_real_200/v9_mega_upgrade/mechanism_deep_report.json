@@ -1,0 +1,20 @@
+{
+  "available_keys": [
+    "evidence_status",
+    "expected_providers",
+    "expected_rows_per_provider",
+    "interpretation_limits",
+    "missing_files",
+    "paper_evidence",
+    "pred_dir",
+    "providers",
+    "schema",
+    "spec_blocked_families_excluded",
+    "status",
+    "task_root"
+  ],
+  "diagnostic_only": true,
+  "paper_evidence": false,
+  "source": "data/results/main_real_200/v8_upgrade/mechanism_probe_report.json",
+  "status": "DONE_DIAGNOSTIC_ONLY"
+}

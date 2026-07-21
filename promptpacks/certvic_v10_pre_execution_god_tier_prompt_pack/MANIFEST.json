@@ -1,0 +1,168 @@
+{
+  "pack_name": "certvic_v10_pre_execution_god_tier_prompt_pack",
+  "created_utc": "2026-07-09T14:26:08.006495Z",
+  "purpose": "Final pre-execution hardening before Spurious V2/Main-500 execution",
+  "num_markdown_files": 32,
+  "files": [
+    {
+      "name": "00_MASTER_V10_ORIENTATION.md",
+      "sha256": "d99fdf49f7b27a15fbeda8b98012099ea361e997c87c012c91879892b9b567ce",
+      "bytes": 2078
+    },
+    {
+      "name": "01_EXECUTION_STATE_GRAPH_AND_GATE_LEDGER.md",
+      "sha256": "cb2236b8bb21d857406d5a3c4d532dff2cbcbeb482f86153b72d9d99ead991d9",
+      "bytes": 1864
+    },
+    {
+      "name": "02_SPURIOUS_V2_LARGE_CANDIDATE_EXPANSION.md",
+      "sha256": "b316876bceea7933bd1fb5a30bf564a1bf17f6698104edecf74b12063079c0c8",
+      "bytes": 1832
+    },
+    {
+      "name": "03_SPURIOUS_V2_PREHUMAN_REVIEW_AND_QUALITY_DASHBOARD.md",
+      "sha256": "963576a9a03b75d6aed75368bf1b87069263fe52eba53290773a7e24eb905a86",
+      "bytes": 1566
+    },
+    {
+      "name": "04_SPURIOUS_V2_KAGGLE_RUNTIME_STRESS_TEST_PACK.md",
+      "sha256": "a6697ed698f306cefb6922de96e8baecfca72c5d06994cffaacbb0b539629ac9",
+      "bytes": 1450
+    },
+    {
+      "name": "05_UNIFIED_OUTPUT_IMPORTER_AND_VALIDATOR.md",
+      "sha256": "8401aa82876ed1b6b66186db0d42c73e931b8cfdb3e498590fda29532b47324b",
+      "bytes": 1492
+    },
+    {
+      "name": "06_KAGGLE_DATASET_PACKAGE_HASH_LOCK.md",
+      "sha256": "737c616b997137b31f352884a33ec491cf5f214dd9db7e4053889ec1abfcb4bb",
+      "bytes": 1461
+    },
+    {
+      "name": "07_T4X2_NOTEBOOK_SELF_TEST_SUITE.md",
+      "sha256": "be3771454f2b54ebe063bbdc8fba543d4e693db3d851fb4a34f39e0767f552dd",
+      "bytes": 1560
+    },
+    {
+      "name": "08_EXECUTION_ORCHESTRATOR_CLI_NO_GPU_LOCAL.md",
+      "sha256": "5348725c18b4c2a42de8c012aa1f93fdd83d876ab90823eb1a205a2541b0dcfb",
+      "bytes": 1448
+    },
+    {
+      "name": "09_FAILURE_RECOVERY_AND_RESUME_PROTOCOL.md",
+      "sha256": "f7bf3cf24fdb21381355be787f7c58d1be91aef35e9b25207ef6a45fa0c9481e",
+      "bytes": 1552
+    },
+    {
+      "name": "10_HUMAN_REVIEW_OPERATIONS_CENTER.md",
+      "sha256": "0ea82a9f71b0eed2b12855f5c580d6ea6470425189354c1a7af1837fe157be67",
+      "bytes": 1452
+    },
+    {
+      "name": "11_IAA_AND_ADJUDICATION_PREP.md",
+      "sha256": "7f8a8f5d05a12d2c9fe59726e4e00ddc11c5701f4065f320e908bc91c5f0313c",
+      "bytes": 1434
+    },
+    {
+      "name": "12_MAIN500_READINESS_RISK_BURNDOWN.md",
+      "sha256": "c29039095a6bb36d315a6c7218807b90d5b2cd74019741baa72bc08f9a3da783",
+      "bytes": 1452
+    },
+    {
+      "name": "13_MAIN500_ITEM_SELECTION_STRATIFICATION.md",
+      "sha256": "9ec0a3fcd7071f82381811e8423b184c25b8753bb9032ea59a6a5d4fae575cf6",
+      "bytes": 1474
+    },
+    {
+      "name": "14_MAIN500_DIFFUSION_QUEUE_PREVALIDATION.md",
+      "sha256": "76908e5cb9a08b02ec45d3897e891a51d7712d7b6ff0ae8c5d92d7b0f0b72ec3",
+      "bytes": 1410
+    },
+    {
+      "name": "15_MAIN500_REVIEWER_BLINDING_AND_RANDOMIZATION.md",
+      "sha256": "1d2b0f9d8bf5e3e173e68d17e46911e130dbe2a6bba8a3daa969a06d8fe36101",
+      "bytes": 1426
+    },
+    {
+      "name": "16_MODEL_MATRIX_EXPANSION_FEASIBILITY.md",
+      "sha256": "d733a67d3bc00b78cd811edc8a336772fc4f65e0c31b959fbc4cf525fbd2b4b7",
+      "bytes": 1389
+    },
+    {
+      "name": "17_SECOND_DOMAIN_CANDIDATE_DEEP_PREP.md",
+      "sha256": "6c852dd6be2194d31fbdf7f6bb02bebe3740fbe50f06d27ec8ef1f3f7f1bcdc9",
+      "bytes": 1433
+    },
+    {
+      "name": "18_OPEN_REPLICATION_MINIPACK.md",
+      "sha256": "ff7ca7e062b7ef6287bd8ebc9dccac31f9cee304bc1c80fd72fdb5ec472e83de",
+      "bytes": 1334
+    },
+    {
+      "name": "19_CERTIFICATION_POLICY_FROZEN_SPEC.md",
+      "sha256": "e9d4dd42b4f2f6cfe30a213ca6410aef632439dcffbb0a4259c02978c94397ea",
+      "bytes": 1449
+    },
+    {
+      "name": "20_STATISTICAL_ANALYSIS_PRE_REG_LOCK.md",
+      "sha256": "87675d935bd71d04581a59f0976c4baa1411287c46a1f7bce2217a034306c3c0",
+      "bytes": 1427
+    },
+    {
+      "name": "21_MECHANISM_POLARITY_PAPER_SYNTHESIS.md",
+      "sha256": "fef785f910f4a895f9c2615b4fc6dd254ed66cb614f75c0791f7d3e5a18e21bd",
+      "bytes": 1394
+    },
+    {
+      "name": "22_QUALITATIVE_GALLERY_REVIEWER_MODE.md",
+      "sha256": "c7a41d25a64c66b7a921715e5e9e263ca08afb14db81cd76b5ac001b2d702056",
+      "bytes": 1436
+    },
+    {
+      "name": "23_RELEASE_CANDIDATE_PRE_SUBMISSION_FREEZE.md",
+      "sha256": "bc6de1d1112c028bf72b204bcb64b70b8427b2af9e7228e38d05e578032a13d4",
+      "bytes": 1407
+    },
+    {
+      "name": "24_PAPER_CVPR_COMPILE_AND_ANONYMIZATION.md",
+      "sha256": "7eabe615c5d4bee870851ef815c5c9ba5e30064ab4a526f0792db65dd42d833d",
+      "bytes": 1436
+    },
+    {
+      "name": "25_REVIEWER_ATTACK_REDTEAM_PHASE2.md",
+      "sha256": "a351002f3e2941eaef95caa36d35c3da628fa47f65b2b9e4db1a98fafbff9b2c",
+      "bytes": 1444
+    },
+    {
+      "name": "26_EXECUTION_DASHBOARD_AND_STATUS_CARDS.md",
+      "sha256": "25f99627751522a3ce12b8f820b62de0ed27462cd97481fe8754f645fb4f491a",
+      "bytes": 1436
+    },
+    {
+      "name": "27_EXECUTION_READY_HANDOFF_PACKET.md",
+      "sha256": "5719f80ae28bb4272eecce0d3ccc6e87ca765be6090bebe284ec6e31622c36aa",
+      "bytes": 1413
+    },
+    {
+      "name": "28_DO_NOT_RUN_BOUNDARIES_AND_STOP_CONDITIONS.md",
+      "sha256": "0f5e95256ce96a4f74900cf90478fefd286926bfdd4f3ecd0776620c6c1cac71",
+      "bytes": 1419
+    },
+    {
+      "name": "29_FINAL_PRE_EXECUTION_VALIDATION.md",
+      "sha256": "97e49e6c37fe321d1b3fd6b573eb2951ae198707aafe2a94e28676e743977b74",
+      "bytes": 1398
+    },
+    {
+      "name": "30_SINGLE_MASTER_PROMPT_RUN_ALL_V10.md",
+      "sha256": "7fcfd8caa359dfa25985cbcb75cdf10357d289f00f7daf3e2d934d53697b05f2",
+      "bytes": 1868
+    },
+    {
+      "name": "README.md",
+      "sha256": "d17fde16fb49c9711b664001967871cd432adedb36e3fccf8ac473078667d4eb",
+      "bytes": 1820
+    }
+  ]
+}

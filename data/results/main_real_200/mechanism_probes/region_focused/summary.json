@@ -1,0 +1,15 @@
+{
+  "answer_format": "yes_no",
+  "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+  "flag_condition": "model_says_yes",
+  "image_role": "edited_crop",
+  "mechanism_interpretation": "A 'yes' inside the edited region (where the target was removed/occluded) points to a residual visual cue rather than scene-context anchoring.",
+  "n_tasks": 91,
+  "n_with_bbox": 91,
+  "n_without_bbox": 0,
+  "paper_evidence": false,
+  "probe_family": "region_focused",
+  "prompt_template": "Looking only at this cropped region of an image, is there a clearly visible {target}? Answer with exactly one token: yes or no.",
+  "run_label": "mech_region",
+  "tasks_path": "data/results/main_real_200/mechanism_probes/region_focused/tasks.jsonl"
+}

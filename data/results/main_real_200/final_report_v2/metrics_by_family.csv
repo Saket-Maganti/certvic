@@ -1,0 +1,4 @@
+group,n,original_accuracy,edited_accuracy,consistency_rate,intervention_consistency_gap,parse_failure_rate,spurious_flip_rate
+affordance_reachability,31,0.9354838709677419,0.06451612903225806,0.0,0.9354838709677419,0.0,
+occlusion_safety,6,0.8333333333333334,0.5,0.3333333333333333,0.5,0.0,
+support_stability,54,0.9259259259259259,0.3333333333333333,0.25925925925925924,0.6666666666666667,0.0,

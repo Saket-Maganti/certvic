@@ -1,0 +1,13 @@
+{
+  "answer_format": "yes_no",
+  "evidence_status": "MECHANISM_PROBE_NON_EVIDENCE",
+  "flag_condition": "model_says_yes",
+  "image_role": "edited",
+  "mechanism_interpretation": "If an explicit pixel-only instruction does not reduce the failure, the effect is unlikely to be mere prompt framing.",
+  "n_tasks": 91,
+  "paper_evidence": false,
+  "probe_family": "context_suppression",
+  "prompt_template": "Answer only from the visible pixels, not from scene context or what is usually present in such scenes. Is there a clearly visible {target}? Answer with exactly one token: yes or no.",
+  "run_label": "mech_ctxsupp",
+  "tasks_path": "data/results/main_real_200/mechanism_probes/context_suppression/tasks.jsonl"
+}

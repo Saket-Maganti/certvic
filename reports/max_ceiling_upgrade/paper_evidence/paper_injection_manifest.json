@@ -1,0 +1,19 @@
+{
+  "blockers": [
+    "canonical analysis artifact is absent",
+    "genuine final human-review artifact is absent"
+  ],
+  "generated_table": null,
+  "generated_table_sha256": null,
+  "input_artifacts": [],
+  "paper_evidence": false,
+  "registry_verification": {
+    "artifact_count": 11,
+    "errors": [],
+    "paper_evidence": false,
+    "passed": true,
+    "schema": "certvic.cvpr.artifact_registry_verification.v1"
+  },
+  "schema": "certvic.cvpr.paper_injection_manifest.v1",
+  "status": "PAPER_EVIDENCE_BLOCKED"
+}

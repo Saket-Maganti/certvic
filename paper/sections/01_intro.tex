@@ -1,0 +1,41 @@
+\section{Introduction}
+
+A vision-language model (VLM) can answer an image question correctly and yet
+fail to \emph{update} that answer when a single, decision-relevant visual factor
+changes. Standard accuracy on a static image conflates two abilities: producing a
+correct answer for the observed scene, and revising the decision when the scene
+is intervened upon. We argue that the second ability---\emph{decision consistency
+under controlled interventions}---is the property that matters for trustworthy
+perception, and that it is under-measured by accuracy on fixed images.
+
+CertVIC measures decision consistency under controlled, single-factor,
+real-image interventions. From a real image and an object mask we synthesize a
+minimally edited counterpart that changes the expected answer (e.g.\ removing the
+object beneath a supported item) or, for control items, changes nothing
+decision-relevant. Neutral prompts query the model on the original and edited
+images; an item is \emph{consistent} when the original/edited answer pair
+respects the intended change. We define the
+\emph{intervention-consistency gap} $\Delta = a - p$, where $a$ is original-image
+accuracy and $p$ is the consistency rate, and we \emph{certify} a lower bound on
+$\Delta$ using an anytime-valid confidence sequence (CS), so that the guarantee
+holds even under sequential, optional-stopping evaluation on a small budget.
+
+Two design commitments distinguish CertVIC. First, it is \emph{budget-aware and
+zero-cost}: the entire pipeline runs on local CPU or free GPU with open-source
+models and public data, and it certifies results with a stated statistical
+guarantee rather than relying on large fixed-$n$ test sets. Second, it is
+\emph{recipe-first}: we release source pointers, hashes, masks, edit
+parameters, and scripts rather than redistributing pixels, so results are
+reproducible without licensing hazards.
+
+\paragraph{Contributions.}
+(1) A controlled, single-factor real-image intervention pipeline with explicit
+edit-validity and human review gates.
+(2) An anytime-valid certification of the intervention-consistency gap, with
+power planning and optional-stopping diagnostics.
+(3) Construct-validity baselines and ablations (text-only, caption-only,
+single-image, control edits) that show the task cannot be solved without seeing
+the change.
+(4) A zero-cost, recipe-first, reproducible open-model evaluation workflow.
+Empirical values remain [RESULT REQUIRED] until eligible pilot and main runs
+exist.

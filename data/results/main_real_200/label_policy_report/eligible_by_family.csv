@@ -1,0 +1,5 @@
+task_family,n_eligible_labels,n_eligible_masks
+affordance_reachability,6,1903
+control_irrelevant,127,10179
+occlusion_safety,6,1375
+support_stability,5,1812

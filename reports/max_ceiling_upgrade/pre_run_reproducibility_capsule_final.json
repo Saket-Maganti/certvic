@@ -1,0 +1,82 @@
+{
+  "artifact_bindings": {
+    "analysis_plan": {
+      "artifact_id": "59a913ea487943aae9521cba",
+      "location": "configs/studies/specificity_confirmatory_cvpr.yaml",
+      "sha256": "bb82612e09346599b0cabe3d1876369a652fc56e3406cd98ac21ce699a62ca25"
+    },
+    "code": {
+      "artifact_id": "7828740629171caabf80153c",
+      "location": "reports/max_ceiling_upgrade/code_snapshot_final.json",
+      "sha256": "d2e43880d4615e444503137ca30f8287ad87c8b7a88f4cbd594e011756c4d963"
+    },
+    "environment": {
+      "artifact_id": "806c9009c28cf389dcc05bb9",
+      "location": "configs/runtime/kaggle_t4x2_environment.lock.json",
+      "sha256": "d18b5920c529a12a74b5ac9099b6da8e24771ed232b9096a1a71bab0d3a1d94a"
+    },
+    "human_review": {
+      "artifact_id": "3327d66e4cd01efc2b9eaf18",
+      "location": "reports/v11_full_ceiling_audit/human_review_packet/human_review_validation.json",
+      "sha256": "6fd454266932ab58bcc839427e80f68f57fce60d0ea10757b627ba015e6af87c"
+    },
+    "model_registry": {
+      "artifact_id": "70337748f1e08910ca566e22",
+      "location": "configs/models/certvic_cvpr_model_registry.yaml",
+      "sha256": "a6efb5c365e5e5e47905a8c0d8914a4c811483320e1b1be5f25d617a1316bc1c"
+    },
+    "parser": {
+      "artifact_id": "9fd36b3c3a72abae809fd59f",
+      "location": "certvic/eval/parse.py",
+      "sha256": "309dddd0f20b5dcba1a261464ba2fdb8a4bf3ea4ca522101e7c574dbb78efeba"
+    },
+    "prompt": {
+      "artifact_id": "1b7f9052fc3b0f73b253721c",
+      "location": "certvic/cvpr/notebook_builder.py",
+      "sha256": "30081d2aaa45b4b655162ea377ec24792831b1da1a4359551e147bb6a34379fe"
+    },
+    "run_contract": {
+      "artifact_id": "3d493c905ea54010cf5d3f6d",
+      "location": "certvic/cvpr/run_contract.py",
+      "sha256": "2aa80e35823e7bcc9477c0a281e227eb281270a146f9cb7aae5186c94b880571"
+    },
+    "task_freeze": {
+      "artifact_id": "dfd48a467cd5fc36c564d3cb",
+      "location": "configs/studies/cvpr_pre_execution_freeze_manifest.json",
+      "sha256": "23c64e7f4216130572d0daf1a3473250bd9331f941ab7956ae4f95f414d27057"
+    }
+  },
+  "capsule_hash": "584d23f91145cdc858a47b8d099e442759132c33c10921ae61158842ceddbc35",
+  "created_at_utc": "2026-07-19T04:37:37.478042+00:00",
+  "missing_roles": [
+    "detectability",
+    "execution_permission",
+    "import_transaction",
+    "model_snapshots",
+    "provider_nonce",
+    "provider_return",
+    "task_bundle"
+  ],
+  "paper_evidence": false,
+  "required_roles": [
+    "code",
+    "task_bundle",
+    "task_freeze",
+    "human_review",
+    "detectability",
+    "environment",
+    "model_snapshots",
+    "model_registry",
+    "prompt",
+    "parser",
+    "run_contract",
+    "execution_permission",
+    "provider_nonce",
+    "provider_return",
+    "import_transaction",
+    "analysis_plan"
+  ],
+  "schema": "certvic.cvpr.reproducibility_capsule.v1",
+  "status": "INCOMPLETE_EXTERNAL_BINDINGS",
+  "study": "specificity_confirmatory_cvpr"
+}

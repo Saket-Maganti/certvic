@@ -1,0 +1,16 @@
+[
+  {
+    "edit_type": "remove",
+    "edited_image_path": "data/smoke/images/smoke_000_var.png",
+    "item_id": "v4_item_001",
+    "original_image_path": "data/smoke/images/smoke_000_orig.png",
+    "task_family": "support_stability"
+  },
+  {
+    "edit_type": "remove",
+    "edited_image_path": "data/smoke/images/smoke_000_var.png",
+    "item_id": "v4_item_001",
+    "original_image_path": "data/smoke/images/smoke_000_orig.png",
+    "task_family": "support_stability"
+  }
+]

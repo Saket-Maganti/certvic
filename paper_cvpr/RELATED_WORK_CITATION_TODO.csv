@@ -1,0 +1,10 @@
+topic,comparison_needed,verification_status
+VLM robustness,"scope, estimand, threat model, evidence",REQUIRED_RESEARCHER_SOURCE_VERIFICATION
+counterfactual VQA,"scope, estimand, threat model, evidence",REQUIRED_RESEARCHER_SOURCE_VERIFICATION
+image-edit evaluation,"scope, estimand, threat model, evidence",REQUIRED_RESEARCHER_SOURCE_VERIFICATION
+consistency testing,"scope, estimand, threat model, evidence",REQUIRED_RESEARCHER_SOURCE_VERIFICATION
+certified robustness,"scope, estimand, threat model, evidence",REQUIRED_RESEARCHER_SOURCE_VERIFICATION
+confidence sequences,"scope, estimand, threat model, evidence",REQUIRED_RESEARCHER_SOURCE_VERIFICATION
+sequential testing,"scope, estimand, threat model, evidence",REQUIRED_RESEARCHER_SOURCE_VERIFICATION
+benchmark validity,"scope, estimand, threat model, evidence",REQUIRED_RESEARCHER_SOURCE_VERIFICATION
+human evaluation,"scope, estimand, threat model, evidence",REQUIRED_RESEARCHER_SOURCE_VERIFICATION

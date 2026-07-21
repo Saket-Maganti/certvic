@@ -1,0 +1,9 @@
+{
+  "status": "BLOCKED_NO_RATER_LABELS",
+  "percent_agreement": null,
+  "cohens_kappa": null,
+  "disagreements": [],
+  "excluded_items": [],
+  "final_approved_item_count": 0,
+  "paper_evidence": false
+}

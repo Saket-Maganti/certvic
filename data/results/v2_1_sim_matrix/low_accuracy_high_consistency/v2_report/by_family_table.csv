@@ -1,0 +1,5 @@
+group,n,orig_acc,consistency,gap
+affordance_reachability,50,0.72,0.68,0.039999999999999925
+control_irrelevant,50,0.74,0.66,0.07999999999999996
+occlusion_safety,50,0.62,0.78,-0.16000000000000003
+support_stability,50,0.76,0.78,-0.020000000000000018

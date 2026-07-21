@@ -1,0 +1,227 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.78in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\newcommand{\statusbox}[1]{\fcolorbox{black}{gray!8}{\parbox{0.94\linewidth}{#1}}}
+\title{CertVIC: Separating Visual Responsiveness from Intervention Specificity\\
+in Open Vision-Language Models}
+\author{Anonymous}
+\date{}
+
+\begin{document}
+\maketitle
+
+\statusbox{\textbf{Evidence status.} This V11 draft reports a real, pilot-scale set of
+open-model outputs, but it is not a submission-ready empirical paper. The item-validity
+screen used to form the 91-item intervention set was machine-assisted, the independent
+second-rater sheet is blank, and the 30-item Spurious V2 follow-up has no model outputs or
+human labels. Numerical confidence-sequence crossings are therefore reported separately
+from full scientific claim eligibility.}
+
+\begin{abstract}
+Vision-language model evaluations often reward a response change after an image edit,
+but responsiveness alone is ambiguous: a model may react to any visible perturbation
+rather than to the intended semantic intervention. CertVIC separates two paired
+quantities: responsiveness to edits that should change an answer and specificity under
+edits that should leave it unchanged. A pilot on three open 7--8B models yields large
+descriptive intervention gaps on 91 machine-screened ADE20K pairs, with anytime-valid
+lower bounds above the configured numerical threshold. The specificity control changes
+the interpretation. On 94 irrelevant-edit pairs, Qwen2.5-VL-7B flips on 12 items
+(0.1277) and fails the frozen observed-rate gate of 0.10; InternVL2-8B and
+LLaVA-OneVision-7B flip on 1 and 3 items. All twelve Qwen failures are Qwen-only within
+the paired three-model comparison, and parser/provenance checks do not explain them.
+These results motivate a model-dependent specificity hypothesis, not a broad robustness
+claim. We describe the evidence boundary, the prospective control protocol, and the
+human and scale validations required before stronger conclusions.
+\end{abstract}
+
+\section{Why responsiveness and specificity must be separated}
+
+An edited image can change a model answer for at least two reasons. The intended semantic
+fact may have changed, or the model may simply be sensitive to a low-level perturbation.
+Conversely, an unchanged answer after a relevant edit may indicate decision inertia even
+when the model recognizes natural object absence. A useful intervention evaluation must
+therefore measure both responsiveness and invariance under a matched no-change control.
+
+CertVIC's primary contribution is an evaluation protocol and estimand, not a collection
+of execution wrappers. The protocol links a source image, a documented edit, a locked
+question/answer pair, raw model responses, strict parsing, and a claim gate. Its
+statistical component supplies a time-uniform uncertainty bound for a predeclared item
+order. The pilot's scientific observation is narrower: responsiveness and specificity
+are empirically separable, and specificity is model dependent on the available control.
+
+\paragraph{Scope relative to prior work.}
+The repository's related-work matrix identifies counterfactual VQA, visual robustness,
+consistency testing, and anytime-valid inference as the closest categories, but verified
+bibliographic anchors are still missing. This draft therefore makes no priority claim.
+A submission must establish which prior methods measure answer updates without a
+matched irrelevant-edit gate, and which uncertainty procedures remain valid under
+continuous monitoring.
+
+\section{Paired estimands and statistical decision}
+
+For eligible item $i$, let $A_i$ be original-image correctness and let $C_i$ indicate
+whether the parse-valid response pair changes for a relevant intervention or remains
+unchanged for an irrelevant control. The historical $C_i$ does not require the edited
+answer to equal edited gold; correct semantic update success is reported separately.
+The descriptive quantities are
+\begin{equation}
+ a=\frac{1}{n}\sum_i A_i,\qquad
+ p=\frac{1}{n}\sum_i C_i,\qquad
+ \Delta=a-p.
+\end{equation}
+The historical symbol $p$ denotes consistency, not a p-value. For a no-change control,
+$F_i=1-C_i$ and $\hat f=n^{-1}\sum_i F_i$ is the spurious flip rate.
+
+The implementation maps the gap variable to
+\begin{equation}
+ D_i=(A_i-C_i+1)/2\in[0,1],\qquad
+ \Delta=2\mathbb{E}[D_i]-1,
+\end{equation}
+and applies a Hoeffding normal-mixture confidence sequence with a data-independent scale
+set by the planned horizon. Its time-uniform coverage supports optional stopping for the
+predeclared order under the bounded conditional-mean assumptions. It does not establish
+edit validity, use of the intended visual evidence, provider reproducibility, or population
+generalization. Those require separate gates.
+
+\paragraph{Frozen V1 rule and prospective V2 rule.}
+The V1 decision remains the observed-rate rule $\hat f\leq0.10$; it is not changed after
+seeing outcomes. For V2, Qwen is the predeclared primary model and the prospective rule
+uses a one-sided 95\% Clopper--Pearson upper bound that must be at most 0.10. A joint
+three-model statement uses Bonferroni level $0.05/3$ per model. Missing or unparseable
+pairs fail the primary endpoint. Raw and pre-result validity-filtered analyses are both
+reported.
+
+\section{Repository evidence and validity status}
+
+The intervention pilot contains 91 item pairs selected from 103 candidates. The source
+images and masks are from the local ADE20K release; edits include removal, displacement,
+and occlusion. The predictions are real outputs imported from free Kaggle runs for
+Qwen2.5-VL-7B, InternVL2-8B, and LLaVA-OneVision-7B. Their exact model commit revisions
+were not recorded, which limits replication across changing model repositories.
+
+The repository labels this item set ``human reviewed,'' but its completed review CSV
+identifies the reviewer as \texttt{assistant\_visual\_review\_v1}. The independent
+second-rater export contains 91 blank rows. V11 therefore treats the model predictions
+as real observed evidence and the review-derived inclusion decisions as
+machine-assisted preliminary. This distinction weakens claim eligibility without
+altering the raw responses or the numerical estimators.
+
+The V1 specificity arm contains 94 paired irrelevant edits per model. All 188 response
+rows per provider parse as strict yes/no tokens; item IDs, providers, image pairs, and
+merged zip members match. An objective image audit finds no target-mask overlap, but 20
+of 94 difference bounding boxes intersect conservative target boxes. The detectability
+diagnostic reports symmetric grouped-item AUC 0.7123, below its repository flag threshold
+of 0.8 but clearly not
+proof of imperceptibility.
+
+\section{Pilot results}
+
+\begin{table}[t]
+\centering
+\caption{Real pilot outputs. $a$, $p$, and $\Delta$ use the 91 intervention pairs. The
+CS lower bound is a numerical time-uniform bound, not full evidence eligibility. The V1
+specificity gate is the frozen observed-rate rule.}
+\small
+\begin{tabular}{lrrrrrrl}
+\toprule
+Model & $n$ & $a$ & $p$ & $\Delta$ & CS LB & V1 flips & Gate \\
+\midrule
+Qwen2.5-VL-7B & 91 & .923 & .176 & .747 & .364 & 12/94 & fail \\
+InternVL2-8B & 91 & .923 & .099 & .824 & .441 & 1/94 & pass \\
+LLaVA-OneVision-7B & 91 & .890 & .176 & .714 & .331 & 3/94 & pass \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The intervention gaps are large for every model in this pilot, and the numerical
+confidence-sequence lower bounds exceed the configured gap threshold 0.05. Those values
+are reproducible from the raw paired rows. They do not clear the full policy: the set has
+$n=91$ versus the configured minimum 150, lacks completed independent human validation,
+and Qwen fails the separate specificity gate.
+
+For Qwen and InternVL, every observed answer change on this arm also moves from the
+original gold answer to the edited gold answer (16/91 and 9/91). LLaVA changes on 16/91
+items, but only 13 end on the correct edited answer. This distinction is why $p$ is
+described as raw response change rather than semantic success.
+
+The natural present/absent control indicates that the models can recognize unedited
+absence: combined accuracy is 0.897 for Qwen, 0.935 for InternVL, and 0.932 for LLaVA on
+369 validation images. Thus the observed intervention behavior is not explained solely
+by an unconditional tendency to answer that the queried object is present. The control
+does not by itself validate the edited images.
+
+\paragraph{Paired model comparison.}
+On the same 94 specificity items, the Qwen-minus-InternVL flip-risk difference is 0.117
+and the Qwen-minus-LLaVA difference is 0.096. Exact McNemar p-values are 0.0034 and
+0.0352; after a three-comparison Holm family the second contrast is not below 0.05.
+These analyses are retrospective and exploratory. InternVL versus LLaVA has risk
+difference $-0.021$ and exact p-value 0.625.
+
+\section{Forensics of the twelve Qwen flips}
+
+Each Qwen failure changes from parsed ``yes'' on the original image to ``no'' on the
+edited image. The corresponding InternVL and LLaVA pairs do not flip. No missing row,
+duplicate item/variant key, parse error, provider mismatch, or image-path mismatch was
+found. Two Qwen failures have conservative difference bounding boxes intersecting the
+target box, while target-mask overlap is zero for every item. Machine-generated visual
+categories in older artifacts are diagnostics and are not used as human-validity labels.
+
+This pattern is consistent with model-dependent sensitivity to irrelevant edits, but it
+does not identify a mechanism. The model revisions, quantization details, and exact
+processor commits are incomplete in the historical run manifests. A repeat under pinned
+revisions and a blinded validity review is required before assigning the difference to
+architecture rather than run configuration.
+
+\section{Prospective Spurious V2 and scale decision}
+
+The repository contains a stricter 30-item V2 package built from the 94-item source pool.
+Its objective construction enforces zero target-mask overlap, no target-box intersection,
+minimum box distance 75 pixels, and a stored detectability-score cap of 0.12. The set was
+constructed after V1 was observed. Four of the twelve known Qwen failures remain in the
+set and eight are removed by post-V1 geometry/salience rules. It is therefore a
+retrospective stricter-control sensitivity set, not an independent confirmatory sample.
+
+No V2 provider output or real human label is present. Moreover, $n=30$ is too small for a
+strong simultaneous three-model upper-bound statement: even zero failures cannot put a
+one-sided Bonferroni upper bound below 0.10. V2 is useful as a re-encoding/strict-filter
+sensitivity check, but it cannot clear a confirmatory specificity gate. A larger
+independently sourced control set containing no V1 items is needed for a broad
+specificity claim.
+
+Human review must precede result unblinding. Two independent raters receive randomized
+anonymous pairs without provider outputs or V1 failure labels. They judge target
+preservation, answer invariance, perturbation acceptability, ambiguity, answerability,
+and retention. The raw set remains reported regardless of exclusions.
+
+Main-500 remains blocked. It becomes scientifically useful only after the specificity
+branch is resolved, item selection and replacement are outcome blind, model revisions
+are pinned, and real human review and objective edit-quality gates pass. A Qwen failure
+does not require abandoning the project; it changes the paper's question from uniform
+specificity to when responsiveness and specificity diverge across models.
+
+\section{Limitations and research path}
+
+The current evidence has five dominant limitations. First, human item validity is not
+complete. Second, the sample is small and from one dataset/domain. Third, the V2 set is
+derived from a post-V1 source pool and has only 30 items. Fourth, historical model and
+processor revisions are not pinned. Fifth, related work and legal redistribution details
+still require verified sources. Diagnostic polarity and mechanism probes also contain
+format-specific parse failures and cannot support mechanistic claims.
+
+The shortest credible path is to repair and hash-lock the execution notebook and
+transactional importer; complete blinded review before any new unblinding; use the
+30-item runs only if their retrospective sensitivity value justifies the compute; build
+an independent control set; apply the frozen decision there; and only then decide whether
+a locked Main-500 or a small second-domain confirmation adds more value. The current
+local assets do not include unused control candidates or a second-domain dataset, so the
+independent set requires new data acquisition outside this local-only pass.
+
+\section{Conclusion}
+
+The real pilot shows large descriptive update gaps and model-dependent specificity under
+the frozen V1 rule. Stronger conclusions require blinded human review, pinned replication,
+and an independent powered control.
+
+\end{document}

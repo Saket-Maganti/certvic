@@ -1,0 +1,626 @@
+{
+  "bootstrap": {
+    "by_domain": {
+      "household": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.17582417582417584,
+          "lower": 0.0989010989010989,
+          "n_boot": 300,
+          "upper": 0.26950549450549427
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.7472527472527473,
+          "lower": 0.6593406593406593,
+          "n_boot": 300,
+          "upper": 0.8351648351648352
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.9230769230769231,
+          "lower": 0.8733516483516484,
+          "n_boot": 300,
+          "upper": 0.9728021978021976
+        }
+      }
+    },
+    "by_required_change": {
+      "change": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.17582417582417584,
+          "lower": 0.0989010989010989,
+          "n_boot": 300,
+          "upper": 0.26950549450549427
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.7472527472527473,
+          "lower": 0.6593406593406593,
+          "n_boot": 300,
+          "upper": 0.8351648351648352
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.9230769230769231,
+          "lower": 0.8733516483516484,
+          "n_boot": 300,
+          "upper": 0.9728021978021976
+        }
+      }
+    },
+    "by_task_family": {
+      "affordance_reachability": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.9354838709677419,
+          "lower": 0.8387096774193549,
+          "n_boot": 300,
+          "upper": 1.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.9354838709677419,
+          "lower": 0.8387096774193549,
+          "n_boot": 300,
+          "upper": 1.0
+        }
+      },
+      "occlusion_safety": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.3333333333333333,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.6666666666666666
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.5,
+          "lower": 0.16666666666666666,
+          "n_boot": 300,
+          "upper": 0.8333333333333334
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.8333333333333334,
+          "lower": 0.5,
+          "n_boot": 300,
+          "upper": 1.0
+        }
+      },
+      "support_stability": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.25925925925925924,
+          "lower": 0.14814814814814814,
+          "n_boot": 300,
+          "upper": 0.3888888888888889
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.6666666666666666,
+          "lower": 0.5458333333333334,
+          "n_boot": 300,
+          "upper": 0.7777777777777778
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.9259259259259259,
+          "lower": 0.8518518518518519,
+          "n_boot": 300,
+          "upper": 0.9814814814814815
+        }
+      }
+    },
+    "overall": {
+      "certification_eligible": false,
+      "consistency_rate": {
+        "alpha": 0.05,
+        "estimate": 0.17582417582417584,
+        "lower": 0.0989010989010989,
+        "n_boot": 500,
+        "upper": 0.26373626373626374
+      },
+      "intervention_consistency_gap": {
+        "alpha": 0.05,
+        "estimate": 0.7472527472527473,
+        "lower": 0.6593406593406593,
+        "n_boot": 500,
+        "upper": 0.8351648351648352
+      },
+      "label": "descriptive_only_not_anytime_valid",
+      "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+      "original_accuracy": {
+        "alpha": 0.05,
+        "estimate": 0.9230769230769231,
+        "lower": 0.8681318681318682,
+        "n_boot": 500,
+        "upper": 0.967032967032967
+      }
+    }
+  },
+  "certification": {
+    "alpha": 0.05,
+    "certification_gate_errors": [],
+    "certified": true,
+    "confidence_sequence": {
+      "alpha": 0.05,
+      "available": true,
+      "hi": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "latest": {
+        "hi": 1.0,
+        "lo": 0.36395841718089605
+      },
+      "lo": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -0.9787278649956712,
+        -0.8705147233829247,
+        -0.7742937347171479,
+        -0.6881717915249268,
+        -0.6606343996813955,
+        -0.6356936278513254,
+        -0.5675411616191508,
+        -0.5052918652290972,
+        -0.4482081195495007,
+        -0.3956703189188848,
+        -0.3856157148674684,
+        -0.37628714641334615,
+        -0.3676070424327854,
+        -0.35950852698352886,
+        -0.3519336368922815,
+        -0.31257381980498766,
+        -0.2756590888488373,
+        -0.24096733098852852,
+        -0.20830256096341193,
+        -0.17749118883233816,
+        -0.1483789095915029,
+        -0.12082809717592413,
+        -0.09471560993188666,
+        -0.06993093370669012,
+        -0.07137460347276803,
+        -0.07273734373649354,
+        -0.05021552222002068,
+        -0.02873142395783368,
+        -0.03094166983300828,
+        -0.010822290418183389,
+        0.008431209816368579,
+        0.026874009258786025,
+        0.023723356318459565,
+        0.04111754183546035,
+        0.057823794801995954,
+        0.07388250407850538,
+        0.08933095298969107,
+        0.10420361226914254,
+        0.11853240045547064,
+        0.1323469158824544,
+        0.1456746438139218,
+        0.15854114177573098,
+        0.1537288264058665,
+        0.16603486672725465,
+        0.1779366214272886,
+        0.18945391837277814,
+        0.18447627481759366,
+        0.19553514425776508,
+        0.20625376514444715,
+        0.21664779279311985,
+        0.2267319344530423,
+        0.23652002004258388,
+        0.24602506664364432,
+        0.25525933738827566,
+        0.2642343952982764,
+        0.27296115257533904,
+        0.28144991578404377,
+        0.28971042732152474,
+        0.28423839001154527,
+        0.278916403064692,
+        0.2868964030946417,
+        0.2816860707698081,
+        0.2894337190048779,
+        0.2969890124292003,
+        0.30435913289529326,
+        0.31155090803634167,
+        0.3185708328563033,
+        0.3254250897594959,
+        0.3321195671497137,
+        0.3386598767166622,
+        0.345051369516554,
+        0.351299150943881,
+        0.3574080946825593,
+        0.352146900660538,
+        0.35811677136314857,
+        0.36395841718089605
+      ],
+      "method": "certvic.anytime_cs.hoeffding_mixture",
+      "t_opt": 91
+    },
+    "cs_threshold_passed": true,
+    "lower_bound": 0.36395841718089605,
+    "safe_claim": "Under the configured item order and anytime-valid CS, the intervention-consistency gap lower bound exceeds 0.05 at alpha=0.05 for this run.",
+    "statement": "Under the configured item order and anytime-valid CS, the intervention-consistency gap lower bound exceeds 0.05 at alpha=0.05 for this run.",
+    "threshold": 0.05,
+    "upper_bound": 1.0
+  },
+  "claim_ledger_compatible": true,
+  "descriptive_ci": {
+    "by_domain": {
+      "household": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.17582417582417584,
+          "lower": 0.0989010989010989,
+          "n_boot": 300,
+          "upper": 0.26950549450549427
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.7472527472527473,
+          "lower": 0.6593406593406593,
+          "n_boot": 300,
+          "upper": 0.8351648351648352
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.9230769230769231,
+          "lower": 0.8733516483516484,
+          "n_boot": 300,
+          "upper": 0.9728021978021976
+        }
+      }
+    },
+    "by_required_change": {
+      "change": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.17582417582417584,
+          "lower": 0.0989010989010989,
+          "n_boot": 300,
+          "upper": 0.26950549450549427
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.7472527472527473,
+          "lower": 0.6593406593406593,
+          "n_boot": 300,
+          "upper": 0.8351648351648352
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.9230769230769231,
+          "lower": 0.8733516483516484,
+          "n_boot": 300,
+          "upper": 0.9728021978021976
+        }
+      }
+    },
+    "by_task_family": {
+      "affordance_reachability": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.0,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.0
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.9354838709677419,
+          "lower": 0.8387096774193549,
+          "n_boot": 300,
+          "upper": 1.0
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.9354838709677419,
+          "lower": 0.8387096774193549,
+          "n_boot": 300,
+          "upper": 1.0
+        }
+      },
+      "occlusion_safety": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.3333333333333333,
+          "lower": 0.0,
+          "n_boot": 300,
+          "upper": 0.6666666666666666
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.5,
+          "lower": 0.16666666666666666,
+          "n_boot": 300,
+          "upper": 0.8333333333333334
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.8333333333333334,
+          "lower": 0.5,
+          "n_boot": 300,
+          "upper": 1.0
+        }
+      },
+      "support_stability": {
+        "certification_eligible": false,
+        "consistency_rate": {
+          "alpha": 0.05,
+          "estimate": 0.25925925925925924,
+          "lower": 0.14814814814814814,
+          "n_boot": 300,
+          "upper": 0.3888888888888889
+        },
+        "intervention_consistency_gap": {
+          "alpha": 0.05,
+          "estimate": 0.6666666666666666,
+          "lower": 0.5458333333333334,
+          "n_boot": 300,
+          "upper": 0.7777777777777778
+        },
+        "label": "descriptive_only_not_anytime_valid",
+        "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+        "original_accuracy": {
+          "alpha": 0.05,
+          "estimate": 0.9259259259259259,
+          "lower": 0.8518518518518519,
+          "n_boot": 300,
+          "upper": 0.9814814814814815
+        }
+      }
+    },
+    "overall": {
+      "certification_eligible": false,
+      "consistency_rate": {
+        "alpha": 0.05,
+        "estimate": 0.17582417582417584,
+        "lower": 0.0989010989010989,
+        "n_boot": 500,
+        "upper": 0.26373626373626374
+      },
+      "intervention_consistency_gap": {
+        "alpha": 0.05,
+        "estimate": 0.7472527472527473,
+        "lower": 0.6593406593406593,
+        "n_boot": 500,
+        "upper": 0.8351648351648352
+      },
+      "label": "descriptive_only_not_anytime_valid",
+      "note": "Paired bootstrap CIs are descriptive only and are never anytime-valid certification.",
+      "original_accuracy": {
+        "alpha": 0.05,
+        "estimate": 0.9230769230769231,
+        "lower": 0.8681318681318682,
+        "n_boot": 500,
+        "upper": 0.967032967032967
+      }
+    }
+  },
+  "summary": {
+    "by_domain": {
+      "household": {
+        "consistency_rate": 0.17582417582417584,
+        "edited_accuracy": 0.25274725274725274,
+        "intervention_consistency_gap": 0.7472527472527473,
+        "n": 91,
+        "original_accuracy": 0.9230769230769231,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      }
+    },
+    "by_required_change": {
+      "change": {
+        "consistency_rate": 0.17582417582417584,
+        "edited_accuracy": 0.25274725274725274,
+        "intervention_consistency_gap": 0.7472527472527473,
+        "n": 91,
+        "original_accuracy": 0.9230769230769231,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      }
+    },
+    "by_task_family": {
+      "affordance_reachability": {
+        "consistency_rate": 0.0,
+        "edited_accuracy": 0.06451612903225806,
+        "intervention_consistency_gap": 0.9354838709677419,
+        "n": 31,
+        "original_accuracy": 0.9354838709677419,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      },
+      "occlusion_safety": {
+        "consistency_rate": 0.3333333333333333,
+        "edited_accuracy": 0.5,
+        "intervention_consistency_gap": 0.5,
+        "n": 6,
+        "original_accuracy": 0.8333333333333334,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      },
+      "support_stability": {
+        "consistency_rate": 0.25925925925925924,
+        "edited_accuracy": 0.3333333333333333,
+        "intervention_consistency_gap": 0.6666666666666667,
+        "n": 54,
+        "original_accuracy": 0.9259259259259259,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      }
+    },
+    "consistency_rate": 0.17582417582417584,
+    "control_edit": {
+      "consistency_rate": null,
+      "n": 0,
+      "spurious_flip_rate": null
+    },
+    "edited_accuracy": 0.25274725274725274,
+    "intervention_consistency_gap": 0.7472527472527473,
+    "n": 91,
+    "original_accuracy": 0.9230769230769231,
+    "parse_failure_rate": 0.0,
+    "parse_failure_sensitivity": {
+      "metrics_parse_fail_as_inconsistent": {
+        "consistency_rate": 0.17582417582417584,
+        "edited_accuracy": 0.25274725274725274,
+        "intervention_consistency_gap": 0.7472527472527473,
+        "n": 91,
+        "original_accuracy": 0.9230769230769231,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      },
+      "metrics_parse_ok_only": {
+        "consistency_rate": 0.17582417582417584,
+        "edited_accuracy": 0.25274725274725274,
+        "intervention_consistency_gap": 0.7472527472527473,
+        "n": 91,
+        "original_accuracy": 0.9230769230769231,
+        "parse_failure_rate": 0.0,
+        "spurious_flip_rate": null
+      },
+      "n_parse_failures": 0,
+      "note": "Descriptive sensitivity only; parse-failure handling is never a certification substitute.",
+      "parse_failure_rate": 0.0
+    },
+    "spurious_flip_rate": null
+  }
+}

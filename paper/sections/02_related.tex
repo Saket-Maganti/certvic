@@ -1,0 +1,33 @@
+\section{Related Work}
+
+\paragraph{VLM evaluation and robustness.} A large body of work measures VLM
+accuracy on visual question answering and reasoning. Our focus is orthogonal:
+not whether a model is correct on a fixed image, but whether it \emph{updates}
+its decision under a controlled change. Citations are tracked in the
+related-work matrix; no fabricated references are included.
+
+\paragraph{Counterfactual and minimal-pair evaluation.} Counterfactual VQA and
+minimal-pair probing construct paired inputs differing in one factor. CertVIC
+differs by (i) using \emph{real} images edited under documented recipes rather
+than synthetic or text-only counterfactuals, (ii) enforcing single-factor
+validity through edit-quality gates and human review, and (iii) certifying the
+resulting gap rather than reporting point estimates.
+
+\paragraph{Image editing for evaluation.} Inpainting and object removal have been
+used to create test stimuli. We treat edit realism and single-factor validity as
+first-class measured quantities (quality gates plus inter-annotator agreement)
+rather than assumed properties, and we keep crude and photorealistic edit engines
+explicitly separated.
+
+\paragraph{Anytime-valid inference.} Confidence sequences and betting-based tests
+provide time-uniform coverage under optional stopping. We apply these tools to an
+\emph{evaluation gap} so that a small, budget-constrained study yields a valid
+certified lower bound; this statistical framing is the core methodological
+contribution.
+
+\paragraph{Dataset licensing and reproducibility.} Recipe-first release (pointers,
+hashes, scripts) avoids redistributing non-rehostable pixels while remaining
+reproducible.
+
+Empirical comparisons remain [RESULT REQUIRED]. Full citations will be added
+without fabrication.

@@ -1,0 +1,9 @@
+{
+  "flipped": 3,
+  "gate_pass": true,
+  "gate_threshold": 0.1,
+  "n_items": 94,
+  "spurious_flip_rate": 0.0319,
+  "yes_items": 88,
+  "yes_to_no_flips": 1
+}

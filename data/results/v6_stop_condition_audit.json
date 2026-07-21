@@ -1,0 +1,25 @@
+{
+  "audit": "v6_stop_condition",
+  "checks": [
+    {
+      "missing": [],
+      "name": "required_stop_docs_exist",
+      "passed": true
+    },
+    {
+      "name": "next_action_is_ade20k_dry_run",
+      "passed": true
+    },
+    {
+      "name": "generic_infrastructure_disallowed",
+      "passed": true
+    },
+    {
+      "missing": [],
+      "name": "future_coding_exceptions_listed",
+      "passed": true
+    }
+  ],
+  "guidance": "After V6, run the ADE20K dry-run; do not build V7.",
+  "passed": true
+}

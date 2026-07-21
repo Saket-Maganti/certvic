@@ -1,0 +1,82 @@
+{
+  "contracts": {
+    "analysis_plan": {
+      "inline_contract": {
+        "human_filter": "FINAL_ADJUDICATED_INCLUSION",
+        "missing_policy": "COUNT_AS_FAILURE_PRIMARY",
+        "paper_promotion": "SEPARATE_CLAIM_GATE_REQUIRED",
+        "specificity_interval": "ONE_SIDED_CLOPPER_PEARSON_BONFERRONI_THREE_MODELS"
+      },
+      "sha256": "43ab93097ef5d5ca3fde729b9b16f9a504f0eb6c181fc0ce54f5bede615f5b1d"
+    },
+    "coco_feasibility": {
+      "path": "configs/studies/second_domain_cvpr.yaml",
+      "sha256": "0d5a4d5dc16fb4aec947219882a22a92b4bca60c23503070094b4d5b1f08d64e"
+    },
+    "confirmatory_study": {
+      "path": "configs/studies/specificity_confirmatory_cvpr.yaml",
+      "sha256": "73d0416ba66e5956a8625b15f0a453bcda0880fc538f425dbc5b7c234868af7e"
+    },
+    "environment": {
+      "path": "configs/runtime/kaggle_t4x2_environment.lock.json",
+      "sha256": "d18b5920c529a12a74b5ac9099b6da8e24771ed232b9096a1a71bab0d3a1d94a"
+    },
+    "human_review_rules": {
+      "inline_contract": {
+        "adjudication": "OUTCOME_BLIND",
+        "distinct_identities": true,
+        "raters": 2,
+        "semantic_fields": [
+          "semantic_transition_supported",
+          "target_edit_successful",
+          "non_target_content_preserved",
+          "perturbation_acceptable",
+          "original_image_answerable",
+          "edited_image_answerable",
+          "retain",
+          "confidence",
+          "reason_code"
+        ],
+        "specificity_fields": [
+          "target_unaffected",
+          "expected_answer_unchanged",
+          "perturbation_acceptable",
+          "image_answerable",
+          "prompt_unambiguous",
+          "retain",
+          "confidence",
+          "reason_code"
+        ]
+      },
+      "sha256": "cd3e97143aedd9c30e9a4d039375d1c96a63f9cd686fbca61b0a2123e44f7c2d"
+    },
+    "main_study": {
+      "path": "configs/studies/main_study_cvpr.yaml",
+      "sha256": "c4eb7690f71656af9b695175fc34d1a50061f4f349a83dd8d5cc8edf29fa97c4"
+    },
+    "model_matrix": {
+      "path": "configs/models/certvic_cvpr_model_registry.yaml",
+      "sha256": "949ee74b528f18cc162fc4c33654b87d8fc13c2efcc92a4d0ba944d870b5324d"
+    }
+  },
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.pre_execution_freeze_manifest.v1",
+  "signature_type": "SHA256_CONTENT_LOCK_NOT_CRYPTOGRAPHIC_IDENTITY_SIGNATURE",
+  "status": "HASH_LOCKED_WITH_EXTERNAL_FIELDS_UNRESOLVED",
+  "unresolved_external_fields": {
+    "model_matrix": [
+      "models.qwen2_5_vl_7b.model_commit",
+      "models.qwen2_5_vl_7b.processor_commit",
+      "models.qwen2_5_vl_7b.snapshot_manifest_sha256",
+      "models.qwen2_5_vl_7b.snapshot_manifest_path",
+      "models.internvl_8b.model_commit",
+      "models.internvl_8b.processor_commit",
+      "models.internvl_8b.snapshot_manifest_sha256",
+      "models.internvl_8b.snapshot_manifest_path",
+      "models.llava_onevision_7b.model_commit",
+      "models.llava_onevision_7b.processor_commit",
+      "models.llava_onevision_7b.snapshot_manifest_sha256",
+      "models.llava_onevision_7b.snapshot_manifest_path"
+    ]
+  }
+}

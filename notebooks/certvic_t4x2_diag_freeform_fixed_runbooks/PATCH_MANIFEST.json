@@ -1,0 +1,43 @@
+{
+  "patched": [
+    [
+      "vlm_qwen2_5_vl_7b_T4x2_parallel_DIAGNOSTIC_FREEFORM_FIXED.ipynb",
+      true
+    ],
+    [
+      "vlm_internvl_8b_T4x2_parallel_DIAGNOSTIC_FREEFORM_FIXED.ipynb",
+      true
+    ],
+    [
+      "vlm_llava_onevision_7b_T4x2_parallel_DIAGNOSTIC_FREEFORM_FIXED.ipynb",
+      true
+    ]
+  ],
+  "files": [
+    {
+      "file": "vlm_qwen2_5_vl_7b_T4x2_parallel_DIAGNOSTIC_FREEFORM_FIXED.ipynb",
+      "sha256": "31e16e3964898fadccf85eccfc67e4658b5f0d5b58f0f70ffbfb52d58fb05544",
+      "bytes": 39219
+    },
+    {
+      "file": "vlm_internvl_8b_T4x2_parallel_DIAGNOSTIC_FREEFORM_FIXED.ipynb",
+      "sha256": "22aa395b6163e15d6a88bbaa6ff2d5320d849a94df9bf23e000fe62a2ed360f3",
+      "bytes": 35635
+    },
+    {
+      "file": "vlm_llava_onevision_7b_T4x2_parallel_DIAGNOSTIC_FREEFORM_FIXED.ipynb",
+      "sha256": "97b0cea4e33e5f49664f657253c1c5a56be60e116d68ad09b3c0a5203a686623",
+      "bytes": 39442
+    },
+    {
+      "file": "README_DIAGNOSTIC_FREEFORM_FIXED.md",
+      "sha256": "6af1d7a499744179678127aec9e42b0352b48f4a9f0f61cddeb2ad70b93b54cd",
+      "bytes": 682
+    },
+    {
+      "file": "KAGGLE_RERUN_STEPS.md",
+      "sha256": "7ada284b64f167cbd4440c6a8371cde790cef4eebd60a475f8d7e0820416bb2f",
+      "bytes": 846
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "builder_command": "python3 -m certvic.cvpr.build_all_kaggle_inputs --with-external-roots <EXTERNAL_ROOTS_YAML>",
+  "expected_size": "1-60 GB depending on the frozen licensed source universe",
+  "name": "certvic_coco_generation_input.zip",
+  "output": "kaggle_uploads/09_coco/certvic_coco_generation_input.zip",
+  "paper_evidence": false,
+  "required_roles": [
+    "source_manifest",
+    "exclusion_inventory",
+    "generation_config",
+    "licenses",
+    "engine_policy",
+    "seed_plan",
+    "shard_plan",
+    "resume_ledger"
+  ],
+  "schema": "certvic.kaggle.external_builder_status.v1",
+  "status": "BLOCKED_BY_UPSTREAM_GATE",
+  "study": "coco"
+}

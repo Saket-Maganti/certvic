@@ -1,0 +1,18 @@
+path,change,reason
+certvic/cvpr/package_run.py,Atomic canonical smoke and retry-safe archive lifecycle,Repair 00C2 and packaging state order
+certvic/cvpr/smoke_artifacts.py,Ten-member schema and identity verification,Bind canonical bytes permission run and prompt
+certvic/cvpr/smoke_gate.py,Strict teardown checks warning allowlist and diagnostics,Fail closed on runtime integrity
+certvic/cvpr/worker.py,Exact prompt rendering and teardown events,Make rows and runtime independently verifiable
+certvic/cvpr/contracts.py,Optional prompt-template row contract,Validate prompt identity without breaking historical rows
+certvic/cvpr/run_contract.py,Provider-local cycle-free hash rule,Allow permission to bind one precomputed run contract
+certvic/cvpr/reconcile_provider_permissions.py,Parent prompt/run binding and packaging states,Verify provider-local authorization and retries
+certvic/cvpr/permission_ledger.py,Retry-safe packaging states,Preserve historical ledger compatibility
+certvic/cvpr/notebook_permission_binding.py,Matrix path and exact active prompt derivation,Fail before hardware on drift
+certvic/cvpr/notebook_builder.py,Parent-child preflight and direct canonical package route,Repair 00C2 and scientific notebooks
+certvic/cvpr/notebook_00c2_proof.py,Generated-route synthetic proof harness,Exercise all three provider paths without evidence claims
+certvic/cvpr/synthetic_smoke.py,REAL_MODEL_SMOKE configuration with explicit synthetic proof marker,Test production configuration without authorizing science
+certvic/cvpr/kaggle_session_simulator.py,Prompt/run identities and post-ZIP permission commit,Test portable versus live state order
+certvic/security/path_audit.py,Allowlist promptpacks development inputs,Restore privacy baseline without weakening release scan
+tests/test_cvpr_final_runtime_patch.py,Positive negative tamper and retry regressions,Prove final runtime contract
+scripts/build_cvpr_execution_closure.py,Include final reports tests and harness in release,Keep clean extraction self-contained
+

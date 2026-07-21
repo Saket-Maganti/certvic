@@ -1,0 +1,17 @@
+{
+  "approved_tasks": 91,
+  "by_task_family": {
+    "affordance_reachability": 31,
+    "occlusion_safety": 6,
+    "support_stability": 54
+  },
+  "dropped_tasks": 12,
+  "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+  "input_tasks": 103,
+  "keep_ids": 91,
+  "keep_list_path": "data/results/main_real_200/visual_keep_items.txt",
+  "out": "data/results/main_real_200/pilot_eval_tasks_reviewed.jsonl",
+  "paper_evidence": false,
+  "tasks_path": "data/results/main_real_200/pilot_eval_tasks_tiny.jsonl",
+  "visual_review_status": "approved"
+}

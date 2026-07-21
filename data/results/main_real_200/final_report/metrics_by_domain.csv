@@ -1,0 +1,2 @@
+group,n,original_accuracy,edited_accuracy,consistency_rate,intervention_consistency_gap,parse_failure_rate,spurious_flip_rate
+household,91,0.4065934065934066,0.6593406593406593,0.10989010989010989,0.2967032967032967,0.0,0.0

@@ -1,0 +1,17 @@
+{
+  "descriptive_vs_certified_separated": true,
+  "n_models": 1,
+  "n_scores": 10,
+  "parse_failures_included": true,
+  "rankings": [
+    {
+      "consistency_rate": 0.4,
+      "model": "mock_inconsistent",
+      "n": 10,
+      "parse_ok_rate": 1.0,
+      "ranking_type": "descriptive_not_significance_tested"
+    }
+  ],
+  "score_dirs": "data/results/smoke_pair_scores.jsonl",
+  "significance_claims_made": false
+}

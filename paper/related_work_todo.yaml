@@ -1,0 +1,49 @@
+tasks:
+  - category: counterfactual_vqa_edited_image_vqa
+    search_query: "counterfactual VQA edited image evaluation visual question answering"
+    why_it_matters: "Positions CertVIC against paired visual-change evaluations."
+    section_destination: "related_work.counterfactual_vqa"
+    required_citation_count: 3
+    risk_if_missing: "Reviewers may treat the framing as disconnected from prior VQA work."
+  - category: vlm_robustness_and_consistency
+    search_query: "vision language model robustness consistency image perturbation evaluation"
+    why_it_matters: "Separates visual decision updates from broad robustness claims."
+    section_destination: "related_work.vlm_consistency"
+    required_citation_count: 3
+    risk_if_missing: "The paper may look like it ignores existing consistency evaluations."
+  - category: image_editing_for_evaluation
+    search_query: "image editing for model evaluation inpainting object removal benchmark"
+    why_it_matters: "Frames edit artifacts and realism as measured confounds."
+    section_destination: "related_work.image_editing_eval"
+    required_citation_count: 3
+    risk_if_missing: "The edit pipeline may look ad hoc."
+  - category: dataset_validity_construct_validity
+    search_query: "construct validity dataset validity machine learning evaluation"
+    why_it_matters: "Supports the item-validity certificate as methodology."
+    section_destination: "related_work.construct_validity"
+    required_citation_count: 2
+    risk_if_missing: "The certificate may look over-engineered."
+  - category: human_validation_in_vlm_eval
+    search_query: "human validation visual question answering evaluation inter annotator agreement"
+    why_it_matters: "Justifies realism, answerability, and single-factor review."
+    section_destination: "related_work.human_validation"
+    required_citation_count: 2
+    risk_if_missing: "Human review gates may look subjective."
+  - category: confidence_sequences_anytime_valid_inference
+    search_query: "confidence sequences anytime valid inference sequential testing"
+    why_it_matters: "Supports the statistical certificate."
+    section_destination: "related_work.anytime_valid"
+    required_citation_count: 3
+    risk_if_missing: "The CS contribution will lack formal grounding."
+  - category: optional_stopping_in_ml_evaluation
+    search_query: "optional stopping machine learning evaluation sequential experiments"
+    why_it_matters: "Explains why CertVIC uses time-uniform certification."
+    section_destination: "related_work.optional_stopping"
+    required_citation_count: 2
+    risk_if_missing: "Budget-adaptive evaluation may seem statistically unsafe."
+  - category: benchmark_reproducibility_and_open_models
+    search_query: "machine learning benchmark reproducibility open models evaluation"
+    why_it_matters: "Defends open-only reproducible scope without overgeneralization."
+    section_destination: "related_work.reproducibility"
+    required_citation_count: 2
+    risk_if_missing: "Open-only scope may look like a weakness rather than design."

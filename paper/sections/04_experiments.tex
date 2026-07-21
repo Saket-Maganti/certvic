@@ -1,0 +1,27 @@
+\section{Experiments}
+
+\subsection{Stimuli}
+Source images come from a public segmentation dataset, used under a recipe-first,
+pointer-only policy. Task families are support stability, occlusion safety, and
+affordance reachability, with control-irrelevant edits for spurious-flip checks.
+An ADE20K label policy maps semantic labels to eligible task families and allowed
+edit types; background ``stuff'' is blocked, and labels without a verified name
+are restricted to control edits so that no change-required question is posed about
+an unidentified object. Domains include household/object and driving/road scenes,
+used as stimuli only---no deployment claims are made.
+
+\subsection{Models and baselines}
+We evaluate open-local VLMs runnable on free compute (e.g.\ 7--8B class models)
+under neutral prompts. Construct-validity baselines---random, majority-by-family,
+text-only, caption-only, single-image (original-only / edited-only), answer-prior,
+and prompt-shuffle---establish that the task cannot be solved without seeing the
+change. We report parser sensitivity (strict vs.\ lenient, with explicit
+ambiguous and parse-failure handling) and prompt sensitivity across phrasings.
+
+\subsection{Protocol}
+Edits pass quality gates and human review before any inference. Evaluation is run
+on reviewed tasks with a non-mock open-local provider; predictions are scored into
+$a_i, C_i$, summarized by family/domain/edit-type, and certified via the
+anytime-valid CS under the certification policy. Sample sizes are chosen using a
+power analysis on the gap. Models, baseline numbers, inter-annotator agreement,
+and compute details remain [RESULT REQUIRED].

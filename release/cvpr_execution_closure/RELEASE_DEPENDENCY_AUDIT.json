@@ -1,0 +1,28 @@
+{
+  "local_imports_observed": 182,
+  "missing_local_modules": [],
+  "paper_evidence": false,
+  "passed": true,
+  "python_modules_included": 367,
+  "roots": [
+    "worker",
+    "generation",
+    "candidate_selection",
+    "review",
+    "whole_study_import",
+    "analysis",
+    "after_runs",
+    "claim_guard",
+    "privacy_guard",
+    "report_generation",
+    "paper_injection",
+    "smoke_artifacts",
+    "smoke_handoff",
+    "reconcile_provider_permissions",
+    "import_transaction",
+    "kaggle_session_simulator",
+    "notebook_00c2_proof"
+  ],
+  "schema": "certvic.cvpr.release_dependency_audit.v1",
+  "strategy": "INCLUDE_ALL_CERTVIC_PYTHON_MODULES"
+}

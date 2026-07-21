@@ -1,0 +1,24 @@
+{
+  "schema": "certvic.repository_replacement.archive.v1",
+  "status": "BLOCKED_SOURCE_ARCHIVE_MISSING",
+  "required_archive": "certVIC_9_SMOKE_AUTHORIZATION_FIXED_FULL.zip",
+  "selected_archive": null,
+  "selected_archive_sha256": null,
+  "selected_archive_size": null,
+  "selected_archive_member_count": null,
+  "detected_repository_root": null,
+  "staged_tree_hash": null,
+  "active_source_tree_hash_at_closeout": "242d6defd82627246e69d70bc521be4b66a8787763c2ec719a7f9fd9e7d90842",
+  "active_source_tree_file_count": 706,
+  "rejected_candidates": [
+    {
+      "path": "CERTVIC_SMOKE_AUTHORIZATION_PATCH_ONLY.zip",
+      "sha256": "3ced06880da135e00e69f325b9902c73ee169f67ef4c476ae1128b15006e97bf",
+      "size": 172154,
+      "member_count": 39,
+      "reason": "PATCH_ONLY_NOT_A_FULL_PROJECT_ARCHIVE"
+    }
+  ],
+  "replacement_performed": false,
+  "paper_evidence": false
+}

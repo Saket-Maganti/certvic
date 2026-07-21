@@ -1,0 +1,16 @@
+\section{Limitations}
+
+Our claims are deliberately scoped. (1) \emph{Edit realism}: synthesized edits may
+contain artifacts; we mitigate with edit-quality gates and human review, keep
+crude and photorealistic engines separate, and treat single-factor validity as a
+measured (not assumed) quantity, but residual confounds are possible. (2)
+\emph{Label dependence}: task validity depends on correct object labels; unverified
+labels are restricted to control edits. (3) \emph{Scope}: domains and edit
+families are limited, and findings do not generalize beyond the tested
+families/domains. (4) \emph{Models}: we evaluate open-local models on free compute;
+any optional frontier reference is non-core, version-dated, and disabled by
+default, so results may not transfer to closed models. (5) \emph{Statistics}:
+certification is conditional on the stated certification policy and the
+availability of an anytime-valid CS; descriptive summaries are not certification.
+(6) \emph{Release}: recipe-first artifacts may require users to regenerate images
+from source pointers. We make no deployment or safety claims and no claims about causal understanding.

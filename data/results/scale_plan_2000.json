@@ -1,0 +1,47 @@
+{
+  "bottleneck": "free_gpu_quota",
+  "candidates_generated": 5000,
+  "cpu_hours": 0.278,
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "fits_kaggle_working": true,
+  "gpu": {
+    "edit_gpu_hours": 11.11,
+    "total_gpu_hours": 26.11,
+    "vlm_gpu_hours": 15.0,
+    "wall_clock_weeks_under_quota": 0.87,
+    "weekly_free_gpu_hours": 30.0
+  },
+  "human": {
+    "human_hours_per_day": 3.0,
+    "total_human_hours": 16.67,
+    "wall_clock_days": 5.6,
+    "wall_clock_weeks": 0.79
+  },
+  "paid_services": false,
+  "params": {
+    "ablation_multiplier": 1.5,
+    "cpu_seconds_per_item": 0.5,
+    "edit_seconds_per_item": 8.0,
+    "human_hours_per_day": 3.0,
+    "human_seconds_per_item": 30.0,
+    "num_models": 3,
+    "overgeneration_factor": 2.5,
+    "session_hours": 11.5,
+    "variants_per_item": 2,
+    "vlm_seconds_per_item": 3.0,
+    "weekly_free_gpu_hours": 30.0
+  },
+  "plan": "certvic_scale_plan",
+  "recommended_batch_sizes": {
+    "edit_items_per_kaggle_session": 5175,
+    "vlm_images_per_colab_session": 9600,
+    "vlm_images_per_kaggle_session": 13800
+  },
+  "scale": 2000,
+  "storage_gb": 1.776,
+  "storage_warnings": [
+    "rejected-edit pixels exceed kept-edit pixels; record hashes then delete rejected pixels to reclaim disk"
+  ],
+  "vlm_inference_run": false
+}

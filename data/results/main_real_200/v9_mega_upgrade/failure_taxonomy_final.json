@@ -1,0 +1,13 @@
+{
+  "categories": [
+    "qwen_spurious_failure",
+    "clean_specificity_pass_provider",
+    "diagnostic_polarity_or_mechanism",
+    "successful_update_existing_pilot"
+  ],
+  "n_qwen_spurious_failures": 12,
+  "paper_evidence": false,
+  "schema": "certvic.v9.failure_taxonomy_final.v1",
+  "selection_rule": "deterministic: include all 12 Qwen spurious failures plus V8 category summaries; no manual cherry-picking",
+  "status": "DONE_FROM_EXISTING_ARTIFACTS"
+}

@@ -1,0 +1,16 @@
+# Recipe-first artifact release config.
+include_cc0_pixels: false
+include_pointer_only_sources: true
+include_generated_edits: false
+require_license_verified: true
+exclude_private_paths: true
+anonymize_local_paths: true
+hash_manifests: true
+write_checksums: true
+manifests_dir: data/manifests
+docs_dir: docs
+reproducibility_commands:
+  - python3 -m pytest -q
+  - python3 -m certvic.data.ade20k_adapter --ade20k-root <ROOT> --out-sources data/manifests/ade20k_sources.jsonl --out-masks data/manifests/ade20k_masks.jsonl
+  - python3 -m certvic.pipeline.run_tiny_pilot --config configs/real_pilot_ade20k.yaml --ade20k-root <ROOT> --out-dir data/results/tiny_real_pilot
+  - python3 -m certvic.pipeline.run_tiny_eval --config configs/tiny_reviewed_eval.yaml --tasks <REVIEWED_TASKS> --provider qwen2_5_vl_7b --out-dir data/results/tiny_eval_qwen --max-items 20

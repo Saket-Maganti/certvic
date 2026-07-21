@@ -1,0 +1,23 @@
+{
+  "categories": [
+    {
+      "id": "spurious_specificity_gate_fail",
+      "providers": [
+        "qwen2_5_vl_7b"
+      ],
+      "status": "observed"
+    },
+    {
+      "id": "polarity_parse_or_gold_mismatch",
+      "note": "See POLARITY_ABLATION_REPORT for parse and row-accuracy distributions.",
+      "status": "diagnostic"
+    },
+    {
+      "id": "mechanism_context_or_residual_signal",
+      "note": "See MECHANISM_PROBE_REPORT for probe-family distributions.",
+      "status": "diagnostic"
+    }
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.v8.failure_taxonomy.v1"
+}

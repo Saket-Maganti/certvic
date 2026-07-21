@@ -1,0 +1,286 @@
+schema: certvic.cvpr.run_graph.v1
+paper_evidence: false
+description: Canonical fail-closed pre-run execution order; authority is never inferred from status.
+x-local: &local
+  study: all
+  prerequisites: []
+  inputs: []
+  outputs: []
+  command: ""
+  hardware: local_cpu
+  estimate: under_10_minutes
+  permission_class: local_safe
+  retry_recovery: repair_exact_failure_then_idempotent_retry
+  evidence_class: PLANNED_NOT_EXECUTED
+  downstream: []
+nodes:
+  - <<: *local
+    id: verify_checkout
+    outputs: [pyproject.toml]
+    command: python3 -m compileall -q certvic scripts tests
+    downstream: [doctor]
+  - <<: *local
+    id: doctor
+    prerequisites: [verify_checkout]
+    inputs: [pyproject.toml]
+    outputs: [reports/max_ceiling_upgrade/doctor.json]
+    command: python3 -m certvic.cvpr.doctor --json --out reports/max_ceiling_upgrade/doctor.json
+    downstream: [provision_wheelhouse]
+  - <<: *local
+    id: provision_wheelhouse
+    prerequisites: [doctor]
+    inputs: [configs/runtime/kaggle_t4x2_wheelhouse.expected.json]
+    outputs: [kaggle_uploads/01_wheelhouse/certvic_offline_wheelhouse.zip]
+    command: python3 -m certvic.cvpr.kaggle_bundle verify kaggle_uploads/01_wheelhouse/certvic_offline_wheelhouse.zip
+    hardware: networked_local_or_kaggle_dataset_build
+    estimate: 30_to_90_minutes
+    permission_class: external_provisioning
+    retry_recovery: resume_download_then_verify_every_member_hash
+    downstream: [provision_snapshots, real_smoke_bundle, run_00a]
+  - <<: *local
+    id: run_00a
+    prerequisites: [provision_wheelhouse]
+    inputs: [notebooks/kaggle/cvpr/00A_certvic_code_and_environment_smoke.ipynb]
+    outputs: [data/runtime/00A_environment.json]
+    command: Kaggle 00A_certvic_code_and_environment_smoke.ipynb
+    hardware: kaggle_cpu_accelerator_off
+    estimate: 10_to_20_minutes
+    permission_class: external_smoke
+    retry_recovery: new_session_same_wheelhouse_and_code_bytes
+    downstream: [run_00b]
+  - <<: *local
+    id: provision_snapshots
+    prerequisites: [provision_wheelhouse]
+    inputs: [configs/models/certvic_cvpr_model_registry.yaml]
+    outputs:
+      - kaggle_uploads/02_snapshots/qwen2_5_vl_7b_snapshot.zip
+      - kaggle_uploads/02_snapshots/internvl2_8b_snapshot.zip
+      - kaggle_uploads/02_snapshots/llava_onevision_7b_snapshot.zip
+    command: follow reports/non_human_closure/CERTVIC_SNAPSHOT_EXTERNAL_EXECUTION_HANDOFF.md
+    hardware: networked_local_or_kaggle_dataset_build
+    estimate: 2_to_6_hours
+    permission_class: external_provisioning
+    retry_recovery: resume_by_model_then_rehash_complete_snapshot
+    downstream: [run_00b]
+  - <<: *local
+    id: real_smoke_bundle
+    prerequisites: [provision_wheelhouse]
+    inputs: [local_inputs/smoke/real_smoke_tasks.jsonl]
+    outputs: [kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip]
+    command: python3 -m certvic.cvpr.smoke_input_builder --task-manifest local_inputs/smoke/real_smoke_tasks.jsonl --output kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip
+    estimate: 5_to_15_minutes
+    downstream: [run_00a]
+  - <<: *local
+    id: run_00b
+    prerequisites: [run_00a, provision_snapshots]
+    inputs: [notebooks/kaggle/cvpr/00B_certvic_model_snapshot_smoke.ipynb]
+    outputs: [data/runtime/00B_matrix_complete.json]
+    command: Kaggle 00B once per provider
+    hardware: kaggle_cpu_accelerator_off_no_model_load
+    estimate: 15_to_30_minutes_per_provider
+    permission_class: external_smoke
+    retry_recovery: isolate_provider_new_session_same_snapshot_bytes
+    downstream: [presmoke_matrix_authorization]
+  - <<: *local
+    id: presmoke_matrix_authorization
+    prerequisites: [run_00b, real_smoke_bundle]
+    inputs: [data/runtime/00A_environment.json, data/runtime/00B_matrix_complete.json, kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip]
+    outputs: [data/runtime/pre_smoke_matrix_authorization.json]
+    command: python3 -m certvic.cvpr.reconcile_provider_permissions authorize-pre-smoke
+    estimate: under_5_minutes
+    permission_class: local_hash_bound_authorization
+    downstream: [presmoke_provider_permissions]
+  - <<: *local
+    id: presmoke_provider_permissions
+    prerequisites: [presmoke_matrix_authorization]
+    inputs: [data/runtime/pre_smoke_matrix_authorization.json]
+    outputs: [data/runtime/pre_smoke_provider_permissions.json]
+    command: python3 -m certvic.cvpr.reconcile_provider_permissions derive-pre-smoke
+    permission_class: local_hash_bound_authorization
+    downstream: [run_00c2]
+  - <<: *local
+    id: run_00c2
+    prerequisites: [presmoke_provider_permissions]
+    inputs: [notebooks/kaggle/cvpr/00C2_certvic_real_model_two_item_smoke.ipynb]
+    outputs: [data/runtime/00C2_matrix_complete.json]
+    command: Kaggle 00C2 in three separate provider sessions
+    hardware: kaggle_t4x2_first_genuine_model_load_and_inference
+    estimate: 20_to_60_minutes_per_provider
+    permission_class: external_one_run_nonce_smoke
+    retry_recovery: consume_nonce_once_reissue_only_after_audited_failure
+    downstream: [smoke_handoff]
+  - <<: *local
+    id: smoke_handoff
+    prerequisites: [run_00c2]
+    inputs: [data/runtime/00C2_matrix_complete.json]
+    outputs: [reports/cvpr_final_integration/REAL_MODEL_SMOKE_GATE.json]
+    command: python3 -m certvic.cvpr.smoke_handoff --help
+    downstream: [confirmatory_candidates]
+  - <<: *local
+    id: confirmatory_candidates
+    study: specificity_confirmatory_cvpr
+    prerequisites: [smoke_handoff]
+    inputs: [configs/studies/specificity_confirmatory_cvpr.yaml]
+    outputs: [data/studies/specificity_confirmatory_cvpr/candidates.jsonl]
+    command: Kaggle 01_specificity_confirmatory_generation_T4x2.ipynb
+    hardware: kaggle_t4x2
+    estimate: 2_to_8_hours
+    permission_class: external_generation_no_scientific_evidence
+    retry_recovery: resume_frozen_queue_without_reselection
+    downstream: [controls_and_qa]
+  - <<: *local
+    id: controls_and_qa
+    study: specificity_confirmatory_cvpr
+    prerequisites: [confirmatory_candidates]
+    inputs: [data/studies/specificity_confirmatory_cvpr/candidates.jsonl]
+    outputs: [data/studies/specificity_confirmatory_cvpr/qa_candidates.jsonl]
+    command: python3 -m certvic.cvpr.confirmatory_qa --help
+    estimate: 30_to_90_minutes
+    downstream: [review_adjudication]
+  - <<: *local
+    id: review_adjudication
+    study: specificity_confirmatory_cvpr
+    prerequisites: [controls_and_qa]
+    inputs: [data/studies/specificity_confirmatory_cvpr/qa_candidates.jsonl]
+    outputs: [data/studies/specificity_confirmatory_cvpr/review/final_inclusion.json]
+    command: follow execution_pack/07_HUMAN_REVIEW.md
+    hardware: two_independent_humans_plus_adjudicator
+    estimate: 8_to_20_reviewer_hours
+    permission_class: genuine_human_review
+    retry_recovery: preserve_timeline_resolve_missing_rows_then_readjudicate
+    evidence_class: HUMAN_REVIEW_PENDING
+    downstream: [exact_selection]
+  - <<: *local
+    id: exact_selection
+    study: specificity_confirmatory_cvpr
+    prerequisites: [review_adjudication]
+    inputs: [data/studies/specificity_confirmatory_cvpr/review/final_inclusion.json]
+    outputs: [data/studies/specificity_confirmatory_cvpr/task_bundle/tasks.jsonl]
+    command: python3 scripts/run_all_cpu_workflows.py --resume-after-human-review
+    downstream: [detectability]
+  - <<: *local
+    id: detectability
+    study: specificity_confirmatory_cvpr
+    prerequisites: [exact_selection]
+    inputs: [data/studies/specificity_confirmatory_cvpr/task_bundle/tasks.jsonl]
+    outputs: [data/studies/specificity_confirmatory_cvpr/detectability_gate.json]
+    command: python3 -m certvic.cvpr.detectability_gate --help
+    estimate: 15_to_60_minutes
+    downstream: [task_freeze]
+  - <<: *local
+    id: task_freeze
+    study: specificity_confirmatory_cvpr
+    prerequisites: [detectability]
+    inputs: [data/studies/specificity_confirmatory_cvpr/detectability_gate.json]
+    outputs: [data/studies/specificity_confirmatory_cvpr/final_task_freeze.json]
+    command: python3 -m certvic.cvpr.freeze_manifest --help
+    permission_class: irreversible_scientific_freeze
+    downstream: [scientific_matrix_authorization]
+  - <<: *local
+    id: scientific_matrix_authorization
+    study: specificity_confirmatory_cvpr
+    prerequisites: [task_freeze]
+    inputs: [data/studies/specificity_confirmatory_cvpr/final_task_freeze.json]
+    outputs: [data/studies/specificity_confirmatory_cvpr/execution_permission.json]
+    command: python3 -m certvic.cvpr.execution_gate --help
+    permission_class: local_hash_bound_scientific_authorization
+    downstream: [scientific_provider_permissions]
+  - <<: *local
+    id: scientific_provider_permissions
+    study: specificity_confirmatory_cvpr
+    prerequisites: [scientific_matrix_authorization]
+    inputs: [data/studies/specificity_confirmatory_cvpr/execution_permission.json]
+    outputs: [data/studies/specificity_confirmatory_cvpr/provider_permissions.json]
+    command: python3 -m certvic.cvpr.reconcile_provider_permissions --help
+    permission_class: local_one_run_nonce_derivation
+    downstream: [confirmatory_provider_runs]
+  - <<: *local
+    id: confirmatory_provider_runs
+    study: specificity_confirmatory_cvpr
+    prerequisites: [scientific_provider_permissions]
+    inputs: [data/studies/specificity_confirmatory_cvpr/provider_permissions.json]
+    outputs: [local_inputs/provider_returns/specificity_confirmatory_cvpr/matrix_complete.json]
+    command: Kaggle notebooks 02, 03, and 04 in separate sessions
+    hardware: kaggle_t4x2
+    estimate: 1_to_4_hours_per_provider
+    permission_class: external_one_run_nonce_scientific
+    retry_recovery: no_prompt_or_contract_changes_reissue_only_after_audited_failure
+    downstream: [reconcile_provider_proofs]
+  - <<: *local
+    id: reconcile_provider_proofs
+    study: specificity_confirmatory_cvpr
+    prerequisites: [confirmatory_provider_runs]
+    inputs: [local_inputs/provider_returns/specificity_confirmatory_cvpr/matrix_complete.json]
+    outputs: [data/studies/specificity_confirmatory_cvpr/provider_reconciliation.json]
+    command: python3 -m certvic.cvpr.reconcile_provider_permissions --help
+    downstream: [transactional_import]
+  - <<: *local
+    id: transactional_import
+    study: specificity_confirmatory_cvpr
+    prerequisites: [reconcile_provider_proofs]
+    inputs: [data/studies/specificity_confirmatory_cvpr/provider_reconciliation.json]
+    outputs: [data/studies/specificity_confirmatory_cvpr/canonical_import/study_import_audit.json]
+    command: python3 -m certvic.cvpr.import_transaction --help
+    permission_class: local_transactional_promotion
+    retry_recovery: recover_from_journal_then_idempotent_retry
+    downstream: [analyze]
+  - <<: *local
+    id: analyze
+    study: specificity_confirmatory_cvpr
+    prerequisites: [transactional_import]
+    inputs: [data/studies/specificity_confirmatory_cvpr/canonical_import/study_import_audit.json]
+    outputs: [data/studies/specificity_confirmatory_cvpr/analysis/decision_trace.json]
+    command: python3 -m certvic.cvpr.after_runs --help
+    evidence_class: DERIVED_FROM_REAL_EVIDENCE
+    downstream: [main_decision]
+  - <<: *local
+    id: main_decision
+    study: main_study_cvpr
+    prerequisites: [analyze]
+    inputs: [data/studies/specificity_confirmatory_cvpr/analysis/decision_trace.json]
+    outputs: [data/studies/main_study_cvpr/go_no_go.json]
+    command: python3 -m certvic.cvpr.plan --help
+    downstream: [conditional_main, coco_feasibility]
+  - <<: *local
+    id: conditional_main
+    study: main_study_cvpr
+    prerequisites: [main_decision]
+    inputs: [data/studies/main_study_cvpr/go_no_go.json]
+    outputs: [data/studies/main_study_cvpr/analysis/decision_trace.json]
+    command: execute Main only when signed go/no-go says GO
+    hardware: kaggle_t4x2_plus_genuine_human_review
+    estimate: conditional_multi_session
+    permission_class: conditional_external_scientific
+    retry_recovery: follow_same_frozen_contract_and_transaction_protocol
+    downstream: [paper_evidence]
+  - <<: *local
+    id: coco_feasibility
+    study: second_domain_cvpr
+    prerequisites: [main_decision]
+    inputs: [configs/studies/second_domain_cvpr.yaml]
+    outputs: [data/studies/second_domain_cvpr/feasibility_decision.json]
+    command: execute only after licensed COCO assets and explicit authorization
+    hardware: kaggle_t4x2
+    estimate: conditional
+    permission_class: conditional_external_feasibility
+    retry_recovery: remain_blocked_without_real_coco_assets
+    downstream: [paper_evidence]
+  - <<: *local
+    id: paper_evidence
+    prerequisites: [conditional_main, coco_feasibility]
+    inputs: [reports/max_ceiling_upgrade/artifact_registry.json]
+    outputs: [reports/max_ceiling_upgrade/paper_injection_manifest.json]
+    command: python3 -m certvic.cvpr.paper_evidence_compiler --help
+    estimate: 10_to_30_minutes
+    permission_class: evidence_guarded_local_promotion
+    evidence_class: DERIVED_FROM_REAL_EVIDENCE
+    downstream: [final_release]
+  - <<: *local
+    id: final_release
+    prerequisites: [paper_evidence]
+    inputs: [reports/max_ceiling_upgrade/paper_injection_manifest.json]
+    outputs: [release/certvic_cvpr_pre_run_maximum.zip]
+    command: python3 scripts/build_maximum_ceiling_release.py
+    estimate: 10_to_30_minutes
+    permission_class: local_deterministic_release
+    downstream: []

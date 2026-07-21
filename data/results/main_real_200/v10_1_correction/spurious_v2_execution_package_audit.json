@@ -1,0 +1,261 @@
+{
+  "bundle_manifest": {
+    "exists": true,
+    "path": "data/edits/spurious_v2_control/bundle_manifest.json",
+    "sha256": "035d5edd019f78f84de187e6b2674a43687883d5979e444782a34679ece1c303",
+    "size_bytes": 6268
+  },
+  "code_bundle": {
+    "exists": true,
+    "path": "dist/certvic_kaggle_main200_bundle.zip",
+    "sha256": "12962bb9a0e518c998ae90ddacaac4c372cf10e7761db56c21aaf38ee7e11b77",
+    "size_bytes": 555059
+  },
+  "expected_strict_v2_count": 30,
+  "generated_utc": "2026-07-09T15:18:58.283816+00:00",
+  "image_count_ok": true,
+  "importer": {
+    "exists": true,
+    "path": "scripts/import_v9_spurious_v2_outputs.py",
+    "sha256": "daa73485125405c7fd94537187b58e6240fc4909e5ac004d26aa0ae4a74f729a",
+    "size_bytes": 9060
+  },
+  "importer_expectations": {
+    "internvl_8b": {
+      "importer_accepts_merged_jsonl": true,
+      "importer_accepts_zip_output": true,
+      "merged_jsonl": "pred_internvl_8b_spurious_v2_merged.jsonl",
+      "provider_registered": true,
+      "zip_output": "internvl_8b_spurious_v2_preds.zip"
+    },
+    "llava_onevision_7b": {
+      "importer_accepts_merged_jsonl": true,
+      "importer_accepts_zip_output": true,
+      "merged_jsonl": "pred_llava_onevision_7b_spurious_v2_merged.jsonl",
+      "provider_registered": true,
+      "zip_output": "llava_onevision_7b_spurious_v2_preds.zip"
+    },
+    "qwen2_5_vl_7b": {
+      "importer_accepts_merged_jsonl": true,
+      "importer_accepts_zip_output": true,
+      "merged_jsonl": "pred_qwen2_5_vl_7b_spurious_v2_merged.jsonl",
+      "provider_registered": true,
+      "zip_output": "qwen2_5_vl_7b_spurious_v2_preds.zip"
+    }
+  },
+  "importer_ok": true,
+  "limitations": [
+    "Strict local V2 package has 30 items, not the requested 200-300, because the available local source pool does not support a larger strict filtered set.",
+    "Provider predictions are still absent until the Kaggle notebooks are run.",
+    "This audit validates execution readiness only; it does not validate model behavior."
+  ],
+  "local_image_count": 60,
+  "local_task_rows": 30,
+  "missing_provider_outputs": [
+    "qwen2_5_vl_7b",
+    "internvl_8b",
+    "llava_onevision_7b"
+  ],
+  "notebooks": {
+    "internvl_8b": {
+      "contains_expected_output": true,
+      "contains_expected_zip": true,
+      "contains_fake_prediction_language": false,
+      "contains_private_paths": false,
+      "contains_required_t4x2_tokens": {
+        "CUDA_VISIBLE_DEVICES": true,
+        "RUN_TAG": true,
+        "T4x2": true,
+        "shard0": true,
+        "shard1": true,
+        "spurious_v2": true
+      },
+      "exists": true,
+      "path": "notebooks/kaggle/vlm_internvl_8b_spurious_v2_T4x2.ipynb",
+      "sha256": "acfaf506184a7c151f401dc0496c9faeb26d4d4ad3280f281b7331e8721fb3ee",
+      "size_bytes": 13487,
+      "valid_nbformat": true,
+      "warnings": []
+    },
+    "llava_onevision_7b": {
+      "contains_expected_output": true,
+      "contains_expected_zip": true,
+      "contains_fake_prediction_language": false,
+      "contains_private_paths": false,
+      "contains_required_t4x2_tokens": {
+        "CUDA_VISIBLE_DEVICES": true,
+        "RUN_TAG": true,
+        "T4x2": true,
+        "shard0": true,
+        "shard1": true,
+        "spurious_v2": true
+      },
+      "exists": true,
+      "path": "notebooks/kaggle/vlm_llava_onevision_7b_spurious_v2_T4x2.ipynb",
+      "sha256": "8a4d1ed831b2777987e3a1699c261e9e2e063baa7204991e8a226fc5b78e3e17",
+      "size_bytes": 13529,
+      "valid_nbformat": true,
+      "warnings": []
+    },
+    "qwen2_5_vl_7b": {
+      "contains_expected_output": true,
+      "contains_expected_zip": true,
+      "contains_fake_prediction_language": false,
+      "contains_private_paths": false,
+      "contains_required_t4x2_tokens": {
+        "CUDA_VISIBLE_DEVICES": true,
+        "RUN_TAG": true,
+        "T4x2": true,
+        "shard0": true,
+        "shard1": true,
+        "spurious_v2": true
+      },
+      "exists": true,
+      "path": "notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb",
+      "sha256": "bde4daa8ff5886e3aea50bff799af28500bb371fd3b21543948168795b4f1dab",
+      "size_bytes": 13499,
+      "valid_nbformat": true,
+      "warnings": []
+    },
+    "v10_handoff": {
+      "contains_expected_output": null,
+      "contains_expected_zip": null,
+      "contains_fake_prediction_language": false,
+      "contains_private_paths": false,
+      "contains_required_t4x2_tokens": {
+        "CUDA_VISIBLE_DEVICES": true,
+        "RUN_TAG": true,
+        "T4x2": true,
+        "shard0": true,
+        "shard1": true,
+        "spurious_v2": true
+      },
+      "exists": true,
+      "path": "notebooks/kaggle/v10_execution_ready_handoff_t4x2.ipynb",
+      "sha256": "7c568390f7a776328cfc67e25a60d0c76d165a4e9d6779c7639ec962e33e0239",
+      "size_bytes": 9769,
+      "valid_nbformat": true,
+      "warnings": []
+    }
+  },
+  "notebooks_ok": true,
+  "paper_evidence_changed": false,
+  "produced_model_results_by_v10_1": false,
+  "provider_notebook_outputs_ok": true,
+  "provider_outputs_present": {
+    "internvl_8b": false,
+    "llava_onevision_7b": false,
+    "qwen2_5_vl_7b": false
+  },
+  "quality_report": {
+    "bbox_overlap_count": 0,
+    "file": {
+      "exists": true,
+      "path": "data/results/main_real_200/v9_mega_upgrade/spurious_v2_quality_report.json",
+      "sha256": "c5bc93372a62a2baf112fa749a78a6518479f4f1c59de5a47088e667df915d1c",
+      "size_bytes": 9354
+    },
+    "mask_overlap_count": 0,
+    "min_distance_px": 75.0,
+    "paper_evidence": false,
+    "quality_pass": true,
+    "target_n_local_status": "INSUFFICIENT_LOCAL_CANDIDATES_MAX_FEASIBLE_FILTERED_SET",
+    "target_n_requested": "200-300"
+  },
+  "ready_to_import_results": false,
+  "ready_to_run_on_kaggle": true,
+  "row_count_ok": true,
+  "schema": "certvic.v10_1.spurious_v2_execution_package_audit.v1",
+  "spurious_v2_manifest": {
+    "exists": true,
+    "path": "data/edits/spurious_v2_control/spurious_v2_manifest.json",
+    "sha256": "197d30206c381bad3bdc603a48ca5b442ddd3349fd76dbd32b62611e4829f167",
+    "size_bytes": 8589
+  },
+  "task_file": {
+    "exists": true,
+    "path": "data/edits/spurious_v2_control/pilot_eval_tasks_reviewed.jsonl",
+    "sha256": "24eb9a3ca5818b4d17c30b3ecbaf0c69637e1a873d0987e605892c89f004652a",
+    "size_bytes": 56903
+  },
+  "verdict": "READY_TO_RUN_ON_KAGGLE",
+  "zip": {
+    "errors": [],
+    "exists": true,
+    "has_bundle_manifest": true,
+    "has_spurious_v2_manifest": true,
+    "has_task_jsonl": true,
+    "members": [
+      "data/edits/spurious_v2_control/bundle_manifest.json",
+      "data/edits/spurious_v2_control/images/control/sflip_car_ADE_train_00002034.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_car_ADE_train_00004304.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_car_ADE_train_00004561.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000194.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000374.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000469.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000622.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000630.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000728.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00000928.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_chair_ADE_train_00001105.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000653.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000668.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000671.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000675.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000688.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000693.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000701.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000706.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000717.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000732.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_sofa_ADE_train_00000740.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000196.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000218.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000228.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000233.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000289.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000384.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000425.jpg",
+      "data/edits/spurious_v2_control/images/control/sflip_table_ADE_train_00000452.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_car_ADE_train_00002034.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_car_ADE_train_00004304.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_car_ADE_train_00004561.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000194.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000374.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000469.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000622.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000630.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000728.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00000928.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_chair_ADE_train_00001105.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000653.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000668.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000671.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000675.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000688.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000693.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000701.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000706.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000717.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000732.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_sofa_ADE_train_00000740.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000196.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000218.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000228.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000233.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000289.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000384.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000425.jpg",
+      "data/edits/spurious_v2_control/images/orig/sflip_table_ADE_train_00000452.jpg",
+      "data/edits/spurious_v2_control/pilot_eval_tasks_reviewed.jsonl",
+      "data/edits/spurious_v2_control/spurious_v2_examples_gallery.html",
+      "data/edits/spurious_v2_control/spurious_v2_manifest.json"
+    ],
+    "path": "dist/kaggle_remaining_runs/certvic_spurious_v2_control.zip",
+    "sha256": "edfa44d3aae4dc9ba7cadde42c11eb3d38de0a6a23a8a92055d21c0dd2269102",
+    "size_bytes": 6080392,
+    "valid_zip": true,
+    "zip_image_count": 60,
+    "zip_task_rows": 30
+  }
+}

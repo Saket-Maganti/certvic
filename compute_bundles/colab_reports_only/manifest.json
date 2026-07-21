@@ -1,0 +1,35 @@
+{
+  "anonymized": true,
+  "bundle": "certvic_free_compute_job",
+  "config": "configs/smoke.yaml",
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "evidence_status": "JOB_PLANNED_ONLY",
+  "executed": false,
+  "file_hashes": {
+    "README.md": "241b6a8428eba1b6151a8c5debab63757f48ca54042ece6fa9513a7997a25817",
+    "ZERO_COST_POLICY.txt": "257770fdfad741f8621279d910fc9587531657a261f0df5718e1591017e88fc6",
+    "commands.sh": "13ac7de8187476b688a2158807f6906b032205816330235ca2cbc00a9eef73bb",
+    "expected_inputs.md": "aac6fc184186b23948a49056d76704bc6210417ffd2bdfd28b4790161e81bb16",
+    "expected_outputs.md": "50eb5d6d078b94b3a33342e3414beec9466119a3dc4c4fcf3d5aef7248bc8aa2",
+    "preflight.sh": "db29258bbab9c2219358413c1ec8511af95233a3883d2e3f0b0a33a028f3e0f2"
+  },
+  "files": [
+    "README.md",
+    "ZERO_COST_POLICY.txt",
+    "commands.sh",
+    "expected_inputs.md",
+    "expected_outputs.md",
+    "preflight.sh"
+  ],
+  "forbidden_markers_found": [],
+  "generated": "2026-06-22",
+  "heavy_gpu_required": false,
+  "job": "reports_only",
+  "n_commands": 1,
+  "paid_services": false,
+  "platform": "colab",
+  "safe": true,
+  "scale": null,
+  "stage": "report"
+}

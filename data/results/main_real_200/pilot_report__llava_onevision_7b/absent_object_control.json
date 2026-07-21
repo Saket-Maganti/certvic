@@ -1,0 +1,29 @@
+{
+  "absent_accuracy": 1.0,
+  "absent_correct": 60,
+  "absent_n": 60,
+  "n": 120,
+  "overall_accuracy": 0.9833,
+  "overall_correct": 118,
+  "per_object": {
+    "car": {
+      "correct": 30,
+      "n": 30
+    },
+    "chair": {
+      "correct": 30,
+      "n": 30
+    },
+    "sofa": {
+      "correct": 30,
+      "n": 30
+    },
+    "table": {
+      "correct": 28,
+      "n": 30
+    }
+  },
+  "present_accuracy": 0.9667,
+  "present_correct": 58,
+  "present_n": 60
+}

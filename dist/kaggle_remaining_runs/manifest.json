@@ -1,0 +1,95 @@
+{
+  "bundles": [
+    {
+      "bundle": "certvic_spurious_flip_control.zip",
+      "generations_per_model": 188,
+      "image_files": 188,
+      "kind": "control_TaskItem",
+      "rows": 94,
+      "run_tag": "spurious",
+      "sha256": "cd6af3e78a455e628ea296616b2eb7f307286d49643566cea58d8493cf3655ea",
+      "task_file": "pilot_eval_tasks_reviewed.jsonl"
+    },
+    {
+      "bundle": "certvic_perception_control_scaled.zip",
+      "generations_per_model": 738,
+      "image_files": 738,
+      "kind": "control_TaskItem",
+      "rows": 369,
+      "run_tag": "perception_scaled",
+      "sha256": "d654501fd097f698aa8ec2659ab4c6fe5e66fb8598873d655eaf3bb8cf1d3580",
+      "task_file": "pilot_eval_tasks_reviewed.jsonl"
+    },
+    {
+      "bundle": "certvic_mechanism_probes.zip",
+      "excluded_families": [
+        "original_vs_edited"
+      ],
+      "families": [
+        "context_suppression",
+        "object_list",
+        "region_focused",
+        "two_step"
+      ],
+      "generations_per_model": 364,
+      "image_files": 182,
+      "kind": "diagnostic_flat",
+      "rows": 364,
+      "run_tag": "mechanism",
+      "sha256": "1bc8576037b4172a20f7ce726a37db795330b58e0a14d50dd3eb4d3b7bf9e4e5",
+      "task_file": "tasks.jsonl"
+    },
+    {
+      "bundle": "certvic_polarity_ablations.zip",
+      "excluded_families": [],
+      "families": [
+        "negative",
+        "pixel_only",
+        "positive",
+        "short"
+      ],
+      "generations_per_model": 728,
+      "image_files": 182,
+      "kind": "diagnostic_flat",
+      "rows": 728,
+      "run_tag": "polarity",
+      "sha256": "b6b834f6126fdeb40e8a5498ac16d45c88d485fc4a5fdd36ea6e21f1d059e2c9",
+      "task_file": "tasks.jsonl"
+    }
+  ],
+  "notebooks": [
+    {
+      "file": "notebooks/vlm_qwen2_5_vl_7b_T4x2_parallel.ipynb",
+      "provider": "qwen2_5_vl_7b",
+      "repo_file": "notebooks/kaggle/vlm_qwen2_5_vl_7b_T4x2_parallel.ipynb",
+      "sha256": "91e0e9c390414d80e1a0b95263c77334484da86be8cc4d2713400890c73cb3b4"
+    },
+    {
+      "file": "notebooks/vlm_internvl_8b_T4x2_parallel.ipynb",
+      "provider": "internvl_8b",
+      "repo_file": "notebooks/kaggle/vlm_internvl_8b_T4x2_parallel.ipynb",
+      "sha256": "030b2ccde99d71e03160985175dfb7c707529c7b248ab3dbd5ea25a6dc3bd2d1"
+    },
+    {
+      "file": "notebooks/vlm_llava_onevision_7b_T4x2_parallel.ipynb",
+      "provider": "llava_onevision_7b",
+      "repo_file": "notebooks/kaggle/vlm_llava_onevision_7b_T4x2_parallel.ipynb",
+      "sha256": "ae458fa5a4a8b1e9d867002eafe6a84c7e5d8875501ff0109ccc83ec567cb0bd"
+    },
+    {
+      "file": "notebooks/diffusion_main_scale_T4x2_TEMPLATE.ipynb",
+      "provider": "main_scale_diffusion",
+      "repo_file": "notebooks/kaggle/diffusion_main_scale_T4x2_TEMPLATE.ipynb",
+      "sha256": "208b144b8a0f16a38d54d9e643484df3997fc915d661aebe13ed4d2bd6db3ba7"
+    }
+  ],
+  "paper_evidence": false,
+  "produced_model_results": false,
+  "run_tags": [
+    "spurious",
+    "perception_scaled",
+    "polarity",
+    "mechanism"
+  ],
+  "schema": "certvic.remaining_kaggle_runbooks.v2"
+}

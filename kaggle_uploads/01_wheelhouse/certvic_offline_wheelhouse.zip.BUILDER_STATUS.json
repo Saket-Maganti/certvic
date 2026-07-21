@@ -1,0 +1,12 @@
+{
+  "builder_command": "python3 -m certvic.cvpr.wheelhouse_builder --mode LOCAL_VERIFY_ONLY --requirements-root requirements --wheel-root local_inputs/wheelhouse/linux_cp310 --output kaggle_uploads/01_wheelhouse/certvic_offline_wheelhouse.zip",
+  "member_count": 94,
+  "name": "certvic_offline_wheelhouse.zip",
+  "output": "kaggle_uploads/01_wheelhouse/certvic_offline_wheelhouse.zip",
+  "paper_evidence": false,
+  "passed": true,
+  "schema": "certvic.kaggle.external_builder_status.v1",
+  "sha256": "d62fe562ee7d012062c03fad3537f0a4da71e0e860b04b9dc7b6f942f4d15bda",
+  "size": 3188416530,
+  "status": "PROVISIONED_CLEAN_LINUX_CP310_VALIDATED"
+}

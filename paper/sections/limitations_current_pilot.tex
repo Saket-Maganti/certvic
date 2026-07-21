@@ -1,0 +1,38 @@
+% ============================================================================
+% Limitations for the current PILOT. No final claims; pilot-only language.
+% No hand-typed result numbers (only the reviewed-item count, which is a design
+% constant, appears -- guarded as a method constant if needed).
+% ============================================================================
+\section{Limitations of the Current Pilot}
+
+This is a \emph{pilot}; it is not a paper-grade or general claim about open VLMs. The
+following limitations are open and are tracked in
+\texttt{docs/V7\_POST3MODEL\_PROJECT\_STATE.md}.
+
+\begin{itemize}
+  \item \textbf{Pilot scale.} The reviewed presence set is small; the study must be scaled
+        (a gated plan to larger sizes exists) before any general claim.
+  \item \textbf{Single dataset.} Only ADE20K is used; a second domain (COCO is the assessed
+        recommendation) is required for external validity.
+  \item \textbf{Human-review limitations.} The reviewed set is single-rater; inter-annotator
+        agreement is not yet measured. A blinded second-rater protocol is prepared but not
+        executed.
+  \item \textbf{Specificity control pending.} The spurious-flip / \texttt{control\_irrelevant}
+        arm has images and tasks but no VLM predictions; until it lands we cannot rule out
+        that the models are simply unstable under any perturbation.
+  \item \textbf{Prompt-polarity wart.} The task set mixes positive and negated phrasing;
+        clean single-phrasing ablations are prepared but not yet run.
+  \item \textbf{Residual-cue concern.} A human audit of whether edited images leak subtle
+        residual cues is prepared but not yet completed; the low edit-detectability already
+        argues against trivial artifacts.
+\end{itemize}
+
+\subsection{What this result does not show}
+\begin{itemize}
+  \item It does not show a paper-grade or general result; it is one pilot on one dataset.
+  \item It does not establish specificity (the spurious-flip control is pending).
+  \item It does not pool the three models into a single certified claim; each is reported on
+        its own run.
+  \item It does not use any mock, smoke, simulated, or non-canonical report; the affordance
+        arm (near-chance original accuracy) is confounded and is not certified.
+\end{itemize}

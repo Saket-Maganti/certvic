@@ -1,0 +1,4 @@
+model,status,reason,peak_vram_gib,environment_hash,snapshot_hash,run_contract_hash,smoke_zip_sha256
+qwen2_5_vl_7b,PENDING,real 00A/00B/00C2 artifacts not returned,,,,,
+internvl_8b,PENDING,real 00A/00B/00C2 artifacts not returned,,,,,
+llava_onevision_7b,PENDING,real 00A/00B/00C2 artifacts not returned,,,,,

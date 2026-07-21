@@ -1,0 +1,2 @@
+n_parse_failures,parse_failure_rate,metrics_parse_ok_only,metrics_parse_fail_as_inconsistent,note
+12,1.0,"{'n': 0, 'original_accuracy': None, 'edited_accuracy': None, 'consistency_rate': None, 'intervention_consistency_gap': None, 'parse_failure_rate': None, 'spurious_flip_rate': None}","{'n': 12, 'original_accuracy': 0.0, 'edited_accuracy': 0.0, 'consistency_rate': 0.0, 'intervention_consistency_gap': 0.0, 'parse_failure_rate': 1.0, 'spurious_flip_rate': 1.0}",Descriptive sensitivity only; parse-failure handling is never a certification substitute.

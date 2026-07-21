@@ -1,0 +1,135 @@
+{
+  "entries": [
+    {
+      "artifact": "data/results/main_real_200/kaggle_spurious/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+      "claim_level": "pilot_control",
+      "n_rows": 188,
+      "paper_evidence": false,
+      "provider": "qwen2_5_vl_7b",
+      "result_id": "qwen2_5_vl_7b__spurious",
+      "run_tag": "spurious",
+      "sha256": "4be34d6826587eca851855c2f407e6b82964a83ca47ae6fe2a64831d809a8049"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_spurious/pred_internvl_8b_spurious_merged.jsonl",
+      "claim_level": "pilot_control",
+      "n_rows": 188,
+      "paper_evidence": false,
+      "provider": "internvl_8b",
+      "result_id": "internvl_8b__spurious",
+      "run_tag": "spurious",
+      "sha256": "68712ead859aeb1d3e93a0926a5650701cd06f8db7e995f11fa4a4a2fc6781fd"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_spurious/pred_llava_onevision_7b_spurious_merged.jsonl",
+      "claim_level": "pilot_control",
+      "n_rows": 188,
+      "paper_evidence": false,
+      "provider": "llava_onevision_7b",
+      "result_id": "llava_onevision_7b__spurious",
+      "run_tag": "spurious",
+      "sha256": "81d40e6942b8db147472987b22d55f876eda3c88ed370a20b9fe7b3ab457c67c"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_perception_scaled/pred_qwen2_5_vl_7b_perception_scaled_merged.jsonl",
+      "claim_level": "pilot_control",
+      "n_rows": 738,
+      "paper_evidence": false,
+      "provider": "qwen2_5_vl_7b",
+      "result_id": "qwen2_5_vl_7b__perception_scaled",
+      "run_tag": "perception_scaled",
+      "sha256": "14def3f2758bd8ed7cd741b88662d29771504a02f6057e17b93cb6819ad9eae5"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_perception_scaled/pred_internvl_8b_perception_scaled_merged.jsonl",
+      "claim_level": "pilot_control",
+      "n_rows": 738,
+      "paper_evidence": false,
+      "provider": "internvl_8b",
+      "result_id": "internvl_8b__perception_scaled",
+      "run_tag": "perception_scaled",
+      "sha256": "1a8bec5fcc8b6e6eb5cdabc4f05f421a0384c9fd0d716ba02746905e4f8fbc26"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_perception_scaled/pred_llava_onevision_7b_perception_scaled_merged.jsonl",
+      "claim_level": "pilot_control",
+      "n_rows": 738,
+      "paper_evidence": false,
+      "provider": "llava_onevision_7b",
+      "result_id": "llava_onevision_7b__perception_scaled",
+      "run_tag": "perception_scaled",
+      "sha256": "e42223879642fc4b08bc86747ce0a96568d08c4fd12afbf8f3f6f112446acb55"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_polarity/pred_qwen2_5_vl_7b_polarity.jsonl",
+      "claim_level": "diagnostic_only",
+      "n_rows": 728,
+      "paper_evidence": false,
+      "provider": "qwen2_5_vl_7b",
+      "result_id": "qwen2_5_vl_7b__polarity",
+      "run_tag": "polarity",
+      "sha256": "ee2c3d80867ec3e90c28ab55c73dc3b197c1eb5760051a9179baca5dca741ab7"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_polarity/pred_internvl_8b_polarity.jsonl",
+      "claim_level": "diagnostic_only",
+      "n_rows": 728,
+      "paper_evidence": false,
+      "provider": "internvl_8b",
+      "result_id": "internvl_8b__polarity",
+      "run_tag": "polarity",
+      "sha256": "73f5f1a3534a9a217dc1debbd8e467a055508ba3d0cc5abb6b9f83416d56d6e9"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_polarity/pred_llava_onevision_7b_polarity.jsonl",
+      "claim_level": "diagnostic_only",
+      "n_rows": 728,
+      "paper_evidence": false,
+      "provider": "llava_onevision_7b",
+      "result_id": "llava_onevision_7b__polarity",
+      "run_tag": "polarity",
+      "sha256": "20678b9bc7e83ebcf9415e4cef8da51c31e41ce2dd1ac539cf5781cbadd587ac"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_mechanism/pred_qwen2_5_vl_7b_mechanism.jsonl",
+      "claim_level": "diagnostic_only",
+      "n_rows": 364,
+      "paper_evidence": false,
+      "provider": "qwen2_5_vl_7b",
+      "result_id": "qwen2_5_vl_7b__mechanism",
+      "run_tag": "mechanism",
+      "sha256": "577a87d5f0bec8f0a5d27411442d084302ff04e2813943b264cbd860c634bfec"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_mechanism/pred_internvl_8b_mechanism.jsonl",
+      "claim_level": "diagnostic_only",
+      "n_rows": 364,
+      "paper_evidence": false,
+      "provider": "internvl_8b",
+      "result_id": "internvl_8b__mechanism",
+      "run_tag": "mechanism",
+      "sha256": "801de03b47fef4ef4e45572cbc0c8935d6a3dff7cfb2d3acb7065ed42c94689c"
+    },
+    {
+      "artifact": "data/results/main_real_200/kaggle_mechanism/pred_llava_onevision_7b_mechanism.jsonl",
+      "claim_level": "diagnostic_only",
+      "n_rows": 364,
+      "paper_evidence": false,
+      "provider": "llava_onevision_7b",
+      "result_id": "llava_onevision_7b__mechanism",
+      "run_tag": "mechanism",
+      "sha256": "0361bb310caedfa69cd1a0f92d61cc1a210f9599d99ebebeb481ca2f1d6979a9"
+    }
+  ],
+  "ingested_existing_kaggle_predictions": true,
+  "paper_evidence": false,
+  "produced_model_results_by_this_script": false,
+  "reports": {
+    "mechanism": "data/results/main_real_200/v8_upgrade/mechanism_probe_report.json",
+    "polarity": "data/results/main_real_200/v8_upgrade/polarity_ablation_report.json",
+    "scaled": "data/results/main_real_200/v8_upgrade/scaled_perception_control_report.json",
+    "spurious": "data/results/main_real_200/v8_upgrade/spurious_specificity_control_report.json"
+  },
+  "schema": "certvic.v8.result_ledger.v1",
+  "status": "complete"
+}

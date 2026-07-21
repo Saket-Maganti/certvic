@@ -1,0 +1,47 @@
+{
+  "cards": [
+    {
+      "evidence_status": "real V9 blocker",
+      "name": "Spurious V1/Qwen specificity",
+      "next": "Complete Qwen failed-12 human review; do not remove failures manually.",
+      "owner": "HUMAN",
+      "status": "BLOCKED"
+    },
+    {
+      "evidence_status": "missing",
+      "name": "Spurious V2 provider predictions",
+      "next": "Run V10 Spurious V2 Kaggle notebooks, then import.",
+      "owner": "GPU",
+      "status": "RUN_NOW_DEFERRED"
+    },
+    {
+      "evidence_status": "not run",
+      "name": "Main-500",
+      "next": "Wait for Spurious V2 decision and human gates.",
+      "owner": "GPU/HUMAN",
+      "status": "HOLD"
+    },
+    {
+      "evidence_status": "plan only",
+      "name": "Second domain",
+      "next": "Prepare candidate mini-pack after core gates.",
+      "owner": "CPU/GPU",
+      "status": "DEFERRED"
+    },
+    {
+      "evidence_status": "local validation",
+      "name": "Claim guard",
+      "next": "Keep rerunning after doc changes.",
+      "owner": "CPU",
+      "status": "DONE"
+    },
+    {
+      "evidence_status": "existing V1 private paths",
+      "name": "Privacy audit",
+      "next": "Clean release-target docs before public package.",
+      "owner": "CPU",
+      "status": "BLOCKED"
+    }
+  ],
+  "created_at": "2026-07-09T14:57:04Z"
+}

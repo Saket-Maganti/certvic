@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "00C2_internvl_8b_real_model_smoke.zip",
+      "sha256": "503939561ea55f03f65194d91c8638a7b1bb86cdf18377002037bad5a8db86f3",
+      "size": 3564
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "a6b4cb5825dacaff927607b4accfd10a86e6b53d5ba2ea0162799523e4f302de",
+      "size": 951
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "305bb8e191d19db4b00aa662edfb96decffe81bba818b39bbd7962c3e7db3811",
+  "config": {
+    "artifact_globs": [
+      "00C2_internvl_8b_real_model_smoke.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "00C2_certvic_real_model_two_item_smoke.ipynb",
+    "notebook_sha256": "c0f512f7cafa3145dc62ea7cc18243842406808a94d0b1de6003d9ce3f69a46a",
+    "provider": "internvl_8b",
+    "return_zip": "00C2_internvl_8b_real_model_smoke.zip",
+    "route": "00C2_certvic_real_model_two_item_smoke__internvl_8b",
+    "stage": "real_model_smoke",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "8e3692fc2270433557d39221282d48423bf0b4063cb220c88fd2ade430a0b363",
+  "status": "PASS"
+}

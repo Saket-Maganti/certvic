@@ -1,0 +1,25 @@
+\section{Method Overview: Confound-Controlled Admission Before Scoring}
+
+CertVIC separates intervention construction, item admission, model inference,
+and certification.
+
+\paragraph{Intervention construction.}
+Each item begins with a real-image source pointer, an object mask, and an edit
+plan. The edited image is intended to change exactly one decision-relevant visual
+factor or, for controls, to avoid changing the answer.
+
+\paragraph{Item-validity certificate.}
+The certificate records edit quality, edit detectability, visual realism,
+photorealism, single-factor validity, answerability, control compatibility,
+leakage status, and provenance. Only rows with
+\texttt{evidence\_eligible\_candidate=true} may feed paper claims.
+
+\paragraph{Validity-gated gap.}
+The main result table compares the naive all-item gap with the validity-gated
+gap. This comparison demonstrates whether the certificate is load-bearing. If
+the certificate changes nothing, the paper must say so.
+
+\paragraph{Anytime-valid certification.}
+After validity-gated scores exist, CertVIC applies anytime-valid certification to
+the intervention-consistency gap. The theorem bridge remains proof-required
+until the formal supplement and citation work are complete.

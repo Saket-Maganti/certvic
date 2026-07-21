@@ -1,0 +1,19 @@
+{
+  "domains": [
+    "household",
+    "driving"
+  ],
+  "evidence_status": "SIMULATED_ONLY",
+  "n_items": 200,
+  "not_for_paper_claims": true,
+  "scenario": "domain_specific_failure",
+  "seed": 0,
+  "simulated": true,
+  "task_families": [
+    "support_stability",
+    "affordance_reachability",
+    "occlusion_safety",
+    "control_irrelevant"
+  ],
+  "zero_cost": true
+}

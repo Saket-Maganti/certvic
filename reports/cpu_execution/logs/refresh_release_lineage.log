@@ -1,0 +1,17 @@
+$ python3 scripts/refresh_kaggle_release_lineage.py --include-release
+
+[stdout]
+{
+  "capsules": [
+    "reports/max_ceiling_upgrade/pre_run_reproducibility_capsule.json",
+    "reports/max_ceiling_upgrade/pre_run_reproducibility_capsule_final.json",
+    "reports/max_ceiling_upgrade/pre_run_reproducibility_capsule_sealed.json"
+  ],
+  "paper_evidence": false,
+  "prompt_artifact_id": "76d8ae8581b54ed38f147329",
+  "registry_hash": "44556a6f4ac74d287c4375686f3d831e63a582525be76122b658c9a63ffc01c1",
+  "release_refreshed": true,
+  "schema": "certvic.kaggle.release_lineage_refresh.v1"
+}
+
+[stderr]

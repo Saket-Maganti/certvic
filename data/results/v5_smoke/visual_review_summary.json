@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+      "human_answerability_status": "pass",
+      "item_id": "smoke_000",
+      "photorealism_status": "pass",
+      "single_factor_status": "pass",
+      "visual_review_status": "pass"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+\section{Method}
+
+\subsection{Pipeline}
+Each item originates from a real source image and an object mask. A modular edit
+engine produces an edited image under a documented recipe (remove, occlude,
+displace, or an irrelevant control change), recording deterministic replay
+metadata (engine version, seed, and source/mask/plan hashes). Edit-quality gates
+check mask-area bounds, inside/outside-mask change, edit-type-specific allowed
+regions, degenerate-edit indicators, and control destructiveness. Human visual
+review then validates photorealism, single-factor validity, target clarity,
+required-change unambiguity, and prompt answerability; only approved items
+proceed, tagged as human-reviewed but non-evidence.
+
+\subsection{Consistency indicator and gap}
+For item $i$, let $a_i \in \{0,1\}$ indicate original-image correctness and
+$C_i \in \{0,1\}$ indicate that the original/edited answer pair respects the
+required change: for change items, $C_i = 1$ iff the parsed answers differ
+appropriately; for no-change (control) items, $C_i = 1$ iff the answer is stable.
+The consistency rate is $p = \mathbb{E}[C_i]$, original accuracy is
+$a = \mathbb{E}[a_i]$, and the intervention-consistency gap is
+$\Delta = a - p$. For control items we separately report the spurious-flip rate.
+
+\subsection{Anytime-valid certification}
+We certify a lower bound on $\Delta$ via an anytime-valid confidence sequence.
+Using the bounded transform $d_i = (a_i - C_i + 1)/2 \in [0,1]$, a betting CS on
+$\mathbb{E}[d_i]$ maps back to a time-uniform CS on $\Delta = 2\,\mathbb{E}[d_i]-1$.
+The bound holds under optional stopping, so evaluation may halt adaptively on a
+small budget. Paired bootstrap intervals are reported as descriptive context
+only and are never treated as certification.
+
+\subsection{Claim gate}
+A certified claim is emitted only when (i) the CS is available and its lower bound
+exceeds the gap threshold, and (ii) a certification policy passes: sufficient
+overall and per-family sample sizes, bounded parse-failure and control
+spurious-flip rates, a human-reviewed evidence status, and a non-mock,
+non-baseline open-local provider. If the CS is unavailable, the result is
+\emph{not certified}. Result values remain [RESULT REQUIRED].

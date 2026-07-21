@@ -1,0 +1,112 @@
+[
+  {
+    "file": "00_MASTER_V8_ORIENTATION.md",
+    "bytes": 3853,
+    "sha256": "edbb6cf71ef63624c85caa0490739429d7a194791769bcdd63b33c89376730d4"
+  },
+  {
+    "file": "01_NEWRUNS_DISCOVERY_AND_INVENTORY.md",
+    "bytes": 3305,
+    "sha256": "9783baa5b032d64edbfc9e14fe29efc9ef6c0dcff6dc8f1cea3755df5ac74a61"
+  },
+  {
+    "file": "02_PREDICTION_INTEGRITY_AND_NORMALIZATION.md",
+    "bytes": 3855,
+    "sha256": "904c7b8c16ab30918383ac98f6369d1733cbbfcf074596ef087d342fd96b219b"
+  },
+  {
+    "file": "03_SPURIOUS_INGEST_DETECTABILITY_INTEGRATION.md",
+    "bytes": 3830,
+    "sha256": "321b15e7c8e0c3ea8fdf627c9ff043a7a11335b21301d83e10ea56b285a0da6b"
+  },
+  {
+    "file": "04_SCALED_PERCEPTION_INGEST_AND_REPORT.md",
+    "bytes": 2202,
+    "sha256": "1d3893b388137f4736822770d2fc6e9b0116761b4283cdc2268fae91767fbc65"
+  },
+  {
+    "file": "05_POLARITY_ABLATION_ANALYSIS.md",
+    "bytes": 2327,
+    "sha256": "9ce423c7da78a54b66d8b5accf9fb11be1dcb28a666698fe70052ce353fc4858"
+  },
+  {
+    "file": "06_MECHANISM_PROBE_ANALYSIS.md",
+    "bytes": 2328,
+    "sha256": "82cac5a3372cc9896de29ed3de37004deaf2cd6c861a4042a6f483306063fa82"
+  },
+  {
+    "file": "07_MULTIMODEL_SUMMARY_AND_RESULT_LEDGER.md",
+    "bytes": 2215,
+    "sha256": "944fc7eef66da41c7b0035f628bfd5ddf4e50a76fa4ece42617b95fff8566941"
+  },
+  {
+    "file": "08_EVIDENCE_STATUS_AND_CERTIFICATION_POLICY_AUDIT.md",
+    "bytes": 2249,
+    "sha256": "c2fb48393a788d6931ff20ad81be6198a3943ff91b7e586418fdecbbdd4874ad"
+  },
+  {
+    "file": "09_FAILURE_TAXONOMY_AND_QUAL_GALLERY_UPGRADE.md",
+    "bytes": 2286,
+    "sha256": "1c85ac0f80ade19191b688f8b6e22b85a62373c42844d105c38953d5d27d251e"
+  },
+  {
+    "file": "10_RESIDUAL_CUE_HUMAN_AUDIT_EXPORT.md",
+    "bytes": 2211,
+    "sha256": "dbdf30d1fc7094ef28fcf273bf22304c920dbf7ed46f6338766ea18c9a9f3a1f"
+  },
+  {
+    "file": "11_SECOND_RATER_IAA_UPGRADE.md",
+    "bytes": 2089,
+    "sha256": "d06d09966e490a7ef6ab3dd7a1e5b62df31e77f5358d8c89d8e73d8aa236e355"
+  },
+  {
+    "file": "12_STATISTICAL_SENSITIVITY_AND_SEQUENTIAL_VALIDATION.md",
+    "bytes": 2220,
+    "sha256": "79b3c4af75af841693838ff71f0a4f1a6ec2479527f441720d75f1cefaefe6ed"
+  },
+  {
+    "file": "13_PAPER_TABLES_FIGURES_RESULT_SECTION.md",
+    "bytes": 2255,
+    "sha256": "460a026d20fabc50e89cc6b52bd313eda72705d6432eafa848a941045c060283"
+  },
+  {
+    "file": "14_REVIEWER_ATTACK_HARNESS_V8.md",
+    "bytes": 2221,
+    "sha256": "2890555c4c0eca69d0288dfa0b1fc54f9531ecff702b763b4add911eeb4bfc5e"
+  },
+  {
+    "file": "15_RELEASE_PRIVACY_REPRODUCIBILITY_AUDIT.md",
+    "bytes": 2120,
+    "sha256": "b89786f314797cc427e8fc46f60c426250e8f3b86a11da84aa5350368d5916cb"
+  },
+  {
+    "file": "16_MAIN500_GO_NOGO_AND_SCALE_PREP.md",
+    "bytes": 2229,
+    "sha256": "27fb70cb4bb23227adceb9e360010080279d382e237d25c226c6eaed81b04279"
+  },
+  {
+    "file": "17_MAIN500_DIFFUSION_AND_VLM_RUNBOOK_REFRESH.md",
+    "bytes": 2152,
+    "sha256": "70f701cf330eb6f58b9b0246e8a9da0c867dd9408b999fc1ef3038492ca08a4d"
+  },
+  {
+    "file": "18_CVPR_READINESS_SCORECARD_AND_STOP_CONDITIONS.md",
+    "bytes": 2229,
+    "sha256": "c2be7f4aef430f60af52889f60295e649c9d4bb7e4c39de915fbe4507349140f"
+  },
+  {
+    "file": "19_FINAL_VALIDATION_AND_HANDOFF.md",
+    "bytes": 2217,
+    "sha256": "d1580224e67458a7779976eeb64ecae25c93dd9c5faf76ebd9b66b83a254e48c"
+  },
+  {
+    "file": "20_SINGLE_MASTER_PROMPT_TO_RUN_ALL_V8.md",
+    "bytes": 4959,
+    "sha256": "cd18b652143f8d27d71f66c5cf410dec541710e0df527ced2600b2918712b91b"
+  },
+  {
+    "file": "README.md",
+    "bytes": 1406,
+    "sha256": "41f9063b55f8e46899a40cfc9cde3d6c25885628960361c87b084bf3fb559d31"
+  }
+]

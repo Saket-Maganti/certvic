@@ -1,0 +1,6 @@
+mode: kaggle_quality
+min_mask_area_fraction: 0.01
+max_mask_area_fraction: 0.50
+max_outside_mask_change_fraction: 0.08
+sample_for_human_spot_check: 100
+paid_services_enabled: false

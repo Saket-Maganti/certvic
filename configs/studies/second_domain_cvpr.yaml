@@ -1,0 +1,79 @@
+schema: certvic.cvpr.second_domain.v1
+study_id: second_domain_cvpr
+status: DESIGN_LOCKED_EXECUTION_BLOCKED
+paper_evidence: false
+execution_allowed: false
+seed: 17011
+primary_domain: COCO_2017_OBJECT_PRESENCE_ABSENCE
+selection_rationale: complementary natural-object domain with instance masks and releaseable annotations
+license_verification_required: true
+supported_category_mapping:
+  chair: chair
+  couch: sofa
+  car: car
+  dining table: table
+licensing:
+  source_annotations: COCO_2017_ANNOTATIONS_CC_BY_4_0_VERIFY_CURRENT_TERMS
+  source_images: PER_IMAGE_FLICKR_LICENSE_VERIFICATION_REQUIRED
+  insertion_assets: HASH_LICENSE_AND_REDISTRIBUTION_VERIFICATION_REQUIRED
+  release_policy: pointers_manifests_and_hashes_only_until_each_row_is_eligible
+source_contract:
+  split: val2017
+  minimum_short_side: 384
+  rgb_required: true
+  instance_annotation_required: true
+  per_image_license_verification_required: true
+  no_pixel_redistribution: true
+stages:
+  feasibility:
+    items: 60
+    progress_if:
+      human_valid_fraction_min: 0.85
+      parse_complete_fraction_min: 0.95
+      edit_success_fraction_min: 0.80
+      set_level_symmetric_detectability_auc_max: 0.80
+      maximum_human_invalidation_rate: 0.15
+      model_completion_requirement: all_three_primary_models_complete
+  confirmation:
+    items: 240
+    reserve_items: 60
+    execution_allowed_after_feasibility_only: true
+relevant_edit: object_removal_or_insertion_with_masked_inpainting_and_human_acceptance
+semantic_task_contract:
+  question_template: Is there a {category} in the image?
+  removal_transition: yes_to_no
+  insertion_transition: no_to_yes
+  automated_status: MACHINE_ASSISTED_PRELIMINARY
+  human_validity_required: true
+  insertion_asset_requires_hash_lock: true
+irrelevant_control: outcome-invariant distant-region perturbation under confirmatory geometry rules
+human_review: two_rater_outcome_blind_with_adjudication
+scope_limitations:
+  - feasibility_only_until_the_powered_240_item_confirmation_is_completed
+  - four_supported_mapped_categories_only
+  - not_broad_cross_domain_generalization
+  - compressed_RLE_requires_the_locked_pycocotools_environment
+statistics:
+  family_role: secondary_domain_confirmation
+  family_alpha: 0.05
+  missing_or_unparseable: count_as_failure_primary
+execution:
+  code_bundle_sha256: NOT_FROZEN_EXTERNAL_INPUT
+  task_bundle_root: data/studies/second_domain_cvpr/task_bundle
+  task_bundle_manifest: data/studies/second_domain_cvpr/task_bundle/task_bundle_manifest.json
+  task_manifest: data/studies/second_domain_cvpr/task_bundle/tasks.jsonl
+  permission_ledger: data/studies/second_domain_cvpr/permission_ledger.json
+  run_tag: second_domain_cvpr_v1
+  runtime_contract_schema: certvic.cvpr.run_contract.v1
+  environment_lock: configs/runtime/kaggle_t4x2_environment.lock.json
+  permission_artifact: data/studies/second_domain_cvpr/execution_permission.json
+  smoke_gate: reports/cvpr_final_integration/REAL_MODEL_SMOKE_GATE.json
+  freeze_manifest: data/studies/second_domain_cvpr/final_task_freeze.json
+  human_review_outputs:
+    final_inclusion_manifest: data/studies/second_domain_cvpr/review/final_inclusion.json
+    agreement_report: data/studies/second_domain_cvpr/review/agreement.json
+    rater_1_qualification: data/studies/second_domain_cvpr/review/rater_1_qualification.json
+    rater_2_qualification: data/studies/second_domain_cvpr/review/rater_2_qualification.json
+    rater_1_validation: data/studies/second_domain_cvpr/review/rater_1_validation.json
+    rater_2_validation: data/studies/second_domain_cvpr/review/rater_2_validation.json
+    adjudication_artifact: data/studies/second_domain_cvpr/review/adjudication_validation.json

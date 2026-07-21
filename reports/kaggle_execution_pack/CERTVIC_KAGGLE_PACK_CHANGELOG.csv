@@ -1,0 +1,5 @@
+change_id,area,status,detail
+K001,bundle_schema,COMPLETE,deterministic secure certvic.kaggle.bundle.v1
+K002,external_builders,COMPLETE,"wheelhouse, snapshots, smoke, permissions, generation, scientific"
+K003,runbooks,COMPLETE,"16 output-free notebooks with T4x2, fallback, seeds, canonical returns"
+K004,evidence_boundary,PRESERVED,paper_evidence=false; no external bytes fabricated

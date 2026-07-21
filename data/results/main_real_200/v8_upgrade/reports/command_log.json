@@ -1,0 +1,103 @@
+{
+  "commands": [
+    {
+      "cmd": [
+        "python3",
+        "scripts/pilot_report_from_raw.py",
+        "--provider",
+        "qwen2_5_vl_7b",
+        "--model-name",
+        "Qwen/Qwen2.5-VL-7B-Instruct",
+        "--run-label",
+        "qwen2_5_vl_7b",
+        "--raw-spurious",
+        "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/kaggle_spurious/pred_qwen2_5_vl_7b_spurious_merged.jsonl",
+        "--raw-perception-scaled",
+        "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/kaggle_perception_scaled/pred_qwen2_5_vl_7b_perception_scaled_merged.jsonl"
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "{\"control_absent\": \"60/60\", \"control_present\": \"50/60\", \"model\": \"Qwen2.5-VL-7B\", \"models_run_in_summary\": 3, \"out_dir\": \"data/results/main_real_200/pilot_report\", \"positive_subset_gap\": 0.6522, \"presence_certified\": false, \"presence_cs_lower_bound\": 0.364, \"presence_gap\": 0.7473, \"provider\": \"qwen2_5_vl_7b\", \"run_label\": \"qwen2_5_vl_7b\", \"spurious_flip_rate\": 0.1277}\n"
+    },
+    {
+      "cmd": [
+        "python3",
+        "scripts/pilot_report_from_raw.py",
+        "--provider",
+        "internvl_8b",
+        "--model-name",
+        "OpenGVLab/InternVL2-8B",
+        "--run-label",
+        "internvl_8b",
+        "--raw-spurious",
+        "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/kaggle_spurious/pred_internvl_8b_spurious_merged.jsonl",
+        "--raw-perception-scaled",
+        "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/kaggle_perception_scaled/pred_internvl_8b_perception_scaled_merged.jsonl"
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "{\"control_absent\": \"58/60\", \"control_present\": \"58/60\", \"model\": \"InternVL2-8B\", \"models_run_in_summary\": 3, \"out_dir\": \"data/results/main_real_200/pilot_report__internvl_8b\", \"positive_subset_gap\": 0.6957, \"presence_certified\": false, \"presence_cs_lower_bound\": 0.4409, \"presence_gap\": 0.8242, \"provider\": \"internvl_8b\", \"run_label\": \"internvl_8b\", \"spurious_flip_rate\": 0.0106}\n"
+    },
+    {
+      "cmd": [
+        "python3",
+        "scripts/pilot_report_from_raw.py",
+        "--provider",
+        "llava_onevision_7b",
+        "--model-name",
+        "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+        "--run-label",
+        "llava_onevision_7b",
+        "--raw-spurious",
+        "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/kaggle_spurious/pred_llava_onevision_7b_spurious_merged.jsonl",
+        "--raw-perception-scaled",
+        "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/kaggle_perception_scaled/pred_llava_onevision_7b_perception_scaled_merged.jsonl"
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "{\"control_absent\": \"60/60\", \"control_present\": \"58/60\", \"model\": \"llava-onevision-qwen2-7b-ov\", \"models_run_in_summary\": 3, \"out_dir\": \"data/results/main_real_200/pilot_report__llava_onevision_7b\", \"positive_subset_gap\": 0.6739, \"presence_certified\": false, \"presence_cs_lower_bound\": 0.364, \"presence_gap\": 0.7473, \"provider\": \"llava_onevision_7b\", \"run_label\": \"llava_onevision_7b\", \"spurious_flip_rate\": 0.0319}\n"
+    },
+    {
+      "cmd": [
+        "python3",
+        "-m",
+        "certvic.validation.edit_detectability",
+        "--tasks",
+        "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl",
+        "--out-dir",
+        "data/results/spurious_flip_control/edit_detectability"
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "{\"artifact_risk\": false, \"auc\": 0.7123, \"backend\": \"sklearn_logreg_group_cv\", \"features\": \"data/results/spurious_flip_control/edit_detectability/features.csv\", \"highly_detectable\": \"data/results/spurious_flip_control/edit_detectability/highly_detectable_items.jsonl\", \"n_flagged\": 19, \"n_items\": 94, \"report\": \"data/results/spurious_flip_control/edit_detectability/report.md\", \"summary\": \"data/results/spurious_flip_control/edit_detectability/detectability_summary.json\"}\n"
+    },
+    {
+      "cmd": [
+        "python3",
+        "-m",
+        "certvic.v7.spurious_control_integration"
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "{\"missing\": [\"explicit human visual review approvals (0/94 approved)\"], \"specificity_status\": \"blocked\", \"status\": \"blocked\"}\n"
+    },
+    {
+      "cmd": [
+        "python3",
+        "scripts/build_multimodel_summary.py"
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "{\"models\": [\"qwen2_5_vl_7b:run\", \"internvl_8b:run\", \"llava_onevision_7b:run\"], \"n_models\": 3, \"n_run\": 3}\n"
+    },
+    {
+      "cmd": [
+        "python3",
+        "scripts/build_main200_paper_tables.py"
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "{\"n_run\": 3, \"report\": \"docs/MAIN200_MULTIMODEL_PILOT_REPORT.md\", \"tables_dir\": \"data/results/main_real_200/tables\"}\n"
+    }
+  ]
+}

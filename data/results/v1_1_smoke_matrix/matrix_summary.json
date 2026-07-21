@@ -1,0 +1,82 @@
+[
+  {
+    "certification_gate_errors": [
+      "certified claim blocked: split is smoke",
+      "certified claim blocked: evidence_status is MOCK_ONLY",
+      "certified claim blocked: provider_type is mock",
+      "certified claim blocked: data are synthetic smoke fixtures",
+      "certified claim blocked: anytime-valid CS unavailable",
+      "certified claim blocked: missing CS lower bound",
+      "certified claim lacks CS lower bound"
+    ],
+    "certified": false,
+    "consistency_rate": 1.0,
+    "control_spurious_flip_rate": 0.0,
+    "edited_accuracy": 1.0,
+    "gap": 0.0,
+    "n": 12,
+    "original_accuracy": 1.0,
+    "parse_failure_rate": 0.0,
+    "provider": "mock_perfect"
+  },
+  {
+    "certification_gate_errors": [
+      "certified claim blocked: split is smoke",
+      "certified claim blocked: evidence_status is MOCK_ONLY",
+      "certified claim blocked: provider_type is mock",
+      "certified claim blocked: data are synthetic smoke fixtures",
+      "certified claim blocked: anytime-valid CS unavailable",
+      "certified claim blocked: missing CS lower bound",
+      "certified claim lacks CS lower bound"
+    ],
+    "certified": false,
+    "consistency_rate": 0.5,
+    "control_spurious_flip_rate": 0.0,
+    "edited_accuracy": 0.5,
+    "gap": 0.5,
+    "n": 12,
+    "original_accuracy": 1.0,
+    "parse_failure_rate": 0.0,
+    "provider": "mock_inconsistent"
+  },
+  {
+    "certification_gate_errors": [
+      "certified claim blocked: split is smoke",
+      "certified claim blocked: evidence_status is MOCK_ONLY",
+      "certified claim blocked: provider_type is mock",
+      "certified claim blocked: data are synthetic smoke fixtures",
+      "certified claim blocked: anytime-valid CS unavailable",
+      "certified claim blocked: missing CS lower bound",
+      "certified claim lacks CS lower bound"
+    ],
+    "certified": false,
+    "consistency_rate": 0.5,
+    "control_spurious_flip_rate": 1.0,
+    "edited_accuracy": 0.5,
+    "gap": 0.5,
+    "n": 12,
+    "original_accuracy": 1.0,
+    "parse_failure_rate": 0.0,
+    "provider": "mock_spurious_flip"
+  },
+  {
+    "certification_gate_errors": [
+      "certified claim blocked: split is smoke",
+      "certified claim blocked: evidence_status is MOCK_ONLY",
+      "certified claim blocked: provider_type is mock",
+      "certified claim blocked: data are synthetic smoke fixtures",
+      "certified claim blocked: anytime-valid CS unavailable",
+      "certified claim blocked: missing CS lower bound",
+      "certified claim lacks CS lower bound"
+    ],
+    "certified": false,
+    "consistency_rate": 0.0,
+    "control_spurious_flip_rate": 1.0,
+    "edited_accuracy": 0.0,
+    "gap": 0.0,
+    "n": 12,
+    "original_accuracy": 0.0,
+    "parse_failure_rate": 1.0,
+    "provider": "mock_parser_fail"
+  }
+]

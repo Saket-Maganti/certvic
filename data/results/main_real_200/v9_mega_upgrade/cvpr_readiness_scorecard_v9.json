@@ -1,0 +1,24 @@
+{
+  "paper_evidence": false,
+  "recommendation": "HOLD_FOR_SPURIOUS_V2",
+  "schema": "certvic.v9.cvpr_readiness_scorecard.v1",
+  "scores": {
+    "controls": 5,
+    "empirical_strength": 3,
+    "human_validation": 1,
+    "method_clarity": 6,
+    "novelty": 7,
+    "overall_cvpr_main_probability": 2,
+    "paper_readiness": 4,
+    "reproducibility": 7,
+    "reviewer_risk": 8,
+    "statistical_rigor": 6,
+    "workshop_probability": 7
+  },
+  "stop_conditions": [
+    "no Main-500 if specificity unresolved and no reframe",
+    "no paper_evidence without gates",
+    "no all-model specificity if Qwen failed",
+    "no human validation claim without real human labels"
+  ]
+}

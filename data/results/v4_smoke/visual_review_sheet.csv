@@ -1,0 +1,3 @@
+item_id,reviewer_id,original_image_path,edited_image_path,task_family,edit_type,required_change,single_factor_valid,is_sentinel,sentinel_pass
+v4_item_001,reviewer_a,data/smoke/images/smoke_000_orig.png,data/smoke/images/smoke_000_var.png,support_stability,remove,change,yes,true,true
+v4_item_001,reviewer_b,data/smoke/images/smoke_000_orig.png,data/smoke/images/smoke_000_var.png,support_stability,remove,change,no,false,

@@ -1,0 +1,14 @@
+{
+  "evidence_status": "REVIEW_IAA_PENDING_NON_EVIDENCE",
+  "note": "No completed second-rater labels found. Two-rater IAA is pending; no paper-grade review claim yet.",
+  "paper_evidence": false,
+  "schema": "certvic.review_iaa.v1",
+  "single_rater_preliminary": {
+    "keep_for_eval_pass": 91,
+    "n_items": 103,
+    "note": "Preliminary single-rater review (current canonical visual review). Not IAA.",
+    "rater_id": "assistant_visual_review_v1"
+  },
+  "status": "second_rater_pending",
+  "two_rater": null
+}

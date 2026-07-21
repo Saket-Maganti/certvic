@@ -1,0 +1,2149 @@
+{
+  "bundle": "certvic_kaggle_main200_bundle.zip",
+  "content_digest": "cda7d7fcf1208f3e387f1c638864e9568942487b46cda75a8e441f1c4a557450",
+  "entries": [
+    {
+      "path": "README_KAGGLE_BUNDLE.md",
+      "sha256": "bcb31b8f7effbf4f5e8bbb5381d7005ca0684617d1d7f24989afb5c593a57545",
+      "size": 4671
+    },
+    {
+      "path": "certvic/__init__.py",
+      "sha256": "0c48da18864bf62b7b4f463ebeab882cf813169815783136b7646475f2816067",
+      "size": 46
+    },
+    {
+      "path": "certvic/analysis/__init__.py",
+      "sha256": "b9d8c812c8f37df38130ce32e3362c7b8f8513fb26bdb3cbcc0ebf72c1d6abd7",
+      "size": 59
+    },
+    {
+      "path": "certvic/analysis/analysis_plan_lock.py",
+      "sha256": "63fbdaedc93ef5880001018bb1999f71b2fa2699458b7238012840a73176ab63",
+      "size": 2454
+    },
+    {
+      "path": "certvic/analysis/preregistration.py",
+      "sha256": "80ce9c9c6946afcdfdd1c0ea20ee05a2b1fcc782ee9ed58ccb5d93ea45bb5f09",
+      "size": 2204
+    },
+    {
+      "path": "certvic/audit.py",
+      "sha256": "5b67bd361fb36f2d8d085c5a29af08d09b7523435f5f7048592d317d7679713e",
+      "size": 4295
+    },
+    {
+      "path": "certvic/cards/__init__.py",
+      "sha256": "b9b6f6fef8ba890971155324a50ae75022cda0a276ab64f71d75dbf31d79d60a",
+      "size": 42
+    },
+    {
+      "path": "certvic/cards/eval_card.py",
+      "sha256": "0bca2a084e901f89665e1ceec1fde56b4680883702cf12492db74fc6b00a3f5f",
+      "size": 1990
+    },
+    {
+      "path": "certvic/cards/model_card.py",
+      "sha256": "ab80bafd1c339aad7ace7ad6d86268cb7efbc4bbbf9532bb805ce481858e5106",
+      "size": 2370
+    },
+    {
+      "path": "certvic/commands/__init__.py",
+      "sha256": "e54ecd7346e864c1321f2ccad55e21e43101e13d3a5090b6498fc17a26e9e431",
+      "size": 48
+    },
+    {
+      "path": "certvic/commands/command_manifest.py",
+      "sha256": "b87284166006cc0d0f1bf3db526d5df7ace681072d72ceead1ae96324c8a651a",
+      "size": 20583
+    },
+    {
+      "path": "certvic/commands/generate_real_run_commands.py",
+      "sha256": "1a550016659ad8790fd681139a946f9d285e84f75506b3939e59e549b2db3312",
+      "size": 3533
+    },
+    {
+      "path": "certvic/compute/__init__.py",
+      "sha256": "475e3262cf88aeb0074f777e992671a401cecfe919aef31ae95610558d1ae749",
+      "size": 475
+    },
+    {
+      "path": "certvic/compute/colab_packager.py",
+      "sha256": "a799ca30c75bd1aaf3058f86827ee1e939dbc9d039ed17c03eb4a196cb494197",
+      "size": 2148
+    },
+    {
+      "path": "certvic/compute/job_bundle.py",
+      "sha256": "41e8f1007610a8a9dfe0ccc78f7c192a9af7c0b0160163723dd048d4ab039f5b",
+      "size": 14366
+    },
+    {
+      "path": "certvic/compute/kaggle_packager.py",
+      "sha256": "d8545247ec0bc0f05328f0c6ae588c59ab509c17c10bf96c710ab3a13b822f8a",
+      "size": 2171
+    },
+    {
+      "path": "certvic/config.py",
+      "sha256": "174a974abb3597756f670e3e69bc71057739a299101f29afedb84697c950e46b",
+      "size": 445
+    },
+    {
+      "path": "certvic/contracts/__init__.py",
+      "sha256": "dd7efddf7a52b44126f1571c1e35140b17bf6243e35a1bb0b94e2c3650687908",
+      "size": 38
+    },
+    {
+      "path": "certvic/contracts/result_contracts.py",
+      "sha256": "61250d08e5c070084f07d5a97d5484b7e5a606afb41987ac4c337e51082c879d",
+      "size": 2317
+    },
+    {
+      "path": "certvic/dashboard/__init__.py",
+      "sha256": "cbe69553bd4ea270ac55b801c0f945c7583d5ee91bbdeaf210080f2d8ba09e6b",
+      "size": 429
+    },
+    {
+      "path": "certvic/dashboard/build_dashboard.py",
+      "sha256": "e6fdfe9dfd28cf211c5ec49fb6e1fba2f28b237fd017f80753f574d77110685c",
+      "size": 12870
+    },
+    {
+      "path": "certvic/dashboard/tiny_pilot_decision.py",
+      "sha256": "c5c92d625e12f5e04b54ab6f5774f6f191ae7c9f675c65bb1568e095e26a9ae7",
+      "size": 4398
+    },
+    {
+      "path": "certvic/data/__init__.py",
+      "sha256": "e0fc024958611b6c4f8e1aa62378b6e2923571bbd0847bccd121714f9c03c9f8",
+      "size": 34
+    },
+    {
+      "path": "certvic/data/ade20k_adapter.py",
+      "sha256": "fd8c128758fa0f6ea253a9f368cc45001950874b6ab956138d8a016ab4884246",
+      "size": 22818
+    },
+    {
+      "path": "certvic/data/apply_answerability_review.py",
+      "sha256": "9e949f8f920c9d3deaeb238dd14694d9a7f9bd6a11edce1f04168344034e70c3",
+      "size": 1977
+    },
+    {
+      "path": "certvic/data/apply_visual_review.py",
+      "sha256": "7ae0e97f257cf8c5fd6fc803cf611a915cfc7c38c9ea552a821b32120ff05242",
+      "size": 2383
+    },
+    {
+      "path": "certvic/data/build_source_manifest.py",
+      "sha256": "73e2c578ce1e3d3ea976caec6c4838805f36da78493e35f79138824a01c3d03a",
+      "size": 1043
+    },
+    {
+      "path": "certvic/data/build_tasks.py",
+      "sha256": "b5c055b33273016879d16f0e4e385c4bc262614d3bc62504c2982fcdd1c5fe55",
+      "size": 1144
+    },
+    {
+      "path": "certvic/data/coco_adapter_stub.py",
+      "sha256": "0746d6a44a7888b0ba36c73fc98ee6c10d496a8d6a2094589658892d32cca3a0",
+      "size": 2242
+    },
+    {
+      "path": "certvic/data/fallback_sources.py",
+      "sha256": "4942f39d26892a2834851c8bd03837e13e629cc5ca6ba370b77dd3ceaf40a1b8",
+      "size": 1866
+    },
+    {
+      "path": "certvic/data/label_policy.py",
+      "sha256": "f313e114a7c0a3ba1c2281beebaaa4583e4d4b5e5a6e4e83fb1b7ba95f265ae8",
+      "size": 10175
+    },
+    {
+      "path": "certvic/data/label_policy_report.py",
+      "sha256": "350c74f12f72ccd7d8854eaeb3e520052b8b5e04e866686a66df50a4ee3847ab",
+      "size": 7083
+    },
+    {
+      "path": "certvic/data/license_expansion.py",
+      "sha256": "c0fb8ac221efb973937d8b06bf47b64cc16a6c6ff19a58aecc8ef6180d67a9ec",
+      "size": 1568
+    },
+    {
+      "path": "certvic/data/license_matrix.py",
+      "sha256": "be31488fd915275664d9c27c367735c59ba0278a8a0733dca54f6ae7a5cf4f80",
+      "size": 1065
+    },
+    {
+      "path": "certvic/data/license_policy.py",
+      "sha256": "998a92f420ecfbdf95dffcf61151f9fbb253a042fcc0be4bf0baf993c70ca7fc",
+      "size": 1874
+    },
+    {
+      "path": "certvic/data/manifest_checks.py",
+      "sha256": "63467445d58cba26a8bf0fe815ea5f83edece01744c26c4166ccf6a19e6b09fd",
+      "size": 2420
+    },
+    {
+      "path": "certvic/data/materialize_tasks.py",
+      "sha256": "2f195a548c97264e6e5d06e803505fda1488a6b8eecab4689799223d035c60ef",
+      "size": 3959
+    },
+    {
+      "path": "certvic/data/openimages_adapter_stub.py",
+      "sha256": "64e185dc43b4664fc2740fac663dfe16f4ea980c2a39aec5032f6b8a5ca86118",
+      "size": 503
+    },
+    {
+      "path": "certvic/data/pilot_readiness.py",
+      "sha256": "dcf88b01b8131aa1006bc5131b02ebff571edd550691695ce95ab3a878f7e448",
+      "size": 8734
+    },
+    {
+      "path": "certvic/data/preview_tasks.py",
+      "sha256": "93f4be9861a03b7152e24cc96cfb3ffc70cde992dc1419c7cfffb59b806522fc",
+      "size": 4872
+    },
+    {
+      "path": "certvic/data/select_pilot_items.py",
+      "sha256": "ed9c8ffbc1f72619822721d6d1c00ba35d6f71d52b9962202c9fb6f949d2cb5f",
+      "size": 23085
+    },
+    {
+      "path": "certvic/data/showcase_split.py",
+      "sha256": "05328fa3457c8cdc55af1573e241e803a924d40018df9091d8bda2a071d0905e",
+      "size": 1948
+    },
+    {
+      "path": "certvic/data/smoke_fixtures.py",
+      "sha256": "f1f5106018597c70aa9b2b0ccffbebc1685575a51c380ababfa10585b728e211",
+      "size": 6765
+    },
+    {
+      "path": "certvic/data/source_manifest.py",
+      "sha256": "af0fc6a172b5c9a7d749ef77fe5b4ce4118175dc2abde4db0e1f8c765fbfd8f4",
+      "size": 1248
+    },
+    {
+      "path": "certvic/data/task_templates.py",
+      "sha256": "6273994ec833addb35d06e467985bc0ebe8778407be3ed4c8540ddc1f724a6b1",
+      "size": 1583
+    },
+    {
+      "path": "certvic/data/wikimedia_adapter_stub.py",
+      "sha256": "ff9c6aba6185f0cf751fe70ad5ce999f14f35e32a36643bbb3fa6bc85fcf7ba2",
+      "size": 538
+    },
+    {
+      "path": "certvic/edit/__init__.py",
+      "sha256": "a4ca3a35878f1f114de85037b8b11a05bde30a2b955ba63a593524b1c138f141",
+      "size": 20
+    },
+    {
+      "path": "certvic/edit/ade20k_masks.py",
+      "sha256": "968a8aca8c6ab1e35789400fa3af4e33d2d3a404a3a55f06acee4dc636f964e5",
+      "size": 504
+    },
+    {
+      "path": "certvic/edit/build_edits.py",
+      "sha256": "1a2d750310d1b9ca3eacd29cf75d53c26b71fcecf4d772297ddfdd7085b040ca",
+      "size": 772
+    },
+    {
+      "path": "certvic/edit/control.py",
+      "sha256": "3d1edf46864d8ee3d1963589b88a2895fb8bfe37c6b1acfcd7c22670bd62fabc",
+      "size": 567
+    },
+    {
+      "path": "certvic/edit/diffusion_preflight.py",
+      "sha256": "388b05df1022221f566f362d4c53d6de8f1af42335586680f9e7f61699481981",
+      "size": 8324
+    },
+    {
+      "path": "certvic/edit/diffusion_resume.py",
+      "sha256": "dfb325a0c45398b19a06ec7872641c00e2c508020f791b7f87796a97986c68ad",
+      "size": 3448
+    },
+    {
+      "path": "certvic/edit/displace.py",
+      "sha256": "11acff67758871581c05f093aba6312f440c77b40264f727afd606fc10f9eb78",
+      "size": 893
+    },
+    {
+      "path": "certvic/edit/edit_generation_plan.py",
+      "sha256": "eafdbfd2e084d0bdcfb84be58694d35d30dfa51df085736b8757d7ad885afd59",
+      "size": 3992
+    },
+    {
+      "path": "certvic/edit/engines.py",
+      "sha256": "4d9d08a0d20cfefcfb9eba5b7433e075f4a0f5f464732f274b1f5866633c4fe8",
+      "size": 13448
+    },
+    {
+      "path": "certvic/edit/family_risk.py",
+      "sha256": "48caee590e8c018f6bdeb4ffa5d3dbe3dc39aba4ee7ff129d54eefa17426800f",
+      "size": 4754
+    },
+    {
+      "path": "certvic/edit/generate_edits.py",
+      "sha256": "0c5be2a30694414ee695a08198ec7a63abad0bb6b2161b32dc59bb77a46e054b",
+      "size": 15087
+    },
+    {
+      "path": "certvic/edit/inpaint.py",
+      "sha256": "812d3aa0e915d649ee1f622d983d54ca464ea9a1901c8a8eb12f520fad4b08c9",
+      "size": 897
+    },
+    {
+      "path": "certvic/edit/job_queue.py",
+      "sha256": "c3bc58d7c7ed0947f8dbe50b0d979b78e68f803f3c6b179adb7572e7c6ec65c7",
+      "size": 10490
+    },
+    {
+      "path": "certvic/edit/masks.py",
+      "sha256": "7c96a7a890c1ea80b91e268272cece63dd4bd2d1cc296237c24fd3171e1d14f8",
+      "size": 1848
+    },
+    {
+      "path": "certvic/edit/occlude.py",
+      "sha256": "45a95c07e237bdb37967ed6af7960c9a0880c05243e827173f3bf9d57801a89f",
+      "size": 567
+    },
+    {
+      "path": "certvic/edit/parameter_sweep.py",
+      "sha256": "d1c2a357c25d03c9707bd16005ddde53ad7c83e8840c64c72b7717b566d98600",
+      "size": 2737
+    },
+    {
+      "path": "certvic/edit/pipeline.py",
+      "sha256": "46b27d525356bfb80bd7051f80ad21ee45857d4201b6ef722712f5dce927584b",
+      "size": 1667
+    },
+    {
+      "path": "certvic/edit/plan_edits.py",
+      "sha256": "6581ca4e7b68edc800a0700b025dce3ea2ff704132170d97f37cc50eea209210",
+      "size": 15491
+    },
+    {
+      "path": "certvic/edit/quality_gates.py",
+      "sha256": "04c64b0abf0a7ff1d0196dadad639d201eb957de89c4ccd63938aa6d24a26c01",
+      "size": 12944
+    },
+    {
+      "path": "certvic/edit/quality_report.py",
+      "sha256": "3399ab21f14189ce13ed589f483ed090598ccae448bebd2dcbc5f6e450b53f89",
+      "size": 6937
+    },
+    {
+      "path": "certvic/edit/sweep_report.py",
+      "sha256": "6600b3589689ddaffe46a2285553072bc40beeb244dcf53ef49d70e8bf693bd1",
+      "size": 685
+    },
+    {
+      "path": "certvic/eval/__init__.py",
+      "sha256": "8db2853c63cd82aed1d2cefa58c0e3d7d535b6a2396bd851fdf9fe425d8b7d50",
+      "size": 26
+    },
+    {
+      "path": "certvic/eval/ablation_baselines.py",
+      "sha256": "3c56d43c47848de4fcc2569ca5bdbfd2de37d079bc8286c101aac50e25e67ce8",
+      "size": 4786
+    },
+    {
+      "path": "certvic/eval/adversarial_audit.py",
+      "sha256": "9aabd908d18f31706607a213e59620d21280d10600045269673694ecc8ca30a2",
+      "size": 11356
+    },
+    {
+      "path": "certvic/eval/baselines.py",
+      "sha256": "6f6d372ce3b4f8764846ef6277b9ae2d72ffeae2afaaf33e2e7ad2e9cae97f5a",
+      "size": 390
+    },
+    {
+      "path": "certvic/eval/merge_predictions.py",
+      "sha256": "5963ce25e97d058c83b180bb64d4bf08b23663c606185c66129319bca2ff99ed",
+      "size": 2938
+    },
+    {
+      "path": "certvic/eval/model_matrix.py",
+      "sha256": "9c12bf19115149b05932f4b37bbd0151ff479df36a4c5a39082dc0403cb6f066",
+      "size": 4913
+    },
+    {
+      "path": "certvic/eval/output_triage.py",
+      "sha256": "9b38b7768103fd003f855b6b5727c4fa5ce9707a9f8eb95a4e79c4200b364530",
+      "size": 9407
+    },
+    {
+      "path": "certvic/eval/parse.py",
+      "sha256": "ecba81b297023ca31679ce2912b164ef8916299623d7558e7f8d8706dffb356d",
+      "size": 3661
+    },
+    {
+      "path": "certvic/eval/prediction_dedup.py",
+      "sha256": "afcd0b11be108edbc5f83a617d2536319eb1d2b5210617c93178bf79da251458",
+      "size": 1147
+    },
+    {
+      "path": "certvic/eval/presence_semantics.py",
+      "sha256": "2688310847f7f9e6c6f0b415696bd2987a6de2f7179cc5b01ff2a090f4fd6d49",
+      "size": 2241
+    },
+    {
+      "path": "certvic/eval/prompt_suite.py",
+      "sha256": "b9f80ec57e8e4f92eaa8c1092b09bab6c2f0aa1db1e9898886101ff5aee975c0",
+      "size": 1661
+    },
+    {
+      "path": "certvic/eval/prompts.py",
+      "sha256": "1dfb33373079025f2f8a5983d22156ece49479d21a06c946da5a71f93d1ca24c",
+      "size": 634
+    },
+    {
+      "path": "certvic/eval/resume.py",
+      "sha256": "7cdd9fd01ff996847ac617cf368fc5894170d7a7988ba553154814daff67615c",
+      "size": 382
+    },
+    {
+      "path": "certvic/eval/run_ablations.py",
+      "sha256": "19a11f91694557bc5d48b750fd49741237e9862252c23eac64f77e6840aef07c",
+      "size": 2053
+    },
+    {
+      "path": "certvic/eval/run_eval.py",
+      "sha256": "37bbe85c801961fd3c0a3c18b60ea3c6d5023635091ea98ae4ea9980a33ad543",
+      "size": 8543
+    },
+    {
+      "path": "certvic/eval/run_matrix_planner.py",
+      "sha256": "7496c011e70426d79f1beea9f9d95bf6beda972db12e6a44389a8fbac1b80249",
+      "size": 3712
+    },
+    {
+      "path": "certvic/eval/run_status.py",
+      "sha256": "722891001751f6f7dc53b980a908da5a18b79d7d19e1cdf776a82d4f6be64415",
+      "size": 4372
+    },
+    {
+      "path": "certvic/eval/runner.py",
+      "sha256": "8c11e6b3ae65343140b658178318215826c7d2ce9cf4169eba3dddb8d39247c7",
+      "size": 176
+    },
+    {
+      "path": "certvic/eval/sharding.py",
+      "sha256": "331ca15038d683c687a4ed1c8746442525a69acfd66e1448d60f58860f20ec9a",
+      "size": 560
+    },
+    {
+      "path": "certvic/eval/vlm_preflight.py",
+      "sha256": "9f2c0d251dbfe3564a4dc6dfbb8aa8b3932cc5c9017b673a0c82a038e7717ed2",
+      "size": 4969
+    },
+    {
+      "path": "certvic/exceptions.py",
+      "sha256": "b667b5da0d1e74b4510a5fee40df16a39783a7ee7a423f4ffe57a3578299f786",
+      "size": 327
+    },
+    {
+      "path": "certvic/experiments/__init__.py",
+      "sha256": "b215d8947eb5478fe54d7b1bc8229712927e7c991d1d88be85d2e51e6a961f37",
+      "size": 31
+    },
+    {
+      "path": "certvic/experiments/registry.py",
+      "sha256": "fcc80d01b5e9de44feb149b60e652bae51f198a4bfad3aad7fddaf264a3494bf",
+      "size": 2340
+    },
+    {
+      "path": "certvic/hashing.py",
+      "sha256": "fc3015634473ecf223603971e66ae057d0cf818a48e52f682872a788dc973c16",
+      "size": 899
+    },
+    {
+      "path": "certvic/io.py",
+      "sha256": "f89a7ce18f50f4bd9920d9cbc6f8e8d9110c28aede477bceb4f933392f5bfa7f",
+      "size": 2736
+    },
+    {
+      "path": "certvic/logging_utils.py",
+      "sha256": "d3093239727fd8e90a438c651258ccb54f44f3a5e2e4fa2e6459fe0b117853ac",
+      "size": 285
+    },
+    {
+      "path": "certvic/mechanisms/__init__.py",
+      "sha256": "8125c3e5b02e53aa8ef147c2305ed5d90e1be8b7fb67d77f56ca65fdc4966536",
+      "size": 53
+    },
+    {
+      "path": "certvic/mechanisms/compare_prompts.py",
+      "sha256": "decbc75ed05361ef9ad924bf89a6f7cc5a656c166317faf8f5c357b3c2ca2f21",
+      "size": 676
+    },
+    {
+      "path": "certvic/mechanisms/diagnostics.py",
+      "sha256": "65ffee8312fcc7455c5cfda12af030e0d03a299324616dbf8bb5091d2c9d4960",
+      "size": 3294
+    },
+    {
+      "path": "certvic/mechanisms/intervention_analysis.py",
+      "sha256": "82397ca116f076b4d1752e36aab9d2c85f7c1f47b2dded6f2a2c4fbc267b37d2",
+      "size": 3914
+    },
+    {
+      "path": "certvic/metrics/__init__.py",
+      "sha256": "e39e73b46278792306d9a29570fc76fca2cf88890b911414548cf09a4e57995a",
+      "size": 23
+    },
+    {
+      "path": "certvic/metrics/anytime_cs.py",
+      "sha256": "290bfe3b411144cff3eba18e20476c3a8029417e92632971a1928a0ead00ed25",
+      "size": 4834
+    },
+    {
+      "path": "certvic/metrics/bootstrap.py",
+      "sha256": "8dcb44bf866e91a9c71f0d8676cc3f484de6bd30b1594fe6d55212a98284b043",
+      "size": 949
+    },
+    {
+      "path": "certvic/metrics/certification.py",
+      "sha256": "9cef8f9e3681a92bd9f1c7469b52b3b86880a745c3d104a0f821799a9703e2f2",
+      "size": 1974
+    },
+    {
+      "path": "certvic/metrics/certification_policy.py",
+      "sha256": "cf0ca1d820283981ec2244d681fd70cc0038bcf0053082ec95123af525e74237",
+      "size": 4586
+    },
+    {
+      "path": "certvic/metrics/cluster_diagnostics.py",
+      "sha256": "abe7f7309f3075b97d21038c463e252193064769f14bcedf2ce3dadb92e65590",
+      "size": 8731
+    },
+    {
+      "path": "certvic/metrics/cluster_sensitivity.py",
+      "sha256": "9b3330d3a920dc46667f7ac2214a65dc65da52908cae18fc2c444eee8c9b4474",
+      "size": 5057
+    },
+    {
+      "path": "certvic/metrics/confseq_wrappers.py",
+      "sha256": "4f1b93a8009bc37cd5f9408437fef3f6dde4018bc76daa2bd47c8a3623ad9e82",
+      "size": 4460
+    },
+    {
+      "path": "certvic/metrics/consistency.py",
+      "sha256": "baba76bd484876b307f6f5c33eaf944e471fe01827e38dd32efef52648bca65c",
+      "size": 770
+    },
+    {
+      "path": "certvic/metrics/power.py",
+      "sha256": "6b8e110731015aa517aecf499dceba29b555af75d482b6405f400576019f4109",
+      "size": 5884
+    },
+    {
+      "path": "certvic/metrics/power_plan.py",
+      "sha256": "3191f073cca278decb2eba67b644a87d266ec1e44a5836d8c5cbfc5b46f3823a",
+      "size": 4126
+    },
+    {
+      "path": "certvic/metrics/report_metrics.py",
+      "sha256": "ce3509e2c827a2242620e48fc8a5ab7a3f36c3dd29e6ee5657e2710b1131e3e4",
+      "size": 4661
+    },
+    {
+      "path": "certvic/metrics/score_predictions.py",
+      "sha256": "ec814e0421b64d433857a6548fd9c0cfa496ef33bb4a342f370b3a404cc494f6",
+      "size": 3696
+    },
+    {
+      "path": "certvic/metrics/sensitivity_suite.py",
+      "sha256": "1b958d79bf0a59336acfe23ee6782a9a46530dc8144a8a843534fc8a611e5cf2",
+      "size": 3114
+    },
+    {
+      "path": "certvic/metrics/summary.py",
+      "sha256": "b3dd28ae8ec8956ff24a07d8c573aeb75467b02f284b7d9499bd17e62c633c68",
+      "size": 3238
+    },
+    {
+      "path": "certvic/models/__init__.py",
+      "sha256": "e3971a108fc80e13cbb8b9c8b6545d025e5f58dc126e2effcdd501a3e0fc778f",
+      "size": 38
+    },
+    {
+      "path": "certvic/models/cache_check.py",
+      "sha256": "727e35279a139f5ba7957f7a5031d42df62793e3a2f3452f7b4a0afc6de72cf2",
+      "size": 1614
+    },
+    {
+      "path": "certvic/models/cache_manifest.py",
+      "sha256": "25232272114e0ed7d532c784eee62d3730425169f6079e8b349d6fe46d1b7eb8",
+      "size": 2011
+    },
+    {
+      "path": "certvic/notebooks/__init__.py",
+      "sha256": "64bbbbf66445f16aeee883fb1c2f8944580054ee424d98aad5839a5d358a28ed",
+      "size": 43
+    },
+    {
+      "path": "certvic/notebooks/colab_notebook_builder.py",
+      "sha256": "433f2cc2af32cf16fb5515d3ca51d23f218f365e34c8510d6c0727255212b54a",
+      "size": 3366
+    },
+    {
+      "path": "certvic/notebooks/kaggle_notebook_builder.py",
+      "sha256": "3a5d6c76054418c4ea01d0fe1fa96d0aecace086c1b1e029e3d7e2a7c64c34dc",
+      "size": 4705
+    },
+    {
+      "path": "certvic/notebooks/notebook_cells.py",
+      "sha256": "f67a6de8bd8eba87a8a4654b9d6e74423422b966ee7fd1e30921820e553cef9c",
+      "size": 1540
+    },
+    {
+      "path": "certvic/paper/__init__.py",
+      "sha256": "b6eb709129dcd64106be5053e7b6b7ac5261eddd0fb38c85aba8dfc003e3836f",
+      "size": 441
+    },
+    {
+      "path": "certvic/paper/build_paper_check.py",
+      "sha256": "507b19a9aa6ca0ff0200d78a71321076fa0ac559b43749cc093cd868e4f34e2c",
+      "size": 478
+    },
+    {
+      "path": "certvic/paper/ethics_audit.py",
+      "sha256": "d78294136eabe4489a188a6c6154feb98d7ad03dc89749a8214e95dcb2ce821c",
+      "size": 1833
+    },
+    {
+      "path": "certvic/paper/figure_contact_sheet.py",
+      "sha256": "22422499e6de1968ac5d267fe42d7f2eed032177751df1bb156ac2f252457bf5",
+      "size": 892
+    },
+    {
+      "path": "certvic/paper/figure_manifest_audit.py",
+      "sha256": "7c9d6218999118a4d1745f783c4e08a256de461592214b1338adf093788e0d93",
+      "size": 2105
+    },
+    {
+      "path": "certvic/paper/identity_audit.py",
+      "sha256": "615ba6594a01a4f11b6e64b495967f2bae6b4cf54ee4a4b9f301d724b98abb38",
+      "size": 2666
+    },
+    {
+      "path": "certvic/paper/inject_results.py",
+      "sha256": "2ac92799fa60d63dac49ca541f5ecb12678adeafd3544cc9b8c9aa0f75055d54",
+      "size": 6567
+    },
+    {
+      "path": "certvic/paper/latex_audit.py",
+      "sha256": "00f01b561302dc7dafcf2ddfd982a64a201d38fa5c93f71103d7bcbaa5ec2ea7",
+      "size": 2403
+    },
+    {
+      "path": "certvic/paper/open_only_audit.py",
+      "sha256": "98a32641d4e3c58e8fe42dcd1ec70df33e4593eeeffd1f325613468892a0ddd2",
+      "size": 1926
+    },
+    {
+      "path": "certvic/paper/paper_trace_report.py",
+      "sha256": "5c752d6c15ebb9ef6edef6b0118269d4aeeb3668f2abd392e264dc3df84c4da8",
+      "size": 4761
+    },
+    {
+      "path": "certvic/paper/proof_bridge_audit.py",
+      "sha256": "38e9a56af9850ac8d2fd31d899d9bd975da354a7f3e9feea7fab70c9ee17f190",
+      "size": 1369
+    },
+    {
+      "path": "certvic/paper/qualitative_figures.py",
+      "sha256": "9bed5e68a719984b09a106bee65f4a76fbdca3e21dbaf935d66a018d22602446",
+      "size": 2130
+    },
+    {
+      "path": "certvic/paper/related_work_audit.py",
+      "sha256": "7fa31957b91ea1c8d3e832ae486a1a36644a7b993be7d89d4488893c44e59c98",
+      "size": 5935
+    },
+    {
+      "path": "certvic/paper/related_work_task_audit.py",
+      "sha256": "d5c7df68812380d9deea4ede77aed0bcfa32e97ad18ea84cc4836c15ddd01e42",
+      "size": 2222
+    },
+    {
+      "path": "certvic/paper/result_free_completeness_audit.py",
+      "sha256": "d9d788ece0352360cbedb8e50a518a94a4780682b2e50c7275f2e42cd026a723",
+      "size": 3154
+    },
+    {
+      "path": "certvic/paper/result_manifest.py",
+      "sha256": "49452a6e02a884e01fce2d45fe1f688b69cf2c6077dfa123271008a1d0053c15",
+      "size": 4628
+    },
+    {
+      "path": "certvic/paper/supplement_generator.py",
+      "sha256": "3ce96b236eab4c38472d92c5a176afdb3f257e29f8f53a2b260a965873b05688",
+      "size": 2271
+    },
+    {
+      "path": "certvic/paper/table_manifest_audit.py",
+      "sha256": "5036653e766ff18ef3e49c69fef33bbc75d88eab23678b4c232cfeaa48edbe29",
+      "size": 1962
+    },
+    {
+      "path": "certvic/paper/theory_audit.py",
+      "sha256": "d8893004f3e6f726dbb2b4d56ed7a985f9115c4fc33ff19f635b5c68c2e268c0",
+      "size": 2420
+    },
+    {
+      "path": "certvic/paper/v6_visual_story_audit.py",
+      "sha256": "48fb1db5b6c836b9556717154b0a871b56729991c9ed0a7ba5bc1cc7dd5bdda5",
+      "size": 2690
+    },
+    {
+      "path": "certvic/pipeline/__init__.py",
+      "sha256": "ce3c47b920203eb72ed7bd3190230584c60bfa2fc8d353c6b020f04c204198ad",
+      "size": 188
+    },
+    {
+      "path": "certvic/pipeline/main_study_dry_run.py",
+      "sha256": "29fc68d4611c0cc4185c303eec5a18773f2d18ca0b83b0ed3fdd1d223275d9ba",
+      "size": 5191
+    },
+    {
+      "path": "certvic/pipeline/main_study_plan.py",
+      "sha256": "51faa83f373b188bab1ff7890cb44fdb9253d511d527c99b7d2479eb352d40d1",
+      "size": 10298
+    },
+    {
+      "path": "certvic/pipeline/pilot_gate_check.py",
+      "sha256": "f81aeb2630d941c9a9c2bc38ac24e6dc98f38c4e2d72563350484aca1ce6470c",
+      "size": 4562
+    },
+    {
+      "path": "certvic/pipeline/run_tiny_eval.py",
+      "sha256": "9309576a1c2799b3c4542b07f632df9293f5a474c88706f8872ec472825f568f",
+      "size": 7982
+    },
+    {
+      "path": "certvic/pipeline/run_tiny_pilot.py",
+      "sha256": "866f340f8fc786a3e5507126c247c378280824aee9d0178081d42b438d8d9d05",
+      "size": 11428
+    },
+    {
+      "path": "certvic/pipeline/tiny_pilot_go_no_go.py",
+      "sha256": "c58c9d2fd93d8d014395a48ceebfaea618e83bd11960fb453057fc7d342d01b4",
+      "size": 1354
+    },
+    {
+      "path": "certvic/planning/__init__.py",
+      "sha256": "66f4885bbdeaae4479e4eacd2a419211ad7f69fb699ded1777be8f299322960a",
+      "size": 367
+    },
+    {
+      "path": "certvic/planning/ablation_plan.py",
+      "sha256": "d4479c2726d12ef0926698b18a0392902252baa43958af1af1436a41e72145ba",
+      "size": 2315
+    },
+    {
+      "path": "certvic/planning/deadline_plan.py",
+      "sha256": "d57ba7d2e16aaa0713adb3a7f852f61057d469bc7e04af7ae6c6ea0b476884f6",
+      "size": 2150
+    },
+    {
+      "path": "certvic/planning/free_compute_budget.py",
+      "sha256": "20454a86a2ecfc849ba5bbfcf73dad65f628a01307c2d1749a9b0c4590cce0be",
+      "size": 2116
+    },
+    {
+      "path": "certvic/planning/scale_planner.py",
+      "sha256": "6be015d0d235cb28d4fed150773d852d3c93a023367970b875b9bcc35537959d",
+      "size": 7513
+    },
+    {
+      "path": "certvic/playbooks/__init__.py",
+      "sha256": "fc9b2dba21c508975370ff3e0e07d8edd6be952786a2070eb237d0a144f72155",
+      "size": 453
+    },
+    {
+      "path": "certvic/playbooks/diagnose_failure.py",
+      "sha256": "b4646ab8ac3faaacd263ade6f70fd8b51a75e22ca4319c3ca2110dcdd8283f4e",
+      "size": 9917
+    },
+    {
+      "path": "certvic/provenance/__init__.py",
+      "sha256": "66631d1c47267c6f0632ea96b760aca518d63e8f1e2cc8d27c3caf5126feca20",
+      "size": 678
+    },
+    {
+      "path": "certvic/provenance/artifact_graph.py",
+      "sha256": "78d58d4218f6500d7aaf27f4bf43f8053728ed805a10702cba191c03a8256896",
+      "size": 7518
+    },
+    {
+      "path": "certvic/provenance/run_ledger.py",
+      "sha256": "2b1a00113000b531e5294711fd2e386c6ca7f743c3da8ee1fd175ce794ec9fd3",
+      "size": 8643
+    },
+    {
+      "path": "certvic/provenance/trace_claim.py",
+      "sha256": "9f1765a2df8afa62079bceb131a8552066c7a26fe765ebeb60e1495a1b4e8188",
+      "size": 6996
+    },
+    {
+      "path": "certvic/providers/__init__.py",
+      "sha256": "ea147e5544676328531b072a1884a121487278a6a9000f4fb7dca37f9bcaf8af",
+      "size": 24
+    },
+    {
+      "path": "certvic/providers/base.py",
+      "sha256": "09cd0aadde8a86ae2d6bae7a19ab0f04cb6e4ba8b445af30b3ad3d4e07b51bc7",
+      "size": 549
+    },
+    {
+      "path": "certvic/providers/caption_only.py",
+      "sha256": "2514f6271e0527d682b4b42ffae5161eaaa3b5beebb746f75fd6c1967fcb67ee",
+      "size": 651
+    },
+    {
+      "path": "certvic/providers/free_tier_reference.py",
+      "sha256": "7c0e41c30e4f905cd9f8d7d91a6ec3e61b58b9027cf4ab84491421572e89d01c",
+      "size": 980
+    },
+    {
+      "path": "certvic/providers/internvl.py",
+      "sha256": "a66bdadb12da1052bbd7897c5bc5aad31122fd7e51a581bd8d550df9830bda78",
+      "size": 239
+    },
+    {
+      "path": "certvic/providers/llava_onevision.py",
+      "sha256": "3aa0b2c60548215163c2bb97d19527d456b74b76cd05df98f311a1ee01989e43",
+      "size": 259
+    },
+    {
+      "path": "certvic/providers/mock.py",
+      "sha256": "9284edc744c8f8b00eceecd56142b7c569ac29314874f9cb14954c527df5ee57",
+      "size": 2793
+    },
+    {
+      "path": "certvic/providers/open_vlm.py",
+      "sha256": "f5b4c5f6178833f0a7add457c52807f049e4e72d2d6e78195749926a9286e8ed",
+      "size": 1396
+    },
+    {
+      "path": "certvic/providers/qwen_vl.py",
+      "sha256": "fd192754ac849bb85598458c5ff484d601a4bfecea003e3576b38002f27d8712",
+      "size": 241
+    },
+    {
+      "path": "certvic/providers/random_baseline.py",
+      "sha256": "1b0a1043aff896973d40be43551d9f8ace37ee9fa2dcb1c642ade4fd247afa20",
+      "size": 948
+    },
+    {
+      "path": "certvic/providers/registry.py",
+      "sha256": "981dbcfbff6a113a65f6b16ecfabddd94d24f971a23919dbc3102698cf695ef9",
+      "size": 5360
+    },
+    {
+      "path": "certvic/providers/text_only.py",
+      "sha256": "e4acfb166dcc36ddad5c38dbe17b37f1df33aa64c9a0189c4a8813dfdc56958f",
+      "size": 613
+    },
+    {
+      "path": "certvic/recovery/__init__.py",
+      "sha256": "baa93ea3c16ad8d4a020923ad2f26787447f9a55ab66eb91a5b948d6a2f9c659",
+      "size": 43
+    },
+    {
+      "path": "certvic/recovery/inspect_run.py",
+      "sha256": "3d32dc861dd41b6281cb68448df19d1ec28d5a9c609f187003f2efdecc68a142",
+      "size": 1667
+    },
+    {
+      "path": "certvic/recovery/rebuild_sidecars.py",
+      "sha256": "018ef6c6c0f3229a1145426adf564d05b3a515f3018c0195483944643a1fc616",
+      "size": 1124
+    },
+    {
+      "path": "certvic/recovery/repair_manifests.py",
+      "sha256": "41a803422c3f17bfd22f615e389827a9f33ca357e9a977047a19d67c88858d41",
+      "size": 1533
+    },
+    {
+      "path": "certvic/release/__init__.py",
+      "sha256": "bb20332ed92dfbad92aafa118933a566554f4d7c4fe92de130d4c8c5f5d806ef",
+      "size": 202
+    },
+    {
+      "path": "certvic/release/build_artifact.py",
+      "sha256": "9a8fbdb1c7e175ef01dae317e56e2eed1c337f5f5afbd2040b06249cc5271b6c",
+      "size": 7183
+    },
+    {
+      "path": "certvic/release/capsule_validator.py",
+      "sha256": "6bfd73e421c0c059a9199d3456c4e23738ccffc997749d3af132fb72e711dbd6",
+      "size": 2809
+    },
+    {
+      "path": "certvic/release/data_card.py",
+      "sha256": "a6918b322c73bacc41a8380f0c572c1d9fad9a6bc2d9609edc4c2e9fc9813615",
+      "size": 2519
+    },
+    {
+      "path": "certvic/release/reproduction_audit.py",
+      "sha256": "ec3e5e8a240c99ce9d4c24f5d929fd826773e45c2e0e2549e199b7f94a834aab",
+      "size": 5117
+    },
+    {
+      "path": "certvic/release/showcase_package.py",
+      "sha256": "96d818f699e5e6583329c166b92b57033de741e0103bc1e8b31a3df990f255cc",
+      "size": 1902
+    },
+    {
+      "path": "certvic/reporting/__init__.py",
+      "sha256": "144ef4415754e84995aa06cc633583d3d3e9d177c3fb5e7e7767d10e69d3e348",
+      "size": 25
+    },
+    {
+      "path": "certvic/reporting/ablation_interpreter.py",
+      "sha256": "2978dbf813b1ba1881208399c6e0f18a6a3fba30dc43ba151b57317816306122",
+      "size": 2025
+    },
+    {
+      "path": "certvic/reporting/ablations.py",
+      "sha256": "be90878989c82a11c9dabfad50984fd4539bf92c7b20e45ae854032d16015411",
+      "size": 7095
+    },
+    {
+      "path": "certvic/reporting/build_report.py",
+      "sha256": "d9ce081226435043cecd3ef7c26cd58566f9b8e9590d53961eebc92941767cf2",
+      "size": 5881
+    },
+    {
+      "path": "certvic/reporting/build_v2_report.py",
+      "sha256": "49a4f22b65d542bef49d0eb967a6efebf0c536ae2214b3136bdc662c9060bdcf",
+      "size": 13159
+    },
+    {
+      "path": "certvic/reporting/certification_interpreter.py",
+      "sha256": "e7f23f792051d3073a6f3ced666f008edda9aeba1f79742a83afa864a4c3dade",
+      "size": 2048
+    },
+    {
+      "path": "certvic/reporting/claim_ledger.py",
+      "sha256": "8d6a44d535dc62acffa6272930452471195f423decb6b370add9c9be8ecf83c8",
+      "size": 1112
+    },
+    {
+      "path": "certvic/reporting/edit_detectability_report.py",
+      "sha256": "f1f66876f8731fa8757448784a0703d45b108c24c33366d66d93b62b7f78ea09",
+      "size": 4311
+    },
+    {
+      "path": "certvic/reporting/edit_realism_scorecard.py",
+      "sha256": "05ad1d41600f33343abfb2fb2e23d92c210080f5795417fb88d8e343fc6fc11d",
+      "size": 2095
+    },
+    {
+      "path": "certvic/reporting/failure_gallery.py",
+      "sha256": "dd747f066df23407d6bf77fc1fa860c4c6fa7a5500f83c2a4435d048bd00474b",
+      "size": 1288
+    },
+    {
+      "path": "certvic/reporting/failure_gallery_v2.py",
+      "sha256": "9d348b5f1df757df9de353611571ded8b400a906d2495660cf55fb6092d8d01e",
+      "size": 7436
+    },
+    {
+      "path": "certvic/reporting/failure_taxonomy.py",
+      "sha256": "045e4b1917d6a9de5646dde1eb8172800f1fc1f4ff8f6afa579911714a12eb57",
+      "size": 3159
+    },
+    {
+      "path": "certvic/reporting/figures.py",
+      "sha256": "d5903c0b61e7a02fb89c1c033fa1faf570c8a71af81981d9c49bf36f91f9f130",
+      "size": 308
+    },
+    {
+      "path": "certvic/reporting/model_comparison.py",
+      "sha256": "9bd608be2e56fa504ddc698598e6692ab30ceae2745c5d5d255b3ba220d2ea62",
+      "size": 1947
+    },
+    {
+      "path": "certvic/reporting/model_rankings.py",
+      "sha256": "f61b32b05860fab86260d1beb47525a1bdb50530596b75062d9288ff5f0c59eb",
+      "size": 952
+    },
+    {
+      "path": "certvic/reporting/naive_vs_validity_gated.py",
+      "sha256": "c87193362cb2d1c48aadce37a8834cf1c90fa5f29e7ad08cc8e14c0f877389bc",
+      "size": 5097
+    },
+    {
+      "path": "certvic/reporting/parse_triage_report.py",
+      "sha256": "a15cdba7a356f5853f31eee31e127ac8a3a03f1d84502caa055e719fb05f3376",
+      "size": 3001
+    },
+    {
+      "path": "certvic/reporting/pilot_plan_report.py",
+      "sha256": "01b5fabc73c24ea9791362ff695952d0a4a8ac3d44832bb0d4d78625099f1dd2",
+      "size": 8237
+    },
+    {
+      "path": "certvic/reporting/sensitivity_report.py",
+      "sha256": "db13ba81df4b9c7361d64c3eb249049421ee84d1f61b3cac65d9ca47e6071a60",
+      "size": 730
+    },
+    {
+      "path": "certvic/reporting/tables.py",
+      "sha256": "7c032434f4d9ea539d39f24934794bc8eceee4c6c7fe168d636ea69dd48b439b",
+      "size": 2515
+    },
+    {
+      "path": "certvic/reporting/validity_shift_report.py",
+      "sha256": "d44e4b58e746a12a970fa5985176a834978a5ba881b248afc1b85ab4405699d9",
+      "size": 3259
+    },
+    {
+      "path": "certvic/reporting/visual_review_report.py",
+      "sha256": "4d6a93ed4aa8a75d1cf462174ad36a93fd35eed4bf9d5015051c43b9d38e75ee",
+      "size": 3080
+    },
+    {
+      "path": "certvic/results/__init__.py",
+      "sha256": "1c4d7f7f9225da72614b62a335246f74c8a7a9ce0a76cb9b76bc9009c585b9dc",
+      "size": 33
+    },
+    {
+      "path": "certvic/results/compare_lockfile.py",
+      "sha256": "67ce22fdbddc87497189f77daedab07bd916a8d898b3a4f6dcc7e5812fee5a4f",
+      "size": 1605
+    },
+    {
+      "path": "certvic/results/freeze_results.py",
+      "sha256": "a76b2f4f8f246a042d30ea04b0764dec291f6682376ed6f91aad1d52d9567985",
+      "size": 1721
+    },
+    {
+      "path": "certvic/review/__init__.py",
+      "sha256": "85d2f4096261fa62048b8c0a204793d00c6fc9fd828b5196aba46e49695701dc",
+      "size": 339
+    },
+    {
+      "path": "certvic/review/cvpr_bar_checker.py",
+      "sha256": "01e72469a05951a0693d7789f702889d388880d304cfc7b69180c6df9de87da7",
+      "size": 4439
+    },
+    {
+      "path": "certvic/review/rebuttal_pack.py",
+      "sha256": "ab8ce17405fd7a2d44608557f1a34d2a9f910d010ca0dcf3ef8223b83a556865",
+      "size": 6114
+    },
+    {
+      "path": "certvic/review/response_bank.py",
+      "sha256": "9f3856e56186b3a788e6e3981ee2336b205ec2ee7220b1c8532e52635e9c813b",
+      "size": 1477
+    },
+    {
+      "path": "certvic/review/score_simulator.py",
+      "sha256": "30364331b1d21501ed468306da6e174c28def3634f3ee0dacb4ec2ce52129c7e",
+      "size": 2447
+    },
+    {
+      "path": "certvic/review/simulate_reviews.py",
+      "sha256": "bfb06e07d9e639262d7a8728767f65c4411dd892ff56340aff8f7c9fde7595df",
+      "size": 9065
+    },
+    {
+      "path": "certvic/review/v6_attack_harness.py",
+      "sha256": "4ebb1969b844a8377f4e5de3b861918b919e751b6fb5def9307140da8e116305",
+      "size": 3151
+    },
+    {
+      "path": "certvic/review_app/__init__.py",
+      "sha256": "e9a7369464941b3680e2fdb006626214ee7c4e0cbb6d8be1f6ef561690daca23",
+      "size": 44
+    },
+    {
+      "path": "certvic/review_app/build_static_app.py",
+      "sha256": "638ec41aecf1e83c534071978254d246643ee6024b0dd7afcae60f50174b41ea",
+      "size": 3095
+    },
+    {
+      "path": "certvic/schema/__init__.py",
+      "sha256": "4a8b71b7cafc23a7655ec70e7467c59aa325cd4901e5d5f570fca082fe8ae852",
+      "size": 921
+    },
+    {
+      "path": "certvic/schema/base.py",
+      "sha256": "23bf669cf7aad92f419e0257972693b8baff6657ea3fab02e5ca5a203871a082",
+      "size": 1526
+    },
+    {
+      "path": "certvic/schema/claims.py",
+      "sha256": "12d06db098fd6bd1bd10762a36f0e7f93facbeef76140c900b1320a614b7493a",
+      "size": 458
+    },
+    {
+      "path": "certvic/schema/edit.py",
+      "sha256": "4229b560bf50d266a8e34e224d4ee70281f63b8d0b34d121cf42ae17246d1b6e",
+      "size": 1152
+    },
+    {
+      "path": "certvic/schema/manifest.py",
+      "sha256": "df8277ca1f43bf3dc9ed3ae950c6938a56f538003658e22dd6682e51caabf694",
+      "size": 483
+    },
+    {
+      "path": "certvic/schema/prediction.py",
+      "sha256": "594aafb4ab6c0c3c669b6564f4fa6b69ad38d951ca902eb5ac4920c5f4f8df85",
+      "size": 1001
+    },
+    {
+      "path": "certvic/schema/source.py",
+      "sha256": "0260296382d213c60136d47c62d975d4ba08a8bc5ca51b5c400305c0ab6c45f0",
+      "size": 1359
+    },
+    {
+      "path": "certvic/schema/task.py",
+      "sha256": "6470fbe5caed8ca8ede89855320b0ab46a3303f57d62188a2da4b2ee6e1a501b",
+      "size": 1654
+    },
+    {
+      "path": "certvic/security/__init__.py",
+      "sha256": "00c6d9c9d83d604dd65d3a7ba65b3441543bf5370d5215095045ed3f34f99b40",
+      "size": 446
+    },
+    {
+      "path": "certvic/security/audit_kaggle_bundle.py",
+      "sha256": "7928c26d1a8af74704ce32a018231eedca3a953bcce587a0070c7691d188a4c4",
+      "size": 9100
+    },
+    {
+      "path": "certvic/security/path_audit.py",
+      "sha256": "9628110a919eeaf9602deb09e992b0d99ed94e8f094365ab7a297888db929158",
+      "size": 3625
+    },
+    {
+      "path": "certvic/security/release_privacy_audit.py",
+      "sha256": "64be5165f56ed8d13a856a3bd562250ef39e4d9fa5c8c589c2638caa68965991",
+      "size": 7312
+    },
+    {
+      "path": "certvic/security/secrets_audit.py",
+      "sha256": "4226778d8a54db18bfebf9d379aa2f302ff9cd590545309673cd58c428be9d19",
+      "size": 2847
+    },
+    {
+      "path": "certvic/sim/__init__.py",
+      "sha256": "239f58e27120ca7051288133c12bfb21b3f8a10dc4e38fb15c3efa8980221b54",
+      "size": 142
+    },
+    {
+      "path": "certvic/sim/anytime_validity.py",
+      "sha256": "b925f78c4fa3e57e78caa5984a8411cda5b8e41928ed93a846826e7a95afbce6",
+      "size": 12669
+    },
+    {
+      "path": "certvic/sim/generate_synthetic_run.py",
+      "sha256": "32175f728b34393c4e573bf1ee6502e9313ae27ed2f197bfe790740fa68e4bfe",
+      "size": 760
+    },
+    {
+      "path": "certvic/sim/outcome_models.py",
+      "sha256": "a14d8e48256ff72fd341e94176adf064d01027e013974a2efe2db58a16ba4e82",
+      "size": 10072
+    },
+    {
+      "path": "certvic/sim/simulated_manifests.py",
+      "sha256": "a558b8b06ebb9b3cb39f1bf4e585d12bd72f1416b4fc70828378886ba4642ead",
+      "size": 10011
+    },
+    {
+      "path": "certvic/sim/stress_scenarios.py",
+      "sha256": "9de1a64a828046dc95625e853f090b588dfaf3171c9efba1fd1966020b024d0a",
+      "size": 10634
+    },
+    {
+      "path": "certvic/storage/__init__.py",
+      "sha256": "c327b70975c33a79d7fcef0f589a46664fbed9f00de234f710c02cb441eb7691",
+      "size": 328
+    },
+    {
+      "path": "certvic/storage/dataset_roots.py",
+      "sha256": "b21c270d70e779df4115793151989273f7b834af50758be091433ca9dbfab4c6",
+      "size": 5045
+    },
+    {
+      "path": "certvic/storage/path_policy.py",
+      "sha256": "074de142f58ec308eed1c9c90b37c7759c6b1bb5cc95ce631dc8439399027ed4",
+      "size": 4870
+    },
+    {
+      "path": "certvic/storage/plan_storage.py",
+      "sha256": "a23fadcf26ce706cbeffb39b77ac1df321c28e0817b4e24e4540c6b8a1940726",
+      "size": 6609
+    },
+    {
+      "path": "certvic/submission/__init__.py",
+      "sha256": "549d0f7bb518e4bcb98d68470986c7ea8edf83703e2a7868f6d06c17d71d8b95",
+      "size": 39
+    },
+    {
+      "path": "certvic/submission/checklist.py",
+      "sha256": "a5b8b661b32d2e2c986f424a7db4c001d3c1df353e41dcbd0cada613235e35da",
+      "size": 1049
+    },
+    {
+      "path": "certvic/submission/deadline_plan.py",
+      "sha256": "402bee910c9f8237b1d2ca413306c1cfb29a61c98be1e2553992ffe8cdb9a290",
+      "size": 1888
+    },
+    {
+      "path": "certvic/submission/internal_review_packet.py",
+      "sha256": "5698a6e77dee48ad47da18cbc0576d8740866ca8875801345c39a7e40f5bf592",
+      "size": 1989
+    },
+    {
+      "path": "certvic/submission/package_plan.py",
+      "sha256": "b0090932e79d1985fb5aaf9397799023a99af1845dbed9320e4b0a6bf49e9a14",
+      "size": 1943
+    },
+    {
+      "path": "certvic/troubleshoot/__init__.py",
+      "sha256": "850de7fe7a1d7c6f3fbfbac889f7a70c73750ad03351e079bc742d6a0d6adf8d",
+      "size": 40
+    },
+    {
+      "path": "certvic/troubleshoot/diagnose_logs.py",
+      "sha256": "b4cea73e7edf28be2abb451f1107caa55840e50cdaf912256944805fa4a09e2f",
+      "size": 2218
+    },
+    {
+      "path": "certvic/troubleshoot/error_catalog.py",
+      "sha256": "24ec561ebeaccaef2cebb5259c57f39d2d43d16d8e8e8c7e5a831bf1227f325e",
+      "size": 1002
+    },
+    {
+      "path": "certvic/v2/__init__.py",
+      "sha256": "8cc6bcdc8dd917e9506d2a0ad303143cbae7700813faf08e3f5e32c4f6772d55",
+      "size": 296
+    },
+    {
+      "path": "certvic/v2/baseline_audit.py",
+      "sha256": "f9d1ad2642efc591680a2a2b54b80f887d4371c9dcf86cd3b5316c5cf504cac4",
+      "size": 12012
+    },
+    {
+      "path": "certvic/v2/full_audit.py",
+      "sha256": "8fa9be921edfe8d30892e0b645c2972279f032c452304f72dc8f14dfbca265a6",
+      "size": 8404
+    },
+    {
+      "path": "certvic/v2/pre_run_master_audit.py",
+      "sha256": "70f95a4a58238b9dabade3e95cf0fa5699903ed537d830d87083d11aa74d03e8",
+      "size": 6810
+    },
+    {
+      "path": "certvic/v2/reviewer_attack_harness.py",
+      "sha256": "8a34e07c17add15e3a8c9aaa7b250bdebf23a2b27b8d2eedae6c5ceced6c5443",
+      "size": 10240
+    },
+    {
+      "path": "certvic/v3/__init__.py",
+      "sha256": "a62b24fe1dac1dcfd3ce27fb31fe51ba663449b929bef97b4362c0b3f7c22eec",
+      "size": 625
+    },
+    {
+      "path": "certvic/v3/final_pre_real_run_audit.py",
+      "sha256": "29285dd8ba55064efc6c62ff731a13a94c4857c2052b02ed92cce68af317e47d",
+      "size": 12411
+    },
+    {
+      "path": "certvic/v4/__init__.py",
+      "sha256": "eedf52abf0912e65a8d8f8e19131ca807a8ee1e142f2566347a9224f44f6202a",
+      "size": 38
+    },
+    {
+      "path": "certvic/v4/final_all_system_audit.py",
+      "sha256": "3fe6d02a74bfc5e9258270e68caf5f0268eb7381830dba14eaf54a1e6bfc1dd1",
+      "size": 4661
+    },
+    {
+      "path": "certvic/v5/__init__.py",
+      "sha256": "177681d6b626d3598f96d82ba19285c72783612627df4ddd053b09547a93d357",
+      "size": 34
+    },
+    {
+      "path": "certvic/v5/all_commands_smoke.py",
+      "sha256": "47ca1dbed6b1f8c2efbbe233cbc33603ef0790978b878f8254451bfeac3ad8e2",
+      "size": 2187
+    },
+    {
+      "path": "certvic/v5/cvpr_ready_except_results_audit.py",
+      "sha256": "afd2960079fdb94213b3e75b42baffeb95bd477050850bf9beeabc036b08a7b8",
+      "size": 4206
+    },
+    {
+      "path": "certvic/v6/__init__.py",
+      "sha256": "2097c49414ec899187c7cd530da0f4fdcffbaf1ad2c053277382885d4b39f775",
+      "size": 40
+    },
+    {
+      "path": "certvic/v6/final_directional_audit.py",
+      "sha256": "9f6f503365de2870751a10e9d7e3e2cea54a5fa5bac85c372a6b2e0f91ba5c94",
+      "size": 5774
+    },
+    {
+      "path": "certvic/v6/stop_condition_audit.py",
+      "sha256": "d6fa66c2f919300f3a9c716e0e9fc0a3c80ea2c5020102904a5141f5cf8a315d",
+      "size": 2733
+    },
+    {
+      "path": "certvic/v7/__init__.py",
+      "sha256": "06743a78cbca49687b57f51ea3053f2787bfc97cd9b49ee36906e9a2293a2321",
+      "size": 306
+    },
+    {
+      "path": "certvic/v7/post_result_reviewer_attack_audit.py",
+      "sha256": "d2775acad608f1a331364360e632cdd4571b8f28d45e464f3cc57a70217dcd4e",
+      "size": 11981
+    },
+    {
+      "path": "certvic/v7/result_ledger_audit.py",
+      "sha256": "26263142ec234b30301100a8a1c30efcdd0440f3dc6b0cc96bb9f6405c3030f1",
+      "size": 18353
+    },
+    {
+      "path": "certvic/v7/spurious_control_integration.py",
+      "sha256": "ba01dd1495746115e5a234868503d849f0227dc5ef39e7948c49ee465bb39433",
+      "size": 17139
+    },
+    {
+      "path": "certvic/v7/v7_post3model_final_audit.py",
+      "sha256": "a91877b9ad1d1fae769a7b2e7f59ee930be4bfe1e23e570de8d919b49c987b7e",
+      "size": 12079
+    },
+    {
+      "path": "certvic/v8/__init__.py",
+      "sha256": "d791f4047d72303fa6369ab956f9112ddb307636391b36ec82c94b353055a824",
+      "size": 180
+    },
+    {
+      "path": "certvic/v8/mechanism_probe_report.py",
+      "sha256": "86f20f7cc69c1f18008c33aebf50eab453f014243997571d1290b25e8b572a9d",
+      "size": 11753
+    },
+    {
+      "path": "certvic/v8/polarity_ablation_report.py",
+      "sha256": "12894ac4a3de0e75c8641474713fd7a89a6a57fb1e051648816910bce2f371b0",
+      "size": 14023
+    },
+    {
+      "path": "certvic/v9/__init__.py",
+      "sha256": "eaf706ba7216f58933a41cef93e2065d0233103fa87f82db6c68fe986eede359",
+      "size": 53
+    },
+    {
+      "path": "certvic/v9/spurious_v2_quality.py",
+      "sha256": "347a763bb51c4b23a2788facc8bc28ff0eb865b8f28178db00511c21957347e3",
+      "size": 2482
+    },
+    {
+      "path": "certvic/validation/__init__.py",
+      "sha256": "ca6c86092cac280aebe303ee7045438c3fb0d9936982469752e15259c6e1d809",
+      "size": 26
+    },
+    {
+      "path": "certvic/validation/adjudicate_review.py",
+      "sha256": "2ce635714aab2de0c44737d932f50d2062996b7f8aa99b08ec61fc27b729cf31",
+      "size": 3895
+    },
+    {
+      "path": "certvic/validation/aggregate_human.py",
+      "sha256": "b037f8b6e6d21e6756166cd69762f3367ebb5cca0ce103fad57ad89fca551ce0",
+      "size": 1696
+    },
+    {
+      "path": "certvic/validation/aggregate_visual_review.py",
+      "sha256": "109ce9c5389811f86fb74d4267c349f6338a1f36ac59a6de9755ef375ebdff4d",
+      "size": 4037
+    },
+    {
+      "path": "certvic/validation/answerability.py",
+      "sha256": "30b7090f3447dc179554c3fc833a50c1e430cb42cc74646adb6c1de5a1164f14",
+      "size": 1324
+    },
+    {
+      "path": "certvic/validation/build_review_gallery.py",
+      "sha256": "6506aa32a296a927559af39036999501a00163fa918307c7b1340ee113464334",
+      "size": 3350
+    },
+    {
+      "path": "certvic/validation/claim_language_guard.py",
+      "sha256": "5c6a9f45b0f68087a8eb61ece2edc30e8b4a24cca4a05654e8bc6f1ab3e88192",
+      "size": 2707
+    },
+    {
+      "path": "certvic/validation/claims.py",
+      "sha256": "40e1b8f4345439df9fb9349f2097b5a6ea62f8299e08fbecdea044f938c24244",
+      "size": 4548
+    },
+    {
+      "path": "certvic/validation/detectability_gate.py",
+      "sha256": "daf6dfe8c80db17d5156924c8b47e24e3ebb47f52db73eb950a968d1ab71d5f8",
+      "size": 5547
+    },
+    {
+      "path": "certvic/validation/directional_language_guard.py",
+      "sha256": "d4c6cef28368385801bb296e52e2ddd6e74c6fa04f6d3fe7a62b0f3dd38e1fd7",
+      "size": 3134
+    },
+    {
+      "path": "certvic/validation/edit_detectability.py",
+      "sha256": "79cfd80d5059734bf32d8ec37c583346fb0c6ae340271c82a5065f8abfdf6876",
+      "size": 14477
+    },
+    {
+      "path": "certvic/validation/edit_realism_rubric.py",
+      "sha256": "34c5595e21c5376b77dd0622a80ecd38e718f2d9bf0d0d318f1b5379690bd623",
+      "size": 592
+    },
+    {
+      "path": "certvic/validation/export_visual_review.py",
+      "sha256": "7e842e2cd41351c2b8606e27b30b9fd6a50b3206be88399a2f376bb5cff24582",
+      "size": 4368
+    },
+    {
+      "path": "certvic/validation/human_sheet.py",
+      "sha256": "a084c75ec9f4e886f71cccc51b783f376a6451589ab05e0a2ad028e5943aef14",
+      "size": 2422
+    },
+    {
+      "path": "certvic/validation/iaa.py",
+      "sha256": "dcb516661d9df560957da75171a8b4a3077d3a49278af393db170f67693e4c31",
+      "size": 3052
+    },
+    {
+      "path": "certvic/validation/leakage.py",
+      "sha256": "db0b56415ae40de31a213cfba849e629048b69ac52bc469df0afa7316b08f1f9",
+      "size": 1945
+    },
+    {
+      "path": "certvic/validation/paper_claims.py",
+      "sha256": "b049840c9e0a6934cb39184002a033a02ba91f28a230f08053587ce5365a34a1",
+      "size": 1113
+    },
+    {
+      "path": "certvic/validation/paper_numbers_guard.py",
+      "sha256": "d0597ee6271bd7c1c0b002d8294f1a0f538bb506a97990d3910eec8db9de4f63",
+      "size": 9694
+    },
+    {
+      "path": "certvic/validation/rater_calibration.py",
+      "sha256": "bcdd498953718c002c3b54d36fa07e63d403029b9afa4cd4320744f4446c5208",
+      "size": 2559
+    },
+    {
+      "path": "certvic/validation/rater_training.py",
+      "sha256": "5d600d8a10b178986bdc05c7cf4abc0d0c929e15186c8fa8679fcc447721a4cc",
+      "size": 1289
+    },
+    {
+      "path": "certvic/validation/review_batches.py",
+      "sha256": "3d56dee0a23de4af5471ad59c8dd9b51579f120e119463cd50439b18483bae59",
+      "size": 7614
+    },
+    {
+      "path": "certvic/validation/review_progress.py",
+      "sha256": "311040c90a1d6161787ee1d00686edf2ac9d2adfeeb29625a23c57817306aa1c",
+      "size": 4588
+    },
+    {
+      "path": "certvic/validation/reviewer_quality.py",
+      "sha256": "12cf31df696ccc5deea406d14b39110ec3e8a39173d4ee2e397ebb7650d8668f",
+      "size": 2292
+    },
+    {
+      "path": "certvic/validation/schema_checks.py",
+      "sha256": "885f33ec467a5266f77228349755d988eacd5cf51b03109c14418e34bb7e177c",
+      "size": 584
+    },
+    {
+      "path": "certvic/validation/sentinel_items.py",
+      "sha256": "f980b7f6ee694f206578936ef76ea54909801b069c0ca04b2985d3ef5a4e94fb",
+      "size": 501
+    },
+    {
+      "path": "certvic/validation/zero_cost.py",
+      "sha256": "b6a6e3292c9367d3046e75e0dd7d0903f194f52544a28623f82fb049dcc8c616",
+      "size": 1607
+    },
+    {
+      "path": "certvic/validity/__init__.py",
+      "sha256": "3bdf6b65ccefca687f13ae21de8f00806063666fa0aefe396585143cd2b367ca",
+      "size": 43
+    },
+    {
+      "path": "certvic/validity/certificate_report.py",
+      "sha256": "da3cc13da0449e801a424e8ed30bd3882986c3307ef7f706d850664ce56b396d",
+      "size": 1424
+    },
+    {
+      "path": "certvic/validity/certificate_schema.py",
+      "sha256": "529b781bd18ca739b2d58dfff5dfb5d2482e113f91ebc7d0aa219ea6ff62ff08",
+      "size": 1530
+    },
+    {
+      "path": "certvic/validity/filter_scores.py",
+      "sha256": "81947ef3bf66a8197887eeb10c87c8a383ba94d96b6a1ae07f1b5ae0709cc3c8",
+      "size": 3273
+    },
+    {
+      "path": "certvic/validity/item_certificate.py",
+      "sha256": "c55173dbe526ba678b969101969b309fdf464ebd01a969632b60ffee198d8298",
+      "size": 5718
+    },
+    {
+      "path": "certvic/validity/load_bearing.py",
+      "sha256": "449c10b63e5b793ac63ca5dd0bf030039df997a36db001279363f647be785cf2",
+      "size": 5298
+    },
+    {
+      "path": "commands/full_2000/command_manifest.json",
+      "sha256": "b22340d1bb5b8d8f88fe1fa0ca0ecceb377ad9b6fdae11ec89e9b53077a5d22a",
+      "size": 10416
+    },
+    {
+      "path": "commands/full_2000/commands.md",
+      "sha256": "af8a2295e06e9e11c5893d10e2f073cdebb6620e4e6ae95dff9524557c302967",
+      "size": 5307
+    },
+    {
+      "path": "commands/full_2000/commands.sh",
+      "sha256": "b531ede2a264316bf05276ebcd39e1768f2c656d6d120ce372cea4e916f98a1b",
+      "size": 5727
+    },
+    {
+      "path": "commands/full_2000/expected_inputs.md",
+      "sha256": "39cb5889e3c56e6958a6a4154115d574126360d1a5501788f4eb6f70dfb6a64e",
+      "size": 455
+    },
+    {
+      "path": "commands/full_2000/expected_outputs.md",
+      "sha256": "4359c3c20b92174fc43ccaf870597c43630976bd4713affc572e4f1eb2fc467f",
+      "size": 559
+    },
+    {
+      "path": "commands/full_2000/resume_notes.md",
+      "sha256": "17b79190907822cb0d259abafc948621807d6ca62e60999bd3f297027714391a",
+      "size": 615
+    },
+    {
+      "path": "commands/main500/after_diffusion_ingest.md",
+      "sha256": "7cdb4a21b384c367720f875d165b3d8e988847fb144905f507d529af417d2435",
+      "size": 185
+    },
+    {
+      "path": "commands/main500/plan_main500.sh",
+      "sha256": "3feb66d456f71270fa8b85d87e4d8cffe8546b82eb8254b85271ee72dbc2f258",
+      "size": 190
+    },
+    {
+      "path": "commands/main_200/command_manifest.json",
+      "sha256": "032caf4302ffccc7127c774d4ca04ca2ff729e68794b5953e6302cf495898144",
+      "size": 10320
+    },
+    {
+      "path": "commands/main_200/commands.md",
+      "sha256": "c098b51078b030cef28f1c0967284042a23f67e295ca2939f9995b68288dfca6",
+      "size": 5224
+    },
+    {
+      "path": "commands/main_200/commands.sh",
+      "sha256": "919a82d44ee0ccfe98c070e2105f180b11e9ef962fd94a676cae77de50200fac",
+      "size": 5677
+    },
+    {
+      "path": "commands/main_200/expected_inputs.md",
+      "sha256": "bc8cfa5b955489ad031b781af3e86dab3c4b30f1d6aee7031e6b912fc571c6c2",
+      "size": 453
+    },
+    {
+      "path": "commands/main_200/expected_outputs.md",
+      "sha256": "71b50324873fe5ae167f5d4f80cf4e93d64c1344bec0a93625df9912dff74079",
+      "size": 550
+    },
+    {
+      "path": "commands/main_200/resume_notes.md",
+      "sha256": "2b2d8ff7814eaae83a0c38ae02701ddf452f4eb60ec65d247e45cdd943ecc201",
+      "size": 613
+    },
+    {
+      "path": "commands/scale/main_1000/shard_plan.md",
+      "sha256": "ca2b96e52b690286e80423360c8767f0ace93f83f43c262e599831b0b10f7582",
+      "size": 953
+    },
+    {
+      "path": "commands/scale/main_2000/shard_plan.md",
+      "sha256": "978a33222214cde8975d559e825e7bb259e9270271eb638e95e709016cc069fd",
+      "size": 953
+    },
+    {
+      "path": "commands/scale/main_500/shard_plan.md",
+      "sha256": "7bdf6c9d103cdb5754d59b16be303995118df98640df5dec3736cd85241074cd",
+      "size": 949
+    },
+    {
+      "path": "commands/scale/main_800/shard_plan.md",
+      "sha256": "571acb6318846c1665c402d53d0dc0ce1595e783b1b9ea4a07db1fdc2a162de4",
+      "size": 951
+    },
+    {
+      "path": "commands/second_domain/build_mini_run.sh",
+      "sha256": "6e05ca8f2466774c4cd06ab4623783cf14103c4285356acc1afac60fc5e4c562",
+      "size": 131
+    },
+    {
+      "path": "commands/spurious_v2/build_spurious_v2.sh",
+      "sha256": "9f1db6172edaaa94eee44e7c8a7b1894f60b46c814bded89c59fb6a574a8ca52",
+      "size": 424
+    },
+    {
+      "path": "commands/spurious_v2/run_all_models_spurious_v2_kaggle.md",
+      "sha256": "a97334e2c8dc7d610bafdc215e5ea2de2ef0ef3fd7f47e04f263145af3c2c6e0",
+      "size": 512
+    },
+    {
+      "path": "commands/spurious_v2/run_qwen_spurious_v2_kaggle.md",
+      "sha256": "ace65c8101693c73ccf4ee35dcf5d3ae3790c3a2b03b97b148e1fea1d853fc03",
+      "size": 497
+    },
+    {
+      "path": "commands/tiny_pilot/01_cpu_readiness.sh",
+      "sha256": "b39ee41c1b84a09c6021a584efeb3c03284b8f441474faf31dad0229e776c0a1",
+      "size": 360
+    },
+    {
+      "path": "commands/tiny_pilot/02_dry_run_only.sh",
+      "sha256": "b896942303d0b4e3b063816d1f13d3976fac38d9c39943afc114e68ffc963466",
+      "size": 325
+    },
+    {
+      "path": "commands/tiny_pilot/03_generate_edits_only.sh",
+      "sha256": "5611cf31f6d9af5fc5020120cb6a0431f38b25dc9ece12bf5d33e46b7eb62d31",
+      "size": 3107
+    },
+    {
+      "path": "commands/tiny_pilot/04_detectability_gate_only.sh",
+      "sha256": "a8b75d7426616f1bc7c3944bc40d80a920f6ae48ea8585583d190d722cd415ec",
+      "size": 735
+    },
+    {
+      "path": "commands/tiny_pilot/05_vlm_eval_only_AFTER_GATES.sh",
+      "sha256": "bf2c17ed98152812fe38e1ba94c94c9c624329479de5325b2299a268ea30918b",
+      "size": 922
+    },
+    {
+      "path": "commands/tiny_pilot/command_manifest.json",
+      "sha256": "5bc5f8dde80753aea86a7610e0610551598c1d0a874823cc7b7364c220ebe8cb",
+      "size": 10424
+    },
+    {
+      "path": "commands/tiny_pilot/commands.md",
+      "sha256": "a87d641a95696fb8d5f2326b59d464a952478635f0238377fa5edb422dd2e854",
+      "size": 5313
+    },
+    {
+      "path": "commands/tiny_pilot/commands.sh",
+      "sha256": "90868db69c1c7b02d4e12a5eb1ede8d9bb0f6718aaac5483302e0c575cb13fd3",
+      "size": 757
+    },
+    {
+      "path": "commands/tiny_pilot/expected_inputs.md",
+      "sha256": "287d5573292a81e5438ac8735b425e3e8b4aa8d64327286a5fe5b0f783560cba",
+      "size": 454
+    },
+    {
+      "path": "commands/tiny_pilot/expected_outputs.md",
+      "sha256": "1dba490bb74d9ddd082375b9a7227cbdacb5694f8034c22aaf45c79409685138",
+      "size": 568
+    },
+    {
+      "path": "commands/tiny_pilot/resume_notes.md",
+      "sha256": "72886ad7bade41369526084d64c766bbd6acc489182ac77a2ccb3f57a184ad12",
+      "size": 617
+    },
+    {
+      "path": "configs/ade20k_label_policy.yaml",
+      "sha256": "1d844176fbae370afff7a602fc58c9e8ee0674cae804283bf02e5f5a08de8bb3",
+      "size": 5093
+    },
+    {
+      "path": "configs/certification_policy.yaml",
+      "sha256": "b605462212c5bfde7315db084d17a27370a2e61f1ebc07f262faa75e8d72421e",
+      "size": 491
+    },
+    {
+      "path": "configs/certvic_v11_protocol.yaml",
+      "sha256": "bcbc106df0a5166735c17ed04879a92da505b6e9d73e1e9235977a83234140d9",
+      "size": 8182
+    },
+    {
+      "path": "configs/cvpr_bar_thresholds.yaml",
+      "sha256": "03c13e1bdeba852579e7c9555a6ff43d9997ba263f272dc7c15e235ca175f08e",
+      "size": 1461
+    },
+    {
+      "path": "configs/edit_quality.yaml",
+      "sha256": "1c2f722329d00b8b1dcdcc13ab966310df4ff7f0ff36ccbca2ee9ee4455fe49c",
+      "size": 955
+    },
+    {
+      "path": "configs/experiments.yaml",
+      "sha256": "3a3f51a42f26d088fcf1993b1e0e5addb71d903c4175db6d54f55e2a13b6dca4",
+      "size": 799
+    },
+    {
+      "path": "configs/kaggle_edits.yaml",
+      "sha256": "93b4e8465b78fd4cb90994982681c2febc3fb6e08e047a2f90ca2d55d01f6098",
+      "size": 179
+    },
+    {
+      "path": "configs/kaggle_internvl.yaml",
+      "sha256": "469816965cc6f0894b0bf686d0a436a684e38828b71f0dde38f6277256a20ab2",
+      "size": 332
+    },
+    {
+      "path": "configs/kaggle_masks.yaml",
+      "sha256": "a75b9cb3718c11f984019f921820815a5a9ade530538f956ad5f6b9b4a6e29f2",
+      "size": 181
+    },
+    {
+      "path": "configs/kaggle_open_vlm.yaml",
+      "sha256": "7525217553ca29e51b805618c65805011120306571091b6b49fdd47fe73ebba6",
+      "size": 431
+    },
+    {
+      "path": "configs/kaggle_quality.yaml",
+      "sha256": "40201687b6f3b9380c5f5afda9203ada81b61257efbcdc629d3d437ebd6c113c",
+      "size": 180
+    },
+    {
+      "path": "configs/real_main.yaml",
+      "sha256": "4410dda81984eb765992ecfbaeea35c93e44255bd081986deaf3168474229d1b",
+      "size": 300
+    },
+    {
+      "path": "configs/real_pilot.yaml",
+      "sha256": "e71e1c9e23a06cbd9ebc2aad9ed73716b23e7b43c4af433f474d92901e01360c",
+      "size": 272
+    },
+    {
+      "path": "configs/real_pilot_ade20k.yaml",
+      "sha256": "8820a7f65ebb1c1caa4b131452620b15ac0a8b807d7b16f676ad7eba72924f14",
+      "size": 3461
+    },
+    {
+      "path": "configs/release_recipe.yaml",
+      "sha256": "0a1f7d4e64d5933bad258127607a796cdba52671ab9d4ed9b6b817b3794efd4a",
+      "size": 855
+    },
+    {
+      "path": "configs/result_contracts.yaml",
+      "sha256": "1d6bac8c16cdb3c76e6e336f591b99a56b184e8cbcfbaffda781929316baeaf9",
+      "size": 753
+    },
+    {
+      "path": "configs/smoke.yaml",
+      "sha256": "85da7b3e06a5198491bb8110ea582b23c198a417e4a31ad38c4cdbc528be5667",
+      "size": 433
+    },
+    {
+      "path": "configs/tiny_reviewed_eval.yaml",
+      "sha256": "3dbc9fe49c2667c40dae71c5865e2d55d90eea0c003097b2486ecdb49df957bb",
+      "size": 466
+    },
+    {
+      "path": "configs/v2_1_simulation.yaml",
+      "sha256": "d3c21095a36a89f4e32a851fa99fbbe73619b88e33e14ef9a0a5dc4ec7e93f18",
+      "size": 753
+    },
+    {
+      "path": "data/results/main_real_200/diffusion_job_queue.jsonl",
+      "sha256": "0e865f9981daf11621f49d24e84e2baf61a25e997e7a227c8ca4b9a614e8d185",
+      "size": 90620
+    },
+    {
+      "path": "data/results/main_real_200/diffusion_resume.jsonl",
+      "sha256": "e3de8fe28815714d47f17a383c2e431f9c6650c4cc273944cfb0f544276c52f3",
+      "size": 90620
+    },
+    {
+      "path": "data/results/main_real_200/gpu_shards/pilot_edit_plan_shard0_of_2.jsonl",
+      "sha256": "cf054fd3f8011638da1dd3b66a36eb279ca84e203349da5e192a823fb701a38a",
+      "size": 110491
+    },
+    {
+      "path": "data/results/main_real_200/gpu_shards/pilot_edit_plan_shard1_of_2.jsonl",
+      "sha256": "939ddc4135fad179467d9e1cbea2fd333242eb3a441468e165b132a2f864a4e4",
+      "size": 119032
+    },
+    {
+      "path": "data/results/main_real_200/pilot_edit_plan.jsonl",
+      "sha256": "1c872e99f047881f75bf7b5271ea04cac9e852271563e0258cb698f6c134cb2b",
+      "size": 229523
+    },
+    {
+      "path": "data/results/main_real_200/pilot_edit_plan_summary.json",
+      "sha256": "bc5a715cb069dd15087d489063ada31dc67a368d8bb85e23c257502da6bd66e9",
+      "size": 1242
+    },
+    {
+      "path": "data/results/main_real_200/pilot_selection.jsonl",
+      "sha256": "f3b7fd0615b5cf2fa8a9d1348ef47b40ff1d78d847b116cc5005df355b8f7ed7",
+      "size": 665067
+    },
+    {
+      "path": "data/results/main_real_200/pilot_selection_summary.json",
+      "sha256": "e862ab537c35cb0c6b52c9032e2901cc65f54c5fb0461322c16e8659e5ef7585",
+      "size": 2794
+    },
+    {
+      "path": "data/results/main_real_200/pilot_task_preview.jsonl",
+      "sha256": "49f1d08df14753437e926f124172910aa8f81252ac27398cf648bf604debd3c4",
+      "size": 201588
+    },
+    {
+      "path": "data/results/main_real_200/pilot_task_preview_summary.json",
+      "sha256": "1bbffd4113d273e4155836e880a35416033d14714e0a396c59fde8aa7427a8ee",
+      "size": 709
+    },
+    {
+      "path": "docs/RUN_AFTER_V6_CHECKLIST.md",
+      "sha256": "577d1b676ff40e286aa87c12e17255694d85da36dd9d934140c1e8277eea6cfc",
+      "size": 1016
+    },
+    {
+      "path": "docs/V6_SINGLE_FILE_HANDOFF_SUMMARY.md",
+      "sha256": "7fc311d68d2fd6fe7db2e16bacb42d87dbee7792631bf6924685312ea98b8446",
+      "size": 1960
+    },
+    {
+      "path": "docs/runbooks/CONTROLS_SPURIOUS_AND_SCALE.md",
+      "sha256": "6cabcf1243984f36db2c46a574c2816c3898d9d988fcafb0bc57a2824c0e0b7d",
+      "size": 3808
+    },
+    {
+      "path": "docs/runbooks/DATASET_DECISION.md",
+      "sha256": "52e69d1f0571e33e67d6dbea47a19486b4957e707a5d08908cddb340a2212834",
+      "size": 2127
+    },
+    {
+      "path": "docs/runbooks/HUMAN_REVIEW_RUNBOOK.md",
+      "sha256": "4c50c1134ef0c85abca978fb9d369a2715a484b66982856b404862afa3a48481",
+      "size": 345
+    },
+    {
+      "path": "docs/runbooks/KAGGLE_INTERNVL_SELF_DOWNLOAD.md",
+      "sha256": "087ee9297dfc19058b34a3c5fef871622b6694bf73b34d119f9e668799ca05c4",
+      "size": 5225
+    },
+    {
+      "path": "docs/runbooks/KAGGLE_MAIN_SCALE_T4X2_TEMPLATE.md",
+      "sha256": "5e92a7210b391afbc11408271252ec7d7d6730996d61064f6111484d84027db0",
+      "size": 592
+    },
+    {
+      "path": "docs/runbooks/KAGGLE_SPURIOUS_V2_T4X2_RUNBOOK.md",
+      "sha256": "ba3e1c3bc985f56c075db76ae1d9d7a0023157aca93d8624436d84f79c103816",
+      "size": 1962
+    },
+    {
+      "path": "docs/runbooks/KAGGLE_T4X2_PARALLEL_VLM_REMAINING_RUNS.md",
+      "sha256": "031a2ee1239dde0315ce90152b9af5ca28183793c97036141204222721d4ed43",
+      "size": 1036
+    },
+    {
+      "path": "docs/runbooks/KAGGLE_T4x2_DIFFUSION_EDITS.md",
+      "sha256": "4746bbd82becbdf05fcee81bbdafb0d13225b1f38d91ad480bf43b49ef488cc9",
+      "size": 12030
+    },
+    {
+      "path": "docs/runbooks/KAGGLE_T4x2_VLM_EVAL.md",
+      "sha256": "c13fb41163c660f5fdf9c5cc546ff182caea9bfbecc69246aa9a2e06b54037c7",
+      "size": 8962
+    },
+    {
+      "path": "docs/runbooks/LOCAL_INGEST_AUDIT_RUNBOOK.md",
+      "sha256": "9dc24a6bf81c372416837d4bd081bd17a443be51d9ad37ab7e9880fc2534f456",
+      "size": 595
+    },
+    {
+      "path": "docs/runbooks/MAIN500_DIFFUSION_T4X2_RUNBOOK.md",
+      "sha256": "327e241a893fd10b6f5143d926216d69860e2bfc5a09e637a9833a3f9cc119bf",
+      "size": 449
+    },
+    {
+      "path": "docs/runbooks/MAIN500_V8_DIFFUSION_RUNBOOK.md",
+      "sha256": "7fe7e6118392effa64dcb8d21dc8800a9e438aae12ba7b592c26bd43bd906b8c",
+      "size": 305
+    },
+    {
+      "path": "docs/runbooks/MAIN500_VLM_T4X2_RUNBOOK.md",
+      "sha256": "2fb1c8cc879b6437797da67707cd78ca2b432785f03255f25aaa4cdc8ad5b29d",
+      "size": 428
+    },
+    {
+      "path": "docs/runbooks/README.md",
+      "sha256": "ddf955eb55c54f088b168c02101352047aa318d13491de2e44126a11c7431d01",
+      "size": 6349
+    },
+    {
+      "path": "docs/runbooks/REMAINING_GPU_CPU_RUNTIME_ESTIMATES.md",
+      "sha256": "ed704fa6b162ec0c01cd37cf66adbcbea450d1ee482ed80839964d2ba8f6a5ed",
+      "size": 2007
+    },
+    {
+      "path": "docs/runbooks/V10_1_EXACT_SPURIOUS_V2_KAGGLE_CHECKLIST.md",
+      "sha256": "250adb63f67bd745dd514407f0dba36d4c63325d93f7804a47aaf929b2e30a85",
+      "size": 4069
+    },
+    {
+      "path": "docs/runbooks/V10_EXECUTION_READY_HANDOFF.md",
+      "sha256": "a0fc1503210bf59f5426ad49f9f1960b98289433b6a14529fd9e12f0cd1cd9cb",
+      "size": 612
+    },
+    {
+      "path": "docs/runbooks/VLM_EVAL_RUNBOOK.md",
+      "sha256": "01ed1de4d3521d19cb40f06b338ea0991053f4b112ebc158b079c3f48df09d30",
+      "size": 344
+    },
+    {
+      "path": "notebooks/kaggle/00_precache_weights.ipynb",
+      "sha256": "04b2512424ed671ec8b7b18f947fcf8a1dbf5e900155e164c1f841b3c4600fd9",
+      "size": 3185
+    },
+    {
+      "path": "notebooks/kaggle/certvic_main200_diffusion_T4x2.ipynb",
+      "sha256": "3caf7e8e1fb7397358d56f1d33fee716bdf0b6f5fe05758c7ac844229810bc5e",
+      "size": 16281
+    },
+    {
+      "path": "notebooks/kaggle/certvic_main200_vlm_T4x2_AFTER_GATES.ipynb",
+      "sha256": "ca696a671d5a0cb10f03e15c81e944645954c84f4f7cdfb405eb4c872a9991f5",
+      "size": 16184
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "72ed589891125d82ee3133e85ecd913d5a7f18ab4a38746d1cef0c9ea9eb4fd1",
+      "size": 819
+    },
+    {
+      "path": "scripts/apply_main500_human_review.py",
+      "sha256": "231e39d9da33a994ff351ba25cd034be1f33a8799b818574611d89df8abc574d",
+      "size": 950
+    },
+    {
+      "path": "scripts/apply_residual_cue_review.py",
+      "sha256": "c439c5d67661ccad83170b909abd12e63cd4c51d45a9af8ecf3c6be97c43f099",
+      "size": 9688
+    },
+    {
+      "path": "scripts/apply_v9_qwen_spurious_human_review.py",
+      "sha256": "e1ed413c36c5ed1db797105ba9418a0ea72147806c837ddcfce787048506a456",
+      "size": 5997
+    },
+    {
+      "path": "scripts/audit_release_candidate.py",
+      "sha256": "3ff09aea5e83c4bcbbd8724a0e1883fa314fc5b9f14ced4330c9736e70fb6ac8",
+      "size": 8018
+    },
+    {
+      "path": "scripts/build_absent_object_control.py",
+      "sha256": "688ffccd8c4181892c0e4d1d745c684c671942f19e1363e2d5aa9fa7de80b145",
+      "size": 6073
+    },
+    {
+      "path": "scripts/build_failure_taxonomy_gallery.py",
+      "sha256": "4f5d5dfcd2ab057e7191b8311d6ad6f6c36ddabe976c602105d21785c2017ee7",
+      "size": 11216
+    },
+    {
+      "path": "scripts/build_kaggle_main200_bundle.py",
+      "sha256": "6429b55da7ee3d3c51e41f943ab789faaa56b4cb611d9b4bfed398acbed2411c",
+      "size": 6844
+    },
+    {
+      "path": "scripts/build_kaggle_notebooks.py",
+      "sha256": "ac386af1c09a2cf8fe2b912c56c580d0f20365e6ad45c25f088db71d408755ea",
+      "size": 31007
+    },
+    {
+      "path": "scripts/build_main200_paper_tables.py",
+      "sha256": "fc5c3aa0bf941d4e88fb43ae9f5893fd8b5c73e8d60e27612deec10b51e38777",
+      "size": 12201
+    },
+    {
+      "path": "scripts/build_mechanism_probe_tasks.py",
+      "sha256": "4e0b4f6ef46ddfa0bf83abd84f7772dfe8ef09eb72950b268b83745ba52ae0f5",
+      "size": 10297
+    },
+    {
+      "path": "scripts/build_multimodel_summary.py",
+      "sha256": "55b144eac6760e21ade6493b871971679d6e2954b2403cfc0c79d50b94439b61",
+      "size": 6809
+    },
+    {
+      "path": "scripts/build_prompt_ablation_tasks.py",
+      "sha256": "73a88642100acf24edc07e38a99711864a1fb5d03b661435c8926177188fc9b0",
+      "size": 7618
+    },
+    {
+      "path": "scripts/build_remaining_kaggle_runbooks.py",
+      "sha256": "eb84fdaa6b15889e281a3047d63b59a63a6615f4c413b0f92493b10b0b4b220d",
+      "size": 72997
+    },
+    {
+      "path": "scripts/build_spurious_flip_control.py",
+      "sha256": "2b2b63bdce32d31ac7060e8c4aba22248924742ff6b366e0534266250d86c343",
+      "size": 7869
+    },
+    {
+      "path": "scripts/build_spurious_v2_control.py",
+      "sha256": "7f18085461e02edaa516162e31bdf73045f60b599142f8b8a866912f7ce90f5c",
+      "size": 24767
+    },
+    {
+      "path": "scripts/build_v10_1_correction.py",
+      "sha256": "697e5b9125e9b5010f4fd97dfd36d2ace4388298139199f2ce0ce3a00f1e8c24",
+      "size": 47425
+    },
+    {
+      "path": "scripts/build_v11_full_ceiling_audit.py",
+      "sha256": "564839822788c8a2e00bd660804759f2ccc2bcd752c59197869d30383d2cced2",
+      "size": 140318
+    },
+    {
+      "path": "scripts/build_v11_human_review_packet.py",
+      "sha256": "b1e459e97b97483f2f182ac01d278ca4b1a7b7ad843475bd8e169dd42998c727",
+      "size": 22923
+    },
+    {
+      "path": "scripts/build_v8_1_qwen_spurious_forensics.py",
+      "sha256": "f4bf71b2f51d74df778f70ec8a701f476081f758c8296a0748abb04de4b6fb09",
+      "size": 78934
+    },
+    {
+      "path": "scripts/build_v8_upgrade.py",
+      "sha256": "f3c431e50a31125dba43d9868a14f41870e248ec1c9bd6ce24a49861280f2328",
+      "size": 51985
+    },
+    {
+      "path": "scripts/compute_main500_iaa.py",
+      "sha256": "f4b66e01299d90cf833c1ca694ea6c7b610b31e43f0e299cb0ed05306bb6e6f3",
+      "size": 899
+    },
+    {
+      "path": "scripts/compute_review_iaa.py",
+      "sha256": "b0aa29cd497b9084a00aaf6e2ba5a316ff2f190a7081d922ee3e198a172ced4a",
+      "size": 7212
+    },
+    {
+      "path": "scripts/eval_tasks_to_taskitems.py",
+      "sha256": "c081d18a1d2125a8e3cddd8d331ba8442f82222150a31b3c151a428e2c626e2e",
+      "size": 2995
+    },
+    {
+      "path": "scripts/export_residual_cue_review.py",
+      "sha256": "be68456a8ba77cdde5002b4e93ed15543c7b3d661b8504e20976a6ecc9d61458",
+      "size": 6408
+    },
+    {
+      "path": "scripts/export_second_rater_review.py",
+      "sha256": "d20a51f3d2cff83aabc15aafa2ea516d71637cad077f816d6abd968491b7da49",
+      "size": 4232
+    },
+    {
+      "path": "scripts/import_v9_spurious_v2_outputs.py",
+      "sha256": "ee0956e778d943ba5df0d1ed6cda41a37047acf0fdcc54b38410c977f70b8722",
+      "size": 24920
+    },
+    {
+      "path": "scripts/ingest_diffusion_output.py",
+      "sha256": "faaa09b8b23ae0f4f140bec6ec602729271120ec1a69f6c285403b476773318b",
+      "size": 8991
+    },
+    {
+      "path": "scripts/main_study_power_and_stopping_plan.py",
+      "sha256": "1d7be1ac1f2db82d7c233ec9ac965cd93f9801cb0702454e93e4cdc995cf87a9",
+      "size": 9616
+    },
+    {
+      "path": "scripts/pilot_report_from_raw.py",
+      "sha256": "b7857255e3d8e9aed5f04b2f769f7c8a204fee38cd179903d9536527ce0fa418",
+      "size": 29809
+    },
+    {
+      "path": "scripts/plan_scaled_main_run.py",
+      "sha256": "745bf0bce6f681320d5d83d6505d85c56e733b84072f8e9f3ed0ab9abf0cf64b",
+      "size": 13624
+    },
+    {
+      "path": "scripts/rebuild_v11_supported_analysis.py",
+      "sha256": "e6c4e57afc7fe7dcff8b312e7d6fc97086bccd34b9335cbcc32da41781de2d07",
+      "size": 19958
+    },
+    {
+      "path": "scripts/regenerate_objective_questions.py",
+      "sha256": "ab8751a9ce9e20e620fe5038cb17c3fba589abda2c5a4f41a2a25d6b9bb98e13",
+      "size": 3641
+    },
+    {
+      "path": "scripts/reproduce_reports.sh",
+      "sha256": "6852ab34fc9ed4257c62f045d1d5cc396b93db256df7a10952d9d30075143088",
+      "size": 1039
+    },
+    {
+      "path": "scripts/reproduce_simulation.sh",
+      "sha256": "10984cc8a03002583edb100a722a0d19d70c8122546e1a9b0c02ace0c9a8b82e",
+      "size": 447
+    },
+    {
+      "path": "scripts/reproduce_smoke.sh",
+      "sha256": "749c5b8d9940f349834963bb812977a1c70ba7cf8263ac12a885c587484e6111",
+      "size": 1271
+    },
+    {
+      "path": "scripts/reproduce_tiny_pilot_dry_run.sh",
+      "sha256": "fd15ce700abe67edcbeba2277020146a7c83d9cb068a8c15fac926f8414159db",
+      "size": 820
+    },
+    {
+      "path": "scripts/split_edit_plan_by_shard.py",
+      "sha256": "72cc8adfe624d3890fa86de3ef78677ca09719ddbe99d8e4ddff57af713cc3a5",
+      "size": 2097
+    },
+    {
+      "path": "scripts/validate_t4x2_notebooks.py",
+      "sha256": "26578c448c0d106d4b4fdcbc0eec53b1bd0b95b035dae879287d8639e4fb43b9",
+      "size": 6524
+    },
+    {
+      "path": "scripts/validate_v11_human_review.py",
+      "sha256": "895c210aaa983b3b11fdc592c045723501997f6fa22e0e049bb0ed08614c3cd0",
+      "size": 17299
+    }
+  ],
+  "evidence_claims_made": false,
+  "evidence_status": "PLANNED_NOT_EXECUTED",
+  "excludes": [
+    "ade20k pixels",
+    "edited images",
+    "model weights",
+    ".git",
+    "venvs",
+    "caches"
+  ],
+  "n_entries": 426,
+  "sanitize_token": "__ADE20K_ROOT__",
+  "total_uncompressed_bytes": 3541010
+}

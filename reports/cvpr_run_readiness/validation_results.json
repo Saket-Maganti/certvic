@@ -1,0 +1,66 @@
+{
+  "schema": "certvic.cvpr.run_readiness_validation.v1",
+  "commands": [
+    {
+      "phase": "baseline",
+      "command": "pytest -q",
+      "exit": "1",
+      "result": "first failure after 474 passes; privacy audit isolated 2 private-path findings in one newly added prompt artifact"
+    },
+    {
+      "phase": "focused",
+      "command": "pytest -q tests/test_cvpr_run_readiness.py tests/test_cvpr_absolute_final.py tests/test_cvpr_execution_closure.py tests/test_cvpr_runtime_hardening.py tests/test_cvpr_final_integration.py tests/test_cvpr_pre_execution.py",
+      "exit": "0",
+      "result": "67 passed in 19.91s"
+    },
+    {
+      "phase": "full",
+      "command": "pytest -q",
+      "exit": "0",
+      "result": "814 passed in 50.96s"
+    },
+    {
+      "phase": "lint",
+      "command": "python3 -m ruff check --no-cache certvic scripts tests",
+      "exit": "0",
+      "result": "All checks passed"
+    },
+    {
+      "phase": "compile",
+      "command": "python3 -m compileall -q certvic scripts tests",
+      "exit": "0",
+      "result": "no syntax errors"
+    },
+    {
+      "phase": "claim_guard",
+      "command": "python3 -m certvic.validation.claim_language_guard --root README.md docs paper paper_cvpr reports/cvpr_run_readiness --out reports/cvpr_run_readiness/claim_guard.md",
+      "exit": "0",
+      "result": "passed; 0 findings"
+    },
+    {
+      "phase": "privacy_guard",
+      "command": "python3 -m certvic.security.release_privacy_audit --root . --out reports/cvpr_run_readiness/privacy_audit.md --json-out reports/cvpr_run_readiness/privacy_audit.json",
+      "exit": "0",
+      "result": "passed; 0 findings"
+    },
+    {
+      "phase": "paper",
+      "command": "cd paper_cvpr && pdflatex -interaction=nonstopmode -halt-on-error main.tex twice",
+      "exit": "0",
+      "result": "3 pages; 124026 bytes"
+    },
+    {
+      "phase": "release",
+      "command": "python3 scripts/build_cvpr_run_readiness.py --with-release",
+      "exit": "0",
+      "result": "byte-identical rebuild and clean-extraction synthetic closure passed; exact final hash in release/cvpr_execution_closure/ARCHIVE_SHA256.txt"
+    },
+    {
+      "phase": "release_audit",
+      "command": "python3 scripts/audit_cvpr_execution_closure_release.py",
+      "exit": "0",
+      "result": "passed; no corrupt members or manifest errors"
+    }
+  ],
+  "paper_evidence": false
+}

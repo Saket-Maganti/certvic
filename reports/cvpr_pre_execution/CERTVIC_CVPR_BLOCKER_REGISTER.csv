@@ -1,0 +1,7 @@
+blocker_id,category,severity,next_action,status
+B01,data,critical,Provide and hash ADE20K/COCO sources,OPEN
+B02,scientific validity,critical,Verify frozen exclusions and build unseen set,OPEN
+B03,human review,critical,Complete two-rater blinded review,OPEN
+B04,reproducibility,critical,Pin model and processor commits,OPEN
+B05,missing real evidence,critical,Run and return three confirmatory archives,OPEN
+B06,release,major,Verify source/image licensing and bibliography,OPEN

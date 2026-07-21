@@ -1,0 +1,32 @@
+experiments:
+  - run_id: tiny_pilot
+    type: pilot
+    evidence_status: PLANNED_ONLY
+  - run_id: main_200
+    type: main
+    evidence_status: PLANNED_ONLY
+  - run_id: main_1000
+    type: scale
+    evidence_status: PLANNED_ONLY
+  - run_id: main_2000
+    type: scale
+    evidence_status: PLANNED_ONLY
+  - run_id: qwen2_5_vl_7b_main_200
+    type: model_run
+    evidence_status: PLANNED_ONLY
+  - run_id: internvl_8b_main_200
+    type: model_run
+    evidence_status: PLANNED_ONLY
+  - run_id: llava_onevision_7b_main_200
+    type: model_run
+    evidence_status: PLANNED_ONLY
+  - run_id: ablations
+    type: ablation
+    evidence_status: PLANNED_ONLY
+  - run_id: controls
+    type: control
+    evidence_status: PLANNED_ONLY
+  - run_id: paper_figures
+    type: paper
+    evidence_status: PLACEHOLDER_ONLY
+

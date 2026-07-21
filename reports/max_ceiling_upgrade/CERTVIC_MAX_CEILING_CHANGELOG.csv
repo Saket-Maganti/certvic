@@ -1,0 +1,13 @@
+change_id,area,paths,result,evidence_created
+MC-C01,operator,certvic/cvpr/doctor.py|certvic/cvpr/next_action.py,IMPLEMENTED,false
+MC-C02,execution_graph,certvic/cvpr/run_graph.py|configs/execution/certvic_run_graph.yaml,IMPLEMENTED,false
+MC-C03,provenance,certvic/cvpr/artifact_registry.py|certvic/cvpr/reproducibility_capsule.py,IMPLEMENTED,false
+MC-C04,kaggle,certvic/cvpr/kaggle_config.py|certvic/cvpr/notebook_runner.py,IMPLEMENTED_SYNTHETIC_PROOF_ONLY,false
+MC-C05,recovery,certvic/cvpr/chaos.py|tests/test_cvpr_chaos.py,IMPLEMENTED,false
+MC-C06,planning_and_license,certvic/cvpr/runtime_planner.py|certvic/data/license_registry.py|configs/data/source_license_registry.yaml,IMPLEMENTED,false
+MC-C07,human_review,certvic/cvpr/review.py|certvic/cvpr/review_ops.py,IMPLEMENTED_NO_REVIEWS_COMPLETED,false
+MC-C08,statistics,certvic/cvpr/statistics.py,IMPLEMENTED_TINY_FIXTURES_ONLY,false
+MC-C09,paper,certvic/cvpr/paper_evidence_compiler.py,IMPLEMENTED_FAIL_CLOSED,false
+MC-C10,release,scripts/build_maximum_ceiling_release.py|tests/test_maximum_release.py,IMPLEMENTED,false
+MC-C11,operations,execution_pack/|CERTVIC_CVPR_EXECUTION_MASTER_PLAN.md|README.md,IMPLEMENTED,false
+

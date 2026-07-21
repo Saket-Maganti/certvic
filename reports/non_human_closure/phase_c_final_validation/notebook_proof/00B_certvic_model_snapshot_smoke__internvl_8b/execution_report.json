@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "00B_internvl_8b_snapshot_bundle.zip",
+      "sha256": "fc1eaf8ce416bb4f06fa77687baadd799aaa0c88607bcc33d9cd963a6788d7ad",
+      "size": 3563
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "686cfa922b4d3f4408c7cebd37ed3f8e851f091c58fa0a27ec0718a7a540431c",
+      "size": 948
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "0226682d878ac13649a750faad55f1b1803b10699bbfd95d2823eebfd319ff31",
+  "config": {
+    "artifact_globs": [
+      "00B_internvl_8b_snapshot_bundle.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "00B_certvic_model_snapshot_smoke.ipynb",
+    "notebook_sha256": "9eb28c4673316424f19b234290bacfc024a302ab493dab0df2cde062bb1d1a6d",
+    "provider": "internvl_8b",
+    "return_zip": "00B_internvl_8b_snapshot_bundle.zip",
+    "route": "00B_certvic_model_snapshot_smoke__internvl_8b",
+    "stage": "snapshot_smoke",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "f1f2dc983b34eb7d55b341c84b1620a8ccc40d5eea148389812a34bd91c142d9",
+  "status": "PASS"
+}

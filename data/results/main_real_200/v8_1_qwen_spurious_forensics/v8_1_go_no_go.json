@@ -1,0 +1,33 @@
+{
+  "blocked": [
+    "no real human validation of preliminary labels",
+    "raw Qwen gate remains failed",
+    "no claim-valid recompute scenario passes",
+    "Main-500 remains blocked unless the paper is reframed honestly"
+  ],
+  "current_state": "Qwen fails the raw spurious specificity gate; InternVL and LLaVA pass.",
+  "decision": "GO_HUMAN_AUDIT_FIRST",
+  "decision_options": [
+    "GO_MAIN500",
+    "GO_SPURIOUS_V2_FIRST",
+    "GO_HUMAN_AUDIT_FIRST",
+    "STOP_AND_REFRAME"
+  ],
+  "evidence_summary": {
+    "claim_valid_recompute_pass": false,
+    "only_qwen_flips": 12,
+    "patch_bbox_intersects_target_bbox_items": 20,
+    "patch_target_mask_overlap_items": 0
+  },
+  "exact_answer": "Do not start Main-500 until Qwen spurious failure is resolved or the paper is reframed to exclude clean Qwen specificity.",
+  "main500_should_start_now": false,
+  "paper_evidence": false,
+  "recommended_next_action": "Have a real human audit the 12-item gallery first; then either preregister/run spurious V2 or reframe the paper.",
+  "resolved": [
+    "all 12 Qwen failed items extracted",
+    "gallery and preliminary triage created",
+    "cross-model comparison completed",
+    "parser/provenance audit found no issue affecting 12/94"
+  ],
+  "schema": "certvic.v8_1.go_no_go.v1"
+}

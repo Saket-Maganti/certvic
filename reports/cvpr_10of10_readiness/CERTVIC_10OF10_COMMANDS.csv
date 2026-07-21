@@ -1,0 +1,17 @@
+phase,command,exit,result
+baseline,python3 -m pytest -q,0,814 passed in 67.11s
+focused,python3 -m pytest -q tests/test_cvpr_10of10_readiness.py,0,7 passed in 1.07s
+closure_regression,python3 -m pytest -q tests/test_cvpr_10of10_readiness.py tests/test_cvpr_absolute_final.py tests/test_cvpr_execution_closure.py tests/test_cvpr_final_integration.py tests/test_cvpr_runtime_hardening.py tests/test_cvpr_pre_execution.py tests/test_cvpr_run_readiness.py,0,74 passed in 18.98s
+full_final,python3 -m pytest -q,0,821 passed in 60.61s
+ruff,python3 -m ruff check --no-cache certvic scripts tests,0,All checks passed
+compileall,python3 -m compileall -q certvic scripts tests,0,passed
+notebook_static,python3 -m certvic.cvpr.notebook_validation --root notebooks/kaggle/cvpr,0,16 observed and 16 passed
+historical_notebook_static,python3 scripts/validate_t4x2_notebooks.py,0,6 observed and 6 passed
+multi_session_simulator,python3 -m certvic.cvpr.kaggle_session_simulator --out-dir /tmp/certvic_10of10_final_simulator,0,reconciliation commit and replay rejection passed with no predictions
+claim_guard,python3 -m certvic.validation.claim_language_guard --root README.md docs paper paper_cvpr reports/cvpr_pre_execution reports/cvpr_final_integration reports/cvpr_10of10_readiness --out reports/cvpr_10of10_readiness/claim_guard.md,0,0 findings
+privacy_guard,python3 -m certvic.security.release_privacy_audit --root . --out reports/cvpr_10of10_readiness/privacy_audit.md --json-out reports/cvpr_10of10_readiness/privacy_audit.json,0,0 findings
+paper,pdflatex -interaction=nonstopmode -halt-on-error main.tex twice,0,3-page PDF both passes exit 0
+release_build,python3 -c from scripts.build_cvpr_execution_closure import build_release; print(build_release()),0,clean extraction and deterministic internal rebuild passed
+release_audit,python3 scripts/audit_cvpr_execution_closure_release.py --archive release/certvic_cvpr_execution_closure.zip --out reports/cvpr_10of10_readiness/release_audit.json,0,manifest membership and member hashes passed
+deterministic_rebuild,build_release invoked again after final report capture,0,byte-identical archive SHA-256
+post_release_full,python3 -m pytest -q,0,821 passed in 59.50s

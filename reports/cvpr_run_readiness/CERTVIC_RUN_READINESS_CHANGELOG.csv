@@ -1,0 +1,7 @@
+area,change,boundary
+portability,rebase-invariant bundle hashes,SOFTWARE_ONLY
+authorization,current-input binding and atomic provider slots,NO_REAL_RUN
+smoke,real package-contract-gate synthetic proof,SYNTHETIC_NON_EVIDENCE
+confirmatory,"three mocks, import, guarded analysis and outcome",SYNTHETIC_NON_EVIDENCE
+COCO,generation through expansion decision,SYNTHETIC_NON_EVIDENCE
+selection,detectability and exact Main/fallback,PRE_EXECUTION

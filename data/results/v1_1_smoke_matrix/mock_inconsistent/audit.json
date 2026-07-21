@@ -1,0 +1,168 @@
+{
+  "checks": {
+    "claims": {
+      "certification_blocking_reasons": [
+        "certified claim blocked: split is smoke",
+        "certified claim blocked: evidence_status is MOCK_ONLY",
+        "certified claim blocked: provider_type is mock",
+        "certified claim blocked: data are synthetic smoke fixtures"
+      ],
+      "certified_claim_allowed_for_current_artifacts": false,
+      "errors": [],
+      "evidence_context": {
+        "evidence_statuses": [
+          "MOCK_ONLY"
+        ],
+        "has_synthetic_smoke_fixtures": true,
+        "provider_types": [
+          "mock"
+        ],
+        "splits": [
+          "smoke"
+        ]
+      },
+      "passed": true,
+      "status": "no certified claims made in smoke audit"
+    },
+    "leakage": {
+      "errors": [],
+      "passed": true
+    },
+    "licenses": {
+      "errors": [],
+      "note": "smoke/pointer license policy checked by manifest builder",
+      "passed": true
+    },
+    "metrics": {
+      "errors": [],
+      "passed": true,
+      "summary": {
+        "by_domain": {
+          "synthetic_sanity": {
+            "consistency_rate": 0.5,
+            "edited_accuracy": 0.5,
+            "intervention_consistency_gap": 0.5,
+            "n": 12,
+            "original_accuracy": 1.0,
+            "parse_failure_rate": 0.0,
+            "spurious_flip_rate": 0.0
+          }
+        },
+        "by_required_change": {
+          "change": {
+            "consistency_rate": 0.0,
+            "edited_accuracy": 0.0,
+            "intervention_consistency_gap": 1.0,
+            "n": 6,
+            "original_accuracy": 1.0,
+            "parse_failure_rate": 0.0,
+            "spurious_flip_rate": null
+          },
+          "no_change": {
+            "consistency_rate": 1.0,
+            "edited_accuracy": 1.0,
+            "intervention_consistency_gap": 0.0,
+            "n": 6,
+            "original_accuracy": 1.0,
+            "parse_failure_rate": 0.0,
+            "spurious_flip_rate": 0.0
+          }
+        },
+        "by_task_family": {
+          "affordance_reachability": {
+            "consistency_rate": 0.0,
+            "edited_accuracy": 0.0,
+            "intervention_consistency_gap": 1.0,
+            "n": 3,
+            "original_accuracy": 1.0,
+            "parse_failure_rate": 0.0,
+            "spurious_flip_rate": null
+          },
+          "control_irrelevant": {
+            "consistency_rate": 1.0,
+            "edited_accuracy": 1.0,
+            "intervention_consistency_gap": 0.0,
+            "n": 3,
+            "original_accuracy": 1.0,
+            "parse_failure_rate": 0.0,
+            "spurious_flip_rate": 0.0
+          },
+          "occlusion_safety": {
+            "consistency_rate": 1.0,
+            "edited_accuracy": 1.0,
+            "intervention_consistency_gap": 0.0,
+            "n": 3,
+            "original_accuracy": 1.0,
+            "parse_failure_rate": 0.0,
+            "spurious_flip_rate": 0.0
+          },
+          "support_stability": {
+            "consistency_rate": 0.0,
+            "edited_accuracy": 0.0,
+            "intervention_consistency_gap": 1.0,
+            "n": 3,
+            "original_accuracy": 1.0,
+            "parse_failure_rate": 0.0,
+            "spurious_flip_rate": null
+          }
+        },
+        "consistency_rate": 0.5,
+        "control_edit": {
+          "consistency_rate": 1.0,
+          "n": 3,
+          "spurious_flip_rate": 0.0
+        },
+        "edited_accuracy": 0.5,
+        "intervention_consistency_gap": 0.5,
+        "n": 12,
+        "original_accuracy": 1.0,
+        "parse_failure_rate": 0.0,
+        "parse_failure_sensitivity": {
+          "metrics_parse_fail_as_inconsistent": {
+            "consistency_rate": 0.5,
+            "edited_accuracy": 0.5,
+            "intervention_consistency_gap": 0.5,
+            "n": 12,
+            "original_accuracy": 1.0,
+            "parse_failure_rate": 0.0,
+            "spurious_flip_rate": 0.0
+          },
+          "metrics_parse_ok_only": {
+            "consistency_rate": 0.5,
+            "edited_accuracy": 0.5,
+            "intervention_consistency_gap": 0.5,
+            "n": 12,
+            "original_accuracy": 1.0,
+            "parse_failure_rate": 0.0,
+            "spurious_flip_rate": 0.0
+          },
+          "n_parse_failures": 0,
+          "note": "Descriptive sensitivity only; parse-failure handling is never a certification substitute.",
+          "parse_failure_rate": 0.0
+        },
+        "spurious_flip_rate": 0.0
+      }
+    },
+    "paper": {
+      "errors": [],
+      "passed": true,
+      "warnings": []
+    },
+    "predictions": {
+      "errors": [],
+      "n": 24,
+      "passed": true
+    },
+    "schemas": {
+      "errors": [],
+      "n": 12,
+      "passed": true
+    },
+    "zero_cost": {
+      "errors": [],
+      "passed": true,
+      "warnings": []
+    }
+  },
+  "passed": true
+}

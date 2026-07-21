@@ -1,0 +1,15 @@
+# Certification policy for the intervention-consistency gap.
+# A certified claim requires ALL of these to pass plus an available anytime-valid
+# CS whose lower bound exceeds gap_threshold. A bootstrap CI is never sufficient.
+
+alpha: 0.05
+gap_threshold: 0.05
+min_n_overall: 150
+min_n_by_family: 40
+parse_failure_max: 0.10
+control_spurious_flip_max: 0.10
+require_control_spurious_gate: true
+evidence_status_required: HUMAN_REVIEWED_NON_EVIDENCE
+provider_type_disallowed:
+  - mock
+  - baseline

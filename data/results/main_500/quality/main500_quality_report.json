@@ -1,0 +1,5 @@
+{
+  "expected_zip": "kaggleoutputs/main500/main500_diffusion_outputs.zip",
+  "paper_evidence": false,
+  "status": "BLOCKED_MISSING_DIFFUSION_OUTPUTS"
+}

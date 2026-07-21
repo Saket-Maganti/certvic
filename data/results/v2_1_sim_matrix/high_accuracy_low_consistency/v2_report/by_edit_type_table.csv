@@ -1,0 +1,5 @@
+group,n,orig_acc,consistency,gap
+control_irrelevant,50,0.94,0.84,0.09999999999999998
+displace,50,0.96,0.72,0.24
+occlude,50,0.96,0.66,0.29999999999999993
+remove,50,0.94,0.68,0.2599999999999999

@@ -1,0 +1,19 @@
+\section{Statistical Analysis}
+For a relevant intervention, semantic-update success requires a correct original prediction, a
+correct edited prediction, a changed gold answer, and a model answer that changes to the edited gold
+answer. For an irrelevant control, a flip requires an unchanged gold answer and a changed normalized
+model answer. Missing, abstaining, or unparseable relevant pairs count as update failures; their
+irrelevant counterparts count as flips.
+
+The fixed-sample primary certificate has two gates per model. A one-sided Clopper--Pearson lower bound
+for semantic-update success must be at least $\tau_{update}=0.50$, and a one-sided
+Clopper--Pearson upper bound for irrelevant-flip probability must be at most
+$\tau_{spurious}=0.10$. Familywise $\alpha=0.05$ is Bonferroni-allocated across three models and two
+gates ($\alpha/6$ per bound); every bound must pass for the all-model statement. Confidence sequences
+are secondary operational displays and do not authorize optional stopping. Prespecified secondary
+outputs include original and edited accuracy, raw answer-change rate, the conditional update rate,
+transition and failure matrices, raw parsed-only rates,
+pairwise risk differences, exact McNemar tests, Holm-adjusted exploratory comparisons, perturbation-
+family and geometry strata, and the preregistered human-validity-filtered sensitivity analysis. The
+older accuracy-minus-answer-change gap is reported only as a secondary descriptive statistic because
+it can reward a model that never updates. No branch is activated from partial or unreviewed results.

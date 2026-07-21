@@ -1,0 +1,15 @@
+phase,command,exit,result
+baseline_before_absolute_final,PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q,0,797 passed in 39.85s
+absolute_final_focused,PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q tests/test_cvpr_absolute_final.py,0,10 passed in 2.71s
+cvpr_closure_regression,PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q tests/test_cvpr_absolute_final.py tests/test_cvpr_execution_closure.py tests/test_cvpr_final_integration.py tests/test_cvpr_runtime_hardening.py tests/test_cvpr_pre_execution.py,0,60 passed in 4.88s
+full_final,PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q,0,807 passed in 36.90s
+ruff,python3 -m ruff check --no-cache certvic scripts tests,0,All checks passed
+compileall,PYTHONDONTWRITEBYTECODE=1 python3 -m compileall -q certvic scripts tests,0,passed
+cvpr_notebook_static,python3 -m certvic.cvpr.notebook_validation --root notebooks/kaggle/cvpr,0,16 observed; 16 passed
+historical_notebook_static,python3 scripts/validate_t4x2_notebooks.py,0,6 observed; 6 passed
+claim_guard,python3 -m certvic.validation.claim_language_guard --root README.md docs paper paper_cvpr reports/cvpr_pre_execution reports/cvpr_final_integration reports/cvpr_absolute_final --out reports/cvpr_absolute_final/claim_guard.md,0,0 findings
+privacy_guard,python3 -m certvic.security.release_privacy_audit --root . --out reports/cvpr_absolute_final/privacy_audit.md --json-out reports/cvpr_absolute_final/privacy_audit.json,0,0 findings
+paper,pdflatex -interaction=nonstopmode -halt-on-error main.tex twice,0,3-page PDF; both passes exit 0
+release_build,python3 scripts/build_cvpr_absolute_final.py --rebuild-release,0,clean extraction and internal deterministic rebuild passed
+release_archive_audit,python3 scripts/audit_cvpr_execution_closure_release.py --archive release/certvic_cvpr_execution_closure.zip --out reports/cvpr_absolute_final/release_audit.json,0,manifest membership and every member hash passed
+historical_release_audit,python3 scripts/audit_release_candidate.py --no-fail,0,privacy passed; historical main_200 release_ready=false with 2 declared blockers

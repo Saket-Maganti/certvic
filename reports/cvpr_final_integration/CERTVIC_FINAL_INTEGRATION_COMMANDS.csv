@@ -1,0 +1,18 @@
+stage,command,exit_code,result
+baseline,python3 -m pytest -q,1,780 passed; 6 privacy failures
+focused,python3 -m pytest -q tests/test_cvpr_final_integration.py,0,11 passed
+cvpr_regression,python3 -m pytest -q tests/test_cvpr_execution_closure.py tests/test_cvpr_runtime_hardening.py tests/test_cvpr_pre_execution.py tests/test_cvpr_final_integration.py,0,50 passed
+full_preseal,python3 -m pytest -q,1,796 passed; 1 stale master-plan token regression; repaired
+full,python3 -m pytest -q,0,797 passed
+ruff,python3 -m ruff check --no-cache certvic scripts tests,0,all checks passed
+compile,python3 -m compileall -q certvic scripts,0,passed
+notebooks_cvpr,python3 -m certvic.cvpr.notebook_validation --root notebooks/kaggle/cvpr,0,16/16 static passed
+notebooks_cli_correction,python3 -m certvic.cvpr.notebook_validation --notebook-root notebooks/kaggle/cvpr,2,unsupported flag; corrected to --root
+notebooks_historical,python3 scripts/validate_t4x2_notebooks.py,0,6/6 static passed
+synthetic_runtime,python3 -m pytest -q tests/test_cvpr_execution_closure.py::test_synthetic_end_to_end_fixture_and_paper_branch_gate tests/test_cvpr_final_integration.py::test_smoke_gate_promotes_only_complete_validated_three_model_matrix,0,2 passed
+claim,python3 -m certvic.validation.claim_language_guard ...,0,0 findings
+privacy,python3 -m certvic.security.release_privacy_audit ...,0,0 findings
+paper,pdflatex -interaction=nonstopmode -halt-on-error main.tex (twice),0,3-page PDF compiled twice
+release,python3 scripts/build_cvpr_final_integration.py --rebuild-release-only,0,deterministic clean extraction passed
+release_archive_audit,python3 scripts/audit_cvpr_execution_closure_release.py,0,469 manifested files; 470 ZIP members
+historical_release_audit,python3 scripts/audit_release_candidate.py --no-fail,0,privacy pass; release_ready=false with 2 declared historical/license blockers

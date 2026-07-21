@@ -1,0 +1,16 @@
+{
+  "blocked_outputs_not_created": [
+    "main500_candidate_items.jsonl",
+    "main500_edit_plan.jsonl",
+    "main500_item_certificate_shells.jsonl",
+    "dist/main500_kaggle_diffusion_bundle.zip",
+    "dist/main500_review_bundle.zip"
+  ],
+  "gate_decision": "HOLD_FOR_SPURIOUS_V2",
+  "main500_can_start": false,
+  "paper_evidence": false,
+  "prompt_file": "08_MAIN500_CPU_PLANNING_AND_ITEM_CERTIFICATES.md",
+  "reason": "Main-500 go/no-go is HOLD_FOR_SPURIOUS_V2, so candidate planning would create misleading downstream execution surface.",
+  "schema": "certvic.v9.main500_planning_blocked.v1",
+  "status": "BLOCKED_MAIN500_GATE_NOT_GO"
+}

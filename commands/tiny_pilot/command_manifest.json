@@ -1,0 +1,190 @@
+{
+  "command_manifest_sha256": "de376075f7a85c8c7b61d5ea749bae57ce43040a0c2776a22ab1e1141133f381",
+  "commands": [
+    {
+      "command": "python3 -m certvic.v3.final_pre_real_run_audit --out docs/V3_FINAL_PRE_REAL_RUN_AUDIT_REPORT.md --json-out data/results/v3_final_pre_real_run_audit.json",
+      "evidence_status": "AUDIT_ONLY",
+      "id": "v3_gate",
+      "notes": "CPU-only audit; creates no evidence.",
+      "title": "Confirm the V3 final gate is green"
+    },
+    {
+      "command": "python3 -m certvic.pipeline.main_study_dry_run --scale 20 --out-dir data/results/main_study_dry_run_20",
+      "evidence_status": "PLAN_ONLY",
+      "id": "study_plan",
+      "notes": "Command planning only; no GPU/VLM execution.",
+      "title": "Render the main-study dry-run plan"
+    },
+    {
+      "command": "python3 -m certvic.pipeline.run_tiny_pilot --config configs/real_pilot_ade20k.yaml --ade20k-root <ADE20K_ROOT> --out-dir data/results/tiny_real_pilot --max-items 20 --seed 0 --dry-run",
+      "evidence_status": "PIPELINE_NON_EVIDENCE",
+      "id": "tiny_pilot_dry_run",
+      "notes": "Safety flag `--dry-run` must pass before running the non-dry-run command.",
+      "title": "Inspect ADE20K and build local dry-run state"
+    },
+    {
+      "command": "python3 -m certvic.pipeline.run_tiny_pilot --config configs/real_pilot_ade20k.yaml --ade20k-root <ADE20K_ROOT> --out-dir data/results/tiny_real_pilot --max-items 20 --seed 0",
+      "evidence_status": "PIPELINE_NON_EVIDENCE",
+      "id": "tiny_pilot_execute",
+      "notes": "Resume by re-running; stage_status.json skips completed stages unless `--force`.",
+      "title": "Run the bounded pilot pipeline"
+    },
+    {
+      "command": "python3 -m certvic.edit.job_queue build --edit-plan data/results/tiny_real_pilot/pilot_edit_plan.jsonl --out data/results/tiny_real_pilot/diffusion_job_queue.jsonl --shards 2",
+      "evidence_status": "JOB_PLANNED_ONLY",
+      "id": "diffusion_queue",
+      "notes": "Queue building only.",
+      "title": "Build the resumable diffusion queue"
+    },
+    {
+      "command": "python3 -m certvic.edit.diffusion_resume --queue data/results/tiny_real_pilot/diffusion_job_queue.jsonl --generated data/results/tiny_real_pilot/pilot_generated_edits.jsonl --out data/results/tiny_real_pilot/diffusion_resume.jsonl",
+      "evidence_status": "JOB_PLANNED_ONLY",
+      "id": "diffusion_resume_status",
+      "notes": "Use this before each free-GPU session.",
+      "title": "Compute diffusion resume worklist"
+    },
+    {
+      "command": "python3 -m certvic.edit.engines --edit-plan data/results/tiny_real_pilot/pilot_edit_plan.jsonl --out-dir data/edits/tiny_real_pilot --out-manifest data/results/tiny_real_pilot/pilot_generated_edits.jsonl --rejected-out data/results/tiny_real_pilot/pilot_generated_rejected.jsonl --summary-out data/results/tiny_real_pilot/pilot_generation_summary.json --engine diffusers_inpaint_optional --max-items 20 --seed 0 --resume --fail-fast",
+      "evidence_status": "GENERATED_EDIT_ONLY",
+      "id": "gpu_edit_generation",
+      "notes": "Runs only when the user executes it on free GPU with local/cached weights.",
+      "title": "Generate photorealistic edits on free GPU"
+    },
+    {
+      "command": "python3 -m certvic.edit.quality_report --generated-manifest data/results/tiny_real_pilot/pilot_generated_edits.jsonl --rejected data/results/tiny_real_pilot/pilot_generated_rejected.jsonl --out-dir data/results/tiny_real_pilot/tiny_edit_quality_report",
+      "evidence_status": "QUALITY_ONLY",
+      "id": "quality_gate",
+      "notes": "Quality gates do not create evidence claims.",
+      "title": "Build quality and detectability reports"
+    },
+    {
+      "command": "python3 -m certvic.validation.review_batches --tasks data/results/tiny_real_pilot/pilot_eval_tasks_tiny.jsonl --out-dir data/annotations/tiny_real_pilot_review_batches --reviewers reviewer_a reviewer_b --overlap-rate 0.2",
+      "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+      "id": "review_batches",
+      "notes": "Reviewer IDs are placeholders; paid annotation is not required.",
+      "title": "Create human review batches"
+    },
+    {
+      "command": "python3 -m certvic.eval.run_matrix_planner --tasks data/results/tiny_real_pilot/pilot_eval_tasks_reviewed.jsonl --providers qwen2_5_vl_7b internvl_8b llava_onevision_7b --out-dir data/results/tiny_real_pilot/model_run_matrix --config configs/kaggle_open_vlm.yaml --pred-root data/predictions/tiny_real_pilot --max-items 20 --num-shards 2",
+      "evidence_status": "RUN_MATRIX_PLANNED_ONLY",
+      "id": "model_matrix",
+      "notes": "Planning only; no inference.",
+      "title": "Plan the open-local VLM matrix"
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/results/tiny_real_pilot/pilot_eval_tasks_reviewed.jsonl --out data/predictions/tiny_real_pilot/qwen2_5_vl_7b_shard0.jsonl --provider qwen2_5_vl_7b --run-id tiny_pilot_qwen2_5_vl_7b_shard0 --max-items 20 --shard-index 0 --num-shards 2 --dry-run --strict-leakage --fail-fast",
+      "evidence_status": "PREFLIGHT_ONLY",
+      "id": "vlm_dry_run_one_shard",
+      "notes": "Safety flags included; dry-run must pass before dropping `--dry-run`.",
+      "title": "Dry-run one VLM shard before real inference"
+    },
+    {
+      "command": "python3 -m certvic.eval.run_eval --config configs/kaggle_open_vlm.yaml --tasks data/results/tiny_real_pilot/pilot_eval_tasks_reviewed.jsonl --out data/predictions/tiny_real_pilot/qwen2_5_vl_7b_shard0.jsonl --provider qwen2_5_vl_7b --run-id tiny_pilot_qwen2_5_vl_7b_shard0 --max-items 20 --shard-index 0 --num-shards 2 --strict-leakage --evidence-run --fail-fast",
+      "evidence_status": "REAL_EVIDENCE_AFTER_EXECUTION",
+      "id": "vlm_execute_one_shard",
+      "notes": "Resume is default because completed task keys are skipped by the runner.",
+      "title": "Execute one evidence-eligible open-local VLM shard"
+    },
+    {
+      "command": "python3 -m certvic.metrics.score_predictions --tasks data/results/tiny_real_pilot/pilot_eval_tasks_reviewed.jsonl --preds data/predictions/tiny_real_pilot/merged.jsonl --out-scores data/results/tiny_real_pilot/pair_scores.jsonl --out-summary data/results/tiny_real_pilot/score_summary.json",
+      "evidence_status": "REAL_EVIDENCE_AFTER_EXECUTION",
+      "id": "score_predictions",
+      "notes": "Only valid after real open-local predictions exist.",
+      "title": "Score merged predictions"
+    },
+    {
+      "command": "python3 -m certvic.eval.output_triage --preds data/predictions/tiny_real_pilot/merged.jsonl --tasks data/results/tiny_real_pilot/pilot_eval_tasks_reviewed.jsonl --out-dir data/results/tiny_real_pilot/output_triage",
+      "evidence_status": "QUALITY_ONLY",
+      "id": "triage_outputs",
+      "notes": "Inspect before trusting gaps.",
+      "title": "Triage parse/output quality"
+    },
+    {
+      "command": "python3 -m certvic.reporting.build_v2_report --tasks data/results/tiny_real_pilot/pilot_eval_tasks_reviewed.jsonl --preds data/predictions/tiny_real_pilot/merged.jsonl --scores data/results/tiny_real_pilot/pair_scores.jsonl --out-dir data/results/tiny_real_pilot/v2_report",
+      "evidence_status": "REPORT_ONLY",
+      "id": "build_report",
+      "notes": "Paper claims still require claim gates and future result lockfiles.",
+      "title": "Build report artifacts without paper-number injection"
+    }
+  ],
+  "description": "Tiny ADE20K/diffusion/open-VLM pilot with dry-run first.",
+  "expected_outputs": [
+    "data/results/tiny_real_pilot/stage_status.json",
+    "data/results/tiny_real_pilot/pilot_generated_edits.jsonl",
+    "data/results/tiny_real_pilot/tiny_edit_quality_report/",
+    "data/results/tiny_real_pilot/model_run_matrix/",
+    "data/predictions/tiny_real_pilot/",
+    "data/results/tiny_real_pilot/pair_scores.jsonl",
+    "data/results/tiny_real_pilot/output_triage/",
+    "data/results/tiny_real_pilot/v2_report/"
+  ],
+  "generated_date": "2026-06-22",
+  "manifest": "certvic_v4_real_run_commands",
+  "max_items": 20,
+  "n_commands": 15,
+  "num_shards": 2,
+  "provider_metadata": {
+    "internvl_8b": {
+      "cost_status": "zero_cost_open_local",
+      "expected_gpu_memory_gb": 18,
+      "model_family": "internvl",
+      "provider_name": "internvl_8b",
+      "provider_type": "open_local",
+      "supports_4bit": true,
+      "supports_batching": true,
+      "tested_status": "adapter_scaffold"
+    },
+    "llava_onevision_7b": {
+      "cost_status": "zero_cost_open_local",
+      "expected_gpu_memory_gb": 16,
+      "model_family": "llava_onevision",
+      "provider_name": "llava_onevision_7b",
+      "provider_type": "open_local",
+      "supports_4bit": true,
+      "supports_batching": false,
+      "tested_status": "adapter_scaffold"
+    },
+    "qwen2_5_vl_7b": {
+      "cost_status": "zero_cost_open_local",
+      "expected_gpu_memory_gb": 16,
+      "model_family": "qwen2_5_vl",
+      "provider_name": "qwen2_5_vl_7b",
+      "provider_type": "open_local",
+      "supports_4bit": true,
+      "supports_batching": true,
+      "tested_status": "adapter_scaffold"
+    }
+  },
+  "providers": [
+    "qwen2_5_vl_7b",
+    "internvl_8b",
+    "llava_onevision_7b"
+  ],
+  "required_inputs": [
+    "<ADE20K_ROOT> (local ADE20K root; never downloaded by CertVIC)",
+    "<MODEL_CACHE_ROOT> (user-managed local/open model cache)",
+    "free Kaggle or Colab GPU session for edit generation and open-local VLM inference",
+    "human review capacity for up to 20 reviewed items",
+    "configs/real_pilot_ade20k.yaml",
+    "configs/kaggle_open_vlm.yaml"
+  ],
+  "resume_notes": [
+    "`data/results/tiny_real_pilot/stage_status.json` lets `run_tiny_pilot` skip completed stages.",
+    "`certvic.edit.engines --resume` skips already generated/rejected edit IDs.",
+    "`certvic.eval.run_eval` skips completed task keys by default.",
+    "`certvic.edit.diffusion_resume` should be rerun after each interrupted GPU session.",
+    "Do not delete partial JSONL outputs until merge/dedup/recovery tools have inspected them."
+  ],
+  "safety": {
+    "downloads_attempted": false,
+    "evidence_claims_made": false,
+    "executed": false,
+    "gpu_required_for_generation": false,
+    "paid_services": false,
+    "planned_artifacts_evidence_status": "RUN_COMMANDS_PLANNED_ONLY",
+    "private_paths_anonymized": true,
+    "vlm_inference_run": false
+  },
+  "scale": 20,
+  "stage": "tiny_pilot"
+}

@@ -1,0 +1,46 @@
+{
+  "absent_accuracy": 0.904,
+  "absent_correct": 160,
+  "absent_n": 177,
+  "n": 369,
+  "overall_accuracy": 0.935,
+  "overall_correct": 345,
+  "per_object": {
+    "bed": {
+      "correct": 48,
+      "n": 48
+    },
+    "car": {
+      "correct": 48,
+      "n": 48
+    },
+    "chair": {
+      "correct": 45,
+      "n": 48
+    },
+    "door": {
+      "correct": 39,
+      "n": 48
+    },
+    "painting": {
+      "correct": 44,
+      "n": 48
+    },
+    "plant": {
+      "correct": 31,
+      "n": 33
+    },
+    "sofa": {
+      "correct": 47,
+      "n": 48
+    },
+    "table": {
+      "correct": 43,
+      "n": 48
+    }
+  },
+  "present_accuracy": 0.9635,
+  "present_correct": 185,
+  "present_n": 192,
+  "split": "validation (held-out)"
+}

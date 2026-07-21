@@ -1,0 +1,12 @@
+scenario,n,original_accuracy,consistency,gap,parse_failure_rate,control_spurious_flip_rate,certified,cs_available,cs_lower_bound,claim_gate_blocks_simulated,parse_failure_warning,control_spurious_flip_warning,evidence_status,report_dir
+perfect_consistent,200,1.0,1.0,0.0,0.0,0.0,False,False,,True,False,False,SIMULATED_ONLY,data/results/v2_1_sim_matrix/perfect_consistent/v2_report
+high_accuracy_low_consistency,200,0.95,0.725,0.22499999999999998,0.0,0.16000000000000003,False,False,,True,False,False,SIMULATED_ONLY,data/results/v2_1_sim_matrix/high_accuracy_low_consistency/v2_report
+low_accuracy_high_consistency,200,0.71,0.725,-0.015000000000000013,0.0,0.33999999999999997,False,False,,True,False,True,SIMULATED_ONLY,data/results/v2_1_sim_matrix/low_accuracy_high_consistency/v2_report
+spurious_control_flipper,200,0.965,0.755,0.20999999999999996,0.0,0.5800000000000001,False,False,,True,False,True,SIMULATED_ONLY,data/results/v2_1_sim_matrix/spurious_control_flipper/v2_report
+parse_failure_heavy,200,0.575,0.545,0.029999999999999916,0.35,0.45999999999999996,False,False,,True,True,True,SIMULATED_ONLY,data/results/v2_1_sim_matrix/parse_failure_heavy/v2_report
+family_specific_failure,200,0.945,0.725,0.21999999999999997,0.0,0.16000000000000003,False,False,,True,False,False,SIMULATED_ONLY,data/results/v2_1_sim_matrix/family_specific_failure/v2_report
+domain_specific_failure,200,0.92,0.75,0.17000000000000004,0.0,0.30000000000000004,False,False,,True,False,True,SIMULATED_ONLY,data/results/v2_1_sim_matrix/domain_specific_failure/v2_report
+edit_type_specific_failure,200,0.975,0.775,0.19999999999999996,0.0,0.18000000000000005,False,False,,True,False,False,SIMULATED_ONLY,data/results/v2_1_sim_matrix/edit_type_specific_failure/v2_report
+small_gap_borderline,200,0.685,0.73,-0.04499999999999993,0.0,0.31999999999999995,False,False,,True,False,True,SIMULATED_ONLY,data/results/v2_1_sim_matrix/small_gap_borderline/v2_report
+null_gap,200,0.74,0.74,0.0,0.0,0.21999999999999997,False,False,,True,False,False,SIMULATED_ONLY,data/results/v2_1_sim_matrix/null_gap/v2_report
+noisy_realistic_mixed,200,0.825,0.655,0.16999999999999993,0.05,0.24,False,False,,True,False,False,SIMULATED_ONLY,data/results/v2_1_sim_matrix/noisy_realistic_mixed/v2_report

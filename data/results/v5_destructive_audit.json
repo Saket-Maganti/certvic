@@ -1,0 +1,142 @@
+{
+  "audit": "v5_destructive_audit",
+  "date": "2026-06-22",
+  "auditor_role": "destructive internal auditor / harsh CVPR reviewer / ML systems + stats + adversarial QA",
+  "overall_status": "conditional_pass",
+  "empirical_runs_may_begin": true,
+  "constraints_respected": {
+    "git_not_initialized": true,
+    "no_commits_or_tags": true,
+    "no_paid_apis": true,
+    "no_paid_cloud": true,
+    "no_downloads": true,
+    "no_gpu_jobs": true,
+    "no_vlm_inference": true,
+    "no_fabricated_results": true,
+    "no_fake_paper_numbers": true,
+    "no_evidence_claims": true,
+    "no_gate_weakening": true,
+    "tests_cpu_local_only": true
+  },
+  "verification": {
+    "pytest_before": "459 passed",
+    "pytest_after": "471 passed",
+    "new_regression_tests": 12,
+    "cvpr_ready_except_results_audit": "passed (5/5)",
+    "all_commands_smoke": "passed, 4 unsafe skipped",
+    "claim_language_guard": "0 findings",
+    "paper_number_guard_real_results": "0 violations (after fix)",
+    "release_privacy_audit_real_repo": "0 findings (after fix)"
+  },
+  "bugs_found": [
+    {
+      "id": "BUG-1",
+      "title": "Certification policy leaks required evidence status into a module-global allowlist",
+      "severity": "medium",
+      "audit_area": "1_claim_gates_7_statistics",
+      "file": "certvic/metrics/certification_policy.py",
+      "mechanism": "evaluate_certification_policy() mutated the module-level _REVIEWED_OR_STRONGER set with policy['evidence_status_required']. A single call with a custom/permissive required status permanently widened the allowlist, so a later default-policy call accepted a non-evidence status (e.g. GENERATED_EDIT_ONLY).",
+      "exploit": "Confirmed: after one call with evidence_status_required=GENERATED_EDIT_ONLY, a default-policy call with evidence_statuses=[GENERATED_EDIT_ONLY] returned policy_passed=True.",
+      "mitigation_pre_fix": "Integrated pipeline ANDs this gate with the claims.py deny-list, which still blocked GENERATED_EDIT_ONLY, so end-to-end certification was not produced; the policy gate itself was defeated and the leak is order-dependent / exploitable when policy_passed is consumed standalone.",
+      "fix": "Build the accepted-status set locally (accepted = _REVIEWED_OR_STRONGER | {required}); never mutate the global.",
+      "regression_tests": ["test_certification_policy_does_not_leak_required_status_across_calls", "test_certification_policy_custom_required_still_accepts_that_status"],
+      "blocks_real_runs": false
+    },
+    {
+      "id": "BUG-2",
+      "title": "Paper-number guard bypass via em-dash / placeholder line-skip and leading-dot decimals",
+      "severity": "medium_high",
+      "audit_area": "2_paper_number_guard",
+      "file": "certvic/validation/paper_numbers_guard.py",
+      "mechanism": "extract_paper_numbers() skipped any results-prose line containing a PLACEHOLDER_TOKEN, but '--' matches ordinary em-dashes (---), en-dashes and ranges (10--20). A fabricated number sharing such a line was never scanned. Separately, the number regex required a leading digit, so '.42' was missed.",
+      "exploit": "Confirmed: '0.42 --- a substantial margin' did not flag 0.42; '.42' was not flagged.",
+      "fix": "Neutralize placeholder tokens in-place instead of skipping the whole line (fail-closed); extend number regex to match leading-dot decimals.",
+      "regression_tests": ["test_paper_guard_flags_number_on_emdash_line", "test_paper_guard_flags_number_sharing_line_with_placeholder", "test_paper_guard_flags_leading_dot_decimal", "test_paper_guard_verify_blocks_emdash_fabrication"],
+      "blocks_real_runs": false
+    },
+    {
+      "id": "BUG-3",
+      "title": "Item validity certificate never gated on edit detectability",
+      "severity": "medium",
+      "audit_area": "5_diffusion_edit_validity",
+      "file": "certvic/validity/certificate_schema.py",
+      "mechanism": "detectability_status was a certificate field but was absent from BLOCKING_FIELDS and from the incomplete-review warning, so a highly-detectable (crude) edit OR an item whose detectability was never assessed could be marked evidence_eligible_candidate. The detectability probe also never writes a per-item detectability_status back to task metadata (a separate, documented wiring gap).",
+      "exploit": "Confirmed: an item with all other fields passing but detectability unset/failing was evidence-eligible.",
+      "fix": "Add detectability_status to BLOCKING_FIELDS: a failing value blocks, an 'unknown' (unassessed) value triggers incomplete_review_state -> not evidence-eligible (conservative).",
+      "regression_tests": ["test_detectability_is_a_blocking_field", "test_item_certificate_blocks_highly_detectable_edit", "test_item_certificate_unassessed_detectability_not_eligible", "test_item_certificate_eligible_only_when_detectability_passes"],
+      "blocks_real_runs": false,
+      "residual_wiring_gap": "Detectability probe output is not yet joined into per-item certificate metadata, and evidence_eligible_candidate is consumed nowhere downstream. Both require real-run integration; documented as a risk."
+    },
+    {
+      "id": "BUG-4",
+      "title": "Release privacy audit does not text-scan the release directory (pixels only)",
+      "severity": "medium_high",
+      "audit_area": "9_release_and_privacy",
+      "file": "certvic/security/release_privacy_audit.py",
+      "mechanism": "scan_private_paths/scan_secrets use iter_text_files, which skips GENERATED_PREFIXES including 'release'. The combined audit only ran a pixel scan on --release-dir, so a /Users/... path or sk-... key inside a release config/script/README was never inspected by the gate that runs before publishing.",
+      "exploit": "Confirmed: a release capsule text file containing a private dataset root and an OpenAI key passed audit (passed=True).",
+      "fix": "When release_dir is supplied, additionally scan_private_paths/scan_secrets rooted AT the release dir and fold findings into the pass decision and report.",
+      "regression_tests": ["test_release_audit_scans_release_dir_text_files", "test_release_audit_clean_release_dir_passes"],
+      "blocks_real_runs": false
+    }
+  ],
+  "unfixed_risks": [
+    {"id": "RISK-1", "title": "cvpr_ready audit check 'no_evidence_claims_from_planned_artifacts' is hardcoded True (vacuous)", "severity": "low", "file": "certvic/v5/cvpr_ready_except_results_audit.py", "why_not_fixed": "Not a claim-safety hole (it never admits evidence); an honest implementation needs a real claim ledger / result manifest to check, which does not exist pre-runs.", "blocks_real_runs": false, "recommendation": "Wire to trace_claims()/result-manifest scan after the first real run."},
+    {"id": "RISK-2", "title": "theory_audit and result_free_completeness_audit are presence/keyword checks, not depth checks", "severity": "low_medium", "files": ["certvic/paper/theory_audit.py"], "why_not_fixed": "Doc/scholarship depth cannot be auto-graded honestly; fixing would risk fabricating content.", "blocks_real_runs": false},
+    {"id": "RISK-3", "title": "tiny_pilot commands.sh chains dry-run -> execute -> GPU -> VLM with no enforced human gate", "severity": "medium", "files": ["certvic/commands/command_manifest.py", "docs/V5_STOP_INFRASTRUCTURE_BEGIN_EMPIRICAL_RUNS.md"], "why_not_fixed": "Per-command guards (run_eval --evidence-run blocks non-open-local + unreviewed; --dry-run writes nothing; set -euo pipefail + <ADE20K_ROOT> placeholder aborts blind runs) make it fail-safe; the residual is a process/doc risk. Stop-doc updated to a staged, gated next-command.", "blocks_real_runs": false},
+    {"id": "RISK-4", "title": "freeze_results marker scan skips files >= 1MB", "severity": "low", "files": ["certvic/results/freeze_results.py"], "why_not_fixed": "Heuristic backstop only; primary eligibility is enforced by certification policy + provenance trace + paper-number guard.", "blocks_real_runs": false}
+  ],
+  "paper_weaknesses": {
+    "result_free": ["Results sections are placeholders (expected, no runs).", "result_free_completeness_audit verifies section/file presence, not argument quality."],
+    "related_work": ["ZERO \\cite commands and no .bib across the entire paper.", "related_work_matrix.yaml is an honest non-fabricating scaffold with representative_works=[] (status: needs_citations) for every category.", "02_related.tex is category prose with no engagement with specific prior work.", "Not submittable until a human adds verified citations."],
+    "theory_proof": ["03b_theory.tex defines the estimand, bounded transform, and caveats but states NO formal theorem and contains NO proof.", "The real coverage argument (Ville's inequality on a Hoeffding mixture supermartingale) lives only in the anytime_cs.py docstring; supp/proofs.tex should formalize it.", "theory_audit passes on the word 'theorem'+'caveat' being present, which overstates rigor."],
+    "figures_tables": ["figure_manifest.yaml and table_manifest.yaml exist and are audited for structure.", "All figure/table cells are result-gated placeholders; qualitative edit figures cannot exist until real photorealistic edits are generated and human-reviewed.", "No real qualitative examples means the visual-quality story (the make-or-break for a vision venue) is entirely unproven."]
+  },
+  "ratings_current_state": {
+    "engineering_maturity": {"score": 8, "why": "48 modules, 471 CPU tests, layered audits/CLIs; but 4 safety-gate bugs found and some audits are shallow."},
+    "reproducibility": {"score": 7, "why": "Recipe-first + hashing + lockfiles + provenance + dockerless; never exercised end-to-end on real artifacts."},
+    "statistical_rigor": {"score": 8, "why": "Documented native anytime-valid CS + empirical validity lab + conservative on n=1/empty/tiny-n + layered policy; paper does not formalize it."},
+    "claim_safety": {"score": 9, "why": "Multiple fail-closed gates with defense-in-depth; leaks found were caught and fixed; architecture refused every fake-evidence path end-to-end."},
+    "run_readiness": {"score": 7, "why": "Command bundles, dry-run/resume/max-items/provider-validation/sharding ready; pipeline never run end-to-end; commands.sh chaining is a process risk."},
+    "paper_readiness_except_results": {"score": 5, "why": "All sections/manifests present and honest, but zero citations, no bib, no formal theorem -- 'except results' undersells what is missing."},
+    "construct_validity_tooling": {"score": 8, "why": "Detectability probe, realism rubric, answerability, IAA, calibration, single-factor, item certificate, control edits, sentinels, leakage -- extensive; detectability now actually gates."},
+    "actual_construct_validity_evidence": {"score": 1, "why": "None. No real edits, no IAA numbers, no detectability AUC on real edits."},
+    "empirical_evidence": {"score": 1, "why": "Zero eligible non-smoke VLM evidence by design."},
+    "cvpr_main_submission_readiness": {"score": 2, "why": "No results, no citations, no construct-validity evidence -> not submittable."},
+    "realistic_cvpr_acceptance_probability_today": {"score": 1, "estimate": "~2-3% (desk reject)", "why": "Placeholder results + zero citations = automatic desk reject."}
+  },
+  "ratings_future_perfect_execution": {
+    "engineering_maturity": {"score": 9},
+    "reproducibility": {"score": 9},
+    "statistical_rigor": {"score": 9},
+    "construct_validity": {"score": 8, "why": "Conditional on edits not being trivially detectable and acceptable IAA -- irreducibly empirical."},
+    "empirical_strength": {"score": 7, "why": "1-2k items x 3-4 OPEN VLMs is solid but modest; no frontier/paid models limits reach."},
+    "paper_clarity": {"score": 8},
+    "novelty_significance": {"score": 8, "why": "Certified intervention-consistency gap on real, single-factor, human-validated edits with the artifact confound measured is a genuinely fresh framing."},
+    "artifact_strength": {"score": 9},
+    "reviewer_defensibility": {"score": 8, "why": "Claim-gating + provenance + anti-overclaim discipline directly defends rigor attacks; open-VLM-only scope is the main attackable point."},
+    "cvpr_main_submission_readiness": {"score": 8},
+    "realistic_cvpr_acceptance_probability": {"score": 6, "estimate": "~35-50% (borderline -> weak accept)", "why": "Clean, honest, reproducible, novel framing with a real finding; modest scale + open-VLM-only + significance hinging on the result keep it from being a lock."}
+  },
+  "verdicts": {
+    "if_submitted_today": "desk_reject",
+    "if_future_perfect_execution": "borderline_to_weak_accept",
+    "highest_ceiling": "A rigorous, reproducible measurement+certification PROTOCOL paper that becomes a cited benchmark; highlight-level ONLY if the empirical finding is striking and the edit-artifact confound is convincingly ruled out (certified gap that survives a low-detectability probe)."
+  },
+  "irreducible_risks": [
+    "Edit realism: real diffusion edits may be trivially detectable (high AUC) -> gap confounded -> core construct invalid.",
+    "Human IAA: raters may not agree on single-factor validity / answerability -> cannot certify items at scale.",
+    "Effect existence: the intervention-consistency gap may be small/absent on open VLMs -> no eligible certified lower bound above threshold.",
+    "Cluster dependence: items sharing source scenes may violate independence -> CS coverage threatened; diagnostics may reveal a fatal structure.",
+    "Output quality on real models: parse-failure / control-spurious-flip rates may exceed policy thresholds -> ineligible.",
+    "Free-GPU feasibility: generating photorealistic edits + 3-4 VLMs over 1-2k items within free-tier limits may force the scale down."
+  ],
+  "go_no_go": {
+    "keep_building_infrastructure": false,
+    "begin_ade20k_dry_run": true,
+    "begin_tiny_diffusion_pilot": "after_dry_run_passes_and_inspected",
+    "begin_vlm_runs": "only_after_edits_pass_quality_detectability_and_human_review",
+    "wait_for_more_audit_or_fixes": false,
+    "exact_next_command": "python3 -m certvic.commands.generate_real_run_commands --stage tiny_pilot --out-dir commands/tiny_pilot --ade20k-root <YOUR_LOCAL_ADE20K_ROOT>  # then run ONLY v3_gate, study_plan, tiny_pilot_dry_run; inspect; STOP before tiny_pilot_execute"
+  }
+}

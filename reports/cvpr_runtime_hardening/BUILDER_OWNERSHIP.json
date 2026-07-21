@@ -1,0 +1,14 @@
+{
+  "owner": "scripts/build_cvpr_runtime_hardening.py",
+  "paper_evidence": false,
+  "protected_from_legacy_builder": [
+    "notebooks/kaggle/cvpr",
+    "CERTVIC_CVPR_EXECUTION_MASTER_PLAN.md",
+    "docs/execution/CERTVIC_CVPR_EXECUTION_MASTER_PLAN.md",
+    "paper_cvpr",
+    "release",
+    "reports/cvpr_runtime_hardening"
+  ],
+  "runtime_hardening_owns_shared_surfaces": true,
+  "schema": "certvic.cvpr.builder_ownership.v1"
+}

@@ -1,0 +1,17 @@
+# Tiny reviewed-task evaluation config (open-local providers on free compute).
+mode: tiny_reviewed_eval
+provider: qwen2_5_vl_7b
+device: cuda
+external_downloads: false
+gpu_required: true
+max_items: 20
+allow_full_run: false
+alpha: 0.05
+gap_threshold: 0.05
+paid_services_enabled: false
+open_models_enabled: true
+require_reviewed_tasks: true
+reviewed_evidence_status_required: HUMAN_REVIEWED_NON_EVIDENCE
+block_mock_for_evidence: true
+max_new_tokens: 8
+temperature: 0.0

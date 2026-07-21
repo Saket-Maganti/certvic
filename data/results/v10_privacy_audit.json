@@ -1,0 +1,33 @@
+# Security / Privacy / Path Audit
+
+Generated: 2026-07-09
+
+Root: `.`
+Status: **FAIL** (8 finding(s))
+
+Static text inspection only; no network, no evidence claims.
+
+## Summary
+
+| Check | Findings | OK |
+| --- | --- | --- |
+| Private absolute paths / dataset roots | 8 | False |
+| Secrets / credentials | 0 | True |
+| Committed .env files | 0 | True |
+| Paid endpoints | 0 | True |
+| Release pixels | 0 | True |
+| Release-dir private paths (text) | 0 | True |
+| Release-dir secrets (text) | 0 | True |
+
+## Private paths
+
+| File | Line | Kind | Match |
+| --- | --- | --- | --- |
+| `AUTORUN_STATUS.md` | 3 | private_absolute_path | `/Users/saketmaganti/Projects/certVIC/certvic_v9_mega_issue_resolution_prompt_pack`` |
+| `AUTORUN_STATUS.md` | 3 | home_dir_path | `/Users/saketmaganti` |
+| `certVIC_report.md` | 5 | private_absolute_path | `/Users/saketmaganti/Projects/certVIC/certvic_v9_mega_issue_resolution_prompt_pack`.` |
+| `certVIC_report.md` | 5 | home_dir_path | `/Users/saketmaganti` |
+| `certVIC_report.md` | 9 | private_absolute_path | `/Users/saketmaganti/Projects/certVIC/certvic_v9_mega_issue_resolution_prompt_pack`` |
+| `certVIC_report.md` | 9 | home_dir_path | `/Users/saketmaganti` |
+| `certVIC_report.md` | 10 | private_absolute_path | `/Users/saketmaganti/Projects/certVIC`` |
+| `certVIC_report.md` | 10 | home_dir_path | `/Users/saketmaganti` |

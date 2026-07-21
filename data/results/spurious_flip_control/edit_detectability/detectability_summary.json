@@ -1,0 +1,35 @@
+{
+  "artifact_risk": false,
+  "classifier": {
+    "accuracy": 0.6702,
+    "auc": 0.7123,
+    "auc_orientation": "symmetric_separability_max_auc_or_one_minus_auc",
+    "backend": "sklearn_logreg_group_cv",
+    "best_single_feature": "file_size",
+    "cv_grouped_by_item": true,
+    "multivariate_auc": 0.7123,
+    "n_images": 188,
+    "per_feature_auc": {
+      "edge_density": 0.5199,
+      "file_size": 0.6237,
+      "mean_b": 0.5012,
+      "mean_g": 0.5008,
+      "mean_r": 0.5011,
+      "sharpness": 0.5187,
+      "std_gray": 0.5181,
+      "uniform_fraction": 0.5261
+    },
+    "raw_accuracy": 0.6702,
+    "raw_multivariate_auc": 0.7123
+  },
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "evidence_status": "DIAGNOSTIC_ONLY",
+  "flag_auc": 0.8,
+  "gpu_required": false,
+  "n_items": 94,
+  "n_skipped": 0,
+  "paid_services": false,
+  "probe": "edit_detectability",
+  "tasks_path": "data/edits/spurious_flip_control/pilot_eval_tasks_reviewed.jsonl"
+}

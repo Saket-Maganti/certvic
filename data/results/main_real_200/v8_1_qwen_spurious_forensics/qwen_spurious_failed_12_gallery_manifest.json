@@ -1,0 +1,110 @@
+[
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/01_sflip_table_ADE_train_00000377_diff_heatmap.png",
+    "item_id": "sflip_table_ADE_train_00000377",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/01_sflip_table_ADE_train_00000377_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/01_sflip_table_ADE_train_00000377_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_PATCH_NEAR_TARGET",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/01_sflip_table_ADE_train_00000377_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/02_sflip_sofa_ADE_train_00000704_diff_heatmap.png",
+    "item_id": "sflip_sofa_ADE_train_00000704",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/02_sflip_sofa_ADE_train_00000704_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/02_sflip_sofa_ADE_train_00000704_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_PATCH_TOO_SALIENT",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/02_sflip_sofa_ADE_train_00000704_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/03_sflip_sofa_ADE_train_00000719_diff_heatmap.png",
+    "item_id": "sflip_sofa_ADE_train_00000719",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/03_sflip_sofa_ADE_train_00000719_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/03_sflip_sofa_ADE_train_00000719_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_PATCH_NEAR_TARGET",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/03_sflip_sofa_ADE_train_00000719_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/04_sflip_chair_ADE_train_00000194_diff_heatmap.png",
+    "item_id": "sflip_chair_ADE_train_00000194",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/04_sflip_chair_ADE_train_00000194_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/04_sflip_chair_ADE_train_00000194_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_PATCH_NEAR_TARGET",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/04_sflip_chair_ADE_train_00000194_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/05_sflip_chair_ADE_train_00000617_diff_heatmap.png",
+    "item_id": "sflip_chair_ADE_train_00000617",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/05_sflip_chair_ADE_train_00000617_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/05_sflip_chair_ADE_train_00000617_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_OBJECT_REGION_AFFECTED",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/05_sflip_chair_ADE_train_00000617_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/06_sflip_chair_ADE_train_00000436_diff_heatmap.png",
+    "item_id": "sflip_chair_ADE_train_00000436",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/06_sflip_chair_ADE_train_00000436_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/06_sflip_chair_ADE_train_00000436_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_PATCH_NEAR_TARGET",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/06_sflip_chair_ADE_train_00000436_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/07_sflip_chair_ADE_train_00000630_diff_heatmap.png",
+    "item_id": "sflip_chair_ADE_train_00000630",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/07_sflip_chair_ADE_train_00000630_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/07_sflip_chair_ADE_train_00000630_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_VALID_FAILURE",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/07_sflip_chair_ADE_train_00000630_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/08_sflip_chair_ADE_train_00000268_diff_heatmap.png",
+    "item_id": "sflip_chair_ADE_train_00000268",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/08_sflip_chair_ADE_train_00000268_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/08_sflip_chair_ADE_train_00000268_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_PATCH_NEAR_TARGET",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/08_sflip_chair_ADE_train_00000268_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/09_sflip_chair_ADE_train_00001105_diff_heatmap.png",
+    "item_id": "sflip_chair_ADE_train_00001105",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/09_sflip_chair_ADE_train_00001105_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/09_sflip_chair_ADE_train_00001105_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_VALID_FAILURE",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/09_sflip_chair_ADE_train_00001105_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/10_sflip_car_ADE_train_00002029_diff_heatmap.png",
+    "item_id": "sflip_car_ADE_train_00002029",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/10_sflip_car_ADE_train_00002029_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/10_sflip_car_ADE_train_00002029_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_OBJECT_REGION_AFFECTED",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/10_sflip_car_ADE_train_00002029_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/11_sflip_car_ADE_train_00002034_diff_heatmap.png",
+    "item_id": "sflip_car_ADE_train_00002034",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/11_sflip_car_ADE_train_00002034_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/11_sflip_car_ADE_train_00002034_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_PATCH_NEAR_TARGET",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/11_sflip_car_ADE_train_00002034_spurious.jpg"
+  },
+  {
+    "confidence": "MEDIUM",
+    "heatmap": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/12_sflip_car_ADE_train_00003061_diff_heatmap.png",
+    "item_id": "sflip_car_ADE_train_00003061",
+    "original": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/12_sflip_car_ADE_train_00003061_original.jpg",
+    "overlay": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/12_sflip_car_ADE_train_00003061_overlay.png",
+    "preliminary_label": "CODEX_PRELIM_PATCH_TOO_SALIENT",
+    "spurious": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12_gallery/12_sflip_car_ADE_train_00003061_spurious.jpg"
+  }
+]

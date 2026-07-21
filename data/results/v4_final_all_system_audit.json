@@ -1,0 +1,63 @@
+{
+  "audit": "v4_final_all_system_audit",
+  "checks": [
+    {
+      "errors": [],
+      "name": "v4_modules_import",
+      "passed": true
+    },
+    {
+      "missing": [],
+      "name": "v4_docs_exist",
+      "passed": true
+    },
+    {
+      "missing": [],
+      "name": "command_bundles_exist",
+      "passed": true
+    },
+    {
+      "guard": {
+        "evidence_claims_made": false,
+        "files": [
+          {
+            "extracted": {
+              "inline_numbers": [],
+              "inputs": [],
+              "untraced_numbers": []
+            },
+            "has_results": false,
+            "manifest_supplied": false,
+            "passed": true,
+            "placeholder_only": true,
+            "tex_path": "/Users/saketmaganti/Projects/certVIC/paper/sections/05_results.tex",
+            "violations": []
+          }
+        ],
+        "guard": "paper_numbers_guard",
+        "n_files": 1,
+        "n_violations": 0,
+        "passed": true,
+        "repo_root": "/Users/saketmaganti/Projects/certVIC"
+      },
+      "name": "paper_guard_passes",
+      "passed": true
+    },
+    {
+      "name": "no_fake_results",
+      "passed": true
+    },
+    {
+      "name": "stop_guidance_emitted",
+      "passed": true
+    }
+  ],
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "gpu_required": false,
+  "guidance": "V4 infrastructure is complete. Stop building unless a real run exposes a concrete missing gate.",
+  "n_checks": 6,
+  "n_passed": 6,
+  "passed": true,
+  "vlm_inference_run": false
+}

@@ -1,0 +1,16 @@
+{
+  "canonical_results_changed": false,
+  "missing_providers": [
+    "qwen2_5_vl_7b",
+    "internvl_8b",
+    "llava_onevision_7b"
+  ],
+  "next_action": "Run the three Spurious V2 Kaggle notebooks and download provider zip outputs.",
+  "paper_evidence": false,
+  "schema": "certvic.v9.spurious_v2_missing_predictions.v1",
+  "searched_dirs": [
+    "/Users/saketmaganti/Projects/certVIC/kaggleoutputs/newruns",
+    "/Users/saketmaganti/Downloads"
+  ],
+  "status": "BLOCKED_MISSING_PREDICTIONS"
+}

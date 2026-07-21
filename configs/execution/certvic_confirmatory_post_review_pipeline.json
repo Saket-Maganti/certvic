@@ -1,0 +1,40 @@
+{
+  "detectability_bootstrap_samples": 1000,
+  "detectability_folds": 5,
+  "detectability_seed": 17031,
+  "output_root": "data/studies/specificity_confirmatory_cvpr",
+  "paths": {
+    "adjudication": "data/studies/specificity_confirmatory_cvpr/review/adjudication_validation.json",
+    "agreement": "data/studies/specificity_confirmatory_cvpr/review/agreement.json",
+    "code_bundle": "kaggle_uploads/00_code/certvic_code_bundle.zip",
+    "environment_lock": "configs/runtime/kaggle_t4x2_environment.lock.json",
+    "final_inclusion": "data/studies/specificity_confirmatory_cvpr/review/final_inclusion.json",
+    "model_registry": "configs/models/certvic_cvpr_model_registry.yaml",
+    "output_schema": "configs/result_contracts.yaml",
+    "prompt_template": "configs/execution/certvic_prompt_template.txt",
+    "qa_enriched_manifest": "data/studies/specificity_confirmatory_cvpr/qa_candidates.jsonl",
+    "rater_1_qualification": "data/studies/specificity_confirmatory_cvpr/review/rater_1_qualification.json",
+    "rater_1_validation": "data/studies/specificity_confirmatory_cvpr/review/rater_1_validation.json",
+    "rater_2_qualification": "data/studies/specificity_confirmatory_cvpr/review/rater_2_qualification.json",
+    "rater_2_validation": "data/studies/specificity_confirmatory_cvpr/review/rater_2_validation.json",
+    "smoke_gate": "reports/cvpr_final_integration/REAL_MODEL_SMOKE_GATE.json",
+    "study_config": "configs/studies/specificity_confirmatory_cvpr.yaml"
+  },
+  "providers": {
+    "internvl_8b": {
+      "run_tag": "specificity_confirmatory_cvpr_internvl_8b_v1",
+      "smoke_return_zip": "data/runtime/00C2_internvl_8b_real_model_smoke.zip"
+    },
+    "llava_onevision_7b": {
+      "run_tag": "specificity_confirmatory_cvpr_llava_onevision_7b_v1",
+      "smoke_return_zip": "data/runtime/00C2_llava_onevision_7b_real_model_smoke.zip"
+    },
+    "qwen2_5_vl_7b": {
+      "run_tag": "specificity_confirmatory_cvpr_qwen2_5_vl_7b_v1",
+      "smoke_return_zip": "data/runtime/00C2_qwen2_5_vl_7b_real_model_smoke.zip"
+    }
+  },
+  "run_seed": 12013,
+  "schema": "certvic.phase_c.post_review_pipeline.v1",
+  "selection_seed": 12013
+}

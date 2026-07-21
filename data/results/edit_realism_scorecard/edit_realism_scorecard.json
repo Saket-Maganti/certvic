@@ -1,0 +1,56 @@
+{
+  "item_status": {
+    "v4_item_001": {
+      "major_artifact_blocks": false,
+      "passed": true,
+      "uncertain_heavy": false
+    }
+  },
+  "n_items": 1,
+  "ratings": "data/results/v4_smoke/visual_review_sheet.csv",
+  "rubric": [
+    {
+      "blocking": true,
+      "field": "photorealism",
+      "scale": "pass/uncertain/fail"
+    },
+    {
+      "blocking": false,
+      "field": "lighting_consistency",
+      "scale": "pass/uncertain/fail"
+    },
+    {
+      "blocking": false,
+      "field": "boundary_artifacts",
+      "scale": "pass/uncertain/fail"
+    },
+    {
+      "blocking": false,
+      "field": "shadow_consistency",
+      "scale": "pass/uncertain/fail"
+    },
+    {
+      "blocking": false,
+      "field": "geometry_plausibility",
+      "scale": "pass/uncertain/fail"
+    },
+    {
+      "blocking": true,
+      "field": "single_factor_preservation",
+      "scale": "pass/uncertain/fail"
+    },
+    {
+      "blocking": true,
+      "field": "target_clarity",
+      "scale": "pass/uncertain/fail"
+    },
+    {
+      "blocking": false,
+      "field": "required_change_clarity",
+      "scale": "pass/uncertain/fail"
+    }
+  ],
+  "status_counts": {
+    "pass": 1
+  }
+}

@@ -1,0 +1,9 @@
+id,category,artifact,status,next_action,local_work_remaining
+C-EXT-01,external_bytes,three immutable model snapshot ZIPs,BLOCKED,Run provisioning notebook 01 once per locked provider and return each ZIP.,False
+C-EXT-02,licensed_external_bytes,two real zero-overlap smoke tasks,BLOCKED,"Supply exactly two source/edit/mask task rows with verified licenses at local_inputs/smoke/real_smoke_tasks.jsonl, then run the canonical smoke-input builder command in the handoff.",False
+C-PLAT-01,external_platform,00A and three 00B returns,BLOCKED,Follow reports/cpu_execution/CERTVIC_FIRST_GPU_WAVE_HANDOFF.md in CPU Kaggle sessions.,False
+C-PLAT-02,external_platform_and_upstream,three genuine 00C2 returns,BLOCKED,"After 00A/00B and real smoke input, issue pre-smoke permissions and run 00C2.",False
+C-EXT-03,licensed_external_bytes,ADE20K validation source/license manifest and insertion assets,BLOCKED,Mount verified private source bytes and execute confirmatory generation handoff.,False
+C-PLAT-03,external_platform_and_upstream,prospective candidate generation,BLOCKED,Run notebook 01 after strict real-smoke GO.,False
+C-HUMAN-01,genuine_human_judgment,prospective two-rater review and adjudication,BLOCKED,Begins only after a genuine generated candidate packet exists.,False
+C-GATE-01,upstream_scientific_gate,Main and second-domain execution,BLOCKED,Keep execution_allowed=false until genuine confirmatory and domain-specific gates pass.,False

@@ -1,0 +1,56 @@
+{
+  "builder_command": "python3 scripts/build_model_snapshot_bundle.py --provider llava_onevision_7b --snapshot-root <SNAPSHOT_ROOT> --model-commit <40_HEX> --processor-commit <40_HEX>",
+  "expected_architecture": "LlavaOnevisionForConditionalGeneration",
+  "expected_size": "15-18 GB",
+  "model_id": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+  "name": "llava_onevision_7b_snapshot.zip",
+  "output": "kaggle_uploads/02_snapshots/llava_onevision_7b_snapshot.zip",
+  "paper_evidence": false,
+  "passed": false,
+  "provider": "llava_onevision_7b",
+  "required_groups": {
+    "configuration": {
+      "accepted_patterns": [
+        "config.json"
+      ],
+      "matches": [],
+      "passed": false
+    },
+    "generation": {
+      "accepted_patterns": [
+        "generation_config.json"
+      ],
+      "matches": [],
+      "passed": false
+    },
+    "model_weights": {
+      "accepted_patterns": [
+        "*.safetensors",
+        "pytorch_model*.bin"
+      ],
+      "matches": [],
+      "passed": false
+    },
+    "processor": {
+      "accepted_patterns": [
+        "processor_config.json",
+        "preprocessor_config.json"
+      ],
+      "matches": [],
+      "passed": false
+    },
+    "tokenizer": {
+      "accepted_patterns": [
+        "tokenizer.json",
+        "tokenizer.model",
+        "vocab.json"
+      ],
+      "matches": [],
+      "passed": false
+    }
+  },
+  "root_exists": false,
+  "schema": "certvic.kaggle.snapshot_checklist.v1",
+  "status": "BUILDER_READY_BLOCKED_BY_EXTERNAL_BYTES",
+  "validation_command": "python3 -m certvic.cvpr.kaggle_bundle verify kaggle_uploads/02_snapshots/llava_onevision_7b_snapshot.zip"
+}

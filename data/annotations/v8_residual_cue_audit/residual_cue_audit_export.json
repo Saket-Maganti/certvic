@@ -1,0 +1,8 @@
+{
+  "human_fields_blank": true,
+  "n_items": 91,
+  "paper_evidence": false,
+  "schema": "certvic.v8.residual_cue_export.v1",
+  "sheet_path": "data/annotations/v8_residual_cue_audit/residual_cue_audit_sheet.csv",
+  "status": "review_pending"
+}

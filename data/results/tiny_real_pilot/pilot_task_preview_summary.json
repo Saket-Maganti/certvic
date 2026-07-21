@@ -1,0 +1,23 @@
+{
+  "by_required_change": {
+    "change": 6,
+    "no_change": 7
+  },
+  "by_task_family": {
+    "control_irrelevant": 7,
+    "support_stability": 6
+  },
+  "edit_plan_path": "data/results/tiny_real_pilot/pilot_edit_plan.jsonl",
+  "edited_images_available": 0,
+  "edited_images_required": false,
+  "edits_generated": false,
+  "evidence_status": "PREVIEW_ONLY",
+  "generation_status": "not_generated",
+  "input_planned_edits": 13,
+  "leakage_warning_count": 0,
+  "leakage_warnings": [],
+  "preview_tasks": 13,
+  "runnable_eval_tasks": 0,
+  "task_preview_path": "data/results/tiny_real_pilot/pilot_task_preview.jsonl",
+  "vlm_inference_run": false
+}

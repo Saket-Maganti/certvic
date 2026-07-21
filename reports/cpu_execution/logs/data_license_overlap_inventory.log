@@ -1,0 +1,9 @@
+$ python3 scripts/run_all_cpu_workflows.py --internal data_inventory
+
+[stdout]
+{
+  "action": "data_inventory",
+  "status": "COMPLETED"
+}
+
+[stderr]

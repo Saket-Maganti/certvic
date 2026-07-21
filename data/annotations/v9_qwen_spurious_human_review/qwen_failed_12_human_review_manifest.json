@@ -1,0 +1,22 @@
+{
+  "allowed_failure_causes": [
+    "VALID_IRRELEVANT_CONTROL",
+    "PATCH_TOO_SALIENT",
+    "PATCH_NEAR_TARGET",
+    "OBJECT_REGION_AFFECTED",
+    "PROMPT_AMBIGUOUS",
+    "PARSE_ERROR",
+    "IMAGE_MISMATCH",
+    "UNSURE"
+  ],
+  "gallery": "data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review_gallery.html",
+  "human_fields_prefilled": false,
+  "instructions": "data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review_instructions.md",
+  "n_items": 12,
+  "paper_evidence": false,
+  "prompt_file": "02_QWEN_FAILURE_HUMAN_REVIEW_PACKET.md",
+  "review_sheet": "data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review.csv",
+  "schema": "certvic.v9.qwen_failed_12_human_review_manifest.v1",
+  "source_csv": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12.csv",
+  "status": "PENDING_REAL_HUMAN_REVIEW"
+}

@@ -1,0 +1,24 @@
+{
+  "historical_outputs": {
+    "archive_path": "dist/certvic_historical_kaggleoutputs.zip",
+    "archive_sha256": "3fa61976e75a17c7d3a558c22bace39f52fae1aeddeaed014010b1da6213f089",
+    "canonical_restore_root": "kaggleoutputs",
+    "member_count": 47,
+    "overwrite_policy": "IDENTICAL_ONLY_OTHERWISE_REFUSE",
+    "size": 170923609
+  },
+  "main_project": {
+    "archive_path": "release/certvic_phase_c_pre_human_release.zip",
+    "archive_sha256": "3017ef311aed1c0a9f6f33fcc7e84fc5c9367f86f79453822ecaee90b883287c",
+    "clean_extraction_validation": "PASS",
+    "deterministic_rebuild": true,
+    "historical_outputs_embedded": false,
+    "member_count": 1263,
+    "privacy_findings": 0,
+    "size": 2216110
+  },
+  "paper_evidence": false,
+  "restore_script": "scripts/restore_historical_outputs.py",
+  "schema": "certvic.project_distribution.v1",
+  "status": "TWO_PART_DISTRIBUTION_HASH_LOCKED"
+}

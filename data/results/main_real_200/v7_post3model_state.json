@@ -1,0 +1,158 @@
+{
+  "canonical_artifacts": {
+    "absent_object_control": "data/results/main_real_200/pilot_report/absent_object_control.json",
+    "cross_model_summary": {
+      "csv": "data/results/main_real_200/multimodel_pilot_summary.csv",
+      "json": "data/results/main_real_200/multimodel_pilot_summary.json",
+      "md": "data/results/main_real_200/multimodel_pilot_summary.md"
+    },
+    "gates": {
+      "go_no_go": "data/results/main_real_200/go_no_go.json",
+      "reviewed_summary": "data/results/main_real_200/reviewed_summary.json",
+      "score_summary_v2": "data/results/main_real_200/score_summary_v2.json"
+    },
+    "per_model_reports": {
+      "internvl_8b": "data/results/main_real_200/pilot_report__internvl_8b/pilot_result.json",
+      "llava_onevision_7b": "data/results/main_real_200/pilot_report__llava_onevision_7b/pilot_result.json",
+      "qwen2_5_vl_7b": "data/results/main_real_200/pilot_report/pilot_result.json"
+    },
+    "presence_taskitems": "data/results/main_real_200/pilot_eval_taskitems_v2.jsonl",
+    "raw_predictions_dirs": {
+      "internvl_8b": "data/results/main_real_200/raw_predictions__internvl_8b",
+      "llava_onevision_7b": "data/results/main_real_200/raw_predictions__llava_onevision_7b",
+      "qwen2_5_vl_7b": "data/results/main_real_200/raw_predictions"
+    },
+    "regenerate_command": "python3 scripts/pilot_report_from_raw.py  (then  python3 scripts/build_multimodel_summary.py)",
+    "reviewed_presence_tasks": "data/results/main_real_200/pilot_eval_tasks_reviewed_v2.jsonl"
+  },
+  "claim_level": "pilot_only",
+  "detectability_gate": {
+    "auc": 0.3492,
+    "n_items": 103,
+    "note": "Edit-detectability AUC below ~0.5 (chance) => edits not trivially detectable; gate GO.",
+    "quality_passed": true,
+    "status": "GO"
+  },
+  "do_not_touch": [
+    "data/results/main_real_200/pilot_report*/  (canonical per-model reports)",
+    "data/results/main_real_200/raw_predictions*/  (sha256-locked predictions)",
+    "data/results/main_real_200/multimodel_pilot_summary.*  (regenerate via script only)",
+    "experimental numbers in any canonical artifact (do not edit by hand)"
+  ],
+  "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+  "generated_by": "V7 prompt 00 (state memo); numbers derived from canonical artifacts, not transcribed",
+  "n_absent_control_items": 120,
+  "n_reviewed_presence_items": 91,
+  "next_highest_leverage_scientific_step": {
+    "cpu_next_step": "V7 prompt 01: build the canonical result ledger + audit (python3 -m certvic.v7.result_ledger_audit) to hash-lock every pilot number to its artifact before scaling.",
+    "gpu_command": "Run the existing Kaggle VLM notebook (notebooks/kaggle/certvic_main200_vlm_T4x2_AFTER_GATES.ipynb style) on data/edits/spurious_flip_control/ for each provider, then locally: python3 scripts/pilot_report_from_raw.py --provider <id> --model-name <hf-id> --run-label <id> --raw-presence ... --raw-control ... --raw-spurious <control_preds>.jsonl",
+    "headline": "Obtain spurious-flip / control_irrelevant VLM predictions for the 3 models (specificity control).",
+    "why": "It is the single open question that most directly attacks the 'models are sticky under ANY perturbation' reviewer objection; everything else (scale, 2nd domain, IAA) is additive."
+  },
+  "non_canonical_do_not_cite": {
+    "affordance_intervention arm": "original accuracy ~0.41 (chance) confounds the gap; descriptive only, NOT certified",
+    "data/results/main_real_200/final_report": "smoke-template markdown labeled 'MOCK_ONLY synthetic fixture report'; numbers real (affordance/v1) but narrative is a template artifact",
+    "data/results/main_real_200/final_report_v2": "same builder; presence/v2 numbers real but markdown is template; NOT canonical"
+  },
+  "paper_evidence": false,
+  "reviewer_critical_blockers": [
+    {
+      "detail": "Spurious-flip/control_irrelevant arm: images + task manifest built at data/edits/spurious_flip_control/ (189 files) but NO VLM predictions, NO quality/detectability report, NO control_irrelevant_report/. Specificity (are models merely unstable under ANY edit?) is unanswered.",
+      "id": "specificity_control",
+      "owner": "separate spurious-flip work in progress; integrate via V7 prompt 14 once predictions land",
+      "severity": "high",
+      "status": "blocked"
+    },
+    {
+      "detail": "n=91 reviewed presence items is a strong pilot but below CVPR main-claim scale.",
+      "id": "scale",
+      "severity": "high",
+      "status": "open"
+    },
+    {
+      "detail": "ADE20K only; second domain pending readiness assessment.",
+      "id": "single_dataset",
+      "severity": "medium",
+      "status": "open"
+    },
+    {
+      "detail": "Visual review is single-rater; no inter-annotator agreement computed yet.",
+      "id": "single_rater_iaa",
+      "severity": "medium",
+      "status": "open"
+    },
+    {
+      "detail": "Context-anchoring vs residual-cue vs prompt-prior not yet disentangled by probes.",
+      "id": "mechanism",
+      "severity": "medium",
+      "status": "open"
+    },
+    {
+      "detail": "v2 task set mixes positive/negated phrasing; needs polarity ablation to rule out phrasing artifact.",
+      "id": "prompt_polarity",
+      "severity": "low",
+      "status": "open"
+    },
+    {
+      "detail": "Human residual-cue audit of edited images not yet performed.",
+      "id": "residual_cue",
+      "severity": "medium",
+      "status": "open"
+    }
+  ],
+  "schema": "certvic.v7_post3model_state.v1",
+  "scientific_core": "Open VLMs can detect natural object absence (absent-object control) but often fail to revise a presence judgment after a controlled, low-detectability removal/occlusion/displacement edit; replicated across 3 open VLMs under the pilot protocol.",
+  "three_model_table": [
+    {
+      "certified": true,
+      "consistency_p": 0.1758,
+      "control_absent": "60/60",
+      "control_present": "50/60",
+      "cs_lower_bound": 0.364,
+      "cs_upper_bound": 1.0,
+      "gap_delta": 0.7473,
+      "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "n": 91,
+      "original_accuracy_a": 0.9231,
+      "provider": "qwen2_5_vl_7b",
+      "source": "data/results/main_real_200/pilot_report/pilot_result.json",
+      "source_sha256": "b8f103f3ac34cad2eadf69c7f5722783202b298de1bbfa2e067b4dc11930479a",
+      "spurious_flip_rate": null,
+      "status": "run"
+    },
+    {
+      "certified": true,
+      "consistency_p": 0.0989,
+      "control_absent": "58/60",
+      "control_present": "58/60",
+      "cs_lower_bound": 0.4409,
+      "cs_upper_bound": 1.0,
+      "gap_delta": 0.8242,
+      "model": "OpenGVLab/InternVL2-8B",
+      "n": 91,
+      "original_accuracy_a": 0.9231,
+      "provider": "internvl_8b",
+      "source": "data/results/main_real_200/pilot_report__internvl_8b/pilot_result.json",
+      "source_sha256": "5686cc592f13fa3aec3ba85ca8d88195ca48e28d03d9a419087ab85a57c09b27",
+      "spurious_flip_rate": null,
+      "status": "run"
+    },
+    {
+      "certified": true,
+      "consistency_p": 0.1758,
+      "control_absent": "60/60",
+      "control_present": "58/60",
+      "cs_lower_bound": 0.331,
+      "cs_upper_bound": 1.0,
+      "gap_delta": 0.7143,
+      "model": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+      "n": 91,
+      "original_accuracy_a": 0.8901,
+      "provider": "llava_onevision_7b",
+      "source": "data/results/main_real_200/pilot_report__llava_onevision_7b/pilot_result.json",
+      "source_sha256": "9539b9f84ca64546cd70aadee806d164e3a55931c775fd5085c13a6b8f8ead8b",
+      "spurious_flip_rate": null,
+      "status": "run"
+    }
+  ]
+}

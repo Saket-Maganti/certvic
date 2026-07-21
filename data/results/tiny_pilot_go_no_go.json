@@ -1,0 +1,18 @@
+{
+  "artifact_confounded": true,
+  "blockers": [
+    "artifact_confounded_auc_ge_0_80",
+    "edit_detectability_too_high"
+  ],
+  "detectability_auc": 0.9231,
+  "evidence_status": "GATE_ONLY_NON_EVIDENCE",
+  "gate": "tiny_pilot_detectability_first",
+  "guidance": "VLM inference should not begin until detectability and visual quality pass.",
+  "may_begin_vlm_inference": false,
+  "n_detectability_items": 13,
+  "quality_passed": true,
+  "status": "NO_GO",
+  "warnings": [
+    "insufficient_detectability_n"
+  ]
+}

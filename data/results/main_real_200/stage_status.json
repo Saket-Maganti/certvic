@@ -1,0 +1,55 @@
+{
+  "stages": {
+    "label_policy_report": {
+      "result_keys": [
+        "blocked_mask_count",
+        "eligible_labels_by_family",
+        "eligible_masks_by_family",
+        "evidence_status",
+        "label_policy_entry_count",
+        "label_policy_hash",
+        "label_policy_source",
+        "label_policy_verified",
+        "label_policy_version",
+        "masks_path",
+        "n_blocked_labels",
+        "n_distinct_labels",
+        "n_masks",
+        "n_resolved_labels",
+        "n_unresolved_labels",
+        "out_dir",
+        "unresolved_mask_count",
+        "vlm_inference_run",
+        "zero_cost"
+      ],
+      "seconds": 0.053,
+      "status": "completed"
+    },
+    "manifests": {
+      "result_keys": [
+        "binary_masks_exported",
+        "mask_out_dir",
+        "mask_status",
+        "masks",
+        "matched_pairs",
+        "missing_annotations",
+        "note",
+        "release_mode_default",
+        "sources"
+      ],
+      "seconds": 17.825,
+      "status": "completed"
+    },
+    "pilot_readiness": {
+      "result_keys": [
+        "blockers",
+        "out_dir",
+        "passed",
+        "ready_for_mask_manifest",
+        "ready_for_pilot_selection"
+      ],
+      "seconds": 3.074,
+      "status": "completed"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "anonymized": true,
+  "bundle": "certvic_free_compute_job",
+  "config": "configs/tiny_reviewed_eval.yaml",
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "evidence_status": "JOB_PLANNED_ONLY",
+  "executed": false,
+  "file_hashes": {
+    "README.md": "b3d9cac3304873e7b3161ae5603f02f3d4b9b6a63a7b4489b164d0e5faa9885f",
+    "ZERO_COST_POLICY.txt": "257770fdfad741f8621279d910fc9587531657a261f0df5718e1591017e88fc6",
+    "commands.sh": "bdc9b2868eed984e076ca1b6905abc884f30c5031e07406850cf45b41e3c22fb",
+    "expected_inputs.md": "4aecb7332b0abcec7a6d118d6c447e55db7c061e97cd5a69c1a7d0ab037ec4ba",
+    "expected_outputs.md": "af9f290e237a64acb85e98d529ca6c3667260d2717808834d80be119ce6ea4bb",
+    "preflight.sh": "47f8143ee3b396152d1f26a727a85735a7a62cf3e966d1d8332fee6a47e374f2"
+  },
+  "files": [
+    "README.md",
+    "ZERO_COST_POLICY.txt",
+    "commands.sh",
+    "expected_inputs.md",
+    "expected_outputs.md",
+    "preflight.sh"
+  ],
+  "forbidden_markers_found": [],
+  "generated": "2026-06-22",
+  "heavy_gpu_required": true,
+  "job": "vlm_tiny",
+  "n_commands": 1,
+  "paid_services": false,
+  "platform": "kaggle",
+  "safe": true,
+  "scale": 20,
+  "stage": "vlm_inference"
+}

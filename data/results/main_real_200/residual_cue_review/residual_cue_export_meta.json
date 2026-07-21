@@ -1,0 +1,16 @@
+{
+  "evidence_status": "RESIDUAL_CUE_REVIEW_PENDING_NON_EVIDENCE",
+  "human_fields_blank": true,
+  "model_fail_count_definition": "number of {qwen2_5_vl_7b, internvl_8b, llava_onevision_7b} with post-edit presence answer != gold (canonical edited_correct=False)",
+  "model_fail_count_distribution": {
+    "0": 8,
+    "1": 10,
+    "2": 15,
+    "3": 58
+  },
+  "n_items": 91,
+  "note": "Human fields are intentionally blank. Do not auto-fill. Apply with scripts/apply_residual_cue_review.py once a reviewer completes the sheet.",
+  "paper_evidence": false,
+  "schema": "certvic.residual_cue_review.v1",
+  "sheet_path": "data/results/main_real_200/residual_cue_review/residual_cue_review_sheet.csv"
+}

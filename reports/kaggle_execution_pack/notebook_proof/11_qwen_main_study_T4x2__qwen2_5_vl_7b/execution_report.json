@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "main_qwen_return.zip",
+      "sha256": "5e0c6e60449d99708146217b0179ae33269d6bc3858005a236b5f3348914ab2f",
+      "size": 3545
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "8318cbeca52c4b239830399ac59d7a07b01c16fcdabcb331bc42d1b610a6257e",
+      "size": 948
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "b2dec44e251f84e0c758a7398a26c1e993f8ddacc0eac21aa8727107317be361",
+  "config": {
+    "artifact_globs": [
+      "main_qwen_return.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "11_qwen_main_study_T4x2.ipynb",
+    "notebook_sha256": "b4abba4ef3f0a87f569b169aa3a56443aeaeaf0f19c234190ac9f578f98d33a1",
+    "provider": "qwen2_5_vl_7b",
+    "return_zip": "main_qwen_return.zip",
+    "route": "11_qwen_main_study_T4x2__qwen2_5_vl_7b",
+    "stage": "evaluation",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "e6097b1f058d6e74e9bf86824342522ed39704a33430be9d802d172592d26989",
+  "status": "PASS"
+}

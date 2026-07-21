@@ -1,0 +1,37 @@
+{
+  "claim_guard_passed": true,
+  "current_evidence_status": "Main-200/V8 imported evidence plus V9 scaffolds; Spurious V2/Main-500/second-domain are deferred or blocked.",
+  "exact_next_commands": [
+    "Run Kaggle notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb",
+    "Run Kaggle notebooks/kaggle/vlm_internvl_8b_spurious_v2_T4x2.ipynb",
+    "Run Kaggle notebooks/kaggle/vlm_llava_onevision_7b_spurious_v2_T4x2.ipynb",
+    "Download *_spurious_v2_preds.zip to kaggleoutputs/v9_spurious_v2/",
+    "python3 scripts/import_v9_spurious_v2_outputs.py --input-dir kaggleoutputs/v9_spurious_v2",
+    "Fill data/annotations/v9_qwen_spurious_human_review/qwen_failed_12_human_review.csv if using human exclusions"
+  ],
+  "final_recommendation": "HOLD_FOR_SPURIOUS_V2",
+  "human_review_state": "Qwen failed-12 review packet created and blank; Main-500 rater sheets are blank/no rows.",
+  "main500_state": "HOLD_FOR_SPURIOUS_V2; no Main-500 planning/images/predictions/results exist.",
+  "paper_release_state": {
+    "paper_main_v9_pdf": {
+      "command": "pdflatex -interaction=nonstopmode main_v9.tex",
+      "log": "Recompiled after replacing literal newline tokens in V9 scaffold.",
+      "pdf_exists": true,
+      "status": "PASS"
+    },
+    "release_zip": "dist/certvic_v9_release_candidate.zip"
+  },
+  "privacy_audit_passed": true,
+  "qwen_specificity_state": "V1 failed 12/94 = 0.1277; Spurious V2 built as 30-item strict local set but predictions missing.",
+  "schema": "certvic.v9.final_handoff.v1",
+  "status": "FINAL_LOCAL_AUTORUN_COMPLETE_WITH_DEFERRED_HEAVY_RUNS",
+  "tests": "657 passed",
+  "what_not_to_claim": [
+    "CVPR-ready",
+    "all-model specificity",
+    "real human validation",
+    "Main-500 results",
+    "Spurious V2 results",
+    "second-domain evidence"
+  ]
+}

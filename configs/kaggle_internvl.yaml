@@ -1,0 +1,14 @@
+mode: kaggle_open_vlm
+provider: internvl_8b
+model_id: OpenGVLab/InternVL2-8B
+device: cuda
+dtype: bfloat16
+load_in_8bit: true
+batch_size: 1
+resume: true
+max_new_tokens: 16
+temperature: 0.0
+max_items: null
+max_runtime_hours: 11.5
+paid_services_enabled: false
+warning: "Free Kaggle GPU only; no paid endpoints or paid cloud fallback."

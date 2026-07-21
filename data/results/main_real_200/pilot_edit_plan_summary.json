@@ -1,0 +1,45 @@
+{
+  "by_edit_type": {
+    "control_irrelevant": 65,
+    "displace": 64,
+    "occlude": 6,
+    "remove": 33
+  },
+  "edit_plan_path": "data/results/main_real_200/pilot_edit_plan.jsonl",
+  "edit_type_ratios": {
+    "control_irrelevant": 0.15,
+    "displace": 0.3,
+    "occlude": 0.25,
+    "remove": 0.3
+  },
+  "edits_generated": false,
+  "evidence_status": "PLANNED_ONLY",
+  "generation_status": "not_generated",
+  "input_candidates": 200,
+  "label_policy_entry_count": 14,
+  "label_policy_hash": "sha256:4bd9136f2940176a",
+  "label_policy_source": "configs/ade20k_label_policy.yaml",
+  "label_policy_verified": false,
+  "label_policy_version": "certvic.ade20k_label_policy.v1",
+  "max_mask_area_fraction": 0.4,
+  "min_mask_area_fraction": 0.01,
+  "planned": 168,
+  "rejected": 32,
+  "rejected_path": "data/results/main_real_200/pilot_edit_plan_rejected.jsonl",
+  "rejection_reasons": {
+    "edit type incompatible with task family": 32
+  },
+  "rejections_by_edit_type": {
+    "occlude": 32
+  },
+  "rejections_by_family": {
+    "affordance_reachability": 32
+  },
+  "rejections_by_label": {
+    "15": 32
+  },
+  "seed": 0,
+  "selection_path": "data/results/main_real_200/pilot_selection.jsonl",
+  "vlm_inference_run": false,
+  "zero_cost": true
+}

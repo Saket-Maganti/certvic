@@ -1,0 +1,51 @@
+{
+  "alpha": 0.05,
+  "certification_gate_errors": [
+    "certified claim blocked: split is smoke",
+    "certified claim blocked: evidence_status is MOCK_ONLY",
+    "certified claim blocked: provider_type is mock",
+    "certified claim blocked: data are synthetic smoke fixtures",
+    "certified claim blocked: CS lower bound does not exceed threshold"
+  ],
+  "certified": false,
+  "confidence_sequence": {
+    "alpha": 0.05,
+    "available": true,
+    "hi": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "latest": {
+      "hi": 1.0,
+      "lo": -0.5562535818468133
+    },
+    "lo": [
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -0.932821038563425,
+      -0.8602993800549352,
+      -0.6918271375723994,
+      -0.5562535818468133
+    ],
+    "method": "certvic.anytime_cs.hoeffding_mixture",
+    "t_opt": 10
+  },
+  "cs_threshold_passed": false,
+  "lower_bound": -0.5562535818468133,
+  "safe_claim": "Not certified; report descriptive smoke metrics only.",
+  "statement": "No certified intervention-consistency gap claim is available for this run.",
+  "threshold": 0.05,
+  "upper_bound": 1.0
+}

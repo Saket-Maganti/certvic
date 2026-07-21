@@ -1,0 +1,13 @@
+provider,family,n_rows,raw_parse_rate,decision_parse_rate,decision_accuracy,target_mention_rate,false_target_mention_rate
+qwen2_5_vl_7b,context_suppression,91,1.0,1.0,0.2637,,
+qwen2_5_vl_7b,object_list,91,1.0,0.0,,0.4176,0.4176
+qwen2_5_vl_7b,region_focused,91,1.0,1.0,0.2967,,
+qwen2_5_vl_7b,two_step,91,1.0,0.022,0.0,,
+internvl_8b,context_suppression,91,1.0,1.0,0.2418,,
+internvl_8b,object_list,91,1.0,0.0,,0.6813,0.6813
+internvl_8b,region_focused,91,1.0,1.0,0.3846,,
+internvl_8b,two_step,91,1.0,0.011,0.0,,
+llava_onevision_7b,context_suppression,91,1.0,1.0,0.1429,,
+llava_onevision_7b,object_list,91,1.0,0.0,,0.5714,0.5714
+llava_onevision_7b,region_focused,91,1.0,1.0,0.1648,,
+llava_onevision_7b,two_step,91,1.0,0.033,0.3333,,

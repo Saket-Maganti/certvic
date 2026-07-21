@@ -1,0 +1,50 @@
+{
+  "mode": "CPU_STATIC_ONLY_NOTEBOOKS_NOT_EXECUTED",
+  "n_notebooks": 6,
+  "notebooks": [
+    {
+      "errors": [],
+      "kind": "remaining_runs",
+      "passed": true,
+      "path": "notebooks/kaggle/vlm_internvl_8b_T4x2_parallel.ipynb",
+      "provider": "internvl_8b"
+    },
+    {
+      "errors": [],
+      "kind": "spurious_v2",
+      "passed": true,
+      "path": "notebooks/kaggle/vlm_internvl_8b_spurious_v2_T4x2.ipynb",
+      "provider": "internvl_8b"
+    },
+    {
+      "errors": [],
+      "kind": "remaining_runs",
+      "passed": true,
+      "path": "notebooks/kaggle/vlm_llava_onevision_7b_T4x2_parallel.ipynb",
+      "provider": "llava_onevision_7b"
+    },
+    {
+      "errors": [],
+      "kind": "spurious_v2",
+      "passed": true,
+      "path": "notebooks/kaggle/vlm_llava_onevision_7b_spurious_v2_T4x2.ipynb",
+      "provider": "llava_onevision_7b"
+    },
+    {
+      "errors": [],
+      "kind": "remaining_runs",
+      "passed": true,
+      "path": "notebooks/kaggle/vlm_qwen2_5_vl_7b_T4x2_parallel.ipynb",
+      "provider": "qwen2_5_vl_7b"
+    },
+    {
+      "errors": [],
+      "kind": "spurious_v2",
+      "passed": true,
+      "path": "notebooks/kaggle/vlm_qwen2_5_vl_7b_spurious_v2_T4x2.ipynb",
+      "provider": "qwen2_5_vl_7b"
+    }
+  ],
+  "passed": true,
+  "schema": "certvic.v11.t4x2_notebook_static_validation.v1"
+}

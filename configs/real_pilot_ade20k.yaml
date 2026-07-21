@@ -1,0 +1,106 @@
+mode: real_pilot_ade20k
+dry_run_only_until_user_confirms_root: true
+target_items: 200
+pilot_target_count: 200
+seed: 0
+families:
+  - support_stability
+  - occlusion_safety
+  - affordance_reachability
+  - control_irrelevant
+allowed_task_families:
+  - support_stability
+  - occlusion_safety
+  - affordance_reachability
+  - control_irrelevant
+source_strategy: ADE20K-first
+ade20k_root: null
+automatic_downloads: false
+provider: mock_inconsistent
+open_models_enabled: false
+paid_services_enabled: false
+generate_edits: false
+run_model_inference: false
+no_evidence_status: true
+mask_manifest_mode: semantic_png_manifest_only
+export_binary_masks: false
+mask_out_dir: data/masks/ade20k_pilot
+pilot_selection:
+  target: 200
+  seed: 0
+  min_mask_area_fraction: 0.01
+  max_mask_area_fraction: 0.40
+  max_masks_per_source: 1
+  allow_duplicate_sources: false
+  domains:
+    - household
+  splits:
+    - train
+    - val
+  label_allowlist: []
+  label_blocklist: []
+planned_edit_type_ratios:
+  remove: 0.30
+  occlude: 0.25
+  displace: 0.30
+  control_irrelevant: 0.15
+tiny_edit_generation:
+  max_items: 20
+  generator_mode: simple
+  seed: 0
+  allow_diffusers_inpaint: false
+  no_vlm_inference: true
+  no_paper_evidence: true
+outputs:
+  source_manifest: data/manifests/ade20k_sources.jsonl
+  mask_manifest: data/manifests/ade20k_masks.jsonl
+  pilot_selection: data/manifests/pilot_selection.jsonl
+  pilot_selection_summary: data/manifests/pilot_selection_summary.json
+  pilot_edit_plan: data/manifests/pilot_edit_plan.jsonl
+  pilot_edit_plan_rejected: data/manifests/pilot_edit_plan_rejected.jsonl
+  pilot_edit_plan_summary: data/manifests/pilot_edit_plan_summary.json
+  pilot_task_preview: data/manifests/pilot_task_preview.jsonl
+  pilot_task_preview_summary: data/manifests/pilot_task_preview_summary.json
+  pilot_plan_report_dir: data/results/pilot_plan_review
+  tiny_generated_edit_dir: data/edits/ade20k_tiny_pilot
+  pilot_generated_edits: data/manifests/pilot_generated_edits.jsonl
+  pilot_generated_edits_rejected: data/manifests/pilot_generated_edits_rejected.jsonl
+  tiny_edit_generation_summary: data/results/tiny_edit_generation_summary.json
+  tiny_edit_quality_report_dir: data/results/tiny_edit_quality_report
+  pilot_eval_tasks_tiny: data/manifests/pilot_eval_tasks_tiny.jsonl
+  pilot_eval_tasks_tiny_summary: data/manifests/pilot_eval_tasks_tiny_summary.json
+quality_gates:
+  strict: true
+  min_mask_area_fraction: 0.01
+  max_mask_area_fraction: 0.40
+  max_outside_allowed_change_fraction: 0.02
+  min_inside_mask_change_fraction: 0.01
+  max_control_changed_fraction: 0.25
+  max_control_mean_abs_diff: 20.0
+  require_leakage_clean: true
+alpha: 0.05
+gap_threshold: 0.05
+
+# V2 additions
+label_policy: configs/ade20k_label_policy.yaml
+visual_review:
+  enabled: true
+  max_items: 50
+  seed: 0
+  decision_fields:
+    - photorealistic
+    - single_factor
+    - target_object_clear
+    - required_change_unambiguous
+    - prompt_answerable
+    - keep_for_eval
+  copy_pixels: false
+  reviewed_evidence_status: HUMAN_REVIEWED_NON_EVIDENCE
+  outputs:
+    review_sheet: data/annotations/visual_review_sheet.csv
+    review_gallery_dir: data/annotations/visual_review_gallery
+    review_summary: data/annotations/visual_review_summary.json
+    keep_list: data/annotations/visual_keep_items.txt
+    drop_list: data/annotations/visual_drop_items.txt
+    reviewed_tasks: data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl
+    reviewed_report_dir: data/results/visual_review_report

@@ -1,0 +1,886 @@
+{
+  "audit": "release_privacy",
+  "evidence_claims_made": false,
+  "n_total_findings": 140,
+  "passed": false,
+  "private_paths": {
+    "findings": [
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 1,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 1,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 2,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 2,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 3,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 3,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 4,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 4,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 5,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 5,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 6,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 6,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 7,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 7,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 8,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 8,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 9,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 9,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 10,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 10,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 11,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 11,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 12,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 12,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 13,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 13,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 14,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 14,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 15,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 15,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 16,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 16,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 17,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 17,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 18,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 18,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 19,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 19,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 20,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 20,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 21,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 21,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 22,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 22,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 23,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 23,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 24,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 24,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 25,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 25,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 26,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 26,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 27,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 27,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 28,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 28,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 29,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 29,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 30,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 30,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 31,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 31,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "private_absolute_path",
+        "line": 32,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "AUTORUN_LEDGER_V2.jsonl",
+        "kind": "home_dir_path",
+        "line": 32,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_STATUS.md",
+        "kind": "private_absolute_path",
+        "line": 3,
+        "match": "/Users/saketmaganti/Projects/certVIC/certvic_v9_mega_issue_resolution_prompt_pack`"
+      },
+      {
+        "file": "AUTORUN_STATUS.md",
+        "kind": "home_dir_path",
+        "line": 3,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "AUTORUN_STATUS_V2.md",
+        "kind": "private_absolute_path",
+        "line": 5,
+        "match": "/Users/saketmaganti/Projects/certVIC/certvic_v10_pre_execution_god_tier_prompt_pack`"
+      },
+      {
+        "file": "AUTORUN_STATUS_V2.md",
+        "kind": "home_dir_path",
+        "line": 5,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report.md",
+        "kind": "private_absolute_path",
+        "line": 5,
+        "match": "/Users/saketmaganti/Projects/certVIC/certvic_v9_mega_issue_resolution_prompt_pack`."
+      },
+      {
+        "file": "certVIC_report.md",
+        "kind": "home_dir_path",
+        "line": 5,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report.md",
+        "kind": "private_absolute_path",
+        "line": 9,
+        "match": "/Users/saketmaganti/Projects/certVIC/certvic_v9_mega_issue_resolution_prompt_pack`"
+      },
+      {
+        "file": "certVIC_report.md",
+        "kind": "home_dir_path",
+        "line": 9,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report.md",
+        "kind": "private_absolute_path",
+        "line": 10,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report.md",
+        "kind": "home_dir_path",
+        "line": 10,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 5,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 5,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 11,
+        "match": "/Users/saketmaganti/Projects/certVIC/certvic_v10_pre_execution_god_tier_prompt_pack`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 11,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 12,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 12,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 59,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 59,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 74,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 74,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 89,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 89,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 104,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 104,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 119,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 119,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 134,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 134,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 149,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 149,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 164,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 164,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 179,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 179,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 194,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 194,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 209,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 209,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 224,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 224,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 239,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 239,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 254,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 254,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 269,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 269,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 284,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 284,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 299,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 299,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 314,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 314,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 329,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 329,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 344,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 344,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 359,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 359,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 374,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 374,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 389,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 389,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 404,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 404,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 419,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 419,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 434,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 434,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 449,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 449,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 464,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 464,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 479,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 479,
+        "match": "/Users/saketmaganti"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "private_absolute_path",
+        "line": 494,
+        "match": "/Users/saketmaganti/Projects/certVIC`"
+      },
+      {
+        "file": "certVIC_report_v2.md",
+        "kind": "home_dir_path",
+        "line": 494,
+        "match": "/Users/saketmaganti"
+      }
+    ],
+    "n_findings": 140,
+    "ok": false,
+    "scan": "private_paths"
+  },
+  "release_pixels": {
+    "n_pixels": 0,
+    "ok": true,
+    "pixels": [],
+    "release_dir": null,
+    "scan": "release_pixels",
+    "skipped": true
+  },
+  "release_private_paths": {
+    "findings": [],
+    "n_findings": 0,
+    "ok": true,
+    "scan": "private_paths",
+    "skipped": true
+  },
+  "release_secrets": {
+    "committed_env_files": [],
+    "n_secret_findings": 0,
+    "ok": true,
+    "paid_endpoints": [],
+    "scan": "secrets",
+    "secret_findings": [],
+    "skipped": true
+  },
+  "root": ".",
+  "secrets": {
+    "committed_env_files": [],
+    "n_secret_findings": 0,
+    "ok": true,
+    "paid_endpoints": [],
+    "scan": "secrets",
+    "secret_findings": []
+  }
+}

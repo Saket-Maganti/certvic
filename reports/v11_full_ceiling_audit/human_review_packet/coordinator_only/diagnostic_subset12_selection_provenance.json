@@ -1,0 +1,23 @@
+{
+  "paper_evidence": false,
+  "reviewer_bundle_disclosure": "none",
+  "schema": "certvic.v11.human_review_selection_provenance.v1",
+  "selected_source_item_ids": [
+    "sflip_table_ADE_train_00000377",
+    "sflip_sofa_ADE_train_00000704",
+    "sflip_sofa_ADE_train_00000719",
+    "sflip_chair_ADE_train_00000194",
+    "sflip_chair_ADE_train_00000617",
+    "sflip_chair_ADE_train_00000436",
+    "sflip_chair_ADE_train_00000630",
+    "sflip_chair_ADE_train_00000268",
+    "sflip_chair_ADE_train_00001105",
+    "sflip_car_ADE_train_00002029",
+    "sflip_car_ADE_train_00002034",
+    "sflip_car_ADE_train_00003061"
+  ],
+  "selection_basis": "observed_qwen_v1_answer_flip",
+  "selection_manifest": "data/results/main_real_200/v8_1_qwen_spurious_forensics/qwen_spurious_failed_12.jsonl",
+  "selection_manifest_sha256": "e012b938fbc56b30848fa776e7e3f9fc45f63c22453c3932e41eeb84a9c4cc6d",
+  "track_id": "diagnostic_subset12"
+}

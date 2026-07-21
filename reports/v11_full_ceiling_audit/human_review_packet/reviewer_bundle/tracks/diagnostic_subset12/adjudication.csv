@@ -1,0 +1,13 @@
+blind_order,blind_pair_id,final_prompt_unambiguous,final_image_answerable,final_target_visible_a,final_target_visible_b,final_target_unaffected,final_expected_answer_relation_valid,final_expected_answer_unchanged,final_perturbation_acceptable,final_artifact_severity,final_retention_decision,final_confidence,adjudication_notes,adjudicator_code,adjudicated_at_utc
+1,CV11-D-3A2FA44CB1271CA6,,,,,,,,,,,,,,
+2,CV11-D-AC8C953EB9487A46,,,,,,,,,,,,,,
+3,CV11-D-2FB157B2CE4227EB,,,,,,,,,,,,,,
+4,CV11-D-A486B4F587E8F97B,,,,,,,,,,,,,,
+5,CV11-D-36079E59055F8A95,,,,,,,,,,,,,,
+6,CV11-D-FE303ACBF6C2782F,,,,,,,,,,,,,,
+7,CV11-D-E3CB051F1EA2C25A,,,,,,,,,,,,,,
+8,CV11-D-5663976D6304D859,,,,,,,,,,,,,,
+9,CV11-D-4E725A52A064A989,,,,,,,,,,,,,,
+10,CV11-D-D5B62E81570D4847,,,,,,,,,,,,,,
+11,CV11-D-7794F6CA9A6DA2D0,,,,,,,,,,,,,,
+12,CV11-D-C7A46CE335B3510C,,,,,,,,,,,,,,

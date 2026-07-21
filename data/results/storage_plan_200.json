@@ -1,0 +1,178 @@
+{
+  "candidates_generated": 500,
+  "category_bytes": {
+    "kept_edits": 70000000,
+    "masks": 0,
+    "predictions": 3000000,
+    "rejected_edits": 105000000,
+    "release_artifact": 300000,
+    "reports": 1048576,
+    "review_gallery": 12000000,
+    "sources": 300000
+  },
+  "category_gb": {
+    "kept_edits": 0.0652,
+    "masks": 0.0,
+    "predictions": 0.0028,
+    "rejected_edits": 0.0978,
+    "release_artifact": 0.0003,
+    "reports": 0.001,
+    "review_gallery": 0.0112,
+    "sources": 0.0003
+  },
+  "config": "configs/real_pilot_ade20k.yaml",
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "fits_colab_disk": true,
+  "fits_kaggle_working": true,
+  "num_models": 3,
+  "overgeneration_factor": 2.5,
+  "paid_services": false,
+  "path_audit": {
+    "audits": [
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/annotations/visual_drop_items.txt"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/annotations/visual_keep_items.txt"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/annotations/visual_review_gallery"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/annotations/visual_review_sheet.csv"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/annotations/visual_review_summary.json"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/edits/ade20k_tiny_pilot"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/ade20k_masks.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/ade20k_sources.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_edit_plan.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_edit_plan_rejected.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_edit_plan_summary.json"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_eval_tasks_tiny.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_eval_tasks_tiny_summary.json"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_generated_edits.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_generated_edits_rejected.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_selection.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_selection_summary.json"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_task_preview.jsonl"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/manifests/pilot_task_preview_summary.json"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/masks/ade20k_pilot"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/results/pilot_plan_review"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/results/tiny_edit_generation_summary.json"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/results/tiny_edit_quality_report"
+      },
+      {
+        "findings": [],
+        "ok": true,
+        "path": "data/results/visual_review_report"
+      }
+    ],
+    "evidence_claims_made": false,
+    "kaggle_unsafe": [],
+    "n_paths": 25,
+    "n_problems": 0,
+    "ok": true,
+    "private_absolute_paths": [],
+    "symlink_escapes": [],
+    "unsafe_overwrite_roots": []
+  },
+  "path_policy_ok": true,
+  "plan": "certvic_storage_plan",
+  "rejected_edits": 300,
+  "scale": 200,
+  "warnings": [
+    "rejected-edit pixels exceed kept-edit pixels; record hashes then delete rejected pixels to reclaim disk"
+  ],
+  "weights_cache_gb": 6.0,
+  "working_bytes": 191648576,
+  "working_gb": 0.178
+}

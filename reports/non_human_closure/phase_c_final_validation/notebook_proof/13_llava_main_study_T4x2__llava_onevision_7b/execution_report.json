@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "main_llava_return.zip",
+      "sha256": "3fb038618b87aa82d4ec358c7241499333326700f4d3980969aae95f86dec0d7",
+      "size": 3552
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "b77f28d12bbccd61ceb222d7170764d1c3808512389b833d6701b41d19703924",
+      "size": 952
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "345a74d09224c727f24c56ac3fcf0faa2b33205b88885a7bdd389181287f7a69",
+  "config": {
+    "artifact_globs": [
+      "main_llava_return.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "13_llava_main_study_T4x2.ipynb",
+    "notebook_sha256": "6153065fc4629680a73de5a210ac71db42386b5e895a145e6e067053ea80d9ad",
+    "provider": "llava_onevision_7b",
+    "return_zip": "main_llava_return.zip",
+    "route": "13_llava_main_study_T4x2__llava_onevision_7b",
+    "stage": "evaluation",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "e47b90e2f818d2d9cf1367b0359728cf70254d5b76b237df0b783d064b79c40d",
+  "status": "PASS"
+}

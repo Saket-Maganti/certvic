@@ -1,0 +1,9 @@
+{
+  "builder_command": "python3 -m certvic.cvpr.pre_smoke_packager --config <INPUTS_JSON>",
+  "expected_size": "under 1 MB",
+  "name": "certvic_pre_smoke_permissions.zip",
+  "output": "kaggle_uploads/04_permissions/certvic_pre_smoke_permissions.zip",
+  "paper_evidence": false,
+  "schema": "certvic.kaggle.external_builder_status.v1",
+  "status": "BLOCKED_BY_UPSTREAM_GATE"
+}

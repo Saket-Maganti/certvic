@@ -1,0 +1,13 @@
+{
+  "blinded": true,
+  "evidence_status": "SECOND_RATER_PENDING_NON_EVIDENCE",
+  "human_fields_blank": true,
+  "leakage_free": true,
+  "leakage_policy": "no model outcomes and no first-rater labels are included",
+  "n_items": 91,
+  "note": "Do not auto-fill. A real second rater completes this; then run compute_review_iaa.py.",
+  "paper_evidence": false,
+  "schema": "certvic.second_rater_export.v1",
+  "seed": 1337,
+  "sheet_path": "data/results/main_real_200/review_iaa/second_rater_review_sheet.csv"
+}

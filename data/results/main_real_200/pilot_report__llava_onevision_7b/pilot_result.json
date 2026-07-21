@@ -1,0 +1,620 @@
+{
+  "absent_object_control": {
+    "absent_accuracy": 1.0,
+    "absent_correct": 60,
+    "absent_n": 60,
+    "n": 120,
+    "overall_accuracy": 0.9833,
+    "overall_correct": 118,
+    "per_object": {
+      "car": {
+        "correct": 30,
+        "n": 30
+      },
+      "chair": {
+        "correct": 30,
+        "n": 30
+      },
+      "sofa": {
+        "correct": 30,
+        "n": 30
+      },
+      "table": {
+        "correct": 28,
+        "n": 30
+      }
+    },
+    "present_accuracy": 0.9667,
+    "present_correct": 58,
+    "present_n": 60
+  },
+  "answer_update": {
+    "presence": {
+      "n_items": 91,
+      "non_update_rate": 0.8242,
+      "same_answer": 75,
+      "updated_answer": 16
+    }
+  },
+  "display_name": "llava-onevision-qwen2-7b-ov",
+  "evidence_status": "HUMAN_REVIEWED_NON_EVIDENCE",
+  "generated_utc": "2026-07-08T09:30:49.777468+00:00",
+  "model": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+  "paid_services_used": false,
+  "paper_evidence": false,
+  "perception_control_scaled": {
+    "absent_accuracy": 0.8814,
+    "absent_correct": 156,
+    "absent_n": 177,
+    "n": 369,
+    "overall_accuracy": 0.9322,
+    "overall_correct": 344,
+    "per_object": {
+      "bed": {
+        "correct": 47,
+        "n": 48
+      },
+      "car": {
+        "correct": 47,
+        "n": 48
+      },
+      "chair": {
+        "correct": 45,
+        "n": 48
+      },
+      "door": {
+        "correct": 40,
+        "n": 48
+      },
+      "painting": {
+        "correct": 45,
+        "n": 48
+      },
+      "plant": {
+        "correct": 30,
+        "n": 33
+      },
+      "sofa": {
+        "correct": 48,
+        "n": 48
+      },
+      "table": {
+        "correct": 42,
+        "n": 48
+      }
+    },
+    "present_accuracy": 0.9792,
+    "present_correct": 188,
+    "present_n": 192,
+    "split": "validation (held-out)"
+  },
+  "presence_intervention": {
+    "by_edit_type": {
+      "displace": {
+        "consistency_rate": 0.1481,
+        "gap": 0.8148,
+        "n": 54,
+        "original_accuracy": 0.963
+      },
+      "occlude": {
+        "consistency_rate": 0.3333,
+        "gap": 0.5,
+        "n": 6,
+        "original_accuracy": 0.8333
+      },
+      "remove": {
+        "consistency_rate": 0.0968,
+        "gap": 0.6774,
+        "n": 31,
+        "original_accuracy": 0.7742
+      }
+    },
+    "certification": {
+      "alpha": 0.05,
+      "certification_gate_errors": [
+        "certified claim blocked: evidence_status is UNKNOWN",
+        "n_overall 91 < min_n_overall 150",
+        "family affordance_reachability n 31 < min_n_by_family 40",
+        "family occlusion_safety n 6 < min_n_by_family 40",
+        "control_spurious_flip_rate missing; specificity gate is required",
+        "non-evidence status present: UNKNOWN"
+      ],
+      "certified": false,
+      "confidence_sequence": {
+        "alpha": 0.05,
+        "available": true,
+        "hi": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "latest": {
+          "hi": 1.0,
+          "lo": 0.36395841718089605
+        },
+        "lo": [
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -0.9414500432935735,
+          -0.812835987195889,
+          -0.7679977511460307,
+          -0.7287278649956712,
+          -0.6352206057358658,
+          -0.5520715124949258,
+          -0.5302770546828215,
+          -0.5106343996813953,
+          -0.49283648499418264,
+          -0.47663207071006,
+          -0.4183353434899668,
+          -0.3648747862161674,
+          -0.3556703189188848,
+          -0.3086926379443913,
+          -0.265176035302235,
+          -0.22474989957564262,
+          -0.2215774925007704,
+          -0.18526697022561478,
+          -0.15128349722434242,
+          -0.11940908884883727,
+          -0.11975520977640719,
+          -0.0906555021398825,
+          -0.09177690311805253,
+          -0.06504557625816942,
+          -0.03974701609484299,
+          -0.015768241510834002,
+          0.006992143216386637,
+          0.02862539652723206,
+          0.04921387577570169,
+          0.06883209682759839,
+          0.08754764580960828,
+          0.10542196653062796,
+          0.10028882069292777,
+          0.11712686199028166,
+          0.13325698798219054,
+          0.14872335631845957,
+          0.14315835816199085,
+          0.15782379480199604,
+          0.17192171976477955,
+          0.16625402991276772,
+          0.1608073858540484,
+          0.15556943749250784,
+          0.15052873406427247,
+          0.1635317866710646,
+          0.17608500142485384,
+          0.188211585026556,
+          0.19993317181200077,
+          0.21126995476062227,
+          0.22224080361867982,
+          0.23286337159178716,
+          0.24315419187681275,
+          0.23750376514444715,
+          0.24741702356235074,
+          0.25703496475607257,
+          0.26637076631124046,
+          0.27543683134952657,
+          0.2842448446346526,
+          0.2928058238697049,
+          0.30113016665984627,
+          0.2953388046729326,
+          0.28971042732152474,
+          0.29775190352505865,
+          0.30558306973135885,
+          0.313212192568326,
+          0.3206471097308472,
+          0.32789525746641646,
+          0.33496369597350406,
+          0.32935913289529317,
+          0.33624226606103313,
+          0.3307659548075228,
+          0.33747328253057995,
+          0.3321195671497137,
+          0.3386598767166622,
+          0.345051369516554,
+          0.351299150943881,
+          0.3574080946825593,
+          0.3633828557167178,
+          0.36922788247425964,
+          0.36395841718089605
+        ],
+        "method": "certvic.anytime_cs.hoeffding_mixture",
+        "t_opt": 91
+      },
+      "cs_threshold_passed": true,
+      "lower_bound": 0.36395841718089605,
+      "policy_decision": {
+        "alpha": 0.05,
+        "certified": false,
+        "errors": [
+          "n_overall 91 < min_n_overall 150",
+          "family affordance_reachability n 31 < min_n_by_family 40",
+          "family occlusion_safety n 6 < min_n_by_family 40",
+          "control_spurious_flip_rate missing; specificity gate is required",
+          "non-evidence status present: UNKNOWN"
+        ],
+        "gap_threshold": 0.05,
+        "n_overall": 91,
+        "note": "Certification requires policy pass + available anytime-valid CS lower bound above threshold.",
+        "policy_passed": false
+      },
+      "safe_claim": "Not fully certified; report the CS threshold crossing and descriptive metrics separately.",
+      "statement": "No fully policy-qualified certification claim is available for this run.",
+      "threshold": 0.05,
+      "upper_bound": 1.0
+    },
+    "positive_subset": {
+      "consistency_rate": 0.1957,
+      "gap": 0.6739,
+      "n": 46,
+      "original_accuracy": 0.8696
+    },
+    "summary": {
+      "by_domain": {
+        "household": {
+          "conditional_semantic_update_rate_given_original_correct": 0.16049382716049382,
+          "consistency_rate": 0.14285714285714285,
+          "correct_semantic_update_rate": 0.14285714285714285,
+          "edited_accuracy": 0.21978021978021978,
+          "failure_taxonomy": {
+            "MODEL_DID_NOT_UPDATE": 68,
+            "ORIGINAL_PREDICTION_INCORRECT": 10,
+            "SEMANTIC_UPDATE_SUCCESS": 13
+          },
+          "intervention_consistency_gap": 0.7472527472527473,
+          "intervention_consistency_gap_status": "SECONDARY_DESCRIPTIVE_NOT_A_CERTIFICATE",
+          "n": 91,
+          "original_accuracy": 0.8901098901098901,
+          "parse_failure_rate": 0.0,
+          "raw_answer_change_rate": 0.17582417582417584,
+          "spurious_flip_rate": null,
+          "transition_matrix": {
+            "ORIGINAL_CORRECT_TO_EDITED_CORRECT": 13,
+            "ORIGINAL_CORRECT_TO_EDITED_WRONG": 68,
+            "ORIGINAL_WRONG_TO_EDITED_CORRECT": 7,
+            "ORIGINAL_WRONG_TO_EDITED_WRONG": 3
+          }
+        }
+      },
+      "by_required_change": {
+        "change": {
+          "conditional_semantic_update_rate_given_original_correct": 0.16049382716049382,
+          "consistency_rate": 0.14285714285714285,
+          "correct_semantic_update_rate": 0.14285714285714285,
+          "edited_accuracy": 0.21978021978021978,
+          "failure_taxonomy": {
+            "MODEL_DID_NOT_UPDATE": 68,
+            "ORIGINAL_PREDICTION_INCORRECT": 10,
+            "SEMANTIC_UPDATE_SUCCESS": 13
+          },
+          "intervention_consistency_gap": 0.7472527472527473,
+          "intervention_consistency_gap_status": "SECONDARY_DESCRIPTIVE_NOT_A_CERTIFICATE",
+          "n": 91,
+          "original_accuracy": 0.8901098901098901,
+          "parse_failure_rate": 0.0,
+          "raw_answer_change_rate": 0.17582417582417584,
+          "spurious_flip_rate": null,
+          "transition_matrix": {
+            "ORIGINAL_CORRECT_TO_EDITED_CORRECT": 13,
+            "ORIGINAL_CORRECT_TO_EDITED_WRONG": 68,
+            "ORIGINAL_WRONG_TO_EDITED_CORRECT": 7,
+            "ORIGINAL_WRONG_TO_EDITED_WRONG": 3
+          }
+        }
+      },
+      "by_task_family": {
+        "affordance_reachability": {
+          "conditional_semantic_update_rate_given_original_correct": 0.125,
+          "consistency_rate": 0.0967741935483871,
+          "correct_semantic_update_rate": 0.0967741935483871,
+          "edited_accuracy": 0.22580645161290322,
+          "failure_taxonomy": {
+            "MODEL_DID_NOT_UPDATE": 21,
+            "ORIGINAL_PREDICTION_INCORRECT": 7,
+            "SEMANTIC_UPDATE_SUCCESS": 3
+          },
+          "intervention_consistency_gap": 0.6774193548387096,
+          "intervention_consistency_gap_status": "SECONDARY_DESCRIPTIVE_NOT_A_CERTIFICATE",
+          "n": 31,
+          "original_accuracy": 0.7741935483870968,
+          "parse_failure_rate": 0.0,
+          "raw_answer_change_rate": 0.1935483870967742,
+          "spurious_flip_rate": null,
+          "transition_matrix": {
+            "ORIGINAL_CORRECT_TO_EDITED_CORRECT": 3,
+            "ORIGINAL_CORRECT_TO_EDITED_WRONG": 21,
+            "ORIGINAL_WRONG_TO_EDITED_CORRECT": 4,
+            "ORIGINAL_WRONG_TO_EDITED_WRONG": 3
+          }
+        },
+        "occlusion_safety": {
+          "conditional_semantic_update_rate_given_original_correct": 0.4,
+          "consistency_rate": 0.3333333333333333,
+          "correct_semantic_update_rate": 0.3333333333333333,
+          "edited_accuracy": 0.5,
+          "failure_taxonomy": {
+            "MODEL_DID_NOT_UPDATE": 3,
+            "ORIGINAL_PREDICTION_INCORRECT": 1,
+            "SEMANTIC_UPDATE_SUCCESS": 2
+          },
+          "intervention_consistency_gap": 0.5,
+          "intervention_consistency_gap_status": "SECONDARY_DESCRIPTIVE_NOT_A_CERTIFICATE",
+          "n": 6,
+          "original_accuracy": 0.8333333333333334,
+          "parse_failure_rate": 0.0,
+          "raw_answer_change_rate": 0.3333333333333333,
+          "spurious_flip_rate": null,
+          "transition_matrix": {
+            "ORIGINAL_CORRECT_TO_EDITED_CORRECT": 2,
+            "ORIGINAL_CORRECT_TO_EDITED_WRONG": 3,
+            "ORIGINAL_WRONG_TO_EDITED_CORRECT": 1
+          }
+        },
+        "support_stability": {
+          "conditional_semantic_update_rate_given_original_correct": 0.15384615384615385,
+          "consistency_rate": 0.14814814814814814,
+          "correct_semantic_update_rate": 0.14814814814814814,
+          "edited_accuracy": 0.18518518518518517,
+          "failure_taxonomy": {
+            "MODEL_DID_NOT_UPDATE": 44,
+            "ORIGINAL_PREDICTION_INCORRECT": 2,
+            "SEMANTIC_UPDATE_SUCCESS": 8
+          },
+          "intervention_consistency_gap": 0.8148148148148148,
+          "intervention_consistency_gap_status": "SECONDARY_DESCRIPTIVE_NOT_A_CERTIFICATE",
+          "n": 54,
+          "original_accuracy": 0.9629629629629629,
+          "parse_failure_rate": 0.0,
+          "raw_answer_change_rate": 0.14814814814814814,
+          "spurious_flip_rate": null,
+          "transition_matrix": {
+            "ORIGINAL_CORRECT_TO_EDITED_CORRECT": 8,
+            "ORIGINAL_CORRECT_TO_EDITED_WRONG": 44,
+            "ORIGINAL_WRONG_TO_EDITED_CORRECT": 2
+          }
+        }
+      },
+      "conditional_semantic_update_rate_given_original_correct": 0.16049382716049382,
+      "consistency_rate": 0.14285714285714285,
+      "control_edit": {
+        "consistency_rate": null,
+        "n": 0,
+        "spurious_flip_rate": null
+      },
+      "correct_semantic_update_rate": 0.14285714285714285,
+      "edited_accuracy": 0.21978021978021978,
+      "failure_taxonomy": {
+        "MODEL_DID_NOT_UPDATE": 68,
+        "ORIGINAL_PREDICTION_INCORRECT": 10,
+        "SEMANTIC_UPDATE_SUCCESS": 13
+      },
+      "intervention_consistency_gap": 0.7472527472527473,
+      "intervention_consistency_gap_status": "SECONDARY_DESCRIPTIVE_NOT_A_CERTIFICATE",
+      "n": 91,
+      "original_accuracy": 0.8901098901098901,
+      "parse_failure_rate": 0.0,
+      "parse_failure_sensitivity": {
+        "metrics_parse_fail_as_inconsistent": {
+          "conditional_semantic_update_rate_given_original_correct": 0.16049382716049382,
+          "consistency_rate": 0.14285714285714285,
+          "correct_semantic_update_rate": 0.14285714285714285,
+          "edited_accuracy": 0.21978021978021978,
+          "failure_taxonomy": {
+            "MODEL_DID_NOT_UPDATE": 68,
+            "ORIGINAL_PREDICTION_INCORRECT": 10,
+            "SEMANTIC_UPDATE_SUCCESS": 13
+          },
+          "intervention_consistency_gap": 0.7472527472527473,
+          "intervention_consistency_gap_status": "SECONDARY_DESCRIPTIVE_NOT_A_CERTIFICATE",
+          "n": 91,
+          "original_accuracy": 0.8901098901098901,
+          "parse_failure_rate": 0.0,
+          "raw_answer_change_rate": 0.17582417582417584,
+          "spurious_flip_rate": null,
+          "transition_matrix": {
+            "ORIGINAL_CORRECT_TO_EDITED_CORRECT": 13,
+            "ORIGINAL_CORRECT_TO_EDITED_WRONG": 68,
+            "ORIGINAL_WRONG_TO_EDITED_CORRECT": 7,
+            "ORIGINAL_WRONG_TO_EDITED_WRONG": 3
+          }
+        },
+        "metrics_parse_ok_only": {
+          "conditional_semantic_update_rate_given_original_correct": 0.16049382716049382,
+          "consistency_rate": 0.14285714285714285,
+          "correct_semantic_update_rate": 0.14285714285714285,
+          "edited_accuracy": 0.21978021978021978,
+          "failure_taxonomy": {
+            "MODEL_DID_NOT_UPDATE": 68,
+            "ORIGINAL_PREDICTION_INCORRECT": 10,
+            "SEMANTIC_UPDATE_SUCCESS": 13
+          },
+          "intervention_consistency_gap": 0.7472527472527473,
+          "intervention_consistency_gap_status": "SECONDARY_DESCRIPTIVE_NOT_A_CERTIFICATE",
+          "n": 91,
+          "original_accuracy": 0.8901098901098901,
+          "parse_failure_rate": 0.0,
+          "raw_answer_change_rate": 0.17582417582417584,
+          "spurious_flip_rate": null,
+          "transition_matrix": {
+            "ORIGINAL_CORRECT_TO_EDITED_CORRECT": 13,
+            "ORIGINAL_CORRECT_TO_EDITED_WRONG": 68,
+            "ORIGINAL_WRONG_TO_EDITED_CORRECT": 7,
+            "ORIGINAL_WRONG_TO_EDITED_WRONG": 3
+          }
+        },
+        "n_parse_failures": 0,
+        "note": "Descriptive sensitivity only; parse-failure handling is never a certification substitute.",
+        "parse_failure_rate": 0.0
+      },
+      "raw_answer_change_rate": 0.17582417582417584,
+      "spurious_flip_rate": null,
+      "transition_matrix": {
+        "ORIGINAL_CORRECT_TO_EDITED_CORRECT": 13,
+        "ORIGINAL_CORRECT_TO_EDITED_WRONG": 68,
+        "ORIGINAL_WRONG_TO_EDITED_CORRECT": 7,
+        "ORIGINAL_WRONG_TO_EDITED_WRONG": 3
+      }
+    }
+  },
+  "provenance": {
+    "ingest_dir": "data/results/main_real_200/raw_predictions__llava_onevision_7b",
+    "ingested": [
+      {
+        "arm": "presence",
+        "ingested_path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_presence_merged.jsonl",
+        "n_records": 182,
+        "run_manifests": [
+          {
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_control_merged.jsonl.run_manifest.json",
+            "sha256": "9bf2f5c02ad2e18c16d36c3b4910705c674cc2da5b7528ce1ba444802fbffcbf"
+          },
+          {
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_presence_merged.jsonl.run_manifest.json",
+            "sha256": "0664c53d7db7fa979f293dc64fed6ffc7c3d58473a6ad935363eaf72da28863a"
+          }
+        ],
+        "sha256": "10900a3c992fbc5cfc1d578609ab562a26c6c212a268b874745ffc742e7a588f",
+        "source_path": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/raw_predictions__llava_onevision_7b/presence__pred_llava_onevision_7b_presence_merged.jsonl"
+      },
+      {
+        "arm": "control",
+        "ingested_path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/control__pred_llava_onevision_7b_control_merged.jsonl",
+        "n_records": 240,
+        "run_manifests": [
+          {
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/control__pred_llava_onevision_7b_control_merged.jsonl.run_manifest.json",
+            "sha256": "9bf2f5c02ad2e18c16d36c3b4910705c674cc2da5b7528ce1ba444802fbffcbf"
+          },
+          {
+            "path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/control__pred_llava_onevision_7b_presence_merged.jsonl.run_manifest.json",
+            "sha256": "0664c53d7db7fa979f293dc64fed6ffc7c3d58473a6ad935363eaf72da28863a"
+          }
+        ],
+        "sha256": "f25b6f341a20568f5e768f6d83d45a8a46396a809f82caa54f25fcf5158bccb8",
+        "source_path": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/raw_predictions__llava_onevision_7b/control__pred_llava_onevision_7b_control_merged.jsonl"
+      },
+      {
+        "arm": "spurious",
+        "ingested_path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/spurious__pred_llava_onevision_7b_spurious_merged.jsonl",
+        "n_records": 188,
+        "run_manifests": [],
+        "sha256": "81d40e6942b8db147472987b22d55f876eda3c88ed370a20b9fe7b3ab457c67c",
+        "source_path": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/kaggle_spurious/pred_llava_onevision_7b_spurious_merged.jsonl"
+      },
+      {
+        "arm": "perception_scaled",
+        "ingested_path": "data/results/main_real_200/raw_predictions__llava_onevision_7b/perception_scaled__pred_llava_onevision_7b_perception_scaled_merged.jsonl",
+        "n_records": 738,
+        "run_manifests": [],
+        "sha256": "e42223879642fc4b08bc86747ce0a96568d08c4fd12afbf8f3f6f112446acb55",
+        "source_path": "/Users/saketmaganti/Projects/certVIC/data/results/main_real_200/kaggle_perception_scaled/pred_llava_onevision_7b_perception_scaled_merged.jsonl"
+      }
+    ]
+  },
+  "provider": "llava_onevision_7b",
+  "run_label": "llava_onevision_7b",
+  "spurious_flip_control": {
+    "flipped": 3,
+    "gate_pass": true,
+    "gate_threshold": 0.1,
+    "n_items": 94,
+    "spurious_flip_rate": 0.0319,
+    "yes_items": 88,
+    "yes_to_no_flips": 1
+  }
+}

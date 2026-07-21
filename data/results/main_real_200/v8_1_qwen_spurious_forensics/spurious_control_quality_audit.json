@@ -1,0 +1,4723 @@
+{
+  "items": [
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000279.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000279.jpg",
+      "edited_size": [
+        543,
+        379
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 173,
+      "global_mean_abs_diff": 1.736242,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000279",
+      "non_object_region_mean_abs_diff": 1.810538,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000279.jpg",
+      "original_size": [
+        543,
+        379
+      ],
+      "patch_area_fraction": 0.029437,
+      "patch_area_pixels": 6058,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        347,
+        22,
+        483,
+        158
+      ],
+      "patch_object_bbox_distance_px": 58.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        429,
+        216,
+        528,
+        322
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 8445,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000220.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000220.jpg",
+      "edited_size": [
+        256,
+        256
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 115,
+      "global_mean_abs_diff": 1.431178,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000220",
+      "non_object_region_mean_abs_diff": 1.493054,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000220.jpg",
+      "original_size": [
+        256,
+        256
+      ],
+      "patch_area_fraction": 0.03244,
+      "patch_area_pixels": 2126,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        20,
+        9,
+        96,
+        85
+      ],
+      "patch_object_bbox_distance_px": 65.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        150,
+        59,
+        203
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 2716,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000231.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000231.jpg",
+      "edited_size": [
+        767,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 139,
+      "global_mean_abs_diff": 0.973715,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000231",
+      "non_object_region_mean_abs_diff": 1.013263,
+      "object_region_max_abs_diff": 4,
+      "object_region_mean_abs_diff": 0.015082,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000231.jpg",
+      "original_size": [
+        767,
+        512
+      ],
+      "patch_area_fraction": 0.014362,
+      "patch_area_pixels": 5640,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        282,
+        268,
+        469,
+        454
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        184,
+        271,
+        766,
+        510
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 15559,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000219.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000219.jpg",
+      "edited_size": [
+        300,
+        226
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 136,
+      "global_mean_abs_diff": 1.620039,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000219",
+      "non_object_region_mean_abs_diff": 1.784995,
+      "object_region_max_abs_diff": 2,
+      "object_region_mean_abs_diff": 0.000691,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000219.jpg",
+      "original_size": [
+        300,
+        226
+      ],
+      "patch_area_fraction": 0.030914,
+      "patch_area_pixels": 2096,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        21,
+        91,
+        99,
+        169
+      ],
+      "patch_object_bbox_distance_px": 13.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        112,
+        84,
+        233,
+        217
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 6268,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000365.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000365.jpg",
+      "edited_size": [
+        770,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 112,
+      "global_mean_abs_diff": 1.230664,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000365",
+      "non_object_region_mean_abs_diff": 1.279067,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000365.jpg",
+      "original_size": [
+        770,
+        512
+      ],
+      "patch_area_fraction": 0.026583,
+      "patch_area_pixels": 10480,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        343,
+        249,
+        531,
+        437
+      ],
+      "patch_object_bbox_distance_px": 67.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        598,
+        287,
+        752,
+        421
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 14919,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000233.png",
+      "detectability_score": 0.11985,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000233.jpg",
+      "edited_size": [
+        763,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 143,
+      "global_mean_abs_diff": 1.812987,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000233",
+      "non_object_region_mean_abs_diff": 1.932181,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000233.jpg",
+      "original_size": [
+        763,
+        512
+      ],
+      "patch_area_fraction": 0.054019,
+      "patch_area_pixels": 21103,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        277,
+        8,
+        464,
+        195
+      ],
+      "patch_object_bbox_distance_px": 90.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        1,
+        285,
+        448,
+        511
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 24099,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000196.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000196.jpg",
+      "edited_size": [
+        664,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 160,
+      "global_mean_abs_diff": 2.010239,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000196",
+      "non_object_region_mean_abs_diff": 2.107698,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000196.jpg",
+      "original_size": [
+        664,
+        512
+      ],
+      "patch_area_fraction": 0.046046,
+      "patch_area_pixels": 15654,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        406,
+        190,
+        580,
+        364
+      ],
+      "patch_object_bbox_distance_px": 242.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        16,
+        294,
+        164,
+        425
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 15720,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000480.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000480.jpg",
+      "edited_size": [
+        766,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 106,
+      "global_mean_abs_diff": 1.066491,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000480",
+      "non_object_region_mean_abs_diff": 1.114701,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000480.jpg",
+      "original_size": [
+        766,
+        512
+      ],
+      "patch_area_fraction": 0.015628,
+      "patch_area_pixels": 6129,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        103,
+        31,
+        290,
+        218
+      ],
+      "patch_object_bbox_distance_px": 13.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        231,
+        423,
+        453
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 16962,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000485.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000485.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 132,
+      "global_mean_abs_diff": 0.878601,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000485",
+      "non_object_region_mean_abs_diff": 0.90752,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000485.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.008952,
+      "patch_area_pixels": 3520,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        547,
+        23,
+        734,
+        211
+      ],
+      "patch_object_bbox_distance_px": 14.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        530,
+        225,
+        689,
+        354
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 12530,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000384.png",
+      "detectability_score": 0.09787,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000384.jpg",
+      "edited_size": [
+        771,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 132,
+      "global_mean_abs_diff": 1.243887,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000384",
+      "non_object_region_mean_abs_diff": 1.299567,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000384.jpg",
+      "original_size": [
+        771,
+        512
+      ],
+      "patch_area_fraction": 0.021135,
+      "patch_area_pixels": 8343,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        128,
+        14,
+        315,
+        201
+      ],
+      "patch_object_bbox_distance_px": 138.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        290,
+        339,
+        490,
+        489
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 16913,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000246.png",
+      "detectability_score": 0.11218,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000246.jpg",
+      "edited_size": [
+        826,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 139,
+      "global_mean_abs_diff": 1.986308,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000246",
+      "non_object_region_mean_abs_diff": 2.186573,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000246.jpg",
+      "original_size": [
+        826,
+        512
+      ],
+      "patch_area_fraction": 0.056154,
+      "patch_area_pixels": 23748,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        620,
+        18,
+        815,
+        213
+      ],
+      "patch_object_bbox_distance_px": 43.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        1,
+        256,
+        734,
+        512
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 38734,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000418.png",
+      "detectability_score": 0.0994,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000418.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 38,
+      "global_mean_abs_diff": 0.670568,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000418",
+      "non_object_region_mean_abs_diff": 0.746158,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000418.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.002955,
+      "patch_area_pixels": 1162,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        557,
+        11,
+        745,
+        199
+      ],
+      "patch_object_bbox_distance_px": 3.162,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        236,
+        200,
+        554,
+        512
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 39835,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000377.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000377.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 110,
+      "global_mean_abs_diff": 1.613301,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000377",
+      "non_object_region_mean_abs_diff": 1.735964,
+      "object_region_max_abs_diff": 2,
+      "object_region_mean_abs_diff": 0.001025,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000377.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.04165,
+      "patch_area_pixels": 14565,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        35,
+        133,
+        212,
+        310
+      ],
+      "patch_object_bbox_distance_px": 4.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        216,
+        184,
+        400,
+        407
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 24724,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000342.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000342.jpg",
+      "edited_size": [
+        640,
+        426
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 176,
+      "global_mean_abs_diff": 2.358212,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000342",
+      "non_object_region_mean_abs_diff": 2.432184,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000342.jpg",
+      "original_size": [
+        640,
+        426
+      ],
+      "patch_area_fraction": 0.056837,
+      "patch_area_pixels": 15496,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        223,
+        179,
+        379,
+        335
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        148,
+        232,
+        638,
+        425
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 8292,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000457.png",
+      "detectability_score": 0.14462,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000457.jpg",
+      "edited_size": [
+        640,
+        426
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 134,
+      "global_mean_abs_diff": 2.890722,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000457",
+      "non_object_region_mean_abs_diff": 3.026436,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000457.jpg",
+      "original_size": [
+        640,
+        426
+      ],
+      "patch_area_fraction": 0.070793,
+      "patch_area_pixels": 19301,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        305,
+        20,
+        463,
+        176
+      ],
+      "patch_object_bbox_distance_px": 198.517,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        248,
+        120,
+        383
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 12226,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000201.png",
+      "detectability_score": 0.09659,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000201.jpg",
+      "edited_size": [
+        827,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 159,
+      "global_mean_abs_diff": 2.315082,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000201",
+      "non_object_region_mean_abs_diff": 2.488775,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000201.jpg",
+      "original_size": [
+        827,
+        512
+      ],
+      "patch_area_fraction": 0.048521,
+      "patch_area_pixels": 20545,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        266,
+        102,
+        462,
+        297
+      ],
+      "patch_object_bbox_distance_px": 28.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        325,
+        650,
+        464
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 29551,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000360.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000360.jpg",
+      "edited_size": [
+        767,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 178,
+      "global_mean_abs_diff": 1.333467,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000360",
+      "non_object_region_mean_abs_diff": 1.378069,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000360.jpg",
+      "original_size": [
+        767,
+        512
+      ],
+      "patch_area_fraction": 0.024168,
+      "patch_area_pixels": 9491,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        59,
+        104,
+        246,
+        291
+      ],
+      "patch_object_bbox_distance_px": 36.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        282,
+        220,
+        736,
+        364
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 12710,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000476.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000476.jpg",
+      "edited_size": [
+        662,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 183,
+      "global_mean_abs_diff": 1.736919,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000476",
+      "non_object_region_mean_abs_diff": 1.799751,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000476.jpg",
+      "original_size": [
+        662,
+        512
+      ],
+      "patch_area_fraction": 0.028491,
+      "patch_area_pixels": 9657,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        175,
+        82,
+        349,
+        256
+      ],
+      "patch_object_bbox_distance_px": 33.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        289,
+        329,
+        444
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 11833,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000452.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000452.jpg",
+      "edited_size": [
+        706,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 181,
+      "global_mean_abs_diff": 1.145639,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000452",
+      "non_object_region_mean_abs_diff": 1.214895,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000452.jpg",
+      "original_size": [
+        706,
+        512
+      ],
+      "patch_area_fraction": 0.019877,
+      "patch_area_pixels": 7185,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        452,
+        305,
+        632,
+        485
+      ],
+      "patch_object_bbox_distance_px": 235.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        393,
+        217,
+        511
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 20606,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000425.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000425.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 102,
+      "global_mean_abs_diff": 1.176177,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000425",
+      "non_object_region_mean_abs_diff": 1.256542,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000425.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.020421,
+      "patch_area_pixels": 8030,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        520,
+        291,
+        708,
+        479
+      ],
+      "patch_object_bbox_distance_px": 95.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        1,
+        253,
+        425,
+        454
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 25149,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000256.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000256.jpg",
+      "edited_size": [
+        693,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 161,
+      "global_mean_abs_diff": 1.003044,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000256",
+      "non_object_region_mean_abs_diff": 1.038206,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000256.jpg",
+      "original_size": [
+        693,
+        512
+      ],
+      "patch_area_fraction": 0.01733,
+      "patch_area_pixels": 6149,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        287,
+        278,
+        465,
+        456
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        234,
+        456,
+        392
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 12017,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000218.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000218.jpg",
+      "edited_size": [
+        794,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 80,
+      "global_mean_abs_diff": 0.984872,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000218",
+      "non_object_region_mean_abs_diff": 1.016975,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000218.jpg",
+      "original_size": [
+        794,
+        512
+      ],
+      "patch_area_fraction": 0.0133,
+      "patch_area_pixels": 5407,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        196,
+        0,
+        387,
+        191
+      ],
+      "patch_object_bbox_distance_px": 120.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        69,
+        311,
+        436,
+        457
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 12833,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000289.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000289.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 141,
+      "global_mean_abs_diff": 1.438973,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000289",
+      "non_object_region_mean_abs_diff": 1.4979,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000289.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.025818,
+      "patch_area_pixels": 10152,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        228,
+        122,
+        416,
+        310
+      ],
+      "patch_object_bbox_distance_px": 139.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        555,
+        295,
+        768,
+        512
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 15469,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000228.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_table_ADE_train_00000228.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 83,
+      "global_mean_abs_diff": 1.130083,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_table_ADE_train_00000228",
+      "non_object_region_mean_abs_diff": 1.358245,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_table_ADE_train_00000228.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.022059,
+      "patch_area_pixels": 7714,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        84,
+        23,
+        261,
+        200
+      ],
+      "patch_object_bbox_distance_px": 81.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        281,
+        682,
+        511
+      ],
+      "target_label_id": 16,
+      "target_mask_pixels": 58743,
+      "target_object": "table"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000668.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000668.jpg",
+      "edited_size": [
+        650,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 115,
+      "global_mean_abs_diff": 1.954924,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000668",
+      "non_object_region_mean_abs_diff": 2.158882,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000668.jpg",
+      "original_size": [
+        650,
+        512
+      ],
+      "patch_area_fraction": 0.052644,
+      "patch_area_pixels": 17520,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        138,
+        21,
+        311,
+        194
+      ],
+      "patch_object_bbox_distance_px": 104.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        298,
+        174,
+        511
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 31441,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000708.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000708.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 192,
+      "global_mean_abs_diff": 1.393227,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000708",
+      "non_object_region_mean_abs_diff": 1.504552,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000708.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.030596,
+      "patch_area_pixels": 12031,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        132,
+        280,
+        320,
+        468
+      ],
+      "patch_object_bbox_distance_px": 44.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        364,
+        283,
+        642,
+        512
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 29095,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000273.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000273.jpg",
+      "edited_size": [
+        684,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 152,
+      "global_mean_abs_diff": 1.624414,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000273",
+      "non_object_region_mean_abs_diff": 2.041287,
+      "object_region_max_abs_diff": 9,
+      "object_region_mean_abs_diff": 0.002002,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000273.jpg",
+      "original_size": [
+        684,
+        512
+      ],
+      "patch_area_fraction": 0.03796,
+      "patch_area_pixels": 13294,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        157,
+        24,
+        334,
+        201
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        212,
+        196,
+        651,
+        511
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 71590,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000738.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000738.jpg",
+      "edited_size": [
+        700,
+        472
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 152,
+      "global_mean_abs_diff": 1.785293,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000738",
+      "non_object_region_mean_abs_diff": 1.897018,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000738.jpg",
+      "original_size": [
+        700,
+        472
+      ],
+      "patch_area_fraction": 0.035242,
+      "patch_area_pixels": 11644,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        412,
+        154,
+        584,
+        326
+      ],
+      "patch_object_bbox_distance_px": 71.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        114,
+        266,
+        341,
+        448
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 19459,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000681.png",
+      "detectability_score": 0.12445,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000681.jpg",
+      "edited_size": [
+        773,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 155,
+      "global_mean_abs_diff": 1.895857,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000681",
+      "non_object_region_mean_abs_diff": 2.215618,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000681.jpg",
+      "original_size": [
+        773,
+        512
+      ],
+      "patch_area_fraction": 0.054882,
+      "patch_area_pixels": 21721,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        574,
+        50,
+        762,
+        238
+      ],
+      "patch_object_bbox_distance_px": 94.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        332,
+        773,
+        512
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 57119,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000704.png",
+      "detectability_score": 0.12648,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000704.jpg",
+      "edited_size": [
+        772,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 159,
+      "global_mean_abs_diff": 2.078872,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000704",
+      "non_object_region_mean_abs_diff": 2.266593,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000704.jpg",
+      "original_size": [
+        772,
+        512
+      ],
+      "patch_area_fraction": 0.055072,
+      "patch_area_pixels": 21768,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        490,
+        63,
+        678,
+        251
+      ],
+      "patch_object_bbox_distance_px": 65.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        485,
+        316,
+        756,
+        511
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 32736,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000693.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000693.jpg",
+      "edited_size": [
+        754,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 172,
+      "global_mean_abs_diff": 1.476245,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000693",
+      "non_object_region_mean_abs_diff": 1.697636,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000693.jpg",
+      "original_size": [
+        754,
+        512
+      ],
+      "patch_area_fraction": 0.03031,
+      "patch_area_pixels": 11701,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        38,
+        218,
+        224,
+        404
+      ],
+      "patch_object_bbox_distance_px": 119.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        343,
+        267,
+        753,
+        511
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 50345,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000675.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000675.jpg",
+      "edited_size": [
+        720,
+        480
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 155,
+      "global_mean_abs_diff": 1.434715,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000675",
+      "non_object_region_mean_abs_diff": 1.501433,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000675.jpg",
+      "original_size": [
+        720,
+        480
+      ],
+      "patch_area_fraction": 0.027746,
+      "patch_area_pixels": 9589,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        67,
+        44,
+        243,
+        220
+      ],
+      "patch_object_bbox_distance_px": 82.638,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        320,
+        250,
+        524,
+        373
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 15357,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000713.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000713.jpg",
+      "edited_size": [
+        797,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 167,
+      "global_mean_abs_diff": 1.115912,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000713",
+      "non_object_region_mean_abs_diff": 1.212278,
+      "object_region_max_abs_diff": 2,
+      "object_region_mean_abs_diff": 0.000904,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000713.jpg",
+      "original_size": [
+        797,
+        512
+      ],
+      "patch_area_fraction": 0.019617,
+      "patch_area_pixels": 8005,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        401,
+        50,
+        594,
+        241
+      ],
+      "patch_object_bbox_distance_px": 8.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        140,
+        249,
+        474,
+        438
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 32462,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000732.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000732.jpg",
+      "edited_size": [
+        720,
+        480
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 184,
+      "global_mean_abs_diff": 2.207124,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000732",
+      "non_object_region_mean_abs_diff": 2.35786,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000732.jpg",
+      "original_size": [
+        720,
+        480
+      ],
+      "patch_area_fraction": 0.043391,
+      "patch_area_pixels": 14996,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        500,
+        229,
+        676,
+        405
+      ],
+      "patch_object_bbox_distance_px": 280.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        235,
+        220,
+        430
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 22094,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000678.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000678.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 136,
+      "global_mean_abs_diff": 2.028627,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000678",
+      "non_object_region_mean_abs_diff": 2.544445,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000678.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.047206,
+      "patch_area_pixels": 18562,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        28,
+        32,
+        216,
+        220
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        45,
+        213,
+        664,
+        501
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 79714,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000719.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000719.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 136,
+      "global_mean_abs_diff": 1.933522,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000719",
+      "non_object_region_mean_abs_diff": 1.999095,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000719.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.05042,
+      "patch_area_pixels": 19826,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        406,
+        254,
+        595,
+        442
+      ],
+      "patch_object_bbox_distance_px": 49.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        106,
+        287,
+        357,
+        395
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 12898,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000741.png",
+      "detectability_score": 0.11288,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000741.jpg",
+      "edited_size": [
+        756,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 150,
+      "global_mean_abs_diff": 3.01464,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000741",
+      "non_object_region_mean_abs_diff": 3.181419,
+      "object_region_max_abs_diff": 6,
+      "object_region_mean_abs_diff": 0.045979,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000741.jpg",
+      "original_size": [
+        756,
+        512
+      ],
+      "patch_area_fraction": 0.065094,
+      "patch_area_pixels": 25196,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        149,
+        110,
+        335,
+        296
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        196,
+        291,
+        432,
+        430
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 20589,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000748.png",
+      "detectability_score": 0.0978,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000748.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 167,
+      "global_mean_abs_diff": 2.053386,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000748",
+      "non_object_region_mean_abs_diff": 2.44261,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000748.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.054329,
+      "patch_area_pixels": 21363,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        499,
+        53,
+        687,
+        241
+      ],
+      "patch_object_bbox_distance_px": 12.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        76,
+        253,
+        768,
+        512
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 62658,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000662.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000662.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 131,
+      "global_mean_abs_diff": 1.86157,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000662",
+      "non_object_region_mean_abs_diff": 2.170894,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000662.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.051576,
+      "patch_area_pixels": 18036,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        264,
+        43,
+        441,
+        220
+      ],
+      "patch_object_bbox_distance_px": 4.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        1,
+        224,
+        536,
+        383
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 49827,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000706.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000706.jpg",
+      "edited_size": [
+        682,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 105,
+      "global_mean_abs_diff": 1.451577,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000706",
+      "non_object_region_mean_abs_diff": 1.545563,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000706.jpg",
+      "original_size": [
+        682,
+        512
+      ],
+      "patch_area_fraction": 0.030099,
+      "patch_area_pixels": 10510,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        115,
+        33,
+        292,
+        210
+      ],
+      "patch_object_bbox_distance_px": 91.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        4,
+        301,
+        279,
+        475
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 21234,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000701.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000701.jpg",
+      "edited_size": [
+        771,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 129,
+      "global_mean_abs_diff": 1.336286,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000701",
+      "non_object_region_mean_abs_diff": 1.612543,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000701.jpg",
+      "original_size": [
+        771,
+        512
+      ],
+      "patch_area_fraction": 0.026151,
+      "patch_area_pixels": 10323,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        459,
+        7,
+        647,
+        195
+      ],
+      "patch_object_bbox_distance_px": 88.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        88,
+        283,
+        771,
+        512
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 67628,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000671.png",
+      "detectability_score": 0.09613,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000671.jpg",
+      "edited_size": [
+        504,
+        360
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 190,
+      "global_mean_abs_diff": 2.997158,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000671",
+      "non_object_region_mean_abs_diff": 3.254832,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000671.jpg",
+      "original_size": [
+        504,
+        360
+      ],
+      "patch_area_fraction": 0.06045,
+      "patch_area_pixels": 10968,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        335,
+        222,
+        463,
+        349
+      ],
+      "patch_object_bbox_distance_px": 155.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        200,
+        180,
+        350
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 14364,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000688.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000688.jpg",
+      "edited_size": [
+        745,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 130,
+      "global_mean_abs_diff": 1.514006,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000688",
+      "non_object_region_mean_abs_diff": 1.699651,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000688.jpg",
+      "original_size": [
+        745,
+        512
+      ],
+      "patch_area_fraction": 0.037322,
+      "patch_area_pixels": 14236,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        391,
+        258,
+        576,
+        443
+      ],
+      "patch_object_bbox_distance_px": 127.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        259,
+        264,
+        511
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 41663,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000653.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000653.jpg",
+      "edited_size": [
+        720,
+        480
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 132,
+      "global_mean_abs_diff": 1.626017,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000653",
+      "non_object_region_mean_abs_diff": 1.808127,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000653.jpg",
+      "original_size": [
+        720,
+        480
+      ],
+      "patch_area_fraction": 0.036479,
+      "patch_area_pixels": 12607,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        92,
+        293,
+        268,
+        469
+      ],
+      "patch_object_bbox_distance_px": 196.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        464,
+        232,
+        720,
+        452
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 34808,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000717.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000717.jpg",
+      "edited_size": [
+        764,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 126,
+      "global_mean_abs_diff": 1.322077,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000717",
+      "non_object_region_mean_abs_diff": 1.50392,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000717.jpg",
+      "original_size": [
+        764,
+        512
+      ],
+      "patch_area_fraction": 0.02308,
+      "patch_area_pixels": 9028,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        0,
+        10,
+        187,
+        197
+      ],
+      "patch_object_bbox_distance_px": 111.36,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        236,
+        297,
+        756,
+        502
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 47297,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000740.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000740.jpg",
+      "edited_size": [
+        720,
+        480
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 158,
+      "global_mean_abs_diff": 1.943986,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000740",
+      "non_object_region_mean_abs_diff": 2.105453,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000740.jpg",
+      "original_size": [
+        720,
+        480
+      ],
+      "patch_area_fraction": 0.033111,
+      "patch_area_pixels": 11443,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        417,
+        155,
+        593,
+        331
+      ],
+      "patch_object_bbox_distance_px": 122.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        18,
+        286,
+        295,
+        479
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 26504,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000673.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000673.jpg",
+      "edited_size": [
+        765,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 93,
+      "global_mean_abs_diff": 1.129236,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000673",
+      "non_object_region_mean_abs_diff": 1.224938,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000673.jpg",
+      "original_size": [
+        765,
+        512
+      ],
+      "patch_area_fraction": 0.019365,
+      "patch_area_pixels": 7585,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        167,
+        31,
+        354,
+        218
+      ],
+      "patch_object_bbox_distance_px": 48.374,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        360,
+        266,
+        647,
+        447
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 30601,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000710.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_sofa_ADE_train_00000710.jpg",
+      "edited_size": [
+        767,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 197,
+      "global_mean_abs_diff": 1.68227,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_sofa_ADE_train_00000710",
+      "non_object_region_mean_abs_diff": 1.824533,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_sofa_ADE_train_00000710.jpg",
+      "original_size": [
+        767,
+        512
+      ],
+      "patch_area_fraction": 0.034418,
+      "patch_area_pixels": 13516,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        293,
+        122,
+        480,
+        309
+      ],
+      "patch_object_bbox_distance_px": 27.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        171,
+        336,
+        608,
+        512
+      ],
+      "target_label_id": 24,
+      "target_mask_pixels": 30620,
+      "target_object": "sofa"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000374.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000374.jpg",
+      "edited_size": [
+        764,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 147,
+      "global_mean_abs_diff": 1.244011,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000374",
+      "non_object_region_mean_abs_diff": 1.289363,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000374.jpg",
+      "original_size": [
+        764,
+        512
+      ],
+      "patch_area_fraction": 0.021272,
+      "patch_area_pixels": 8321,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        457,
+        16,
+        644,
+        202
+      ],
+      "patch_object_bbox_distance_px": 179.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        494,
+        381,
+        763,
+        511
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 13759,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000194.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000194.jpg",
+      "edited_size": [
+        320,
+        240
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 136,
+      "global_mean_abs_diff": 2.041068,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000194",
+      "non_object_region_mean_abs_diff": 2.200674,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000194.jpg",
+      "original_size": [
+        320,
+        240
+      ],
+      "patch_area_fraction": 0.043724,
+      "patch_area_pixels": 3358,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        127,
+        7,
+        210,
+        90
+      ],
+      "patch_object_bbox_distance_px": 79.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        169,
+        206,
+        240
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 5570,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000469.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000469.jpg",
+      "edited_size": [
+        745,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 132,
+      "global_mean_abs_diff": 1.524319,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000469",
+      "non_object_region_mean_abs_diff": 1.574202,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000469.jpg",
+      "original_size": [
+        745,
+        512
+      ],
+      "patch_area_fraction": 0.028164,
+      "patch_area_pixels": 10743,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        367,
+        62,
+        552,
+        247
+      ],
+      "patch_object_bbox_distance_px": 101.637,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        114,
+        288,
+        274,
+        456
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 12087,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000617.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000617.jpg",
+      "edited_size": [
+        731,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 195,
+      "global_mean_abs_diff": 2.330131,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000617",
+      "non_object_region_mean_abs_diff": 2.465873,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000617.jpg",
+      "original_size": [
+        731,
+        512
+      ],
+      "patch_area_fraction": 0.05966,
+      "patch_area_pixels": 22329,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        182,
+        178,
+        365,
+        361
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        298,
+        548,
+        511
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 20603,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000436.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000436.jpg",
+      "edited_size": [
+        512,
+        682
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 64,
+      "global_mean_abs_diff": 0.975823,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000436",
+      "non_object_region_mean_abs_diff": 1.029779,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000436.jpg",
+      "original_size": [
+        512,
+        682
+      ],
+      "patch_area_fraction": 0.01468,
+      "patch_area_pixels": 5126,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        187,
+        419,
+        364,
+        596
+      ],
+      "patch_object_bbox_distance_px": 57.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        459,
+        130,
+        681
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 18296,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000839.png",
+      "detectability_score": 0.10489,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000839.jpg",
+      "edited_size": [
+        746,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 145,
+      "global_mean_abs_diff": 2.216333,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000839",
+      "non_object_region_mean_abs_diff": 2.30108,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000839.jpg",
+      "original_size": [
+        746,
+        512
+      ],
+      "patch_area_fraction": 0.052978,
+      "patch_area_pixels": 20235,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        3,
+        106,
+        188,
+        291
+      ],
+      "patch_object_bbox_distance_px": 40.522,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        227,
+        302,
+        497,
+        413
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 14067,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000630.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000630.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 129,
+      "global_mean_abs_diff": 1.219389,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000630",
+      "non_object_region_mean_abs_diff": 1.257758,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000630.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.022185,
+      "patch_area_pixels": 7758,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        150,
+        3,
+        327,
+        180
+      ],
+      "patch_object_bbox_distance_px": 274.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        178,
+        454,
+        629,
+        511
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 10668,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000753.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000753.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 144,
+      "global_mean_abs_diff": 1.801516,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000753",
+      "non_object_region_mean_abs_diff": 1.870111,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000753.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.037898,
+      "patch_area_pixels": 14902,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        352,
+        244,
+        540,
+        432
+      ],
+      "patch_object_bbox_distance_px": 12.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        62,
+        234,
+        340,
+        345
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 14423,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00001564.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00001564.jpg",
+      "edited_size": [
+        500,
+        372
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 177,
+      "global_mean_abs_diff": 2.653448,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00001564",
+      "non_object_region_mean_abs_diff": 2.77888,
+      "object_region_max_abs_diff": 6,
+      "object_region_mean_abs_diff": 0.026037,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00001564.jpg",
+      "original_size": [
+        500,
+        372
+      ],
+      "patch_area_fraction": 0.055968,
+      "patch_area_pixels": 10410,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        14,
+        33,
+        143,
+        162
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        155,
+        499,
+        296
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 8475,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000268.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000268.jpg",
+      "edited_size": [
+        672,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 118,
+      "global_mean_abs_diff": 1.269843,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000268",
+      "non_object_region_mean_abs_diff": 1.315071,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000268.jpg",
+      "original_size": [
+        672,
+        512
+      ],
+      "patch_area_fraction": 0.02449,
+      "patch_area_pixels": 8426,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        325,
+        283,
+        500,
+        458
+      ],
+      "patch_object_bbox_distance_px": 27.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        43,
+        276,
+        298,
+        403
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 11833,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000939.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000939.jpg",
+      "edited_size": [
+        682,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 160,
+      "global_mean_abs_diff": 1.366347,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000939",
+      "non_object_region_mean_abs_diff": 1.473848,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000939.jpg",
+      "original_size": [
+        682,
+        512
+      ],
+      "patch_area_fraction": 0.029125,
+      "patch_area_pixels": 10170,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        273,
+        52,
+        450,
+        229
+      ],
+      "patch_object_bbox_distance_px": 38.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        198,
+        267,
+        473,
+        495
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 25469,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00001571.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00001571.jpg",
+      "edited_size": [
+        360,
+        274
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 129,
+      "global_mean_abs_diff": 1.835699,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00001571",
+      "non_object_region_mean_abs_diff": 2.084009,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00001571.jpg",
+      "original_size": [
+        360,
+        274
+      ],
+      "patch_area_fraction": 0.037277,
+      "patch_area_pixels": 3677,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        114,
+        32,
+        208,
+        126
+      ],
+      "patch_object_bbox_distance_px": 30.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        22,
+        156,
+        287,
+        274
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 11753,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000608.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000608.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 146,
+      "global_mean_abs_diff": 1.829397,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000608",
+      "non_object_region_mean_abs_diff": 1.981489,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000608.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.052719,
+      "patch_area_pixels": 20730,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        21,
+        66,
+        209,
+        256
+      ],
+      "patch_object_bbox_distance_px": 14.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        97,
+        270,
+        398,
+        510
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 30182,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000928.png",
+      "detectability_score": 0.09374,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000928.jpg",
+      "edited_size": [
+        768,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 93,
+      "global_mean_abs_diff": 1.321633,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000928",
+      "non_object_region_mean_abs_diff": 1.366555,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000928.jpg",
+      "original_size": [
+        768,
+        512
+      ],
+      "patch_area_fraction": 0.025884,
+      "patch_area_pixels": 10178,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        430,
+        67,
+        618,
+        255
+      ],
+      "patch_object_bbox_distance_px": 117.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        553,
+        372,
+        768,
+        511
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 12926,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000728.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000728.jpg",
+      "edited_size": [
+        761,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 141,
+      "global_mean_abs_diff": 1.419549,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000728",
+      "non_object_region_mean_abs_diff": 1.528682,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000728.jpg",
+      "original_size": [
+        761,
+        512
+      ],
+      "patch_area_fraction": 0.032574,
+      "patch_area_pixels": 12692,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        432,
+        72,
+        619,
+        259
+      ],
+      "patch_object_bbox_distance_px": 76.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        295,
+        335,
+        758,
+        512
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 27816,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000906.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000906.jpg",
+      "edited_size": [
+        803,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 159,
+      "global_mean_abs_diff": 1.145147,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000906",
+      "non_object_region_mean_abs_diff": 1.193759,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000906.jpg",
+      "original_size": [
+        803,
+        512
+      ],
+      "patch_area_fraction": 0.018235,
+      "patch_area_pixels": 7497,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        254,
+        43,
+        446,
+        235
+      ],
+      "patch_object_bbox_distance_px": 66.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        386,
+        301,
+        592,
+        512
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 16742,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000631.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000631.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 49,
+      "global_mean_abs_diff": 0.638506,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000631",
+      "non_object_region_mean_abs_diff": 0.693923,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000631.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.003392,
+      "patch_area_pixels": 1186,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        485,
+        326,
+        662,
+        502
+      ],
+      "patch_object_bbox_distance_px": 68.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        93,
+        239,
+        417,
+        512
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 27927,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000797.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000797.jpg",
+      "edited_size": [
+        737,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 200,
+      "global_mean_abs_diff": 1.848443,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000797",
+      "non_object_region_mean_abs_diff": 1.995123,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000797.jpg",
+      "original_size": [
+        737,
+        512
+      ],
+      "patch_area_fraction": 0.042486,
+      "patch_area_pixels": 16032,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        8,
+        208,
+        192,
+        393
+      ],
+      "patch_object_bbox_distance_px": 64.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        256,
+        304,
+        681,
+        512
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 27742,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00001105.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00001105.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 156,
+      "global_mean_abs_diff": 1.276261,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00001105",
+      "non_object_region_mean_abs_diff": 1.320233,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00001105.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.028207,
+      "patch_area_pixels": 9864,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        104,
+        225,
+        281,
+        402
+      ],
+      "patch_object_bbox_distance_px": 255.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        536,
+        332,
+        683,
+        511
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 11647,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000622.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000622.jpg",
+      "edited_size": [
+        770,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 222,
+      "global_mean_abs_diff": 1.705574,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000622",
+      "non_object_region_mean_abs_diff": 1.781612,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000622.jpg",
+      "original_size": [
+        770,
+        512
+      ],
+      "patch_area_fraction": 0.04377,
+      "patch_area_pixels": 17256,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        189,
+        46,
+        377,
+        235
+      ],
+      "patch_object_bbox_distance_px": 122.102,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        487,
+        288,
+        732,
+        479
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 16826,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000945.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000945.jpg",
+      "edited_size": [
+        512,
+        683
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 150,
+      "global_mean_abs_diff": 1.929176,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000945",
+      "non_object_region_mean_abs_diff": 2.298141,
+      "object_region_max_abs_diff": 2,
+      "object_region_mean_abs_diff": 0.000101,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000945.jpg",
+      "original_size": [
+        512,
+        683
+      ],
+      "patch_area_fraction": 0.042237,
+      "patch_area_pixels": 14770,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        281,
+        57,
+        462,
+        234
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        1,
+        234,
+        399,
+        601
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 56146,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00001573.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00001573.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 169,
+      "global_mean_abs_diff": 2.063855,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00001573",
+      "non_object_region_mean_abs_diff": 2.375422,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00001573.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.047258,
+      "patch_area_pixels": 16526,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        94,
+        204,
+        271,
+        381
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        52,
+        339,
+        682,
+        511
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 45867,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000918.png",
+      "detectability_score": 0.09567,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000918.jpg",
+      "edited_size": [
+        720,
+        482
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 174,
+      "global_mean_abs_diff": 2.256861,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000918",
+      "non_object_region_mean_abs_diff": 2.366884,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000918.jpg",
+      "original_size": [
+        720,
+        482
+      ],
+      "patch_area_fraction": 0.067243,
+      "patch_area_pixels": 23336,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        253,
+        89,
+        429,
+        265
+      ],
+      "patch_object_bbox_distance_px": 55.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        484,
+        246,
+        719,
+        414
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 16132,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000002.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_chair_ADE_train_00000002.jpg",
+      "edited_size": [
+        711,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 159,
+      "global_mean_abs_diff": 1.041028,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_chair_ADE_train_00000002",
+      "non_object_region_mean_abs_diff": 1.103975,
+      "object_region_max_abs_diff": 4,
+      "object_region_mean_abs_diff": 0.000915,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_chair_ADE_train_00000002.jpg",
+      "original_size": [
+        711,
+        512
+      ],
+      "patch_area_fraction": 0.017183,
+      "patch_area_pixels": 6255,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        145,
+        267,
+        326,
+        448
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        254,
+        222,
+        711,
+        469
+      ],
+      "target_label_id": 20,
+      "target_mask_pixels": 20774,
+      "target_object": "chair"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002093.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002093.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 112,
+      "global_mean_abs_diff": 1.401314,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002093",
+      "non_object_region_mean_abs_diff": 1.476825,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002093.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.028062,
+      "patch_area_pixels": 9813,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        227,
+        30,
+        404,
+        207
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        363,
+        204,
+        590,
+        332
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 17880,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002038.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002038.jpg",
+      "edited_size": [
+        450,
+        313
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 162,
+      "global_mean_abs_diff": 1.87202,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002038",
+      "non_object_region_mean_abs_diff": 2.349052,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002038.jpg",
+      "original_size": [
+        450,
+        313
+      ],
+      "patch_area_fraction": 0.039972,
+      "patch_area_pixels": 5630,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        314,
+        13,
+        430,
+        125
+      ],
+      "patch_object_bbox_distance_px": 35.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        2,
+        160,
+        446,
+        292
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 28603,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002039.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002039.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 39,
+      "global_mean_abs_diff": 0.582886,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002039",
+      "non_object_region_mean_abs_diff": 0.881798,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002039.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.001687,
+      "patch_area_pixels": 590,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        488,
+        333,
+        665,
+        509
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        21,
+        105,
+        643,
+        407
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 118540,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002054.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002054.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 181,
+      "global_mean_abs_diff": 2.249271,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002054",
+      "non_object_region_mean_abs_diff": 3.71661,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002054.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.048422,
+      "patch_area_pixels": 16933,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        22,
+        23,
+        199,
+        198
+      ],
+      "patch_object_bbox_distance_px": 15.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        1,
+        213,
+        682,
+        511
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 138062,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00000941.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00000941.jpg",
+      "edited_size": [
+        472,
+        313
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 138,
+      "global_mean_abs_diff": 1.354768,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00000941",
+      "non_object_region_mean_abs_diff": 1.442088,
+      "object_region_max_abs_diff": 11,
+      "object_region_mean_abs_diff": 0.014753,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00000941.jpg",
+      "original_size": [
+        472,
+        313
+      ],
+      "patch_area_fraction": 0.02583,
+      "patch_area_pixels": 3816,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        148,
+        0,
+        263,
+        115
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        114,
+        151,
+        310
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 9038,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002029.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002029.jpg",
+      "edited_size": [
+        640,
+        480
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 205,
+      "global_mean_abs_diff": 1.702167,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002029",
+      "non_object_region_mean_abs_diff": 1.958683,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002029.jpg",
+      "original_size": [
+        640,
+        480
+      ],
+      "patch_area_fraction": 0.037272,
+      "patch_area_pixels": 11450,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        338,
+        278,
+        504,
+        445
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        2,
+        124,
+        589,
+        326
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 40232,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002030.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002030.jpg",
+      "edited_size": [
+        340,
+        225
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 174,
+      "global_mean_abs_diff": 2.03281,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002030",
+      "non_object_region_mean_abs_diff": 3.017327,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002030.jpg",
+      "original_size": [
+        340,
+        225
+      ],
+      "patch_area_fraction": 0.04915,
+      "patch_area_pixels": 3760,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        87,
+        73,
+        169,
+        155
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        0,
+        340,
+        224
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 24961,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00004304.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00004304.jpg",
+      "edited_size": [
+        600,
+        450
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 157,
+      "global_mean_abs_diff": 1.935789,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00004304",
+      "non_object_region_mean_abs_diff": 2.006222,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00004304.jpg",
+      "original_size": [
+        600,
+        450
+      ],
+      "patch_area_fraction": 0.041633,
+      "patch_area_pixels": 11241,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        257,
+        283,
+        413,
+        438
+      ],
+      "patch_object_bbox_distance_px": 89.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        502,
+        212,
+        599,
+        354
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 9479,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00004616.png",
+      "detectability_score": 0.15841,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00004616.jpg",
+      "edited_size": [
+        256,
+        256
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 175,
+      "global_mean_abs_diff": 3.840093,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00004616",
+      "non_object_region_mean_abs_diff": 4.037871,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00004616.jpg",
+      "original_size": [
+        256,
+        256
+      ],
+      "patch_area_fraction": 0.078461,
+      "patch_area_pixels": 5142,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        101,
+        33,
+        177,
+        109
+      ],
+      "patch_object_bbox_distance_px": 55.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        164,
+        256,
+        202
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 3210,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002008.png",
+      "detectability_score": 0.15067,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002008.jpg",
+      "edited_size": [
+        325,
+        245
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 146,
+      "global_mean_abs_diff": 2.818286,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002008",
+      "non_object_region_mean_abs_diff": 3.363601,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002008.jpg",
+      "original_size": [
+        325,
+        245
+      ],
+      "patch_area_fraction": 0.062895,
+      "patch_area_pixels": 5008,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        134,
+        6,
+        218,
+        90
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        33,
+        81,
+        288,
+        234
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 12909,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00004561.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00004561.jpg",
+      "edited_size": [
+        772,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 175,
+      "global_mean_abs_diff": 1.57375,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00004561",
+      "non_object_region_mean_abs_diff": 1.721657,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00004561.jpg",
+      "original_size": [
+        772,
+        512
+      ],
+      "patch_area_fraction": 0.02805,
+      "patch_area_pixels": 11087,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        225,
+        6,
+        413,
+        194
+      ],
+      "patch_object_bbox_distance_px": 107.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        301,
+        771,
+        510
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 33957,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002034.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002034.jpg",
+      "edited_size": [
+        770,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 146,
+      "global_mean_abs_diff": 1.561825,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002034",
+      "non_object_region_mean_abs_diff": 1.623827,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002034.jpg",
+      "original_size": [
+        770,
+        512
+      ],
+      "patch_area_fraction": 0.032361,
+      "patch_area_pixels": 12758,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        321,
+        278,
+        509,
+        467
+      ],
+      "patch_object_bbox_distance_px": 79.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        588,
+        243,
+        769,
+        347
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 15053,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002014.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002014.jpg",
+      "edited_size": [
+        440,
+        507
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 127,
+      "global_mean_abs_diff": 2.324431,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002014",
+      "non_object_region_mean_abs_diff": 2.629309,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002014.jpg",
+      "original_size": [
+        440,
+        507
+      ],
+      "patch_area_fraction": 0.059736,
+      "patch_area_pixels": 13326,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        19,
+        106,
+        160,
+        247
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        110,
+        174,
+        248,
+        458
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 25867,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002062.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002062.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 192,
+      "global_mean_abs_diff": 1.334005,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002062",
+      "non_object_region_mean_abs_diff": 1.718953,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002062.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.02636,
+      "patch_area_pixels": 9218,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        441,
+        175,
+        618,
+        352
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        1,
+        259,
+        682,
+        511
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 78312,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00004630.png",
+      "detectability_score": 0.10021,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00004630.jpg",
+      "edited_size": [
+        256,
+        256
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 150,
+      "global_mean_abs_diff": 2.238541,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00004630",
+      "non_object_region_mean_abs_diff": 2.358829,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00004630.jpg",
+      "original_size": [
+        256,
+        256
+      ],
+      "patch_area_fraction": 0.045227,
+      "patch_area_pixels": 2964,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        88,
+        66,
+        164,
+        142
+      ],
+      "patch_object_bbox_distance_px": 55.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        141,
+        197,
+        256,
+        241
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 3342,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00001018.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00001018.jpg",
+      "edited_size": [
+        300,
+        396
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 82,
+      "global_mean_abs_diff": 1.149324,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00001018",
+      "non_object_region_mean_abs_diff": 1.46179,
+      "object_region_max_abs_diff": 5,
+      "object_region_mean_abs_diff": 0.002058,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00001018.jpg",
+      "original_size": [
+        300,
+        396
+      ],
+      "patch_area_fraction": 0.018763,
+      "patch_area_pixels": 2229,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        150,
+        124,
+        253,
+        227
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        1,
+        109,
+        290,
+        396
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 25430,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00003061.png",
+      "detectability_score": 0.13391,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00003061.jpg",
+      "edited_size": [
+        500,
+        375
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 164,
+      "global_mean_abs_diff": 2.991835,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00003061",
+      "non_object_region_mean_abs_diff": 3.194384,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00003061.jpg",
+      "original_size": [
+        500,
+        375
+      ],
+      "patch_area_fraction": 0.060672,
+      "patch_area_pixels": 11376,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        77,
+        41,
+        208,
+        170
+      ],
+      "patch_object_bbox_distance_px": 160.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        368,
+        157,
+        497,
+        280
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 11889,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00002026.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00002026.jpg",
+      "edited_size": [
+        200,
+        200
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 179,
+      "global_mean_abs_diff": 1.817917,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00002026",
+      "non_object_region_mean_abs_diff": 3.725555,
+      "object_region_max_abs_diff": 3,
+      "object_region_mean_abs_diff": 0.000244,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00002026.jpg",
+      "original_size": [
+        200,
+        200
+      ],
+      "patch_area_fraction": 0.03205,
+      "patch_area_pixels": 1282,
+      "patch_bbox_intersects_object_bbox": true,
+      "patch_bbox_xyxy": [
+        128,
+        28,
+        189,
+        88
+      ],
+      "patch_object_bbox_distance_px": 0.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        0,
+        177,
+        200
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 20483,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00004657.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00004657.jpg",
+      "edited_size": [
+        256,
+        256
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 141,
+      "global_mean_abs_diff": 2.148336,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00004657",
+      "non_object_region_mean_abs_diff": 2.256231,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00004657.jpg",
+      "original_size": [
+        256,
+        256
+      ],
+      "patch_area_fraction": 0.046478,
+      "patch_area_pixels": 3046,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        68,
+        111,
+        144,
+        187
+      ],
+      "patch_object_bbox_distance_px": 14.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        0,
+        201,
+        181,
+        246
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 3134,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00004567.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00004567.jpg",
+      "edited_size": [
+        683,
+        512
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 151,
+      "global_mean_abs_diff": 1.472031,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00004567",
+      "non_object_region_mean_abs_diff": 1.519839,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00004567.jpg",
+      "original_size": [
+        683,
+        512
+      ],
+      "patch_area_fraction": 0.029723,
+      "patch_area_pixels": 10394,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        274,
+        132,
+        452,
+        310
+      ],
+      "patch_object_bbox_distance_px": 47.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        499,
+        307,
+        673,
+        393
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 11000,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00004623.png",
+      "detectability_score": null,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00004623.jpg",
+      "edited_size": [
+        256,
+        256
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 158,
+      "global_mean_abs_diff": 2.077972,
+      "high_detectability_flag": false,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00004623",
+      "non_object_region_mean_abs_diff": 2.266074,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00004623.jpg",
+      "original_size": [
+        256,
+        256
+      ],
+      "patch_area_fraction": 0.042648,
+      "patch_area_pixels": 2795,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        48,
+        87,
+        124,
+        163
+      ],
+      "patch_object_bbox_distance_px": 7.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        2,
+        170,
+        95,
+        256
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 5440,
+      "target_object": "car"
+    },
+    {
+      "annotation_currently_available": false,
+      "annotation_exists": true,
+      "annotation_path": "ade20k_root/ADEChallengeData2016/annotations/training/ADE_train_00001421.png",
+      "detectability_score": 0.13942,
+      "edited_exists": true,
+      "edited_image_path": "data/edits/spurious_flip_control/sflip_car_ADE_train_00001421.jpg",
+      "edited_size": [
+        512,
+        768
+      ],
+      "evidence_status": "DERIVED_FROM_REAL_EVIDENCE",
+      "geometry_source": "FROZEN_DERIVED_REAL_EVIDENCE_CACHE",
+      "global_max_abs_diff": 209,
+      "global_mean_abs_diff": 2.919746,
+      "high_detectability_flag": true,
+      "image_shape_match": true,
+      "issues": [],
+      "item_id": "sflip_car_ADE_train_00001421",
+      "non_object_region_mean_abs_diff": 3.274441,
+      "object_region_max_abs_diff": 0,
+      "object_region_mean_abs_diff": 0.0,
+      "original_exists": true,
+      "original_image_path": "data/edits/spurious_flip_control/orig/sflip_car_ADE_train_00001421.jpg",
+      "original_size": [
+        512,
+        768
+      ],
+      "patch_area_fraction": 0.058797,
+      "patch_area_pixels": 23120,
+      "patch_bbox_intersects_object_bbox": false,
+      "patch_bbox_xyxy": [
+        1,
+        144,
+        191,
+        333
+      ],
+      "patch_object_bbox_distance_px": 233.0,
+      "patch_target_mask_overlap_fraction": 0.0,
+      "patch_target_mask_overlap_pixels": 0,
+      "target_bbox_xyxy": [
+        2,
+        566,
+        509,
+        734
+      ],
+      "target_label_id": 21,
+      "target_mask_pixels": 42594,
+      "target_object": "car"
+    }
+  ],
+  "summary": {
+    "builder_verification_note": "Frozen annotation-derived rows reused: 94/94; exact task coverage, image paths, and current image-difference patch boxes were validated before reuse.",
+    "detectability_artifact_risk": false,
+    "detectability_auc": 0.7123,
+    "detectability_n_items": 94,
+    "frozen_annotation_geometry_items": 94,
+    "geometry_note": "Patch geometry was recomputed from the preserved image pairs, while target-mask geometry was reused from the frozen derived-real-evidence audit because the external ADE annotation tree is not currently mounted. This is not a fresh annotation rerun.",
+    "high_detectability_items": 19,
+    "max_object_region_mean_abs_diff": 0.045979,
+    "max_patch_target_mask_overlap_pixels": 0,
+    "mean_non_object_region_mean_abs_diff": 1.907849,
+    "mean_object_region_mean_abs_diff": 0.001168,
+    "missing_or_invalid_images": 0,
+    "n_items": 94,
+    "paper_evidence": false,
+    "patch_bbox_intersects_object_bbox_items": 20,
+    "patch_target_mask_overlap_items": 0,
+    "shape_mismatch_items": 0
+  }
+}

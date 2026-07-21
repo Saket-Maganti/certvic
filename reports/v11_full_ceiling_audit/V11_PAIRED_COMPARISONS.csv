@@ -1,0 +1,4 @@
+left_provider,right_provider,n,left_flips,right_flips,risk_difference,left_only,right_only,exact_mcnemar_p,bootstrap_seed,bootstrap_repetitions,bootstrap_95_lo,bootstrap_95_hi,analysis_status,paper_evidence
+qwen2_5_vl_7b,internvl_8b,94,12,1,0.11702127659574468,12,1,0.00341796875,11011,20000,0.05319148936170213,0.19148936170212766,retrospective_exploratory,False
+qwen2_5_vl_7b,llava_onevision_7b,94,12,3,0.09574468085106383,12,3,0.03515625,11012,20000,0.02127659574468085,0.1702127659574468,retrospective_exploratory,False
+internvl_8b,llava_onevision_7b,94,1,3,-0.02127659574468085,1,3,0.625,11013,20000,-0.06382978723404255,0.02127659574468085,retrospective_exploratory,False

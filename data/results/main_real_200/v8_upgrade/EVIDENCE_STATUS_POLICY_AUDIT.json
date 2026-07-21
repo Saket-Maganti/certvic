@@ -1,0 +1,15 @@
+{
+  "gates": {
+    "main500_executed": false,
+    "mechanism_complete": true,
+    "polarity_complete": true,
+    "scaled_perception_complete": true,
+    "spurious_all_provider_gate_pass": false,
+    "two_rater_iaa_complete": false
+  },
+  "paper_evidence": false,
+  "policy": "Pilot/control/diagnostic artifacts remain non-evidence until specificity, scale, and human-review gates are satisfied.",
+  "produced_model_results_by_this_script": false,
+  "schema": "certvic.v8.evidence_status_policy_audit.v1",
+  "status": "blocked_for_scale"
+}

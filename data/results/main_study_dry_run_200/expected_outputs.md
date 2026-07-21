@@ -1,0 +1,21 @@
+# Expected Outputs
+
+- `data/annotations/review_batches/`
+- `data/edits/ade20k_pilot/`
+- `data/manifests/ade20k_masks.jsonl`
+- `data/manifests/ade20k_sources.jsonl`
+- `data/manifests/diffusion_job_queue.jsonl`
+- `data/manifests/pilot_edit_plan.jsonl`
+- `data/manifests/pilot_eval_tasks_tiny_reviewed.jsonl`
+- `data/manifests/pilot_generated_edits.jsonl`
+- `data/manifests/pilot_selection.jsonl`
+- `data/predictions/`
+- `data/results/cluster_diagnostics/`
+- `data/results/edit_detectability/`
+- `data/results/label_policy_report.md`
+- `data/results/pair_scores.jsonl`
+- `data/results/summary.json`
+- `data/results/v2_report/`
+- `preflight report`
+- `readiness report`
+- `release/certvic_recipe_artifact/`

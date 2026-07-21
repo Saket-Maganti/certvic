@@ -1,0 +1,7 @@
+-r kaggle_base.lock
+accelerate==1.1.1
+diffusers==0.31.0
+safetensors==0.4.5
+tokenizers==0.20.3
+transformers==4.46.3
+

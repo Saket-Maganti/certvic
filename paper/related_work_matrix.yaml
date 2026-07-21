@@ -1,0 +1,82 @@
+# CertVIC related-work matrix (V3 prompt 13).
+#
+# NON-FABRICATING SCAFFOLD. `representative_works` lists are intentionally EMPTY:
+# real citations must be added by a human after verification. Do not invent
+# authors, titles, venues, or years. Each category records how CertVIC relates and
+# what it claims as different -- claims must stay defensible and qualified.
+
+schema: certvic_related_work_matrix_v1
+fabrication_policy: "No invented citations. representative_works must be filled only with verified references."
+
+categories:
+  vlm_evaluation:
+    title: "VLM evaluation and robustness"
+    description: "Benchmarks measuring VLM accuracy on VQA / reasoning over fixed images."
+    relation_to_certvic: "Orthogonal: we measure whether the decision UPDATES under a controlled change, not correctness on a fixed image."
+    differentiator: "Decision-update under intervention, not fixed-image accuracy."
+    keywords: [vlm, visual question answering, vqa, benchmark, evaluation, robustness]
+    representative_works: []   # TODO: add verified citations
+    status: needs_citations
+
+  counterfactual_minimal_pair_vqa:
+    title: "Counterfactual and minimal-pair VQA"
+    description: "Paired inputs differing in one factor (counterfactual / minimal-pair probing)."
+    relation_to_certvic: "We use REAL images edited under documented recipes (not synthetic/text-only) with enforced single-factor validity."
+    differentiator: "Real-image, recipe-documented, single-factor-validated pairs; certified gap not point estimate."
+    keywords: [counterfactual, minimal pair, paired, intervention, single-factor]
+    representative_works: []   # TODO
+    status: needs_citations
+
+  causal_visual_reasoning:
+    title: "Causal visual reasoning"
+    description: "Work probing causal / interventional reasoning in vision or vision-language models."
+    relation_to_certvic: "We do not claim to measure causal understanding; we measure consistency of decisions under a known answer-changing edit."
+    differentiator: "Consistency-under-intervention framing; explicitly avoids causal-cognition overclaims."
+    keywords: [causal, intervention, do-operator, reasoning]
+    representative_works: []   # TODO
+    status: needs_citations
+
+  editing_for_evaluation:
+    title: "Image editing for evaluation"
+    description: "Inpainting / object removal / generative edits used to build test stimuli."
+    relation_to_certvic: "Edit realism and single-factor validity are MEASURED (quality gates + IAA + detectability probe), not assumed; crude vs photorealistic engines kept separate."
+    differentiator: "Edit validity treated as a measured, audited quantity."
+    keywords: [inpainting, image editing, object removal, diffusion, generative edit]
+    representative_works: []   # TODO
+    status: needs_citations
+
+  robustness_consistency:
+    title: "Robustness and consistency"
+    description: "Consistency / invariance / contrast-set evaluation under perturbations."
+    relation_to_certvic: "We define consistency against an edit-DERIVED expected answer change, certified anytime-validly."
+    differentiator: "Expected-answer-change consistency with anytime-valid certification."
+    keywords: [consistency, invariance, contrast set, perturbation, stability]
+    representative_works: []   # TODO
+    status: needs_citations
+
+  anytime_valid_inference:
+    title: "Anytime-valid inference"
+    description: "Confidence sequences and betting-based tests with time-uniform coverage under optional stopping."
+    relation_to_certvic: "Applied to an EVALUATION gap so a small, budget-constrained study yields a valid certified lower bound. Core methodological contribution."
+    differentiator: "Anytime-valid certification of an evaluation gap metric."
+    keywords: [anytime-valid, confidence sequence, betting, optional stopping, time-uniform, e-value]
+    representative_works: []   # TODO
+    status: needs_citations
+
+  licensing_artifacts:
+    title: "Dataset licensing and reproducible artifacts"
+    description: "Recipe-first / pointer-based release that avoids redistributing non-rehostable pixels."
+    relation_to_certvic: "Pointers + hashes + scripts; pixels never rehosted; zero-cost reproducibility."
+    differentiator: "Recipe-first, zero-cost-reproducible artifact."
+    keywords: [license, licensing, reproducibility, artifact, recipe, pointer]
+    representative_works: []   # TODO
+    status: needs_citations
+
+  budgeted_evaluation:
+    title: "Budget-constrained evaluation"
+    description: "Sample-efficient / sequential / cost-aware evaluation under limited compute or labels."
+    relation_to_certvic: "Free-compute-only design; anytime-valid CS lets a small certified study suffice."
+    differentiator: "Zero-cost, sequential, certified small-N evaluation."
+    keywords: [budget, sample efficiency, sequential, cost-aware, sample size, power]
+    representative_works: []   # TODO
+    status: needs_citations

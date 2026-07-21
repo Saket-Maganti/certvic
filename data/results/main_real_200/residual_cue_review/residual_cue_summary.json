@@ -1,0 +1,25 @@
+{
+  "alternate_clean_subset": {
+    "definition": "human_absence_confident=yes AND residual_target_visible=no",
+    "mean_model_fail_rate": null,
+    "n": 0,
+    "note": "Descriptive sensitivity only. Full re-certification on this subset requires re-running scripts/pilot_report_from_raw.py on the filtered item set; the canonical pilot result is unchanged."
+  },
+  "any_model_fail_rate_when_absent_confident": null,
+  "canonical_unchanged": true,
+  "evidence_status": "RESIDUAL_CUE_SENSITIVITY_NON_EVIDENCE",
+  "model_fail_rate_when_human_absence_confident": null,
+  "n_absent_confident": 0,
+  "n_decided_for_residual_rate": 0,
+  "n_reviewed": 0,
+  "n_total": 91,
+  "n_uncertain_excluded_from_strong_claims": 0,
+  "n_unreviewed_excluded": 91,
+  "paper_evidence": false,
+  "per_edit_type": {},
+  "residual_cue_rate": null,
+  "schema": "certvic.residual_cue_summary.v1",
+  "schema_violations": [],
+  "status": "review_pending",
+  "uncertain_item_ids": []
+}

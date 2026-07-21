@@ -1,0 +1,118 @@
+# ADE20K label policy (TEMPLATE — UNVERIFIED).
+#
+# This file maps ADE20K SceneParse150-style semantic label ids to the task
+# families and edit types that are *valid* for that object. It is a starting
+# template, NOT a verified label map. You MUST confirm the label_id -> name
+# mapping against your specific ADE20K release before using this for any
+# evidence run. Until then, treat unresolved labels via the conservative
+# fallback below.
+#
+# Field meanings per label entry:
+#   label_id              integer semantic id in the annotation PNG
+#   label_name            human-readable object name (for question generation)
+#   eligible_task_families families for which manipulating this object is valid
+#   allowed_edit_types    edit operations that are physically/semantically sane
+#   domain_tags           scene domains where this object typically appears
+#   block_reason          if set, the label is never manipulated (background "stuff")
+#   notes                 free text rationale
+
+version: certvic.ade20k_label_policy.v1
+verified: false
+
+# Conservative fallback for any label_id NOT listed below. Unresolved objects are
+# eligible only for control (no-change) edits, because we cannot write a valid
+# change-required question without knowing what the object is.
+defaults:
+  unresolved_eligible_task_families:
+    - control_irrelevant
+  unresolved_allowed_edit_types:
+    - control_irrelevant
+  unresolved_block_reason: null
+
+labels:
+  # --- Background "stuff": never manipulated as a single-factor object ---
+  - label_id: 1
+    label_name: wall
+    eligible_task_families: []
+    allowed_edit_types: []
+    domain_tags: [household, indoor]
+    block_reason: background_stuff_not_a_manipulable_object
+    notes: Large background surface; removing/displacing is not a clean single factor.
+  - label_id: 3
+    label_name: sky
+    eligible_task_families: []
+    allowed_edit_types: []
+    domain_tags: [driving, outdoor]
+    block_reason: background_stuff_not_a_manipulable_object
+  - label_id: 4
+    label_name: floor
+    eligible_task_families: []
+    allowed_edit_types: []
+    domain_tags: [household, indoor]
+    block_reason: background_stuff_not_a_manipulable_object
+  - label_id: 6
+    label_name: ceiling
+    eligible_task_families: []
+    allowed_edit_types: []
+    domain_tags: [household, indoor]
+    block_reason: background_stuff_not_a_manipulable_object
+  - label_id: 7
+    label_name: road
+    eligible_task_families: []
+    allowed_edit_types: []
+    domain_tags: [driving, outdoor]
+    block_reason: background_stuff_not_a_manipulable_object
+
+  # --- Household objects: support / occlusion / affordance subjects ---
+  - label_id: 8
+    label_name: bed
+    eligible_task_families: [support_stability, occlusion_safety, control_irrelevant]
+    allowed_edit_types: [remove, displace, occlude, control_irrelevant]
+    domain_tags: [household]
+    notes: Large stable furniture; good support-stability subject.
+  - label_id: 11
+    label_name: cabinet
+    eligible_task_families: [support_stability, occlusion_safety, control_irrelevant]
+    allowed_edit_types: [remove, displace, occlude, control_irrelevant]
+    domain_tags: [household]
+  - label_id: 16
+    label_name: table
+    eligible_task_families: [support_stability, affordance_reachability, control_irrelevant]
+    allowed_edit_types: [remove, displace, occlude, control_irrelevant]
+    domain_tags: [household]
+    notes: Supports objects; strong support-stability and reachability subject.
+  - label_id: 20
+    label_name: chair
+    eligible_task_families: [support_stability, affordance_reachability, occlusion_safety, control_irrelevant]
+    allowed_edit_types: [remove, displace, occlude, control_irrelevant]
+    domain_tags: [household]
+  - label_id: 24
+    label_name: sofa
+    eligible_task_families: [support_stability, affordance_reachability, control_irrelevant]
+    allowed_edit_types: [remove, displace, occlude, control_irrelevant]
+    domain_tags: [household]
+  - label_id: 15
+    label_name: door
+    eligible_task_families: [affordance_reachability, occlusion_safety, control_irrelevant]
+    allowed_edit_types: [occlude, control_irrelevant]
+    domain_tags: [household, indoor]
+    notes: Passability/affordance subject; removal is rarely a clean single factor.
+  - label_id: 37
+    label_name: lamp
+    eligible_task_families: [affordance_reachability, control_irrelevant]
+    allowed_edit_types: [remove, displace, occlude, control_irrelevant]
+    domain_tags: [household]
+
+  # --- Driving objects ---
+  - label_id: 21
+    label_name: car
+    eligible_task_families: [occlusion_safety, affordance_reachability, control_irrelevant]
+    allowed_edit_types: [remove, displace, occlude, control_irrelevant]
+    domain_tags: [driving]
+    notes: Stimulus only; no deployment/safety claims about driving.
+  - label_id: 13
+    label_name: person
+    eligible_task_families: [occlusion_safety, control_irrelevant]
+    allowed_edit_types: [occlude, control_irrelevant]
+    domain_tags: [driving, household]
+    notes: Manipulate with care; occlusion-safety stimulus only, never a deployment claim.

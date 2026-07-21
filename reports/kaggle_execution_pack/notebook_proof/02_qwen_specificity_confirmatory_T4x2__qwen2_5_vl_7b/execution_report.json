@@ -1,0 +1,48 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "confirmatory_qwen_return.zip",
+      "sha256": "b676a6c886e356b84aa4b5e52b559a70ddb0ba4df154baa2a1d9e5f0dccf4f48",
+      "size": 3553
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "8318cbeca52c4b239830399ac59d7a07b01c16fcdabcb331bc42d1b610a6257e",
+      "size": 948
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "d54a5b2159499d7b04abcd98fd65e4a00f65794ee1302b9f0cd8ccac9e61e88b",
+  "config": {
+    "artifact_globs": [
+      "confirmatory_qwen_return.zip",
+      "seed_manifest.json"
+    ],
+    "notebook": "02_qwen_specificity_confirmatory_T4x2.ipynb",
+    "notebook_sha256": "d1d66ca6fc50cbeff7569b1e1e75860bb3df80ee0a2a68980f28eaf57944cb0e",
+    "provider": "qwen2_5_vl_7b",
+    "return_zip": "confirmatory_qwen_return.zip",
+    "route": "02_qwen_specificity_confirmatory_T4x2__qwen2_5_vl_7b",
+    "stage": "evaluation",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "69b359ed9ea4b616e7b44009da988e61e122ace206f82f7cb061321ce5a578bc",
+  "status": "PASS"
+}

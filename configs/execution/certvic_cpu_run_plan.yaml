@@ -1,0 +1,436 @@
+schema: certvic.cvpr.cpu_run_plan.v1
+paper_evidence: false
+hardware_policy:
+  max_cpu_workers: 4
+  max_heavy_python_processes: 1
+  max_notebook_executions: 1
+  max_archive_builders: 1
+nodes:
+  - run_id: baseline_validation
+    category: validation
+    command: python3 scripts/run_phase_b_cpu_workflows.py --out reports/kaggle_execution_pack/phase_b_cpu_validation
+    prerequisites: []
+    inputs: [pyproject.toml, scripts/run_phase_b_cpu_workflows.py]
+    outputs: [reports/kaggle_execution_pack/phase_b_cpu_validation/validation_results.json]
+    expected_runtime: 30-90 minutes
+    memory_class: medium
+    retry_policy: repair exact local failure without weakening guards; rerun sequentially
+    evidence_class: NON_EVIDENCE_VALIDATION
+    blocker_policy: none
+    producer_stage: repository
+    next_action: inspect reports/cpu_execution/logs/baseline_validation.log and repair locally
+    cpu_io_class: heavy_sequential
+    always_run: true
+
+  - run_id: repository_kaggle_bundles
+    category: packaging
+    command: python3 -m certvic.cvpr.build_all_kaggle_inputs --local-only
+    prerequisites: [baseline_validation]
+    inputs: [pyproject.toml, certvic/cvpr/build_all_kaggle_inputs.py]
+    outputs:
+      - kaggle_uploads/00_code/certvic_code_bundle.zip
+      - kaggle_uploads/00_code/certvic_notebooks_bundle.zip
+      - kaggle_uploads/00_code/certvic_configs_bundle.zip
+      - kaggle_uploads/00_code/certvic_execution_tools_bundle.zip
+      - kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip
+    expected_runtime: 15-60 minutes
+    memory_class: medium
+    retry_policy: rebuild sequentially and require byte-identical second build
+    evidence_class: NON_EVIDENCE_EXECUTION_ASSET
+    blocker_policy: none
+    producer_stage: repository
+    next_action: rerun local bundle factory after repairing exact validation error
+    cpu_io_class: archive_io_sequential
+
+  - run_id: wheelhouse_preflight
+    category: dependency_preparation
+    command: python3 -m certvic.cvpr.wheelhouse_builder --mode LOCAL_VERIFY_ONLY --status
+    prerequisites: [baseline_validation]
+    inputs:
+      - requirements/kaggle_base.lock
+      - requirements/kaggle_qwen.lock
+      - requirements/kaggle_internvl.lock
+      - requirements/kaggle_llava.lock
+      - requirements/kaggle_generation.lock
+      - requirements/kaggle_analysis.lock
+    outputs: [kaggle_uploads/01_wheelhouse/certvic_offline_wheelhouse.zip.BUILDER_STATUS.json]
+    expected_runtime: 15-45 minutes
+    memory_class: low
+    retry_policy: verify only Linux CPython 3.10 wheels; never package macOS wheels
+    evidence_class: NON_EVIDENCE_RUNTIME_DEPENDENCY
+    blocker_policy: none
+    producer_stage: external Linux wheel provisioning
+    next_action: python3 scripts/build_kaggle_wheelhouse.py --mode LOCAL_VERIFY_ONLY --wheel-root <LINUX_CP310_WHEELS>
+    cpu_io_class: light
+
+  - run_id: snapshot_preflight_qwen
+    category: dependency_preparation
+    command: python3 -m certvic.cvpr.snapshot_bundle_builder --provider qwen2_5_vl_7b --status
+    prerequisites: [baseline_validation]
+    inputs: [configs/models/certvic_cvpr_model_registry.yaml]
+    outputs: [kaggle_uploads/02_snapshots/qwen2_5_vl_7b_snapshot.zip.BUILDER_STATUS.json]
+    expected_runtime: under 5 minutes without bytes; 15-60 minutes with bytes
+    memory_class: low
+    retry_policy: resume provider download then hash every file and run local-files-only smoke
+    evidence_class: NON_EVIDENCE_MODEL_DEPENDENCY
+    blocker_policy: none
+    producer_stage: external qwen2_5_vl_7b snapshot provisioning
+    next_action: python3 scripts/build_model_snapshot_bundle.py --provider qwen2_5_vl_7b --snapshot-root <SNAPSHOT_ROOT> --model-commit <40_HEX> --processor-commit <40_HEX>
+    cpu_io_class: light
+
+  - run_id: snapshot_preflight_internvl
+    category: dependency_preparation
+    command: python3 -m certvic.cvpr.snapshot_bundle_builder --provider internvl_8b --status
+    prerequisites: [baseline_validation]
+    inputs: [configs/models/certvic_cvpr_model_registry.yaml]
+    outputs: [kaggle_uploads/02_snapshots/internvl2_8b_snapshot.zip.BUILDER_STATUS.json]
+    expected_runtime: under 5 minutes without bytes; 15-60 minutes with bytes
+    memory_class: low
+    retry_policy: resume provider download then hash every file and run local-files-only smoke
+    evidence_class: NON_EVIDENCE_MODEL_DEPENDENCY
+    blocker_policy: none
+    producer_stage: external internvl_8b snapshot provisioning
+    next_action: python3 scripts/build_model_snapshot_bundle.py --provider internvl_8b --snapshot-root <SNAPSHOT_ROOT> --model-commit <40_HEX> --processor-commit <40_HEX>
+    cpu_io_class: light
+
+  - run_id: snapshot_preflight_llava
+    category: dependency_preparation
+    command: python3 -m certvic.cvpr.snapshot_bundle_builder --provider llava_onevision_7b --status
+    prerequisites: [baseline_validation]
+    inputs: [configs/models/certvic_cvpr_model_registry.yaml]
+    outputs: [kaggle_uploads/02_snapshots/llava_onevision_7b_snapshot.zip.BUILDER_STATUS.json]
+    expected_runtime: under 5 minutes without bytes; 15-60 minutes with bytes
+    memory_class: low
+    retry_policy: resume provider download then hash every file and run local-files-only smoke
+    evidence_class: NON_EVIDENCE_MODEL_DEPENDENCY
+    blocker_policy: none
+    producer_stage: external llava_onevision_7b snapshot provisioning
+    next_action: python3 scripts/build_model_snapshot_bundle.py --provider llava_onevision_7b --snapshot-root <SNAPSHOT_ROOT> --model-commit <40_HEX> --processor-commit <40_HEX>
+    cpu_io_class: light
+
+  - run_id: data_license_overlap_inventory
+    category: data_preparation
+    command: python3 scripts/run_all_cpu_workflows.py --internal data_inventory
+    prerequisites: [baseline_validation]
+    inputs: [configs/data/source_license_registry.yaml]
+    outputs:
+      - reports/cpu_execution/CERTVIC_DATA_AVAILABILITY.csv
+      - reports/cpu_execution/CERTVIC_LICENSE_STATUS.csv
+      - reports/cpu_execution/CERTVIC_SOURCE_OVERLAP_AUDIT.csv
+    expected_runtime: under 5 minutes
+    memory_class: low
+    retry_policy: repair registry schema; never infer or fabricate a license
+    evidence_class: NON_EVIDENCE_INVENTORY
+    blocker_policy: none
+    producer_stage: source and license registry
+    next_action: resolve only registry validation errors
+    cpu_io_class: light
+
+  - run_id: first_gpu_wave_return_validation
+    category: import
+    command: python3 scripts/run_all_cpu_workflows.py --internal first_wave_returns
+    prerequisites:
+      - wheelhouse_preflight
+      - snapshot_preflight_qwen
+      - snapshot_preflight_internvl
+      - snapshot_preflight_llava
+    inputs:
+      - data/runtime/00A_environment_bundle.zip
+      - data/runtime/00B_qwen2_5_vl_7b_snapshot_bundle.zip
+      - data/runtime/00B_internvl_8b_snapshot_bundle.zip
+      - data/runtime/00B_llava_onevision_7b_snapshot_bundle.zip
+    outputs:
+      - data/runtime/00A_environment.json
+      - data/runtime/00B_qwen2_5_vl_7b_snapshot.json
+      - data/runtime/00B_internvl_8b_snapshot.json
+      - data/runtime/00B_llava_onevision_7b_snapshot.json
+      - reports/cpu_execution/first_gpu_wave_return_validation.json
+    expected_runtime: under 10 minutes after all first-wave returns arrive
+    memory_class: low
+    retry_policy: redownload corrupt ZIP; never rewrite a returned archive
+    evidence_class: NON_EVIDENCE_RUNTIME_VALIDATION
+    blocker_policy: gpu_output
+    producer_stage: Kaggle 00A and three isolated 00B runs
+    next_action: place all four unchanged return ZIPs in data/runtime and run python3 scripts/run_all_cpu_workflows.py --resume
+    cpu_io_class: archive_io_sequential
+
+  - run_id: real_smoke_preparation
+    category: data_preparation
+    command: ''
+    prerequisites: [data_license_overlap_inventory]
+    inputs: [local_inputs/smoke/real_smoke_tasks.jsonl]
+    outputs: [kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip]
+    expected_runtime: 10-30 minutes after genuine inputs arrive
+    memory_class: low
+    retry_policy: validate exactly two licensed real items and zero V1/V2 overlap
+    evidence_class: PROSPECTIVE_NON_EVIDENCE_SMOKE_INPUT
+    blocker_policy: external_bytes
+    producer_stage: genuine licensed smoke-item provisioning
+    next_action: python3 -m certvic.cvpr.smoke_input_builder --task-manifest local_inputs/smoke/real_smoke_tasks.jsonl --output kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip
+    cpu_io_class: light
+
+  - run_id: pre_smoke_permissions
+    category: authorization
+    command: ''
+    prerequisites: [first_gpu_wave_return_validation, real_smoke_preparation]
+    inputs:
+      - reports/cpu_execution/first_gpu_wave_return_validation.json
+      - kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip
+    outputs: [kaggle_uploads/04_permissions/certvic_pre_smoke_permissions.zip]
+    expected_runtime: 5-30 minutes after all first-wave returns and real smoke input exist
+    memory_class: low
+    retry_policy: bind exact 00A, all three 00B, code, prompt, parser, run contract, and task bytes
+    evidence_class: AUTHORIZATION_ONLY
+    blocker_policy: upstream_gate
+    producer_stage: validated 00A/00B returns and real two-item smoke bundle
+    next_action: python3 -m certvic.cvpr.pre_smoke_packager --config <INPUTS_JSON>
+    cpu_io_class: light
+
+  - run_id: confirmatory_source_preparation
+    category: data_preparation
+    command: ''
+    prerequisites: [data_license_overlap_inventory]
+    inputs: [local_inputs/confirmatory/source_manifest.jsonl]
+    outputs: [kaggle_uploads/05_confirmatory/certvic_confirmatory_generation_input.zip]
+    expected_runtime: 1-4 hours after licensed unseen data arrives
+    memory_class: medium
+    retry_policy: preserve exclusions and deterministic seed/shard plan
+    evidence_class: PROSPECTIVE_CANDIDATE_INPUT
+    blocker_policy: external_bytes
+    producer_stage: licensed unseen confirmatory source provisioning
+    next_action: python3 -m certvic.cvpr.confirmatory_input_builder --config <INPUT_CONFIG_JSON>
+    cpu_io_class: image_processing_sequential
+
+  - run_id: generated_edit_cpu_qa
+    category: qa
+    command: ''
+    prerequisites: [confirmatory_source_preparation]
+    inputs: [local_inputs/provider_returns/specificity_confirmatory_cvpr/confirmatory_generation_return.zip]
+    outputs: [data/studies/specificity_confirmatory_cvpr/qa_candidates.jsonl]
+    expected_runtime: 30 minutes-3 hours after GPU generation
+    memory_class: medium
+    retry_policy: resume deterministic QA without inventing missing edits
+    evidence_class: DERIVED_FROM_PROSPECTIVE_GENERATION
+    blocker_policy: gpu_output
+    producer_stage: 01 specificity confirmatory generation Kaggle run
+    next_action: download and validate confirmatory_generation_return.zip, then resume
+    cpu_io_class: image_processing_sequential
+
+  - run_id: review_packet_preparation
+    category: review_operations
+    command: ''
+    prerequisites: [generated_edit_cpu_qa]
+    inputs: [data/studies/specificity_confirmatory_cvpr/qa_candidates.jsonl]
+    outputs: [data/studies/specificity_confirmatory_cvpr/review/review_packet_manifest.json]
+    expected_runtime: 20-90 minutes after QA
+    memory_class: low
+    retry_policy: regenerate blinded packet without reviewer identities or decisions
+    evidence_class: HUMAN_REVIEW_INPUT
+    blocker_policy: upstream_gate
+    producer_stage: confirmatory CPU QA
+    next_action: generate blinded review packet and hand to genuine reviewers
+    cpu_io_class: archive_io_sequential
+
+  - run_id: exact_selection
+    category: selection_detectability
+    command: ''
+    prerequisites: [review_packet_preparation]
+    inputs: [data/studies/specificity_confirmatory_cvpr/review/final_inclusion.json]
+    outputs: [data/studies/specificity_confirmatory_cvpr/final_tasks.jsonl]
+    expected_runtime: 5-60 minutes after genuine review
+    memory_class: low
+    retry_policy: deterministic exact selection; preserve source caps and quotas
+    evidence_class: DERIVED_FROM_GENUINE_HUMAN_REVIEW
+    blocker_policy: genuine_human_review
+    producer_stage: two independent reviewers plus adjudication
+    next_action: validate genuine finalized inclusion inputs, then resume
+    cpu_io_class: light
+
+  - run_id: detectability_gate
+    category: selection_detectability
+    command: ''
+    prerequisites: [exact_selection]
+    inputs: [data/studies/specificity_confirmatory_cvpr/final_tasks.jsonl]
+    outputs: [data/studies/specificity_confirmatory_cvpr/detectability_gate.json]
+    expected_runtime: 15-90 minutes after exact selection
+    memory_class: medium
+    retry_policy: grouped folds and bootstrap bound to exact selected bytes
+    evidence_class: PROSPECTIVE_GATE
+    blocker_policy: upstream_gate
+    producer_stage: exact selection
+    next_action: run grouped detectability only on the genuine selected set
+    cpu_io_class: heavy_sequential
+
+  - run_id: freeze_and_permissions
+    category: authorization
+    command: ''
+    prerequisites: [detectability_gate]
+    inputs:
+      - data/runtime/00A_environment.json
+      - data/runtime/00B_qwen2_5_vl_7b_snapshot.json
+      - data/runtime/00B_internvl_8b_snapshot.json
+      - data/runtime/00B_llava_onevision_7b_snapshot.json
+      - data/studies/specificity_confirmatory_cvpr/detectability_gate.json
+    outputs: [data/studies/specificity_confirmatory_cvpr/execution_permission.json]
+    expected_runtime: 5-30 minutes after all gates
+    memory_class: low
+    retry_policy: issue only expiring hash-bound permissions from exact upstream artifacts
+    evidence_class: AUTHORIZATION_ONLY
+    blocker_policy: upstream_gate
+    producer_stage: 00A, all 00B, smoke, review, selection, and detectability gates
+    next_action: resume only after every real gate exists and validates
+    cpu_io_class: light
+
+  - run_id: process_kaggle_returns
+    category: import
+    command: ''
+    prerequisites: [freeze_and_permissions]
+    inputs:
+      - local_inputs/provider_returns/specificity_confirmatory_cvpr/qwen2_5_vl_7b.zip
+      - local_inputs/provider_returns/specificity_confirmatory_cvpr/internvl_8b.zip
+      - local_inputs/provider_returns/specificity_confirmatory_cvpr/llava_onevision_7b.zip
+    outputs: [data/studies/specificity_confirmatory_cvpr/canonical_import/study_import_audit.json]
+    expected_runtime: 5-45 minutes per group
+    memory_class: medium
+    retry_policy: recover journal then stage and promote all three atomically
+    evidence_class: CANONICAL_REAL_PROVIDER_RETURN
+    blocker_policy: gpu_output
+    producer_stage: confirmatory provider Kaggle matrix
+    next_action: place unchanged return ZIPs in canonical local_inputs/provider_returns path and resume
+    cpu_io_class: archive_io_sequential
+
+  - run_id: statistical_analysis
+    category: analysis
+    command: ''
+    prerequisites: [process_kaggle_returns]
+    inputs: [data/studies/specificity_confirmatory_cvpr/canonical_import/study_import_audit.json]
+    outputs: [data/studies/specificity_confirmatory_cvpr/analysis/decision_trace.json]
+    expected_runtime: 10-60 minutes per study
+    memory_class: medium
+    retry_policy: preserve raw and filtered denominators and fail closed on missingness
+    evidence_class: DERIVED_FROM_REAL_EVIDENCE
+    blocker_policy: upstream_gate
+    producer_stage: canonical transactional import
+    next_action: run canonical after-runs analysis after import validation
+    cpu_io_class: heavy_sequential
+
+  - run_id: main_cpu_preparation
+    category: main_preparation
+    command: ''
+    prerequisites: [statistical_analysis]
+    inputs: [data/studies/specificity_confirmatory_cvpr/analysis/decision_trace.json]
+    outputs: [kaggle_uploads/07_main/certvic_main_generation_input.zip]
+    expected_runtime: 1-5 hours only after confirmatory decision
+    memory_class: medium
+    retry_policy: do not authorize Main without confirmatory GO
+    evidence_class: CONDITIONAL_MAIN_INPUT
+    blocker_policy: upstream_gate
+    producer_stage: confirmatory go/no-go
+    next_action: continue only if canonical confirmatory decision authorizes Main
+    cpu_io_class: image_processing_sequential
+
+  - run_id: coco_cpu_preparation
+    category: coco_preparation
+    command: ''
+    prerequisites: [data_license_overlap_inventory]
+    inputs: [local_inputs/coco/instances_val2017.json]
+    outputs: [kaggle_uploads/09_coco/certvic_coco_generation_input.zip]
+    expected_runtime: 1-3 hours after licensed COCO assets arrive
+    memory_class: medium
+    retry_policy: remain feasibility-only and do not claim real COCO evidence
+    evidence_class: FEASIBILITY_ONLY_INPUT
+    blocker_policy: external_bytes
+    producer_stage: licensed COCO provisioning and explicit authorization
+    next_action: provision licensed COCO validation assets and source manifest, then resume
+    cpu_io_class: image_processing_sequential
+
+  - run_id: runtime_upload_map
+    category: packaging
+    command: python3 -m certvic.cvpr.build_all_kaggle_inputs --local-only
+    prerequisites: [repository_kaggle_bundles]
+    inputs: [certvic/cvpr/build_all_kaggle_inputs.py]
+    outputs:
+      - reports/kaggle_execution_pack/CERTVIC_KAGGLE_RUNTIME_ESTIMATES.csv
+      - reports/kaggle_execution_pack/CERTVIC_KAGGLE_RUNTIME_ESTIMATES.md
+      - kaggle_uploads/CERTVIC_KAGGLE_UPLOAD_MANIFEST.csv
+      - kaggle_uploads/CERTVIC_KAGGLE_DATASET_MAP.md
+    expected_runtime: 5-15 minutes
+    memory_class: medium
+    retry_policy: deterministic rebuild and manifest reconciliation
+    evidence_class: NON_EVIDENCE_EXECUTION_PLAN
+    blocker_policy: none
+    producer_stage: repository bundle factory
+    next_action: repair exact builder failure and rerun
+    cpu_io_class: archive_io_sequential
+
+  - run_id: paper_evidence_and_release
+    category: paper_release
+    command: python3 scripts/run_phase_b_cpu_workflows.py --out reports/kaggle_execution_pack/phase_b_cpu_validation
+    prerequisites: [baseline_validation, repository_kaggle_bundles]
+    inputs: [paper_cvpr/main.tex, scripts/build_maximum_ceiling_release.py]
+    outputs:
+      - paper_cvpr/main.pdf
+      - release/certvic_cvpr_pre_run_maximum.zip
+    expected_runtime: 15-60 minutes
+    memory_class: medium
+    retry_policy: compile twice, audit, clean-extract, and require byte-identical release rebuild
+    evidence_class: PRE_RUN_NON_EVIDENCE_RELEASE
+    blocker_policy: none
+    producer_stage: evidence compiler and deterministic release builder
+    next_action: repair exact guard, paper, or release audit failure without weakening it
+    cpu_io_class: heavy_sequential
+
+  - run_id: refresh_release_lineage
+    category: paper_release
+    command: python3 scripts/refresh_kaggle_release_lineage.py --include-release
+    prerequisites: [paper_evidence_and_release]
+    inputs:
+      - release/certvic_cvpr_pre_run_maximum.zip
+      - reports/max_ceiling_upgrade/artifact_registry.json
+    outputs: [reports/max_ceiling_upgrade/artifact_registry.json]
+    expected_runtime: under 5 minutes
+    memory_class: low
+    retry_policy: recompute content-addressed release identity and all affected parent references
+    evidence_class: PRE_RUN_NON_EVIDENCE_RELEASE
+    blocker_policy: none
+    producer_stage: final deterministic release build
+    next_action: repair exact release or registry lineage mismatch and rerun
+    cpu_io_class: light
+    always_run: true
+
+  - run_id: register_repository_bundles
+    category: packaging
+    command: python3 scripts/run_all_cpu_workflows.py --internal register_bundles
+    prerequisites: [refresh_release_lineage]
+    inputs:
+      - kaggle_uploads/00_code/certvic_code_bundle.zip
+      - kaggle_uploads/00_code/certvic_notebooks_bundle.zip
+      - kaggle_uploads/00_code/certvic_configs_bundle.zip
+      - kaggle_uploads/00_code/certvic_execution_tools_bundle.zip
+      - kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip
+    outputs: [reports/max_ceiling_upgrade/artifact_registry.json]
+    expected_runtime: under 5 minutes
+    memory_class: low
+    retry_policy: content-addressed idempotent registry addition then verify all registered bytes
+    evidence_class: PLANNED_NOT_EXECUTED
+    blocker_policy: none
+    producer_stage: deterministic repository bundle factory
+    next_action: repair registry lineage or hash mismatch and retry
+    cpu_io_class: light
+    always_run: true
+
+  - run_id: final_registry_verification
+    category: validation
+    command: python3 -m certvic.cvpr.artifact_registry verify
+    prerequisites: [register_repository_bundles]
+    inputs: [reports/max_ceiling_upgrade/artifact_registry.json]
+    outputs: [reports/max_ceiling_upgrade/artifact_registry.json]
+    expected_runtime: under 5 minutes
+    memory_class: low
+    retry_policy: repair exact missing or hash-mismatched artifact; never rewrite evidence identity
+    evidence_class: NON_EVIDENCE_VALIDATION
+    blocker_policy: none
+    producer_stage: content-addressed artifact registry
+    next_action: inspect registry verification error and restore exact registered bytes
+    cpu_io_class: light
+    always_run: true

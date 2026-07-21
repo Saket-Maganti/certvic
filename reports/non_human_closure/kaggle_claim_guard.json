@@ -1,0 +1,36 @@
+{
+  "bundles": [
+    {
+      "passed": true,
+      "path": "kaggle_uploads/00_code/certvic_code_bundle.zip"
+    },
+    {
+      "passed": true,
+      "path": "kaggle_uploads/00_code/certvic_configs_bundle.zip"
+    },
+    {
+      "passed": true,
+      "path": "kaggle_uploads/00_code/certvic_execution_tools_bundle.zip"
+    },
+    {
+      "passed": true,
+      "path": "kaggle_uploads/00_code/certvic_notebooks_bundle.zip"
+    },
+    {
+      "passed": true,
+      "path": "kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip"
+    }
+  ],
+  "coco_execution_allowed": false,
+  "errors": [],
+  "external_model_weight_bytes_fabricated": false,
+  "external_wheel_bytes_fabricated": false,
+  "genuine_human_reviewed_true_count": 0,
+  "main_execution_allowed": false,
+  "notebooks": 16,
+  "paper_evidence": false,
+  "passed": true,
+  "real_provider_outputs_fabricated": false,
+  "schema": "certvic.kaggle.claim_guard.v1",
+  "v2_30_role": "RETROSPECTIVE_SENSITIVITY"
+}

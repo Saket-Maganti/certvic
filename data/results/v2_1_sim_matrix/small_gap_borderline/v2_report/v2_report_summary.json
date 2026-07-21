@@ -1,0 +1,65 @@
+{
+  "certified": false,
+  "figures": [
+    {
+      "claim_status": "descriptive",
+      "command": "build_v2_report",
+      "figure_id": "consistency_gap_bar",
+      "paper_ready": true,
+      "path": "data/results/v2_1_sim_matrix/small_gap_borderline/v2_report/figures/consistency_gap_bar.png",
+      "source_data": "by_family_table"
+    },
+    {
+      "claim_status": "descriptive",
+      "command": "build_v2_report",
+      "figure_id": "cs_trajectory",
+      "paper_ready": false,
+      "path": "data/results/v2_1_sim_matrix/small_gap_borderline/v2_report/figures/cs_trajectory.png",
+      "source_data": "certification_table"
+    },
+    {
+      "claim_status": "descriptive",
+      "command": "build_v2_report",
+      "figure_id": "by_family_heatmap",
+      "paper_ready": true,
+      "path": "data/results/v2_1_sim_matrix/small_gap_borderline/v2_report/figures/by_family_heatmap.png",
+      "source_data": "by_family_table"
+    },
+    {
+      "claim_status": "descriptive",
+      "command": "build_v2_report",
+      "figure_id": "parse_failure",
+      "paper_ready": true,
+      "path": "data/results/v2_1_sim_matrix/small_gap_borderline/v2_report/figures/parse_failure.png",
+      "source_data": "parser_sensitivity_table"
+    },
+    {
+      "claim_status": "descriptive",
+      "command": "build_v2_report",
+      "figure_id": "control_spurious_flip",
+      "paper_ready": true,
+      "path": "data/results/v2_1_sim_matrix/small_gap_borderline/v2_report/figures/control_spurious_flip.png",
+      "source_data": "control_edit_table"
+    },
+    {
+      "claim_status": "descriptive",
+      "command": "build_v2_report",
+      "figure_id": "sample_count",
+      "paper_ready": true,
+      "path": "data/results/v2_1_sim_matrix/small_gap_borderline/v2_report/figures/sample_count.png",
+      "source_data": "by_family_table"
+    }
+  ],
+  "n": 200,
+  "out_dir": "data/results/v2_1_sim_matrix/small_gap_borderline/v2_report",
+  "simulation_only": true,
+  "tables": [
+    "main_results_table",
+    "by_family_table",
+    "by_domain_table",
+    "by_edit_type_table",
+    "control_edit_table",
+    "parser_sensitivity_table",
+    "certification_table"
+  ]
+}

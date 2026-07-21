@@ -1,0 +1,52 @@
+{
+  "answer_distribution": [
+    {
+      "count": 120,
+      "fraction": 0.6593,
+      "parsed_answer": "no",
+      "provider": "qwen2_5_vl_7b"
+    },
+    {
+      "count": 62,
+      "fraction": 0.3407,
+      "parsed_answer": "yes",
+      "provider": "qwen2_5_vl_7b"
+    }
+  ],
+  "any_flags": false,
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "flagged_providers": [],
+  "n_parse_failures": 0,
+  "n_predictions": 182,
+  "n_suspicious": 0,
+  "preds_path": "/tmp/vlmout/pred_qwen2_5_vl_7b_merged.jsonl",
+  "provider_stats": [
+    {
+      "answer_prior_flag": false,
+      "degenerate_repeat_flag": false,
+      "high_parse_failure_flag": false,
+      "high_refusal_flag": false,
+      "mean_latency_s": 1.387,
+      "mean_output_chars": 2.3,
+      "mode_answer": "no",
+      "mode_answer_fraction": 0.6593,
+      "n": 182,
+      "n_unique_raw": 2,
+      "parse_ok_rate": 1.0,
+      "provider": "qwen2_5_vl_7b",
+      "refusal_rate": 0.0,
+      "top_repeat_fraction": 0.6593
+    }
+  ],
+  "tasks_path": "data/results/main_real_200/pilot_eval_taskitems.jsonl",
+  "thresholds": {
+    "answer_prior_fraction": 0.9,
+    "degenerate_repeat_fraction": 0.9,
+    "long_output_chars": 200,
+    "parse_ok_min": 0.8,
+    "refusal_max": 0.2
+  },
+  "triage": "model_output_triage",
+  "vlm_inference_run": false
+}

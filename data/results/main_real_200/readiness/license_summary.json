@@ -1,0 +1,8 @@
+{
+  "default_license_category": "pointer_only",
+  "default_release_mode": "recipe_only",
+  "paid_services_used": false,
+  "pixels_rehostable_by_default": false,
+  "policy": "recipe_first_pointer_aware",
+  "redistribution_allowed_by_default": false
+}

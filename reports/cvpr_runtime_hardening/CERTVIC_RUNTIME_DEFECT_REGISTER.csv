@@ -1,0 +1,14 @@
+defect_id,confirmed_lead,status,paper_evidence
+D01,generation notebooks omitted explicit run bound,REPAIRED_LOCAL_SYNTHETIC,False
+D02,required path selected disabled diffusion stub,REPAIRED_DETERMINISTIC_PATH_OPTIONAL_OFFLINE_API,False
+D03,worker batch/OOM/fail/resume flags decorative,REPAIRED_LOCAL_SYNTHETIC,False
+D04,partial/complete shards trusted without contract validation,REPAIRED_LOCAL_SYNTHETIC,False
+D05,code ZIP verified but not safely extracted/imported,REPAIRED_LOCAL_SYNTHETIC,False
+D06,revision locks declarative only,REPAIRED_IMPLEMENTATION_EXTERNAL_SNAPSHOTS_PENDING,False
+D07,InternVL fixed 448 resize and BF16 on T4,REPAIRED_IMPLEMENTATION_KAGGLE_SMOKE_PENDING,False
+D08,candidate miner stopped at census,REPAIRED_LOCAL_SYNTHETIC_SOURCE_CENSUS_PENDING,False
+D09,review infrastructure lacked visual/training/agreement operations,REPAIRED_IMPLEMENTATION_HUMANS_PENDING,False
+D10,importer incomplete and per-provider promotion,REPAIRED_LOCAL_SYNTHETIC,False
+D11,post-run analysis incomplete,REPAIRED_SYNTHETIC_REAL_INPUTS_PENDING,False
+D12,notebook tests static only,REPAIRED_LEVEL1_LOCAL_LEVEL3_PENDING,False
+D13,paper and release were thin scaffolds,REPAIRED_RESULT_SECTIONS_STILL_BLOCKED,False

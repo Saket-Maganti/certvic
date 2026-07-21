@@ -1,0 +1,6 @@
+lane,status,estimated_runtime
+main500_planning,ready_plan,CPU 10-30 min
+main500_diffusion,blocked_until_spurious_gate_passes,Kaggle T4x2 6-8 hr
+main500_quality_detectability,planned,CPU 15-60 min
+main500_human_review,planned,20-25 hr
+main500_vlm,planned,"model dependent, estimate from measured per-generation rates"

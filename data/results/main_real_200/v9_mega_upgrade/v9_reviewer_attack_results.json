@@ -1,0 +1,106 @@
+{
+  "attacks": [
+    {
+      "attack": "edits create artifacts",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "partially answered"
+    },
+    {
+      "attack": "Qwen specificity failure invalidates method",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "partially answered"
+    },
+    {
+      "attack": "91-item pilot too small",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "blocked"
+    },
+    {
+      "attack": "human validation missing",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "blocked"
+    },
+    {
+      "attack": "diagnostics are not evidence",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "partially answered"
+    },
+    {
+      "attack": "patch salience confound",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "partially answered"
+    },
+    {
+      "attack": "prompt polarity confound",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "partially answered"
+    },
+    {
+      "attack": "dataset/domain narrowness",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "partially answered"
+    },
+    {
+      "attack": "no completed Main-500 weakness",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "blocked"
+    },
+    {
+      "attack": "statistical optional stopping",
+      "evidence_paths": [
+        "data/results/main_real_200/v9_mega_upgrade/SPECIFICITY_BRANCH_DECISION.md",
+        "data/results/main_real_200/v9_mega_upgrade/MAIN500_GO_NOGO_AFTER_SPECIFICITY.md"
+      ],
+      "next_experiment": "Run Spurious V2, fill real human review, then Main-500 if gate opens.",
+      "rebuttal_draft": "We agree this is a current limitation and report the boundary explicitly.",
+      "status": "partially answered"
+    }
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.v9.reviewer_attack_results.v1"
+}

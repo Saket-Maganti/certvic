@@ -1,0 +1,23 @@
+{
+  "schema": "certvic.phase_c.post_review_synthetic_validation.v1",
+  "status": "PASS",
+  "runs": [
+    {
+      "command": "python3 scripts/run_all_cpu_workflows.py --resume-after-human-review --synthetic-fixture --synthetic-out reports/non_human_closure/synthetic_after_human_review",
+      "continuation": "AFTER_HUMAN_REVIEW",
+      "closure_status": "SYNTHETIC_ALL_STUDY_ROUTES_COMPLETE",
+      "routes": ["coco", "confirmatory", "main"],
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/run_all_cpu_workflows.py --resume-after-confirmatory-returns --synthetic-fixture --synthetic-out reports/non_human_closure/synthetic_after_confirmatory_returns",
+      "continuation": "AFTER_CONFIRMATORY_RETURNS",
+      "closure_status": "SYNTHETIC_ALL_STUDY_ROUTES_COMPLETE",
+      "routes": ["coco", "confirmatory", "main"],
+      "exit_code": 0
+    }
+  ],
+  "synthetic_fixture": true,
+  "paper_evidence": false,
+  "human_reviewed": false
+}

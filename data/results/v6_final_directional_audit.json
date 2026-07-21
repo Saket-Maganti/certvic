@@ -1,0 +1,57 @@
+{
+  "audit": "v6_final_directional_audit",
+  "checks": [
+    {
+      "errors": [],
+      "name": "v6_modules_import",
+      "passed": true
+    },
+    {
+      "missing": [],
+      "name": "v6_required_files_exist",
+      "passed": true
+    },
+    {
+      "name": "identity_audit_passes",
+      "passed": true
+    },
+    {
+      "name": "visual_story_manifests_pass",
+      "passed": true
+    },
+    {
+      "name": "open_only_audit_passes",
+      "passed": true
+    },
+    {
+      "name": "related_work_tasks_pass",
+      "passed": true
+    },
+    {
+      "name": "proof_bridge_passes",
+      "passed": true
+    },
+    {
+      "findings": [],
+      "name": "directional_language_guard_passes",
+      "passed": true
+    },
+    {
+      "name": "no_evidence_claims",
+      "passed": true
+    },
+    {
+      "name": "no_obvious_fake_numbers",
+      "passed": true
+    }
+  ],
+  "deciding_number": "tiny-pilot edit detectability AUC",
+  "downloads_attempted": false,
+  "evidence_claims_made": false,
+  "gpu_jobs_run": false,
+  "n_checks": 10,
+  "n_passed": 10,
+  "next_action": "Run the ADE20K dry-run, then the 20-edit diffusion pilot, then edit detectability.",
+  "passed": true,
+  "vlm_inference_run": false
+}

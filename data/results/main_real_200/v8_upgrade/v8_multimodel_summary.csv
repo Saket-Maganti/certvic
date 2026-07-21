@@ -1,0 +1,4 @@
+provider,presence_n,presence_gap,cs_lower_bound,presence_certified,spurious_flip_rate,spurious_gate_pass,scaled_perception_n
+qwen2_5_vl_7b,91,0.7472527472527473,0.36395841718089605,False,0.1277,False,369
+internvl_8b,91,0.8241758241758242,0.4408814941039729,False,0.0106,True,369
+llava_onevision_7b,91,0.7472527472527473,0.36395841718089605,False,0.0319,True,369

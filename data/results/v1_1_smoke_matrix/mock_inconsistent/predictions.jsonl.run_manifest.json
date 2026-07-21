@@ -1,0 +1,23 @@
+{
+  "command_args": {
+    "config": "configs/smoke.yaml",
+    "dry_run": false,
+    "max_items": 12,
+    "num_shards": 1,
+    "out": "data/results/v1_1_smoke_matrix/mock_inconsistent/predictions.jsonl",
+    "overwrite": true,
+    "provider": "mock_inconsistent",
+    "run_id": "v1_1_mock_inconsistent",
+    "shard_index": 0,
+    "strict_leakage": false,
+    "tasks": "data/results/v1_1_smoke_matrix/smoke_tasks.jsonl"
+  },
+  "config_hash": "1b14f35613ad4b65fd90a3ad108058f8998aeda18e689e1f1fdeb073a80b4722",
+  "metadata": {},
+  "paid_services_used": false,
+  "provider": "mock_inconsistent",
+  "run_id": "v1_1_mock_inconsistent",
+  "task_manifest_hash": "8650f5543dc83e53b89bb3d37a7de9218ba770c8dc91f83010549bfd8838cdff",
+  "timestamp_utc": "2026-06-21T11:23:53.834034+00:00",
+  "zero_cost_policy_ack": true
+}

@@ -1,0 +1,22 @@
+{
+  "by_edit_type": {
+    "control_irrelevant": 65,
+    "displace": 64,
+    "occlude": 6,
+    "remove": 33
+  },
+  "evidence_status": "GENERATED_EDIT_ONLY",
+  "generated_edits_are_evidence": false,
+  "generated_manifest_rows": 168,
+  "human_validity_required": true,
+  "quality_failed": 65,
+  "quality_passed": 103,
+  "rejected_rows": 0,
+  "rejection_reasons": {},
+  "vlm_inference_run": false,
+  "warning_counts": {
+    "control edit changed too much of the image": 2,
+    "control edit mean difference too large": 3,
+    "outside allowed change too large": 65
+  }
+}
