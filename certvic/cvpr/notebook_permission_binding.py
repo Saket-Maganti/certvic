@@ -66,6 +66,9 @@ def derive_permission_binding(
     paths: dict[str, str] = {}
     hashes: dict[str, str] = {}
     source_variables: dict[str, str] = {}
+    authenticated_identities = variables.get("AUTHENTICATED_CONTENT_IDENTITIES", {})
+    if not isinstance(authenticated_identities, Mapping):
+        raise NotebookPermissionBindingError("authenticated content identities must be a mapping")
     for variable, role in PATH_VARIABLES.items():
         if variable == "MATRIX_AUTHORIZATION" and not enforce_final_binding:
             continue
@@ -78,7 +81,16 @@ def derive_permission_binding(
         paths[role] = str(value)
         source_variables[role] = variable
         if path.is_file():
-            hashes[role] = hashlib.sha256(path.read_bytes()).hexdigest()
+            override = authenticated_identities.get(role)
+            if override is not None:
+                value = str(override)
+                if len(value) != 64 or any(character not in "0123456789abcdef" for character in value):
+                    raise NotebookPermissionBindingError(
+                        f"authenticated content identity is invalid: {role}"
+                    )
+                hashes[role] = value
+            else:
+                hashes[role] = hashlib.sha256(path.read_bytes()).hexdigest()
     scalars: dict[str, str] = {}
     for variable, role in SCALAR_VARIABLES.items():
         if variable == "PROMPT_TEMPLATE_HASH" and not enforce_final_binding:

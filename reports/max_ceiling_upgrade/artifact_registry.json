@@ -28,6 +28,19 @@
     },
     {
       "aliases": [],
+      "artifact_id": "2b31ecbd0e4fb37b5e45d686",
+      "created_at_utc": "2026-07-21T02:47:49.434981+00:00",
+      "evidence_class": "PLANNED_NOT_EXECUTED",
+      "immutable_location": "kaggle_uploads/00_code/certvic_notebooks_bundle.zip",
+      "parent_artifacts": [],
+      "role": "kaggle_repository_bundle:certvic_notebooks_bundle.zip",
+      "schema": "certvic.kaggle.bundle_manifest.v1",
+      "sha256": "b268cd84be7b8976b30b36b98b7bf58c5e8985fc4b5139d1ab1d0945f4b27ae2",
+      "size": 196297,
+      "study": "all"
+    },
+    {
+      "aliases": [],
       "artifact_id": "3327d66e4cd01efc2b9eaf18",
       "created_at_utc": "2026-07-19T04:30:45.076118+00:00",
       "evidence_class": "HUMAN_REVIEW_PENDING",
@@ -38,19 +51,6 @@
       "sha256": "6fd454266932ab58bcc839427e80f68f57fce60d0ea10757b627ba015e6af87c",
       "size": 1515,
       "study": "specificity_confirmatory_cvpr"
-    },
-    {
-      "aliases": [],
-      "artifact_id": "366bbfd33717f4f4a51f221d",
-      "created_at_utc": "2026-07-21T02:47:49.436172+00:00",
-      "evidence_class": "PLANNED_NOT_EXECUTED",
-      "immutable_location": "kaggle_uploads/00_code/certvic_execution_tools_bundle.zip",
-      "parent_artifacts": [],
-      "role": "kaggle_repository_bundle:certvic_execution_tools_bundle.zip",
-      "schema": "certvic.kaggle.bundle_manifest.v1",
-      "sha256": "d06e1d6a25ae6689dfc5a5d3b8e37170f46c567ea25ffb2b669acc0ca8f3c1b8",
-      "size": 121856,
-      "study": "all"
     },
     {
       "aliases": [],
@@ -67,19 +67,6 @@
     },
     {
       "aliases": [],
-      "artifact_id": "3d0df776eb44e6986a2d2883",
-      "created_at_utc": "2026-07-19T04:31:36.858675+00:00",
-      "evidence_class": "PLANNED_NOT_EXECUTED",
-      "immutable_location": "certvic/cvpr/notebook_builder.py",
-      "parent_artifacts": [],
-      "role": "prompt",
-      "schema": "certvic.cvpr.prompt_source.v1",
-      "sha256": "9c1f4dc4fd0fea6efbaa00332d7ea7945e4451b7c2c817ff223c686c84bed9b8",
-      "size": 69699,
-      "study": "all"
-    },
-    {
-      "aliases": [],
       "artifact_id": "3d493c905ea54010cf5d3f6d",
       "created_at_utc": "2026-07-19T04:31:37.043682+00:00",
       "evidence_class": "PLANNED_NOT_EXECUTED",
@@ -90,6 +77,19 @@
       "sha256": "2aa80e35823e7bcc9477c0a281e227eb281270a146f9cb7aae5186c94b880571",
       "size": 6705,
       "study": "all"
+    },
+    {
+      "aliases": [],
+      "artifact_id": "493d26ee2cc7cb0a52234a0c",
+      "created_at_utc": "2026-07-19T04:42:08.184936+00:00",
+      "evidence_class": "PLANNED_NOT_EXECUTED",
+      "immutable_location": "reports/max_ceiling_upgrade/pre_run_reproducibility_capsule_sealed.json",
+      "parent_artifacts": [],
+      "role": "reproducibility_capsule",
+      "schema": "certvic.cvpr.reproducibility_capsule.v1",
+      "sha256": "a5fe0b9ff8c9bdd1ae5195a5eaf956bf6748bc854e0fdf57d530818e32b255ec",
+      "size": 2922,
+      "study": "specificity_confirmatory_cvpr"
     },
     {
       "aliases": [],
@@ -119,6 +119,32 @@
     },
     {
       "aliases": [],
+      "artifact_id": "6a244b4b84df040e27ebcca3",
+      "created_at_utc": "2026-07-19T04:31:36.858675+00:00",
+      "evidence_class": "PLANNED_NOT_EXECUTED",
+      "immutable_location": "certvic/cvpr/notebook_builder.py",
+      "parent_artifacts": [],
+      "role": "prompt",
+      "schema": "certvic.cvpr.prompt_source.v1",
+      "sha256": "7f94d29e3d2ee18d6f38de90cc73e780628129dd91ece044e33ee9532c234595",
+      "size": 102508,
+      "study": "all"
+    },
+    {
+      "aliases": [],
+      "artifact_id": "6acb80d1427263f08c2089af",
+      "created_at_utc": "2026-07-21T02:47:49.436748+00:00",
+      "evidence_class": "PLANNED_NOT_EXECUTED",
+      "immutable_location": "kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip",
+      "parent_artifacts": [],
+      "role": "kaggle_repository_bundle:certvic_synthetic_validation_bundle.zip",
+      "schema": "certvic.kaggle.bundle_manifest.v1",
+      "sha256": "1816c27b2de6155b6add2f993277cf2c0050eec8c676e09e9590f0532a7b6075",
+      "size": 37962,
+      "study": "all"
+    },
+    {
+      "aliases": [],
       "artifact_id": "70337748f1e08910ca566e22",
       "created_at_utc": "2026-07-19T04:30:44.798004+00:00",
       "evidence_class": "PLANNED_NOT_EXECUTED",
@@ -145,16 +171,16 @@
     },
     {
       "aliases": [],
-      "artifact_id": "7aeff09fc278e38012b74ab3",
-      "created_at_utc": "2026-07-19T04:39:44.450503+00:00",
+      "artifact_id": "7a422c8d5cad0006b7e3f363",
+      "created_at_utc": "2026-07-21T02:47:49.435562+00:00",
       "evidence_class": "PLANNED_NOT_EXECUTED",
-      "immutable_location": "reports/max_ceiling_upgrade/pre_run_reproducibility_capsule_final.json",
+      "immutable_location": "kaggle_uploads/00_code/certvic_configs_bundle.zip",
       "parent_artifacts": [],
-      "role": "reproducibility_capsule",
-      "schema": "certvic.cvpr.reproducibility_capsule.v1",
-      "sha256": "8a8c245aec04e450840712b6877643ec0c782f92f3a9f5d8601d631b26b4073b",
-      "size": 2921,
-      "study": "specificity_confirmatory_cvpr"
+      "role": "kaggle_repository_bundle:certvic_configs_bundle.zip",
+      "schema": "certvic.kaggle.bundle_manifest.v1",
+      "sha256": "4095c4b947a4d1fbfe67cca32ea3861b4782dde19da62184d38c0baf869dcd40",
+      "size": 45814,
+      "study": "all"
     },
     {
       "aliases": [],
@@ -167,19 +193,6 @@
       "schema": "certvic.cvpr.environment_lock.v1",
       "sha256": "d18b5920c529a12a74b5ac9099b6da8e24771ed232b9096a1a71bab0d3a1d94a",
       "size": 1199,
-      "study": "all"
-    },
-    {
-      "aliases": [],
-      "artifact_id": "832c42075ed145d2876c7675",
-      "created_at_utc": "2026-07-21T02:47:49.436748+00:00",
-      "evidence_class": "PLANNED_NOT_EXECUTED",
-      "immutable_location": "kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip",
-      "parent_artifacts": [],
-      "role": "kaggle_repository_bundle:certvic_synthetic_validation_bundle.zip",
-      "schema": "certvic.kaggle.bundle_manifest.v1",
-      "sha256": "bb80db8bcb15e3f2d00a8f7f8665bc8606479b141976d66904126cfec04b6b81",
-      "size": 37638,
       "study": "all"
     },
     {
@@ -223,28 +236,41 @@
     },
     {
       "aliases": [],
-      "artifact_id": "a1b9f898ff0f304972fe4261",
-      "created_at_utc": "2026-07-21T02:47:49.435562+00:00",
+      "artifact_id": "a32cd62d8c24d36c1439e314",
+      "created_at_utc": "2026-07-19T04:39:44.450503+00:00",
       "evidence_class": "PLANNED_NOT_EXECUTED",
-      "immutable_location": "kaggle_uploads/00_code/certvic_configs_bundle.zip",
+      "immutable_location": "reports/max_ceiling_upgrade/pre_run_reproducibility_capsule_final.json",
       "parent_artifacts": [],
-      "role": "kaggle_repository_bundle:certvic_configs_bundle.zip",
+      "role": "reproducibility_capsule",
+      "schema": "certvic.cvpr.reproducibility_capsule.v1",
+      "sha256": "376fe11cc3a7be437f1240a9ab222c281ff0af1537bbdea6557c29596e46a88e",
+      "size": 2921,
+      "study": "specificity_confirmatory_cvpr"
+    },
+    {
+      "aliases": [],
+      "artifact_id": "c9d1598a30abbc20d41ae380",
+      "created_at_utc": "2026-07-21T02:47:49.436172+00:00",
+      "evidence_class": "PLANNED_NOT_EXECUTED",
+      "immutable_location": "kaggle_uploads/00_code/certvic_execution_tools_bundle.zip",
+      "parent_artifacts": [],
+      "role": "kaggle_repository_bundle:certvic_execution_tools_bundle.zip",
       "schema": "certvic.kaggle.bundle_manifest.v1",
-      "sha256": "0a10cf9b570dd7769d2c24c84d406be1d7c64cc0fabd774c4354572a7bda1db8",
-      "size": 45697,
+      "sha256": "b676b4829088cbf8ce2166de0fd2f335d5cfc5e9de2523d81dbf59de817c9a19",
+      "size": 132032,
       "study": "all"
     },
     {
       "aliases": [],
-      "artifact_id": "c79556883b3d773d0e39eac1",
+      "artifact_id": "caf1bad8f2c653321e934570",
       "created_at_utc": "2026-07-19T04:42:47.107116+00:00",
       "evidence_class": "PLANNED_NOT_EXECUTED",
       "immutable_location": "release/certvic_cvpr_pre_run_maximum.zip",
       "parent_artifacts": [],
       "role": "release",
       "schema": "certvic.cvpr.maximum_release.v1",
-      "sha256": "7c4c3b6330fb286370ec0514acdfa391df8399c0098bab96eaeb29e0d7608cad",
-      "size": 2740613,
+      "sha256": "5f891d776a196aa6402c7934c31c1bbf35df9e0882af8a593e0f9a566500d645",
+      "size": 2886229,
       "study": "all"
     },
     {
@@ -262,41 +288,15 @@
     },
     {
       "aliases": [],
-      "artifact_id": "eaf07567da1deb83c82d518e",
-      "created_at_utc": "2026-07-21T02:47:49.434981+00:00",
-      "evidence_class": "PLANNED_NOT_EXECUTED",
-      "immutable_location": "kaggle_uploads/00_code/certvic_notebooks_bundle.zip",
-      "parent_artifacts": [],
-      "role": "kaggle_repository_bundle:certvic_notebooks_bundle.zip",
-      "schema": "certvic.kaggle.bundle_manifest.v1",
-      "sha256": "db5fbd9cd7e342761036fb422bb41ddaad888310a37182434e42db3cf9fe319b",
-      "size": 146054,
-      "study": "all"
-    },
-    {
-      "aliases": [],
-      "artifact_id": "ee411fec7d9fb1c8e8c6ebcb",
-      "created_at_utc": "2026-07-19T04:42:08.184936+00:00",
-      "evidence_class": "PLANNED_NOT_EXECUTED",
-      "immutable_location": "reports/max_ceiling_upgrade/pre_run_reproducibility_capsule_sealed.json",
-      "parent_artifacts": [],
-      "role": "reproducibility_capsule",
-      "schema": "certvic.cvpr.reproducibility_capsule.v1",
-      "sha256": "3abfd0e9159c3cfd9b403388dd28e1c89b859ee1a90a9ccd3d9f264e970ec5cf",
-      "size": 2922,
-      "study": "specificity_confirmatory_cvpr"
-    },
-    {
-      "aliases": [],
-      "artifact_id": "f5f6712104b645b013a40987",
+      "artifact_id": "ef6698ad6e15e55b95e77409",
       "created_at_utc": "2026-07-21T02:47:49.433821+00:00",
       "evidence_class": "PLANNED_NOT_EXECUTED",
       "immutable_location": "kaggle_uploads/00_code/certvic_code_bundle.zip",
       "parent_artifacts": [],
       "role": "kaggle_repository_bundle:certvic_code_bundle.zip",
       "schema": "certvic.kaggle.bundle_manifest.v1",
-      "sha256": "e670d70146f79471d0163fbf6024b49aa1a068befb769b2d6ac345e730ffb46e",
-      "size": 1167565,
+      "sha256": "0873a95e99550faa939706783d38b1c4c2cadc0026931df6ccd6c4b82a58df30",
+      "size": 1184393,
       "study": "all"
     },
     {
@@ -314,6 +314,6 @@
     }
   ],
   "paper_evidence": false,
-  "registry_hash": "3b39234862075e8f3f3f99bb8bcd6912b91648b58e366f5ff6e8692a5ba5082a",
+  "registry_hash": "bd055f96cc286f514f20fb1c3bd4f69dd6b1699d3401b3e437acec310e18ae5b",
   "schema": "certvic.cvpr.artifact_registry.v1"
 }

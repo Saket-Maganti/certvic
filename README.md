@@ -53,10 +53,11 @@ artifact registry, reproducibility capsule, notebook runner, license registry, c
 paper compiler, and deterministic release builder all fail closed and keep pre-run outputs at
 `paper_evidence=false`.
 
-The required repaired full-project replacement ZIP was not available during the maximum-ceiling
-migration. Accordingly, repository replacement remains an explicit blocker even though the active
-runtime baseline and local upgrade paths validate. No patch-only or historical release ZIP was used
-as a substitute.
+All 20 active Kaggle runbooks use authenticated content discovery. The same immutable bundles work
+from any Kaggle account under any dataset title, archive name or extension, mount, nesting, and
+notebook filename. Canonical upload labels are recommendations only; scientific identity and
+permissions bind verified content. See
+`reports/non_human_closure/CERTVIC_MULTI_ACCOUNT_KAGGLE_HANDOFF.md`.
 
 ## Original scaffold quickstart
 

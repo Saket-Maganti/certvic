@@ -92,6 +92,7 @@ def _local_specs() -> dict[str, dict[str, Any]]:
         "generation_input_builder.py", "scientific_input_builder.py", "t4x2.py",
         "notebook_bootstrap.py", "build_all_kaggle_inputs.py", "notebook_runner.py",
         "notebook_validation.py", "import_transaction.py", "whole_study_import.py",
+        "content_discovery.py",
         "package_generation.py", "package_run.py", "worker.py", "kaggle_claim_guard.py",
         "post_review_pipeline.py", "non_human_continuation.py", "primary_endpoint.py",
     }
@@ -134,7 +135,7 @@ def _local_specs() -> dict[str, dict[str, Any]]:
             "files": notebook_files,
             "type": "NOTEBOOKS",
             "slug": "certvic/certvic-runbooks",
-            "readme": "The 20 output-free canonical runbooks. Smoke-stage notebooks discover exact private datasets and require no manual configuration edits.",
+            "readme": "The 20 output-free canonical runbooks. Every active notebook discovers authenticated content under arbitrary private dataset names and requires no manual configuration edits.",
         },
         "certvic_configs_bundle.zip": {
             "files": config_files,
@@ -386,13 +387,17 @@ def _notebook_rows(local: list[dict[str, Any]]) -> list[dict[str, Any]]:
         rows.append({
             "notebook": name,
             "required_zips": ";".join(required),
-            "kaggle_dataset_slug": "see CERTVIC_KAGGLE_DATASET_MAP.md",
-            "mount_path": "/kaggle/input/<exact-dataset-slug>",
+            "kaggle_dataset_slug": "ANY_OWNER_AND_DATASET_TITLE",
+            "mount_path": "ANY_NESTING_UNDER_CERTVIC_INPUT_ROOTS",
+            "discovery_policy": "CONTENT_AUTHENTICATED_ANY_LOCATION",
+            "owner_binding_required": False,
+            "filename_binding_required": False,
+            "path_binding_required": False,
             "size": "see bundle rows and external estimates",
             "status": "CREATED_AND_VALIDATED" if not external else "BUILDER_READY_BLOCKED_BY_EXTERNAL_BYTES",
             "builder": "python3 -m certvic.cvpr.build_all_kaggle_inputs --local-only",
             "code_bundle_sha256": local_hashes.get("certvic_code_bundle.zip", ""),
-            "user_action": "attach exact private datasets; keep Internet off; no notebook edits required",
+            "user_action": "attach authenticated roles under any account/name/mount; keep Internet off; no notebook edits required",
             "expected_output_zip": return_name,
             "next_local_command": (
                 "python3 scripts/run_all_cpu_workflows.py --resume"
@@ -483,31 +488,32 @@ def write_reports(local: list[dict[str, Any]], external: list[dict[str, Any]]) -
     dataset_lines = [
         "# CertVIC Kaggle Dataset Map",
         "",
-        "Do not rename ZIPs, edit manifests, or guess mounts. Publish each ZIP as the private dataset slug stored in its `bundle_manifest.json`; the shared bootstrap discovers and verifies exactly one match.",
+        "Upload identical authenticated bundle bytes to any Kaggle account under any dataset title, archive name, extension, mount, or nesting. Canonical labels below are recommendations only. Never edit authenticated bundle contents or manifests.",
         "",
         "## Repository-byte datasets",
         "",
-        "| ZIP | Private dataset slug | Mount |",
+        "| Recommended ZIP label | Recommended dataset label | Discovery role |",
         "| --- | --- | --- |",
     ]
     for row in local:
         manifest = verify_bundle(row["path"])["bundle_manifest"]
+        recommended_label = str(manifest["expected_kaggle_dataset_slug"]).split("/", 1)[-1]
         dataset_lines.append(
-            f"| `{row['name']}` | `{manifest['expected_kaggle_dataset_slug']}` | `{manifest['mount_path']}` |"
+            f"| `{row['name']}` | `{recommended_label}` | `{manifest['bundle_type']}` |"
         )
     dataset_lines += [
-        "| `certvic_offline_wheelhouse.zip` | `certvic/certvic-offline-wheelhouse` | `/kaggle/input/certvic-offline-wheelhouse` |",
-        "| `qwen2_5_vl_7b_snapshot.zip` | `certvic/qwen2-5-vl-7b-snapshot` | `/kaggle/input/qwen2-5-vl-7b-snapshot` |",
-        "| `internvl2_8b_snapshot.zip` | `certvic/internvl2-8b-snapshot` | `/kaggle/input/internvl2-8b-snapshot` |",
-        "| `llava_onevision_7b_snapshot.zip` | `certvic/llava-onevision-7b-snapshot` | `/kaggle/input/llava-onevision-7b-snapshot` |",
-        "| `certvic_real_two_item_smoke_bundle.zip` | `certvic/certvic-real-two-item-smoke` | `/kaggle/input/certvic-real-two-item-smoke` |",
-        "| `certvic_pre_smoke_permissions.zip` | `certvic/certvic-pre-smoke-permissions` | `/kaggle/input/certvic-pre-smoke-permissions` |",
+        "| `certvic_offline_wheelhouse.zip` | `certvic-offline-wheelhouse` | `OFFLINE_LINUX_WHEELHOUSE` |",
+        "| `qwen2_5_vl_7b_snapshot.zip` | `qwen2-5-vl-7b-snapshot` | `MODEL_SNAPSHOT` |",
+        "| `internvl2_8b_snapshot.zip` | `internvl2-8b-snapshot` | `MODEL_SNAPSHOT` |",
+        "| `llava_onevision_7b_snapshot.zip` | `llava-onevision-7b-snapshot` | `MODEL_SNAPSHOT` |",
+        "| `certvic_real_two_item_smoke_bundle.zip` | `certvic-real-two-item-smoke` | `REAL_TWO_ITEM_SMOKE` |",
+        "| `certvic_pre_smoke_permissions.zip` | `certvic-pre-smoke-permissions` | `PRE_SMOKE_PERMISSIONS` |",
     ]
     dataset_lines += [
         "", "## Execution order", "",
-        "The seven 00A/00B/00C2 notebooks require no manual configuration edits.",
+        "All 20 active notebooks require no manual path, owner, slug, filename, hash, provider, or permission edits.",
         "",
-        "1. Attach code, configs, tools, and the Linux wheelhouse; run 00A.",
+        "1. Attach CODE, CONFIGS, EXECUTION_TOOLS, and OFFLINE_LINUX_WHEELHOUSE under any names; run 00A.",
         "2. Attach one immutable snapshot at a time; run 00B for all three providers.",
         "3. Build permissions only from returned 00A/00B bytes and the real two-item smoke bundle.",
         "4. Run 00C2 for Qwen, InternVL, and LLaVA; import all returns through the transactional handoff.",

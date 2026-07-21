@@ -382,7 +382,8 @@ def test_notebooks_config_and_internvl_contract_are_runtime_hardened() -> None:
         assert smoke in NOTEBOOKS
     text = "\n".join(path.read_text() for path in (ROOT / "notebooks/kaggle/cvpr").glob("*.ipynb"))
     assert "diffusers_inpaint_optional" not in text
-    assert "--max-items" in text and "--allow-full-run" in text
+    assert "bounded_rows = rows if MAX_ITEMS is None else rows[:MAX_ITEMS]" in text
+    assert "--allow-full-run" in text
     assert "NON_EVIDENCE_RUNTIME_SMOKE" in text
     registry = load_yaml(ROOT / "configs/studies/specificity_confirmatory_cvpr.yaml")
     assert len(registry["design"]["category_targets"]) == 12

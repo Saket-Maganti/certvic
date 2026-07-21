@@ -10,6 +10,7 @@
     "task_freeze",
     "review_ledger",
     "detectability_gate",
+    "smoke_gate",
     "environment_lock",
     "model_registry",
     "snapshot_manifest",

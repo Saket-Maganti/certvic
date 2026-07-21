@@ -363,15 +363,18 @@ import hashlib
 import json
 import zipfile
 from certvic.cvpr.t4x2 import assign_shards, derive_seed_manifest, detect_topology
-from certvic.cvpr.notebook_bootstrap import materialize_dataset
+from certvic.cvpr.content_discovery import discover_authenticated_input
 
 cfg = CERTVIC_CONFIG
-mounted = materialize_dataset(
-    slug="certvic/zero-edit-proof", filename="zero_edit_fixture.zip",
-    expected_type="SYNTHETIC_ZERO_EDIT_MOUNT",
-    input_root=cfg["fixture_input_root"], destination=cfg["fixture_working_root"],
+mounted = discover_authenticated_input(
+    "SYNTHETIC_ZERO_EDIT_MOUNT", roots=cfg["fixture_input_root"],
+    materialization_root=cfg["fixture_working_root"],
 )
-assert mounted["bundle_manifest"]["expected_kaggle_dataset_slug"] == "certvic/zero-edit-proof"
+assert mounted["discovery_policy"] == "CONTENT_AUTHENTICATED_ANY_LOCATION"
+assert mounted["owner_binding_required"] is False
+assert Path(mounted["observed_dataset_folder"]).resolve() == Path(
+    cfg["observed_dataset_folder"]
+).resolve()
 dual = detect_topology(device_names=["NVIDIA T4", "NVIDIA T4"]).as_dict()
 single = detect_topology(device_names=["NVIDIA T4"]).as_dict()
 tasks = [f"synthetic-{index}" for index in range(4)]
@@ -413,7 +416,7 @@ print({"status": "SYNTHETIC_RUNBOOK_PROOF_PASSED", "return_zip": cfg["return_zip
 '''
     with tempfile.TemporaryDirectory(prefix="certvic_kaggle_runbook_proof_") as temporary:
         proof_root = Path(temporary)
-        for route in _kaggle_proof_routes():
+        for route_index, route in enumerate(_kaggle_proof_routes()):
             canonical = root / route["notebook"]
             if route["stage"] == "post_run":
                 canonical_hash = hashlib.sha256(b"POST_RUN_TRANSACTIONAL_HANDOFF").hexdigest()
@@ -431,20 +434,27 @@ print({"status": "SYNTHETIC_RUNBOOK_PROOF_PASSED", "return_zip": cfg["return_zip
                     )
             workdir = proof_root / route["route"]
             workdir.mkdir()
-            fixture_input = workdir / "kaggle/input/zero-edit-proof"
+            account_index = route_index % 4 + 1
+            fixture_input_root = workdir / f"account-{account_index}/input"
+            fixture_input = (
+                fixture_input_root
+                / f"arbitrary-owner-title-{account_index}"
+                / "nested"
+                / route["route"]
+            )
             fixture_input.mkdir(parents=True)
             from certvic.cvpr.kaggle_bundle import build_bundle
 
             build_bundle(
-                fixture_input / "zero_edit_fixture.zip",
+                fixture_input / ("payload.dat" if route_index % 2 else "opaque-content"),
                 {"fixture/mount.json": b'{"synthetic_fixture": true}\n'},
                 bundle_type="SYNTHETIC_ZERO_EDIT_MOUNT",
                 study="synthetic",
                 stage="notebook_proof",
                 provider=None,
                 required_notebook=route["notebook"],
-                dataset_slug="certvic/zero-edit-proof",
-                mount_path="/kaggle/input/zero-edit-proof",
+                dataset_slug="recommended/label-only",
+                mount_path="/kaggle/input/recommended-label-only",
                 external_dependency_status="SYNTHETIC_FIXTURE",
                 evidence_class="SYNTHETIC_FIXTURE",
                 builder_command="certvic.cvpr.notebook_runner",
@@ -465,8 +475,12 @@ print({"status": "SYNTHETIC_RUNBOOK_PROOF_PASSED", "return_zip": cfg["return_zip
                 config={
                     **route,
                     "notebook_sha256": canonical_hash,
-                    "fixture_input_root": str(workdir / "kaggle/input"),
+                    "fixture_input_root": str(fixture_input_root),
                     "fixture_working_root": str(workdir / "kaggle/working/materialized"),
+                    "simulated_account": account_index,
+                    "observed_dataset_folder": str(
+                        fixture_input_root / f"arbitrary-owner-title-{account_index}"
+                    ),
                     "synthetic_fixture": True,
                     "artifact_globs": [route["return_zip"], "seed_manifest.json"],
                 },
@@ -490,6 +504,7 @@ print({"status": "SYNTHETIC_RUNBOOK_PROOF_PASSED", "return_zip": cfg["return_zip
         "status": "PASS" if all(row["status"] == "PASS" for row in results) else "FAIL",
         "canonical_notebooks_covered": len(covered),
         "executed_routes": len(results),
+        "simulated_kaggle_accounts": 4,
         "routes": results,
         "actual_execution_engines": sorted({
             str(row["actual_execution_engine"]) for row in results

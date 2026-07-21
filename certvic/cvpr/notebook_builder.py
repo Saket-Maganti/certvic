@@ -111,7 +111,6 @@ SNAPSHOT_DATASETS = {
 
 
 def _zero_edit_config(name: str, stage: str, provider: str) -> str:
-    snapshot_slug, snapshot_filename = SNAPSHOT_DATASETS.get(provider, (None, None))
     return_name = expected_return_zip(name, stage, provider)
     return f'''# Generated immutable run identity. There is nothing to edit in this notebook.
 import os
@@ -131,10 +130,9 @@ PROMPT_TEMPLATE = "{{prompt}}\\n"
 PARSER_VERSION = "certvic.parse.v2"
 CANONICAL_RETURN_ZIP = {return_name!r}
 LOCAL_DESTINATION = {f"data/runtime/{return_name}"!r}
-INPUT_ROOT = os.environ.get("CERTVIC_KAGGLE_INPUT_ROOT", "/kaggle/input")
 WORKING_ROOT = os.environ.get("CERTVIC_KAGGLE_WORKING_ROOT", "/kaggle/working")
-SNAPSHOT_DATASET_SLUG = {snapshot_slug!r}
-SNAPSHOT_DATASET_FILENAME = {snapshot_filename!r}
+INPUT_ROOTS = [value for value in os.environ.get("CERTVIC_INPUT_ROOTS", "").split(os.pathsep)
+               if value] or ["/kaggle/input", "/kaggle/working"]
 for key, value in {{
     "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1", "DIFFUSERS_OFFLINE": "1",
     "HF_DATASETS_OFFLINE": "1", "HF_HUB_DISABLE_TELEMETRY": "1", "PIP_NO_INDEX": "1",
@@ -282,6 +280,316 @@ print({{"environment_lock": ENVIRONMENT_LOCK, "environment_lock_hash": ENVIRONME
 '''
 
 
+def _content_early_code_bootstrap() -> str:
+    """Stdlib-only CODE discovery used before the project package is importable."""
+    return r'''import hashlib, json, os, pathlib, shutil, stat, sys, zipfile
+
+DISCOVERY_ERRORS = {
+    "missing": "CERTVIC_DISCOVERY_01_REQUIRED_ROLE_NOT_FOUND",
+    "ambiguous": "CERTVIC_DISCOVERY_02_AMBIGUOUS_DISTINCT_CONTENT",
+    "authentication": "CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED",
+}
+DISCOVERY_POLICY = "CONTENT_AUTHENTICATED_ANY_LOCATION"
+OPERATIONAL_FIELDS = {
+    "builder_command", "created_time", "expected_kaggle_dataset_slug", "mount_path",
+    "required_notebook", "validation_command",
+}
+
+def early_sha256(path):
+    digest = hashlib.sha256()
+    with pathlib.Path(path).open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+def early_safe_member(info):
+    name = info.filename
+    normalized = name.replace("\\", "/")
+    value = pathlib.PurePosixPath(normalized)
+    mode = (info.external_attr >> 16) & 0xFFFF
+    if (not normalized or normalized != name or normalized.endswith("/") or value.is_absolute()
+            or ".." in value.parts or "." in value.parts or normalized.startswith("~")
+            or "\x00" in normalized or info.is_dir() or stat.S_ISLNK(mode)
+            or (mode and not stat.S_ISREG(mode))):
+        raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: unsafe member {name!r}")
+    return value.as_posix()
+
+def early_content_identity(manifest, hash_files):
+    identity_manifest = {key: value for key, value in manifest.items()
+                         if key not in OPERATIONAL_FIELDS}
+    identity_files = {name: record for name, record in hash_files.items()
+                      if name not in {"README.md", "bundle_manifest.json"}}
+    payload = json.dumps({"manifest": identity_manifest, "files": identity_files},
+                         indent=2, sort_keys=True).encode() + b"\n"
+    return hashlib.sha256(payload).hexdigest()
+
+def early_verify_archive(path):
+    with zipfile.ZipFile(path) as archive:
+        infos = archive.infolist()
+        names = [early_safe_member(info) for info in infos]
+        if "bundle_manifest.json" not in names or "hash_manifest.json" not in names:
+            return None
+        if len(names) != len(set(names)) or archive.testzip() is not None:
+            raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: duplicate or corrupt archive")
+        manifest_bytes = archive.read("bundle_manifest.json")
+        hash_bytes = archive.read("hash_manifest.json")
+        if len(manifest_bytes) > 8 * 1024 * 1024 or len(hash_bytes) > 8 * 1024 * 1024:
+            raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: oversized manifest")
+        manifest = json.loads(manifest_bytes)
+        hashes = json.loads(hash_bytes)
+        if (manifest.get("schema") != "certvic.kaggle.bundle.v1"
+                or hashes.get("schema") != "certvic.kaggle.hash_manifest.v1"
+                or manifest.get("bundle_type") != "CODE"):
+            return None
+        declared, hash_files = manifest.get("files", {}), hashes.get("files", {})
+        if (set(names) != set(hash_files) | {"hash_manifest.json"}
+                or set(declared) != set(names) - {"bundle_manifest.json", "hash_manifest.json"}):
+            raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: file universe mismatch")
+        for name, record in hash_files.items():
+            payload = archive.read(name)
+            observed = {"size": len(payload), "sha256": hashlib.sha256(payload).hexdigest()}
+            if record != observed or (name in declared and declared[name] != observed):
+                raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: byte mismatch {name}")
+        return manifest, hash_files, hashlib.sha256(manifest_bytes).hexdigest()
+
+def early_verify_directory(path):
+    root = pathlib.Path(path).resolve()
+    manifest_path, hash_path = root / "bundle_manifest.json", root / "hash_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    hashes = json.loads(hash_path.read_text(encoding="utf-8"))
+    if (manifest.get("schema") != "certvic.kaggle.bundle.v1"
+            or hashes.get("schema") != "certvic.kaggle.hash_manifest.v1"
+            or manifest.get("bundle_type") != "CODE"):
+        return None
+    observed = {}
+    for member in root.rglob("*"):
+        mode = member.lstat().st_mode
+        if member.is_symlink() or not (stat.S_ISDIR(mode) or stat.S_ISREG(mode)):
+            raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: unsafe extracted member")
+        if stat.S_ISREG(mode):
+            observed[member.relative_to(root).as_posix()] = member
+    declared, hash_files = manifest.get("files", {}), hashes.get("files", {})
+    if (set(observed) != set(hash_files) | {"hash_manifest.json"}
+            or set(declared) != set(observed) - {"bundle_manifest.json", "hash_manifest.json"}):
+        raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: extracted universe mismatch")
+    for name, record in hash_files.items():
+        member = observed[name]
+        actual = {"size": member.stat().st_size, "sha256": early_sha256(member)}
+        if actual != record or (name in declared and declared[name] != actual):
+            raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: extracted byte mismatch {name}")
+    return manifest, hash_files, early_sha256(manifest_path)
+
+configured_roots = [value for value in os.environ.get("CERTVIC_INPUT_ROOTS", "").split(os.pathsep)
+                    if value]
+if not configured_roots:
+    configured_roots = ["/kaggle/input", "/kaggle/working"]
+INPUT_ROOTS = sorted({str(pathlib.Path(value).resolve()) for value in configured_roots
+                      if pathlib.Path(value).is_dir() and not pathlib.Path(value).is_symlink()})
+archive_candidates, directory_candidates = [], []
+for root_value in INPUT_ROOTS:
+    root = pathlib.Path(root_value)
+    for current, directory_names, file_names in os.walk(root, followlinks=False):
+        base = pathlib.Path(current)
+        directory_names[:] = sorted(name for name in directory_names
+                                     if not (base / name).is_symlink())
+        if "bundle_manifest.json" in file_names and "hash_manifest.json" in file_names:
+            directory_candidates.append(base.resolve())
+        for name in sorted(file_names):
+            candidate = base / name
+            if candidate.is_symlink() or not candidate.is_file():
+                continue
+            try:
+                with candidate.open("rb") as handle:
+                    magic = handle.read(4)
+            except OSError:
+                continue
+            if magic in {b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08"}:
+                archive_candidates.append(candidate.resolve())
+
+valid, failures = [], []
+for representation, candidates in (("zip_archive", sorted(set(archive_candidates))),
+                                   ("extracted_directory", sorted(set(directory_candidates)))):
+    for candidate in candidates:
+        try:
+            result = (early_verify_archive(candidate) if representation == "zip_archive"
+                      else early_verify_directory(candidate))
+        except (OSError, KeyError, json.JSONDecodeError, UnicodeDecodeError,
+                zipfile.BadZipFile, RuntimeError) as error:
+            failures.append(f"{candidate}: {error}")
+            continue
+        if result is None:
+            continue
+        manifest, hash_files, manifest_hash = result
+        identity = early_content_identity(manifest, hash_files)
+        expected = os.environ.get("CERTVIC_EXPECTED_CONTENT_ID_CODE")
+        if expected and identity != expected.lower():
+            failures.append(f"{candidate}: expected CODE content identity mismatch")
+            continue
+        valid.append({"path": candidate, "representation": representation,
+                      "manifest": manifest, "manifest_sha256": manifest_hash,
+                      "content_identity_sha256": identity})
+if not valid:
+    code = DISCOVERY_ERRORS["authentication"] if failures else DISCOVERY_ERRORS["missing"]
+    raise RuntimeError(f"{code}: role=CODE failures={failures}")
+identities = {row["content_identity_sha256"] for row in valid}
+if len(identities) != 1:
+    raise RuntimeError(f"{DISCOVERY_ERRORS['ambiguous']}: role=CODE candidates="
+                       f"{[(row['content_identity_sha256'], str(row['path'])) for row in valid]}")
+selected = min(valid, key=lambda row: os.path.normcase(str(row["path"])))
+CODE_DISCOVERY_MIRRORS = sorted({str(row["path"]) for row in valid})
+CODE_BUNDLE_SOURCE = str(selected["path"])
+CODE_BUNDLE_HASH = selected["content_identity_sha256"]
+CODE_ARCHIVE_SHA256 = (early_sha256(selected["path"])
+                       if selected["representation"] == "zip_archive" else None)
+if selected["representation"] == "zip_archive":
+    CODE_EXTRACT_ROOT = pathlib.Path(os.environ.get(
+        "CERTVIC_KAGGLE_WORKING_ROOT", "/kaggle/working")) / "certvic_code"
+    if CODE_EXTRACT_ROOT.exists():
+        if CODE_EXTRACT_ROOT.is_symlink() or not CODE_EXTRACT_ROOT.is_dir():
+            raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: unsafe CODE destination")
+        shutil.rmtree(CODE_EXTRACT_ROOT)
+    CODE_EXTRACT_ROOT.mkdir(parents=True)
+    with zipfile.ZipFile(selected["path"]) as archive:
+        for info in archive.infolist():
+            name = early_safe_member(info)
+            output = (CODE_EXTRACT_ROOT / name).resolve()
+            output.relative_to(CODE_EXTRACT_ROOT.resolve())
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with archive.open(info) as reader, output.open("xb") as writer:
+                shutil.copyfileobj(reader, writer, length=1024 * 1024)
+else:
+    CODE_EXTRACT_ROOT = pathlib.Path(selected["path"])
+CODE_BUNDLE_PATH = (CODE_BUNDLE_SOURCE if selected["representation"] == "zip_archive"
+                    else str(CODE_EXTRACT_ROOT / "bundle_manifest.json"))
+CODE_BUNDLE = CODE_BUNDLE_PATH
+project_candidates = sorted(path.parent.resolve() for path in CODE_EXTRACT_ROOT.rglob("pyproject.toml")
+                            if (path.parent / "certvic/__init__.py").is_file())
+if len(project_candidates) != 1:
+    raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: CODE project root ambiguous")
+PROJECT_ROOT = project_candidates[0]
+sys.path.insert(0, str(PROJECT_ROOT))
+from certvic.cvpr.content_discovery import (
+    DISCOVERY_POLICY, discover_authenticated_input, resolve_content_bound_roles,
+)
+from certvic.cvpr.notebook_bootstrap import discover_unique_file, discover_unique_root
+authenticated_code = discover_authenticated_input(
+    "CODE", roots=INPUT_ROOTS, expected_identity=CODE_BUNDLE_HASH,
+    materialization_root=pathlib.Path(os.environ.get(
+        "CERTVIC_KAGGLE_WORKING_ROOT", "/kaggle/working")) / "certvic_authenticated_inputs",
+)
+if authenticated_code["content_identity_sha256"] != CODE_BUNDLE_HASH:
+    raise RuntimeError(f"{DISCOVERY_ERRORS['authentication']}: early/shared CODE identity mismatch")
+AUTHENTICATED_CONTENT_IDENTITIES = {"code_bundle": CODE_BUNDLE_HASH}
+DISCOVERED_PROVENANCE = {"CODE": authenticated_code}
+print({"discovery_policy": DISCOVERY_POLICY, "role": "CODE", "provider": None,
+       "study": selected["manifest"].get("study"), "stage": selected["manifest"].get("stage"),
+       "representation": selected["representation"], "discovered_path": CODE_BUNDLE_SOURCE,
+       "content_identity_sha256": CODE_BUNDLE_HASH, "archive_sha256": CODE_ARCHIVE_SHA256,
+       "mirrors": CODE_DISCOVERY_MIRRORS, "project_root": str(PROJECT_ROOT)})
+'''
+
+
+def _content_common_materialization() -> str:
+    return '''from certvic.cvpr.environment_lock import environment_lock_hash
+
+DISCOVERY_MATERIALIZATION_ROOT = pathlib.Path(WORKING_ROOT) / "certvic_authenticated_inputs"
+CONFIG_DATASET = discover_authenticated_input(
+    "CONFIGS", roots=INPUT_ROOTS,
+    materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
+)
+TOOLS_DATASET = discover_authenticated_input(
+    "EXECUTION_TOOLS", roots=INPUT_ROOTS,
+    materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
+)
+WHEELHOUSE_DATASET = discover_authenticated_input(
+    "OFFLINE_LINUX_WHEELHOUSE", roots=INPUT_ROOTS,
+    materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
+)
+for discovered in (CONFIG_DATASET, TOOLS_DATASET, WHEELHOUSE_DATASET):
+    DISCOVERED_PROVENANCE[discovered["role"]] = discovered
+    print({key: discovered[key] for key in (
+        "role", "provider", "study", "stage", "representation", "discovered_path",
+        "materialized_root", "content_identity_sha256", "archive_sha256", "mirrors",
+        "observed_mount", "observed_dataset_folder",
+    )})
+CONFIG_ROOT = pathlib.Path(CONFIG_DATASET["materialized_root"])
+WHEELHOUSE_ROOT = pathlib.Path(WHEELHOUSE_DATASET["materialized_root"])
+ENVIRONMENT_LOCK = str(discover_unique_file(CONFIG_ROOT, "kaggle_t4x2_environment.lock.json"))
+ENVIRONMENT_LOCK_HASH = environment_lock_hash(ENVIRONMENT_LOCK)
+WHEELHOUSE_MANIFEST = str(discover_unique_file(WHEELHOUSE_ROOT, "wheelhouse_manifest.json"))
+WHEELHOUSE_PATH = str(WHEELHOUSE_ROOT / "wheels")
+if not pathlib.Path(WHEELHOUSE_PATH).is_dir():
+    raise RuntimeError("KAGGLE_BOOTSTRAP_04_WHEELHOUSE_INVALID: wheels directory missing")
+MODEL_REGISTRY = str(discover_unique_file(CONFIG_ROOT, "certvic_immutable_model_registry.json"))
+ATTACHED_INPUT_HASHES = {
+    "code": CODE_BUNDLE_HASH,
+    "configs": CONFIG_DATASET["content_identity_sha256"],
+    "tools": TOOLS_DATASET["content_identity_sha256"],
+    "wheelhouse": WHEELHOUSE_DATASET["content_identity_sha256"],
+}
+AUTHENTICATED_CONTENT_IDENTITIES.update({
+    "configs": CONFIG_DATASET["content_identity_sha256"],
+    "tools": TOOLS_DATASET["content_identity_sha256"],
+    "wheelhouse": WHEELHOUSE_DATASET["content_identity_sha256"],
+})
+print({"environment_lock": ENVIRONMENT_LOCK, "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+       "wheelhouse_manifest": WHEELHOUSE_MANIFEST,
+       "authenticated_content_identities": AUTHENTICATED_CONTENT_IDENTITIES})
+'''
+
+
+def _content_snapshot_materialization(provider: str) -> str:
+    return f'''from certvic.cvpr.model_snapshot_manifest import verify_manifest
+
+SNAPSHOT_DATASET = discover_authenticated_input(
+    "MODEL_SNAPSHOT", provider={provider!r}, stage="model_snapshot", roots=INPUT_ROOTS,
+    materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
+)
+DISCOVERED_PROVENANCE["MODEL_SNAPSHOT"] = SNAPSHOT_DATASET
+print({{key: SNAPSHOT_DATASET[key] for key in (
+    "role", "provider", "study", "stage", "representation", "discovered_path",
+    "materialized_root", "content_identity_sha256", "archive_sha256", "mirrors",
+    "observed_mount", "observed_dataset_folder",
+)}})
+SNAPSHOT_CONTAINER = pathlib.Path(SNAPSHOT_DATASET["materialized_root"])
+SNAPSHOT_MANIFEST = str(discover_unique_file(
+    SNAPSHOT_CONTAINER, "certvic_model_snapshot_manifest.json"
+))
+SNAPSHOT_ROOT = pathlib.Path(SNAPSHOT_MANIFEST).parent.resolve()
+MODEL_PATH = str(SNAPSHOT_ROOT)
+PROCESSOR_PATH = str(SNAPSHOT_ROOT)
+SNAPSHOT_MANIFEST_HASH = early_sha256(SNAPSHOT_MANIFEST)
+snapshot_identity = json.loads(pathlib.Path(SNAPSHOT_MANIFEST).read_text(encoding="utf-8"))
+MODEL_ID = str(snapshot_identity["model_id"])
+PROCESSOR_ID = str(snapshot_identity["processor_id"])
+MODEL_COMMIT = str(snapshot_identity["model_commit"])
+PROCESSOR_COMMIT = str(snapshot_identity["processor_commit"])
+EXPECTED_ARCHITECTURE = str(snapshot_identity["expected_architecture"])
+SNAPSHOT_ROOT_HASH = str(snapshot_identity["unified_snapshot_root_sha256"])
+outer_snapshot = SNAPSHOT_DATASET["bundle_manifest"]
+for field, expected in {{
+    "provider": PROVIDER, "model_id": MODEL_ID, "model_commit": MODEL_COMMIT,
+    "processor_commit": PROCESSOR_COMMIT, "expected_architecture": EXPECTED_ARCHITECTURE,
+    "unified_snapshot_root_sha256": SNAPSHOT_ROOT_HASH,
+}}.items():
+    if outer_snapshot.get(field) != expected:
+        raise RuntimeError(f"CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED: snapshot {{field}} mismatch")
+registry = json.loads(pathlib.Path(MODEL_REGISTRY).read_text(encoding="utf-8"))["models"][PROVIDER]
+if (registry.get("repository_id") != MODEL_ID
+        or registry.get("model_commit") != MODEL_COMMIT
+        or registry.get("processor_commit") != PROCESSOR_COMMIT
+        or registry.get("architecture") != EXPECTED_ARCHITECTURE):
+    raise RuntimeError("CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED: immutable registry mismatch")
+ATTACHED_INPUT_HASHES["snapshot"] = SNAPSHOT_DATASET["content_identity_sha256"]
+AUTHENTICATED_CONTENT_IDENTITIES["snapshot"] = SNAPSHOT_DATASET["content_identity_sha256"]
+print({{"snapshot_root": MODEL_PATH, "snapshot_manifest": SNAPSHOT_MANIFEST,
+       "snapshot_manifest_sha256": SNAPSHOT_MANIFEST_HASH,
+       "snapshot_root_sha256": SNAPSHOT_ROOT_HASH, "model_id": MODEL_ID,
+       "model_commit": MODEL_COMMIT, "processor_commit": PROCESSOR_COMMIT,
+       "expected_architecture": EXPECTED_ARCHITECTURE}})
+'''
+
+
 def _snapshot_materialization(provider: str) -> str:
     slug, filename = SNAPSHOT_DATASETS[provider]
     return f'''from certvic.cvpr.model_snapshot_manifest import verify_manifest
@@ -413,7 +721,8 @@ artifact = write_snapshot_artifacts(WORKING_ROOT, PROVIDER, {
     "expected_architecture": EXPECTED_ARCHITECTURE,
     "snapshot_manifest_file_sha256": SNAPSHOT_MANIFEST_HASH,
     "snapshot_root_hash": SNAPSHOT_ROOT_HASH,
-    "snapshot_archive_sha256": SNAPSHOT_DATASET["archive_sha256"],
+    "snapshot_archive_sha256": SNAPSHOT_DATASET.get("archive_sha256"),
+    "snapshot_content_identity_sha256": SNAPSHOT_DATASET["content_identity_sha256"],
 })
 canonical = pathlib.Path(WORKING_ROOT) / CANONICAL_RETURN_ZIP
 if not canonical.is_file():
@@ -435,22 +744,23 @@ from certvic.cvpr.reconcile_provider_permissions import (
 from certvic.cvpr.run_contract import build_run_contract
 from certvic.cvpr.task_bundle import verify_bundle as verify_task_bundle
 
-SMOKE_DATASET = materialize_dataset(
-    slug="certvic/certvic-real-two-item-smoke",
-    filename="certvic_real_two_item_smoke_bundle.zip",
-    expected_type="REAL_TWO_ITEM_SMOKE_INPUT",
-    input_root=INPUT_ROOT,
-    destination=pathlib.Path(WORKING_ROOT) / "certvic_real_two_item_smoke",
+SMOKE_DATASET = discover_authenticated_input(
+    "REAL_TWO_ITEM_SMOKE", study="pre_smoke", stage="real_model_smoke",
+    roots=INPUT_ROOTS, materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
 )
-PERMISSION_DATASET = materialize_dataset(
-    slug="certvic/certvic-pre-smoke-permissions",
-    filename="certvic_pre_smoke_permissions.zip",
-    expected_type="PRE_SMOKE_PERMISSIONS",
-    input_root=INPUT_ROOT,
-    destination=pathlib.Path(WORKING_ROOT) / "certvic_pre_smoke_permissions",
+PERMISSION_DATASET = discover_authenticated_input(
+    "PRE_SMOKE_PERMISSIONS", stage="authorization", roots=INPUT_ROOTS,
+    materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
 )
-SMOKE_ROOT = pathlib.Path(SMOKE_DATASET["root"])
-PERMISSION_ROOT = pathlib.Path(PERMISSION_DATASET["root"])
+for discovered in (SMOKE_DATASET, PERMISSION_DATASET):
+    DISCOVERED_PROVENANCE[discovered["role"]] = discovered
+    print({key: discovered[key] for key in (
+        "role", "provider", "study", "stage", "representation", "discovered_path",
+        "materialized_root", "content_identity_sha256", "archive_sha256", "mirrors",
+        "observed_mount", "observed_dataset_folder",
+    )})
+SMOKE_ROOT = pathlib.Path(SMOKE_DATASET["materialized_root"])
+PERMISSION_ROOT = pathlib.Path(PERMISSION_DATASET["materialized_root"])
 TASK_BUNDLE_MANIFEST = str(discover_unique_file(SMOKE_ROOT, "task_bundle_manifest.json"))
 TASK_BUNDLE_ROOT = str(pathlib.Path(TASK_BUNDLE_MANIFEST).parent)
 bundle_verification = verify_task_bundle(TASK_BUNDLE_ROOT, TASK_BUNDLE_MANIFEST)
@@ -585,9 +895,14 @@ if state == "ISSUED":
 elif state not in {"CLAIMED", "RUN_STARTED", "PACKAGING_FAILED"}:
     raise RuntimeError(f"KAGGLE_ZERO_EDIT_00C2_PERMISSION_NOT_RESUMABLE: state={state}")
 ATTACHED_INPUT_HASHES.update({
-    "snapshot": SNAPSHOT_DATASET["archive_sha256"],
-    "smoke": SMOKE_DATASET["archive_sha256"],
-    "permissions": PERMISSION_DATASET["archive_sha256"],
+    "snapshot": SNAPSHOT_DATASET["content_identity_sha256"],
+    "smoke": SMOKE_DATASET["content_identity_sha256"],
+    "permissions": PERMISSION_DATASET["content_identity_sha256"],
+})
+AUTHENTICATED_CONTENT_IDENTITIES.update({
+    "snapshot": SNAPSHOT_DATASET["content_identity_sha256"],
+    "tasks": SMOKE_DATASET["content_identity_sha256"],
+    "permissions": PERMISSION_DATASET["content_identity_sha256"],
 })
 print({"permission_id": permission["permission_id"], "run_tag": RUN_TAG,
        "task_bundle_hash": TASK_BUNDLE_HASH, "resolved_permission_roles": resolved_roles})
@@ -683,16 +998,17 @@ def _zero_edit_notebook(name: str, stage: str, provider: str) -> dict:
         _cell(
             "markdown",
             f"# {name}\n\n"
-            "Generated zero-edit Kaggle runbook. Attach the documented private datasets, keep "
-            "Internet off, choose the documented accelerator, and click Run All. "
+            "Generated zero-edit Kaggle runbook. Attach authenticated inputs under any account, "
+            "dataset title, archive name, mount, or nesting; keep Internet off, choose the "
+            "documented accelerator, and click Run All. "
             "NON_EVIDENCE_RUNTIME_SMOKE; paper_evidence=false.\n",
         ),
         _cell("code", _zero_edit_config(name, stage, provider)),
-        _cell("code", _early_code_bootstrap()),
-        _cell("code", _common_materialization()),
+        _cell("code", _content_early_code_bootstrap()),
+        _cell("code", _content_common_materialization()),
     ]
     if stage in {"snapshot_smoke", "real_model_smoke"}:
-        cells.append(_cell("code", _snapshot_materialization(provider)))
+        cells.append(_cell("code", _content_snapshot_materialization(provider)))
     if stage == "real_model_smoke":
         cells.append(_cell("code", _real_smoke_inputs_and_permission()))
     cells.append(_cell("code", _offline_environment_cell(require_gpu=stage == "real_model_smoke")))
@@ -707,6 +1023,8 @@ def _zero_edit_notebook(name: str, stage: str, provider: str) -> dict:
         "metadata": {
             "certvic": {
                 "stage": stage, "provider": provider, "zero_edit": True,
+                "content_discovery": True, "owner_binding": False,
+                "filename_binding": False, "mount_binding": False,
                 "paper_evidence": False,
             },
             "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
@@ -715,6 +1033,219 @@ def _zero_edit_notebook(name: str, stage: str, provider: str) -> dict:
         "nbformat": 4,
         "nbformat_minor": 5,
     }
+
+
+def _study_for_notebook(name: str, stage: str) -> str:
+    if stage == "mock_smoke":
+        return "synthetic_smoke"
+    if name.startswith(("01_", "02_", "03_", "04_")):
+        return "specificity_confirmatory_cvpr"
+    if name.startswith(("10_", "11_", "12_", "13_")):
+        return "main_study_cvpr"
+    return "coco_object_presence"
+
+
+def _universal_runtime_config(name: str, stage: str, provider: str) -> str:
+    study = _study_for_notebook(name, stage)
+    return_name = expected_return_zip(name, stage, provider)
+    return f'''# Generated content-authenticated runtime identity. Nothing in this cell is editable.
+import hashlib, json, os, pathlib, shutil, subprocess, sys
+
+STAGE = {stage!r}
+PROVIDER = {provider!r}
+NOTEBOOK_NAME = {name!r}
+STUDY = {study!r}
+EXPECTED_GPUS = {0 if stage in {"code_smoke", "snapshot_smoke"} else 2}
+ALLOW_SINGLE_GPU_FALLBACK = True
+USE_REAL_MODEL = {stage in {"evaluation", "real_model_smoke"}!r}
+MAX_ITEMS = 2
+ALLOW_FULL_RUN = False
+INITIAL_BATCH_SIZE = 4
+GLOBAL_SEED = 12013
+SCHEMA_VERSION = "certvic.cvpr.output.v2"
+SNAPSHOT_CONTRACT = "UNIFIED_SNAPSHOT"
+PROMPT_TEMPLATE_ID = "certification_yes_no_v1"
+PROMPT_TEMPLATE = "{{prompt}}\\n"
+PROMPT_TEMPLATE_HASH = hashlib.sha256(PROMPT_TEMPLATE.encode("utf-8")).hexdigest()
+PARSER_VERSION = "certvic.parse.v2"
+PRIMARY_PROVIDERS = ["qwen2_5_vl_7b", "internvl_8b", "llava_onevision_7b"]
+CANONICAL_RETURN_ZIP = {return_name!r}
+LOCAL_DESTINATION = {f"data/runtime/{return_name}"!r}
+WORKING_ROOT = os.environ.get("CERTVIC_KAGGLE_WORKING_ROOT", "/kaggle/working")
+INPUT_ROOTS = [value for value in os.environ.get("CERTVIC_INPUT_ROOTS", "").split(os.pathsep)
+               if value] or ["/kaggle/input", "/kaggle/working"]
+OUTPUT_DIR = str(pathlib.Path(WORKING_ROOT) / "certvic_cvpr")
+RUNTIME_CONFIG = str(pathlib.Path(WORKING_ROOT) / "certvic_cvpr_runtime.json")
+PROVIDER_PERMISSION_EVENTS = str(
+    pathlib.Path(WORKING_ROOT) / f"{{PROVIDER}}_provider_permission_events.jsonl"
+)
+GENERATION_ENGINE = "structured_texture_patch"
+SEMANTIC_ENGINE = "deterministic_preliminary"
+INPAINTING_SNAPSHOT = None
+INPAINTING_MANIFEST = None
+ALLOW_USE_PREINSTALLED_ENVIRONMENT = True
+REQUIRE_EXACT_ENVIRONMENT = True
+def shard_for(item_id, n):
+    return int(hashlib.sha256(str(item_id).encode("utf-8")).hexdigest(), 16) % n
+for key, value in {{
+    "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1", "DIFFUSERS_OFFLINE": "1",
+    "HF_DATASETS_OFFLINE": "1", "HF_HUB_DISABLE_TELEMETRY": "1", "PIP_NO_INDEX": "1",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+}}.items():
+    os.environ[key] = value
+'''
+
+
+def _universal_stage_discovery(name: str, stage: str, provider: str) -> str:
+    study = _study_for_notebook(name, stage)
+    if stage == "generation":
+        role = "CONFIRMATORY_GENERATION_INPUT" if name.startswith("01_") else "GENERATION_INPUT"
+        return f'''GENERATION_DATASET = discover_authenticated_input(
+    {role!r}, provider="controls", study={study!r}, stage="generation",
+    roots=INPUT_ROOTS, materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
+)
+DISCOVERED_PROVENANCE["GENERATION_INPUT"] = GENERATION_DATASET
+print({{key: GENERATION_DATASET[key] for key in (
+    "role", "provider", "study", "stage", "representation", "discovered_path",
+    "materialized_root", "content_identity_sha256", "archive_sha256", "mirrors",
+    "observed_mount", "observed_dataset_folder",
+)}})
+GENERATION_ROOT = pathlib.Path(GENERATION_DATASET["materialized_root"])
+EDIT_PLAN = str(discover_unique_file(GENERATION_ROOT, "source_manifest.jsonl"))
+TASK_MANIFEST = EDIT_PLAN
+TASK_BUNDLE_ROOT = str(GENERATION_ROOT)
+TASK_BUNDLE_MANIFEST = str(GENERATION_ROOT / "bundle_manifest.json")
+TASK_BUNDLE_HASH = GENERATION_DATASET["content_identity_sha256"]
+RUN_TAG = f"{{STUDY}}_generation_{{TASK_BUNDLE_HASH[:12]}}"
+MODEL_ID = "controls/no-model"
+PROCESSOR_ID = MODEL_ID
+MODEL_COMMIT = "0" * 40
+PROCESSOR_COMMIT = "0" * 40
+MODEL_PATH = str(GENERATION_ROOT)
+PROCESSOR_PATH = MODEL_PATH
+SNAPSHOT_MANIFEST = TASK_BUNDLE_MANIFEST
+SNAPSHOT_MANIFEST_HASH = GENERATION_DATASET["manifest_sha256"]
+SNAPSHOT_ROOT_HASH = TASK_BUNDLE_HASH
+EXPECTED_ARCHITECTURE = "NO_MODEL_GENERATION_CONTROLS"
+FINAL_TASK_FREEZE = None
+FINAL_REVIEW_LEDGER = None
+DETECTABILITY_GATE = None
+SMOKE_GATE_JSON = None
+MATRIX_AUTHORIZATION = None
+PROVIDER_PERMISSION = None
+STUDY_CONFIG = None
+ATTACHED_INPUT_HASHES["tasks"] = TASK_BUNDLE_HASH
+AUTHENTICATED_CONTENT_IDENTITIES["tasks"] = TASK_BUNDLE_HASH
+'''
+    if stage == "evaluation":
+        return _content_snapshot_materialization(provider) + f'''
+SCIENTIFIC_DATASET = discover_authenticated_input(
+    "SCIENTIFIC_PROVIDER_INPUT", provider={provider!r}, study={study!r}, stage="evaluation",
+    roots=INPUT_ROOTS, materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
+)
+DISCOVERED_PROVENANCE["SCIENTIFIC_PROVIDER_INPUT"] = SCIENTIFIC_DATASET
+print({{key: SCIENTIFIC_DATASET[key] for key in (
+    "role", "provider", "study", "stage", "representation", "discovered_path",
+    "materialized_root", "content_identity_sha256", "archive_sha256", "mirrors",
+    "observed_mount", "observed_dataset_folder",
+)}})
+SCIENTIFIC_ROOT = pathlib.Path(SCIENTIFIC_DATASET["materialized_root"])
+binding_candidates = []
+for candidate in SCIENTIFIC_ROOT.rglob("*.json"):
+    if candidate.is_symlink() or not candidate.is_file():
+        continue
+    try:
+        value = json.loads(candidate.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        continue
+    if value.get("schema") == "certvic.kaggle.scientific_input_binding.v1":
+        binding_candidates.append((candidate.resolve(), value))
+if len(binding_candidates) != 1:
+    raise RuntimeError("CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED: scientific binding")
+SCIENTIFIC_BINDING_PATH, scientific_binding = binding_candidates[0]
+if (scientific_binding.get("provider") != PROVIDER
+        or scientific_binding.get("study") != STUDY):
+    raise RuntimeError("CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED: scientific identity")
+BOUND_ROLES = resolve_content_bound_roles(
+    SCIENTIFIC_ROOT, scientific_binding["role_sha256"]
+)
+FINAL_TASK_FREEZE = BOUND_ROLES["task_freeze"]
+FINAL_REVIEW_LEDGER = BOUND_ROLES["review_ledger"]
+DETECTABILITY_GATE = BOUND_ROLES["detectability_gate"]
+SMOKE_GATE_JSON = BOUND_ROLES["smoke_gate"]
+ENVIRONMENT_LOCK = BOUND_ROLES["environment_lock"]
+ENVIRONMENT_LOCK_HASH = early_sha256(ENVIRONMENT_LOCK)
+MODEL_REGISTRY = BOUND_ROLES["model_registry"]
+MATRIX_AUTHORIZATION = BOUND_ROLES["parent_authorization"]
+PROVIDER_PERMISSION = BOUND_ROLES["child_permission"]
+RUN_TAG = str(scientific_binding["run_tag"])
+TASK_BUNDLE_MANIFEST = BOUND_ROLES["task_bundle"]
+TASK_BUNDLE_ROOT = str(pathlib.Path(TASK_BUNDLE_MANIFEST).parent)
+from certvic.cvpr.task_bundle import verify_bundle as verify_task_bundle
+bundle_verification = verify_task_bundle(TASK_BUNDLE_ROOT, TASK_BUNDLE_MANIFEST)
+TASK_BUNDLE_HASH = str(bundle_verification["bundle_hash"])
+TASK_MANIFEST = str(pathlib.Path(bundle_verification["tasks_path"]).resolve())
+active_tasks = [json.loads(line) for line in pathlib.Path(TASK_MANIFEST).read_text(
+    encoding="utf-8").splitlines() if line]
+STUDY_CONFIG = str(next(path for path in CONFIG_ROOT.rglob("*.yaml")
+                        if path.is_file() and STUDY in path.read_text(encoding="utf-8")))
+AUTHENTICATED_CONTENT_IDENTITIES.update({{
+    "snapshot": SNAPSHOT_DATASET["content_identity_sha256"],
+    "permissions": SCIENTIFIC_DATASET["content_identity_sha256"],
+    "code_bundle": CODE_BUNDLE_HASH,
+}})
+ATTACHED_INPUT_HASHES.update({{
+    "snapshot": SNAPSHOT_DATASET["content_identity_sha256"],
+    "permissions": SCIENTIFIC_DATASET["content_identity_sha256"],
+}})
+'''
+    return '''SYNTHETIC_DATASET = discover_authenticated_input(
+    "SYNTHETIC_VALIDATION", roots=INPUT_ROOTS,
+    materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
+)
+DISCOVERED_PROVENANCE["SYNTHETIC_VALIDATION"] = SYNTHETIC_DATASET
+print({key: SYNTHETIC_DATASET[key] for key in (
+    "role", "provider", "study", "stage", "representation", "discovered_path",
+    "materialized_root", "content_identity_sha256", "archive_sha256", "mirrors",
+    "observed_mount", "observed_dataset_folder",
+)})
+SYNTHETIC_ROOT = pathlib.Path(SYNTHETIC_DATASET["materialized_root"])
+TASK_MANIFEST = str(discover_unique_file(SYNTHETIC_ROOT, "smoke_tasks.jsonl"))
+TASK_BUNDLE_ROOT = str(SYNTHETIC_ROOT)
+TASK_BUNDLE_MANIFEST = str(SYNTHETIC_ROOT / "bundle_manifest.json")
+TASK_BUNDLE_HASH = SYNTHETIC_DATASET["content_identity_sha256"]
+EDIT_PLAN = TASK_MANIFEST
+RUN_TAG = f"synthetic_smoke_{TASK_BUNDLE_HASH[:12]}"
+MODEL_ID = "synthetic/mock"
+PROCESSOR_ID = MODEL_ID
+MODEL_COMMIT = "0" * 40
+PROCESSOR_COMMIT = "0" * 40
+MODEL_PATH = str(SYNTHETIC_ROOT)
+PROCESSOR_PATH = MODEL_PATH
+SNAPSHOT_MANIFEST = TASK_BUNDLE_MANIFEST
+SNAPSHOT_MANIFEST_HASH = SYNTHETIC_DATASET["manifest_sha256"]
+SNAPSHOT_ROOT_HASH = TASK_BUNDLE_HASH
+EXPECTED_ARCHITECTURE = "SYNTHETIC_MOCK"
+FINAL_TASK_FREEZE = None
+FINAL_REVIEW_LEDGER = None
+DETECTABILITY_GATE = None
+SMOKE_GATE_JSON = None
+MATRIX_AUTHORIZATION = None
+PROVIDER_PERMISSION = None
+STUDY_CONFIG = None
+ATTACHED_INPUT_HASHES["tasks"] = TASK_BUNDLE_HASH
+AUTHENTICATED_CONTENT_IDENTITIES["tasks"] = TASK_BUNDLE_HASH
+'''
+
+
+def _universal_bootstrap(name: str, stage: str, provider: str) -> str:
+    return (
+        _content_early_code_bootstrap()
+        + "\n"
+        + _content_common_materialization()
+        + "\n"
+        + _universal_stage_discovery(name, stage, provider)
+    )
 
 
 def notebook(name: str, stage: str, provider: str) -> dict:
@@ -938,7 +1469,118 @@ if environment_verification["status"] not in {
 }:
     raise RuntimeError("00A did not establish an exact offline environment")
 '''
-    preflight = '''from certvic.cvpr.runtime_preflight import hardware_report
+    # The legacy hand-filled strings above remain source-compatible reference
+    # material only.  Every generated active runbook uses authenticated,
+    # account-independent content discovery.
+    config = _universal_runtime_config(name, stage, provider)
+    bootstrap = _universal_bootstrap(name, stage, provider)
+    preflight = '''import certvic
+from certvic.cvpr.contracts import canonical_json_bytes, sha256_bytes
+from certvic.cvpr.environment_lock import (
+    offline_environment_flags, prepare_offline_environment,
+)
+from certvic.cvpr.notebook_bootstrap import configure_offline_environment
+from certvic.cvpr.notebook_permission_binding import derive_permission_binding
+from certvic.cvpr.reconcile_provider_permissions import (
+    transition_provider_permission, verify_matrix_authorization, verify_provider_permission,
+)
+from certvic.cvpr.run_contract import build_run_contract
+from certvic.cvpr.runtime_preflight import hardware_report
+from certvic.cvpr.schema_contract import OUTPUT_SCHEMA
+from certvic.cvpr.smoke_gate import require_scientific_run_gate
+from certvic.cvpr.t4x2 import derive_seed_manifest, detect_topology, write_seed_manifest
+
+PACKAGE_SOURCE_HASH = hashlib.sha256((PROJECT_ROOT / "certvic/__init__.py").read_bytes()).hexdigest()
+print({"certvic_source": certvic.__file__, "package_source_hash": PACKAGE_SOURCE_HASH})
+configure_offline_environment()
+if environment_lock_hash(ENVIRONMENT_LOCK) != ENVIRONMENT_LOCK_HASH:
+    raise RuntimeError("environment lock hash mismatch")
+if (offline_environment_flags().get("HF_HUB_OFFLINE") != "1"
+        or offline_environment_flags().get("PIP_NO_INDEX") != "1"):
+    raise RuntimeError("offline environment flag contract is incomplete")
+if SCHEMA_VERSION != OUTPUT_SCHEMA:
+    raise RuntimeError(f"mixed output schema prohibited: {SCHEMA_VERSION} != {OUTPUT_SCHEMA}")
+if any(len(str(identity)) != 64 for identity in ATTACHED_INPUT_HASHES.values()):
+    raise RuntimeError("CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED: invalid content identity")
+if any(record.get("discovery_policy") != "CONTENT_AUTHENTICATED_ANY_LOCATION"
+       for record in DISCOVERED_PROVENANCE.values()):
+    raise RuntimeError("CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED: discovery policy drift")
+
+# Evaluation permission verification and nonce claim occur before hardware inspection,
+# snapshot/model access, CUDA access, adapter creation, or scientific output creation.
+if STAGE == "evaluation":
+    matrix_authorization = verify_matrix_authorization(MATRIX_AUTHORIZATION)
+    require_scientific_run_gate(SMOKE_GATE_JSON, PRIMARY_PROVIDERS)
+    permission_binding = derive_permission_binding(globals())
+    active_runtime_contract_input = {
+        "study": STUDY, "runtime_class": "SCIENTIFIC_RUN", "provider": PROVIDER,
+        "model_id": MODEL_ID, "processor_id": PROCESSOR_ID,
+        "model_commit": MODEL_COMMIT, "processor_commit": PROCESSOR_COMMIT,
+        "model_snapshot_manifest_hash": SNAPSHOT_MANIFEST_HASH,
+        "processor_snapshot_manifest_hash": SNAPSHOT_MANIFEST_HASH,
+        "snapshot_status": "LOCAL_SNAPSHOT_BYTES_VERIFIED",
+        "snapshot_contract": SNAPSHOT_CONTRACT,
+        "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+        "prompt_template_id": PROMPT_TEMPLATE_ID,
+        "prompt_template_hash": PROMPT_TEMPLATE_HASH,
+        "parser_version": PARSER_VERSION, "output_schema": SCHEMA_VERSION,
+        "run_tag": RUN_TAG, "code_bundle_hash": CODE_BUNDLE_HASH,
+        "seed": GLOBAL_SEED,
+        "generation_parameters": {"do_sample": False, "temperature": 0.0,
+                                  "max_new_tokens": 16},
+    }
+    active_run_contract = build_run_contract(
+        active_runtime_contract_input,
+        task_manifest_sha256=sha256_bytes(canonical_json_bytes(active_tasks)), strict=True,
+    )
+    permission = verify_provider_permission(
+        PROVIDER_PERMISSION, matrix=matrix_authorization,
+        expected_provider=PROVIDER, expected_run_tag=RUN_TAG,
+    )
+    if (permission["active_input_hashes"] != permission_binding["input_hashes"]
+            or permission["active_scalars"] != permission_binding["scalars"]
+            or permission["task_bundle_hash"] != TASK_BUNDLE_HASH
+            or permission["environment_hash"] != ENVIRONMENT_LOCK_HASH
+            or permission["snapshot_hash"] != SNAPSHOT_MANIFEST_HASH
+            or permission["snapshot_root_hash"] != SNAPSHOT_ROOT_HASH
+            or permission["code_hash"] != CODE_BUNDLE_HASH
+            or permission["prompt_template_hash"] != PROMPT_TEMPLATE_HASH
+            or permission["run_contract_hash"] != active_run_contract["run_contract_hash"]
+            or permission["parser_version"] != PARSER_VERSION):
+        raise RuntimeError("provider permission differs from authenticated runtime identity")
+    permission_claim = transition_provider_permission(
+        permission, PROVIDER_PERMISSION_EVENTS, to_state="CLAIMED",
+        actor=NOTEBOOK_NAME, detail={"binding_hash": permission_binding["binding_hash"]},
+    )
+
+if STAGE in {"evaluation", "snapshot_smoke", "real_model_smoke"}:
+    if any(value in {None, ""} for value in
+           [MODEL_COMMIT, PROCESSOR_COMMIT, MODEL_PATH, SNAPSHOT_MANIFEST,
+            SNAPSHOT_MANIFEST_HASH, EXPECTED_ARCHITECTURE]):
+        raise RuntimeError("snapshot contract is incomplete")
+    if SNAPSHOT_CONTRACT != "UNIFIED_SNAPSHOT":
+        raise RuntimeError("current notebooks require the frozen unified snapshot contract")
+    if pathlib.Path(MODEL_PATH).resolve() != pathlib.Path(PROCESSOR_PATH).resolve():
+        raise RuntimeError("unified snapshot requires identical model and processor roots")
+    if hashlib.sha256(pathlib.Path(SNAPSHOT_MANIFEST).read_bytes()).hexdigest() != SNAPSHOT_MANIFEST_HASH:
+        raise RuntimeError("snapshot manifest file hash mismatch")
+    snapshot = verify_manifest(MODEL_PATH, SNAPSHOT_MANIFEST, expected_model_id=MODEL_ID,
+        expected_model_commit=MODEL_COMMIT, expected_processor_commit=PROCESSOR_COMMIT,
+        expected_architecture=EXPECTED_ARCHITECTURE)
+    if not snapshot["passed"]: raise RuntimeError(snapshot["errors"])
+
+environment_verification = prepare_offline_environment(
+    ENVIRONMENT_LOCK, wheelhouse=WHEELHOUSE_PATH, wheelhouse_manifest=WHEELHOUSE_MANIFEST,
+    allow_preinstalled=ALLOW_USE_PREINSTALLED_ENVIRONMENT,
+    require_exact=REQUIRE_EXACT_ENVIRONMENT,
+    require_cuda=STAGE in {"generation", "evaluation", "real_model_smoke"},
+)
+if environment_verification["status"] not in {
+    "EXACT_PREINSTALLED_ENVIRONMENT_ACCEPTED",
+    "OFFLINE_WHEELHOUSE_INSTALLED_AND_VERIFIED",
+}:
+    raise RuntimeError("exact offline environment was not established")
+
 hardware = hardware_report()
 print(hardware)
 gpu_stage = STAGE in {"generation", "evaluation", "real_model_smoke"}
@@ -955,24 +1597,6 @@ T4_PLAN = detect_topology(
     allow_single_t4=ALLOW_SINGLE_GPU_FALLBACK,
 ) if gpu_stage else None
 if T4_PLAN is not None: print(T4_PLAN.as_dict())
-mismatches = [path for path, expected in ATTACHED_INPUT_HASHES.items()
-              if not pathlib.Path(path).is_file()
-              or hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest() != expected]
-if mismatches: raise RuntimeError(f"attached input hash mismatch: {mismatches}")
-if STAGE in {"evaluation", "snapshot_smoke", "real_model_smoke"}:
-    if any(value == "REQUIRED_USER_FILL" for value in
-           [MODEL_COMMIT, PROCESSOR_COMMIT, MODEL_PATH, SNAPSHOT_MANIFEST, SNAPSHOT_MANIFEST_HASH, EXPECTED_ARCHITECTURE]):
-        raise RuntimeError("snapshot contract is incomplete")
-    if SNAPSHOT_CONTRACT != "UNIFIED_SNAPSHOT":
-        raise RuntimeError("current notebooks require the frozen unified snapshot contract")
-    if pathlib.Path(MODEL_PATH).resolve() != pathlib.Path(PROCESSOR_PATH).resolve():
-        raise RuntimeError("unified snapshot requires identical model and processor roots")
-    if hashlib.sha256(pathlib.Path(SNAPSHOT_MANIFEST).read_bytes()).hexdigest() != SNAPSHOT_MANIFEST_HASH:
-        raise RuntimeError("snapshot manifest file hash mismatch")
-    snapshot = verify_manifest(MODEL_PATH, SNAPSHOT_MANIFEST, expected_model_id=MODEL_ID,
-        expected_model_commit=MODEL_COMMIT, expected_processor_commit=PROCESSOR_COMMIT,
-        expected_architecture=EXPECTED_ARCHITECTURE)
-    if not snapshot["passed"]: raise RuntimeError(snapshot["errors"])
 '''
     worker = '''if not pathlib.Path(TASK_MANIFEST).is_file(): raise RuntimeError("TASK_MANIFEST is missing")
 runtime = {
@@ -1066,7 +1690,7 @@ for shard, gpu in enumerate(GPU_IDS):
     if SEMANTIC_ENGINE == "manifest_verified_offline_inpainting":
         if module == "certvic.cvpr.generation":
             raise RuntimeError("specificity controls require deterministic engines; optional inpainting is a separate diagnostic")
-        if INPAINTING_SNAPSHOT == "REQUIRED_USER_FILL" or INPAINTING_MANIFEST == "REQUIRED_USER_FILL":
+        if not INPAINTING_SNAPSHOT or not INPAINTING_MANIFEST:
             raise RuntimeError("optional inpainting requires an explicit local snapshot and manifest")
         command += ["--inpainting-snapshot", INPAINTING_SNAPSHOT,
                     "--inpainting-manifest", INPAINTING_MANIFEST,
@@ -1246,7 +1870,12 @@ elif STAGE == "evaluation":
     print({"local_import_command": "python3 -m certvic.cvpr.import_transaction run --matrix <MATRIX_AUTHORIZATION> --provider-zip qwen2_5_vl_7b=<QWEN_ZIP> --provider-zip internvl_8b=<INTERNVL_ZIP> --provider-zip llava_onevision_7b=<LLAVA_ZIP> --destination <CANONICAL_DESTINATION> --nonce-ledger <CONSUMED_NONCES>"})
 '''
     cells = [
-        _cell("markdown", f"# {name}\n\nNON_EVIDENCE_RUNTIME_SMOKE or PLANNED_NOT_EXECUTED; paper_evidence=false.\n"),
+        _cell(
+            "markdown",
+            f"# {name}\n\nAuthenticated content is discovered under any account, name, mount, "
+            "archive extension, or nesting. No runtime path or identity edits are accepted. "
+            "NON_EVIDENCE_RUNTIME_SMOKE or PLANNED_NOT_EXECUTED; paper_evidence=false.\n",
+        ),
         _cell("code", config),
         _cell("code", bootstrap),
         _cell("code", preflight),
@@ -1261,7 +1890,12 @@ elif STAGE == "evaluation":
     return {
         "cells": cells,
         "metadata": {
-            "certvic": {"stage": stage, "provider": provider, "paper_evidence": False},
+            "certvic": {
+                "stage": stage, "provider": provider, "zero_edit": True,
+                "content_discovery": True, "owner_binding": False,
+                "filename_binding": False, "mount_binding": False,
+                "paper_evidence": False,
+            },
             "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
             "language_info": {"name": "python", "version": "3.10"},
         },

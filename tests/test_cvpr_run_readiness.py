@@ -273,14 +273,16 @@ def test_notebooks_verify_and_claim_before_output_creation(tmp_path: Path) -> No
     assert len(NOTEBOOKS) == 20
     for name, (stage, _) in NOTEBOOKS.items():
         text = (tmp_path / name).read_text()
-        if stage in {"code_smoke", "snapshot_smoke", "real_model_smoke"}:
-            assert "materialize_dataset" in text and "REQUIRED_USER_FILL" not in text
-        else:
-            assert "verify_bundle" in text and "TASK_BUNDLE_ROOT" in text
+        assert "discover_authenticated_input" in text and "REQUIRED_USER_FILL" not in text
+        if stage not in {"code_smoke", "snapshot_smoke", "real_model_smoke"}:
+            assert "TASK_BUNDLE_ROOT" in text
         if stage == "evaluation":
-            assert "PERMISSION_INPUT_PATHS" in text and "expected_provider=PROVIDER" in text
-            assert "claim_permission" in text
-            assert text.index("claim_permission") < text.index("pathlib.Path(OUTPUT_DIR).mkdir")
+            assert "derive_permission_binding(globals())" in text
+            assert "expected_provider=PROVIDER" in text
+            assert "transition_provider_permission" in text
+            assert text.index("transition_provider_permission") < text.index(
+                "hardware = hardware_report()"
+            ) < text.index("pathlib.Path(OUTPUT_DIR).mkdir")
 
 
 def test_synthetic_smoke_uses_real_package_and_gate(tmp_path: Path) -> None:

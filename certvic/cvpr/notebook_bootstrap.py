@@ -15,6 +15,11 @@ import zipfile
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable, Mapping
 
+from certvic.cvpr.content_discovery import (
+    ContentDiscoveryError,
+    discover_authenticated_input,
+    role_for_bundle_type,
+)
 from certvic.cvpr.kaggle_bundle import verify_bundle
 from certvic.cvpr.t4x2 import AcceleratorPlan, detect_topology
 
@@ -102,11 +107,9 @@ def verify_attached_bundle(
         raise NotebookBootstrapError(
             f"{ERRORS['BUNDLE']}: expected type {expected_type}, observed {observed_type}"
         )
-    observed_slug = result["bundle_manifest"].get("expected_kaggle_dataset_slug")
-    if expected_slug is not None and observed_slug != expected_slug:
-        raise NotebookBootstrapError(
-            f"{ERRORS['BUNDLE']}: expected slug {expected_slug}, observed {observed_slug}"
-        )
+    # Slug is retained only as an optional human-facing suggestion.  It never
+    # participates in runtime identity or authorization.
+    _ = expected_slug
     return result
 
 
@@ -254,34 +257,57 @@ def discover_unique_root(
 
 def materialize_dataset(
     *,
-    slug: str,
-    filename: str,
+    slug: str | None = None,
+    filename: str | None = None,
     destination: str | Path,
     expected_type: str,
     input_root: str | Path = "/kaggle/input",
+    provider: str | None = None,
+    study: str | None = None,
+    stage: str | None = None,
+    expected_identity: str | Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Locate, authenticate, safely extract, and describe one attached dataset archive."""
-    archive = locate_dataset(
-        slug=slug, expected_filename=filename, input_root=input_root
-    )
-    verification = verify_attached_bundle(
-        archive, expected_type=expected_type, expected_slug=slug
-    )
-    extracted = extract_verified_bundle(
-        archive,
-        destination,
-        expected_type=expected_type,
-        expected_slug=slug,
-    )
+    """Discover by authenticated content and return the legacy materialization shape.
+
+    ``slug`` and ``filename`` remain accepted for source compatibility, but are
+    recorded only as suggestions and are never used to select a candidate.
+    """
+    role = role_for_bundle_type(expected_type)
+    try:
+        discovered = discover_authenticated_input(
+            role,
+            provider=provider,
+            study=study,
+            stage=stage,
+            roots=[input_root],
+            expected_identity=expected_identity,
+            materialization_root=Path(destination).resolve().parent,
+        )
+    except ContentDiscoveryError as error:
+        raise NotebookBootstrapError(str(error)) from error
     return {
-        "schema": "certvic.kaggle.materialized_dataset.v1",
+        "schema": "certvic.kaggle.materialized_dataset.v2",
         "slug": slug,
         "filename": filename,
-        "archive": str(archive.resolve()),
-        "archive_sha256": verification["sha256"],
-        "archive_size": verification["size"],
-        "bundle_manifest": verification["bundle_manifest"],
-        "root": str(extracted),
+        "archive": (
+            discovered["discovered_path"]
+            if discovered["representation"] == "zip_archive"
+            else None
+        ),
+        "archive_sha256": discovered.get("archive_sha256"),
+        "archive_size": (
+            Path(discovered["discovered_path"]).stat().st_size
+            if discovered["representation"] == "zip_archive"
+            else None
+        ),
+        "content_identity_sha256": discovered["content_identity_sha256"],
+        "bundle_manifest": discovered["bundle_manifest"],
+        "root": discovered["materialized_root"],
+        "representation": discovered["representation"],
+        "mirrors": discovered["mirrors"],
+        "observed_mount": discovered["observed_mount"],
+        "observed_dataset_folder": discovered["observed_dataset_folder"],
+        "discovery_policy": discovered["discovery_policy"],
         "paper_evidence": False,
     }
 

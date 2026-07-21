@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
+from certvic.cvpr.content_discovery import authenticate_content_path
 from certvic.cvpr.kaggle_bundle import build_bundle, verify_bundle
 from certvic.cvpr.reconcile_provider_permissions import (
     verify_matrix_authorization,
@@ -47,11 +48,23 @@ def build_pre_smoke_permissions(
     absent = sorted(role for role, path in paths.items() if not path.is_file() or path.is_symlink())
     if absent:
         raise PreSmokePackagerError(f"pre-smoke artifacts absent: {absent}")
+    verified_bundles: dict[str, dict[str, Any]] = {}
     for role in ("code_bundle", "smoke_bundle"):
         verification = verify_bundle(paths[role])
         if not verification["passed"]:
             raise PreSmokePackagerError(f"{role} is not a valid canonical bundle: {verification['errors']}")
+        verified_bundles[role] = verification
     hashes = {role: _sha(path) for role, path in sorted(paths.items())}
+    code_type = verified_bundles["code_bundle"]["bundle_manifest"].get("bundle_type")
+    if code_type == "CODE":
+        hashes["code_bundle"] = authenticate_content_path(paths["code_bundle"], "CODE")
+    elif verified_bundles["code_bundle"]["bundle_manifest"].get(
+        "external_dependency_status"
+    ) != "SYNTHETIC_PROOF_ONLY":
+        raise PreSmokePackagerError("code_bundle does not authenticate as CODE")
+    hashes["smoke_bundle"] = authenticate_content_path(
+        paths["smoke_bundle"], "REAL_TWO_ITEM_SMOKE"
+    )
     matrix = {
         "schema": "certvic.kaggle.pre_smoke_matrix_authorization.v1",
         "authorization_class": "REAL_MODEL_SMOKE_ONLY",
@@ -148,7 +161,14 @@ def package_verified_permissions(
             raise PreSmokePackagerError(f"{provider}: active input role matrix is incomplete")
         for role, expected_hash in permission["active_input_hashes"].items():
             path = supplied[role]
-            if not path.is_file() or path.is_symlink() or _sha(path) != expected_hash:
+            if not path.is_file() or path.is_symlink():
+                raise PreSmokePackagerError(f"{provider}: active input is missing for {role}")
+            observed_hash = (
+                authenticate_content_path(path, "CODE")
+                if role == "code_bundle"
+                else _sha(path)
+            )
+            if observed_hash != expected_hash:
                 raise PreSmokePackagerError(f"{provider}: active input hash mismatch for {role}")
             unique_inputs.setdefault(expected_hash, path)
     for digest, path in sorted(unique_inputs.items()):

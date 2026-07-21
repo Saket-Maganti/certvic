@@ -38,12 +38,12 @@ def validate_suite(root: str | Path) -> dict[str, Any]:
                for cell in payload.get("cells", []) if cell.get("cell_type") == "code"):
             errors.append("notebook contains execution state")
         stage, provider = NOTEBOOKS[name]
-        zero_edit = stage in {"code_smoke", "snapshot_smoke", "real_model_smoke"}
+        zero_edit = True
         required_tokens = (
             "HF_HUB_OFFLINE", "ENVIRONMENT_LOCK_HASH", "ATTACHED_INPUT_HASHES",
             "hardware_report", "ALLOW_SINGLE_GPU_FALLBACK",
         )
-        if not zero_edit:
+        if stage in {"generation", "evaluation"}:
             required_tokens += (
                 "--resume", "runtime_manifest.json", "hash_manifest.json",
                 "local_import_command",
@@ -62,14 +62,21 @@ def validate_suite(root: str | Path) -> dict[str, Any]:
                 except SyntaxError as error:
                     errors.append(f"code cell is not Ruff-compatible Python: {error}")
             for token in (
-                "materialize_dataset", "certvic/certvic-code", "certvic/certvic-configs",
-                "certvic/certvic-execution-tools", "certvic/certvic-offline-wheelhouse",
-                "certvic_offline_wheelhouse.zip", "wheelhouse_manifest.json",
-                "KAGGLE_BOOTSTRAP_09_UNSAFE_EXTRACTION", "LOCAL_DESTINATION=",
-                "python3 scripts/run_all_cpu_workflows.py --resume",
+                "discover_authenticated_input", "CONTENT_AUTHENTICATED_ANY_LOCATION",
+                "CERTVIC_INPUT_ROOTS", "CERTVIC_DISCOVERY_01_REQUIRED_ROLE_NOT_FOUND",
+                "CERTVIC_DISCOVERY_02_AMBIGUOUS_DISTINCT_CONTENT",
+                "CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED",
+                "content_identity_sha256", "observed_dataset_folder", "mirrors",
             ):
                 if token not in text:
                     errors.append(f"zero-edit discovery contract missing: {token}")
+            for prohibited in (
+                "locate_dataset(", "/kaggle/input/certvic-", "certvic/certvic-code",
+                "certvic/certvic-configs", "certvic/certvic-execution-tools",
+                "certvic/certvic-offline-wheelhouse",
+            ):
+                if prohibited in text:
+                    errors.append(f"active runbook retains a location/name binding: {prohibited}")
             expected_gpus = 0 if stage in {"code_smoke", "snapshot_smoke"} else 2
             if f"EXPECTED_GPUS = {expected_gpus}" not in text:
                 errors.append("zero-edit notebook has the wrong accelerator contract")
@@ -86,12 +93,10 @@ def validate_suite(root: str | Path) -> dict[str, Any]:
             if "verify_manifest" not in text or "SNAPSHOT_MANIFEST_HASH" not in text:
                 errors.append("model stage does not verify snapshot bytes")
         if stage == "snapshot_smoke":
-            slug = {
-                "qwen2_5_vl_7b": "certvic/qwen2-5-vl-7b-snapshot",
-                "internvl_8b": "certvic/internvl2-8b-snapshot",
-                "llava_onevision_7b": "certvic/llava-onevision-7b-snapshot",
-            }[provider]
-            if slug not in text or "EXPECTED_GPUS = 0" not in text:
+            if (
+                'discover_authenticated_input(\n    "MODEL_SNAPSHOT"' not in text
+                or "EXPECTED_GPUS = 0" not in text
+            ):
                 errors.append("00B is not provider-specific CPU-only discovery")
         if stage == "mock_smoke":
             if "SYNTHETIC_SMOKE" not in text or 'command.append("--mock-runtime")' not in text:
@@ -104,8 +109,7 @@ def validate_suite(root: str | Path) -> dict[str, Any]:
             ):
                 errors.append("00C2 is not fail-closed real-model smoke")
             for token in (
-                "certvic/certvic-real-two-item-smoke",
-                "certvic/certvic-pre-smoke-permissions",
+                '"REAL_TWO_ITEM_SMOKE"', '"PRE_SMOKE_PERMISSIONS"',
                 "KAGGLE_ZERO_EDIT_00C2_PERMISSION",
                 "verify_matrix_authorization", "verify_provider_permission",
             ):

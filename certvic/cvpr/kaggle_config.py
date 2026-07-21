@@ -17,8 +17,7 @@ NOTEBOOKS: dict[str, dict[str, Any]] = {
     "00A": {
         "file": "00A_certvic_code_and_environment_smoke.ipynb",
         "datasets": [
-            "certvic/certvic-code", "certvic/certvic-configs",
-            "certvic/certvic-execution-tools", "certvic/certvic-offline-wheelhouse",
+            "CODE", "CONFIGS", "EXECUTION_TOOLS", "OFFLINE_LINUX_WHEELHOUSE",
         ],
         "output": "00A_environment_bundle.zip",
         "providers": False,
@@ -26,9 +25,8 @@ NOTEBOOKS: dict[str, dict[str, Any]] = {
     "00B": {
         "file": "00B_{provider}_snapshot_smoke.ipynb",
         "datasets": [
-            "certvic/certvic-code", "certvic/certvic-configs",
-            "certvic/certvic-execution-tools", "certvic/certvic-offline-wheelhouse",
-            "provider-snapshot",
+            "CODE", "CONFIGS", "EXECUTION_TOOLS", "OFFLINE_LINUX_WHEELHOUSE",
+            "MODEL_SNAPSHOT",
         ],
         "output": "00B_{provider}_snapshot_bundle.zip",
         "providers": True,
@@ -36,29 +34,30 @@ NOTEBOOKS: dict[str, dict[str, Any]] = {
     "00C2": {
         "file": "00C2_{provider}_real_model_two_item_smoke.ipynb",
         "datasets": [
-            "certvic/certvic-code", "certvic/certvic-configs",
-            "certvic/certvic-execution-tools", "certvic/certvic-offline-wheelhouse",
-            "provider-snapshot", "certvic/certvic-real-two-item-smoke",
-            "certvic/certvic-pre-smoke-permissions",
+            "CODE", "CONFIGS", "EXECUTION_TOOLS", "OFFLINE_LINUX_WHEELHOUSE",
+            "MODEL_SNAPSHOT", "REAL_TWO_ITEM_SMOKE", "PRE_SMOKE_PERMISSIONS",
         ],
         "output": "00C2_{provider}_real_model_smoke.zip",
         "providers": True,
     },
     "confirmatory": {
         "file": "02_qwen_specificity_confirmatory_T4x2.ipynb",
-        "datasets": ["certvic-confirmatory-task-bundle", "provider-snapshot"],
+        "datasets": ["CODE", "CONFIGS", "EXECUTION_TOOLS", "OFFLINE_LINUX_WHEELHOUSE",
+                     "MODEL_SNAPSHOT", "SCIENTIFIC_PROVIDER_INPUT", "TASK_BUNDLE"],
         "output": "specificity_confirmatory_cvpr_{provider}_return.zip",
         "providers": True,
     },
     "main": {
         "file": "11_qwen_main_study_T4x2.ipynb",
-        "datasets": ["certvic-main-task-bundle", "provider-snapshot"],
+        "datasets": ["CODE", "CONFIGS", "EXECUTION_TOOLS", "OFFLINE_LINUX_WHEELHOUSE",
+                     "MODEL_SNAPSHOT", "SCIENTIFIC_PROVIDER_INPUT", "TASK_BUNDLE"],
         "output": "main_study_cvpr_{provider}_return.zip",
         "providers": True,
     },
     "coco": {
         "file": "21_second_domain_qwen_T4x2.ipynb",
-        "datasets": ["certvic-second-domain-task-bundle", "provider-snapshot"],
+        "datasets": ["CODE", "CONFIGS", "EXECUTION_TOOLS", "OFFLINE_LINUX_WHEELHOUSE",
+                     "MODEL_SNAPSHOT", "SCIENTIFIC_PROVIDER_INPUT", "TASK_BUNDLE"],
         "output": "second_domain_cvpr_{provider}_return.zip",
         "providers": True,
     },
@@ -115,15 +114,23 @@ def generate_config(
             filename = candidates[key][prefix]
     output = str(spec["output"]).format(provider=provider or "none")
     return {
-        "schema": "certvic.cvpr.kaggle_config.v1",
+        "schema": "certvic.cvpr.kaggle_config.v2",
         "notebook_family": key,
         "notebook_file": filename,
+        "notebook_file_is_recommended_label_only": True,
         "provider": provider,
         "model_id": model.get("model_id"),
         "model_commit": model.get("model_commit"),
         "processor_commit": model.get("processor_commit"),
+        "required_authenticated_roles": spec["datasets"],
         "required_datasets": spec["datasets"],
         "mount_root": "/kaggle/input",
+        "input_roots_environment_variable": "CERTVIC_INPUT_ROOTS",
+        "discovery_policy": "CONTENT_AUTHENTICATED_ANY_LOCATION",
+        "owner_binding_required": False,
+        "filename_binding_required": False,
+        "path_binding_required": False,
+        "accepted_representations": ["zip_archive", "extracted_directory"],
         "working_root": "/kaggle/working/certvic",
         "environment_variables": {
             "CERTVIC_OFFLINE": "1",
@@ -139,7 +146,7 @@ def generate_config(
         ),
         "paper_evidence": False,
         "validation_checklist": [
-            "Attach only the listed datasets and disable internet before execution.",
+            "Attach the listed authenticated roles under any owner, title, filename, or mount and disable internet.",
             "Verify every configured model, processor, environment, and permission hash.",
             "Run all notebook cells once in a fresh session without editing frozen values.",
             f"Download {output} and preserve its bytes unchanged for local validation.",

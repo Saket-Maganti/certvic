@@ -1,14 +1,13 @@
 # CertVIC CVPR execution master plan
 
-This is the sole continuation point. The active tree passes its repaired baseline tests and contains
-the maximum-ceiling operator/recovery layer, but the full replacement archive required by the
-migration specification was not present. Therefore the honest migration status is
-`PARTIALLY_READY_WITH_BLOCKERS`; the active runtime is locally ready to begin external provisioning
-and 00A. `paper_evidence=false`; Main and COCO remain `execution_allowed=false`.
+This is the sole continuation point. The active tree contains the fail-closed operator/recovery
+layer and is locally ready for external provisioning and 00A. Every active Kaggle runbook discovers
+authenticated content independently of account, owner, dataset title, slug, archive name,
+extension, mount, nesting, and notebook filename. Canonical upload labels are recommendations only.
+`paper_evidence=false`; Main and COCO remain `execution_allowed=false`.
 
-The repaired-baseline capability label `CVPR_PRE_EXECUTION_READY` is retained for backward-compatible
-runbooks; it describes the active runtime's pre-execution route, not completion of the requested
-repository replacement or the overall migration verdict.
+The backward-compatible capability label `CVPR_PRE_EXECUTION_READY` continues to describe this
+locally validated, pre-external-execution state.
 
 Frozen facts remain Qwen V1 `12/94 = 0.1277`, InternVL V1 `1/94 = 0.0106`, and LLaVA V1
 `3/94 = 0.0319`. The frozen V1 rule is observed flip rate at most `0.10`, so Qwen fails. V2-30 is
@@ -31,7 +30,7 @@ python3 -m certvic.cvpr.run_graph status
 | 2 | Run doctor | configs, notebooks, code | `python3 -m certvic.cvpr.doctor --json` | local CPU / <1 min | one readiness state and stable blockers | read-only retry; then wheelhouse |
 | 3 | Provision wheelhouse | environment lock | `execution_pack/01_EXTERNAL_ASSETS_CHECKLIST.md` | networked provisioner / 30–90 min | all-wheel hash manifest | resume and rehash; then snapshots |
 | 4 | Provision snapshots | model registry | external checklist | networked provisioner / 2–6 h | three unified all-file manifests | resume per provider and rehash; then smoke bundle |
-| 5 | Create portable smoke bundle | code, wheelhouse, configs | package-run tooling | local CPU / 5–15 min | deterministic private bundle | atomic rebuild; then 00A |
+| 5 | Create portable smoke bundle | code, wheelhouse, configs | package-run tooling | local CPU / 5–15 min | deterministic authenticated bundle, any account/name/mount | atomic rebuild; then 00A |
 | 6 | Run 00A | bundle, wheelhouse, env lock | `00A_certvic_code_and_environment_smoke.ipynb` | Kaggle CPU, accelerator off / 10–20 min | exact environment artifacts, offline pass; no model load | new session, same bytes; then 00B |
 | 7 | Run 00B per provider | accepted 00A, one snapshot | provider-specific `00B_<provider>_snapshot_smoke.ipynb` | Kaggle CPU, accelerator off / 15–30 min each | exact snapshot, configuration, processor, and tokenizer integrity; no model load | isolate failed provider; then pre-smoke authorization |
 | 8 | Issue pre-smoke matrix | 00A + three 00B artifacts | `reconcile_provider_permissions issue-matrix ...` using smoke-only inputs | local CPU / <5 min | parent binds only 00C2 bytes | regenerate only on input-byte change; then children |
@@ -96,3 +95,8 @@ Follow `reports/non_human_closure/CERTVIC_KAGGLE_ZERO_EDIT_SMOKE_HANDOFF.md`, pr
 wheelhouse and three snapshots, then run 00A, the three provider-specific 00B notebooks, pre-smoke
 authorization, and the three provider-specific 00C2 notebooks. These seven notebooks require no
 manual cell edits. Do not begin confirmatory scientific inference before all intervening gates.
+
+Upload authenticated inputs under any names to any of the four Kaggle accounts. Identical mirrors
+deduplicate; distinct valid identities and tampering fail closed. Account and observed path are
+provenance only and never enter authorization. Full account substitution and nonce guidance is in
+`reports/non_human_closure/CERTVIC_MULTI_ACCOUNT_KAGGLE_HANDOFF.md`.

@@ -23,8 +23,9 @@ ACTIONS: dict[str, dict[str, Any]] = {
         "kind": "external",
         "command": ["Kaggle", "00A_certvic_code_and_environment_smoke.ipynb"],
         "description": (
-            "Publish the verified offline wheelhouse and run 00A in a fresh Kaggle CPU session "
-            "with accelerator and Internet off."
+            "UPLOAD THE FOUR 00A INPUT BUNDLES UNDER ANY NAMES TO ANY KAGGLE ACCOUNT; "
+            "ATTACH THEM TO THE 00A NOTEBOOK; KEEP ACCELERATOR OFF; KEEP INTERNET OFF; "
+            "CLICK RUN ALL"
         ),
     },
     "READY_FOR_00B": {

@@ -9,6 +9,8 @@ smoke, synthetic, planned, or retrospective artifacts into paper evidence.
 2. Confirm `local_ready=true`, `paper_evidence=false`, and note the returned readiness state.
 3. Run `python3 -m certvic.cvpr.run_graph next` for the next graph node.
 4. Provision only the bytes in `01_EXTERNAL_ASSETS_CHECKLIST.md`.
+   Upload authenticated roles under any account, dataset title, filename, extension, mount, or
+   nesting. Canonical upload labels are recommendations, not execution bindings.
 5. Run 00A, 00B, and 00C2 in that order. Pre-smoke authorization and scientific authorization are
    separate artifacts; neither may substitute for the other.
 6. Stop on any hash, schema, permission, nonce, review, detectability, or license error. Preserve the
@@ -30,3 +32,10 @@ Local validators are idempotent. Real provider permissions and their nonces are 
 Never edit returned JSON or ZIP files; rerun only under a newly issued permission after an audited
 failure.
 
+## Portable discovery
+
+Every active runbook recursively discovers authenticated content under `CERTVIC_INPUT_ROOTS`,
+`/kaggle/input`, and `/kaggle/working`. It supports ZIP-compatible files with arbitrary extensions
+and extracted bundles. Identical mirrors deduplicate; distinct valid identities and tampering fail
+closed. Kaggle account metadata is recorded only as provenance and never enters permission or
+scientific identity checks.

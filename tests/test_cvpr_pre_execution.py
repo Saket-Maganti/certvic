@@ -260,13 +260,13 @@ def test_cvpr_notebooks_are_clean_static_contracts() -> None:
         assert all(not cell.get("outputs") for cell in value["cells"] if cell["cell_type"] == "code")
         text = json.dumps(value)
         stage = NOTEBOOKS[name][0]
-        if stage in {"code_smoke", "snapshot_smoke", "real_model_smoke"}:
-            required = ["materialize_dataset", "CANONICAL_RETURN_ZIP", "paper_evidence=false"]
-            assert "REQUIRED_USER_FILL" not in text
-        else:
-            required = ["shard_for", "shard_complete", "single_gpu_fallback",
-                        "runtime_manifest.json", "failure_report.json", "hash_manifest.json",
-                        "REQUIRED_USER_FILL", "CUDA_VISIBLE_DEVICES"]
+        assert "REQUIRED_USER_FILL" not in text
+        required = ["discover_authenticated_input", "CONTENT_AUTHENTICATED_ANY_LOCATION",
+                    "CANONICAL_RETURN_ZIP", "paper_evidence=false"]
+        if stage in {"generation", "evaluation"}:
+            required += ["shard_for", "single_gpu_fallback",
+                         "runtime_manifest.json", "failure_report.json", "hash_manifest.json",
+                         "CUDA_VISIBLE_DEVICES"]
         for token in required:
             assert token in text, (name, token)
         assert "/Users/" not in text

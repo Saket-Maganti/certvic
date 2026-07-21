@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
+from certvic.cvpr.content_discovery import authenticate_content_path
 from certvic.cvpr.kaggle_bundle import build_bundle
 
 
@@ -34,7 +35,8 @@ NOTEBOOKS = {
     ("coco", "llava"): "23_second_domain_llava_T4x2.ipynb",
 }
 REQUIRED_ROLES = (
-    "task_bundle", "task_freeze", "review_ledger", "detectability_gate", "environment_lock",
+    "task_bundle", "task_freeze", "review_ledger", "detectability_gate", "smoke_gate",
+    "environment_lock",
     "model_registry", "snapshot_manifest", "code_bundle", "prompt_contract", "run_contract",
     "parent_authorization", "child_permission", "output_schema",
 )
@@ -65,7 +67,10 @@ def build_scientific_input(
 ) -> dict[str, Any]:
     if study not in STUDIES or provider not in PROVIDERS:
         raise ScientificInputBuilderError("unknown study/provider")
-    missing = sorted(set(REQUIRED_ROLES) - set(roles))
+    required_roles = set(REQUIRED_ROLES)
+    if synthetic_fixture:
+        required_roles.discard("smoke_gate")
+    missing = sorted(required_roles - set(roles))
     if missing:
         raise ScientificInputBuilderError(f"missing scientific roles: {missing}")
     paths = {role: Path(value).resolve() for role, value in roles.items()}
@@ -84,6 +89,8 @@ def build_scientific_input(
     if not synthetic_fixture and (parent.get("synthetic_fixture") is True or child.get("synthetic_fixture") is True):
         raise ScientificInputBuilderError("synthetic permissions cannot authorize a real scientific run")
     hashes = {role: hashlib.sha256(path.read_bytes()).hexdigest() for role, path in sorted(paths.items())}
+    if not synthetic_fixture:
+        hashes["code_bundle"] = authenticate_content_path(paths["code_bundle"], "CODE")
     binding = {
         "schema": "certvic.kaggle.scientific_input_binding.v1",
         "study": STUDIES[study]["study"],
@@ -94,8 +101,25 @@ def build_scientific_input(
         "paper_evidence": False,
     }
     files: dict[str, Path | bytes] = {
-        f"inputs/{role}{path.suffix.lower() or '.bin'}": path for role, path in sorted(paths.items())
+        f"inputs/{role}{path.suffix.lower() or '.bin'}": path
+        for role, path in sorted(paths.items())
+        if role != "task_bundle"
     }
+    task_manifest = paths["task_bundle"]
+    task_root = task_manifest.parent
+    if task_manifest.name != "task_bundle_manifest.json" and not synthetic_fixture:
+        raise ScientificInputBuilderError(
+            "task_bundle role must identify task_bundle_manifest.json"
+        )
+    if task_manifest.name == "task_bundle_manifest.json":
+        for member in sorted(task_root.rglob("*")):
+            if member.is_symlink():
+                raise ScientificInputBuilderError("task bundle symlinks are prohibited")
+            if member.is_file():
+                relative = member.relative_to(task_root).as_posix()
+                files[f"inputs/task_bundle_tree/{relative}"] = member
+    else:
+        files[f"inputs/task_bundle{task_manifest.suffix.lower() or '.bin'}"] = task_manifest
     files["scientific_input_binding.json"] = (
         json.dumps(binding, indent=2, sort_keys=True) + "\n"
     ).encode()

@@ -130,8 +130,8 @@ def build_bundle(
     stage: str,
     provider: str | None,
     required_notebook: str,
-    dataset_slug: str,
-    mount_path: str,
+    dataset_slug: str | None,
+    mount_path: str | None,
     external_dependency_status: str,
     evidence_class: str,
     builder_command: str,
@@ -140,9 +140,9 @@ def build_bundle(
     extra_manifest: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Write a byte-reproducible v1 archive and return its immutable identity."""
-    if not dataset_slug or "/" not in dataset_slug:
+    if dataset_slug is not None and "/" not in dataset_slug:
         raise KaggleBundleError("expected Kaggle dataset slug must be owner/dataset")
-    if not mount_path.startswith("/kaggle/input/"):
+    if mount_path is not None and not mount_path.startswith("/kaggle/input/"):
         raise KaggleBundleError("mount path must be below /kaggle/input")
     # Keep large wheel/model files as paths.  Reading 16 GB checkpoints into a
     # Python mapping made the otherwise-correct snapshot builder non-executable.
@@ -167,6 +167,11 @@ def build_bundle(
         "required_notebook": required_notebook,
         "expected_kaggle_dataset_slug": dataset_slug,
         "mount_path": mount_path,
+        "discovery_policy": "CONTENT_AUTHENTICATED_ANY_LOCATION",
+        "owner_binding_required": False,
+        "filename_binding_required": False,
+        "path_binding_required": False,
+        "accepted_representations": ["zip_archive", "extracted_directory"],
         "external_dependency_status": external_dependency_status,
         "evidence_class": evidence_class,
         "builder_command": builder_command,
@@ -224,6 +229,11 @@ def _is_symlink(info: zipfile.ZipInfo) -> bool:
     return stat.S_ISLNK((info.external_attr >> 16) & 0xFFFF)
 
 
+def _is_nonregular(info: zipfile.ZipInfo) -> bool:
+    mode = (info.external_attr >> 16) & 0xFFFF
+    return bool(mode and not stat.S_ISREG(mode))
+
+
 def _archive_entry(archive: zipfile.ZipFile, name: str) -> tuple[dict[str, Any], bool]:
     digest = hashlib.sha256()
     size = 0
@@ -265,6 +275,8 @@ def verify_bundle(path: str | Path) -> dict[str, Any]:
                     errors.append(f"directory entries are prohibited: {info.filename}")
                 if _is_symlink(info):
                     errors.append(f"symlink archive member: {info.filename}")
+                elif _is_nonregular(info):
+                    errors.append(f"non-regular archive member: {info.filename}")
                 if info.date_time != FIXED_TIME:
                     errors.append(f"non-deterministic timestamp: {info.filename}")
             if REQUIRED_MEMBERS - set(names):
@@ -276,6 +288,14 @@ def verify_bundle(path: str | Path) -> dict[str, Any]:
                 errors.append(f"invalid metadata: {error}")
             if manifest.get("schema") != SCHEMA:
                 errors.append("bundle schema mismatch")
+            policy = manifest.get("discovery_policy")
+            if policy not in {None, "CONTENT_AUTHENTICATED_ANY_LOCATION"}:
+                errors.append("unsupported discovery policy")
+            for field in (
+                "owner_binding_required", "filename_binding_required", "path_binding_required"
+            ):
+                if manifest.get(field) not in {None, False}:
+                    errors.append(f"portable bundle cannot require {field}")
             if hash_manifest.get("schema") != HASH_SCHEMA:
                 errors.append("hash manifest schema mismatch")
             declared = manifest.get("files")

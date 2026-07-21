@@ -6,11 +6,11 @@ Phase A created and verified all five repository-only upload ZIPs, regenerated a
 
 | Path | Bytes | SHA-256 | Status |
 | --- | ---: | --- | --- |
-| `kaggle_uploads/00_code/certvic_code_bundle.zip` | 1167565 | `e670d70146f79471d0163fbf6024b49aa1a068befb769b2d6ac345e730ffb46e` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_notebooks_bundle.zip` | 146054 | `db5fbd9cd7e342761036fb422bb41ddaad888310a37182434e42db3cf9fe319b` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_configs_bundle.zip` | 45697 | `0a10cf9b570dd7769d2c24c84d406be1d7c64cc0fabd774c4354572a7bda1db8` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_execution_tools_bundle.zip` | 121856 | `d06e1d6a25ae6689dfc5a5d3b8e37170f46c567ea25ffb2b669acc0ca8f3c1b8` | CREATED_AND_VALIDATED |
-| `kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip` | 37638 | `bb80db8bcb15e3f2d00a8f7f8665bc8606479b141976d66904126cfec04b6b81` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_code_bundle.zip` | 1184393 | `0873a95e99550faa939706783d38b1c4c2cadc0026931df6ccd6c4b82a58df30` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_notebooks_bundle.zip` | 196297 | `b268cd84be7b8976b30b36b98b7bf58c5e8985fc4b5139d1ab1d0945f4b27ae2` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_configs_bundle.zip` | 45814 | `4095c4b947a4d1fbfe67cca32ea3861b4782dde19da62184d38c0baf869dcd40` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_execution_tools_bundle.zip` | 132032 | `b676b4829088cbf8ce2166de0fd2f335d5cfc5e9de2523d81dbf59de817c9a19` | CREATED_AND_VALIDATED |
+| `kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip` | 37962 | `1816c27b2de6155b6add2f993277cf2c0050eec8c676e09e9590f0532a7b6075` | CREATED_AND_VALIDATED |
 
 ## External bytes still absent
 

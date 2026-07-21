@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 from datetime import date
 from pathlib import Path
 
@@ -32,9 +33,34 @@ _SKIPPED_SECRETS = {
 }
 
 
+def _untracked_workspace_allowlist(root: str) -> tuple[str, ...]:
+    """Exclude unrelated, non-release workspace notes from a repository audit."""
+    base = Path(root).resolve()
+    if not (base / ".git").exists():
+        return ()
+    try:
+        completed = subprocess.run(
+            ["git", "-C", str(base), "ls-files", "--others", "--exclude-standard", "-z"],
+            check=False,
+            capture_output=True,
+            timeout=10,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return ()
+    if completed.returncode != 0:
+        return ()
+    return tuple(
+        value.decode("utf-8", errors="surrogateescape")
+        for value in completed.stdout.split(b"\0")
+        if value
+    )
+
+
 def audit(root: str, *, allowlist: tuple[str, ...] = DEFAULT_ALLOWLIST, release_dir: str | None = None) -> dict:
-    paths = scan_private_paths(root, allowlist=allowlist)
-    secrets = scan_secrets(root, allowlist=allowlist)
+    excluded_untracked = _untracked_workspace_allowlist(root)
+    repository_allowlist = allowlist + excluded_untracked
+    paths = scan_private_paths(root, allowlist=repository_allowlist)
+    secrets = scan_secrets(root, allowlist=repository_allowlist)
     if release_dir:
         pixels = scan_release_pixels(release_dir)
         # The repo-root scans skip the generated "release/" tree, so a private path
@@ -68,6 +94,7 @@ def audit(root: str, *, allowlist: tuple[str, ...] = DEFAULT_ALLOWLIST, release_
         "release_secrets": release_secrets,
         "n_total_findings": n_total_findings,
         "evidence_claims_made": False,
+        "untracked_workspace_files_excluded": list(excluded_untracked),
     }
 
 

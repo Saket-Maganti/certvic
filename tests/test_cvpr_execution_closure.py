@@ -271,11 +271,11 @@ def test_notebook_suite_has_global_bound_concurrency_and_separate_smokes(tmp_pat
     text = "\n".join(path.read_text() for path in tmp_path.glob("*.ipynb"))
     assert "bounded_rows = rows if MAX_ITEMS is None else rows[:MAX_ITEMS]" in text
     assert "subprocess.Popen(command" in text
-    assert "SYNTHETIC_MOCK_RUNTIME" in text and "NON_EVIDENCE_REAL_MODEL_SMOKE" in text
+    assert "CONTENT_AUTHENTICATED_ANY_LOCATION" in text
+    assert "CERTVIC_DISCOVERY_02_AMBIGUOUS_DISTINCT_CONTENT" in text
     assert "USE_REAL_MODEL = True" in text
     for name in expected:
-        if name.startswith(("00A_", "00B_", "00C2_")):
-            assert "REQUIRED_USER_FILL" not in (tmp_path / name).read_text()
+        assert "REQUIRED_USER_FILL" not in (tmp_path / name).read_text()
 
 
 def test_environment_lock_and_internvl_t4_policy_are_explicit() -> None:

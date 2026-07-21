@@ -338,9 +338,9 @@ def test_all_route_synthetic_proof_permission_and_notebooks(tmp_path: Path) -> N
         notebook = json.loads((notebook_root / name).read_text())
         assert all(cell.get("outputs", []) == [] for cell in notebook["cells"])
         text = "".join("".join(cell["source"]) for cell in notebook["cells"])
-        if NOTEBOOKS[name][0] in {"code_smoke", "snapshot_smoke", "real_model_smoke"}:
-            assert "REQUIRED_USER_FILL" not in text and "materialize_dataset" in text
-        else:
-            assert "EXECUTION_PERMISSION" in text
+        assert "REQUIRED_USER_FILL" not in text
+        assert "discover_authenticated_input" in text
+        if NOTEBOOKS[name][0] == "evaluation":
+            assert "PROVIDER_PERMISSION" in text
         if "generation" in name:
             assert "--assemble-shards" in text and "certvic.cvpr.package_generation" in text

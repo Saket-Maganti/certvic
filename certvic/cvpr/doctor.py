@@ -32,6 +32,7 @@ CRITICAL_IMPORTS = (
     "certvic.cvpr.execution_gate",
     "certvic.cvpr.reconcile_provider_permissions",
     "certvic.cvpr.notebook_builder",
+    "certvic.cvpr.content_discovery",
     "certvic.cvpr.notebook_00c2_proof",
     "certvic.cvpr.task_bundle",
     "certvic.cvpr.import_transaction",
@@ -108,6 +109,48 @@ def _notebook_check(root: Path) -> dict[str, Any]:
     }
 
 
+def _multi_account_portability_check(root: Path) -> dict[str, Any]:
+    from certvic.cvpr.notebook_builder import NOTEBOOKS
+
+    forbidden = (
+        "locate_dataset(",
+        "expected_filename=",
+        "slug=",
+        "certvic/certvic-",
+        "/kaggle/input/certvic-",
+    )
+    violations: dict[str, list[str]] = {}
+    for name in NOTEBOOKS:
+        path = root / "notebooks/kaggle/cvpr" / name
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            text = "\n".join(
+                "".join(cell.get("source", [])) for cell in payload.get("cells", [])
+            )
+        except (OSError, json.JSONDecodeError):
+            violations[name] = ["unreadable_notebook"]
+            continue
+        found = [marker for marker in forbidden if marker in text]
+        if "discover_authenticated_input(" not in text:
+            found.append("content_discovery_missing")
+        metadata = payload.get("metadata", {}).get("certvic", {})
+        if any(metadata.get(field) is not False for field in (
+            "owner_binding", "filename_binding", "mount_binding"
+        )):
+            found.append("portable_metadata_invalid")
+        if found:
+            violations[name] = found
+    return {
+        "passed": not violations,
+        "owner_slug_binding": False,
+        "filename_binding": False,
+        "mount_binding": False,
+        "content_authentication_required": True,
+        "active_runbooks_checked": len(NOTEBOOKS),
+        "violations": violations,
+    }
+
+
 def diagnose(root: str | Path | None = None, *, study: str = "specificity_confirmatory_cvpr") -> dict[str, Any]:
     base = repository_root(root)
     blockers: list[dict[str, str]] = []
@@ -147,6 +190,17 @@ def diagnose(root: str | Path | None = None, *, study: str = "specificity_confir
             "notebooks/kaggle/cvpr",
             "python3 -m certvic.cvpr.notebook_validation --root notebooks/kaggle/cvpr",
             f"Regenerate the {notebook['expected_count']}-notebook suite and clear every stored output.",
+            scope="local",
+        ))
+
+    portability = _multi_account_portability_check(base)
+    local_checks["multi_account_portability"] = portability
+    if not portability["passed"]:
+        blockers.append(_blocker(
+            "DOCTOR_MULTI_ACCOUNT_PORTABILITY_INVALID",
+            "notebooks/kaggle/cvpr",
+            "python3 -m certvic.cvpr.notebook_validation --root notebooks/kaggle/cvpr",
+            "Remove exact owner, slug, filename, and mount binding from every active runbook.",
             scope="local",
         ))
 
@@ -293,6 +347,7 @@ def diagnose(root: str | Path | None = None, *, study: str = "specificity_confir
         "state": state,
         "local_ready": not local_blockers,
         "paper_evidence": False,
+        "multi_account_portability": portability,
         "checks": local_checks,
         "inventory": inventory,
         "blockers": blockers,

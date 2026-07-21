@@ -18,6 +18,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path, PurePosixPath
 from typing import Any, Mapping
 
+from certvic.cvpr.content_discovery import authenticate_content_path
 from certvic.cvpr.contracts import canonical_json_bytes, sha256_bytes
 
 
@@ -195,7 +196,7 @@ def create_matrix_authorization_from_paths(
         environment_hash=environment_lock_hash(environment_lock),
         model_registry_hash=hashlib.sha256(Path(model_registry).read_bytes()).hexdigest(),
         providers=providers,
-        code_hash=hashlib.sha256(Path(code_bundle).read_bytes()).hexdigest(),
+        code_hash=authenticate_content_path(code_bundle, "CODE"),
         prompt_template_hash=hashlib.sha256(
             (Path(prompt_template).read_bytes() if Path(prompt_template).is_file()
              else str(prompt_template).encode("utf-8"))
@@ -775,7 +776,11 @@ def main(argv: list[str] | None = None) -> int:
             config = json.loads(Path(args.provider_config).read_text(encoding="utf-8"))
             if "active_input_paths" in config:
                 config["active_input_hashes"] = {
-                    role: hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                    role: (
+                        authenticate_content_path(path, "CODE")
+                        if role == "code_bundle"
+                        else hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                    )
                     for role, path in config.pop("active_input_paths").items()
                 }
             smoke_gate = json.loads(Path(args.smoke_gate).read_text(encoding="utf-8"))
