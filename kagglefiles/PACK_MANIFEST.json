@@ -4,7 +4,7 @@
     "status": "CONDITIONAL_NOT_AUTHORIZED"
   },
   "active_runtime_profile": "kaggle_cp312_2026_07",
-  "deterministic_portion_sha256": "2d6565055b91b708036311ba9d58bc5b34e14830d42c2f2d6bc787a19b4271cd",
+  "deterministic_portion_sha256": "f5efdbd579b48a1cf579ee3482bc1efb642bd7df7f591772578272b05e3ccb6b",
   "doctor_state": "READY_FOR_00A",
   "files": [
     {
@@ -17,8 +17,8 @@
       "role": "OPERATOR_PACK_FILE",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "markdown",
-      "sha256": "3666a3600989c3d116f12b648b8c3ca4bd0809449546d07f2177b8ddd5972ce6",
-      "size": 1103,
+      "sha256": "cc98c890140d25f407be51cebeecf75a8fc48312b725a202851d8698f3562ce9",
+      "size": 1263,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#build_operator_pack",
       "stage": "pack",
       "study": "all"
@@ -49,8 +49,8 @@
       "role": "OPERATOR_PACK_FILE",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "markdown",
-      "sha256": "cf07a9d4ef7e14ff5e1f5357544cd884896d9b22050d1953a04417c1b485a0d0",
-      "size": 10979,
+      "sha256": "12497f656b585200d9f8a384595e28a9f46400bedc96fdd91607b9621f4c747d",
+      "size": 11011,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#_start_here",
       "stage": "pack",
       "study": "all"
@@ -81,7 +81,7 @@
       "role": "REPOSITORY_COMMON",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "json",
-      "sha256": "659fad52689acd6d8c737a57cd9a4ae2b6498984360f366fd6ac8daf4cad810b",
+      "sha256": "86a088dddda7dd6d38fce937f21befd68bc8759f238e9f66fcc6549eb5cd9682",
       "size": 1350,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#INPUT_SPECS",
       "stage": "00_COMMON",
@@ -113,8 +113,8 @@
       "role": "REPOSITORY_COMMON",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "certvic.kaggle.bundle.v1",
-      "sha256": "a828cd6322436e26a8a0fdee92bf74c9a963d5bca403a4a2fdb0dc6d8d2883a6",
-      "size": 1220243,
+      "sha256": "29fb64e2c0a77547ebf91b1823b5e72146cb31ca724b2faa8ab87b4f72a81430",
+      "size": 1229753,
       "source_path": "GENUINE_EXTERNAL_INPUT_PRESERVED",
       "stage": "00_COMMON",
       "study": "all"
@@ -129,8 +129,8 @@
       "role": "REPOSITORY_COMMON",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "certvic.kaggle.bundle.v1",
-      "sha256": "f100c32339f8dc240119ed9d31b054eed8201618f781650c6899316777b51bbe",
-      "size": 46385,
+      "sha256": "64df5cb66455f72f56ebad0cc2c6575af4c183a6dcecfdcd4002c2adfd8d34f6",
+      "size": 46527,
       "source_path": "GENUINE_EXTERNAL_INPUT_PRESERVED",
       "stage": "00_COMMON",
       "study": "all"
@@ -145,8 +145,8 @@
       "role": "REPOSITORY_COMMON",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "certvic.kaggle.bundle.v1",
-      "sha256": "1d1f1ed05b7fedbe334e2e33e726050a91baed334f00a88484b061ebeda997d1",
-      "size": 171327,
+      "sha256": "a39bce97fd4ac71ba8b4ac8cab49400e6c463dfacf05c97fb62b4f719056e044",
+      "size": 173547,
       "source_path": "GENUINE_EXTERNAL_INPUT_PRESERVED",
       "stage": "00_COMMON",
       "study": "all"
@@ -1057,8 +1057,8 @@
       "role": "BUILD_CP312_WHEELHOUSE",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "268119a80b0d704ce062a0d9f782bd3ecfdc2c6c4515b01327deb56cc0c3b1b2",
-      "size": 26008,
+      "sha256": "0e3463109837c4f8ca4f004a39b04d8f566a4370ee62178cb9f6f4dbf9a54420",
+      "size": 26893,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#cp312_provisioning_notebook",
       "stage": "BUILD_CP312_WHEELHOUSE",
       "study": "all"
@@ -1073,8 +1073,8 @@
       "role": "BUILD_MODEL_SNAPSHOT",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "95297f47bdd8acce277856cb841a1f86a916afe97cb9928ee79c2c6d8c1b2cb4",
-      "size": 19872,
+      "sha256": "2d23e32222675bd8a052bd37b74e45e2b0375deeb11eca139cea6dc230b18fed",
+      "size": 20884,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#snapshot_provisioning_notebook",
       "stage": "BUILD_MODEL_SNAPSHOT",
       "study": "all"
@@ -1089,8 +1089,8 @@
       "role": "BUILD_MODEL_SNAPSHOT",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "b020aa319848755c0df6708a51fe968563fcbba6e1cd4670f3ef7111495a33dc",
-      "size": 19859,
+      "sha256": "83dd6539e789ae26a4f49406dd7959635df41dd4035f5a4a97aff7b5a9ac93b9",
+      "size": 20871,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#snapshot_provisioning_notebook",
       "stage": "BUILD_MODEL_SNAPSHOT",
       "study": "all"
@@ -1105,8 +1105,8 @@
       "role": "BUILD_MODEL_SNAPSHOT",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "ab2ae58ecf7fa0286ba6bd797c4dedf485ea2f993650699fe689fc3164a1fe12",
-      "size": 19909,
+      "sha256": "20af8ca6b7d0013716241e60caa3cf69a6d3817b024579d0d8ddd5cbab01080b",
+      "size": 20921,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#snapshot_provisioning_notebook",
       "stage": "BUILD_MODEL_SNAPSHOT",
       "study": "all"
@@ -1473,7 +1473,7 @@
     "NO_MANUAL_REPOSITORY_NAVIGATION_REQUIRED",
     "FIRST_ACTION_EXPLICIT"
   ],
-  "generated_at_utc": "2026-07-22T11:43:42+05:30",
+  "generated_at_utc": "2026-07-22T14:48:27+05:30",
   "human_gate_status": {
     "genuine_human_reviewed_true_count": 0,
     "status": "WAITING_FOR_HUMAN_REVIEW"
@@ -1501,8 +1501,8 @@
     "certvic_coco_internvl_input.zip",
     "certvic_coco_llava_input.zip"
   ],
-  "notebook_validation_totals": "20/20 governed CVPR notebooks passed; 6/6 T4x2 notebooks passed; 4/4 provisioning notebooks passed",
-  "origin_main_commit": "51e957aaabc21205e00db648cf52d021a3691eb2",
+  "notebook_validation_totals": "{\"expected\": 20, \"observed\": 20, \"passed\": 20}",
+  "origin_main_commit": "5da986181add10e4d401c432984aae79676b7c17",
   "paper_evidence": false,
   "primary_subfolders": [
     "runbooks",
@@ -1513,16 +1513,20 @@
     "SNAPSHOT_PROVISIONERS_SUPPORT_EXTRACTED_DATASETS",
     "CP312_RESOLVER_USES_LIVE_RUNTIME_TAGS",
     "CP312_FAILURE_REPORTING_ACTIONABLE",
+    "CERTVIC_KAGGLE_ENSUREPIP_FREE_VENV_PATCH_COMPLETE",
+    "CERTVIC_SNAPSHOT_ZIP64_PATCH_COMPLETE",
+    "CERTVIC_SNAPSHOT_QUOTA_SAFE_STREAMING_READY",
+    "NO_GLOBAL_KERNEL_INSTALL",
     "UNIFIED_KAGGLEFILES_PACK_REFRESHED",
-    "READY_TO_RETRY_PROVISIONING"
+    "READY_TO_RETRY_CP312_THEN_QWEN"
   ],
   "repository": "Saket-Maganti/certvic",
-  "repository_commit": "51e957aaabc21205e00db648cf52d021a3691eb2",
+  "repository_commit": "5da986181add10e4d401c432984aae79676b7c17",
   "schema": "certvic.kagglefiles.pack_manifest.v1",
   "second_domain_authorization": {
     "execution_allowed": false,
     "status": "CONDITIONAL_NOT_AUTHORIZED"
   },
   "status": "CERTVIC_UNIFIED_KAGGLEFILES_OPERATOR_PACK_COMPLETE",
-  "test_totals": "940 passed, 1 skipped, 2 warnings"
+  "test_totals": "947 passed, 1 skipped, 2 warnings in 121.30s (0:02:01)"
 }

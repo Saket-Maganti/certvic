@@ -7,7 +7,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 
 
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
@@ -85,6 +85,73 @@ def create_manifest(
         path.relative_to(root).as_posix(): {"sha256": _hash(path), "size": path.stat().st_size}
         for path in snapshot_files(root)
     }
+    return _manifest_from_files(
+        files,
+        model_id=model_id,
+        model_commit=model_commit,
+        processor_commit=processor_commit,
+        expected_architecture=expected_architecture,
+        architectures=architectures,
+        model_type=model_type,
+        processor_id=processor_id,
+    )
+
+
+def create_manifest_from_records(
+    files: Mapping[str, Mapping[str, Any]],
+    *,
+    config_payload: bytes,
+    model_id: str,
+    model_commit: str,
+    processor_commit: str,
+    expected_architecture: str,
+    processor_id: str | None = None,
+) -> dict[str, Any]:
+    """Build a v2 snapshot manifest from already-hashed file records."""
+    if not COMMIT.fullmatch(model_commit) or not COMMIT.fullmatch(processor_commit):
+        raise SnapshotManifestError("model and processor commits must be 40 lowercase hex characters")
+    try:
+        config = json.loads(config_payload.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise SnapshotManifestError("snapshot config.json is invalid") from exc
+    architectures = config.get("architectures", [])
+    if not isinstance(architectures, list) or not architectures:
+        raise SnapshotManifestError("config.json does not declare architectures")
+    model_type = str(config.get("model_type", ""))
+    if not model_type:
+        raise SnapshotManifestError("config.json does not declare model_type")
+    architectures = [str(value) for value in architectures]
+    if expected_architecture not in architectures:
+        raise SnapshotManifestError(
+            f"architecture mismatch: expected {expected_architecture}, found {architectures}"
+        )
+    normalized = {
+        name: {"sha256": str(record["sha256"]), "size": int(record["size"])}
+        for name, record in sorted(files.items())
+    }
+    return _manifest_from_files(
+        normalized,
+        model_id=model_id,
+        model_commit=model_commit,
+        processor_commit=processor_commit,
+        expected_architecture=expected_architecture,
+        architectures=architectures,
+        model_type=model_type,
+        processor_id=processor_id,
+    )
+
+
+def _manifest_from_files(
+    files: dict[str, dict[str, Any]],
+    *,
+    model_id: str,
+    model_commit: str,
+    processor_commit: str,
+    expected_architecture: str,
+    architectures: list[str],
+    model_type: str,
+    processor_id: str | None = None,
+) -> dict[str, Any]:
     processor_files = sorted(path for path in files if Path(path).name in PROCESSOR_FILES)
     if not processor_files:
         raise SnapshotManifestError("snapshot has no tokenizer or processor contract files")
