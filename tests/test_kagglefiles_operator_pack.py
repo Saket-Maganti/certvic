@@ -140,7 +140,8 @@ def test_cp312_and_c2_portability_are_active() -> None:
         text = payload.decode()
         assert "CONTENT_AUTHENTICATED_ANY_LOCATION" in text
         assert "CERTVIC_DISCOVERY_02_AMBIGUOUS_DISTINCT_CONTENT" in text
-        assert "observed_dataset_folder" in text and "observed_archive_name" in text
+        assert "representation" in text and "discovered_path" in text
+        assert "early_verify_archive" in text and "early_verify_directory" in text
         assert "Accelerator OFF" in text and "Internet ON" in text
         assert f"PROVIDER = '{provider}'" in text
 

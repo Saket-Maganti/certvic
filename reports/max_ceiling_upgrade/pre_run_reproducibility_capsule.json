@@ -31,9 +31,9 @@
       "sha256": "309dddd0f20b5dcba1a261464ba2fdb8a4bf3ea4ca522101e7c574dbb78efeba"
     },
     "prompt": {
-      "artifact_id": "44fbb831ee84ae3562beb66a",
+      "artifact_id": "8e9c81c88fa34d43bb029683",
       "location": "certvic/cvpr/notebook_builder.py",
-      "sha256": "a3e2d1e325c39f15a268728afab34ed74ce9bc1e7453be0e3109fbbe59a40aa6"
+      "sha256": "6824639095e96cd8c3630dc7853cdd65c9da5a573db0a6354b01d1d04169e08b"
     },
     "run_contract": {
       "artifact_id": "acd44851714c6fe0d82cf63b",
@@ -51,7 +51,7 @@
       "sha256": "23c64e7f4216130572d0daf1a3473250bd9331f941ab7956ae4f95f414d27057"
     }
   },
-  "capsule_hash": "71de17cdf0e173597502c4fb0d5f117e8135bbd9caf22f7cd28365b02bdf401b",
+  "capsule_hash": "2ccedcafbb3cb11e3a7c1b03a5b2e44a08315d4cf069ff8a19065be7095e0322",
   "created_at_utc": "2026-07-19T04:31:37.136128+00:00",
   "missing_roles": [
     "detectability",

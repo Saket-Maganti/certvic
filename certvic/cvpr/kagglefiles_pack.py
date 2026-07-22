@@ -18,7 +18,12 @@ from pathlib import Path, PurePosixPath
 from typing import Any, Iterable, Mapping
 
 from certvic.cvpr.kaggle_bundle import verify_bundle
-from certvic.cvpr.notebook_builder import NOTEBOOKS, build_suite, expected_return_zip
+from certvic.cvpr.notebook_builder import (
+    NOTEBOOKS,
+    build_suite,
+    content_early_code_bootstrap_source,
+    expected_return_zip,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -161,21 +166,215 @@ def _notebook(cells: Iterable[tuple[str, str]], *, stage: str, provider: str | N
     return _json_bytes(value)
 
 
+def cp312_provisioning_notebook() -> bytes:
+    """Return the zero-edit live-runtime CP312 wheelhouse provisioner."""
+    probe = r'''import json, os, pathlib, platform, shutil, sys
+from packaging.tags import sys_tags
+
+probe = {
+    "executable": sys.executable,
+    "implementation": platform.python_implementation(),
+    "python": platform.python_version(),
+    "architecture": platform.machine(),
+    "system": platform.system(),
+    "libc": platform.libc_ver(),
+    "supported_tags": [str(tag) for tag in sys_tags()],
+}
+print(json.dumps({"status": "IMMEDIATE_CP312_PROVISIONING_PROBE", **probe}, indent=2))
+if (probe["implementation"] != "CPython" or not probe["python"].startswith("3.12.")
+        or probe["architecture"].lower() != "x86_64" or probe["system"] != "Linux"):
+    raise RuntimeError(
+        "CERTVIC_RUNTIME_01_PYTHON_PROFILE_NOT_SUPPORTED: "
+        "builder requires Kaggle CPython 3.12 Linux x86_64"
+    )
+if (not probe["libc"][0].lower().startswith("glibc")
+        or tuple(map(int, probe["libc"][1].split("."))) < (2, 17)):
+    raise RuntimeError(
+        "CERTVIC_RUNTIME_01_PYTHON_PROFILE_NOT_SUPPORTED: glibc >= 2.17 required"
+    )
+'''
+    provision = r'''from certvic.cvpr.content_discovery import discover_authenticated_input
+from certvic.cvpr.notebook_bootstrap import discover_unique_file
+from certvic.cvpr.wheelhouse_builder import WheelhouseBuilderError, deterministic_provision
+
+materialized = pathlib.Path("/kaggle/working/certvic_provisioning_inputs")
+code = discover_authenticated_input(
+    "CODE", roots=INPUT_ROOTS, expected_identity=CODE_BUNDLE_HASH,
+    materialization_root=materialized,
+)
+configs = discover_authenticated_input(
+    "CONFIGS", roots=INPUT_ROOTS, materialization_root=materialized,
+)
+tools = discover_authenticated_input(
+    "EXECUTION_TOOLS", roots=INPUT_ROOTS, materialization_root=materialized,
+)
+print({
+    "authenticated_content_identities": {
+        row["role"]: row["content_identity_sha256"] for row in (code, configs, tools)
+    }
+})
+environment_lock = discover_unique_file(
+    configs["materialized_root"], "kaggle_t4x2_environment.lock.json"
+)
+requirements_root = discover_unique_file(
+    configs["materialized_root"], "kaggle_base.lock"
+).parent
+wheel_root = pathlib.Path("/kaggle/working/certvic_cp312_wheels")
+output = pathlib.Path("/kaggle/working/certvic_offline_wheelhouse_cp312.zip")
+failure_report_path = pathlib.Path(
+    "/kaggle/working/certvic_cp312_wheelhouse_failure_report.json"
+)
+
+def failure_names(report):
+    names = set()
+    for field in ("incompatible_wheels", "missing_packages", "duplicate_conflicts"):
+        for value in report.get(field, []):
+            if isinstance(value, dict):
+                names.add(str(value.get("package") or value.get("filename") or value))
+            else:
+                names.add(str(value))
+    return sorted(names)
+
+try:
+    result = deterministic_provision(
+        wheel_root=wheel_root,
+        output=output,
+        requirements_root=requirements_root,
+        profile_id="kaggle_cp312_2026_07",
+        environment_lock=environment_lock,
+        failure_report_path=failure_report_path,
+    )
+except WheelhouseBuilderError as error:
+    report = dict(error.report)
+    if failure_report_path.is_file():
+        report = json.loads(failure_report_path.read_text(encoding="utf-8"))
+    print(json.dumps(report, indent=2, sort_keys=True))
+    raise RuntimeError(
+        f"{report.get('status', error.status)}: packages={failure_names(report)}; "
+        f"failure_report={failure_report_path}"
+    ) from error
+if not result.get("passed", False):
+    report = dict(result)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    raise RuntimeError(
+        f"{report.get('status')}: packages={failure_names(report)}; "
+        f"failure_report={failure_report_path}"
+    )
+print(json.dumps(result, indent=2, sort_keys=True))
+'''
+    validate = r'''from certvic.cvpr.environment_lock import (
+    prepare_offline_environment,
+    select_locked_runtime,
+)
+from certvic.cvpr.kaggle_bundle import verify_bundle
+from certvic.cvpr.notebook_bootstrap import extract_verified_bundle
+from certvic.cvpr.wheelhouse_builder import (
+    persist_failure_report,
+    provisioning_failure_report,
+)
+
+selected_profile = select_locked_runtime(environment_lock)
+try:
+    if not output.is_file() or result.get("deterministic_rebuild", {}).get(
+        "byte_identical"
+    ) is not True:
+        raise RuntimeError("passed deterministic bundle was not produced")
+    verification = verify_bundle(output)
+    if not verification["passed"]:
+        raise RuntimeError(f"authenticated bundle verification failed: {verification['errors']}")
+    validation_root = pathlib.Path("/kaggle/working/certvic_cp312_offline_validation")
+    extract_verified_bundle(
+        output,
+        validation_root,
+        expected_type="OFFLINE_LINUX_WHEELHOUSE",
+    )
+    manifest = json.loads(
+        (validation_root / "wheelhouse_manifest.json").read_text(encoding="utf-8")
+    )
+    offline_validation = prepare_offline_environment(
+        environment_lock,
+        wheelhouse=validation_root / "wheels",
+        wheelhouse_manifest=validation_root / "wheelhouse_manifest.json",
+        allow_preinstalled=False,
+        require_exact=True,
+        require_cuda=False,
+        selected_profile=selected_profile,
+        venv_root=pathlib.Path(
+            "/kaggle/working/certvic_runtime/kaggle_cp312_builder_validation"
+        ),
+    )
+except Exception as error:
+    report = provisioning_failure_report(
+        "CERTVIC_RUNTIME_09_OFFLINE_VALIDATION_FAILED",
+        selected=selected_profile,
+        required_packages=result.get("resolver_result", {}).get("required_packages", {}),
+        provisioning=result.get("resolver_result", {}),
+        downloaded_wheels=list(locals().get("manifest", {}).get("files", {}).values()),
+        remediation=(
+            "Inspect the named offline install/import failure. Do not upload the bundle until "
+            "a clean no-system-site-packages CPython 3.12 venv passes every import."
+        ),
+    )
+    report["offline_validation_error"] = f"{type(error).__name__}: {error}"
+    persist_failure_report(failure_report_path, report)
+    output.unlink(missing_ok=True)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    raise RuntimeError(
+        f"{report['status']}: offline_validation; failure_report={failure_report_path}"
+    ) from error
+print({
+    "resolver_result": result.get("resolver_result"),
+    "supported_tags": selected_profile["observed_runtime"]["supported_tags"],
+    "wheel_hashes": {
+        name: row["sha256"]
+        for name, row in offline_validation["wheelhouse_validation"]["files"].items()
+    },
+    "offline_install_import_validation": offline_validation,
+})
+print({
+    "status": "CP312_WHEELHOUSE_BUILDER_READY",
+    "runtime_profile": "kaggle_cp312_2026_07",
+    "bundle_sha256": verification["sha256"],
+    "size": output.stat().st_size,
+    "wheel_count": result.get("wheel_count"),
+    "deterministic_rebuild": result["deterministic_rebuild"],
+    "offline_validation_status": offline_validation["status"],
+    "network_used_for_provisioning": True,
+    "paper_evidence": False,
+})
+print(
+    "NEXT: download certvic_offline_wheelhouse_cp312.zip, import it unchanged with "
+    "kagglefiles/import_kaggle_return.py, then run 00A with Accelerator OFF and Internet OFF."
+)
+'''
+    return _notebook(
+        (
+            (
+                "markdown",
+                "# Build the CertVIC CPython 3.12 offline wheelhouse\n\n"
+                "Settings: **Accelerator OFF**, **Internet ON**. Attach the refreshed "
+                "authenticated CertVIC CODE, CONFIGS, and EXECUTION_TOOLS inputs. Run All "
+                "without editing. A failed or partial build emits only "
+                "`certvic_cp312_wheelhouse_failure_report.json`; only a fully verified run "
+                "produces `certvic_offline_wheelhouse_cp312.zip`.\n",
+            ),
+            ("code", probe),
+            ("code", content_early_code_bootstrap_source()),
+            ("code", provision),
+            ("code", validate),
+        ),
+        stage="wheelhouse_provisioning",
+        provider=None,
+    )
+
+
 def snapshot_provisioning_notebook(provider: str) -> bytes:
     """Return a provider-bound, zero-edit, path-independent snapshot builder."""
     if provider not in PROVIDERS:
         raise KagglefilesPackError(f"unsupported snapshot provider: {provider}")
     spec = PROVIDERS[provider]
     title = provider.replace("_", " ").title()
-    bootstrap = r'''import hashlib
-import json
-import os
-import pathlib
-import platform
-import shutil
-import stat
-import sys
-import zipfile
+    runtime_probe = r'''import json, platform, sys
 
 print(json.dumps({
     "status": "IMMEDIATE_SNAPSHOT_PROVISIONING_PROBE",
@@ -190,85 +389,8 @@ if platform.python_implementation() != "CPython" or not platform.python_version(
     raise RuntimeError("CERTVIC_RUNTIME_01_PYTHON_PROFILE_NOT_SUPPORTED: CPython 3.12 required")
 if platform.system() != "Linux" or platform.machine().lower() != "x86_64":
     raise RuntimeError("CERTVIC_RUNTIME_01_PYTHON_PROFILE_NOT_SUPPORTED: Linux x86_64 required")
-
-ROOTS = [
-    pathlib.Path(value)
-    for value in os.environ.get("CERTVIC_INPUT_ROOTS", "/kaggle/input").split(os.pathsep)
-    if pathlib.Path(value).is_dir()
-]
-if not ROOTS:
-    raise RuntimeError("CERTVIC_DISCOVERY_01_REQUIRED_ROLE_NOT_FOUND: no input roots")
-
-def _safe_name(info):
-    name = info.filename
-    pure = pathlib.PurePosixPath(name)
-    mode = (info.external_attr >> 16) & 0xFFFF
-    if (not name or name.endswith("/") or pure.is_absolute() or ".." in pure.parts
-            or info.is_dir() or stat.S_ISLNK(mode)):
-        raise RuntimeError(f"CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED: unsafe {name!r}")
-    return pure.as_posix()
-
-def _authenticate_code(candidate):
-    try:
-        with zipfile.ZipFile(candidate) as archive:
-            infos = archive.infolist()
-            names = [_safe_name(info) for info in infos]
-            if len(names) != len(set(names)) or archive.testzip() is not None:
-                return None
-            if "bundle_manifest.json" not in names or "hash_manifest.json" not in names:
-                return None
-            manifest = json.loads(archive.read("bundle_manifest.json"))
-            hashes = json.loads(archive.read("hash_manifest.json"))
-            if (manifest.get("schema") != "certvic.kaggle.bundle.v1"
-                    or manifest.get("bundle_type") != "CODE"
-                    or hashes.get("schema") != "certvic.kaggle.hash_manifest.v1"):
-                return None
-            declared = hashes.get("files", {})
-            if set(names) != set(declared) | {"hash_manifest.json"}:
-                raise RuntimeError("CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED: file universe")
-            for name, record in declared.items():
-                payload = archive.read(name)
-                if record != {"size": len(payload), "sha256": hashlib.sha256(payload).hexdigest()}:
-                    raise RuntimeError(f"CERTVIC_DISCOVERY_03_CONTENT_AUTHENTICATION_FAILED: {name}")
-            return hashlib.sha256(candidate.read_bytes()).hexdigest()
-    except zipfile.BadZipFile:
-        return None
-
-matches = []
-for root in ROOTS:
-    for candidate in root.rglob("*"):
-        if candidate.is_file() and not candidate.is_symlink():
-            identity = _authenticate_code(candidate)
-            if identity:
-                matches.append((candidate.resolve(), identity))
-identities = sorted({identity for _, identity in matches})
-if not identities:
-    raise RuntimeError("CERTVIC_DISCOVERY_01_REQUIRED_ROLE_NOT_FOUND: CODE")
-if len(identities) != 1:
-    raise RuntimeError("CERTVIC_DISCOVERY_02_AMBIGUOUS_DISTINCT_CONTENT: CODE")
-selected = next(path for path, identity in matches if identity == identities[0])
-PROJECT_ROOT = pathlib.Path("/kaggle/working/certvic_snapshot_provisioning_code")
-if PROJECT_ROOT.exists():
-    shutil.rmtree(PROJECT_ROOT)
-PROJECT_ROOT.mkdir(parents=True)
-with zipfile.ZipFile(selected) as archive:
-    for info in archive.infolist():
-        name = _safe_name(info)
-        destination = (PROJECT_ROOT / name).resolve()
-        destination.relative_to(PROJECT_ROOT.resolve())
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        with archive.open(info) as reader, destination.open("xb") as writer:
-            shutil.copyfileobj(reader, writer)
-sys.path.insert(0, str(PROJECT_ROOT))
-print({
-    "status": "CONTENT_AUTHENTICATED_ANY_LOCATION",
-    "role": "CODE",
-    "content_identity_sha256": identities[0],
-    "observed_dataset_folder": str(selected.parent),
-    "observed_archive_name": selected.name,
-    "mirrors": len(matches),
-})
 '''
+    bootstrap = runtime_probe + "\n" + content_early_code_bootstrap_source()
     build = f'''import subprocess
 from pathlib import Path
 
@@ -365,7 +487,7 @@ def _runbook_specs() -> list[dict[str, Any]]:
             "destination": "kagglefiles/inputs/01_CP312_WHEELHOUSE/certvic_offline_wheelhouse_cp312.zip",
             "parallel": "SNAPSHOT_PROVISIONING",
             "blocking": "",
-            "source": "notebooks/kaggle/provisioning/00_build_certvic_cp312_wheelhouse.ipynb",
+            "source": "certvic/cvpr/kagglefiles_pack.py#cp312_provisioning_notebook",
         },
     ]
     for order, (provider, spec) in enumerate(PROVIDERS.items(), start=1):
@@ -709,10 +831,10 @@ from certvic.cvpr.kagglefiles_pack import import_main  # noqa: E402
 if __name__ == "__main__":
     raise SystemExit(import_main())
 '''
-    repository_path = "/" + "Users" + "/saketmaganti/Projects/certVIC"
-    resume = f'''#!/usr/bin/env bash
+    resume = '''#!/usr/bin/env bash
 set -euo pipefail
-cd {repository_path}
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+cd "$SCRIPT_DIR/.."
 python3 scripts/run_all_cpu_workflows.py --resume
 python3 -m certvic.cvpr.doctor --json
 python3 -m certvic.cvpr.next_action
@@ -899,6 +1021,13 @@ def _start_here(
         "- Main: `execution_allowed=false`.",
         "- Second domain: `execution_allowed=false`.",
         "",
+        "## C4 live-provisioning retry",
+        "",
+        "Delete the four failed Kaggle draft sessions. Pull the latest `main`, then use only "
+        "the four refreshed notebooks in `runbooks/00_PROVISIONING/` with the refreshed "
+        "files from `inputs/00_COMMON/`. Use **Accelerator OFF**, **Internet ON**, and click "
+        "**Run All**. Do not reuse a failed session's working directory.",
+        "",
         "## Exact first executable action",
         "",
         "`BUILD_CP312_WHEELHOUSE`",
@@ -998,6 +1127,8 @@ def build_operator_pack(
         shutil.rmtree(cache_dir)
     for bytecode in pack_root.rglob("*.py[co]"):
         bytecode.unlink()
+    for finder_metadata in pack_root.rglob(".DS_Store"):
+        finder_metadata.unlink()
     extra_dirs = sorted(
         path.name for path in pack_root.iterdir()
         if path.is_dir() and path.name not in {"runbooks", "inputs"}
@@ -1046,9 +1177,8 @@ def build_operator_pack(
         relative = f"runbooks/{spec['folder']}/{spec['name']}"
         destination = pack_root / relative
         if spec["name"] == "00_build_certvic_cp312_wheelhouse.ipynb":
-            source = ROOT / str(spec["source"])
-            payload = source.read_bytes()
-            method = "COPIED_GOVERNED_RUNBOOK"
+            payload = cp312_provisioning_notebook()
+            method = "GENERATED_LIVE_RUNTIME_PROVISIONER"
         elif spec["stage"] == "BUILD_MODEL_SNAPSHOT":
             payload = snapshot_provisioning_notebook(str(spec["provider"]))
             method = "GENERATED_PROVIDER_BOUND_RUNBOOK"
@@ -1172,6 +1302,13 @@ CP312_RUNTIME_PROFILE_ACTIVE
 NO_OBSOLETE_RUNBOOKS_INCLUDED
 NO_MANUAL_REPOSITORY_NAVIGATION_REQUIRED
 FIRST_ACTION_EXPLICIT
+
+CERTVIC_LIVE_KAGGLE_PROVISIONING_PATCH_COMPLETE
+SNAPSHOT_PROVISIONERS_SUPPORT_EXTRACTED_DATASETS
+CP312_RESOLVER_USES_LIVE_RUNTIME_TAGS
+CP312_FAILURE_REPORTING_ACTIONABLE
+UNIFIED_KAGGLEFILES_PACK_REFRESHED
+READY_TO_RETRY_PROVISIONING
 """)
     source_map["KAGGLEFILES_PACK_STATUS.md"] = {
         "source_path": "certvic/cvpr/kagglefiles_pack.py#build_operator_pack",
@@ -1219,6 +1356,14 @@ FIRST_ACTION_EXPLICIT
             "NO_OBSOLETE_RUNBOOKS_INCLUDED",
             "NO_MANUAL_REPOSITORY_NAVIGATION_REQUIRED",
             "FIRST_ACTION_EXPLICIT",
+        ],
+        "provisioning_patch_status": [
+            "CERTVIC_LIVE_KAGGLE_PROVISIONING_PATCH_COMPLETE",
+            "SNAPSHOT_PROVISIONERS_SUPPORT_EXTRACTED_DATASETS",
+            "CP312_RESOLVER_USES_LIVE_RUNTIME_TAGS",
+            "CP312_FAILURE_REPORTING_ACTIONABLE",
+            "UNIFIED_KAGGLEFILES_PACK_REFRESHED",
+            "READY_TO_RETRY_PROVISIONING",
         ],
         "repository": "Saket-Maganti/certvic",
         "repository_commit": commit,

@@ -13,8 +13,8 @@
   "present_files": [
     {
       "filename": "certvic_code_bundle.zip",
-      "sha256": "da856a606c60f20e3d3867d2ef546960b6956cb8cb119a6de23b4e3457c06394",
-      "size": 1214003,
+      "sha256": "a828cd6322436e26a8a0fdee92bf74c9a963d5bca403a4a2fdb0dc6d8d2883a6",
+      "size": 1220243,
       "verified": true
     },
     {
@@ -25,8 +25,8 @@
     },
     {
       "filename": "certvic_execution_tools_bundle.zip",
-      "sha256": "3687ce300ac7f8b3e13ea0a333d26329b3ae0e61231d72c8808d46690cfae5c0",
-      "size": 165215,
+      "sha256": "1d1f1ed05b7fedbe334e2e33e726050a91baed334f00a88484b061ebeda997d1",
+      "size": 171327,
       "verified": true
     }
   ],

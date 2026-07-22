@@ -285,8 +285,14 @@ print({{"environment_lock": ENVIRONMENT_LOCK, "environment_lock_hash": ENVIRONME
 '''
 
 
-def _content_early_code_bootstrap() -> str:
-    """Stdlib-only CODE discovery used before the project package is importable."""
+def content_early_code_bootstrap_source() -> str:
+    """Return the shared stdlib-only authenticated CODE bootstrap source.
+
+    Provisioning and governed execution notebooks use this one embedded source
+    before the attached project package is importable.  It accepts authenticated
+    ZIPs and Kaggle-extracted directory trees, then revalidates the selected
+    identity through :mod:`certvic.cvpr.content_discovery`.
+    """
     return r'''import hashlib, json, os, pathlib, shutil, stat, sys, zipfile
 
 DISCOVERY_ERRORS = {
@@ -1060,7 +1066,7 @@ def _zero_edit_notebook(name: str, stage: str, provider: str) -> dict:
             "NON_EVIDENCE_RUNTIME_SMOKE; paper_evidence=false.\n",
         ),
         _cell("code", _zero_edit_config(name, stage, provider)),
-        _cell("code", _content_early_code_bootstrap()),
+        _cell("code", content_early_code_bootstrap_source()),
         _cell("code", _content_common_materialization()),
     ]
     if stage in {"snapshot_smoke", "real_model_smoke"}:
@@ -1304,7 +1310,7 @@ AUTHENTICATED_CONTENT_IDENTITIES["tasks"] = TASK_BUNDLE_HASH
 
 def _universal_bootstrap(name: str, stage: str, provider: str) -> str:
     return (
-        _content_early_code_bootstrap()
+        content_early_code_bootstrap_source()
         + "\n"
         + _content_common_materialization()
         + "\n"

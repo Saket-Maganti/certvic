@@ -3,13 +3,17 @@ DO NOT NAVIGATE THE REST OF THE REPOSITORY.
 
 # CertVIC Kaggle operator pack
 
-- Repository source commit: `38f3e61d7da91a5c48d04f3a999e6397d4d3d2ec`
-- Origin/main at generation: `38f3e61d7da91a5c48d04f3a999e6397d4d3d2ec`
+- Repository source commit: `51e957aaabc21205e00db648cf52d021a3691eb2`
+- Origin/main at generation: `51e957aaabc21205e00db648cf52d021a3691eb2`
 - Doctor state: `READY_FOR_00A`
 - Active runtime profile: `kaggle_cp312_2026_07`
 - Evidence boundary: `paper_evidence=false`; genuine `human_reviewed=true` count is 0.
 - Main: `execution_allowed=false`.
 - Second domain: `execution_allowed=false`.
+
+## C4 live-provisioning retry
+
+Delete the four failed Kaggle draft sessions. Pull the latest `main`, then use only the four refreshed notebooks in `runbooks/00_PROVISIONING/` with the refreshed files from `inputs/00_COMMON/`. Use **Accelerator OFF**, **Internet ON**, and click **Run All**. Do not reuse a failed session's working directory.
 
 ## Exact first executable action
 
