@@ -353,9 +353,14 @@ print({
     "offline_validation_status": offline_validation["status"],
     "ensurepip_used": offline_validation.get("ensurepip_used", False),
     "kernel_packages_mutated": offline_validation.get("kernel_packages_mutated", False),
+    "matplotlib_backend": offline_validation.get("matplotlib_backend"),
+    "mplbackend_env": offline_validation.get("offline_flags", {}).get("MPLBACKEND"),
+    "mplconfigdir_env": offline_validation.get("offline_flags", {}).get("MPLCONFIGDIR"),
     "network_used_for_provisioning": True,
     "paper_evidence": False,
 })
+if offline_validation.get("offline_flags", {}).get("MPLBACKEND") != "Agg":
+    raise RuntimeError("isolated validation must force MPLBACKEND=Agg")
 print(
     "NEXT: download certvic_offline_wheelhouse_cp312.zip, import it unchanged with "
     "kagglefiles/import_kaggle_return.py, then run 00A with Accelerator OFF and Internet OFF."
@@ -1353,6 +1358,10 @@ CERTVIC_KAGGLE_ENSUREPIP_FREE_VENV_PATCH_COMPLETE
 CERTVIC_SNAPSHOT_ZIP64_PATCH_COMPLETE
 CERTVIC_SNAPSHOT_QUOTA_SAFE_STREAMING_READY
 NO_GLOBAL_KERNEL_INSTALL
+CERTVIC_MATPLOTLIB_BACKEND_SANITIZATION_COMPLETE
+CERTVIC_HF_HEADER_IMPORT_PATCH_COMPLETE
+PINNED_HF_0262_IMPORT_PROBE_PASSED
+ALL_PROVISIONING_RUNBOOKS_REFRESHED
 UNIFIED_KAGGLEFILES_PACK_REFRESHED
 READY_TO_RETRY_CP312_THEN_QWEN
 """)
@@ -1412,6 +1421,10 @@ READY_TO_RETRY_CP312_THEN_QWEN
             "CERTVIC_SNAPSHOT_ZIP64_PATCH_COMPLETE",
             "CERTVIC_SNAPSHOT_QUOTA_SAFE_STREAMING_READY",
             "NO_GLOBAL_KERNEL_INSTALL",
+            "CERTVIC_MATPLOTLIB_BACKEND_SANITIZATION_COMPLETE",
+            "CERTVIC_HF_HEADER_IMPORT_PATCH_COMPLETE",
+            "PINNED_HF_0262_IMPORT_PROBE_PASSED",
+            "ALL_PROVISIONING_RUNBOOKS_REFRESHED",
             "UNIFIED_KAGGLEFILES_PACK_REFRESHED",
             "READY_TO_RETRY_CP312_THEN_QWEN",
         ],

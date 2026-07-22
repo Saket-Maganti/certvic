@@ -27,6 +27,7 @@ from certvic.cvpr.snapshot_bundle_builder import PROVIDERS
 
 INSUFFICIENT_WORKING_DISK = "CERTVIC_SNAPSHOT_08_INSUFFICIENT_WORKING_DISK"
 HF_HUB_PIN = "huggingface_hub==0.26.2"
+HF_DEPENDENCY_API_MISMATCH = "CERTVIC_SNAPSHOT_09_HF_DEPENDENCY_API_MISMATCH"
 DEFAULT_SAFETY_MARGIN_BYTES = 2 * 1024 ** 3
 DEFAULT_ARCHIVE_OVERHEAD_BYTES = 64 * 1024 ** 2
 APPROVED_HF_HOST_SUFFIXES = (
@@ -159,17 +160,50 @@ def install_isolated_huggingface_hub(
         )
     if str(root) not in sys.path:
         sys.path.insert(0, str(root))
-    import huggingface_hub
-
+    probe = probe_pinned_huggingface_hub_api()
     return {
         "status": "ISOLATED_HUGGINGFACE_HUB_READY",
         "pin": pin,
         "target_dir": str(root),
-        "import_path": str(Path(huggingface_hub.__file__).resolve()),
-        "version": getattr(huggingface_hub, "__version__", "UNKNOWN"),
+        "import_path": probe["huggingface_hub.__file__"],
+        "version": probe["huggingface_hub.__version__"],
+        "build_hf_headers_module": probe["build_hf_headers.__module__"],
         "host_python": host,
         "command": command,
         "kernel_packages_mutated": False,
+        "api_probe": probe,
+        "paper_evidence": False,
+    }
+
+
+def probe_pinned_huggingface_hub_api() -> dict[str, Any]:
+    """Import the pinned public huggingface_hub API used by streaming provisioners."""
+    try:
+        from huggingface_hub import HfApi, hf_hub_url
+        from huggingface_hub.utils import build_hf_headers
+        import huggingface_hub
+    except Exception as error:  # noqa: BLE001 - probe must fail closed with a stable status
+        raise SnapshotStreamingError(
+            HF_DEPENDENCY_API_MISMATCH,
+            {
+                "pin": HF_HUB_PIN,
+                "error": f"{type(error).__name__}: {error}",
+                "remediation": (
+                    "Import HfApi/hf_hub_url from huggingface_hub and build_hf_headers from "
+                    "huggingface_hub.utils for the pinned 0.26.2 API. Do not use the removed "
+                    "top-level build_hf_headers export and do not install into the notebook kernel."
+                ),
+                "paper_evidence": False,
+            },
+        ) from error
+    return {
+        "status": "PINNED_HF_0262_IMPORT_PROBE_PASSED",
+        "huggingface_hub.__version__": getattr(huggingface_hub, "__version__", "UNKNOWN"),
+        "huggingface_hub.__file__": str(Path(huggingface_hub.__file__).resolve()),
+        "build_hf_headers.__module__": build_hf_headers.__module__,
+        "hf_api_import": f"{HfApi.__module__}.{HfApi.__name__}",
+        "hf_hub_url_import": f"{hf_hub_url.__module__}.{hf_hub_url.__name__}",
+        "paper_evidence": False,
     }
 
 
@@ -402,7 +436,8 @@ def stream_build_snapshot_bundle(
                 host_python=host_python,
                 installer=installer,
             )
-            from huggingface_hub import HfApi, build_hf_headers, hf_hub_url
+            from huggingface_hub import HfApi, hf_hub_url
+            from huggingface_hub.utils import build_hf_headers
 
             headers = dict(build_hf_headers())
             records = _remote_file_records(

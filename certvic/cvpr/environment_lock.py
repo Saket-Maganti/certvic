@@ -157,6 +157,7 @@ def verify_current_environment(
     python_executable: str | Path | None = None,
     selected_profile: Mapping[str, Any] | None = None,
     runner: Any = subprocess.run,
+    venv_root: str | Path | None = None,
 ) -> dict[str, Any]:
     lock = load_environment_lock(path)
     executable = str(python_executable or sys.executable)
@@ -164,7 +165,7 @@ def verify_current_environment(
     completed = runner(
         [executable, "-c", _verify_script(lock["packages"], require_cuda=require_cuda)],
         check=False, capture_output=True, text=True,
-        env={**os.environ, **offline_environment_flags()},
+        env=isolated_worker_environment(venv_root=venv_root),
     )
     if int(completed.returncode) != 0:
         value = {
@@ -232,12 +233,49 @@ def verify_wheelhouse(wheelhouse: str | Path, manifest_path: str | Path) -> dict
     }
 
 
-def offline_environment_flags() -> dict[str, str]:
+def offline_environment_flags(*, mpl_config_dir: str | Path | None = None) -> dict[str, str]:
+    """Return fail-closed offline flags for isolated workers.
+
+    Notebook kernels often export ``MPLBACKEND=module://matplotlib_inline...``.
+    Isolated runtimes must force Agg and a writable config directory instead of
+    inheriting that notebook-only backend.
+    """
+    if mpl_config_dir is not None:
+        config_dir = Path(mpl_config_dir)
+    elif os.environ.get("CERTVIC_MPLCONFIGDIR"):
+        config_dir = Path(os.environ["CERTVIC_MPLCONFIGDIR"])
+    elif Path("/kaggle/working").is_dir():
+        config_dir = Path("/kaggle/working/certvic_mplconfig")
+    else:
+        config_dir = Path.cwd() / "certvic_mplconfig"
     return {
         "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1", "DIFFUSERS_OFFLINE": "1",
         "HF_DATASETS_OFFLINE": "1", "HF_HUB_DISABLE_TELEMETRY": "1",
         "PIP_NO_INDEX": "1", "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+        "MPLBACKEND": "Agg",
+        "MPLCONFIGDIR": str(config_dir),
     }
+
+
+def isolated_worker_environment(
+    *,
+    venv_root: str | Path | None = None,
+    base: Mapping[str, str] | None = None,
+) -> dict[str, str]:
+    """Build the sanitized environment for one isolated venv subprocess."""
+    root = Path(venv_root) if venv_root is not None else None
+    config_dir = (root / "mplconfig") if root is not None else None
+    if config_dir is not None:
+        config_dir.mkdir(parents=True, exist_ok=True)
+    flags = offline_environment_flags(mpl_config_dir=config_dir)
+    env = dict(base if base is not None else os.environ)
+    # Drop notebook-only Matplotlib state before applying the sanitized flags.
+    for key in list(env):
+        upper = key.upper()
+        if upper in {"MPLBACKEND", "MPLCONFIGDIR"} or upper.startswith("MPLBACKEND"):
+            env.pop(key, None)
+    env.update(flags)
+    return env
 
 
 def _manifest_requirements(manifest_path: str | Path, lock: Mapping[str, Any]) -> dict[str, str]:
@@ -270,7 +308,6 @@ def prepare_offline_environment(
         raise ValueError("non-exact environments are prohibited for CVPR runtime paths")
     if wheelhouse is None or wheelhouse_manifest is None:
         raise ValueError("an authenticated wheelhouse and manifest are required")
-    os.environ.update(offline_environment_flags())
     lock = load_environment_lock(lock_path)
     selected = selected_profile or select_locked_runtime(lock_path)
     requirements = _manifest_requirements(wheelhouse_manifest, lock)
@@ -279,6 +316,8 @@ def prepare_offline_environment(
         manifest_path=wheelhouse_manifest, content_identities=content_identities,
     )
     root = Path(venv_root or selected["profile"]["isolated_venv"])
+    worker_env = isolated_worker_environment(venv_root=root)
+    os.environ.update({key: worker_env[key] for key in offline_environment_flags()})
     python = isolated_python(root)
     host_python = str(selected["observed_runtime"]["executable"])
     create_command = [host_python, "-m", "venv", "--without-pip", str(root)]
@@ -320,28 +359,39 @@ def prepare_offline_environment(
     ]
     completed = installer(
         install_command, check=False, capture_output=True, text=True,
-        env={**os.environ, **offline_environment_flags()},
+        env=worker_env,
     )
     if int(completed.returncode) != 0:
         raise ValueError(f"offline isolated-venv installation failed: {str(completed.stderr)[-4000:]}")
     after = verify_current_environment(
         lock_path, require_cuda=require_cuda, python_executable=python,
-        selected_profile=selected, runner=installer,
+        selected_profile=selected, runner=installer, venv_root=root,
     )
     if not after["passed"]:
         raise ValueError(f"isolated runtime exact verification failed: {after['mismatches']}")
     import_script = (
-        "import importlib,json; modules=" + repr(list(import_modules)) + "; failed={}; versions={}\n"
+        "import importlib,json,os\n"
+        "modules=" + repr(list(import_modules)) + "\n"
+        "failed={}; versions={}; matplotlib_backend=None\n"
+        "if os.environ.get('MPLBACKEND') != 'Agg':\n"
+        "  failed['MPLBACKEND']=f\"expected Agg, observed {os.environ.get('MPLBACKEND')!r}\"\n"
         "for name in modules:\n"
         "  try:\n"
-        "    module=importlib.import_module(name); versions[name]=str(getattr(module,'__version__','IMPORTED'))\n"
-        "  except Exception as error: failed[name]=f'{type(error).__name__}: {error}'\n"
-        "print(json.dumps({'failed':failed,'versions':versions}))\n"
+        "    module=importlib.import_module(name)\n"
+        "    versions[name]=str(getattr(module,'__version__','IMPORTED'))\n"
+        "    if name == 'matplotlib':\n"
+        "      matplotlib_backend=str(module.get_backend())\n"
+        "      if matplotlib_backend.lower() != 'agg':\n"
+        "        failed[name]=f'backend={matplotlib_backend}'\n"
+        "  except Exception as error:\n"
+        "    failed[name]=f'{type(error).__name__}: {error}'\n"
+        "print(json.dumps({'failed':failed,'versions':versions,'matplotlib_backend':matplotlib_backend,"
+        "'mplbackend_env':os.environ.get('MPLBACKEND'),'mplconfigdir_env':os.environ.get('MPLCONFIGDIR')}))\n"
         "raise SystemExit(1 if failed else 0)"
     )
     smoke = installer(
         [str(python), "-c", import_script], check=False, capture_output=True, text=True,
-        env={**os.environ, **offline_environment_flags()},
+        env=worker_env,
     )
     if int(smoke.returncode) != 0:
         raise ValueError(f"isolated runtime import smoke failed: {str(smoke.stdout)[-4000:]}")
@@ -359,7 +409,9 @@ def prepare_offline_environment(
         ).hexdigest(),
         "wheelhouse_validation": compatibility,
         "import_smoke": json.loads(smoke.stdout.strip().splitlines()[-1]),
-        "offline_flags": offline_environment_flags(), "system_site_packages": False,
+        "offline_flags": offline_environment_flags(mpl_config_dir=root / "mplconfig"),
+        "matplotlib_backend": "Agg",
+        "system_site_packages": False,
         "network_used": False, "restart_or_reexec_checked": True,
     }
     result["environment_hash"] = sha256_bytes(canonical_json_bytes({
