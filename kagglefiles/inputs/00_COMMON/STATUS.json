@@ -1,0 +1,40 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "python3 -m certvic.cvpr.build_all_kaggle_inputs --local-only",
+  "expected_filenames": [
+    "certvic_code_bundle.zip",
+    "certvic_configs_bundle.zip",
+    "certvic_execution_tools_bundle.zip"
+  ],
+  "expected_size": "record actual deterministic bytes",
+  "missing_role": null,
+  "paper_evidence": false,
+  "prerequisite_stage": "Current repository checkout",
+  "present_files": [
+    {
+      "filename": "certvic_code_bundle.zip",
+      "sha256": "da856a606c60f20e3d3867d2ef546960b6956cb8cb119a6de23b4e3457c06394",
+      "size": 1214003,
+      "verified": true
+    },
+    {
+      "filename": "certvic_configs_bundle.zip",
+      "sha256": "f100c32339f8dc240119ed9d31b054eed8201618f781650c6899316777b51bbe",
+      "size": 46385,
+      "verified": true
+    },
+    {
+      "filename": "certvic_execution_tools_bundle.zip",
+      "sha256": "3687ce300ac7f8b3e13ea0a333d26329b3ae0e61231d72c8808d46690cfae5c0",
+      "size": 165215,
+      "verified": true
+    }
+  ],
+  "readiness": "READY_NOW",
+  "required_files_present": true,
+  "role": "REPOSITORY_COMMON",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "00_COMMON",
+  "where_completed_file_belongs": "kagglefiles/inputs/00_COMMON/",
+  "why_missing": null
+}

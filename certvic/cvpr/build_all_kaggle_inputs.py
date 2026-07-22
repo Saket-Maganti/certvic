@@ -94,6 +94,7 @@ def _local_specs() -> dict[str, dict[str, Any]]:
         "notebook_validation.py", "import_transaction.py", "whole_study_import.py",
         "content_discovery.py",
         "runtime_profiles.py", "environment_lock.py", "runtime_preflight.py",
+        "kagglefiles_pack.py",
         "package_generation.py", "package_run.py", "worker.py", "kaggle_claim_guard.py",
         "post_review_pipeline.py", "non_human_continuation.py", "primary_endpoint.py",
     }

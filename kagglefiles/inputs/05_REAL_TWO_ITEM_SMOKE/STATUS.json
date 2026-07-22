@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "python3 -m certvic.cvpr.smoke_input_builder --task-manifest local_inputs/smoke/real_smoke_tasks.jsonl --output kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip",
+  "expected_filenames": [
+    "certvic_real_two_item_smoke_bundle.zip"
+  ],
+  "expected_size": "1-50 MB",
+  "missing_role": "REAL_TWO_ITEM_SMOKE",
+  "paper_evidence": false,
+  "prerequisite_stage": "Licensed two-item task manifest and images",
+  "present_files": [],
+  "readiness": "WAITING_FOR_EXTERNAL_BYTES",
+  "required_files_present": false,
+  "role": "REAL_TWO_ITEM_SMOKE",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "05_REAL_TWO_ITEM_SMOKE",
+  "where_completed_file_belongs": "kagglefiles/inputs/05_REAL_TWO_ITEM_SMOKE/",
+  "why_missing": "The two real licensed examples are not repository bytes."
+}

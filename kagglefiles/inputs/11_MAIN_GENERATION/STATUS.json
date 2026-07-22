@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "python3 -m certvic.cvpr.build_all_kaggle_inputs --with-external-roots local_inputs/main_external_roots.yaml",
+  "expected_filenames": [
+    "certvic_main_generation_input.zip"
+  ],
+  "expected_size": "1 MB-60 GB depending on role",
+  "missing_role": "MAIN_GENERATION_INPUT",
+  "paper_evidence": false,
+  "prerequisite_stage": "Genuine confirmatory GO decision",
+  "present_files": [],
+  "readiness": "CONDITIONAL_NOT_AUTHORIZED",
+  "required_files_present": false,
+  "role": "MAIN_GENERATION_INPUT",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "11_MAIN_GENERATION",
+  "where_completed_file_belongs": "kagglefiles/inputs/11_MAIN_GENERATION/",
+  "why_missing": "Main execution_allowed=false until confirmatory gates pass."
+}

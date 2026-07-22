@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "python3 -m certvic.cvpr.scientific_input_builder --study confirmatory --provider llava --config local_inputs/10_confirmatory_llava.json --run-tag specificity_confirmatory_v1",
+  "expected_filenames": [
+    "certvic_confirmatory_llava_input.zip"
+  ],
+  "expected_size": "1 MB-25 GB",
+  "missing_role": "CONFIRMATORY_LLAVA_INPUT",
+  "paper_evidence": false,
+  "prerequisite_stage": "Genuine human review, exact selection, detectability, task freeze, and provider permission",
+  "present_files": [],
+  "readiness": "WAITING_FOR_HUMAN_REVIEW",
+  "required_files_present": false,
+  "role": "CONFIRMATORY_LLAVA_INPUT",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "10_CONFIRMATORY_LLAVA",
+  "where_completed_file_belongs": "kagglefiles/inputs/10_CONFIRMATORY_LLAVA/",
+  "why_missing": "Prospective human and authorization gates are incomplete."
+}

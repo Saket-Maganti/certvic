@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "Run runbooks/00_PROVISIONING/03_build_llava_onevision_7b_snapshot.ipynb",
+  "expected_filenames": [
+    "llava_onevision_7b_snapshot.zip"
+  ],
+  "expected_size": "15-18 GB",
+  "missing_role": "LLAVA_MODEL_SNAPSHOT",
+  "paper_evidence": false,
+  "prerequisite_stage": "BUILD_MODEL_SNAPSHOT llava_onevision_7b",
+  "present_files": [],
+  "readiness": "WAITING_FOR_EXTERNAL_BYTES",
+  "required_files_present": false,
+  "role": "LLAVA_MODEL_SNAPSHOT",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "04_LLAVA_SNAPSHOT",
+  "where_completed_file_belongs": "kagglefiles/inputs/04_LLAVA_SNAPSHOT/",
+  "why_missing": "Immutable model bytes are external."
+}

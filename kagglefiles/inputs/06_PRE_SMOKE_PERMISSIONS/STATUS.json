@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "python3 -m certvic.cvpr.pre_smoke_packager --config local_inputs/pre_smoke_inputs.json",
+  "expected_filenames": [
+    "certvic_pre_smoke_permissions.zip"
+  ],
+  "expected_size": "under 1 MB",
+  "missing_role": "PRE_SMOKE_PERMISSIONS",
+  "paper_evidence": false,
+  "prerequisite_stage": "Verified 00A, all three 00B returns, and real smoke bundle",
+  "present_files": [],
+  "readiness": "WAITING_FOR_PRIOR_RETURN",
+  "required_files_present": false,
+  "role": "PRE_SMOKE_PERMISSIONS",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "06_PRE_SMOKE_PERMISSIONS",
+  "where_completed_file_belongs": "kagglefiles/inputs/06_PRE_SMOKE_PERMISSIONS/",
+  "why_missing": "Permissions are derived from genuine upstream identities and cannot be precomputed."
+}

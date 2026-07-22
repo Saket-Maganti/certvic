@@ -48,6 +48,13 @@ tmp/
 *.pt
 *.pth
 
+# Unified Kaggle operator pack: track docs/statuses/runbooks, never large or returned bytes
+kagglefiles/inputs/**/*.zip
+kagglefiles/inputs/**/*.whl
+kagglefiles/inputs/**/*.safetensors
+kagglefiles/inputs/**/*.bin
+kagglefiles/.IMPORTED_RETURNS.json
+
 # Miscellaneous generated package metadata
 build/
 dist/*.egg-info/

@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "python3 -m certvic.cvpr.confirmatory_input_builder --config local_inputs/confirmatory_generation_inputs.json",
+  "expected_filenames": [
+    "certvic_confirmatory_generation_input.zip"
+  ],
+  "expected_size": "1-20 GB",
+  "missing_role": "CONFIRMATORY_GENERATION_INPUT",
+  "paper_evidence": false,
+  "prerequisite_stage": "Real smoke gate and licensed zero-overlap source universe",
+  "present_files": [],
+  "readiness": "WAITING_FOR_EXTERNAL_BYTES",
+  "required_files_present": false,
+  "role": "CONFIRMATORY_GENERATION_INPUT",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "07_CONFIRMATORY_GENERATION",
+  "where_completed_file_belongs": "kagglefiles/inputs/07_CONFIRMATORY_GENERATION/",
+  "why_missing": "Licensed source and insertion bytes are external."
+}

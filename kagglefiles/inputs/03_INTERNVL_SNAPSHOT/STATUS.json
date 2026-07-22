@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "Run runbooks/00_PROVISIONING/02_build_internvl_8b_snapshot.ipynb",
+  "expected_filenames": [
+    "internvl2_8b_snapshot.zip"
+  ],
+  "expected_size": "16-20 GB",
+  "missing_role": "INTERNVL_MODEL_SNAPSHOT",
+  "paper_evidence": false,
+  "prerequisite_stage": "BUILD_MODEL_SNAPSHOT internvl_8b",
+  "present_files": [],
+  "readiness": "WAITING_FOR_EXTERNAL_BYTES",
+  "required_files_present": false,
+  "role": "INTERNVL_MODEL_SNAPSHOT",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "03_INTERNVL_SNAPSHOT",
+  "where_completed_file_belongs": "kagglefiles/inputs/03_INTERNVL_SNAPSHOT/",
+  "why_missing": "Immutable model bytes are external."
+}

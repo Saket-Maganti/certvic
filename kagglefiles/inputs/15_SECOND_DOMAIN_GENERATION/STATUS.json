@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "python3 -m certvic.cvpr.build_all_kaggle_inputs --with-external-roots local_inputs/second_domain_external_roots.yaml",
+  "expected_filenames": [
+    "certvic_coco_generation_input.zip"
+  ],
+  "expected_size": "1 MB-60 GB depending on role",
+  "missing_role": "SECOND_DOMAIN_GENERATION_INPUT",
+  "paper_evidence": false,
+  "prerequisite_stage": "Separate second-domain feasibility and execution authorization",
+  "present_files": [],
+  "readiness": "CONDITIONAL_NOT_AUTHORIZED",
+  "required_files_present": false,
+  "role": "SECOND_DOMAIN_GENERATION_INPUT",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "15_SECOND_DOMAIN_GENERATION",
+  "where_completed_file_belongs": "kagglefiles/inputs/15_SECOND_DOMAIN_GENERATION/",
+  "why_missing": "Second-domain execution_allowed=false until separately authorized."
+}

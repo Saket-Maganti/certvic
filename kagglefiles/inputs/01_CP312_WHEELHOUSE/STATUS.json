@@ -1,0 +1,19 @@
+{
+  "evidence_boundary": "paper_evidence=false; do not fabricate model/data/permission/review/output bytes",
+  "exact_builder": "Run runbooks/00_PROVISIONING/00_build_certvic_cp312_wheelhouse.ipynb",
+  "expected_filenames": [
+    "certvic_offline_wheelhouse_cp312.zip"
+  ],
+  "expected_size": "approximately 3-18 GB; record actual bytes",
+  "missing_role": "CP312_WHEELHOUSE",
+  "paper_evidence": false,
+  "prerequisite_stage": "BUILD_CP312_WHEELHOUSE",
+  "present_files": [],
+  "readiness": "WAITING_FOR_EXTERNAL_BYTES",
+  "required_files_present": false,
+  "role": "CP312_WHEELHOUSE",
+  "schema": "certvic.kagglefiles.input_status.v1",
+  "stage": "01_CP312_WHEELHOUSE",
+  "where_completed_file_belongs": "kagglefiles/inputs/01_CP312_WHEELHOUSE/",
+  "why_missing": "The active CPython 3.12 Linux wheel bytes must be provisioned on Kaggle with Internet ON."
+}
