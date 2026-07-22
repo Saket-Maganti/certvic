@@ -115,7 +115,7 @@ def prepare_code_bundle(
     }
 
 
-def hardware_report() -> dict[str, Any]:
+def hardware_report(*, python_executable: str | Path | None = None) -> dict[str, Any]:
     """Inspect Torch/CUDA in a child process so planning imports remain lightweight."""
     disk = shutil.disk_usage(Path.cwd())
     script = r'''
@@ -137,9 +137,8 @@ for index in range(report["gpu_count"]):
         "bfloat16_supported": bool(torch.cuda.is_bf16_supported())})
 print(json.dumps(report))
 '''
-    result = subprocess.run(
-        [sys.executable, "-c", script], text=True, capture_output=True, check=False
-    )
+    executable = str(python_executable or sys.executable)
+    result = subprocess.run([executable, "-c", script], text=True, capture_output=True, check=False)
     if result.returncode or not result.stdout.strip():
         hardware: dict[str, Any] = {
             "torch_status": "INSPECTION_FAILED",
@@ -150,7 +149,7 @@ print(json.dumps(report))
         }
     else:
         hardware = json.loads(result.stdout)
-    return {"python": sys.version.split()[0], "disk_free_bytes": disk.free, **hardware}
+    return {"python_executable": executable, "disk_free_bytes": disk.free, **hardware}
 
 
 def run_preflight(

@@ -15,6 +15,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from certvic.cvpr.ceiling_common import atomic_json, canonical_json_bytes  # noqa: E402
+from certvic.cvpr.environment_lock import environment_lock_hash, load_environment_lock  # noqa: E402
+from certvic.cvpr.runtime_profiles import profile_hash  # noqa: E402
 
 
 REGISTRY = ROOT / "reports/max_ceiling_upgrade/artifact_registry.json"
@@ -53,6 +55,8 @@ def refresh(*, include_release: bool = False) -> dict[str, Any]:
     rows = registry["artifacts"]
     refresh_locations = {
         "certvic/cvpr/notebook_builder.py",
+        "certvic/cvpr/run_contract.py",
+        "configs/runtime/kaggle_t4x2_environment.lock.json",
         *(path.relative_to(ROOT).as_posix() for path in PHASE_C_LOCKS),
     }
     if include_release:
@@ -71,6 +75,40 @@ def refresh(*, include_release: bool = False) -> dict[str, Any]:
         row.update(artifact_id=artifact_id, sha256=digest, size=size)
         id_map[old_id] = artifact_id
 
+    runtime_lock_path = ROOT / "configs/runtime/kaggle_t4x2_environment.lock.json"
+    runtime_lock = load_environment_lock(runtime_lock_path)
+    cp312_hash = profile_hash(
+        "kaggle_cp312_2026_07", runtime_lock["runtime_profiles"]["kaggle_cp312_2026_07"]
+    )
+    runtime_profile_row = {
+        "role": "runtime_profile",
+        "sha256": hashlib.sha256(runtime_lock_path.read_bytes()).hexdigest(),
+        "study": "all",
+        "schema": "certvic.cvpr.kaggle_environment_lock.v2",
+    }
+    runtime_profile_id = hashlib.sha256(canonical_json_bytes(runtime_profile_row)).hexdigest()[:24]
+    existing_runtime = next(
+        (row for row in rows if row.get("artifact_id") == runtime_profile_id), None
+    )
+    if existing_runtime is None:
+        rows.append({
+            "artifact_id": runtime_profile_id,
+            "role": "runtime_profile",
+            "sha256": runtime_profile_row["sha256"],
+            "size": runtime_lock_path.stat().st_size,
+            "schema": runtime_profile_row["schema"],
+            "study": "all",
+            "parent_artifacts": [],
+            "evidence_class": "PLANNED_NOT_EXECUTED",
+            "immutable_location": "configs/runtime/kaggle_t4x2_environment.lock.json",
+            "aliases": ["kaggle_cp310_legacy", "kaggle_cp312_2026_07"],
+            "created_at_utc": "2026-07-22T00:00:00+00:00",
+            "runtime_profiles": {
+                profile_id: profile_hash(profile_id, profile)
+                for profile_id, profile in sorted(runtime_lock["runtime_profiles"].items())
+            },
+        })
+
     # Capsules bind registry identities. Refresh every changed binding before
     # recomputing the capsules' own content-addressed registry rows.
     changed_capsules: list[str] = []
@@ -78,6 +116,29 @@ def refresh(*, include_release: bool = False) -> dict[str, Any]:
     capsule_locations = {path.relative_to(ROOT).as_posix() for path in CAPSULES}
     for path in CAPSULES:
         capsule = json.loads(path.read_text())
+        capsule.setdefault("required_roles", [])
+        if "runtime_profile" not in capsule["required_roles"]:
+            environment_index = (
+                capsule["required_roles"].index("environment") + 1
+                if "environment" in capsule["required_roles"] else len(capsule["required_roles"])
+            )
+            capsule["required_roles"].insert(environment_index, "runtime_profile")
+        capsule.setdefault("artifact_bindings", {})["runtime_profile"] = {
+            "artifact_id": runtime_profile_id,
+            "location": "configs/runtime/kaggle_t4x2_environment.lock.json",
+            "sha256": runtime_profile_row["sha256"],
+        }
+        capsule["runtime_profile_selection"] = {
+            "expected_next_profile_id": "kaggle_cp312_2026_07",
+            "expected_next_profile_hash": cp312_hash,
+            "legacy_profile_id": "kaggle_cp310_legacy",
+            "environment_lock_hash": environment_lock_hash(runtime_lock_path),
+            "wheelhouse_status": "CP312_WHEELHOUSE_BUILDER_READY",
+            "fresh_00a_status": "NOT_RUN",
+        }
+        capsule["missing_roles"] = sorted(
+            set(capsule["required_roles"]) - set(capsule["artifact_bindings"])
+        )
         for binding in capsule.get("artifact_bindings", {}).values():
             old_binding_id = str(binding.get("artifact_id", ""))
             new_binding_id = id_map.get(old_binding_id, old_binding_id)

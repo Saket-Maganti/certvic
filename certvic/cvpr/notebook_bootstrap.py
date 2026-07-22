@@ -317,10 +317,11 @@ def offline_install_command(
     lock: str | Path,
     *,
     require_hashes: bool = False,
+    python_executable: str | Path | None = None,
 ) -> list[str]:
     command = [
-        sys.executable, "-m", "pip", "install", "--no-index", "--find-links",
-        str(Path(wheelhouse)), "-r", str(Path(lock)),
+        str(python_executable or sys.executable), "-m", "pip", "install", "--no-index",
+        "--only-binary=:all:", "--find-links", str(Path(wheelhouse)), "-r", str(Path(lock)),
     ]
     if require_hashes:
         command.insert(-2, "--require-hashes")
@@ -332,13 +333,17 @@ def install_offline(
     lock: str | Path,
     *,
     require_hashes: bool = False,
+    python_executable: str | Path | None = None,
     runner: Any = subprocess.run,
 ) -> dict[str, Any]:
     configure_offline_environment()
     wheels = list(Path(wheelhouse).glob("*.whl"))
     if not wheels or not Path(lock).is_file():
         raise NotebookBootstrapError(f"{ERRORS['WHEELHOUSE']}: missing wheels or lock")
-    command = offline_install_command(wheelhouse, lock, require_hashes=require_hashes)
+    command = offline_install_command(
+        wheelhouse, lock, require_hashes=require_hashes,
+        python_executable=python_executable,
+    )
     completed = runner(command, check=False, capture_output=True, text=True, env=dict(os.environ))
     if int(completed.returncode) != 0:
         raise NotebookBootstrapError(

@@ -1,18 +1,31 @@
 {
   "environment_lock": "configs/runtime/kaggle_t4x2_environment.lock.json",
-  "files": {},
+  "network_used": false,
+  "profiles": {
+    "kaggle_cp310_legacy": {
+      "expected_filename": "certvic_offline_wheelhouse.zip",
+      "status": "LEGACY_CLEAN_LINUX_VALIDATED"
+    },
+    "kaggle_cp312_2026_07": {
+      "expected_filename": "certvic_offline_wheelhouse_cp312.zip",
+      "provisioning_notebook": "notebooks/kaggle/provisioning/00_build_certvic_cp312_wheelhouse.ipynb",
+      "status": "CP312_WHEELHOUSE_BUILDER_READY"
+    }
+  },
   "required_file_fields": [
     "filename",
     "package",
     "version",
     "python_tag",
+    "abi_tag",
     "platform_tag",
+    "wheel_tags",
+    "compatible_tags",
     "size",
     "sha256",
     "dependency_role"
   ],
-  "required_packages_from_environment_lock": true,
-  "network_used": false,
-  "schema": "certvic.cvpr.wheelhouse_expected_manifest.v1",
-  "status": "WHEEL_BYTES_NOT_PROVISIONED_EXTERNAL_ACTION_REQUIRED"
+  "required_packages_from_all_kaggle_locks": true,
+  "schema": "certvic.cvpr.wheelhouse_expected_manifest.v2",
+  "status": "CP312_WHEELHOUSE_BUILDER_READY_LEGACY_CP310_PRESERVED"
 }

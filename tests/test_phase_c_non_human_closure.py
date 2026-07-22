@@ -147,6 +147,7 @@ def test_provisioning_notebooks_are_output_free_and_compile() -> None:
     notebooks = sorted(root.glob("*.ipynb"))
     assert {path.name for path in notebooks} == {
         "00_build_certvic_linux_wheelhouse.ipynb",
+        "00_build_certvic_cp312_wheelhouse.ipynb",
         "01_build_certvic_model_snapshot_parameterized.ipynb",
     }
     for path in notebooks:

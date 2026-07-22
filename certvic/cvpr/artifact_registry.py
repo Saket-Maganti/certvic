@@ -19,7 +19,10 @@ from certvic.cvpr.contracts import EvidenceClass, sha256_bytes
 
 
 REGISTRY_SCHEMA = "certvic.cvpr.artifact_registry.v1"
-CODE_SNAPSHOT_ROOTS = ("certvic", "configs", "notebooks/kaggle/cvpr", "scripts", "tests")
+CODE_SNAPSHOT_ROOTS = (
+    "certvic", "configs", "notebooks/kaggle/cvpr", "notebooks/kaggle/provisioning",
+    "scripts", "tests",
+)
 
 
 class ArtifactRegistryError(ValueError):
@@ -103,16 +106,30 @@ def verify_registry(registry_path: str | Path, *, root: str | Path) -> dict[str,
     registry = load_registry(registry_path)
     errors: list[dict[str, str]] = []
     known = {str(row.get("artifact_id")) for row in registry["artifacts"]}
+    # Registry rows are append-only history, while a few repository paths are
+    # deliberately refreshed in place.  Only the newest row for a location is
+    # the active byte binding; older rows remain available for lineage.
+    newest_by_location: dict[str, dict[str, Any]] = {}
     for row in registry["artifacts"]:
+        location = str(row.get("immutable_location", ""))
+        current = newest_by_location.get(location)
+        if current is None or str(row.get("created_at_utc", "")) > str(
+            current.get("created_at_utc", "")
+        ):
+            newest_by_location[location] = row
+    for row in registry["artifacts"]:
+        active = newest_by_location.get(str(row.get("immutable_location", ""))) is row
         source = (base / str(row.get("immutable_location", ""))).resolve()
         try:
             source.relative_to(base)
         except ValueError:
             errors.append({"artifact_id": row["artifact_id"], "error": "path escapes root"})
             continue
-        if not source.is_file():
+        if active and not source.is_file():
             errors.append({"artifact_id": row["artifact_id"], "error": "file missing"})
-        elif sha256_file(source) != row.get("sha256") or source.stat().st_size != row.get("size"):
+        elif active and (
+            sha256_file(source) != row.get("sha256") or source.stat().st_size != row.get("size")
+        ):
             errors.append({"artifact_id": row["artifact_id"], "error": "hash or size mismatch"})
         unknown = set(row.get("parent_artifacts", [])) - known
         if unknown:

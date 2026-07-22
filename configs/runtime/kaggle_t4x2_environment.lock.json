@@ -5,10 +5,12 @@
     "minimum_cuda_runtime": "12.1",
     "required_compute_capability": "7.5"
   },
-  "lock_status": "STRUCTURED_TARGET_REQUIRES_LEVEL3_KAGGLE_VERIFICATION",
+  "lock_status": "CP310_LEGACY_VALIDATED_CP312_PROVISIONING_READY",
   "offline_install": {
     "allow_index": false,
-    "command_template": "python -m pip install --no-index --find-links WHEELHOUSE --require-hashes -r REQUIREMENTS_LOCK",
+    "command_template": "ISOLATED_PYTHON -m pip install --no-index --find-links WHEELHOUSE --only-binary=:all: REQUIREMENTS",
+    "isolated_venv_required": true,
+    "system_site_packages": false,
     "wheelhouse_manifest_required": true
   },
   "packages": {
@@ -28,13 +30,52 @@
   },
   "python": {
     "implementation": "CPython",
-    "version": "3.10"
+    "selection": "LIVE_RUNTIME_PROFILE",
+    "supported_versions": [
+      "3.10",
+      "3.12"
+    ]
   },
-  "schema": "certvic.cvpr.kaggle_environment_lock.v1",
+  "runtime_profiles": {
+    "kaggle_cp310_legacy": {
+      "architecture": "x86_64",
+      "expected_wheelhouse_filename": "certvic_offline_wheelhouse.zip",
+      "glibc_minimum": "2.17",
+      "glibc_observed": "2.35",
+      "implementation": "CPython",
+      "isolated_venv": "/kaggle/working/certvic_runtime/kaggle_cp310_legacy",
+      "libc": "glibc",
+      "python_abi": "cp310",
+      "python_version": "3.10",
+      "status": "LEGACY_CLEAN_LINUX_VALIDATED",
+      "system": "Linux"
+    },
+    "kaggle_cp312_2026_07": {
+      "architecture": "x86_64",
+      "expected_wheelhouse_filename": "certvic_offline_wheelhouse_cp312.zip",
+      "glibc_minimum": "2.17",
+      "glibc_observed": "2.35",
+      "implementation": "CPython",
+      "isolated_venv": "/kaggle/working/certvic_runtime/kaggle_cp312_2026_07",
+      "libc": "glibc",
+      "python_abi": "cp312",
+      "python_version": "3.12",
+      "status": "PROVISIONING_BUILDER_READY",
+      "system": "Linux"
+    }
+  },
+  "schema": "certvic.cvpr.kaggle_environment_lock.v2",
   "scientific_status": "PLANNED_NOT_EXECUTED",
+  "torch_cuda_distribution": {
+    "cuda_family": "cu121",
+    "index_url": "https://download.pytorch.org/whl/cu121",
+    "torch": "2.4.1",
+    "torchvision": "0.19.1"
+  },
   "verification_ladder": [
-    "LOCAL_SCHEMA_AND_HASH_CHECK",
-    "WHEELHOUSE_ALL_BYTES_HASHED",
+    "LOCAL_SCHEMA_PROFILE_AND_TAG_CHECK",
+    "WHEELHOUSE_ALL_BINARY_BYTES_HASHED",
+    "ISOLATED_OFFLINE_VENV_INSTALL_AND_IMPORT_SMOKE",
     "KAGGLE_T4X2_IMPORT_AND_CUDA_SMOKE",
     "TWO_ITEM_REAL_MODEL_SMOKE"
   ]

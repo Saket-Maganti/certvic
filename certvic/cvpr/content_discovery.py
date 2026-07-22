@@ -386,8 +386,22 @@ def _override_matches(candidate: Mapping[str, Any], expected: Any) -> bool:
         return candidate.get("content_identity_sha256") == expected.lower()
     if isinstance(expected, Mapping):
         manifest = candidate.get("bundle_manifest", {})
+        # C3 preserves the already-published CPython-3.10 wheelhouse without
+        # rewriting its 3+ GB deterministic archive.  That legacy manifest
+        # predates the explicit profile field but its frozen builder command is
+        # an authenticated declaration of the CP310 target.
+        inferred: dict[str, Any] = {}
+        if isinstance(manifest, Mapping):
+            command = str(manifest.get("builder_command", ""))
+            if "linux_cp310" in command or "CPython-3.10" in command:
+                inferred["runtime_profile_id"] = "kaggle_cp310_legacy"
         return all(
-            candidate.get(key, manifest.get(key) if isinstance(manifest, Mapping) else None)
+            candidate.get(
+                key,
+                manifest.get(key, inferred.get(key))
+                if isinstance(manifest, Mapping)
+                else inferred.get(key),
+            )
             == value
             for key, value in expected.items()
         )

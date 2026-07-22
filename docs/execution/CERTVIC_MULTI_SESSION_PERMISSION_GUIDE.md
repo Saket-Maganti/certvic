@@ -1,9 +1,12 @@
 # CertVIC Multi-Session Permission Guide
 
 One immutable matrix authorization binds the study, exact task bundle/final-task/review/detectability
-bytes, environment, registry, code, provider set, schema, and expiry. Derive one child permission for
+bytes, environment lock, selected runtime profile ID/hash, wheelhouse content identity, registry,
+code, provider set, schema, and expiry. Derive one child permission for
 each of Qwen, InternVL, and LLaVA only after its current model revision, snapshot manifest/root,
 environment, code, parser, and processor contract equal its non-synthetic real-smoke PASS row.
+Permissions created before the v2 runtime-profile binding are not execution eligible and must not be
+mixed with CP312 returns. Parent, child, runtime config, and returned proof must agree on one profile.
 
 Each Kaggle session receives only its provider child. Its local event chain moves
 `ISSUED -> CLAIMED -> RUN_STARTED -> OUTPUT_PACKAGED`. The returned ZIP carries the immutable child,

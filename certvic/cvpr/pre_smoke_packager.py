@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import zipfile
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -31,6 +32,33 @@ def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _environment_profile(path: Path) -> dict[str, str]:
+    """Extract the optional v2 runtime-profile binding from a 00A return."""
+    values: list[dict[str, Any]] = []
+    try:
+        if zipfile.is_zipfile(path):
+            with zipfile.ZipFile(path) as archive:
+                for name in archive.namelist():
+                    if Path(name).name == "00A_environment.json":
+                        values.append(json.loads(archive.read(name)))
+        else:
+            values.append(json.loads(path.read_text(encoding="utf-8")))
+    except (OSError, KeyError, json.JSONDecodeError, zipfile.BadZipFile):
+        return {}
+    for value in values:
+        profile_id = value.get("runtime_profile_id")
+        profile_hash = value.get("runtime_profile_hash")
+        wheelhouse_id = value.get("wheelhouse_content_identity_sha256")
+        if profile_id and profile_hash:
+            return {
+                "runtime_profile_id": str(profile_id),
+                "runtime_profile_hash": str(profile_hash),
+                **({"wheelhouse_content_identity_sha256": str(wheelhouse_id)}
+                   if wheelhouse_id else {}),
+            }
+    return {}
+
+
 def build_pre_smoke_permissions(
     inputs: Mapping[str, str | Path],
     *,
@@ -55,6 +83,7 @@ def build_pre_smoke_permissions(
             raise PreSmokePackagerError(f"{role} is not a valid canonical bundle: {verification['errors']}")
         verified_bundles[role] = verification
     hashes = {role: _sha(path) for role, path in sorted(paths.items())}
+    runtime_profile = _environment_profile(paths["environment_identity"])
     code_type = verified_bundles["code_bundle"]["bundle_manifest"].get("bundle_type")
     if code_type == "CODE":
         hashes["code_bundle"] = authenticate_content_path(paths["code_bundle"], "CODE")
@@ -81,6 +110,7 @@ def build_pre_smoke_permissions(
         "execution_allowed": True,
         "scientific_execution_allowed": False,
         "paper_evidence": False,
+        **runtime_profile,
     }
     matrix_bytes = (json.dumps(matrix, indent=2, sort_keys=True) + "\n").encode()
     matrix["authorization_sha256"] = hashlib.sha256(matrix_bytes).hexdigest()
@@ -100,6 +130,7 @@ def build_pre_smoke_permissions(
             "parser_version": parser_version,
             "execution_class": "REAL_MODEL_SMOKE_ONLY",
             "paper_evidence": False,
+            **runtime_profile,
         }
         files[f"authorization/{provider}_permission.json"] = (
             json.dumps(child, indent=2, sort_keys=True) + "\n"

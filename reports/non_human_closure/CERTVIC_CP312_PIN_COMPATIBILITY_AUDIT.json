@@ -1,0 +1,29 @@
+{
+  "classification": "CP312_BINARY_INDEX_COMPATIBLE_AWAITING_TRANSITIVE_PROVISIONING",
+  "cuda_family": "cu121",
+  "method": "pip index versions with CPython 3.12, cp312, Linux x86_64 target tags; PyPI plus official PyTorch cu121 index",
+  "official_sources": [
+    "https://pypi.org/simple",
+    "https://download.pytorch.org/whl/cu121"
+  ],
+  "packages": {
+    "accelerate": "1.1.1",
+    "bitsandbytes": "0.44.1",
+    "diffusers": "0.31.0",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "pillow": "11.0.0",
+    "pyyaml": "6.0.2",
+    "safetensors": "0.4.5",
+    "scipy": "1.14.1",
+    "tokenizers": "0.20.3",
+    "torch": "2.4.1+cu121",
+    "torchvision": "0.19.1+cu121",
+    "transformers": "4.46.3"
+  },
+  "paper_evidence": false,
+  "pins_replaced": [],
+  "profile_id": "kaggle_cp312_2026_07",
+  "schema": "certvic.cvpr.cp312_pin_compatibility_audit.v1",
+  "status": "PASS_DIRECT_PINS"
+}

@@ -258,6 +258,11 @@ def _proof(runtime: dict[str, Any], bundle: dict[str, Any], *, synthetic: bool) 
         "smoke_fixture_hash": runtime.get("smoke_fixture_hash", runtime.get("task_manifest_sha256")),
         "run_contract_hash": runtime.get("run_contract_hash"),
         "prompt_template_hash": runtime.get("prompt_template_hash"),
+        "runtime_profile_id": runtime.get("runtime_profile_id"),
+        "runtime_profile_hash": runtime.get("runtime_profile_hash"),
+        "wheelhouse_content_identity_sha256": runtime.get(
+            "wheelhouse_content_identity_sha256"
+        ),
         "bundle_manifest_hash": bundle.get("bundle_hash"),
         "paper_evidence": False,
     }
@@ -283,6 +288,8 @@ def _proof(runtime: dict[str, Any], bundle: dict[str, Any], *, synthetic: bool) 
         raise SmokeArtifactError(f"smoke authorization proof is missing identity fields: {missing}")
     if payload["task_bundle_hash"] != bundle.get("bundle_hash"):
         raise SmokeArtifactError("runtime and packaged task bundle hashes differ")
+    if (payload["runtime_profile_id"] is None) != (payload["runtime_profile_hash"] is None):
+        raise SmokeArtifactError("runtime profile ID/hash binding is incomplete")
     return _signed(payload)
 
 

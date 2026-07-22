@@ -20,6 +20,7 @@ REQUIRED_ROLES = (
     "human_review",
     "detectability",
     "environment",
+    "runtime_profile",
     "model_snapshots",
     "model_registry",
     "prompt",
@@ -51,7 +52,8 @@ def create_capsule(
         if role not in selected:
             candidates = [row for row in registry["artifacts"] if row.get("role") == role]
             if candidates:
-                selected[role] = str(candidates[-1]["artifact_id"])
+                latest = max(candidates, key=lambda row: str(row.get("created_at_utc", "")))
+                selected[role] = str(latest["artifact_id"])
     unknown = sorted(set(selected.values()) - set(by_id))
     if unknown:
         raise CapsuleError(f"capsule bindings reference unknown artifacts: {unknown}")

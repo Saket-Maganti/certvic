@@ -1,0 +1,15 @@
+{
+  "cp310_legacy_validation": "reports/non_human_closure/wheelhouse_clean_linux_validation.json",
+  "cp312": {
+    "expected_output": "certvic_offline_wheelhouse_cp312.zip",
+    "fresh_kaggle_00a": "NOT_RUN",
+    "offline_install_and_import": "AWAITING_PROVISIONED_BYTES",
+    "profile_id": "kaggle_cp312_2026_07",
+    "provisioning_notebook": "notebooks/kaggle/provisioning/00_build_certvic_cp312_wheelhouse.ipynb",
+    "status": "CP312_WHEELHOUSE_BUILDER_READY"
+  },
+  "paper_evidence": false,
+  "passed": false,
+  "schema": "certvic.wheelhouse.clean_linux_validation.v2",
+  "status": "CP312_EXTERNAL_PROVISIONING_REQUIRED"
+}

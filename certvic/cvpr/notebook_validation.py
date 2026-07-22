@@ -41,7 +41,9 @@ def validate_suite(root: str | Path) -> dict[str, Any]:
         zero_edit = True
         required_tokens = (
             "HF_HUB_OFFLINE", "ENVIRONMENT_LOCK_HASH", "ATTACHED_INPUT_HASHES",
-            "hardware_report", "ALLOW_SINGLE_GPU_FALLBACK",
+            "hardware_report", "ALLOW_SINGLE_GPU_FALLBACK", "IMMEDIATE_KERNEL_RUNTIME_PROBE",
+            "RUNTIME_PROFILE_ID", "RUNTIME_PROFILE_HASH", "RUNTIME_PYTHON",
+            "ISOLATED_OFFLINE_VENV_INSTALLED_AND_VERIFIED",
         )
         if stage in {"generation", "evaluation"}:
             required_tokens += (
@@ -116,7 +118,9 @@ def validate_suite(root: str | Path) -> dict[str, Any]:
                 if token not in text:
                     errors.append(f"00C2 permission discovery missing: {token}")
             permission_position = text.find("verify_provider_permission(")
-            hardware_position = text.find("hardware = hardware_report()")
+            hardware_position = text.find(
+                "hardware = hardware_report(python_executable=RUNTIME_PYTHON)"
+            )
             worker_position = text.find('"-m", "certvic.cvpr.worker"')
             if min(permission_position, hardware_position, worker_position) < 0 or not (
                 permission_position < hardware_position < worker_position

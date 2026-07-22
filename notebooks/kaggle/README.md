@@ -3,6 +3,14 @@
 These markdown guides describe free Kaggle workflows. They do not assume paid
 services and do not store brittle notebook outputs.
 
+## Canonical CP312 runtime provisioning
+
+Use `provisioning/00_build_certvic_cp312_wheelhouse.ipynb` with Accelerator Off and Internet On.
+It emits the deterministic binary-only `certvic_offline_wheelhouse_cp312.zip`. Upload the unchanged
+ZIP as a private Kaggle dataset, then start a fresh `cvpr/00A_certvic_code_and_environment_smoke.ipynb`
+session with Accelerator Off and Internet Off. The existing CP310 wheelhouse remains a separate
+legacy profile and is never selected by a CP312 kernel.
+
 ## Generated job bundles (V3)
 
 Instead of hand-copying commands into a Kaggle notebook, generate a copy-safe

@@ -75,6 +75,15 @@ def build_run_contract(
         "seed": config.get("seed", LEGACY_SENTINEL),
         "sharding": config.get("sharding", {"algorithm": "balanced_cost_v1"}),
     }
+    if config.get("runtime_profile_id") is not None or config.get(
+        "runtime_profile_hash"
+    ) is not None:
+        fields["runtime_profile_id"] = config.get("runtime_profile_id", LEGACY_SENTINEL)
+        fields["runtime_profile_hash"] = config.get("runtime_profile_hash", LEGACY_SENTINEL)
+    if config.get("wheelhouse_content_identity_sha256") is not None:
+        fields["wheelhouse_content_identity_sha256"] = config[
+            "wheelhouse_content_identity_sha256"
+        ]
     # Provider-local permissions bind this run_contract_hash. Including their own
     # permission ID here would create a cryptographic cycle. Historical shared-ledger
     # SCIENTIFIC_EXECUTION contracts retain their explicit permission identity.
@@ -112,6 +121,10 @@ def build_run_contract(
     )
     if "execution_permission_id" in fields:
         hash_fields += ("execution_permission_id", "execution_permission_signature")
+    if "runtime_profile_hash" in fields:
+        hash_fields += ("runtime_profile_hash",)
+    if "wheelhouse_content_identity_sha256" in fields:
+        hash_fields += ("wheelhouse_content_identity_sha256",)
     for name in hash_fields:
         if (strict or fields[name] != LEGACY_SENTINEL) and not HEX64.fullmatch(str(fields[name])):
             errors.append(f"{name} must be a SHA-256")

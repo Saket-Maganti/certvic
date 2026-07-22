@@ -29,6 +29,9 @@ SCALAR_VARIABLES = {
     "PROVIDER": "provider",
     "RUN_TAG": "run_tag",
     "PROMPT_TEMPLATE_HASH": "prompt_template_hash",
+    "RUNTIME_PROFILE_ID": "runtime_profile_id",
+    "RUNTIME_PROFILE_HASH": "runtime_profile_hash",
+    "WHEELHOUSE_CONTENT_IDENTITY_SHA256": "wheelhouse_content_identity_sha256",
 }
 
 
@@ -92,8 +95,16 @@ def derive_permission_binding(
             else:
                 hashes[role] = hashlib.sha256(path.read_bytes()).hexdigest()
     scalars: dict[str, str] = {}
+    profile_binding_active = any(
+        not _placeholder(variables.get(name))
+        for name in ("RUNTIME_PROFILE_ID", "RUNTIME_PROFILE_HASH")
+    )
     for variable, role in SCALAR_VARIABLES.items():
         if variable == "PROMPT_TEMPLATE_HASH" and not enforce_final_binding:
+            continue
+        if variable.startswith("RUNTIME_PROFILE_") and not profile_binding_active:
+            continue
+        if variable == "WHEELHOUSE_CONTENT_IDENTITY_SHA256" and not profile_binding_active:
             continue
         value = _active_value(variables, variable)
         if _placeholder(value):
@@ -142,6 +153,8 @@ def assert_runtime_binding(
         "code_bundle": "code_bundle",
         "schema_version": "output_schema",
         "matrix_authorization": "matrix_authorization",
+        "runtime_profile_id": "runtime_profile_id",
+        "runtime_profile_hash": "runtime_profile_hash",
     }
     mismatches: dict[str, dict[str, Any]] = {}
     for role, expected in expected_runtime.items():

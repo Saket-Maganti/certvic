@@ -11,9 +11,9 @@
       "sha256": "b0362d7b9169c630058d98ec7f0bb383af1755a183ce3a53167926e6efc9603d"
     },
     "environment": {
-      "artifact_id": "806c9009c28cf389dcc05bb9",
+      "artifact_id": "1e2f57b91c70e83e0ea8d123",
       "location": "configs/runtime/kaggle_t4x2_environment.lock.json",
-      "sha256": "d18b5920c529a12a74b5ac9099b6da8e24771ed232b9096a1a71bab0d3a1d94a"
+      "sha256": "79b0931eead4c2af2380fe0ee080ed5bf406cd9f91ca4966f76aca028397ab41"
     },
     "human_review": {
       "artifact_id": "3327d66e4cd01efc2b9eaf18",
@@ -31,14 +31,19 @@
       "sha256": "309dddd0f20b5dcba1a261464ba2fdb8a4bf3ea4ca522101e7c574dbb78efeba"
     },
     "prompt": {
-      "artifact_id": "6a244b4b84df040e27ebcca3",
+      "artifact_id": "44fbb831ee84ae3562beb66a",
       "location": "certvic/cvpr/notebook_builder.py",
-      "sha256": "7f94d29e3d2ee18d6f38de90cc73e780628129dd91ece044e33ee9532c234595"
+      "sha256": "a3e2d1e325c39f15a268728afab34ed74ce9bc1e7453be0e3109fbbe59a40aa6"
     },
     "run_contract": {
-      "artifact_id": "3d493c905ea54010cf5d3f6d",
+      "artifact_id": "acd44851714c6fe0d82cf63b",
       "location": "certvic/cvpr/run_contract.py",
-      "sha256": "2aa80e35823e7bcc9477c0a281e227eb281270a146f9cb7aae5186c94b880571"
+      "sha256": "416379b4bf2501f1a198150e58566b2ed0193d6c9d398718960ad543a52bce88"
+    },
+    "runtime_profile": {
+      "artifact_id": "d0edf2e29a4e8bdae5fdbb46",
+      "location": "configs/runtime/kaggle_t4x2_environment.lock.json",
+      "sha256": "79b0931eead4c2af2380fe0ee080ed5bf406cd9f91ca4966f76aca028397ab41"
     },
     "task_freeze": {
       "artifact_id": "dfd48a467cd5fc36c564d3cb",
@@ -46,7 +51,7 @@
       "sha256": "23c64e7f4216130572d0daf1a3473250bd9331f941ab7956ae4f95f414d27057"
     }
   },
-  "capsule_hash": "55d5bb886d902495354f5050e6b5a4e8dcc956be6f3b0a6e2f12e6f0b5d150c4",
+  "capsule_hash": "325279daee59c5ee53745fe224ad9fe30d6a5e588df204d3666932f694e57269",
   "created_at_utc": "2026-07-19T04:42:02.543066+00:00",
   "missing_roles": [
     "detectability",
@@ -65,6 +70,7 @@
     "human_review",
     "detectability",
     "environment",
+    "runtime_profile",
     "model_snapshots",
     "model_registry",
     "prompt",
@@ -76,6 +82,14 @@
     "import_transaction",
     "analysis_plan"
   ],
+  "runtime_profile_selection": {
+    "environment_lock_hash": "7c010e1a8c1e4a3644b5db15304cc13da8766da2dd7e268ff587714808473c15",
+    "expected_next_profile_hash": "1b1b5122691399b425c8e866c57cc7431aacee091619c028fa1918696e6d980a",
+    "expected_next_profile_id": "kaggle_cp312_2026_07",
+    "fresh_00a_status": "NOT_RUN",
+    "legacy_profile_id": "kaggle_cp310_legacy",
+    "wheelhouse_status": "CP312_WHEELHOUSE_BUILDER_READY"
+  },
   "schema": "certvic.cvpr.reproducibility_capsule.v1",
   "status": "INCOMPLETE_EXTERNAL_BINDINGS",
   "study": "specificity_confirmatory_cvpr"

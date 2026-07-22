@@ -103,6 +103,9 @@ def create_matrix_authorization(
     code_hash: str,
     prompt_template_hash: str,
     output_schema: str,
+    runtime_profile_id: str | None = None,
+    runtime_profile_hash: str | None = None,
+    wheelhouse_content_identity_sha256: str | None = None,
     issued_at: datetime | None = None,
     validity_hours: int = 168,
     out: str | Path | None = None,
@@ -120,6 +123,12 @@ def create_matrix_authorization(
         "code_hash": code_hash,
         "prompt_template_hash": prompt_template_hash,
     }
+    if (runtime_profile_id is None) != (runtime_profile_hash is None):
+        raise ProviderPermissionError("runtime profile ID/hash must be supplied together")
+    if runtime_profile_hash is not None:
+        hashes["runtime_profile_hash"] = runtime_profile_hash
+    if wheelhouse_content_identity_sha256 is not None:
+        hashes["wheelhouse_content_identity_sha256"] = wheelhouse_content_identity_sha256
     invalid = sorted(name for name, value in hashes.items() if not _valid_sha(value))
     unique = sorted(set(map(str, providers)))
     if invalid or not unique or len(unique) != len(providers):
@@ -132,6 +141,7 @@ def create_matrix_authorization(
         "authorization_status": "AUTHORIZED",
         "study": study,
         **hashes,
+        **({"runtime_profile_id": runtime_profile_id} if runtime_profile_id else {}),
         "providers": unique,
         "output_schema": output_schema,
         "issued_at_utc": _iso(now),
@@ -160,10 +170,13 @@ def create_matrix_authorization_from_paths(
     code_bundle: str | Path,
     prompt_template: str | Path,
     output_schema: str,
+    runtime_profile_id: str | None = None,
+    wheelhouse_content_identity_sha256: str | None = None,
     out: str | Path | None = None,
 ) -> dict[str, Any]:
     """Issue the parent from trusted files without manual hash transcription."""
-    from certvic.cvpr.environment_lock import environment_lock_hash
+    from certvic.cvpr.environment_lock import environment_lock_hash, load_environment_lock
+    from certvic.cvpr.runtime_profiles import profile_hash
     from certvic.cvpr.task_bundle import verify_bundle
 
     bundle = verify_bundle(bundle_root, task_bundle_manifest)
@@ -185,6 +198,12 @@ def create_matrix_authorization_from_paths(
         != hashlib.sha256(Path(final_task_manifest).read_bytes()).hexdigest()
     ):
         raise ProviderPermissionError("matrix detectability gate does not bind the current frozen bytes")
+    lock = load_environment_lock(environment_lock)
+    runtime_hash = (
+        profile_hash(runtime_profile_id, lock["runtime_profiles"][runtime_profile_id])
+        if runtime_profile_id is not None
+        else None
+    )
     return create_matrix_authorization(
         study=study,
         task_bundle_hash=bundle["bundle_hash"],
@@ -202,6 +221,9 @@ def create_matrix_authorization_from_paths(
              else str(prompt_template).encode("utf-8"))
         ).hexdigest(),
         output_schema=output_schema,
+        runtime_profile_id=runtime_profile_id,
+        runtime_profile_hash=runtime_hash,
+        wheelhouse_content_identity_sha256=wheelhouse_content_identity_sha256,
         out=out,
     )
 
@@ -237,6 +259,16 @@ def verify_matrix_authorization(
     ):
         if not _valid_sha(value.get(field)):
             raise ProviderPermissionError(f"matrix authorization has invalid {field}")
+    if ("runtime_profile_id" in value) != ("runtime_profile_hash" in value):
+        raise ProviderPermissionError("matrix authorization runtime profile binding is incomplete")
+    if "runtime_profile_hash" in value and not _valid_sha(value["runtime_profile_hash"]):
+        raise ProviderPermissionError("matrix authorization has invalid runtime_profile_hash")
+    if value.get("wheelhouse_content_identity_sha256") is not None and not _valid_sha(
+        value["wheelhouse_content_identity_sha256"]
+    ):
+        raise ProviderPermissionError(
+            "matrix authorization has invalid wheelhouse content identity"
+        )
     current = now or _now()
     if current.astimezone(timezone.utc) > datetime.fromisoformat(value["expires_at_utc"]):
         raise ProviderPermissionError("matrix authorization has expired")
@@ -344,6 +376,15 @@ def derive_provider_permission(
         "provider": provider,
         "run_tag": run_tag,
     }
+    if parent.get("runtime_profile_id") is not None:
+        expected_scalars.update({
+            "runtime_profile_id": parent["runtime_profile_id"],
+            "runtime_profile_hash": parent["runtime_profile_hash"],
+        })
+    if parent.get("wheelhouse_content_identity_sha256") is not None:
+        expected_scalars["wheelhouse_content_identity_sha256"] = parent[
+            "wheelhouse_content_identity_sha256"
+        ]
     if any(active_scalars.get(key) != value for key, value in expected_scalars.items()):
         raise ProviderPermissionError("provider permission active scalar matrix mismatch")
     payload = {
@@ -366,6 +407,11 @@ def derive_provider_permission(
         "initial_state": "ISSUED",
         "active_input_hashes": dict(sorted(active_input_hashes.items())),
         "active_scalars": dict(sorted(active_scalars.items())),
+        "runtime_profile_id": active_scalars.get("runtime_profile_id"),
+        "runtime_profile_hash": active_scalars.get("runtime_profile_hash"),
+        "wheelhouse_content_identity_sha256": active_scalars.get(
+            "wheelhouse_content_identity_sha256"
+        ),
         "runtime_class": runtime_class,
         "synthetic_fixture": False,
         "paper_evidence": False,
@@ -410,6 +456,16 @@ def verify_provider_permission(
     for field in ("run_contract_hash", "prompt_template_hash"):
         if not _valid_sha(value.get(field)):
             raise ProviderPermissionError(f"provider permission has invalid {field}")
+    if (value.get("runtime_profile_id") is None) != (value.get("runtime_profile_hash") is None):
+        raise ProviderPermissionError("provider permission runtime profile binding is incomplete")
+    if value.get("runtime_profile_hash") is not None and not _valid_sha(
+        value["runtime_profile_hash"]
+    ):
+        raise ProviderPermissionError("provider permission runtime profile hash is invalid")
+    if value.get("wheelhouse_content_identity_sha256") is not None and not _valid_sha(
+        value["wheelhouse_content_identity_sha256"]
+    ):
+        raise ProviderPermissionError("provider permission wheelhouse identity is invalid")
     current = now or _now()
     if current.astimezone(timezone.utc) > datetime.fromisoformat(value["expires_at_utc"]):
         raise ProviderPermissionError("provider permission has expired")
@@ -433,6 +489,19 @@ def verify_provider_permission(
         ):
             if value.get(field) != parent.get(field):
                 raise ProviderPermissionError(f"provider permission parent field mismatch: {field}")
+        for field in ("runtime_profile_id", "runtime_profile_hash"):
+            if parent.get(field) is not None and value.get(field) != parent.get(field):
+                raise ProviderPermissionError(
+                    f"provider permission parent field mismatch: {field}"
+                )
+        if (
+            parent.get("wheelhouse_content_identity_sha256") is not None
+            and value.get("wheelhouse_content_identity_sha256")
+            != parent.get("wheelhouse_content_identity_sha256")
+        ):
+            raise ProviderPermissionError(
+                "provider permission parent field mismatch: wheelhouse_content_identity_sha256"
+            )
     return value
 
 
@@ -566,6 +635,11 @@ def build_authorization_proof(
         "runtime_class": child["runtime_class"],
         "run_contract_hash": child["run_contract_hash"],
         "prompt_template_hash": child["prompt_template_hash"],
+        "runtime_profile_id": child.get("runtime_profile_id"),
+        "runtime_profile_hash": child.get("runtime_profile_hash"),
+        "wheelhouse_content_identity_sha256": child.get(
+            "wheelhouse_content_identity_sha256"
+        ),
         "synthetic_fixture": False,
         "paper_evidence": False,
     }
@@ -624,6 +698,11 @@ def verify_provider_archive_proof(
         "runtime_class": child["runtime_class"],
         "run_contract_hash": child["run_contract_hash"],
         "prompt_template_hash": child["prompt_template_hash"],
+        "runtime_profile_id": child.get("runtime_profile_id"),
+        "runtime_profile_hash": child.get("runtime_profile_hash"),
+        "wheelhouse_content_identity_sha256": child.get(
+            "wheelhouse_content_identity_sha256"
+        ),
         "synthetic_fixture": False,
     }
     mismatches = {key: (value, proof.get(key)) for key, value in expected.items() if proof.get(key) != value}
@@ -647,6 +726,11 @@ def verify_provider_archive_proof(
         "one_run_nonce": child["one_run_nonce"],
         "run_contract_hash": child["run_contract_hash"],
         "prompt_template_hash": child["prompt_template_hash"],
+        "runtime_profile_id": child.get("runtime_profile_id"),
+        "runtime_profile_hash": child.get("runtime_profile_hash"),
+        "wheelhouse_content_identity_sha256": child.get(
+            "wheelhouse_content_identity_sha256"
+        ),
         "archive_sha256": hashlib.sha256(Path(archive).read_bytes()).hexdigest(),
         "final_event_hash": events[-1]["event_hash"],
         "proof_signature": proof["content_signature_sha256"],
@@ -673,6 +757,15 @@ def reconcile_provider_permissions(
     archive_hashes = [row["archive_sha256"] for row in rows]
     if len(set(nonces)) != len(nonces) or len(set(archive_hashes)) != len(archive_hashes):
         raise ProviderPermissionError("duplicated provider ZIP or one-run nonce")
+    profile_matrix = {
+        (
+            row.get("runtime_profile_id"), row.get("runtime_profile_hash"),
+            row.get("wheelhouse_content_identity_sha256"),
+        )
+        for row in rows
+    }
+    if len(profile_matrix) != 1:
+        raise ProviderPermissionError("returned provider ZIPs mix runtime profiles or wheelhouses")
     replayed = sorted(set(nonces) & set(consumed_nonces or set()))
     if replayed:
         raise ProviderPermissionError(f"provider nonce was already consumed: {replayed}")

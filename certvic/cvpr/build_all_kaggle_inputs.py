@@ -93,6 +93,7 @@ def _local_specs() -> dict[str, dict[str, Any]]:
         "notebook_bootstrap.py", "build_all_kaggle_inputs.py", "notebook_runner.py",
         "notebook_validation.py", "import_transaction.py", "whole_study_import.py",
         "content_discovery.py",
+        "runtime_profiles.py", "environment_lock.py", "runtime_preflight.py",
         "package_generation.py", "package_run.py", "worker.py", "kaggle_claim_guard.py",
         "post_review_pipeline.py", "non_human_continuation.py", "primary_endpoint.py",
     }
@@ -242,8 +243,37 @@ def external_statuses() -> list[dict[str, Any]]:
             "paper_evidence": False,
         }
     else:
-        wheel = wheelhouse_status(ROOT / "requirements")
-    rows.append({"name": "certvic_offline_wheelhouse.zip", **wheel})
+        wheel = wheelhouse_status(
+            ROOT / "requirements", profile_id="kaggle_cp310_legacy",
+            environment_lock=ROOT / "configs/runtime/kaggle_t4x2_environment.lock.json",
+        )
+    rows.append({"name": "certvic_offline_wheelhouse.zip", "runtime_profile_id": "kaggle_cp310_legacy", **wheel})
+    cp312_zip = UPLOAD_ROOT / "01_wheelhouse/certvic_offline_wheelhouse_cp312.zip"
+    if cp312_zip.is_file():
+        cp312_verification = verify_bundle(cp312_zip)
+        rows.append({
+            "name": cp312_zip.name,
+            "runtime_profile_id": "kaggle_cp312_2026_07",
+            "status": (
+                "CP312_WHEELHOUSE_PROVISIONED_REQUIRES_FRESH_00A"
+                if cp312_verification["passed"]
+                else "CP312_WHEELHOUSE_BUNDLE_VALIDATION_FAILED"
+            ),
+            "passed": bool(cp312_verification["passed"]),
+            "output": str(cp312_zip.relative_to(ROOT)),
+            "size": cp312_zip.stat().st_size,
+            "sha256": cp312_verification["sha256"],
+            "member_count": cp312_verification["member_count"],
+            "paper_evidence": False,
+        })
+    else:
+        rows.append({
+            "name": "certvic_offline_wheelhouse_cp312.zip",
+            **wheelhouse_status(
+                ROOT / "requirements", profile_id="kaggle_cp312_2026_07",
+                environment_lock=ROOT / "configs/runtime/kaggle_t4x2_environment.lock.json",
+            ),
+        })
     for provider in SNAPSHOT_PROVIDERS:
         rows.append({"name": SNAPSHOT_PROVIDERS[provider]["output"], **snapshot_status(provider)})
     rows.extend([
@@ -300,8 +330,14 @@ def build_external(config: Mapping[str, Any]) -> list[dict[str, Any]]:
     if config.get("wheelhouse_root"):
         built.append(build_wheelhouse(
             wheel_root=config["wheelhouse_root"],
-            output=UPLOAD_ROOT / "01_wheelhouse/certvic_offline_wheelhouse.zip",
+            output=UPLOAD_ROOT / "01_wheelhouse" / (
+                "certvic_offline_wheelhouse.zip"
+                if config.get("wheelhouse_profile") == "kaggle_cp310_legacy"
+                else "certvic_offline_wheelhouse_cp312.zip"
+            ),
             requirements_root=ROOT / "requirements",
+            profile_id=config.get("wheelhouse_profile", "kaggle_cp312_2026_07"),
+            environment_lock=ROOT / "configs/runtime/kaggle_t4x2_environment.lock.json",
         ))
     for provider, value in config.get("snapshots", {}).items():
         built.append(build_snapshot_bundle(

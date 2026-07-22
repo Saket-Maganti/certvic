@@ -20,6 +20,12 @@ operational provenance only.
 `CERTVIC_EXPECTED_CONTENT_ID_*` variables can narrow an accepted identity, but ordinary runs need
 no overrides.
 
+Runtime portability is profile-aware. CP310 and CP312 wheelhouses may both be attached: the live
+kernel selects the only ABI-compatible profile before wheelhouse discovery, and byte-identical copies
+of that wheelhouse remain mirrors across accounts. If distinct compatible wheelhouse identities are
+present, set the expected wheelhouse content identity or remove the stale attachment; the notebook
+fails closed instead of selecting by dataset title or mount order.
+
 ## Mirrors, ambiguity, and tampering
 
 Byte-identical attached copies are mirrors of one content identity. The runbook records all mirrors

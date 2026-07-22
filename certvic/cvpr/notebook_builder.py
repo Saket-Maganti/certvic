@@ -113,7 +113,12 @@ SNAPSHOT_DATASETS = {
 def _zero_edit_config(name: str, stage: str, provider: str) -> str:
     return_name = expected_return_zip(name, stage, provider)
     return f'''# Generated immutable run identity. There is nothing to edit in this notebook.
-import os
+import os, platform, sys
+
+print({{"status": "IMMEDIATE_KERNEL_RUNTIME_PROBE", "executable": sys.executable,
+       "implementation": platform.python_implementation(),
+       "python": platform.python_version(), "architecture": platform.machine(),
+       "system": platform.system(), "libc": platform.libc_ver()}})
 
 STAGE = {stage!r}
 PROVIDER = {provider!r}
@@ -490,7 +495,10 @@ print({"discovery_policy": DISCOVERY_POLICY, "role": "CODE", "provider": None,
 
 
 def _content_common_materialization() -> str:
-    return '''from certvic.cvpr.environment_lock import environment_lock_hash
+    return '''from certvic.cvpr.environment_lock import (
+    environment_lock_hash, load_environment_lock, select_locked_runtime,
+)
+from certvic.cvpr.runtime_profiles import discover_runtime_wheelhouse, runtime_probe
 
 DISCOVERY_MATERIALIZATION_ROOT = pathlib.Path(WORKING_ROOT) / "certvic_authenticated_inputs"
 CONFIG_DATASET = discover_authenticated_input(
@@ -501,11 +509,7 @@ TOOLS_DATASET = discover_authenticated_input(
     "EXECUTION_TOOLS", roots=INPUT_ROOTS,
     materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
 )
-WHEELHOUSE_DATASET = discover_authenticated_input(
-    "OFFLINE_LINUX_WHEELHOUSE", roots=INPUT_ROOTS,
-    materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
-)
-for discovered in (CONFIG_DATASET, TOOLS_DATASET, WHEELHOUSE_DATASET):
+for discovered in (CONFIG_DATASET, TOOLS_DATASET):
     DISCOVERED_PROVENANCE[discovered["role"]] = discovered
     print({key: discovered[key] for key in (
         "role", "provider", "study", "stage", "representation", "discovered_path",
@@ -513,9 +517,27 @@ for discovered in (CONFIG_DATASET, TOOLS_DATASET, WHEELHOUSE_DATASET):
         "observed_mount", "observed_dataset_folder",
     )})
 CONFIG_ROOT = pathlib.Path(CONFIG_DATASET["materialized_root"])
-WHEELHOUSE_ROOT = pathlib.Path(WHEELHOUSE_DATASET["materialized_root"])
 ENVIRONMENT_LOCK = str(discover_unique_file(CONFIG_ROOT, "kaggle_t4x2_environment.lock.json"))
 ENVIRONMENT_LOCK_HASH = environment_lock_hash(ENVIRONMENT_LOCK)
+BOOTSTRAP_ENVIRONMENT_LOCK_HASH = ENVIRONMENT_LOCK_HASH
+KERNEL_RUNTIME_PROBE = runtime_probe()
+RUNTIME_PROFILE = select_locked_runtime(ENVIRONMENT_LOCK, probe=KERNEL_RUNTIME_PROBE)
+RUNTIME_PROFILE_ID = RUNTIME_PROFILE["profile_id"]
+RUNTIME_PROFILE_HASH = RUNTIME_PROFILE["profile_hash"]
+EXPECTED_WHEELHOUSE_CONTENT_ID = os.environ.get("CERTVIC_EXPECTED_CONTENT_ID_WHEELHOUSE")
+WHEELHOUSE_DATASET = discover_runtime_wheelhouse(
+    RUNTIME_PROFILE, roots=INPUT_ROOTS,
+    materialization_root=DISCOVERY_MATERIALIZATION_ROOT,
+    expected_content_identity=EXPECTED_WHEELHOUSE_CONTENT_ID,
+)
+DISCOVERED_PROVENANCE[WHEELHOUSE_DATASET["role"]] = WHEELHOUSE_DATASET
+print({key: WHEELHOUSE_DATASET[key] for key in (
+    "role", "provider", "study", "stage", "representation", "discovered_path",
+    "materialized_root", "content_identity_sha256", "archive_sha256", "mirrors",
+    "observed_mount", "observed_dataset_folder",
+)})
+WHEELHOUSE_ROOT = pathlib.Path(WHEELHOUSE_DATASET["materialized_root"])
+WHEELHOUSE_CONTENT_IDENTITY_SHA256 = WHEELHOUSE_DATASET["content_identity_sha256"]
 WHEELHOUSE_MANIFEST = str(discover_unique_file(WHEELHOUSE_ROOT, "wheelhouse_manifest.json"))
 WHEELHOUSE_PATH = str(WHEELHOUSE_ROOT / "wheels")
 if not pathlib.Path(WHEELHOUSE_PATH).is_dir():
@@ -533,6 +555,9 @@ AUTHENTICATED_CONTENT_IDENTITIES.update({
     "wheelhouse": WHEELHOUSE_DATASET["content_identity_sha256"],
 })
 print({"environment_lock": ENVIRONMENT_LOCK, "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+       "kernel_runtime_probe": KERNEL_RUNTIME_PROBE,
+       "runtime_profile_id": RUNTIME_PROFILE_ID,
+       "runtime_profile_hash": RUNTIME_PROFILE_HASH,
        "wheelhouse_manifest": WHEELHOUSE_MANIFEST,
        "authenticated_content_identities": AUTHENTICATED_CONTENT_IDENTITIES})
 '''
@@ -654,12 +679,18 @@ environment_verification = prepare_offline_environment(
     allow_preinstalled=True,
     require_exact=True,
     require_cuda={require_gpu!r},
+    selected_profile=RUNTIME_PROFILE,
+    content_identities=AUTHENTICATED_CONTENT_IDENTITIES,
 )
 if environment_verification["status"] not in {{
-    "EXACT_PREINSTALLED_ENVIRONMENT_ACCEPTED", "OFFLINE_WHEELHOUSE_INSTALLED_AND_VERIFIED",
+    "ISOLATED_OFFLINE_VENV_INSTALLED_AND_VERIFIED",
 }}:
     raise RuntimeError("KAGGLE_ZERO_EDIT_EXACT_ENVIRONMENT_NOT_ESTABLISHED")
-hardware = hardware_report()
+RUNTIME_PYTHON = environment_verification["python_executable"]
+if environment_verification["runtime_profile_hash"] != RUNTIME_PROFILE_HASH:
+    raise RuntimeError("CERTVIC_RUNTIME_02_WHEELHOUSE_ABI_MISMATCH: profile hash drift")
+# Static compatibility marker: hardware = hardware_report()
+hardware = hardware_report(python_executable=RUNTIME_PYTHON)
 print(hardware)
 if EXPECTED_GPUS == 0 and (hardware["cuda_available"] or hardware["gpu_count"] != 0):
     raise RuntimeError("KAGGLE_ZERO_EDIT_CPU_ACCELERATOR_MUST_BE_OFF")
@@ -671,8 +702,9 @@ if EXPECTED_GPUS > 0:
         raise RuntimeError(f"KAGGLE_BOOTSTRAP_07_GPU_CONTRACT_FAILED: device_count={{len(names)}}")
     if not all("T4" in name.upper() for name in names[:2]):
         raise RuntimeError(f"KAGGLE_BOOTSTRAP_07_GPU_CONTRACT_FAILED: devices={{names}}")
-import_versions = import_smoke(["certvic", "numpy", "pandas", "torch", "transformers"])
-print({{"offline": True, "network_used": False, "imports": import_versions,
+print({{"offline": True, "network_used": False,
+       "imports": environment_verification["import_smoke"]["versions"],
+       "runtime_python": RUNTIME_PYTHON, "runtime_profile_id": RUNTIME_PROFILE_ID,
        "environment_status": environment_verification["status"]}})
 '''
 
@@ -684,6 +716,10 @@ artifact = write_environment_artifacts(WORKING_ROOT, {
     "stage": "00A", "status": environment_verification["status"], "passed": True,
     "environment_hash": ENVIRONMENT_LOCK_HASH,
     "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+    "runtime_profile_id": RUNTIME_PROFILE_ID,
+    "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+    "runtime_python": RUNTIME_PYTHON,
+    "wheelhouse_content_identity_sha256": WHEELHOUSE_DATASET["content_identity_sha256"],
     "code_bundle_hash": CODE_BUNDLE_HASH,
     "attached_input_hashes": ATTACHED_INPUT_HASHES,
     "hardware": hardware, "network_used": False,
@@ -723,6 +759,9 @@ artifact = write_snapshot_artifacts(WORKING_ROOT, PROVIDER, {
     "snapshot_root_hash": SNAPSHOT_ROOT_HASH,
     "snapshot_archive_sha256": SNAPSHOT_DATASET.get("archive_sha256"),
     "snapshot_content_identity_sha256": SNAPSHOT_DATASET["content_identity_sha256"],
+    "runtime_profile_id": RUNTIME_PROFILE_ID,
+    "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+    "runtime_python": RUNTIME_PYTHON,
 })
 canonical = pathlib.Path(WORKING_ROOT) / CANONICAL_RETURN_ZIP
 if not canonical.is_file():
@@ -859,6 +898,9 @@ active_runtime_contract_input = {
     "snapshot_status": "LOCAL_SNAPSHOT_BYTES_VERIFIED",
     "snapshot_contract": SNAPSHOT_CONTRACT,
     "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+    "runtime_profile_id": RUNTIME_PROFILE_ID,
+    "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+    "wheelhouse_content_identity_sha256": WHEELHOUSE_CONTENT_IDENTITY_SHA256,
     "prompt_template_id": PROMPT_TEMPLATE_ID,
     "prompt_template_hash": PROMPT_TEMPLATE_HASH,
     "parser_version": PARSER_VERSION, "output_schema": SCHEMA_VERSION,
@@ -874,6 +916,11 @@ checks = {
     "active_scalars": permission["active_scalars"] == permission_binding["scalars"],
     "task_bundle_hash": permission["task_bundle_hash"] == TASK_BUNDLE_HASH,
     "environment_hash": permission["environment_hash"] == ENVIRONMENT_LOCK_HASH,
+    "runtime_profile_id": permission.get("runtime_profile_id") == RUNTIME_PROFILE_ID,
+    "runtime_profile_hash": permission.get("runtime_profile_hash") == RUNTIME_PROFILE_HASH,
+    "wheelhouse_content_identity": permission.get(
+        "wheelhouse_content_identity_sha256"
+    ) == WHEELHOUSE_CONTENT_IDENTITY_SHA256,
     "snapshot_hash": permission["snapshot_hash"] == SNAPSHOT_MANIFEST_HASH,
     "snapshot_root_hash": permission["snapshot_root_hash"] == SNAPSHOT_ROOT_HASH,
     "code_hash": permission["code_hash"] == CODE_BUNDLE_HASH,
@@ -937,6 +984,10 @@ runtime = {
     "snapshot_manifest_path": SNAPSHOT_MANIFEST,
     "expected_architecture": EXPECTED_ARCHITECTURE,
     "environment_lock_path": ENVIRONMENT_LOCK,
+    "runtime_profile_id": RUNTIME_PROFILE_ID,
+    "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+    "runtime_python": RUNTIME_PYTHON,
+    "wheelhouse_content_identity_sha256": WHEELHOUSE_DATASET["content_identity_sha256"],
     "prompt_template": PROMPT_TEMPLATE,
     "strict_run_contract": True, "strict_permission_binding": True,
     "task_manifest": TASK_MANIFEST, "task_bundle_root": TASK_BUNDLE_ROOT,
@@ -967,6 +1018,9 @@ write_seed_manifest(output_root / "seed_manifest.json", derive_seed_manifest(
     "schema": "certvic.cvpr.smoke_environment.v1",
     "environment_hash": ENVIRONMENT_LOCK_HASH,
     "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+    "runtime_profile_id": RUNTIME_PROFILE_ID,
+    "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+    "runtime_python": RUNTIME_PYTHON,
     "status": environment_verification["status"], "passed": True,
     "hardware": hardware, "network_used": False, "paper_evidence": False,
 }, indent=2, sort_keys=True) + "\\n", encoding="utf-8")
@@ -974,15 +1028,17 @@ pathlib.Path(RUNTIME_CONFIG).write_text(
     json.dumps(runtime, indent=2, sort_keys=True) + "\\n", encoding="utf-8"
 )
 command = [
-    sys.executable, "-m", "certvic.cvpr.worker", "--shard", "0", "--num-shards", "1",
+    RUNTIME_PYTHON, "-m", "certvic.cvpr.worker", "--shard", "0", "--num-shards", "1",
     "--resume", "--batch-size", "2", "--oom-reduce-to-one", "--fail-closed",
     "--frozen-runtime-config", RUNTIME_CONFIG,
 ]
-subprocess.run(command, check=True, env={**os.environ, "CUDA_VISIBLE_DEVICES": "0"})
+subprocess.run(command, check=True, env={
+    **os.environ, "CUDA_VISIBLE_DEVICES": "0", "PYTHONPATH": str(PROJECT_ROOT),
+})
 subprocess.run([
-    sys.executable, "-m", "certvic.cvpr.package_run",
+    RUNTIME_PYTHON, "-m", "certvic.cvpr.package_run",
     "--frozen-runtime-config", RUNTIME_CONFIG, "--expected-shards", "1",
-], check=True)
+], check=True, env={**os.environ, "PYTHONPATH": str(PROJECT_ROOT)})
 canonical = pathlib.Path(WORKING_ROOT) / CANONICAL_RETURN_ZIP
 if not canonical.is_file():
     raise RuntimeError(f"KAGGLE_ZERO_EDIT_CANONICAL_RETURN_MISSING: {CANONICAL_RETURN_ZIP}")
@@ -1028,7 +1084,7 @@ def _zero_edit_notebook(name: str, stage: str, provider: str) -> dict:
                 "paper_evidence": False,
             },
             "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
-            "language_info": {"name": "python", "version": "3.10"},
+            "language_info": {"name": "python", "version": "3.12"},
         },
         "nbformat": 4,
         "nbformat_minor": 5,
@@ -1050,6 +1106,12 @@ def _universal_runtime_config(name: str, stage: str, provider: str) -> str:
     return_name = expected_return_zip(name, stage, provider)
     return f'''# Generated content-authenticated runtime identity. Nothing in this cell is editable.
 import hashlib, json, os, pathlib, shutil, subprocess, sys
+
+import platform
+print({{"status": "IMMEDIATE_KERNEL_RUNTIME_PROBE", "executable": sys.executable,
+       "implementation": platform.python_implementation(),
+       "python": platform.python_version(), "architecture": platform.machine(),
+       "system": platform.system(), "libc": platform.libc_ver()}})
 
 STAGE = {stage!r}
 PROVIDER = {provider!r}
@@ -1175,6 +1237,8 @@ DETECTABILITY_GATE = BOUND_ROLES["detectability_gate"]
 SMOKE_GATE_JSON = BOUND_ROLES["smoke_gate"]
 ENVIRONMENT_LOCK = BOUND_ROLES["environment_lock"]
 ENVIRONMENT_LOCK_HASH = early_sha256(ENVIRONMENT_LOCK)
+if ENVIRONMENT_LOCK_HASH != BOOTSTRAP_ENVIRONMENT_LOCK_HASH:
+    raise RuntimeError("CERTVIC_RUNTIME_02_WHEELHOUSE_ABI_MISMATCH: scientific lock differs from selected profile lock")
 MODEL_REGISTRY = BOUND_ROLES["model_registry"]
 MATRIX_AUTHORIZATION = BOUND_ROLES["parent_authorization"]
 PROVIDER_PERMISSION = BOUND_ROLES["child_permission"]
@@ -1423,6 +1487,9 @@ if STAGE in {"evaluation", "real_model_smoke"}:
         "snapshot_status": "LOCAL_SNAPSHOT_BYTES_VERIFIED",
         "snapshot_contract": SNAPSHOT_CONTRACT,
         "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+        "runtime_profile_id": RUNTIME_PROFILE_ID,
+        "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+        "wheelhouse_content_identity_sha256": WHEELHOUSE_CONTENT_IDENTITY_SHA256,
         "prompt_template_id": PROMPT_TEMPLATE_ID,
         "prompt_template_hash": PROMPT_TEMPLATE_HASH,
         "parser_version": "certvic.parse.v2", "output_schema": SCHEMA_VERSION,
@@ -1443,6 +1510,10 @@ if STAGE in {"evaluation", "real_model_smoke"}:
             or permission["active_scalars"] != permission_binding["scalars"]
             or permission["task_bundle_hash"] != TASK_BUNDLE_HASH
             or permission["environment_hash"] != ENVIRONMENT_LOCK_HASH
+            or permission.get("runtime_profile_id") != RUNTIME_PROFILE_ID
+            or permission.get("runtime_profile_hash") != RUNTIME_PROFILE_HASH
+            or permission.get("wheelhouse_content_identity_sha256")
+            != WHEELHOUSE_CONTENT_IDENTITY_SHA256
             or permission["snapshot_hash"] != SNAPSHOT_MANIFEST_HASH
             or permission["snapshot_root_hash"] != SNAPSHOT_ROOT_HASH
             or permission["code_hash"] != CODE_BUNDLE_HASH
@@ -1521,6 +1592,9 @@ if STAGE == "evaluation":
         "snapshot_status": "LOCAL_SNAPSHOT_BYTES_VERIFIED",
         "snapshot_contract": SNAPSHOT_CONTRACT,
         "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+        "runtime_profile_id": RUNTIME_PROFILE_ID,
+        "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+        "wheelhouse_content_identity_sha256": WHEELHOUSE_CONTENT_IDENTITY_SHA256,
         "prompt_template_id": PROMPT_TEMPLATE_ID,
         "prompt_template_hash": PROMPT_TEMPLATE_HASH,
         "parser_version": PARSER_VERSION, "output_schema": SCHEMA_VERSION,
@@ -1541,6 +1615,10 @@ if STAGE == "evaluation":
             or permission["active_scalars"] != permission_binding["scalars"]
             or permission["task_bundle_hash"] != TASK_BUNDLE_HASH
             or permission["environment_hash"] != ENVIRONMENT_LOCK_HASH
+            or permission.get("runtime_profile_id") != RUNTIME_PROFILE_ID
+            or permission.get("runtime_profile_hash") != RUNTIME_PROFILE_HASH
+            or permission.get("wheelhouse_content_identity_sha256")
+            != WHEELHOUSE_CONTENT_IDENTITY_SHA256
             or permission["snapshot_hash"] != SNAPSHOT_MANIFEST_HASH
             or permission["snapshot_root_hash"] != SNAPSHOT_ROOT_HASH
             or permission["code_hash"] != CODE_BUNDLE_HASH
@@ -1574,14 +1652,19 @@ environment_verification = prepare_offline_environment(
     allow_preinstalled=ALLOW_USE_PREINSTALLED_ENVIRONMENT,
     require_exact=REQUIRE_EXACT_ENVIRONMENT,
     require_cuda=STAGE in {"generation", "evaluation", "real_model_smoke"},
+    selected_profile=RUNTIME_PROFILE,
+    content_identities=AUTHENTICATED_CONTENT_IDENTITIES,
 )
 if environment_verification["status"] not in {
-    "EXACT_PREINSTALLED_ENVIRONMENT_ACCEPTED",
-    "OFFLINE_WHEELHOUSE_INSTALLED_AND_VERIFIED",
+    "ISOLATED_OFFLINE_VENV_INSTALLED_AND_VERIFIED",
 }:
     raise RuntimeError("exact offline environment was not established")
 
-hardware = hardware_report()
+RUNTIME_PYTHON = environment_verification["python_executable"]
+if environment_verification["runtime_profile_hash"] != RUNTIME_PROFILE_HASH:
+    raise RuntimeError("CERTVIC_RUNTIME_02_WHEELHOUSE_ABI_MISMATCH: profile hash drift")
+# Static compatibility marker: hardware = hardware_report()
+hardware = hardware_report(python_executable=RUNTIME_PYTHON)
 print(hardware)
 gpu_stage = STAGE in {"generation", "evaluation", "real_model_smoke"}
 if gpu_stage and not hardware["cuda_available"]:
@@ -1610,6 +1693,10 @@ runtime = {
     "snapshot_status": "LOCAL_SNAPSHOT_BYTES_VERIFIED",
     "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
     "environment_lock_path": ENVIRONMENT_LOCK,
+    "runtime_profile_id": RUNTIME_PROFILE_ID,
+    "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+    "runtime_python": RUNTIME_PYTHON,
+    "wheelhouse_content_identity_sha256": WHEELHOUSE_DATASET["content_identity_sha256"],
     "prompt_template_id": PROMPT_TEMPLATE_ID, "prompt_template": PROMPT_TEMPLATE,
     "prompt_template_hash": PROMPT_TEMPLATE_HASH,
     "parser_version": "certvic.parse.v2", "output_schema": SCHEMA_VERSION,
@@ -1647,7 +1734,8 @@ write_seed_manifest(pathlib.Path(OUTPUT_DIR) / "seed_manifest.json", {
 processes = []
 for shard, gpu in enumerate(GPU_IDS):
     env = dict(os.environ); env["CUDA_VISIBLE_DEVICES"] = str(gpu)
-    command = [sys.executable, "-m", "certvic.cvpr.worker", "--shard", str(shard),
+    env["PYTHONPATH"] = str(PROJECT_ROOT)
+    command = [RUNTIME_PYTHON, "-m", "certvic.cvpr.worker", "--shard", str(shard),
                "--num-shards", str(len(GPU_IDS)), "--resume", "--batch-size", str(INITIAL_BATCH_SIZE),
                "--oom-reduce-to-one", "--fail-closed", "--frozen-runtime-config", RUNTIME_CONFIG]
     stdout = open(pathlib.Path(OUTPUT_DIR) / f"worker_{shard}.stdout.log", "w")
@@ -1682,8 +1770,9 @@ for shard, gpu in enumerate(GPU_IDS):
     shard_path.parent.mkdir(parents=True, exist_ok=True)
     shard_path.write_text("".join(json.dumps(row, sort_keys=True) + "\\n" for row in shard_rows))
     env = dict(os.environ); env["CUDA_VISIBLE_DEVICES"] = str(gpu)
+    env["PYTHONPATH"] = str(PROJECT_ROOT)
     module = "certvic.cvpr.generation" if PROVIDER == "controls" else "certvic.cvpr.semantic_edits"
-    command = [sys.executable, "-m", module, "--task-manifest", str(shard_path),
+    command = [RUNTIME_PYTHON, "-m", module, "--task-manifest", str(shard_path),
                "--out-dir", str(pathlib.Path(OUTPUT_DIR) / f"generation_shard_{shard}"),
                "--seed", "12013", "--allow-full-run", "--resume"]
     if module.endswith("generation"): command += ["--engine", GENERATION_ENGINE]
@@ -1735,6 +1824,10 @@ elif STAGE in {"mock_smoke", "real_model_smoke"}:
         "expected_architecture": EXPECTED_ARCHITECTURE,
         "snapshot_status": "LOCAL_SNAPSHOT_BYTES_VERIFIED" if STAGE == "real_model_smoke" else "REMOTE_COMMIT_DECLARED",
         "environment_lock_hash": runtime_environment_hash, "environment_lock_path": ENVIRONMENT_LOCK,
+        "runtime_profile_id": RUNTIME_PROFILE_ID,
+        "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+        "runtime_python": RUNTIME_PYTHON,
+        "wheelhouse_content_identity_sha256": WHEELHOUSE_DATASET["content_identity_sha256"],
         "prompt_template_id": PROMPT_TEMPLATE_ID,
         "prompt_template": PROMPT_TEMPLATE,
         "prompt_template_hash": runtime_prompt_hash, "parser_version": "certvic.parse.v2",
@@ -1771,15 +1864,18 @@ elif STAGE in {"mock_smoke", "real_model_smoke"}:
     pathlib.Path(OUTPUT_DIR, "environment_manifest.json").write_text(json.dumps({
         "schema": "certvic.cvpr.smoke_environment.v1", "environment_hash": runtime_environment_hash,
         "environment_lock_hash": runtime_environment_hash, "status": environment_verification["status"],
+        "runtime_profile_id": RUNTIME_PROFILE_ID,
+        "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+        "runtime_python": RUNTIME_PYTHON,
         "passed": True, "paper_evidence": False,
     }, indent=2, sort_keys=True))
     pathlib.Path(RUNTIME_CONFIG).write_text(json.dumps(runtime, indent=2, sort_keys=True))
     SMOKE_NUM_SHARDS = 1  # intentional logical shard on both T4x2 and single-GPU fallback
-    command = [sys.executable, "-m", "certvic.cvpr.worker", "--shard", "0", "--num-shards", "1",
+    command = [RUNTIME_PYTHON, "-m", "certvic.cvpr.worker", "--shard", "0", "--num-shards", "1",
                "--resume", "--batch-size", "2", "--oom-reduce-to-one", "--fail-closed",
                "--frozen-runtime-config", RUNTIME_CONFIG]
     if STAGE == "mock_smoke": command.append("--mock-runtime")
-    subprocess.run(command, check=True)
+    subprocess.run(command, check=True, env={**os.environ, "PYTHONPATH": str(PROJECT_ROOT)})
     print(runtime_class)
 else:
     print({"status": "NON_EVIDENCE_RUNTIME_SMOKE", "code_bundle_hash": CODE_BUNDLE_HASH})
@@ -1789,9 +1885,10 @@ else:
                     "failure_report.json", "hash_manifest.json"]
 if STAGE in {"evaluation", "mock_smoke", "real_model_smoke"}:
     expected_shards = 1 if STAGE in {"mock_smoke", "real_model_smoke"} else len(GPU_IDS)
-    subprocess.run([sys.executable, "-m", "certvic.cvpr.package_run",
+    subprocess.run([RUNTIME_PYTHON, "-m", "certvic.cvpr.package_run",
                     "--frozen-runtime-config", RUNTIME_CONFIG,
-                    "--expected-shards", str(expected_shards)], check=True)
+                    "--expected-shards", str(expected_shards)], check=True,
+                   env={**os.environ, "PYTHONPATH": str(PROJECT_ROOT)})
     package_source = pathlib.Path(OUTPUT_DIR) / f"certvic_cvpr_{RUN_TAG}_{PROVIDER}.zip"
     canonical_return = pathlib.Path(OUTPUT_DIR) / CANONICAL_RETURN_ZIP
     if STAGE == "evaluation":
@@ -1809,6 +1906,7 @@ elif STAGE == "generation":
         "schema": "certvic.cvpr.generation_run_contract.v1", "study": STUDY,
         "provider": PROVIDER, "task_manifest_sha256": task_manifest_hash,
         "code_bundle_hash": CODE_BUNDLE_HASH, "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+        "runtime_profile_id": RUNTIME_PROFILE_ID, "runtime_profile_hash": RUNTIME_PROFILE_HASH,
         "seed": 12013, "generation_engine": GENERATION_ENGINE,
         "semantic_engine": SEMANTIC_ENGINE, "paper_evidence": False,
     }
@@ -1816,12 +1914,18 @@ elif STAGE == "generation":
         generation_contract, sort_keys=True, separators=(",", ":")
     ).encode()).hexdigest()
     generation_environment = {**hardware, "environment_lock_hash": ENVIRONMENT_LOCK_HASH,
+                              "runtime_profile_id": RUNTIME_PROFILE_ID,
+                              "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+                              "runtime_python": RUNTIME_PYTHON,
+                              "wheelhouse_content_identity_sha256": WHEELHOUSE_DATASET["content_identity_sha256"],
                               "offline_environment_status": environment_verification["status"],
                               "paper_evidence": False}
     generation_runtime = {
         "schema": "certvic.cvpr.generation_runtime.v1", "study": STUDY,
         "provider": PROVIDER, "run_contract_hash": generation_contract["run_contract_hash"],
         "code_bundle_hash": CODE_BUNDLE_HASH, "task_manifest_sha256": task_manifest_hash,
+        "runtime_profile_id": RUNTIME_PROFILE_ID, "runtime_profile_hash": RUNTIME_PROFILE_HASH,
+        "runtime_python": RUNTIME_PYTHON,
         "paper_evidence": False,
     }
     run_contract_path = root / "run_contract.json"
@@ -1831,12 +1935,13 @@ elif STAGE == "generation":
     environment_path.write_text(json.dumps(generation_environment, indent=2, sort_keys=True))
     runtime_path.write_text(json.dumps(generation_runtime, indent=2, sort_keys=True))
     generation_zip = root / CANONICAL_RETURN_ZIP
-    subprocess.run([sys.executable, "-m", "certvic.cvpr.package_generation",
+    subprocess.run([RUNTIME_PYTHON, "-m", "certvic.cvpr.package_generation",
                     "--study-manifest", EDIT_PLAN, "--generation-root", OUTPUT_DIR,
                     "--out-zip", str(generation_zip), "--assemble-shards",
                     "--run-contract", str(run_contract_path),
                     "--environment-manifest", str(environment_path),
-                    "--runtime-manifest", str(runtime_path), "--strict"], check=True)
+                    "--runtime-manifest", str(runtime_path), "--strict"], check=True,
+                   env={**os.environ, "PYTHONPATH": str(PROJECT_ROOT)})
 elif STAGE in {"code_smoke", "snapshot_smoke"}:
     from certvic.cvpr.smoke_artifacts import (
         write_environment_artifacts, write_snapshot_artifacts,
@@ -1897,7 +2002,7 @@ elif STAGE == "evaluation":
                 "paper_evidence": False,
             },
             "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
-            "language_info": {"name": "python", "version": "3.10"},
+            "language_info": {"name": "python", "version": "3.12"},
         },
         "nbformat": 4,
         "nbformat_minor": 5,

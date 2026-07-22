@@ -1,8 +1,15 @@
-# Wheelhouse validation handoff
+# CertVIC wheelhouse execution handoff
 
-The Linux x86-64/CPython 3.10 wheel set is locally provisioned. Canonical output:
-`kaggle_uploads/01_wheelhouse/certvic_offline_wheelhouse.zip`. Its clean Docker validation installs all
-five provider/generation/analysis locks with `--no-index --find-links` and imports every runtime module;
-the exact result is `reports/non_human_closure/wheelhouse_clean_linux_validation.json`. 00A must repeat
-that check in a fresh Kaggle CPU session, accelerator off and Internet off, because 00A also binds the
-Kaggle environment identity. The provisioning notebook remains a recovery route only.
+The prior Linux x86-64/CPython 3.10 bundle remains frozen at
+`kaggle_uploads/01_wheelhouse/certvic_offline_wheelhouse.zip` with its historical clean-Linux
+validation. It is now identified as `kaggle_cp310_legacy` and is not compatible with the observed
+Kaggle CPython 3.12 runtime.
+
+The CP312 deterministic provisioning workflow is ready at
+`notebooks/kaggle/provisioning/00_build_certvic_cp312_wheelhouse.ipynb`. The expected output is
+`certvic_offline_wheelhouse_cp312.zip`. No real CP312 wheelhouse bytes and no real fresh 00A PASS are
+claimed in this repository state.
+
+Next: run the provisioning notebook with Accelerator Off and Internet On, download its output,
+upload the unchanged ZIP as a private dataset, then run a fresh zero-edit 00A with Accelerator Off
+and Internet Off.
