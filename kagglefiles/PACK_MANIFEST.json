@@ -4,7 +4,7 @@
     "status": "CONDITIONAL_NOT_AUTHORIZED"
   },
   "active_runtime_profile": "kaggle_cp312_2026_07",
-  "deterministic_portion_sha256": "fc78eed3306bb0229bea0e4549ad87e43a65c2a7f35e71a77cf002590c227192",
+  "deterministic_portion_sha256": "3275ddfeeb026f63e790bfff46c822d1b103200484903d4127309c61c3839d46",
   "doctor_state": "READY_FOR_00A",
   "files": [
     {
@@ -17,7 +17,7 @@
       "role": "OPERATOR_PACK_FILE",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "markdown",
-      "sha256": "5c95618f0e1f031ffdb9e1f867f2e1b289f4d8febfd5a4de760eac1489836778",
+      "sha256": "5049343a61f0d414e4744887608917d612f6eb3cb124be588f62021ed38b1ee9",
       "size": 1423,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#build_operator_pack",
       "stage": "pack",
@@ -49,7 +49,7 @@
       "role": "OPERATOR_PACK_FILE",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "markdown",
-      "sha256": "d7afdb2c7feab5601bb3e5b93ee28e312de32c7e8b29b2a8a079ed70a8908acb",
+      "sha256": "63a3ac4a930d6a10335a1d6101908ed4bcb34520c53fc9f396ea9d5599478d4e",
       "size": 11011,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#_start_here",
       "stage": "pack",
@@ -1473,7 +1473,7 @@
     "NO_MANUAL_REPOSITORY_NAVIGATION_REQUIRED",
     "FIRST_ACTION_EXPLICIT"
   ],
-  "generated_at_utc": "2026-07-22T20:12:07+05:30",
+  "generated_at_utc": "2026-07-22T22:54:46+05:30",
   "human_gate_status": {
     "genuine_human_reviewed_true_count": 0,
     "status": "WAITING_FOR_HUMAN_REVIEW"
@@ -1502,7 +1502,7 @@
     "certvic_coco_llava_input.zip"
   ],
   "notebook_validation_totals": "{\"expected\": 20, \"observed\": 20, \"passed\": 20}",
-  "origin_main_commit": "575fe00be4efd1e6dc81382177d98361ce081090",
+  "origin_main_commit": "9054d0eaea01f16642c17fdd51a8f93537879da6",
   "paper_evidence": false,
   "primary_subfolders": [
     "runbooks",
@@ -1525,12 +1525,12 @@
     "READY_TO_RETRY_CP312_THEN_QWEN"
   ],
   "repository": "Saket-Maganti/certvic",
-  "repository_commit": "575fe00be4efd1e6dc81382177d98361ce081090",
+  "repository_commit": "9054d0eaea01f16642c17fdd51a8f93537879da6",
   "schema": "certvic.kagglefiles.pack_manifest.v1",
   "second_domain_authorization": {
     "execution_allowed": false,
     "status": "CONDITIONAL_NOT_AUTHORIZED"
   },
   "status": "CERTVIC_UNIFIED_KAGGLEFILES_OPERATOR_PACK_COMPLETE",
-  "test_totals": "953 passed, 1 skipped, 2 warnings in 128.89s (0:02:08)"
+  "test_totals": "953 passed, 1 skipped, 2 warnings"
 }

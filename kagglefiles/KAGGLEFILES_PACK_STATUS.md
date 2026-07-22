@@ -1,6 +1,6 @@
 # CertVIC unified Kagglefiles pack status
 
-- Source commit: `575fe00be4efd1e6dc81382177d98361ce081090`
+- Source commit: `9054d0eaea01f16642c17fdd51a8f93537879da6`
 - Active runtime profile: `kaggle_cp312_2026_07`
 - Doctor state: `READY_FOR_00A`
 - Required operator runbooks: 23
