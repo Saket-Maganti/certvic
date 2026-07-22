@@ -263,6 +263,8 @@ if not result.get("passed", False):
 print(json.dumps(result, indent=2, sort_keys=True))
 '''
     validate = r'''from certvic.cvpr.environment_lock import (
+    EnvironmentLockError,
+    HOST_PIP_CANNOT_TARGET_VENV,
     prepare_offline_environment,
     select_locked_runtime,
 )
@@ -303,6 +305,14 @@ try:
             "/kaggle/working/certvic_runtime/kaggle_cp312_builder_validation"
         ),
     )
+except EnvironmentLockError as error:
+    report = dict(error.report)
+    persist_failure_report(failure_report_path, report)
+    output.unlink(missing_ok=True)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    raise RuntimeError(
+        f"{report['status']}: offline_validation; failure_report={failure_report_path}"
+    ) from error
 except Exception as error:
     report = provisioning_failure_report(
         "CERTVIC_RUNTIME_09_OFFLINE_VALIDATION_FAILED",
@@ -312,10 +322,12 @@ except Exception as error:
         downloaded_wheels=list(locals().get("manifest", {}).get("files", {}).values()),
         remediation=(
             "Inspect the named offline install/import failure. Do not upload the bundle until "
-            "a clean no-system-site-packages CPython 3.12 venv passes every import."
+            "a clean ensurepip-free CPython 3.12 venv targeted by host pip --python passes every import."
         ),
     )
     report["offline_validation_error"] = f"{type(error).__name__}: {error}"
+    if HOST_PIP_CANNOT_TARGET_VENV in str(error):
+        report["status"] = HOST_PIP_CANNOT_TARGET_VENV
     persist_failure_report(failure_report_path, report)
     output.unlink(missing_ok=True)
     print(json.dumps(report, indent=2, sort_keys=True))
@@ -339,6 +351,8 @@ print({
     "wheel_count": result.get("wheel_count"),
     "deterministic_rebuild": result["deterministic_rebuild"],
     "offline_validation_status": offline_validation["status"],
+    "ensurepip_used": offline_validation.get("ensurepip_used", False),
+    "kernel_packages_mutated": offline_validation.get("kernel_packages_mutated", False),
     "network_used_for_provisioning": True,
     "paper_evidence": False,
 })
@@ -391,8 +405,7 @@ if platform.system() != "Linux" or platform.machine().lower() != "x86_64":
     raise RuntimeError("CERTVIC_RUNTIME_01_PYTHON_PROFILE_NOT_SUPPORTED: Linux x86_64 required")
 '''
     bootstrap = runtime_probe + "\n" + content_early_code_bootstrap_source()
-    build = f'''import subprocess
-from pathlib import Path
+    build = f'''from pathlib import Path
 
 PROVIDER = {provider!r}
 MODEL_REPOSITORY = {spec["repository"]!r}
@@ -400,46 +413,55 @@ MODEL_COMMIT = {spec["commit"]!r}
 PROCESSOR_COMMIT = MODEL_COMMIT
 CANONICAL_OUTPUT = {spec["output"]!r}
 
-subprocess.run([
-    sys.executable, "-m", "pip", "install", "--quiet", "huggingface_hub==0.26.2"
-], check=True)
-from huggingface_hub import snapshot_download
-from certvic.cvpr.kaggle_bundle import verify_bundle
-from certvic.cvpr.snapshot_bundle_builder import build_snapshot_bundle
+from certvic.cvpr.snapshot_streaming_provisioner import (
+    SnapshotStreamingError,
+    stream_build_snapshot_bundle,
+)
 
-snapshot_root = Path("/kaggle/working/model_snapshot") / PROVIDER
-snapshot_download(
-    repo_id=MODEL_REPOSITORY,
-    revision=MODEL_COMMIT,
-    local_dir=snapshot_root,
-)
-symlinks = [str(path) for path in snapshot_root.rglob("*") if path.is_symlink()]
-if symlinks:
-    raise RuntimeError(f"downloaded snapshot contains symlinks: {{symlinks[:5]}}")
 output = Path("/kaggle/working") / CANONICAL_OUTPUT
-rebuild = output.with_name(output.stem + ".deterministic_rebuild.zip")
-first = build_snapshot_bundle(
-    PROVIDER,
-    snapshot_root,
-    model_commit=MODEL_COMMIT,
-    processor_commit=PROCESSOR_COMMIT,
-    output=output,
+failure_report_path = Path("/kaggle/working") / (
+    CANONICAL_OUTPUT.replace(".zip", "") + "_failure_report.json"
 )
-second = build_snapshot_bundle(
-    PROVIDER,
-    snapshot_root,
-    model_commit=MODEL_COMMIT,
-    processor_commit=PROCESSOR_COMMIT,
-    output=rebuild,
-)
-if output.read_bytes() != rebuild.read_bytes():
-    raise RuntimeError("snapshot deterministic rebuild is not byte-identical")
-rebuild.unlink()
-verification = verify_bundle(output)
-if not verification["passed"]:
-    raise RuntimeError(f"snapshot bundle verification failed: {{verification['errors']}}")
+try:
+    first = stream_build_snapshot_bundle(
+        PROVIDER,
+        output=output,
+        working_dir=Path("/kaggle/working"),
+        deps_dir=Path("/kaggle/working/certvic_snapshot_deps"),
+        model_commit=MODEL_COMMIT,
+        processor_commit=PROCESSOR_COMMIT,
+    )
+except SnapshotStreamingError as error:
+    failure_report_path.write_text(
+        json.dumps(error.report, indent=2, sort_keys=True) + "\\n", encoding="utf-8"
+    )
+    output.unlink(missing_ok=True)
+    print(json.dumps(error.report, indent=2, sort_keys=True))
+    raise RuntimeError(
+        f"{{error.code}}: failure_report={{failure_report_path}}"
+    ) from error
+except Exception as error:
+    report = {{
+        "schema": "certvic.cvpr.snapshot_failure_report.v1",
+        "status": "CERTVIC_SNAPSHOT_PROVISIONING_FAILED",
+        "provider": PROVIDER,
+        "error": f"{{type(error).__name__}}: {{error}}",
+        "remediation": (
+            "Inspect the streamed single-pass builder failure. Do not keep a raw snapshot tree "
+            "or a second full ZIP beside the canonical archive."
+        ),
+        "paper_evidence": False,
+    }}
+    failure_report_path.write_text(
+        json.dumps(report, indent=2, sort_keys=True) + "\\n", encoding="utf-8"
+    )
+    output.unlink(missing_ok=True)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    raise RuntimeError(
+        f"{{report['status']}}: failure_report={{failure_report_path}}"
+    ) from error
 print(json.dumps({{
-    "status": "IMMUTABLE_SNAPSHOT_BUILT_DETERMINISTIC",
+    "status": first["status"],
     "provider": PROVIDER,
     "model_repository": MODEL_REPOSITORY,
     "model_commit": MODEL_COMMIT,
@@ -447,10 +469,17 @@ print(json.dumps({{
     "canonical_output": str(output),
     "size": output.stat().st_size,
     "sha256": first["sha256"],
-    "deterministic_rebuild": True,
+    "determinism_proof": first["determinism_proof"],
+    "raw_snapshot_retained": first["raw_snapshot_retained"],
+    "second_full_zip_created": first["second_full_zip_created"],
+    "dependency_isolation": first.get("dependency_isolation"),
+    "disk_preflight": first.get("disk_preflight"),
     "paper_evidence": False,
 }}, indent=2, sort_keys=True))
-print("NEXT: download " + CANONICAL_OUTPUT + ", then run the matching provider-specific 00B notebook with Accelerator OFF and Internet OFF.")
+print(
+    "NEXT: download " + CANONICAL_OUTPUT + ", import it unchanged, then run the matching "
+    "provider-specific 00B notebook with Accelerator OFF and Internet OFF."
+)
 '''
     return _notebook(
         (
@@ -459,7 +488,9 @@ print("NEXT: download " + CANONICAL_OUTPUT + ", then run the matching provider-s
                 f"# Build the immutable {title} snapshot\n\n"
                 "Settings: **Accelerator OFF**, **Internet ON**. Attach the authenticated "
                 "CertVIC CODE bundle under any account, title, filename, extension, mount, or "
-                f"nesting. Run All without editing. Canonical output: `{spec['output']}`.\n",
+                f"nesting. Run All without editing. Canonical output: `{spec['output']}`. "
+                "This builder streams Hub bytes directly into one ZIP64 archive, never installs "
+                "into the notebook kernel, and never retains a second full snapshot ZIP.\n",
             ),
             ("code", bootstrap),
             ("code", build),
@@ -1021,12 +1052,23 @@ def _start_here(
         "- Main: `execution_allowed=false`.",
         "- Second domain: `execution_allowed=false`.",
         "",
-        "## C4 live-provisioning retry",
+        "## C5 final live-provisioning retry",
         "",
-        "Delete the four failed Kaggle draft sessions. Pull the latest `main`, then use only "
-        "the four refreshed notebooks in `runbooks/00_PROVISIONING/` with the refreshed "
-        "files from `inputs/00_COMMON/`. Use **Accelerator OFF**, **Internet ON**, and click "
-        "**Run All**. Do not reuse a failed session's working directory.",
+        "DELETE THE FAILED CP312 AND QWEN KAGGLE DRAFTS.",
+        "PULL THE LATEST MAIN COMMIT.",
+        "UPLOAD THE REFRESHED COMMON INPUTS.",
+        "",
+        "FIRST RUN ONLY:",
+        "`00_build_certvic_cp312_wheelhouse.ipynb`",
+        "ACCELERATOR OFF",
+        "INTERNET ON",
+        "",
+        "AFTER IT PASSES AND IS IMPORTED, RUN ONLY:",
+        "`01_build_qwen2_5_vl_7b_snapshot.ipynb`",
+        "ACCELERATOR OFF",
+        "INTERNET ON",
+        "",
+        "STOP AFTER EACH RESULT.",
         "",
         "## Exact first executable action",
         "",
@@ -1307,8 +1349,12 @@ CERTVIC_LIVE_KAGGLE_PROVISIONING_PATCH_COMPLETE
 SNAPSHOT_PROVISIONERS_SUPPORT_EXTRACTED_DATASETS
 CP312_RESOLVER_USES_LIVE_RUNTIME_TAGS
 CP312_FAILURE_REPORTING_ACTIONABLE
+CERTVIC_KAGGLE_ENSUREPIP_FREE_VENV_PATCH_COMPLETE
+CERTVIC_SNAPSHOT_ZIP64_PATCH_COMPLETE
+CERTVIC_SNAPSHOT_QUOTA_SAFE_STREAMING_READY
+NO_GLOBAL_KERNEL_INSTALL
 UNIFIED_KAGGLEFILES_PACK_REFRESHED
-READY_TO_RETRY_PROVISIONING
+READY_TO_RETRY_CP312_THEN_QWEN
 """)
     source_map["KAGGLEFILES_PACK_STATUS.md"] = {
         "source_path": "certvic/cvpr/kagglefiles_pack.py#build_operator_pack",
@@ -1362,8 +1408,12 @@ READY_TO_RETRY_PROVISIONING
             "SNAPSHOT_PROVISIONERS_SUPPORT_EXTRACTED_DATASETS",
             "CP312_RESOLVER_USES_LIVE_RUNTIME_TAGS",
             "CP312_FAILURE_REPORTING_ACTIONABLE",
+            "CERTVIC_KAGGLE_ENSUREPIP_FREE_VENV_PATCH_COMPLETE",
+            "CERTVIC_SNAPSHOT_ZIP64_PATCH_COMPLETE",
+            "CERTVIC_SNAPSHOT_QUOTA_SAFE_STREAMING_READY",
+            "NO_GLOBAL_KERNEL_INSTALL",
             "UNIFIED_KAGGLEFILES_PACK_REFRESHED",
-            "READY_TO_RETRY_PROVISIONING",
+            "READY_TO_RETRY_CP312_THEN_QWEN",
         ],
         "repository": "Saket-Maganti/certvic",
         "repository_commit": commit,
@@ -1726,7 +1776,7 @@ def refresh_main(argv: list[str] | None = None) -> int:
         before = {
             path.relative_to(args.pack_root).as_posix(): _sha(path)
             for path in Path(args.pack_root).rglob("*") if path.is_file()
-            and path.name != ".IMPORTED_RETURNS.json"
+            and path.name not in {".IMPORTED_RETURNS.json", ".DS_Store"}
         }
         second = build_operator_pack(
             args.pack_root,
@@ -1737,7 +1787,7 @@ def refresh_main(argv: list[str] | None = None) -> int:
         after = {
             path.relative_to(args.pack_root).as_posix(): _sha(path)
             for path in Path(args.pack_root).rglob("*") if path.is_file()
-            and path.name != ".IMPORTED_RETURNS.json"
+            and path.name not in {".IMPORTED_RETURNS.json", ".DS_Store"}
         }
         first["deterministic_rebuild"] = {
             "byte_identical": before == after,

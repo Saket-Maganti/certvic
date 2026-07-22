@@ -23,12 +23,49 @@ from certvic.cvpr.runtime_profiles import (
 
 
 WHEEL_RE = re.compile(r"^[A-Za-z0-9_.+-]+\.whl$")
+HOST_PIP_CANNOT_TARGET_VENV = "CERTVIC_RUNTIME_10_HOST_PIP_CANNOT_TARGET_VENV"
 REQUIRED_IMPORTS = (
     "torch", "torchvision", "transformers", "accelerate", "tokenizers",
     "safetensors", "PIL", "numpy", "scipy", "pandas", "diffusers",
     "sentencepiece", "sklearn", "cv2", "qwen_vl_utils", "timm",
     "matplotlib", "nbclient", "nbformat", "av",
 )
+
+
+class EnvironmentLockError(RuntimeError):
+    """A stable offline-environment failure with a machine-readable report."""
+
+    def __init__(self, code: str, report: Mapping[str, Any]):
+        self.code = code
+        self.report = {"schema": "certvic.cvpr.environment_failure_report.v1", "status": code, **dict(report)}
+        super().__init__(f"{code}: {json.dumps(self.report, sort_keys=True)}")
+
+
+def _host_pip_version(host_python: str, runner: Any = subprocess.run) -> str:
+    completed = runner(
+        [host_python, "-m", "pip", "--version"],
+        check=False, capture_output=True, text=True,
+    )
+    if int(completed.returncode) != 0:
+        return f"UNAVAILABLE:{str(completed.stderr)[-500:]}"
+    return str(completed.stdout or completed.stderr).strip()
+
+
+def _host_pip_supports_python_target(host_python: str, runner: Any = subprocess.run) -> dict[str, Any]:
+    command = [host_python, "-m", "pip", "--help"]
+    completed = runner(command, check=False, capture_output=True, text=True)
+    stdout = str(completed.stdout or "")
+    stderr = str(completed.stderr or "")
+    supported = int(completed.returncode) == 0 and re.search(r"(?m)^\s*--python\b", stdout) is not None
+    return {
+        "supported": supported,
+        "command": command,
+        "returncode": int(completed.returncode),
+        "stdout_tail": stdout[-2000:],
+        "stderr_tail": stderr[-2000:],
+        "host_python": host_python,
+        "host_pip_version": _host_pip_version(host_python, runner),
+    }
 
 
 def load_environment_lock(path: str | Path) -> dict[str, Any]:
@@ -243,18 +280,41 @@ def prepare_offline_environment(
     )
     root = Path(venv_root or selected["profile"]["isolated_venv"])
     python = isolated_python(root)
-    create_command = [str(selected["observed_runtime"]["executable"]), "-m", "venv", str(root)]
+    host_python = str(selected["observed_runtime"]["executable"])
+    create_command = [host_python, "-m", "venv", "--without-pip", str(root)]
     if not python.is_file():
         completed = installer(create_command, check=False, capture_output=True, text=True)
         if int(completed.returncode) != 0:
             raise ValueError(f"isolated venv creation failed: {str(completed.stderr)[-2000:]}")
+        if "ensurepip" in str(completed.stdout).lower() or "ensurepip" in str(completed.stderr).lower():
+            raise ValueError("isolated venv creation unexpectedly invoked ensurepip")
     pyvenv = root / "pyvenv.cfg"
     if not pyvenv.is_file() or "include-system-site-packages = false" not in pyvenv.read_text(
         encoding="utf-8"
     ).lower():
         raise ValueError("isolated venv must set include-system-site-packages = false")
+    pip_probe = _host_pip_supports_python_target(host_python, installer)
+    if not pip_probe["supported"]:
+        raise EnvironmentLockError(
+            HOST_PIP_CANNOT_TARGET_VENV,
+            {
+                "host_python": host_python,
+                "host_pip_version": pip_probe["host_pip_version"],
+                "command": pip_probe["command"],
+                "stdout_tail": pip_probe["stdout_tail"],
+                "stderr_tail": pip_probe["stderr_tail"],
+                "venv_root": str(root),
+                "remediation": (
+                    "Upgrade the host pip so `python -m pip --python <venv-root>` is available, "
+                    "then recreate the ensurepip-free validation venv. Never install into the "
+                    "notebook kernel and never invoke ensurepip on Kaggle."
+                ),
+                "paper_evidence": False,
+            },
+        )
     install_command = [
-        str(python), "-m", "pip", "install", "--no-index", "--find-links",
+        host_python, "-m", "pip", "--python", str(root), "install",
+        "--no-index", "--find-links",
         str(Path(wheelhouse).resolve()), "--only-binary=:all:", "--disable-pip-version-check",
         *[f"{name}=={version}" for name, version in sorted(requirements.items())],
     ]
@@ -290,6 +350,10 @@ def prepare_offline_environment(
         "status": "ISOLATED_OFFLINE_VENV_INSTALLED_AND_VERIFIED",
         "python_executable": str(python), "venv_root": str(root),
         "venv_create_command": create_command, "install_command": install_command,
+        "host_python": host_python,
+        "host_pip_version": pip_probe["host_pip_version"],
+        "ensurepip_used": False,
+        "kernel_packages_mutated": False,
         "wheelhouse_manifest_sha256": compatibility.get("manifest_sha256") or hashlib.sha256(
             Path(wheelhouse_manifest).read_bytes()
         ).hexdigest(),

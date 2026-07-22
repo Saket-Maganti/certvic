@@ -12,11 +12,11 @@ import argparse
 import hashlib
 import json
 import re
-import shutil
 import stat
 import zipfile
+from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
-from typing import Any, Mapping
+from typing import Any, BinaryIO, Callable, Mapping
 
 
 SCHEMA = "certvic.kaggle.bundle.v1"
@@ -24,6 +24,13 @@ HASH_SCHEMA = "certvic.kaggle.hash_manifest.v1"
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
 REQUIRED_MEMBERS = {"README.md", "bundle_manifest.json", "hash_manifest.json"}
 RESERVED_MEMBERS = {"bundle_manifest.json", "hash_manifest.json"}
+WEIGHT_SUFFIXES = {".safetensors", ".bin", ".pt", ".pth"}
+COMPRESSION_POLICY = {
+    "large_model_weights": "ZIP_STORED",
+    "small_text_config_tokenizer": "ZIP_DEFLATED_LEVEL_9",
+    "zip64": "force_zip64_for_members_exceeding_classic_limit",
+    "classic_zip_limit_bytes": int(zipfile.ZIP64_LIMIT),
+}
 HOST_PATH = re.compile(
     rb"(?:/" + b"Users" + rb"/[A-Za-z0-9][A-Za-z0-9._-]*/[A-Za-z0-9][A-Za-z0-9._-]*|/"
     + b"home" + rb"/[A-Za-z0-9][A-Za-z0-9._-]*/[A-Za-z0-9][A-Za-z0-9._-]*|"
@@ -34,6 +41,21 @@ HOST_PATH = re.compile(
 
 class KaggleBundleError(ValueError):
     """The bundle is unsafe, incomplete, or inconsistent with its manifest."""
+
+
+@dataclass(frozen=True)
+class StreamingMember:
+    """A sized, hash-known member that is copied into the archive on demand."""
+
+    size: int
+    sha256: str
+    opener: Callable[[], BinaryIO]
+
+    def open(self) -> BinaryIO:
+        return self.opener()
+
+
+MemberPayload = bytes | bytearray | str | Path | StreamingMember
 
 
 def sha256_bytes(payload: bytes) -> str:
@@ -93,7 +115,11 @@ def _entry(payload: bytes) -> dict[str, Any]:
     return {"size": len(payload), "sha256": sha256_bytes(payload)}
 
 
-def _source(value: bytes | bytearray | str | Path) -> bytes | Path:
+def _source(value: bytes | bytearray | str | Path | StreamingMember) -> bytes | Path | StreamingMember:
+    if isinstance(value, StreamingMember):
+        if int(value.size) < 0 or not re.fullmatch(r"[0-9a-f]{64}", value.sha256):
+            raise KaggleBundleError("streaming member identity is invalid")
+        return value
     if isinstance(value, (bytes, bytearray)):
         return bytes(value)
     path = Path(value)
@@ -104,13 +130,17 @@ def _source(value: bytes | bytearray | str | Path) -> bytes | Path:
     return path
 
 
-def _source_entry(value: bytes | Path) -> dict[str, Any]:
+def _source_entry(value: bytes | Path | StreamingMember) -> dict[str, Any]:
+    if isinstance(value, StreamingMember):
+        return {"size": int(value.size), "sha256": value.sha256}
     if isinstance(value, bytes):
         return _entry(value)
     return {"size": value.stat().st_size, "sha256": sha256_file(value)}
 
 
-def _portable_source(name: str, value: bytes | Path) -> None:
+def _portable_source(name: str, value: bytes | Path | StreamingMember) -> None:
+    if isinstance(value, StreamingMember):
+        return
     suffix = PurePosixPath(name).suffix.lower()
     if suffix not in {
         ".csv", ".ini", ".ipynb", ".json", ".jsonl", ".lock", ".md", ".py", ".sh",
@@ -121,9 +151,75 @@ def _portable_source(name: str, value: bytes | Path) -> None:
     _portable_payload(name, payload)
 
 
+def member_compression(name: str, size: int) -> tuple[int, int | None]:
+    """Return deterministic (compress_type, compresslevel) for one archive member."""
+    suffix = PurePosixPath(name).suffix.lower()
+    if suffix in WEIGHT_SUFFIXES:
+        return zipfile.ZIP_STORED, None
+    return zipfile.ZIP_DEFLATED, 9
+
+
+def _copy_hashed(source: BinaryIO, destination: BinaryIO, *, expected_sha256: str | None = None) -> tuple[str, int]:
+    digest = hashlib.sha256()
+    written = 0
+    while True:
+        block = source.read(1024 * 1024)
+        if not block:
+            break
+        digest.update(block)
+        destination.write(block)
+        written += len(block)
+    observed = digest.hexdigest()
+    if expected_sha256 is not None and observed != expected_sha256:
+        raise KaggleBundleError(
+            f"streamed member hash mismatch: expected {expected_sha256}, observed {observed}"
+        )
+    return observed, written
+
+
+def _write_member(
+    archive: zipfile.ZipFile, name: str, payload: bytes | Path | StreamingMember
+) -> dict[str, Any]:
+    if isinstance(payload, StreamingMember):
+        size = int(payload.size)
+        expected_sha = payload.sha256
+    elif isinstance(payload, Path):
+        size = int(payload.stat().st_size)
+        expected_sha = None
+    else:
+        size = len(payload)
+        expected_sha = None
+    compress_type, compresslevel = member_compression(name, size)
+    info = zipfile.ZipInfo(name, FIXED_TIME)
+    info.compress_type = compress_type
+    info.file_size = size
+    info.external_attr = 0o100644 << 16
+    force_zip64 = size > zipfile.ZIP64_LIMIT
+    if isinstance(payload, (Path, StreamingMember)):
+        handle = payload.open("rb") if isinstance(payload, Path) else payload.open()
+        with handle as source, archive.open(info, "w", force_zip64=force_zip64) as destination_member:
+            _, written = _copy_hashed(source, destination_member, expected_sha256=expected_sha)
+        if written != size:
+            raise KaggleBundleError(
+                f"streamed member size mismatch for {name}: expected {size}, wrote {written}"
+            )
+    elif compress_type == zipfile.ZIP_STORED:
+        archive.writestr(info, payload, compress_type=compress_type)
+    else:
+        archive.writestr(
+            info, payload, compress_type=compress_type, compresslevel=compresslevel or 9
+        )
+    return {
+        "name": name,
+        "size": size,
+        "compress_type": compress_type,
+        "force_zip64": force_zip64,
+    }
+
+
 def build_bundle(
     output: str | Path,
-    files: Mapping[str, bytes | bytearray | str | Path],
+    files: Mapping[str, MemberPayload],
     *,
     bundle_type: str,
     study: str,
@@ -144,9 +240,10 @@ def build_bundle(
         raise KaggleBundleError("expected Kaggle dataset slug must be owner/dataset")
     if mount_path is not None and not mount_path.startswith("/kaggle/input/"):
         raise KaggleBundleError("mount path must be below /kaggle/input")
-    # Keep large wheel/model files as paths.  Reading 16 GB checkpoints into a
-    # Python mapping made the otherwise-correct snapshot builder non-executable.
-    members: dict[str, bytes | Path] = {}
+    # Keep large wheel/model files as paths or streaming members.  Reading 16 GB
+    # checkpoints into a Python mapping made the otherwise-correct snapshot
+    # builder non-executable.
+    members: dict[str, bytes | Path | StreamingMember] = {}
     for raw_name, value in files.items():
         name = _safe_name(raw_name)
         if name in RESERVED_MEMBERS or name in members:
@@ -179,6 +276,8 @@ def build_bundle(
             f"python3 -m certvic.cvpr.kaggle_bundle verify {Path(output).as_posix()}"
         ),
         "paper_evidence": False,
+        "compression_policy": dict(COMPRESSION_POLICY),
+        "zip64_enabled": True,
     }
     if extra_manifest:
         collisions = set(manifest) & set(extra_manifest)
@@ -196,22 +295,14 @@ def build_bundle(
     members["hash_manifest.json"] = canonical_json(hash_manifest)
     destination = Path(output)
     destination.parent.mkdir(parents=True, exist_ok=True)
+    written: list[dict[str, Any]] = []
     with destination.open("wb") as raw:
         with zipfile.ZipFile(
             raw, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9,
-            strict_timestamps=True,
+            allowZip64=True, strict_timestamps=True,
         ) as archive:
             for name, payload in sorted(members.items()):
-                info = zipfile.ZipInfo(name, FIXED_TIME)
-                info.compress_type = zipfile.ZIP_DEFLATED
-                info.external_attr = 0o100644 << 16
-                if isinstance(payload, Path):
-                    with payload.open("rb") as source, archive.open(info, "w") as destination_member:
-                        shutil.copyfileobj(source, destination_member, length=1024 * 1024)
-                else:
-                    archive.writestr(
-                        info, payload, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9
-                    )
+                written.append(_write_member(archive, name, payload))
     verification = verify_bundle(destination)
     if not verification["passed"]:
         raise KaggleBundleError(f"new bundle failed self-verification: {verification['errors']}")
@@ -221,6 +312,7 @@ def build_bundle(
         "sha256": sha256_file(destination),
         "member_count": len(members),
         "manifest": manifest,
+        "member_write_plan": written,
         "passed": True,
     }
 
