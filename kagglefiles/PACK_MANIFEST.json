@@ -4,7 +4,7 @@
     "status": "CONDITIONAL_NOT_AUTHORIZED"
   },
   "active_runtime_profile": "kaggle_cp312_2026_07",
-  "deterministic_portion_sha256": "376dae2477a5614ddb21b0585af61abca2c3c485e3255f8ed1d6150484608e95",
+  "deterministic_portion_sha256": "926498d87fd6c6b10edea206c818a636616faf3ad2a65206418bb6693e5994d4",
   "doctor_state": "READY_FOR_00A",
   "files": [
     {
@@ -65,9 +65,9 @@
       "role": "OPERATOR_PACK_FILE",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "python3",
-      "sha256": "a9b37182e39b54d541749a090c7366650cc8dc6665c427974f63f690349ce2b8",
-      "size": 405,
-      "source_path": "certvic/cvpr/kagglefiles_pack.py#_root_helper_sources",
+      "sha256": "bb6126a52dd2a0732353dc7934ae6558d0485a4772fd8d4c43cd9cc560a0cc8b",
+      "size": 2452,
+      "source_path": "kagglefiles/import_kaggle_return.py",
       "stage": "pack",
       "study": "all"
     },
@@ -1041,9 +1041,9 @@
       "role": "OPERATOR_PACK_FILE",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "posix-shell",
-      "sha256": "58dc706b68474184aecd2db9f38af09e0cd8f8a4b3f0c0b632b5a26831bd7b53",
-      "size": 281,
-      "source_path": "certvic/cvpr/kagglefiles_pack.py#_root_helper_sources",
+      "sha256": "8577e9ea943bd080cfc650ec10ea107187d0f19c02847422dd26c3cbb4e951ca",
+      "size": 354,
+      "source_path": "kagglefiles/run_local_resume.sh",
       "stage": "pack",
       "study": "all"
     },

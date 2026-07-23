@@ -28,7 +28,12 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_doctor_and_next_action_preserve_external_boundary() -> None:
     report = diagnose(ROOT)
     assert report["local_ready"] is True
-    assert report["state"] == "READY_FOR_00A"
+    expected_state = (
+        "READY_FOR_00B"
+        if (ROOT / "data/runtime/00A_environment.json").is_file()
+        else "READY_FOR_00A"
+    )
+    assert report["state"] == expected_state
     assert report["paper_evidence"] is False
     assert all(
         row["error_code"] != "DOCTOR_REPLACEMENT_SOURCE_UNAVAILABLE"
@@ -47,7 +52,13 @@ def test_run_graph_has_canonical_28_node_order() -> None:
     assert graph["nodes"][0]["id"] == "verify_checkout"
     assert graph["nodes"][-1]["id"] == "final_release"
     status = graph_status(graph, ROOT)
-    assert status["next"] in {"doctor", "provision_wheelhouse", "run_00a"}
+    assert status["next"] in {
+        "doctor",
+        "provision_wheelhouse",
+        "run_00a",
+        "provision_snapshots",
+        "run_00b",
+    }
 
 
 def test_registry_and_complete_capsule_verify_exact_bytes(tmp_path) -> None:
