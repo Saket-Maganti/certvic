@@ -28,11 +28,18 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_doctor_and_next_action_preserve_external_boundary() -> None:
     report = diagnose(ROOT)
     assert report["local_ready"] is True
-    expected_state = (
-        "READY_FOR_00B"
-        if (ROOT / "data/runtime/00A_environment.json").is_file()
-        else "READY_FOR_00A"
+    environment = ROOT / "data/runtime/00A_environment.json"
+    snapshots = (
+        ROOT / "data/runtime/00B_qwen2_5_vl_7b_snapshot.json",
+        ROOT / "data/runtime/00B_internvl_8b_snapshot.json",
+        ROOT / "data/runtime/00B_llava_onevision_7b_snapshot.json",
     )
+    if not environment.is_file():
+        expected_state = "READY_FOR_00A"
+    elif not all(snapshot.is_file() for snapshot in snapshots):
+        expected_state = "READY_FOR_00B"
+    else:
+        expected_state = "READY_FOR_00C2"
     assert report["state"] == expected_state
     assert report["paper_evidence"] is False
     assert all(

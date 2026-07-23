@@ -398,6 +398,31 @@ def test_operator_metadata_cleanup_removes_ds_store_and_pycache(
 
     result = clean_operator_metadata(pack)
 
-    assert result == {"ds_store_removed": 1, "pycache_removed": 1}
+    assert result == {
+        "ds_store_removed": 1,
+        "pycache_removed": 1,
+        "wheelhouses_relocated": 0,
+    }
     assert not (pack / ".DS_Store").exists()
     assert not cache.exists()
+
+
+def test_operator_cleanup_preserves_misplaced_root_wheelhouse(
+    tmp_path: Path,
+) -> None:
+    pack = tmp_path / "kagglefiles"
+    inputs = pack / "inputs"
+    inputs.mkdir(parents=True)
+    misplaced = inputs / "certvic_offline_wheelhouse_cp312.zip"
+    misplaced.write_bytes(b"wheelhouse fixture")
+
+    result = clean_operator_metadata(pack)
+
+    preserved = (
+        tmp_path
+        / "local_inputs/provisioning_cache/certvic_offline_wheelhouse_cp312.zip"
+    )
+    assert result["wheelhouses_relocated"] == 1
+    assert not misplaced.exists()
+    assert preserved.read_bytes() == b"wheelhouse fixture"
+    assert list(inputs.iterdir()) == []
