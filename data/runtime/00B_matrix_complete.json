@@ -1,0 +1,72 @@
+{
+  "matrix_identity_sha256": "323a98096d693650b3c2f485cf52f74d743374b0fb198253461c124e87df0abc",
+  "paper_evidence": false,
+  "providers": [
+    "qwen2_5_vl_7b",
+    "internvl_8b",
+    "llava_onevision_7b"
+  ],
+  "rows": [
+    {
+      "authenticated_member": "00B_qwen2_5_vl_7b_snapshot.json",
+      "authenticated_member_sha256": "6c78c76309d774807c514b37c49e7cce8ced26daa7d0b429c60c61446fe88d0c",
+      "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "model_revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+      "paper_evidence": false,
+      "passed": true,
+      "processor_model_contract": "Qwen2_5_VLForConditionalGeneration",
+      "provider": "qwen2_5_vl_7b",
+      "runtime_profile_hash": "1b1b5122691399b425c8e866c57cc7431aacee091619c028fa1918696e6d980a",
+      "runtime_profile_id": "kaggle_cp312_2026_07",
+      "runtime_record": "data/runtime/00B_qwen2_5_vl_7b_snapshot.json",
+      "runtime_record_sha256": "6c78c76309d774807c514b37c49e7cce8ced26daa7d0b429c60c61446fe88d0c",
+      "snapshot_content_identity_sha256": "e8ded0ee4b2b1aecc789d7256004efcff1dffa16891baa7ea636cbae033151f0",
+      "snapshot_root_hash": "cccbc42f289abb93a8b8f129d1168c7014980afd2848b9ccdacbd88036b9fea7",
+      "source_archive": "data/runtime/00B_qwen2_5_vl_7b_snapshot_bundle.zip",
+      "source_archive_sha256": "0014352b5f29eb8ed021427972f63676eec21fd96da5cd0b78fab81f8de9d683",
+      "source_archive_size": 1959
+    },
+    {
+      "authenticated_member": "00B_internvl_8b_snapshot.json",
+      "authenticated_member_sha256": "c6bfecbdc68079fd66f04f5078385049a6d3018fe225dbaed771e8f31d3c5efa",
+      "model_id": "OpenGVLab/InternVL2-8B",
+      "model_revision": "6fb9ad6924f69424e57fab2ab061d707688f0296",
+      "paper_evidence": false,
+      "passed": true,
+      "processor_model_contract": "InternVLChatModel",
+      "provider": "internvl_8b",
+      "runtime_profile_hash": "1b1b5122691399b425c8e866c57cc7431aacee091619c028fa1918696e6d980a",
+      "runtime_profile_id": "kaggle_cp312_2026_07",
+      "runtime_record": "data/runtime/00B_internvl_8b_snapshot.json",
+      "runtime_record_sha256": "c6bfecbdc68079fd66f04f5078385049a6d3018fe225dbaed771e8f31d3c5efa",
+      "snapshot_content_identity_sha256": "ac63d9d40797a977e50ba3a474d201d5cf2fa88b87a56af73573f68a03c5474e",
+      "snapshot_root_hash": "58c0fc61f7607a28ff8772b871ce521eb584c89781bc7e11000f0c305b1320d0",
+      "source_archive": "data/runtime/00B_internvl_8b_snapshot_bundle.zip",
+      "source_archive_sha256": "78b4271eaf309c98fb5315281874df81ee91299793bb21fbaa93d55135bd49e5",
+      "source_archive_size": 1924
+    },
+    {
+      "authenticated_member": "00B_llava_onevision_7b_snapshot.json",
+      "authenticated_member_sha256": "fe187707e67ba9e961959925a56233f4fe5937b067aaac73eb7975024058f9ba",
+      "model_id": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+      "model_revision": "0d50680527681998e456c7b78950205bedd8a068",
+      "paper_evidence": false,
+      "passed": true,
+      "processor_model_contract": "LlavaOnevisionForConditionalGeneration",
+      "provider": "llava_onevision_7b",
+      "runtime_profile_hash": "1b1b5122691399b425c8e866c57cc7431aacee091619c028fa1918696e6d980a",
+      "runtime_profile_id": "kaggle_cp312_2026_07",
+      "runtime_record": "data/runtime/00B_llava_onevision_7b_snapshot.json",
+      "runtime_record_sha256": "fe187707e67ba9e961959925a56233f4fe5937b067aaac73eb7975024058f9ba",
+      "snapshot_content_identity_sha256": "093d6d3e16a2c536b99811234653be2b426c0736097d7efa4b4dd7ff39303ac1",
+      "snapshot_root_hash": "15c9acce1e14a0a6093a23431ffda8488250453f12f1e546f9fbb5336542719d",
+      "source_archive": "data/runtime/00B_llava_onevision_7b_snapshot_bundle.zip",
+      "source_archive_sha256": "00e6fa2219604566d0aef7ae7242835b9f0e3068d8c368b915b112387879fab3",
+      "source_archive_size": 1988
+    }
+  ],
+  "runtime_profile_id": "kaggle_cp312_2026_07",
+  "schema": "certvic.local_operator.00b_matrix_complete.v1",
+  "source_model_snapshot_archives_required_locally": false,
+  "status": "AUTHENTICATED_00B_MATRIX_COMPLETE"
+}

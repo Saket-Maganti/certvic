@@ -411,13 +411,27 @@ def materialize_runtime_archive(
     }
 
 
-def clean_operator_metadata(pack_root: str | Path) -> dict[str, int]:
-    """Remove harmless platform/cache metadata from the operator pack."""
+def clean_operator_metadata(
+    pack_root: str | Path,
+    *,
+    provisioning_cache: str | Path | None = None,
+) -> dict[str, int]:
+    """Remove metadata and preserve misplaced wheelhouses outside the pack."""
     root = Path(pack_root).resolve()
+    cache = (
+        Path(provisioning_cache).resolve()
+        if provisioning_cache is not None
+        else root.parent / "local_inputs/provisioning_cache"
+    )
     removed_finder = 0
     removed_caches = 0
+    relocated_wheelhouses = 0
     if not root.is_dir():
-        return {"ds_store_removed": 0, "pycache_removed": 0}
+        return {
+            "ds_store_removed": 0,
+            "pycache_removed": 0,
+            "wheelhouses_relocated": 0,
+        }
     for path in root.rglob(".DS_Store"):
         if path.is_file() and not path.is_symlink():
             path.unlink()
@@ -426,9 +440,32 @@ def clean_operator_metadata(pack_root: str | Path) -> dict[str, int]:
         if path.is_dir() and not path.is_symlink():
             shutil.rmtree(path)
             removed_caches += 1
+    for source_root in (root, root / "inputs"):
+        for source in sorted(source_root.glob("certvic_offline_wheelhouse*.zip")):
+            if not source.is_file() or source.is_symlink():
+                raise RuntimeMaterializationError(
+                    f"misplaced wheelhouse is unsafe: {source}"
+                )
+            cache.mkdir(parents=True, exist_ok=True)
+            destination = cache / source.name
+            if destination.exists():
+                if (
+                    destination.is_symlink()
+                    or not destination.is_file()
+                    or destination.stat().st_size != source.stat().st_size
+                    or _sha256_file(destination) != _sha256_file(source)
+                ):
+                    raise RuntimeMaterializationError(
+                        f"provisioning-cache wheelhouse conflicts: {destination}"
+                    )
+                source.unlink()
+            else:
+                os.replace(source, destination)
+            relocated_wheelhouses += 1
     return {
         "ds_store_removed": removed_finder,
         "pycache_removed": removed_caches,
+        "wheelhouses_relocated": relocated_wheelhouses,
     }
 
 
