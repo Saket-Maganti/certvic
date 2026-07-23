@@ -75,6 +75,8 @@ def execute(out_dir: str | Path) -> dict[str, Any]:
         [python, "-m", "certvic.cvpr.doctor", "--json", "--out", str(out / "doctor.json")],
         [python, "-m", "certvic.cvpr.next_action"],
         [python, "-m", "certvic.cvpr.run_graph", "status"],
+        [python, str(ROOT / "scripts/refresh_kaggle_release_lineage.py"), "--include-release"],
+        [python, str(ROOT / "scripts/run_all_cpu_workflows.py"), "--internal", "register_bundles"],
         [python, "-m", "certvic.cvpr.artifact_registry", "verify"],
         [python, "-m", "certvic.cvpr.kaggle_claim_guard", "--out", str(out / "claim_guard.json")],
         [python, "-m", "certvic.security.release_privacy_audit", "--root", ".", "--release-dir", "kaggle_uploads/00_code", "--out", str(out / "privacy_audit.md"), "--json-out", str(out / "privacy_audit.json")],

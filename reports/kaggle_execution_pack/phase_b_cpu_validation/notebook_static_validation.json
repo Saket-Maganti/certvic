@@ -1,8 +1,8 @@
 {
   "counts": {
-    "expected": 16,
-    "observed": 16,
-    "passed": 16
+    "expected": 20,
+    "observed": 20,
+    "passed": 20
   },
   "execution_scope": "STATIC_ONLY_NOT_EXECUTED_ON_KAGGLE",
   "notebooks": [
@@ -14,7 +14,19 @@
     },
     {
       "errors": [],
-      "notebook": "00B_certvic_model_snapshot_smoke.ipynb",
+      "notebook": "00B_internvl_8b_snapshot_smoke.ipynb",
+      "passed": true,
+      "stage": "snapshot_smoke"
+    },
+    {
+      "errors": [],
+      "notebook": "00B_llava_onevision_7b_snapshot_smoke.ipynb",
+      "passed": true,
+      "stage": "snapshot_smoke"
+    },
+    {
+      "errors": [],
+      "notebook": "00B_qwen2_5_vl_7b_snapshot_smoke.ipynb",
       "passed": true,
       "stage": "snapshot_smoke"
     },
@@ -26,7 +38,19 @@
     },
     {
       "errors": [],
-      "notebook": "00C2_certvic_real_model_two_item_smoke.ipynb",
+      "notebook": "00C2_internvl_8b_real_model_two_item_smoke.ipynb",
+      "passed": true,
+      "stage": "real_model_smoke"
+    },
+    {
+      "errors": [],
+      "notebook": "00C2_llava_onevision_7b_real_model_two_item_smoke.ipynb",
+      "passed": true,
+      "stage": "real_model_smoke"
+    },
+    {
+      "errors": [],
+      "notebook": "00C2_qwen2_5_vl_7b_real_model_two_item_smoke.ipynb",
       "passed": true,
       "stage": "real_model_smoke"
     },

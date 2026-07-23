@@ -8,8 +8,8 @@ $ python3 scripts/refresh_kaggle_release_lineage.py --include-release
     "reports/max_ceiling_upgrade/pre_run_reproducibility_capsule_sealed.json"
   ],
   "paper_evidence": false,
-  "prompt_artifact_id": "76d8ae8581b54ed38f147329",
-  "registry_hash": "44556a6f4ac74d287c4375686f3d831e63a582525be76122b658c9a63ffc01c1",
+  "prompt_artifact_id": "8e9c81c88fa34d43bb029683",
+  "registry_hash": "d830df173caa2e9f093b0fdacdefbd27e1bd33ceff50d84641f1cbec71006e58",
   "release_refreshed": true,
   "schema": "certvic.kaggle.release_lineage_refresh.v1"
 }

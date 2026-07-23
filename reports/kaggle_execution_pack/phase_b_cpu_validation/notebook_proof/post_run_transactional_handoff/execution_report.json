@@ -26,23 +26,27 @@
       "output_count": 1
     }
   ],
-  "cleaned_notebook_sha256": "49e59efae2d79322bb1803139c33c5a8d2503c54ce00cc759bdce4312ae28351",
+  "cleaned_notebook_sha256": "2a1b25dc84a5198f1437073801aed07fd944a0d596743c5391ae783565c82d93",
   "config": {
     "artifact_globs": [
       "post_run_handoff_proof.zip",
       "seed_manifest.json"
     ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/post_run_transactional_handoff/account-1/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/post_run_transactional_handoff/kaggle/working/materialized",
     "notebook": "POST_RUN_TRANSACTIONAL_HANDOFF",
     "notebook_sha256": "4eea739246d92fba05e7ea97f2bab11b9e17122b7bb353d819ed819a5507cffe",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/post_run_transactional_handoff/account-1/input/arbitrary-owner-title-1",
     "provider": "all",
     "return_zip": "post_run_handoff_proof.zip",
     "route": "post_run_transactional_handoff",
+    "simulated_account": 1,
     "stage": "post_run",
     "synthetic_fixture": true
   },
   "failure": null,
   "paper_evidence": false,
   "schema": "certvic.cvpr.notebook_execution.v1",
-  "source_sha256": "877e74dacd9b1c2c189b00c7579d3c30efa32d55e81a65e8bd1576e7bda90be5",
+  "source_sha256": "d139336cea9c30ddf2a3713c11439f32c7c5c66a475a1c5bf84ae96b68aea1b5",
   "status": "PASS"
 }

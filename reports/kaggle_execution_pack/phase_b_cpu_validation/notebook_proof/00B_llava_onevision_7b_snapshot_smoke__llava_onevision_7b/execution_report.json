@@ -1,0 +1,52 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "00B_llava_onevision_7b_snapshot_bundle.zip",
+      "sha256": "f3fec8c348ab707683dc25a1ae8a2a1f709b093fd3739f2ec323820dde5d715a",
+      "size": 3568
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "10d36f1b2e45eb505d0a38f777758b71df8239868817bd7042e7ef21f6dd3420",
+      "size": 956
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "de48cdeb64a8029e666bdf4bb7529a2e3bf4e9ab497cf83732c78cabb52e38f7",
+  "config": {
+    "artifact_globs": [
+      "00B_llava_onevision_7b_snapshot_bundle.zip",
+      "seed_manifest.json"
+    ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00B_llava_onevision_7b_snapshot_smoke__llava_onevision_7b/account-4/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00B_llava_onevision_7b_snapshot_smoke__llava_onevision_7b/kaggle/working/materialized",
+    "notebook": "00B_llava_onevision_7b_snapshot_smoke.ipynb",
+    "notebook_sha256": "f186e83dcf8583456dc03ac74d1c01e17aacaabed43121ddd21e2e17a9e9f62f",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00B_llava_onevision_7b_snapshot_smoke__llava_onevision_7b/account-4/input/arbitrary-owner-title-4",
+    "provider": "llava_onevision_7b",
+    "return_zip": "00B_llava_onevision_7b_snapshot_bundle.zip",
+    "route": "00B_llava_onevision_7b_snapshot_smoke__llava_onevision_7b",
+    "simulated_account": 4,
+    "stage": "snapshot_smoke",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "3ee4aa91c74873bac0c68d5518c3428bfe9c6bbfea22c04594ca49d5e1339f4d",
+  "status": "PASS"
+}

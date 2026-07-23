@@ -1,5 +1,5 @@
 run_id,status,wall_seconds,peak_memory_mb,cpu_io_class,memory_class
-baseline_validation,COMPLETED,56.488,506.23,heavy_sequential,medium
+baseline_validation,COMPLETED,124.429,606.55,heavy_sequential,medium
 repository_kaggle_bundles,ALREADY_VALID,0.0,,archive_io_sequential,medium
 wheelhouse_preflight,ALREADY_VALID,0.0,,light,low
 snapshot_preflight_qwen,ALREADY_VALID,0.0,,light,low
@@ -21,6 +21,6 @@ main_cpu_preparation,BLOCKED_BY_UPSTREAM_GATE,0.0,,image_processing_sequential,m
 coco_cpu_preparation,BLOCKED_BY_EXTERNAL_BYTES,0.0,,image_processing_sequential,medium
 runtime_upload_map,ALREADY_VALID,0.0,,archive_io_sequential,medium
 paper_evidence_and_release,ALREADY_VALID,0.0,,heavy_sequential,medium
-refresh_release_lineage,COMPLETED,0.075,506.23,light,low
-register_repository_bundles,COMPLETED,0.076,506.23,light,low
-final_registry_verification,COMPLETED,0.072,506.23,light,low
+refresh_release_lineage,COMPLETED,0.1,606.55,light,low
+register_repository_bundles,COMPLETED,0.084,606.55,light,low
+final_registry_verification,COMPLETED,0.081,606.55,light,low

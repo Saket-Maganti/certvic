@@ -1,0 +1,52 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "00B_qwen2_5_vl_7b_snapshot_bundle.zip",
+      "sha256": "ad6dea9c8f4e855318a39b70fd85eeaa5fa581c776d94ec523dce81fef6570e8",
+      "size": 3571
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "435ab55f092c91ca0686152c1a002c8c7ee684a0925ec23be1942e6625f7e907",
+      "size": 954
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "1658a5466dc5bed1cd981726d2f5509a987da27b98cedf522aa0f3e9fe6cdc87",
+  "config": {
+    "artifact_globs": [
+      "00B_qwen2_5_vl_7b_snapshot_bundle.zip",
+      "seed_manifest.json"
+    ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00B_qwen2_5_vl_7b_snapshot_smoke__qwen2_5_vl_7b/account-2/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00B_qwen2_5_vl_7b_snapshot_smoke__qwen2_5_vl_7b/kaggle/working/materialized",
+    "notebook": "00B_qwen2_5_vl_7b_snapshot_smoke.ipynb",
+    "notebook_sha256": "31e1f92b482464dee4fea74efb634ba4f742871d18c9f76332bcb987ec945e22",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00B_qwen2_5_vl_7b_snapshot_smoke__qwen2_5_vl_7b/account-2/input/arbitrary-owner-title-2",
+    "provider": "qwen2_5_vl_7b",
+    "return_zip": "00B_qwen2_5_vl_7b_snapshot_bundle.zip",
+    "route": "00B_qwen2_5_vl_7b_snapshot_smoke__qwen2_5_vl_7b",
+    "simulated_account": 2,
+    "stage": "snapshot_smoke",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "0b73c925db05bac65c0b4222f807bede4c5861abf6d4b5fb82616a29c3b372d5",
+  "status": "PASS"
+}

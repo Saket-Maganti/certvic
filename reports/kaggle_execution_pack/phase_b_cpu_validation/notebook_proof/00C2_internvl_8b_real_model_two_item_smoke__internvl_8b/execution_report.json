@@ -1,0 +1,52 @@
+{
+  "actual_execution_engine": "IN_PROCESS_PYTHON_SYNTHETIC_FALLBACK",
+  "artifacts": [
+    {
+      "name": "00C2_internvl_8b_real_model_smoke.zip",
+      "sha256": "f0a49668c09c779cd48b5bdbf4d3de4fb9701d77be107b2665f535f03456d21f",
+      "size": 3567
+    },
+    {
+      "name": "seed_manifest.json",
+      "sha256": "a6b4cb5825dacaff927607b4accfd10a86e6b53d5ba2ea0162799523e4f302de",
+      "size": 951
+    }
+  ],
+  "cell_logs": [
+    {
+      "cell_index": 0,
+      "execution_count": 1,
+      "failed": false,
+      "output_count": 0
+    },
+    {
+      "cell_index": 2,
+      "execution_count": 2,
+      "failed": false,
+      "output_count": 1
+    }
+  ],
+  "cleaned_notebook_sha256": "7302e4756eb25bace82f66ab68d07cc7f50926f01140d6f338f7c422fb2544cc",
+  "config": {
+    "artifact_globs": [
+      "00C2_internvl_8b_real_model_smoke.zip",
+      "seed_manifest.json"
+    ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00C2_internvl_8b_real_model_two_item_smoke__internvl_8b/account-3/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00C2_internvl_8b_real_model_two_item_smoke__internvl_8b/kaggle/working/materialized",
+    "notebook": "00C2_internvl_8b_real_model_two_item_smoke.ipynb",
+    "notebook_sha256": "0468f96547381dcae0947c287ff57912d639a84404319076d08af1417719be16",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00C2_internvl_8b_real_model_two_item_smoke__internvl_8b/account-3/input/arbitrary-owner-title-3",
+    "provider": "internvl_8b",
+    "return_zip": "00C2_internvl_8b_real_model_smoke.zip",
+    "route": "00C2_internvl_8b_real_model_two_item_smoke__internvl_8b",
+    "simulated_account": 3,
+    "stage": "real_model_smoke",
+    "synthetic_fixture": true
+  },
+  "failure": null,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr.notebook_execution.v1",
+  "source_sha256": "059cbbddbcbe699510f21cad09fb41a4d973538f433506332c1eaf3345d3b3e1",
+  "status": "PASS"
+}
