@@ -5,17 +5,17 @@
       "category": "validation",
       "command": "python3 scripts/run_phase_b_cpu_workflows.py --out reports/kaggle_execution_pack/phase_b_cpu_validation",
       "cpu_io_class": "heavy_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "NON_EVIDENCE_VALIDATION",
       "exit_code": 0,
       "inputs": {
         "pyproject.toml": {
-          "sha256": "6f265036568a001fb1eed3045524c9bf46af87aa84c4b394cd4b2e464b68a0f3",
-          "size": 1046
+          "sha256": "b9c85678cff7e9858fa838dfac834e2fb29f12a174505be4528e821fc0e999ec",
+          "size": 1152
         },
         "scripts/run_phase_b_cpu_workflows.py": {
-          "sha256": "83e704313d4f541c42c8fe54f05594efd76eed35f56e0e7e4039aee6a62cbb54",
-          "size": 4928
+          "sha256": "221e43b8fdf11a57f87b9737e497e86307c3e666989b359946e38c8ff8be1ce6",
+          "size": 5124
         }
       },
       "log": "reports/cpu_execution/logs/baseline_validation.log",
@@ -23,24 +23,24 @@
       "next_action": "inspect reports/cpu_execution/logs/baseline_validation.log and repair locally",
       "outputs": {
         "reports/kaggle_execution_pack/phase_b_cpu_validation/validation_results.json": {
-          "sha256": "b8b8038144d77e5b846abc2a11f1a00667362f7e2f70c05bae9a043fc8032f38",
-          "size": 52788
+          "sha256": "c2318458e6e7e8a362bd62b07522c933faa60b35138f7973471fe1cf4759f422",
+          "size": 55442
         }
       },
-      "peak_memory_mb": 506.23,
+      "peak_memory_mb": 606.55,
       "producer_stage": "repository",
       "retry_recovery": "repair exact local failure without weakening guards; rerun sequentially",
       "run_id": "baseline_validation",
-      "start_utc": "2026-07-21T02:50:02+00:00",
+      "start_utc": "2026-07-23T06:28:26+00:00",
       "status": "COMPLETED",
-      "wall_seconds": 56.488
+      "wall_seconds": 124.429
     },
     "coco_cpu_preparation": {
       "blocker": "missing inputs: local_inputs/coco/instances_val2017.json",
       "category": "coco_preparation",
       "command": "",
       "cpu_io_class": "image_processing_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "FEASIBILITY_ONLY_INPUT",
       "exit_code": null,
       "inputs": {
@@ -59,7 +59,7 @@
       "producer_stage": "licensed COCO provisioning and explicit authorization",
       "retry_recovery": "remain feasibility-only and do not claim real COCO evidence",
       "run_id": "coco_cpu_preparation",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_EXTERNAL_BYTES",
       "wall_seconds": 0.0
     },
@@ -68,7 +68,7 @@
       "category": "data_preparation",
       "command": "",
       "cpu_io_class": "image_processing_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "PROSPECTIVE_CANDIDATE_INPUT",
       "exit_code": null,
       "inputs": {
@@ -87,7 +87,7 @@
       "producer_stage": "licensed unseen confirmatory source provisioning",
       "retry_recovery": "preserve exclusions and deterministic seed/shard plan",
       "run_id": "confirmatory_source_preparation",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_EXTERNAL_BYTES",
       "wall_seconds": 0.0
     },
@@ -134,7 +134,7 @@
       "category": "selection_detectability",
       "command": "",
       "cpu_io_class": "heavy_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "PROSPECTIVE_GATE",
       "exit_code": null,
       "inputs": {
@@ -153,7 +153,7 @@
       "producer_stage": "exact selection",
       "retry_recovery": "grouped folds and bootstrap bound to exact selected bytes",
       "run_id": "detectability_gate",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_UPSTREAM_GATE",
       "wall_seconds": 0.0
     },
@@ -162,7 +162,7 @@
       "category": "selection_detectability",
       "command": "",
       "cpu_io_class": "light",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "DERIVED_FROM_GENUINE_HUMAN_REVIEW",
       "exit_code": null,
       "inputs": {
@@ -181,7 +181,7 @@
       "producer_stage": "two independent reviewers plus adjudication",
       "retry_recovery": "deterministic exact selection; preserve source caps and quotas",
       "run_id": "exact_selection",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_GENUINE_HUMAN_REVIEW",
       "wall_seconds": 0.0
     },
@@ -190,13 +190,13 @@
       "category": "validation",
       "command": "python3 -m certvic.cvpr.artifact_registry verify",
       "cpu_io_class": "light",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:31+00:00",
       "evidence_class": "NON_EVIDENCE_VALIDATION",
       "exit_code": 0,
       "inputs": {
         "reports/max_ceiling_upgrade/artifact_registry.json": {
-          "sha256": "09c69f7ad7c4b7c5dddfef24f0d8241c9941483cdd04bc6841a6d6a89379c16b",
-          "size": 12904
+          "sha256": "1f01833c5eaca0ec246808d817da9b8896e55543743aab9e43c6269b21870462",
+          "size": 22080
         }
       },
       "log": "reports/cpu_execution/logs/final_registry_verification.log",
@@ -204,29 +204,30 @@
       "next_action": "inspect registry verification error and restore exact registered bytes",
       "outputs": {
         "reports/max_ceiling_upgrade/artifact_registry.json": {
-          "sha256": "09c69f7ad7c4b7c5dddfef24f0d8241c9941483cdd04bc6841a6d6a89379c16b",
-          "size": 12904
+          "sha256": "1f01833c5eaca0ec246808d817da9b8896e55543743aab9e43c6269b21870462",
+          "size": 22080
         }
       },
-      "peak_memory_mb": 506.23,
+      "peak_memory_mb": 606.55,
       "producer_stage": "content-addressed artifact registry",
       "retry_recovery": "repair exact missing or hash-mismatched artifact; never rewrite evidence identity",
       "run_id": "final_registry_verification",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "COMPLETED",
-      "wall_seconds": 0.072
+      "wall_seconds": 0.081
     },
     "first_gpu_wave_return_validation": {
-      "blocker": "missing inputs: data/runtime/00A_environment_bundle.zip, data/runtime/00B_qwen2_5_vl_7b_snapshot_bundle.zip, data/runtime/00B_internvl_8b_snapshot_bundle.zip, data/runtime/00B_llava_onevision_7b_snapshot_bundle.zip",
+      "blocker": "missing inputs: data/runtime/00B_qwen2_5_vl_7b_snapshot_bundle.zip, data/runtime/00B_internvl_8b_snapshot_bundle.zip, data/runtime/00B_llava_onevision_7b_snapshot_bundle.zip",
       "category": "import",
       "command": "python3 scripts/run_all_cpu_workflows.py --internal first_wave_returns",
       "cpu_io_class": "archive_io_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "NON_EVIDENCE_RUNTIME_VALIDATION",
       "exit_code": null,
       "inputs": {
         "data/runtime/00A_environment_bundle.zip": {
-          "missing": true
+          "sha256": "8d38f3622f8c699dc4ae63c7573ccaf2ea2fc5ab3a3e3f9f34a637f6d4ea3e3e",
+          "size": 1902
         },
         "data/runtime/00B_internvl_8b_snapshot_bundle.zip": {
           "missing": true
@@ -261,7 +262,7 @@
       "producer_stage": "Kaggle 00A and three isolated 00B runs",
       "retry_recovery": "redownload corrupt ZIP; never rewrite a returned archive",
       "run_id": "first_gpu_wave_return_validation",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_GPU_OUTPUT",
       "wall_seconds": 0.0
     },
@@ -270,7 +271,7 @@
       "category": "authorization",
       "command": "",
       "cpu_io_class": "light",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "AUTHORIZATION_ONLY",
       "exit_code": null,
       "inputs": {
@@ -301,7 +302,7 @@
       "producer_stage": "00A, all 00B, smoke, review, selection, and detectability gates",
       "retry_recovery": "issue only expiring hash-bound permissions from exact upstream artifacts",
       "run_id": "freeze_and_permissions",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_UPSTREAM_GATE",
       "wall_seconds": 0.0
     },
@@ -310,7 +311,7 @@
       "category": "qa",
       "command": "",
       "cpu_io_class": "image_processing_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "DERIVED_FROM_PROSPECTIVE_GENERATION",
       "exit_code": null,
       "inputs": {
@@ -329,7 +330,7 @@
       "producer_stage": "01 specificity confirmatory generation Kaggle run",
       "retry_recovery": "resume deterministic QA without inventing missing edits",
       "run_id": "generated_edit_cpu_qa",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_GPU_OUTPUT",
       "wall_seconds": 0.0
     },
@@ -338,7 +339,7 @@
       "category": "main_preparation",
       "command": "",
       "cpu_io_class": "image_processing_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "CONDITIONAL_MAIN_INPUT",
       "exit_code": null,
       "inputs": {
@@ -357,7 +358,7 @@
       "producer_stage": "confirmatory go/no-go",
       "retry_recovery": "do not authorize Main without confirmatory GO",
       "run_id": "main_cpu_preparation",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_UPSTREAM_GATE",
       "wall_seconds": 0.0
     },
@@ -404,7 +405,7 @@
       "category": "authorization",
       "command": "",
       "cpu_io_class": "light",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "AUTHORIZATION_ONLY",
       "exit_code": null,
       "inputs": {
@@ -426,7 +427,7 @@
       "producer_stage": "validated 00A/00B returns and real two-item smoke bundle",
       "retry_recovery": "bind exact 00A, all three 00B, code, prompt, parser, run contract, and task bytes",
       "run_id": "pre_smoke_permissions",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_UPSTREAM_GATE",
       "wall_seconds": 0.0
     },
@@ -435,7 +436,7 @@
       "category": "import",
       "command": "",
       "cpu_io_class": "archive_io_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "CANONICAL_REAL_PROVIDER_RETURN",
       "exit_code": null,
       "inputs": {
@@ -460,7 +461,7 @@
       "producer_stage": "confirmatory provider Kaggle matrix",
       "retry_recovery": "recover journal then stage and promote all three atomically",
       "run_id": "process_kaggle_returns",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_GPU_OUTPUT",
       "wall_seconds": 0.0
     },
@@ -469,7 +470,7 @@
       "category": "data_preparation",
       "command": "",
       "cpu_io_class": "light",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "PROSPECTIVE_NON_EVIDENCE_SMOKE_INPUT",
       "exit_code": null,
       "inputs": {
@@ -478,7 +479,7 @@
         }
       },
       "memory_class": "low",
-      "next_action": "python3 -m certvic.cvpr.smoke_input_builder --task-manifest <TASKS_JSONL>",
+      "next_action": "python3 -m certvic.cvpr.smoke_input_builder --task-manifest local_inputs/smoke/real_smoke_tasks.jsonl --output kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip",
       "outputs": {
         "kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip": {
           "missing": true
@@ -488,7 +489,7 @@
       "producer_stage": "genuine licensed smoke-item provisioning",
       "retry_recovery": "validate exactly two licensed real items and zero V1/V2 overlap",
       "run_id": "real_smoke_preparation",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_EXTERNAL_BYTES",
       "wall_seconds": 0.0
     },
@@ -497,17 +498,17 @@
       "category": "paper_release",
       "command": "python3 scripts/refresh_kaggle_release_lineage.py --include-release",
       "cpu_io_class": "light",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "PRE_RUN_NON_EVIDENCE_RELEASE",
       "exit_code": 0,
       "inputs": {
         "release/certvic_cvpr_pre_run_maximum.zip": {
-          "sha256": "1ae80851529af663cb9ca616270f2931d8902a1cd654d475a0d3cbba1d96574c",
-          "size": 2576075
+          "sha256": "ce364955a41e82e79144ab95a71705fda57c3b6372f52f9bdbad447f3718299a",
+          "size": 3061372
         },
         "reports/max_ceiling_upgrade/artifact_registry.json": {
-          "sha256": "09c69f7ad7c4b7c5dddfef24f0d8241c9941483cdd04bc6841a6d6a89379c16b",
-          "size": 12904
+          "sha256": "1f01833c5eaca0ec246808d817da9b8896e55543743aab9e43c6269b21870462",
+          "size": 22080
         }
       },
       "log": "reports/cpu_execution/logs/refresh_release_lineage.log",
@@ -515,46 +516,46 @@
       "next_action": "repair exact release or registry lineage mismatch and rerun",
       "outputs": {
         "reports/max_ceiling_upgrade/artifact_registry.json": {
-          "sha256": "09c69f7ad7c4b7c5dddfef24f0d8241c9941483cdd04bc6841a6d6a89379c16b",
-          "size": 12904
+          "sha256": "1f01833c5eaca0ec246808d817da9b8896e55543743aab9e43c6269b21870462",
+          "size": 22080
         }
       },
-      "peak_memory_mb": 506.23,
+      "peak_memory_mb": 606.55,
       "producer_stage": "final deterministic release build",
       "retry_recovery": "recompute content-addressed release identity and all affected parent references",
       "run_id": "refresh_release_lineage",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "COMPLETED",
-      "wall_seconds": 0.075
+      "wall_seconds": 0.1
     },
     "register_repository_bundles": {
       "blocker": "",
       "category": "packaging",
       "command": "python3 scripts/run_all_cpu_workflows.py --internal register_bundles",
       "cpu_io_class": "light",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "PLANNED_NOT_EXECUTED",
       "exit_code": 0,
       "inputs": {
         "kaggle_uploads/00_code/certvic_code_bundle.zip": {
-          "sha256": "4dde8bef6e6909b0270ace771ee4094dcd9a90b2e9d3ca613d1173cc0618e468",
-          "size": 1120118
+          "sha256": "ef7fe5bd0d971e0d6ef232b9c231864f690839c7e368bad4ff78415ec982e908",
+          "size": 1233221
         },
         "kaggle_uploads/00_code/certvic_configs_bundle.zip": {
-          "sha256": "940ea02d5c7f3bd446a0e2bd477ab4905553f4a15993f64e9a477454128e8316",
-          "size": 39077
+          "sha256": "64df5cb66455f72f56ebad0cc2c6575af4c183a6dcecfdcd4002c2adfd8d34f6",
+          "size": 46527
         },
         "kaggle_uploads/00_code/certvic_execution_tools_bundle.zip": {
-          "sha256": "8c8414fe9aa5983c19e7da80edc52f8a030471bdce793280d42de0908327c128",
-          "size": 104641
+          "sha256": "2665d24427bd60472d153fa1f9701870ff2341eadfb920f43fb984aa41971ee3",
+          "size": 175976
         },
         "kaggle_uploads/00_code/certvic_notebooks_bundle.zip": {
-          "sha256": "37efdfa343014c8844327e5e60dc3665f7a366315a89d81bd59a779b86ee1789",
-          "size": 124699
+          "sha256": "d2304331a346cc29484b38062e459da8f3dd098c5a0961776a16fd1338ce82e9",
+          "size": 207365
         },
         "kaggle_uploads/00_code/certvic_synthetic_validation_bundle.zip": {
-          "sha256": "87c5d0181832415d074857489b68dc9ec4ef26f74c8b7d9f74326637701d6caf",
-          "size": 37098
+          "sha256": "9b4f0c67af7f552ef4eff0198d7d9f0c0e5be1d7b5b3351d12e99bb2f42bb92c",
+          "size": 38104
         }
       },
       "log": "reports/cpu_execution/logs/register_repository_bundles.log",
@@ -562,17 +563,17 @@
       "next_action": "repair registry lineage or hash mismatch and retry",
       "outputs": {
         "reports/max_ceiling_upgrade/artifact_registry.json": {
-          "sha256": "09c69f7ad7c4b7c5dddfef24f0d8241c9941483cdd04bc6841a6d6a89379c16b",
-          "size": 12904
+          "sha256": "1f01833c5eaca0ec246808d817da9b8896e55543743aab9e43c6269b21870462",
+          "size": 22080
         }
       },
-      "peak_memory_mb": 506.23,
+      "peak_memory_mb": 606.55,
       "producer_stage": "deterministic repository bundle factory",
       "retry_recovery": "content-addressed idempotent registry addition then verify all registered bytes",
       "run_id": "register_repository_bundles",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "COMPLETED",
-      "wall_seconds": 0.076
+      "wall_seconds": 0.084
     },
     "repository_kaggle_bundles": {
       "blocker": "",
@@ -629,7 +630,7 @@
       "category": "review_operations",
       "command": "",
       "cpu_io_class": "archive_io_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "HUMAN_REVIEW_INPUT",
       "exit_code": null,
       "inputs": {
@@ -648,7 +649,7 @@
       "producer_stage": "confirmatory CPU QA",
       "retry_recovery": "regenerate blinded packet without reviewer identities or decisions",
       "run_id": "review_packet_preparation",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_UPSTREAM_GATE",
       "wall_seconds": 0.0
     },
@@ -789,7 +790,7 @@
       "category": "analysis",
       "command": "",
       "cpu_io_class": "heavy_sequential",
-      "end_utc": "2026-07-21T02:50:59+00:00",
+      "end_utc": "2026-07-23T06:30:30+00:00",
       "evidence_class": "DERIVED_FROM_REAL_EVIDENCE",
       "exit_code": null,
       "inputs": {
@@ -808,7 +809,7 @@
       "producer_stage": "canonical transactional import",
       "retry_recovery": "preserve raw and filtered denominators and fail closed on missingness",
       "run_id": "statistical_analysis",
-      "start_utc": "2026-07-21T02:50:59+00:00",
+      "start_utc": "2026-07-23T06:30:30+00:00",
       "status": "BLOCKED_BY_UPSTREAM_GATE",
       "wall_seconds": 0.0
     },
@@ -864,5 +865,5 @@
     }
   },
   "schema": "certvic.cvpr.cpu_execution_checkpoint.v1",
-  "updated_at_utc": "2026-07-21T02:50:59+00:00"
+  "updated_at_utc": "2026-07-23T06:30:31+00:00"
 }

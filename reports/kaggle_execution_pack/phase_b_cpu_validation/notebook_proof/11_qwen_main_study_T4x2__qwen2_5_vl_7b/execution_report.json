@@ -3,8 +3,8 @@
   "artifacts": [
     {
       "name": "main_qwen_return.zip",
-      "sha256": "5e0c6e60449d99708146217b0179ae33269d6bc3858005a236b5f3348914ab2f",
-      "size": 3545
+      "sha256": "aab34f20e47da9a030dd5518e49a6591710599ea34082ec44ff25af0bc27f907",
+      "size": 3544
     },
     {
       "name": "seed_manifest.json",
@@ -26,23 +26,27 @@
       "output_count": 1
     }
   ],
-  "cleaned_notebook_sha256": "456bf1d6bcc53cade25affd7ef9ac0479ac3f5b329e515b72e58b0c7912e7eac",
+  "cleaned_notebook_sha256": "a2baed85bf00a55bb3239b6351a13e66c89a23396bcda70e46f920967032b9d4",
   "config": {
     "artifact_globs": [
       "main_qwen_return.zip",
       "seed_manifest.json"
     ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/11_qwen_main_study_T4x2__qwen2_5_vl_7b/account-2/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/11_qwen_main_study_T4x2__qwen2_5_vl_7b/kaggle/working/materialized",
     "notebook": "11_qwen_main_study_T4x2.ipynb",
-    "notebook_sha256": "b4abba4ef3f0a87f569b169aa3a56443aeaeaf0f19c234190ac9f578f98d33a1",
+    "notebook_sha256": "ba5286338a518d2b1000da8816780f36a4041407ee049ef78bb2db4c700c5b03",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/11_qwen_main_study_T4x2__qwen2_5_vl_7b/account-2/input/arbitrary-owner-title-2",
     "provider": "qwen2_5_vl_7b",
     "return_zip": "main_qwen_return.zip",
     "route": "11_qwen_main_study_T4x2__qwen2_5_vl_7b",
+    "simulated_account": 2,
     "stage": "evaluation",
     "synthetic_fixture": true
   },
   "failure": null,
   "paper_evidence": false,
   "schema": "certvic.cvpr.notebook_execution.v1",
-  "source_sha256": "0f8d1bcd7a42c2bb82cec40c7028aff7548385624b0e4074a725450d6c7a1c6a",
+  "source_sha256": "5b406f91da71e175bd31cd559213c27816bb9f894d9aa9bd505d2c891fc1d097",
   "status": "PASS"
 }

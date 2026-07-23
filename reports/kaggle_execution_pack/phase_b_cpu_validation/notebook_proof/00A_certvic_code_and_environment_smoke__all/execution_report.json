@@ -3,8 +3,8 @@
   "artifacts": [
     {
       "name": "00A_environment_bundle.zip",
-      "sha256": "f526faf8b8c716239a20fb25a1abee96c2f3e7c191308fcb24134c961c35d16e",
-      "size": 3541
+      "sha256": "483f36478a47f43d6ae806010308838a643801abe27d00bc4e810d6371d93fa1",
+      "size": 3538
     },
     {
       "name": "seed_manifest.json",
@@ -26,23 +26,27 @@
       "output_count": 1
     }
   ],
-  "cleaned_notebook_sha256": "e747b831a5d228742d9f91a3bf33cc163351f71bd687f460bce528639044fc31",
+  "cleaned_notebook_sha256": "0adb08855dc62660c3eb2c5265378265c783489295b0faf037ccdbcd0a59ee66",
   "config": {
     "artifact_globs": [
       "00A_environment_bundle.zip",
       "seed_manifest.json"
     ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00A_certvic_code_and_environment_smoke__all/account-1/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00A_certvic_code_and_environment_smoke__all/kaggle/working/materialized",
     "notebook": "00A_certvic_code_and_environment_smoke.ipynb",
-    "notebook_sha256": "4c1d37bc3399cc8080292f87bd06e118a98550c88207b3e340d3d9ca875a3f69",
+    "notebook_sha256": "6101391f1746ed1cbd63377d499d91e751cebaa9a997962668d3dd38c4a4b82a",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00A_certvic_code_and_environment_smoke__all/account-1/input/arbitrary-owner-title-1",
     "provider": "all",
     "return_zip": "00A_environment_bundle.zip",
     "route": "00A_certvic_code_and_environment_smoke__all",
+    "simulated_account": 1,
     "stage": "code_smoke",
     "synthetic_fixture": true
   },
   "failure": null,
   "paper_evidence": false,
   "schema": "certvic.cvpr.notebook_execution.v1",
-  "source_sha256": "6ae227c5e19a6b4373c86c0805f96e85789f413f3f57558f41f2f06971e47da9",
+  "source_sha256": "1570a09ce606fdbc0138dbedcba7cc0012e759f9d9480712467ffac14238d7c9",
   "status": "PASS"
 }

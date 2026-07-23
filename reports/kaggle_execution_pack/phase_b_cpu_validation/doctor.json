@@ -1,30 +1,43 @@
 {
-  "blockers": [
-    {
-      "error_code": "DOCTOR_REPLACEMENT_SOURCE_UNAVAILABLE",
-      "missing_artifact": "certVIC_9_SMOKE_AUTHORIZATION_FIXED_FULL.zip",
-      "next_command": "place the repaired full-project ZIP in the checkout root",
-      "remediation": "Provide the full repaired archive; patch-only and release archives are not substitutes.",
-      "scope": "external"
-    }
-  ],
+  "blockers": [],
   "checks": {
+    "active_checkout_authority": {
+      "obsolete_replacement_archive_required": false,
+      "passed": true,
+      "status": "LIVE_CHECKOUT_AUTHORITATIVE"
+    },
     "critical_imports": {
       "errors": {},
       "passed": true
     },
+    "multi_account_portability": {
+      "active_runbooks_checked": 20,
+      "content_authentication_required": true,
+      "filename_binding": false,
+      "mount_binding": false,
+      "owner_slug_binding": false,
+      "passed": true,
+      "violations": {}
+    },
     "notebooks": {
       "code_cells_with_outputs": 0,
-      "count": 16,
-      "expected_count": 16,
+      "count": 20,
+      "expected_count": 20,
       "invalid": [],
       "passed": true
     },
-    "repository_replacement": {
-      "archive_present": false,
-      "replacement_complete": false,
-      "replacement_record_present": true,
-      "status": "BLOCKED_SOURCE_ARCHIVE_MISSING"
+    "protocol_authority": {
+      "analysis_lock_sha256": "a3f3b4a3d8c942f5d753589a079b2c62dab63a7f6bd742d74f4a89022da3920d",
+      "authoritative_protocol": "configs/studies/specificity_confirmatory_cvpr.yaml",
+      "authority_manifest": "configs/studies/certvic_confirmatory_authority.json",
+      "errors": [],
+      "live_prospective_protocols": [
+        "configs/studies/specificity_confirmatory_cvpr.yaml"
+      ],
+      "paper_evidence": false,
+      "passed": true,
+      "protocol_sha256": "bb82612e09346599b0cabe3d1876369a652fc56e3406cd98ac21ce699a62ca25",
+      "schema": "certvic.confirmatory.protocol_authority_validation.v1"
     },
     "required_tree": {
       "missing": [],
@@ -37,7 +50,7 @@
       "unresolved_freeze_fields": []
     }
   },
-  "generated_at_utc": "2026-07-21T02:50:56.948314+00:00",
+  "generated_at_utc": "2026-07-23T06:30:26.987373+00:00",
   "inventory": {
     "analysis": {
       "exists": false,
@@ -76,6 +89,15 @@
     }
   },
   "local_ready": true,
+  "multi_account_portability": {
+    "active_runbooks_checked": 20,
+    "content_authentication_required": true,
+    "filename_binding": false,
+    "mount_binding": false,
+    "owner_slug_binding": false,
+    "passed": true,
+    "violations": {}
+  },
   "paper_evidence": false,
   "repository": ".",
   "schema": "certvic.cvpr.doctor.v1",

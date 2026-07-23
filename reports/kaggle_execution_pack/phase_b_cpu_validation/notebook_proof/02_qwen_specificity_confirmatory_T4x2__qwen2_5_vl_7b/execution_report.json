@@ -3,8 +3,8 @@
   "artifacts": [
     {
       "name": "confirmatory_qwen_return.zip",
-      "sha256": "b676a6c886e356b84aa4b5e52b559a70ddb0ba4df154baa2a1d9e5f0dccf4f48",
-      "size": 3553
+      "sha256": "d8d19bfcc58eacffb46ffee42a2b6c2901c2a11023993150d1e103f22f8bfb0d",
+      "size": 3554
     },
     {
       "name": "seed_manifest.json",
@@ -26,23 +26,27 @@
       "output_count": 1
     }
   ],
-  "cleaned_notebook_sha256": "e6d9cc3428a1f8b81fea1967b10390b7d38b444d68a921ee06541d0dbcca7f73",
+  "cleaned_notebook_sha256": "4fac47a0a000386cc4f62399f7225115ce69c87ab529a64f1e9a74fd75cd6e0c",
   "config": {
     "artifact_globs": [
       "confirmatory_qwen_return.zip",
       "seed_manifest.json"
     ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/02_qwen_specificity_confirmatory_T4x2__qwen2_5_vl_7b/account-2/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/02_qwen_specificity_confirmatory_T4x2__qwen2_5_vl_7b/kaggle/working/materialized",
     "notebook": "02_qwen_specificity_confirmatory_T4x2.ipynb",
-    "notebook_sha256": "d1d66ca6fc50cbeff7569b1e1e75860bb3df80ee0a2a68980f28eaf57944cb0e",
+    "notebook_sha256": "3401b6ef95a3c77193805057f6f432ba515b2d189d64e12252d5fdc42484af70",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/02_qwen_specificity_confirmatory_T4x2__qwen2_5_vl_7b/account-2/input/arbitrary-owner-title-2",
     "provider": "qwen2_5_vl_7b",
     "return_zip": "confirmatory_qwen_return.zip",
     "route": "02_qwen_specificity_confirmatory_T4x2__qwen2_5_vl_7b",
+    "simulated_account": 2,
     "stage": "evaluation",
     "synthetic_fixture": true
   },
   "failure": null,
   "paper_evidence": false,
   "schema": "certvic.cvpr.notebook_execution.v1",
-  "source_sha256": "f2babdf4957863ed8cd9dd9cd885a94a4e9a2bca2290aa30b2ab1c020c4f8a60",
+  "source_sha256": "6d8bbe126ee7da558c8ee397502360fc807e3b71e61bfb3c69eb777165be4bf6",
   "status": "PASS"
 }

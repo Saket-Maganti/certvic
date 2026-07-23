@@ -8,9 +8,11 @@ or diagnostic-only.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -29,6 +31,7 @@ REPO = Path(__file__).resolve().parents[1]
 NEWRUNS = REPO / "kaggleoutputs/newruns"
 RESULTS = REPO / "data/results/main_real_200"
 V8 = RESULTS / "v8_upgrade"
+PATH_ROOT = REPO
 STAGING = V8 / "staging"
 REPORTS = V8 / "reports"
 TABLES = V8 / "tables"
@@ -40,38 +43,57 @@ MODEL_NAMES = {
     "internvl_8b": "OpenGVLab/InternVL2-8B",
     "llava_onevision_7b": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
 }
-RUNS = {
-    "spurious": {
-        "expected_rows": 188,
-        "dest_dir": RESULTS / "kaggle_spurious",
-        "filename": "pred_{provider}_spurious_merged.jsonl",
-        "zip": "{provider}_spurious_preds.zip",
-    },
-    "perception_scaled": {
-        "expected_rows": 738,
-        "dest_dir": RESULTS / "kaggle_perception_scaled",
-        "filename": "pred_{provider}_perception_scaled_merged.jsonl",
-        "zip": "{provider}_perception_scaled_preds.zip",
-    },
-    "polarity": {
-        "expected_rows": 728,
-        "dest_dir": RESULTS / "kaggle_polarity",
-        "filename": "pred_{provider}_polarity.jsonl",
-        "zip": "{provider}_polarity_preds.zip",
-    },
-    "mechanism": {
-        "expected_rows": 364,
-        "dest_dir": RESULTS / "kaggle_mechanism",
-        "filename": "pred_{provider}_mechanism.jsonl",
-        "zip": "{provider}_mechanism_preds.zip",
-    },
-}
+
+
+def _run_config(results_root: Path) -> dict[str, dict]:
+    return {
+        "spurious": {
+            "expected_rows": 188,
+            "dest_dir": results_root / "kaggle_spurious",
+            "filename": "pred_{provider}_spurious_merged.jsonl",
+            "zip": "{provider}_spurious_preds.zip",
+        },
+        "perception_scaled": {
+            "expected_rows": 738,
+            "dest_dir": results_root / "kaggle_perception_scaled",
+            "filename": "pred_{provider}_perception_scaled_merged.jsonl",
+            "zip": "{provider}_perception_scaled_preds.zip",
+        },
+        "polarity": {
+            "expected_rows": 728,
+            "dest_dir": results_root / "kaggle_polarity",
+            "filename": "pred_{provider}_polarity.jsonl",
+            "zip": "{provider}_polarity_preds.zip",
+        },
+        "mechanism": {
+            "expected_rows": 364,
+            "dest_dir": results_root / "kaggle_mechanism",
+            "filename": "pred_{provider}_mechanism.jsonl",
+            "zip": "{provider}_mechanism_preds.zip",
+        },
+    }
+
+
+RUNS = _run_config(RESULTS)
 SPURIOUS_THRESHOLD = 0.10
+
+
+def _configure_roots(*, newruns_root: Path, results_root: Path, output_root: Path) -> None:
+    global NEWRUNS, RESULTS, V8, PATH_ROOT, STAGING, REPORTS, TABLES, FIGURES, RUNS
+    NEWRUNS = newruns_root.resolve()
+    RESULTS = results_root.resolve()
+    V8 = output_root.resolve()
+    PATH_ROOT = Path(os.path.commonpath((NEWRUNS, RESULTS, V8)))
+    STAGING = V8 / "staging"
+    REPORTS = V8 / "reports"
+    TABLES = V8 / "tables"
+    FIGURES = V8 / "figures"
+    RUNS = _run_config(RESULTS)
 
 
 def _rel(path: Path) -> str:
     try:
-        return path.relative_to(REPO).as_posix()
+        return path.relative_to(PATH_ROOT).as_posix()
     except ValueError:
         return str(path)
 
@@ -259,6 +281,8 @@ def _validate_rows(rows: list[dict], provider: str, run_tag: str, expected_rows:
         "duplicate_ids_preview": dupes[:10],
         "parse_ok": sum(1 for v in parse_values if v is True),
         "parse_rate": round(sum(1 for v in parse_values if v is True) / len(rows), 4) if rows else None,
+        "synthetic_fixture": bool(rows) and all(r.get("synthetic_fixture") is True for r in rows),
+        "paper_evidence": False,
     }
 
 
@@ -327,13 +351,20 @@ def normalize_predictions() -> dict:
             dest = cfg["dest_dir"] / cfg["filename"].format(provider=provider)
             key = f"{provider}__{run_tag}"
             if chosen is None:
-                failures.append(f"{key}: no valid complete prediction file")
+                direct_source = _candidate_direct(provider, run_tag)
+                zip_source = NEWRUNS / cfg["zip"].format(provider=provider)
+                accepted_sources = [_rel(direct_source), _rel(zip_source)]
+                failures.append(
+                    f"{key}: no valid complete prediction file; accepted sources: "
+                    + " or ".join(accepted_sources)
+                )
                 manifest[key] = {
                     "provider": provider,
                     "run_tag": run_tag,
                     "status": "blocked",
                     "destination": _rel(dest),
                     "attempts": attempts,
+                    "accepted_sources": accepted_sources,
                 }
                 continue
             copy_status, err = _copy_if_missing_or_identical(chosen, dest)
@@ -347,7 +378,7 @@ def normalize_predictions() -> dict:
                 "source": _rel(chosen),
                 "source_kind": chosen_source,
                 "destination": _rel(dest),
-                "copy_status": copy_status,
+                "copy_status": "destination_verified" if not err else copy_status,
                 "sha256": _sha256_file(chosen),
                 "attempts": attempts,
                 "validation": _validate_rows(rows, provider, run_tag, expected_rows),
@@ -360,6 +391,19 @@ def normalize_predictions() -> dict:
         "ingested_existing_kaggle_predictions": True,
         "paper_evidence": False,
         "failures": failures,
+        "missing_provider_run_files": [
+            {
+                "provider": entry["provider"],
+                "run_tag": entry["run_tag"],
+                "accepted_sources": entry["accepted_sources"],
+            }
+            for entry in manifest.values()
+            if (
+                entry["status"] == "blocked"
+                and "accepted_sources" in entry
+                and not entry["attempts"]
+            )
+        ],
         "entries": manifest,
     }
     write_json(V8 / "canonical_prediction_manifest.json", result)
@@ -1189,12 +1233,42 @@ def build_task_ledger(spurious: dict, scaled: dict, polarity: dict, mechanism: d
     return result
 
 
-def main() -> None:
+def _summary(manifest: dict) -> dict:
+    return {
+        "status": manifest["status"],
+        "v8_dir": _rel(V8),
+        "produced_model_results_by_this_script": False,
+        "paper_evidence": False,
+        "failures": manifest["failures"],
+        "missing_provider_run_files": manifest["missing_provider_run_files"],
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--newruns-root", type=Path, default=NEWRUNS)
+    parser.add_argument("--results-root", type=Path, default=RESULTS)
+    parser.add_argument("--output-root", type=Path, default=V8)
+    parser.add_argument(
+        "--normalize-only",
+        action="store_true",
+        help="inventory and normalize predictions without running downstream report builders",
+    )
+    args = parser.parse_args(argv)
+    _configure_roots(
+        newruns_root=args.newruns_root,
+        results_root=args.results_root,
+        output_root=args.output_root,
+    )
     setup_dirs()
     write_contract()
-    snapshot_pre_v8()
     inventory_newruns()
     manifest = normalize_predictions()
+    if args.normalize_only:
+        print(json.dumps(_summary(manifest), sort_keys=True))
+        return 0 if manifest["status"] == "complete" else 2
+
+    snapshot_pre_v8()
     if manifest["status"] != "complete":
         build_task_ledger(
             {"all_provider_gate_pass": False},
@@ -1202,7 +1276,8 @@ def main() -> None:
             {"status": "blocked"},
             {"status": "blocked"},
         )
-        raise SystemExit("Prediction normalization blocked: " + "; ".join(manifest["failures"]))
+        print(json.dumps(_summary(manifest), sort_keys=True))
+        return 2
 
     run_commands()
     spurious = build_spurious_report()
@@ -1232,7 +1307,8 @@ def main() -> None:
         "spurious_all_provider_gate_pass": spurious["all_provider_gate_pass"],
         "produced_model_results_by_this_script": False,
     }, sort_keys=True))
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

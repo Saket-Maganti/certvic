@@ -3,8 +3,8 @@
   "artifacts": [
     {
       "name": "main_llava_return.zip",
-      "sha256": "eca239f79fa6a7f5887f56d8bfa40033acbea89be345b991f6baa11cc5462f4e",
-      "size": 3551
+      "sha256": "0431fe695ff28e469ba46868073431cade1704e9357351a110456a01daec113d",
+      "size": 3552
     },
     {
       "name": "seed_manifest.json",
@@ -26,23 +26,27 @@
       "output_count": 1
     }
   ],
-  "cleaned_notebook_sha256": "83d56652f36b144712c2bb6b315694743dbe05e0e6d03830a8e97b213c17bf69",
+  "cleaned_notebook_sha256": "9149449ee6b3fe10cb5d11ac5aa16205aa83d052f145bb4f9595bc963f552e08",
   "config": {
     "artifact_globs": [
       "main_llava_return.zip",
       "seed_manifest.json"
     ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/13_llava_main_study_T4x2__llava_onevision_7b/account-4/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/13_llava_main_study_T4x2__llava_onevision_7b/kaggle/working/materialized",
     "notebook": "13_llava_main_study_T4x2.ipynb",
-    "notebook_sha256": "f3929252c3629abd15eac1aaa3534a79a0db5023bf71ba7491db0c89544d3d33",
+    "notebook_sha256": "0ec5549429d2eeb7f0c6fa7f18aa970a46f570088b6c5b794df8cea4ea92f2c7",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/13_llava_main_study_T4x2__llava_onevision_7b/account-4/input/arbitrary-owner-title-4",
     "provider": "llava_onevision_7b",
     "return_zip": "main_llava_return.zip",
     "route": "13_llava_main_study_T4x2__llava_onevision_7b",
+    "simulated_account": 4,
     "stage": "evaluation",
     "synthetic_fixture": true
   },
   "failure": null,
   "paper_evidence": false,
   "schema": "certvic.cvpr.notebook_execution.v1",
-  "source_sha256": "cff69d40f6a99c30c005f4574647537e6f69e7e8c4635d5f338a57c67f9d757f",
+  "source_sha256": "927712597f35a28924fe4de9e8567effb487b0a5cce5d4c8056b5c153518c5b8",
   "status": "PASS"
 }

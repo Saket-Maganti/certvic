@@ -3,8 +3,8 @@
   "artifacts": [
     {
       "name": "00C1_synthetic_adapter_smoke.zip",
-      "sha256": "054f8d7b3c17705ee7d3c6c8c63d7cd7493fe3d1eff432d25251b45c3f1b9594",
-      "size": 3544
+      "sha256": "af4d843a73ad57ac1a121eeb01f168398626b3bf849fe2e2f624871b2ba813dd",
+      "size": 3542
     },
     {
       "name": "seed_manifest.json",
@@ -26,23 +26,27 @@
       "output_count": 1
     }
   ],
-  "cleaned_notebook_sha256": "f1c46088b954eaa5229d712686951b488e5212123df457978893a252615de6bb",
+  "cleaned_notebook_sha256": "2dc202b52d4c4b217fbfce49fa31c085c39e24f037cf6e1efd3c37daeb0f3543",
   "config": {
     "artifact_globs": [
       "00C1_synthetic_adapter_smoke.zip",
       "seed_manifest.json"
     ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00C1_certvic_mock_adapter_smoke__all/account-1/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00C1_certvic_mock_adapter_smoke__all/kaggle/working/materialized",
     "notebook": "00C1_certvic_mock_adapter_smoke.ipynb",
-    "notebook_sha256": "a32f0d4e1c1ac72b249fb750a86823841ae981a8ef08cc420dbafe09bf5b6926",
+    "notebook_sha256": "c8958417996ff3b6540b36052ce5e82113a7f2636f916de64b393f81c1fb012b",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/00C1_certvic_mock_adapter_smoke__all/account-1/input/arbitrary-owner-title-1",
     "provider": "all",
     "return_zip": "00C1_synthetic_adapter_smoke.zip",
     "route": "00C1_certvic_mock_adapter_smoke__all",
+    "simulated_account": 1,
     "stage": "mock_smoke",
     "synthetic_fixture": true
   },
   "failure": null,
   "paper_evidence": false,
   "schema": "certvic.cvpr.notebook_execution.v1",
-  "source_sha256": "ecf8555b530ee224c2f873103e977c2a390d055bf8f512230136172e35ceb228",
+  "source_sha256": "15d46ea9703d90b38c63dc40083bd37c019d0c9fed6e33a2ebcc677c986543a3",
   "status": "PASS"
 }

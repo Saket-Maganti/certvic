@@ -3,8 +3,8 @@
   "artifacts": [
     {
       "name": "coco_qwen_return.zip",
-      "sha256": "2c752906919c08f9ab4880d71e0f501c1934b1a69d730b50dd39f70348b99d2f",
-      "size": 3541
+      "sha256": "75b79fd14c8ce26df848b03d586931254bc7319c31477febf5dcf0014ed8a294",
+      "size": 3546
     },
     {
       "name": "seed_manifest.json",
@@ -26,23 +26,27 @@
       "output_count": 1
     }
   ],
-  "cleaned_notebook_sha256": "e118ef0b64d17784d36b18ffd199f38f21f0ac4a2280834456758f064bb51323",
+  "cleaned_notebook_sha256": "30935a455f7062a81424f3325ead2c5922a4e72d5bd3a1bfd09af83c616d17a3",
   "config": {
     "artifact_globs": [
       "coco_qwen_return.zip",
       "seed_manifest.json"
     ],
+    "fixture_input_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/21_second_domain_qwen_T4x2__qwen2_5_vl_7b/account-2/input",
+    "fixture_working_root": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/21_second_domain_qwen_T4x2__qwen2_5_vl_7b/kaggle/working/materialized",
     "notebook": "21_second_domain_qwen_T4x2.ipynb",
-    "notebook_sha256": "028c0e80dd27e7d6ae84f7df19abda7d49827e54b160c1e99bcad40bcb5e913e",
+    "notebook_sha256": "a3533f489ffef6ddf3452cf61cec856dfe41d8a9bb7eb1cc12b6159d8554c907",
+    "observed_dataset_folder": "/var/folders/w6/8r7w4_152rs2485545d0q96w0000gn/T/certvic_kaggle_runbook_proof_aeloqw9v/21_second_domain_qwen_T4x2__qwen2_5_vl_7b/account-2/input/arbitrary-owner-title-2",
     "provider": "qwen2_5_vl_7b",
     "return_zip": "coco_qwen_return.zip",
     "route": "21_second_domain_qwen_T4x2__qwen2_5_vl_7b",
+    "simulated_account": 2,
     "stage": "evaluation",
     "synthetic_fixture": true
   },
   "failure": null,
   "paper_evidence": false,
   "schema": "certvic.cvpr.notebook_execution.v1",
-  "source_sha256": "ef5f07d55e07de689901502b0fdad72bb1b77220826141807b02e0a3af85edcf",
+  "source_sha256": "b5683eb9dfb50c43137f884bb123295d048ab12708fa2feab3d2aacd1586bbc6",
   "status": "PASS"
 }

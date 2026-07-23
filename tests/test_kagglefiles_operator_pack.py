@@ -37,13 +37,24 @@ def _notebook_text(path: Path) -> tuple[dict, str]:
     return notebook, text
 
 
-def _write_small_return(path: Path, *, profile: str = ACTIVE_PROFILE) -> None:
+def _write_small_return(
+    path: Path,
+    *,
+    profile: str = ACTIVE_PROFILE,
+    marker: str = "",
+    code_bundle_hash: str | None = None,
+) -> None:
     environment = json.dumps({
         "schema": "certvic.cvpr.smoke_artifact.v1",
         "passed": True,
         "runtime_profile_id": profile,
+        "fixture_marker": marker,
         "paper_evidence": False,
     }, sort_keys=True).encode() + b"\n"
+    if code_bundle_hash is not None:
+        environment_value = json.loads(environment)
+        environment_value["code_bundle_hash"] = code_bundle_hash
+        environment = json.dumps(environment_value, sort_keys=True).encode() + b"\n"
     validation = json.dumps({
         "schema": "certvic.cvpr.smoke_artifact.v1",
         "stage": "00A",
@@ -199,6 +210,7 @@ def test_return_importer_dry_run_profile_and_replay_guards(tmp_path: Path) -> No
     identity = identify_kaggle_return(good, pack_root=pack)
     assert identity["return_type"] == "00A_ENVIRONMENT"
     assert identity["canonical_filename"] == "00A_environment_bundle.zip"
+    assert Path(identity["destination"]) == tmp_path / "data/runtime/00A_environment_bundle.zip"
     dry = import_kaggle_return(good, pack_root=pack, dry_run=True)
     assert dry["status"] == "DRY_RUN_AUTHENTICATED_NOT_IMPORTED"
 
@@ -213,3 +225,151 @@ def test_return_importer_dry_run_profile_and_replay_guards(tmp_path: Path) -> No
     }))
     with pytest.raises(KagglefilesPackError, match="replayed return"):
         import_kaggle_return(good, pack_root=pack, dry_run=True)
+
+
+def test_return_importer_writes_portable_ledger_and_preserves_replay_guard(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    pack.mkdir(parents=True)
+    source = tmp_path / "00A-return.zip"
+    _write_small_return(source)
+
+    imported = import_kaggle_return(source, pack_root=pack)
+    ledger = json.loads((pack / ".IMPORTED_RETURNS.json").read_text())
+    record = ledger["returns"][imported["sha256"]]
+    assert record["canonical_destination"] == "data/runtime/00A_environment_bundle.zip"
+    assert str(project) not in json.dumps(ledger)
+    assert Path(imported["destination"]).read_bytes() == source.read_bytes()
+
+    with pytest.raises(KagglefilesPackError, match="replayed return"):
+        import_kaggle_return(source, pack_root=pack, dry_run=True)
+
+
+def test_return_importer_migrates_in_project_absolute_ledger_path(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    pack.mkdir(parents=True)
+    source = tmp_path / "00A-return.zip"
+    _write_small_return(source)
+    digest = hashlib.sha256(b"historical return").hexdigest()
+    ledger_path = pack / ".IMPORTED_RETURNS.json"
+    ledger_path.write_text(json.dumps({
+        "schema": "certvic.kagglefiles.imported_returns.v1",
+        "returns": {
+            digest: {
+                "return_type": "00A_ENVIRONMENT",
+                "canonical_destination": str(project / "data/runtime/historical.zip"),
+                "size": 19,
+                "paper_evidence": False,
+            },
+        },
+    }))
+
+    import_kaggle_return(source, pack_root=pack, dry_run=True)
+    migrated = json.loads(ledger_path.read_text())
+    assert set(migrated["returns"]) == {digest}
+    assert (
+        migrated["returns"][digest]["canonical_destination"]
+        == "data/runtime/historical.zip"
+    )
+
+
+def test_return_importer_rejects_out_of_project_ledger_path(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    pack.mkdir(parents=True)
+    source = tmp_path / "00A-return.zip"
+    _write_small_return(source)
+    ledger_path = pack / ".IMPORTED_RETURNS.json"
+    original = {
+        "schema": "certvic.kagglefiles.imported_returns.v1",
+        "returns": {
+            hashlib.sha256(b"historical return").hexdigest(): {
+                "return_type": "00A_ENVIRONMENT",
+                "canonical_destination": str(tmp_path / "outside.zip"),
+                "size": 19,
+                "paper_evidence": False,
+            },
+        },
+    }
+    ledger_path.write_text(json.dumps(original))
+
+    with pytest.raises(KagglefilesPackError, match="outside the derived project root"):
+        import_kaggle_return(source, pack_root=pack, dry_run=True)
+    assert json.loads(ledger_path.read_text()) == original
+
+
+def test_return_importer_rejects_conflicting_canonical_bytes(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    pack.mkdir(parents=True)
+    source = tmp_path / "00A-return.zip"
+    _write_small_return(source)
+    destination = project / "data/runtime/00A_environment_bundle.zip"
+    destination.parent.mkdir(parents=True)
+    destination.write_bytes(b"different authenticated return bytes")
+
+    with pytest.raises(KagglefilesPackError, match="contains different bytes"):
+        import_kaggle_return(source, pack_root=pack, dry_run=True)
+
+
+def test_return_importer_archives_exact_superseded_destination(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    pack.mkdir(parents=True)
+    old_source = tmp_path / "old-00A.zip"
+    new_source = tmp_path / "new-00A.zip"
+    _write_small_return(old_source, marker="old")
+    _write_small_return(new_source, marker="new")
+    old_digest = hashlib.sha256(old_source.read_bytes()).hexdigest()
+    destination = project / "data/runtime/00A_environment_bundle.zip"
+    destination.parent.mkdir(parents=True)
+    destination.write_bytes(old_source.read_bytes())
+    (pack / ".IMPORTED_RETURNS.json").write_text(json.dumps({
+        "schema": "certvic.kagglefiles.imported_returns.v1",
+        "returns": {
+            old_digest: {
+                "return_type": "00A_ENVIRONMENT",
+                "canonical_destination": "data/runtime/00A_environment_bundle.zip",
+                "size": old_source.stat().st_size,
+                "gating_status": "SUPERSEDED_CODE_IDENTITY",
+                "paper_evidence": False,
+            },
+        },
+    }))
+
+    imported = import_kaggle_return(new_source, pack_root=pack)
+    history = (
+        project
+        / "data/runtime/superseded"
+        / f"00A_environment_bundle.{old_digest}.zip"
+    )
+    assert history.read_bytes() == old_source.read_bytes()
+    assert destination.read_bytes() == new_source.read_bytes()
+    ledger = json.loads((pack / ".IMPORTED_RETURNS.json").read_text())
+    assert ledger["returns"][old_digest]["canonical_destination"] == (
+        f"data/runtime/superseded/00A_environment_bundle.{old_digest}.zip"
+    )
+    assert ledger["returns"][imported["sha256"]]["gating_status"] == "ACTIVE_CODE_IDENTITY"
+
+
+def test_return_importer_rejects_superseded_00a_code_identity(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    common = pack / "inputs/00_COMMON"
+    common.mkdir(parents=True)
+    code_bundle = common / "certvic_code_bundle.zip"
+    code_bundle.write_bytes(b"current deterministic code bundle")
+    source = tmp_path / "stale-00A.zip"
+    _write_small_return(source, code_bundle_hash=hashlib.sha256(b"old code").hexdigest())
+
+    with pytest.raises(KagglefilesPackError, match="superseded CODE bundle identity"):
+        import_kaggle_return(source, pack_root=pack, dry_run=True)
+
+
+def test_real_import_ledger_contains_no_private_absolute_path() -> None:
+    ledger_path = PACK / ".IMPORTED_RETURNS.json"
+    if not ledger_path.exists():
+        pytest.skip("no machine-local imported-return ledger in this checkout")
+    text = ledger_path.read_text()
+    assert all(prefix not in text for prefix in ("/Users/", "/home/", "/root/", "~"))

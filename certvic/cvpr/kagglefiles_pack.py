@@ -127,6 +127,20 @@ def _write(path: Path, payload: str | bytes, *, executable: bool = False) -> Non
         path.chmod(0o755)
 
 
+def _atomic_write(path: Path, payload: bytes) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    temporary = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "wb") as handle:
+            handle.write(payload)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 def _cell(kind: str, source: str) -> dict[str, Any]:
     cell = {
         "cell_type": kind,
@@ -1479,6 +1493,7 @@ READY_TO_RETRY_CP312_THEN_QWEN
         f"{_sha(path)}  {path.relative_to(pack_root).as_posix()}\n" for path in checksummed
     )
     _write(pack_root / "CHECKSUMS.sha256", checksums)
+    _reconcile_imported_00a_gating(pack_root)
     return {
         "schema": "certvic.kagglefiles.refresh.v1",
         "status": "CERTVIC_UNIFIED_KAGGLEFILES_OPERATOR_PACK_COMPLETE",
@@ -1599,12 +1614,118 @@ def _require_active_profile(value: Mapping[str, Any], *, role: str) -> None:
         )
 
 
+def _portable_project_destination(destination: str | Path, *, project_root: Path) -> str:
+    """Return a safe repository-relative POSIX destination."""
+    root = project_root.resolve()
+    value = Path(destination).expanduser()
+    candidate = value.resolve() if value.is_absolute() else (root / value).resolve()
+    try:
+        relative = candidate.relative_to(root)
+    except ValueError as error:
+        raise KagglefilesPackError(
+            "imported-return destination is outside the derived project root"
+        ) from error
+    if not relative.parts or relative == Path(".") or ".." in relative.parts:
+        raise KagglefilesPackError("imported-return destination is not a safe project-relative path")
+    return relative.as_posix()
+
+
+def _read_and_migrate_return_ledger(ledger_path: Path, *, project_root: Path) -> dict[str, Any]:
+    if not ledger_path.is_file():
+        return {"schema": "certvic.kagglefiles.imported_returns.v1", "returns": {}}
+    try:
+        ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise KagglefilesPackError("imported-return ledger is unreadable or invalid") from error
+    if not isinstance(ledger, dict) or not isinstance(ledger.get("returns"), dict):
+        raise KagglefilesPackError("imported-return ledger has an invalid structure")
+
+    migrated = False
+    for digest, record in ledger["returns"].items():
+        if not isinstance(digest, str) or not isinstance(record, dict):
+            raise KagglefilesPackError("imported-return ledger contains an invalid replay record")
+        destination = record.get("canonical_destination")
+        if destination is None:
+            continue
+        portable = _portable_project_destination(destination, project_root=project_root)
+        if portable != destination:
+            record["canonical_destination"] = portable
+            migrated = True
+    if migrated:
+        _atomic_write(ledger_path, _json_bytes(ledger))
+    return ledger
+
+
+def _reconcile_imported_00a_gating(pack_root: Path) -> None:
+    """Bind imported 00A history to the currently refreshed CODE bundle."""
+    pack = pack_root.resolve()
+    ledger_path = pack / ".IMPORTED_RETURNS.json"
+    if not ledger_path.is_file():
+        return
+    project_root = pack.parent
+    ledger = _read_and_migrate_return_ledger(ledger_path, project_root=project_root)
+    code_bundle = pack / "inputs/00_COMMON/certvic_code_bundle.zip"
+    if not code_bundle.is_file():
+        return
+    current_code_hash = _sha(code_bundle)
+    changed = False
+    for digest, record in ledger["returns"].items():
+        if record.get("return_type") != "00A_ENVIRONMENT":
+            continue
+        destination = record.get("canonical_destination")
+        if not isinstance(destination, str):
+            continue
+        source = project_root / _portable_project_destination(
+            destination, project_root=project_root
+        )
+        if not source.is_file() or _sha(source) != digest:
+            continue
+        payloads = _safe_zip_payloads(source)
+        environment = json.loads(payloads.get("00A_environment.json", b"{}"))
+        authenticated_code_hash = environment.get("code_bundle_hash")
+        if not isinstance(authenticated_code_hash, str):
+            continue
+        status = (
+            "ACTIVE_CODE_IDENTITY"
+            if authenticated_code_hash == current_code_hash
+            else "SUPERSEDED_CODE_IDENTITY"
+        )
+        updates = {
+            "gating_status": status,
+            "authenticated_code_bundle_sha256": authenticated_code_hash,
+            "current_code_bundle_sha256": current_code_hash,
+        }
+        if any(record.get(key) != value for key, value in updates.items()):
+            record.update(updates)
+            changed = True
+    if changed:
+        _atomic_write(ledger_path, _json_bytes(ledger))
+
+
+def _superseded_destination_record(
+    ledger: Mapping[str, Any],
+    *,
+    destination: str,
+    observed_sha256: str,
+) -> dict[str, Any] | None:
+    record = ledger.get("returns", {}).get(observed_sha256)
+    if (
+        isinstance(record, dict)
+        and record.get("canonical_destination") == destination
+        and record.get("gating_status") == "SUPERSEDED_CODE_IDENTITY"
+    ):
+        return record
+    return None
+
+
 def identify_kaggle_return(path: str | Path, *, pack_root: str | Path = DEFAULT_PACK_ROOT) -> dict[str, Any]:
     """Authenticate a return by contents and resolve its canonical destination."""
     source = Path(path).resolve()
     if not source.is_file() or source.stat().st_size == 0:
         raise KagglefilesPackError("return does not exist or is zero-byte")
-    pack = Path(pack_root)
+    pack = Path(pack_root).resolve()
+    project_root = pack.parent
+    code_bundle_hash: str | None = None
     payloads = _safe_zip_payloads(source)
     digest = _sha(source)
     if "bundle_manifest.json" in payloads:
@@ -1643,8 +1764,9 @@ def identify_kaggle_return(path: str | Path, *, pack_root: str | Path = DEFAULT_
         if primary.get("passed") is not True:
             raise KagglefilesPackError("00A return is not successful")
         _require_active_profile(primary, role="00A")
+        code_bundle_hash = primary.get("code_bundle_hash")
         canonical = "00A_environment_bundle.zip"
-        destination = ROOT / "data/runtime" / canonical
+        destination = project_root / "data/runtime" / canonical
         return_type = "00A_ENVIRONMENT"
     else:
         snapshot_primary = [
@@ -1658,7 +1780,7 @@ def identify_kaggle_return(path: str | Path, *, pack_root: str | Path = DEFAULT_
                 raise KagglefilesPackError("00B provider or validation status is invalid")
             _require_active_profile(primary, role="00B")
             canonical = f"00B_{provider}_snapshot_bundle.zip"
-            destination = ROOT / "data/runtime" / canonical
+            destination = project_root / "data/runtime" / canonical
             return_type = f"00B_SNAPSHOT_SMOKE:{provider}"
         elif "authorization_proof.json" in payloads and "predictions.jsonl" in payloads:
             from certvic.cvpr.smoke_artifacts import read_smoke_archive
@@ -1672,7 +1794,7 @@ def identify_kaggle_return(path: str | Path, *, pack_root: str | Path = DEFAULT_
             if provider not in PROVIDERS:
                 raise KagglefilesPackError("00C2 provider is unknown")
             canonical = f"00C2_{provider}_real_model_smoke.zip"
-            destination = ROOT / "data/runtime" / canonical
+            destination = project_root / "data/runtime" / canonical
             return_type = f"00C2_REAL_MODEL_SMOKE:{provider}"
         else:
             runtime = json_payloads.get("runtime_manifest.json")
@@ -1706,8 +1828,8 @@ def identify_kaggle_return(path: str | Path, *, pack_root: str | Path = DEFAULT_
                     raise KagglefilesPackError("scientific provider identity is unknown")
                 canonical = f"{lane}_{PROVIDERS[provider]['short']}_return.zip"
                 return_type = f"SCIENTIFIC:{lane}:{provider}"
-            destination = ROOT / "local_inputs/provider_returns" / local_lane / canonical
-    return {
+            destination = project_root / "local_inputs/provider_returns" / local_lane / canonical
+    identity = {
         "return_type": return_type,
         "canonical_filename": canonical,
         "destination": str(destination),
@@ -1716,6 +1838,9 @@ def identify_kaggle_return(path: str | Path, *, pack_root: str | Path = DEFAULT_
         "runtime_profile_id": ACTIVE_PROFILE,
         "paper_evidence": False,
     }
+    if return_type == "00A_ENVIRONMENT":
+        identity["code_bundle_hash"] = code_bundle_hash
+    return identity
 
 
 def import_kaggle_return(
@@ -1725,23 +1850,72 @@ def import_kaggle_return(
     dry_run: bool = False,
 ) -> dict[str, Any]:
     source = Path(path).resolve()
-    identity = identify_kaggle_return(source, pack_root=pack_root)
+    pack = Path(pack_root).resolve()
+    project_root = pack.parent
+    identity = identify_kaggle_return(source, pack_root=pack)
     destination = Path(str(identity["destination"]))
-    ledger_path = Path(pack_root) / ".IMPORTED_RETURNS.json"
-    ledger = (
-        json.loads(ledger_path.read_text())
-        if ledger_path.is_file()
-        else {"schema": "certvic.kagglefiles.imported_returns.v1", "returns": {}}
-    )
+    portable_destination = _portable_project_destination(destination, project_root=project_root)
+    if identity["return_type"] == "00A_ENVIRONMENT":
+        code_bundle = pack / "inputs/00_COMMON/certvic_code_bundle.zip"
+        if (
+            code_bundle.is_file()
+            and identity.get("code_bundle_hash") != _sha(code_bundle)
+        ):
+            raise KagglefilesPackError(
+                "00A return is bound to a superseded CODE bundle identity"
+            )
+    ledger_path = pack / ".IMPORTED_RETURNS.json"
+    ledger = _read_and_migrate_return_ledger(ledger_path, project_root=project_root)
     if identity["sha256"] in ledger.get("returns", {}):
         raise KagglefilesPackError("replayed return hash was already imported")
+    superseded_record = None
+    superseded_sha256 = None
     if destination.is_file():
-        if _sha(destination) == identity["sha256"]:
+        existing_sha256 = _sha(destination)
+        if existing_sha256 == identity["sha256"]:
             raise KagglefilesPackError("replayed return already exists at the canonical destination")
-        raise KagglefilesPackError("canonical destination already contains different bytes")
+        superseded_record = _superseded_destination_record(
+            ledger,
+            destination=portable_destination,
+            observed_sha256=existing_sha256,
+        )
+        if superseded_record is None:
+            raise KagglefilesPackError("canonical destination already contains different bytes")
+        superseded_sha256 = existing_sha256
     if dry_run:
-        return {**identity, "status": "DRY_RUN_AUTHENTICATED_NOT_IMPORTED", "next_command": "bash kagglefiles/run_local_resume.sh"}
+        return {
+            **identity,
+            "status": "DRY_RUN_AUTHENTICATED_NOT_IMPORTED",
+            "supersedes_imported_sha256": superseded_sha256,
+            "next_command": "bash kagglefiles/run_local_resume.sh",
+        }
     destination.parent.mkdir(parents=True, exist_ok=True)
+    if superseded_record is not None and superseded_sha256 is not None:
+        history = (
+            project_root
+            / "data/runtime/superseded"
+            / f"{destination.stem}.{superseded_sha256}.zip"
+        )
+        history.parent.mkdir(parents=True, exist_ok=True)
+        if history.is_file():
+            if _sha(history) != superseded_sha256:
+                raise KagglefilesPackError("superseded return history contains conflicting bytes")
+        else:
+            descriptor, history_temporary_name = tempfile.mkstemp(
+                prefix=f".{history.name}.", dir=history.parent
+            )
+            os.close(descriptor)
+            history_temporary = Path(history_temporary_name)
+            try:
+                shutil.copyfile(destination, history_temporary)
+                if _sha(history_temporary) != superseded_sha256:
+                    raise KagglefilesPackError("superseded return archival copy changed bytes")
+                os.replace(history_temporary, history)
+            finally:
+                history_temporary.unlink(missing_ok=True)
+        superseded_record["canonical_destination"] = _portable_project_destination(
+            history, project_root=project_root
+        )
     descriptor, temporary_name = tempfile.mkstemp(prefix=f".{destination.name}.", dir=destination.parent)
     os.close(descriptor)
     temporary = Path(temporary_name)
@@ -1752,13 +1926,16 @@ def import_kaggle_return(
         os.replace(temporary, destination)
     finally:
         temporary.unlink(missing_ok=True)
-    ledger.setdefault("returns", {})[str(identity["sha256"])] = {
+    new_record = {
         "return_type": identity["return_type"],
-        "canonical_destination": str(destination),
+        "canonical_destination": portable_destination,
         "size": identity["size"],
         "paper_evidence": False,
     }
-    _write(ledger_path, _json_bytes(ledger))
+    if identity["return_type"] == "00A_ENVIRONMENT":
+        new_record["gating_status"] = "ACTIVE_CODE_IDENTITY"
+    ledger.setdefault("returns", {})[str(identity["sha256"])] = new_record
+    _atomic_write(ledger_path, _json_bytes(ledger))
     return {
         **identity,
         "status": "AUTHENTICATED_RETURN_IMPORTED_UNCHANGED",

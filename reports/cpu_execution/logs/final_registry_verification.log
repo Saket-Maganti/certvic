@@ -2,7 +2,7 @@ $ python3 -m certvic.cvpr.artifact_registry verify
 
 [stdout]
 {
-  "artifact_count": 24,
+  "artifact_count": 40,
   "errors": [],
   "paper_evidence": false,
   "passed": true,
