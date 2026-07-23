@@ -3,8 +3,8 @@ DO NOT NAVIGATE THE REST OF THE REPOSITORY.
 
 # CertVIC Kaggle operator pack
 
-- Repository source commit: `4472321f2fa42781d3af46e0f56a3cbe53bc6341`
-- Origin/main at generation: `4472321f2fa42781d3af46e0f56a3cbe53bc6341`
+- Repository source commit: `b58ab7ee56ee6f86f2d91960c6acb08c42ac6fec`
+- Origin/main at generation: `b58ab7ee56ee6f86f2d91960c6acb08c42ac6fec`
 - Doctor state: `READY_FOR_00A`
 - Active runtime profile: `kaggle_cp312_2026_07`
 - Evidence boundary: `paper_evidence=false`; genuine `human_reviewed=true` count is 0.

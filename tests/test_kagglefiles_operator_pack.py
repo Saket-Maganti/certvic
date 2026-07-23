@@ -9,7 +9,9 @@ from pathlib import Path
 
 import pytest
 
-from certvic.cvpr.kaggle_bundle import verify_bundle
+import certvic.cvpr.kagglefiles_pack as kagglefiles_pack_module
+from certvic.cvpr.content_discovery import authenticate_content_path
+from certvic.cvpr.kaggle_bundle import build_bundle, verify_bundle
 from certvic.cvpr.kagglefiles_pack import (
     ACTIVE_PROFILE,
     INPUT_FOLDERS,
@@ -24,6 +26,15 @@ from certvic.cvpr.kagglefiles_pack import (
 
 ROOT = Path(__file__).resolve().parents[1]
 PACK = ROOT / "kagglefiles"
+KNOWN_C7_CODE_CONTENT_IDENTITY = (
+    "bd645b467af1a19859159d3bef3d06da39d8b87a942ec4a87038d4ffc9ec37d7"
+)
+KNOWN_C7_CODE_ARCHIVE_SHA256 = (
+    "ef7fe5bd0d971e0d6ef232b9c231864f690839c7e368bad4ff78415ec982e908"
+)
+KNOWN_C7_00A_ARCHIVE_SHA256 = (
+    "91d84926ac44195977889ede036df15e0b577278826b5f1142e77e1a66e71a05"
+)
 
 
 def _rows(root: Path = PACK) -> list[dict[str, str]]:
@@ -77,6 +88,27 @@ def _write_small_return(
     with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as archive:
         for name, payload in sorted(members.items()):
             archive.writestr(name, payload)
+
+
+def _write_code_bundle(path: Path, *, payload: bytes = b"current code\n") -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    build_bundle(
+        path,
+        {"certvic/fixture.py": payload},
+        bundle_type="CODE",
+        study="all",
+        stage="bootstrap",
+        provider=None,
+        required_notebook="00A.ipynb",
+        dataset_slug="fixture/code",
+        mount_path="/kaggle/input/code",
+        external_dependency_status="SYNTHETIC_FIXTURE",
+        evidence_class="SYNTHETIC_FIXTURE",
+        builder_command="pytest",
+        validation_command="pytest",
+        readme="Synthetic CODE fixture.",
+    )
+    return path
 
 
 def test_exact_root_shape_and_required_runbook_set() -> None:
@@ -261,6 +293,8 @@ def test_return_importer_migrates_in_project_absolute_ledger_path(tmp_path: Path
                 "canonical_destination": str(project / "data/runtime/historical.zip"),
                 "size": 19,
                 "paper_evidence": False,
+                "authenticated_code_bundle_sha256": "a" * 64,
+                "current_code_bundle_sha256": "b" * 64,
             },
         },
     }))
@@ -272,6 +306,11 @@ def test_return_importer_migrates_in_project_absolute_ledger_path(tmp_path: Path
         migrated["returns"][digest]["canonical_destination"]
         == "data/runtime/historical.zip"
     )
+    record = migrated["returns"][digest]
+    assert record["authenticated_code_content_identity_sha256"] == "a" * 64
+    assert record["current_code_archive_sha256"] == "b" * 64
+    assert "authenticated_code_bundle_sha256" not in record
+    assert "current_code_bundle_sha256" not in record
 
 
 def test_return_importer_rejects_out_of_project_ledger_path(tmp_path: Path) -> None:
@@ -359,12 +398,138 @@ def test_return_importer_rejects_superseded_00a_code_identity(tmp_path: Path) ->
     common = pack / "inputs/00_COMMON"
     common.mkdir(parents=True)
     code_bundle = common / "certvic_code_bundle.zip"
-    code_bundle.write_bytes(b"current deterministic code bundle")
+    _write_code_bundle(code_bundle)
     source = tmp_path / "stale-00A.zip"
     _write_small_return(source, code_bundle_hash=hashlib.sha256(b"old code").hexdigest())
 
     with pytest.raises(KagglefilesPackError, match="superseded CODE bundle identity"):
         import_kaggle_return(source, pack_root=pack, dry_run=True)
+
+
+def test_00a_guard_uses_verified_code_content_identity(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    code_bundle = _write_code_bundle(
+        pack / "inputs/00_COMMON/certvic_code_bundle.zip"
+    )
+    content_identity = authenticate_content_path(code_bundle, "CODE")
+    archive_sha256 = hashlib.sha256(code_bundle.read_bytes()).hexdigest()
+    assert content_identity != archive_sha256
+
+    source = tmp_path / "current-00A.zip"
+    _write_small_return(source, code_bundle_hash=content_identity)
+    imported = import_kaggle_return(source, pack_root=pack)
+
+    assert imported["status"] == "AUTHENTICATED_RETURN_IMPORTED_UNCHANGED"
+    assert imported["current_code_content_identity_sha256"] == content_identity
+    assert imported["current_code_archive_sha256"] == archive_sha256
+    ledger = json.loads((pack / ".IMPORTED_RETURNS.json").read_text())
+    record = ledger["returns"][imported["sha256"]]
+    assert record["gating_status"] == "ACTIVE_CODE_IDENTITY"
+    assert record["authenticated_code_content_identity_sha256"] == content_identity
+    assert record["current_code_content_identity_sha256"] == content_identity
+    assert record["current_code_archive_sha256"] == archive_sha256
+
+
+def test_00a_guard_rejects_corrupt_code_archive(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    code_bundle = _write_code_bundle(
+        pack / "inputs/00_COMMON/certvic_code_bundle.zip"
+    )
+    content_identity = authenticate_content_path(code_bundle, "CODE")
+    with zipfile.ZipFile(code_bundle, "a") as archive:
+        archive.writestr("certvic/fixture.py", b"corrupt replacement\n")
+
+    source = tmp_path / "current-00A.zip"
+    _write_small_return(source, code_bundle_hash=content_identity)
+    with pytest.raises(
+        KagglefilesPackError,
+        match="CODE bundle failed authenticated content verification",
+    ):
+        import_kaggle_return(source, pack_root=pack, dry_run=True)
+
+
+def test_00a_reconciliation_uses_content_identity_for_gating(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    code_bundle = _write_code_bundle(
+        pack / "inputs/00_COMMON/certvic_code_bundle.zip"
+    )
+    content_identity = authenticate_content_path(code_bundle, "CODE")
+    archive_sha256 = hashlib.sha256(code_bundle.read_bytes()).hexdigest()
+    current = project / "data/runtime/current.zip"
+    old = project / "data/runtime/old.zip"
+    current.parent.mkdir(parents=True)
+    _write_small_return(current, code_bundle_hash=content_identity)
+    _write_small_return(old, code_bundle_hash="c" * 64)
+    current_digest = hashlib.sha256(current.read_bytes()).hexdigest()
+    old_digest = hashlib.sha256(old.read_bytes()).hexdigest()
+    ledger_path = pack / ".IMPORTED_RETURNS.json"
+    ledger_path.write_text(json.dumps({
+        "schema": "certvic.kagglefiles.imported_returns.v1",
+        "returns": {
+            current_digest: {
+                "return_type": "00A_ENVIRONMENT",
+                "canonical_destination": "data/runtime/current.zip",
+            },
+            old_digest: {
+                "return_type": "00A_ENVIRONMENT",
+                "canonical_destination": "data/runtime/old.zip",
+            },
+        },
+    }))
+
+    kagglefiles_pack_module._reconcile_imported_00a_gating(pack)
+
+    records = json.loads(ledger_path.read_text())["returns"]
+    assert records[current_digest]["gating_status"] == "ACTIVE_CODE_IDENTITY"
+    assert records[old_digest]["gating_status"] == "SUPERSEDED_CODE_IDENTITY"
+    for record in records.values():
+        assert record["current_code_content_identity_sha256"] == content_identity
+        assert record["current_code_archive_sha256"] == archive_sha256
+
+
+def test_known_genuine_00a_metadata_uses_distinct_identity_domains(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    known_metadata = {
+        "return_archive_sha256": KNOWN_C7_00A_ARCHIVE_SHA256,
+        "code_content_identity_sha256": KNOWN_C7_CODE_CONTENT_IDENTITY,
+        "code_archive_sha256": KNOWN_C7_CODE_ARCHIVE_SHA256,
+    }
+    assert known_metadata["code_content_identity_sha256"] != (
+        known_metadata["code_archive_sha256"]
+    )
+    project = tmp_path / "project"
+    pack = project / "kagglefiles"
+    code_bundle = pack / "inputs/00_COMMON/certvic_code_bundle.zip"
+    code_bundle.parent.mkdir(parents=True)
+    code_bundle.write_bytes(b"copied current CODE archive metadata fixture")
+    monkeypatch.setattr(
+        kagglefiles_pack_module,
+        "_code_bundle_identities",
+        lambda path: (
+            known_metadata["code_content_identity_sha256"],
+            known_metadata["code_archive_sha256"],
+        ),
+    )
+    source = tmp_path / "known-metadata-00A.zip"
+    _write_small_return(
+        source,
+        code_bundle_hash=known_metadata["code_content_identity_sha256"],
+    )
+
+    result = import_kaggle_return(source, pack_root=pack, dry_run=True)
+
+    assert result["status"] == "DRY_RUN_AUTHENTICATED_NOT_IMPORTED"
+    assert result["current_code_content_identity_sha256"] == (
+        known_metadata["code_content_identity_sha256"]
+    )
+    assert result["current_code_archive_sha256"] == (
+        known_metadata["code_archive_sha256"]
+    )
 
 
 def test_real_import_ledger_contains_no_private_absolute_path() -> None:

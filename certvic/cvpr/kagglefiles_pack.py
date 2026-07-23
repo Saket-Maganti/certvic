@@ -17,6 +17,10 @@ import zipfile
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable, Mapping
 
+from certvic.cvpr.content_discovery import (
+    ContentDiscoveryError,
+    authenticate_content_path,
+)
 from certvic.cvpr.kaggle_bundle import verify_bundle
 from certvic.cvpr.notebook_builder import (
     NOTEBOOKS,
@@ -1644,6 +1648,17 @@ def _read_and_migrate_return_ledger(ledger_path: Path, *, project_root: Path) ->
     for digest, record in ledger["returns"].items():
         if not isinstance(digest, str) or not isinstance(record, dict):
             raise KagglefilesPackError("imported-return ledger contains an invalid replay record")
+        legacy_authenticated = record.pop("authenticated_code_bundle_sha256", None)
+        legacy_current = record.pop("current_code_bundle_sha256", None)
+        if legacy_authenticated is not None:
+            record.setdefault(
+                "authenticated_code_content_identity_sha256",
+                legacy_authenticated,
+            )
+            migrated = True
+        if legacy_current is not None:
+            record.setdefault("current_code_archive_sha256", legacy_current)
+            migrated = True
         destination = record.get("canonical_destination")
         if destination is None:
             continue
@@ -1654,6 +1669,18 @@ def _read_and_migrate_return_ledger(ledger_path: Path, *, project_root: Path) ->
     if migrated:
         _atomic_write(ledger_path, _json_bytes(ledger))
     return ledger
+
+
+def _code_bundle_identities(code_bundle: Path) -> tuple[str, str]:
+    """Return authenticated semantic and outer-archive identities for CODE."""
+    try:
+        content_identity = authenticate_content_path(code_bundle, "CODE")
+        archive_sha256 = _sha(code_bundle)
+    except (ContentDiscoveryError, OSError) as error:
+        raise KagglefilesPackError(
+            f"CODE bundle failed authenticated content verification: {error}"
+        ) from error
+    return content_identity, archive_sha256
 
 
 def _reconcile_imported_00a_gating(pack_root: Path) -> None:
@@ -1667,7 +1694,9 @@ def _reconcile_imported_00a_gating(pack_root: Path) -> None:
     code_bundle = pack / "inputs/00_COMMON/certvic_code_bundle.zip"
     if not code_bundle.is_file():
         return
-    current_code_hash = _sha(code_bundle)
+    current_content_identity, current_archive_sha256 = _code_bundle_identities(
+        code_bundle
+    )
     changed = False
     for digest, record in ledger["returns"].items():
         if record.get("return_type") != "00A_ENVIRONMENT":
@@ -1687,13 +1716,14 @@ def _reconcile_imported_00a_gating(pack_root: Path) -> None:
             continue
         status = (
             "ACTIVE_CODE_IDENTITY"
-            if authenticated_code_hash == current_code_hash
+            if authenticated_code_hash == current_content_identity
             else "SUPERSEDED_CODE_IDENTITY"
         )
         updates = {
             "gating_status": status,
-            "authenticated_code_bundle_sha256": authenticated_code_hash,
-            "current_code_bundle_sha256": current_code_hash,
+            "authenticated_code_content_identity_sha256": authenticated_code_hash,
+            "current_code_content_identity_sha256": current_content_identity,
+            "current_code_archive_sha256": current_archive_sha256,
         }
         if any(record.get(key) != value for key, value in updates.items()):
             record.update(updates)
@@ -1855,15 +1885,20 @@ def import_kaggle_return(
     identity = identify_kaggle_return(source, pack_root=pack)
     destination = Path(str(identity["destination"]))
     portable_destination = _portable_project_destination(destination, project_root=project_root)
+    current_code_identities: tuple[str, str] | None = None
     if identity["return_type"] == "00A_ENVIRONMENT":
         code_bundle = pack / "inputs/00_COMMON/certvic_code_bundle.zip"
-        if (
-            code_bundle.is_file()
-            and identity.get("code_bundle_hash") != _sha(code_bundle)
-        ):
-            raise KagglefilesPackError(
-                "00A return is bound to a superseded CODE bundle identity"
-            )
+        if code_bundle.is_file():
+            current_code_identities = _code_bundle_identities(code_bundle)
+            current_content_identity, current_archive_sha256 = current_code_identities
+            if identity.get("code_bundle_hash") != current_content_identity:
+                raise KagglefilesPackError(
+                    "00A return is bound to a superseded CODE bundle identity"
+                )
+            identity.update({
+                "current_code_content_identity_sha256": current_content_identity,
+                "current_code_archive_sha256": current_archive_sha256,
+            })
     ledger_path = pack / ".IMPORTED_RETURNS.json"
     ledger = _read_and_migrate_return_ledger(ledger_path, project_root=project_root)
     if identity["sha256"] in ledger.get("returns", {}):
@@ -1934,6 +1969,15 @@ def import_kaggle_return(
     }
     if identity["return_type"] == "00A_ENVIRONMENT":
         new_record["gating_status"] = "ACTIVE_CODE_IDENTITY"
+        if current_code_identities is not None:
+            current_content_identity, current_archive_sha256 = current_code_identities
+            new_record.update({
+                "authenticated_code_content_identity_sha256": identity[
+                    "code_bundle_hash"
+                ],
+                "current_code_content_identity_sha256": current_content_identity,
+                "current_code_archive_sha256": current_archive_sha256,
+            })
     ledger.setdefault("returns", {})[str(identity["sha256"])] = new_record
     _atomic_write(ledger_path, _json_bytes(ledger))
     return {
