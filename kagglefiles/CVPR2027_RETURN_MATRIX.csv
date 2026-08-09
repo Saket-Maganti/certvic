@@ -1,0 +1,4 @@
+stage,provider,expected_zip,destination,import,validation,paper_evidence
+00C2,qwen2_5_vl_7b,00C2_qwen2_5_vl_7b_real_model_smoke.zip,data/runtime/00C2_qwen2_5_vl_7b_real_model_smoke.zip,python3 kagglefiles/import_kaggle_return.py /path/to/downloaded_return.zip,bash kagglefiles/run_local_resume.sh,False
+00C2,internvl_8b,00C2_internvl_8b_real_model_smoke.zip,data/runtime/00C2_internvl_8b_real_model_smoke.zip,python3 kagglefiles/import_kaggle_return.py /path/to/downloaded_return.zip,bash kagglefiles/run_local_resume.sh,False
+00C2,llava_onevision_7b,00C2_llava_onevision_7b_real_model_smoke.zip,data/runtime/00C2_llava_onevision_7b_real_model_smoke.zip,python3 kagglefiles/import_kaggle_return.py /path/to/downloaded_return.zip,bash kagglefiles/run_local_resume.sh,False

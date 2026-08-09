@@ -8,7 +8,6 @@ import json
 import re
 import sys
 import time
-import zipfile
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -276,11 +275,13 @@ def _recursive_keys(value: Any) -> set[str]:
 
 
 def reviewer_packet_audit() -> dict[str, Any]:
-    packet = (
+    packet_root = (
         REPO
         / "reports/v11_full_ceiling_audit/human_review_packet/"
-        "certvic_v11_blinded_reviewer_bundle.zip"
+        "reviewer_bundle"
     )
+    packet_manifest_path = packet_root.parent / "packet_manifest.json"
+    packet_manifest = json.loads(packet_manifest_path.read_text(encoding="utf-8"))
     prohibited_keys = {
         "provider",
         "provider_name",
@@ -292,16 +293,24 @@ def reviewer_packet_audit() -> dict[str, Any]:
     }
     observed_keys: set[str] = set()
     suspicious_members = []
-    with zipfile.ZipFile(packet) as archive:
-        for name in archive.namelist():
-            if any(token in name.casefold() for token in ["provider_output", "predictions", "failure_label"]):
-                suspicious_members.append(name)
-            if name.endswith(".json"):
-                observed_keys.update(_recursive_keys(json.loads(archive.read(name))))
+    for path in sorted(packet_root.rglob("*")):
+        if not path.is_file():
+            continue
+        name = path.relative_to(packet_root).as_posix()
+        if any(
+            token in name.casefold()
+            for token in ["provider_output", "predictions", "failure_label"]
+        ):
+            suspicious_members.append(name)
+        if name.endswith(".json"):
+            observed_keys.update(
+                _recursive_keys(json.loads(path.read_text(encoding="utf-8")))
+            )
     found = sorted(prohibited_keys & observed_keys)
     return {
-        "packet": packet.relative_to(REPO).as_posix(),
-        "sha256": sha256_file(packet),
+        "packet": packet_root.relative_to(REPO).as_posix(),
+        "declared_archive_sha256": packet_manifest["reviewer_zip_sha256"],
+        "packet_manifest_sha256": sha256_file(packet_manifest_path),
         "prohibited_fields_found": found,
         "suspicious_member_names": suspicious_members,
         "provider_outcome_blinding_pass": not found and not suspicious_members,

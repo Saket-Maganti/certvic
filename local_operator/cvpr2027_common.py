@@ -108,7 +108,9 @@ def write_csv(
     )
     try:
         with os.fdopen(file_descriptor, "w", encoding="utf-8", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=fields, extrasaction="ignore")
+            writer = csv.DictWriter(
+                handle, fieldnames=fields, extrasaction="ignore", lineterminator="\n"
+            )
             writer.writeheader()
             for row in materialized:
                 writer.writerow({key: _csv_value(row.get(key)) for key in fields})
@@ -149,14 +151,14 @@ def resolve_repository_path(value: str | Path | None, *, base: Path | None = Non
     candidate = Path(raw)
     if not candidate.is_absolute():
         candidate = (base or REPO) / candidate
-    if candidate.exists():
-        return candidate.resolve()
     marker = "/data/"
     normalized = raw.replace("\\", "/")
     if marker in normalized:
         portable = REPO / "data" / normalized.split(marker, maxsplit=1)[1]
         if portable.exists():
             return portable.resolve()
+    if candidate.exists():
+        return candidate.resolve()
     return candidate.resolve()
 
 
