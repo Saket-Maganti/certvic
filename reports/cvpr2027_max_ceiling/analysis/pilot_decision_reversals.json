@@ -1,0 +1,62 @@
+{
+  "analysis_class": "RETROSPECTIVE_DIAGNOSTIC",
+  "decision_vectors": {
+    "internvl_8b": {
+      "bootstrap_joint_decision": false,
+      "confidence_sequence_joint_decision": false,
+      "multiplicity_corrected_joint_decision": false,
+      "point_estimate_joint_decision": false,
+      "standard_exact_ci_joint_decision": false
+    },
+    "llava_onevision_7b": {
+      "bootstrap_joint_decision": false,
+      "confidence_sequence_joint_decision": false,
+      "multiplicity_corrected_joint_decision": false,
+      "point_estimate_joint_decision": false,
+      "standard_exact_ci_joint_decision": false
+    },
+    "qwen2_5_vl_7b": {
+      "bootstrap_joint_decision": false,
+      "confidence_sequence_joint_decision": false,
+      "multiplicity_corrected_joint_decision": false,
+      "point_estimate_joint_decision": false,
+      "standard_exact_ci_joint_decision": false
+    }
+  },
+  "paper_evidence": false,
+  "pass_fail_reversal_found": false,
+  "ranking_orders": {
+    "irrelevant_flip": [
+      "internvl_8b",
+      "llava_onevision_7b",
+      "qwen2_5_vl_7b"
+    ],
+    "joint_balance": [
+      "qwen2_5_vl_7b",
+      "llava_onevision_7b",
+      "internvl_8b"
+    ],
+    "original_image_accuracy": [
+      "qwen2_5_vl_7b",
+      "internvl_8b",
+      "llava_onevision_7b"
+    ],
+    "raw_answer_change_rate": [
+      "qwen2_5_vl_7b",
+      "llava_onevision_7b",
+      "internvl_8b"
+    ],
+    "semantic_update_success": [
+      "qwen2_5_vl_7b",
+      "llava_onevision_7b",
+      "internvl_8b"
+    ],
+    "specificity": [
+      "internvl_8b",
+      "llava_onevision_7b",
+      "qwen2_5_vl_7b"
+    ]
+  },
+  "ranking_reversal_found": true,
+  "schema": "certvic.cvpr2027.pilot_decision_reversals.v1"
+}

@@ -1,0 +1,22 @@
+{
+  "arms": {
+    "decoding_robustness": "greedy and supported constrained yes/no; no unjustified stochastic sampling",
+    "natural_absence": "larger natural present/absent control; never substitutes for irrelevant-edit specificity",
+    "prompt_robustness": "predeclared alternate wording; run only after primary freeze/completion",
+    "quantization_runtime": "separate identity; execute only if fit and scientific interpretation are declared",
+    "repeat_determinism": "same small frozen subset, snapshot, prompt, decoding, and bytes; exact output equality only where promised"
+  },
+  "common_requirements": [
+    "immutable task-bundle hash",
+    "model and processor revision",
+    "prompt/parser/run-contract hashes",
+    "separate permission and nonce",
+    "outputs cleared",
+    "offline snapshot",
+    "canonical return ZIP",
+    "paper_evidence=false"
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.secondary_gpu_contracts.v1",
+  "status": "CONTRACTS_PREPARED_EXECUTION_BLOCKED"
+}

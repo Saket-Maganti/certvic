@@ -1,0 +1,213 @@
+{
+  "failures": [
+    {
+      "failure": "download interrupted",
+      "human_action": "redownload",
+      "preserve_which_bytes": "completed remote output and hashes",
+      "requires_new_permission": false,
+      "requires_rerun": true,
+      "safe_retry": true,
+      "scientific_consequence": "none if hash-valid"
+    },
+    {
+      "failure": "Kaggle session reset",
+      "human_action": "restart only under same valid permission",
+      "preserve_which_bytes": "downloaded checkpoints and immutable inputs",
+      "requires_new_permission": "depends",
+      "requires_rerun": true,
+      "safe_retry": true,
+      "scientific_consequence": "rerun disclosure"
+    },
+    {
+      "failure": "disk full",
+      "human_action": "free space without deleting evidence",
+      "preserve_which_bytes": "journals, immutable inputs, completed shards",
+      "requires_new_permission": false,
+      "requires_rerun": true,
+      "safe_retry": true,
+      "scientific_consequence": "none if validated resume"
+    },
+    {
+      "failure": "CUDA OOM",
+      "human_action": "apply only predeclared fallback or mint new permission",
+      "preserve_which_bytes": "failure report and unchanged contract",
+      "requires_new_permission": "depends",
+      "requires_rerun": true,
+      "safe_retry": true,
+      "scientific_consequence": "precision/quantization change is separate evidence identity"
+    },
+    {
+      "failure": "snapshot missing",
+      "human_action": "attach authenticated snapshot",
+      "preserve_which_bytes": "inputs",
+      "requires_new_permission": false,
+      "requires_rerun": true,
+      "safe_retry": true,
+      "scientific_consequence": "no evidence produced"
+    },
+    {
+      "failure": "snapshot hash mismatch",
+      "human_action": "obtain exact snapshot and new binding",
+      "preserve_which_bytes": "mismatch record and bytes",
+      "requires_new_permission": true,
+      "requires_rerun": true,
+      "safe_retry": false,
+      "scientific_consequence": "reject entire return"
+    },
+    {
+      "failure": "wrong provider snapshot",
+      "human_action": "attach correct provider snapshot",
+      "preserve_which_bytes": "failure report",
+      "requires_new_permission": true,
+      "requires_rerun": true,
+      "safe_retry": false,
+      "scientific_consequence": "reject entire return"
+    },
+    {
+      "failure": "wrong permission",
+      "human_action": "mint correctly bound permission",
+      "preserve_which_bytes": "permission and audit log",
+      "requires_new_permission": true,
+      "requires_rerun": true,
+      "safe_retry": false,
+      "scientific_consequence": "reject entire return"
+    },
+    {
+      "failure": "expired permission",
+      "human_action": "mint new permission",
+      "preserve_which_bytes": "expired permission",
+      "requires_new_permission": true,
+      "requires_rerun": true,
+      "safe_retry": false,
+      "scientific_consequence": "no launch allowed"
+    },
+    {
+      "failure": "consumed nonce",
+      "human_action": "mint a new nonce",
+      "preserve_which_bytes": "ledger",
+      "requires_new_permission": true,
+      "requires_rerun": true,
+      "safe_retry": false,
+      "scientific_consequence": "replay rejected"
+    },
+    {
+      "failure": "duplicate return",
+      "human_action": "idempotent import/compare hashes",
+      "preserve_which_bytes": "first committed return",
+      "requires_new_permission": false,
+      "requires_rerun": false,
+      "safe_retry": true,
+      "scientific_consequence": "conflict blocks import"
+    },
+    {
+      "failure": "corrupt ZIP",
+      "human_action": "redownload then rerun if still corrupt",
+      "preserve_which_bytes": "remote output if present",
+      "requires_new_permission": false,
+      "requires_rerun": true,
+      "safe_retry": true,
+      "scientific_consequence": "not evidence"
+    },
+    {
+      "failure": "missing row",
+      "human_action": "rerun missing task under fresh permission",
+      "preserve_which_bytes": "raw shards and manifest",
+      "requires_new_permission": true,
+      "requires_rerun": true,
+      "safe_retry": false,
+      "scientific_consequence": "incomplete evidence"
+    },
+    {
+      "failure": "duplicate row",
+      "human_action": "resolve run-contract violation then rerun",
+      "preserve_which_bytes": "raw rows",
+      "requires_new_permission": true,
+      "requires_rerun": true,
+      "safe_retry": false,
+      "scientific_consequence": "reject return"
+    },
+    {
+      "failure": "parser crash",
+      "human_action": "repair parser only under declared versioning policy",
+      "preserve_which_bytes": "raw model text",
+      "requires_new_permission": "depends",
+      "requires_rerun": "depends",
+      "safe_retry": "conditional",
+      "scientific_consequence": "new parser identity or fail-closed missing"
+    },
+    {
+      "failure": "partial generation",
+      "human_action": "resume deterministic uncompleted items",
+      "preserve_which_bytes": "generation journal and completed images",
+      "requires_new_permission": false,
+      "requires_rerun": true,
+      "safe_retry": true,
+      "scientific_consequence": "validate final census"
+    },
+    {
+      "failure": "review sheet incomplete",
+      "human_action": "same human finishes blank rows",
+      "preserve_which_bytes": "original sheet",
+      "requires_new_permission": false,
+      "requires_rerun": false,
+      "safe_retry": true,
+      "scientific_consequence": "review gate stays blocked"
+    },
+    {
+      "failure": "review packet mutated",
+      "human_action": "rebuild/refreeze and restart review",
+      "preserve_which_bytes": "original packet and sheets",
+      "requires_new_permission": false,
+      "requires_rerun": true,
+      "safe_retry": false,
+      "scientific_consequence": "invalidate labels tied to old hash"
+    },
+    {
+      "failure": "selection imbalance",
+      "human_action": "declare infeasible or abandon before outcomes",
+      "preserve_which_bytes": "census and solver trace",
+      "requires_new_permission": false,
+      "requires_rerun": false,
+      "safe_retry": false,
+      "scientific_consequence": "cannot tune after model outcomes"
+    },
+    {
+      "failure": "detectability failure",
+      "human_action": "do not promote; predeclare new future study",
+      "preserve_which_bytes": "all images/audits",
+      "requires_new_permission": false,
+      "requires_rerun": false,
+      "safe_retry": false,
+      "scientific_consequence": "prospective gate fails"
+    },
+    {
+      "failure": "transaction journal interrupted",
+      "human_action": "resume/recover transaction",
+      "preserve_which_bytes": "journal, staging bytes, destination",
+      "requires_new_permission": false,
+      "requires_rerun": false,
+      "safe_retry": true,
+      "scientific_consequence": "no partial promotion"
+    },
+    {
+      "failure": "analysis crash",
+      "human_action": "repair deterministic CPU analysis",
+      "preserve_which_bytes": "immutable inputs",
+      "requires_new_permission": false,
+      "requires_rerun": false,
+      "safe_retry": true,
+      "scientific_consequence": "no evidence change if outputs match"
+    },
+    {
+      "failure": "figure/table regeneration mismatch",
+      "human_action": "investigate environment/code/input drift",
+      "preserve_which_bytes": "both outputs and upstream manifest",
+      "requires_new_permission": false,
+      "requires_rerun": false,
+      "safe_retry": false,
+      "scientific_consequence": "release blocked"
+    }
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.failure_recovery.v1"
+}

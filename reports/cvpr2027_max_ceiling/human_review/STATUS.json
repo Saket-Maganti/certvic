@@ -1,0 +1,15 @@
+{
+  "adjudication_complete": false,
+  "agreement": null,
+  "errors": [],
+  "external_action": "Mount licensed source bytes and build/freeze the blind packet before assigning rater 1.",
+  "packet_present": false,
+  "paper_evidence": false,
+  "rater_1_complete": false,
+  "rater_2_complete": false,
+  "rater_identities_distinct": false,
+  "review_root": "data/studies/specificity_confirmatory_cvpr/review",
+  "schema": "certvic.cvpr2027.human_review_status.v1",
+  "state": "WAITING_FOR_RATER_1",
+  "template_rows": 0
+}

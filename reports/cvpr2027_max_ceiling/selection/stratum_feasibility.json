@@ -1,0 +1,14 @@
+{
+  "paper_evidence": false,
+  "provider_outputs_used": false,
+  "required": {
+    "annotation_required": true,
+    "dataset": "ADE20K",
+    "license_eligible": true,
+    "minimum_short_side": 384,
+    "source_manifest": "JSONL with licensed local image/annotation pointers",
+    "split": "validation"
+  },
+  "schema": "certvic.cvpr2027.confirmatory_feasibility.v1",
+  "status": "CONFIRMATORY_SOURCE_BYTES_MISSING"
+}

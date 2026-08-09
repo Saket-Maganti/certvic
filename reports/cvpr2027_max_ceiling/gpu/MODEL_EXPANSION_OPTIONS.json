@@ -1,0 +1,42 @@
+{
+  "candidates": [
+    {
+      "architecture_diversity": 4,
+      "community_relevance": 4,
+      "expected_runtime": 5,
+      "free_kaggle_feasibility": 5,
+      "incremental_scientific_value": 4,
+      "license": "Apache-2.0",
+      "license_clarity": 5,
+      "model_id": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+      "processor_stability": 4,
+      "recency": 5,
+      "recommendation": "FIRST_OPTIONAL_ADDITION_AFTER_PRIMARY_STABLE",
+      "snapshot_size": 5,
+      "source": "https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+      "total": 41
+    },
+    {
+      "architecture_diversity": 5,
+      "community_relevance": 5,
+      "compatibility_warning": "Official card pins a newer Transformers/Torch stack and trust_remote_code; do not insert into the frozen primary environment.",
+      "expected_runtime": 3,
+      "free_kaggle_feasibility": 3,
+      "incremental_scientific_value": 5,
+      "license": "MIT",
+      "license_clarity": 5,
+      "model_id": "microsoft/Phi-4-multimodal-instruct",
+      "processor_stability": 2,
+      "recency": 5,
+      "recommendation": "SECOND_OPTIONAL_ADDITION_IN_SEPARATE_RUNTIME_PROFILE",
+      "snapshot_size": 3,
+      "source": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
+      "total": 36
+    }
+  ],
+  "execute_now": false,
+  "paper_evidence": false,
+  "recommendation_limit": 2,
+  "schema": "certvic.cvpr2027.model_expansion_options.v1",
+  "scoring_scale": "0-5 each; equal weights; feasibility is a veto"
+}

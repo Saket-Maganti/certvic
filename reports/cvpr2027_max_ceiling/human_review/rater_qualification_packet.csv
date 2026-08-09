@@ -1,0 +1,11 @@
+question_id,scenario,rater_answer
+Q1,Remote texture patch; target and answer remain intact,
+Q2,Patch touches target boundary,
+Q3,Edit changes the expected answer,
+Q4,Image is too ambiguous to answer,
+Q5,A hidden model output disagrees with the candidate answer,
+Q6,Pair has a conspicuous compression artifact in one arm,
+Q7,Question names an object not visible in either image,
+Q8,Both images are answerable and the perturbation is remote,
+Q9,Reviewer recognizes the source image from elsewhere,
+Q10,Coordinator requests a favorable label,

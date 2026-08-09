@@ -1,0 +1,10 @@
+{
+  "analysis_class": "EXPLORATORY_NOT_PRIMARY",
+  "gini": 0.15768299351613155,
+  "herfindahl_index": 0.01090458881605054,
+  "items_with_at_least_one_model_failure": 102,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.failure_concentration.v1",
+  "top_10_percent_item_failure_share": 0.13147410358565736,
+  "total_model_item_failures": 251
+}

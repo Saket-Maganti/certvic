@@ -1,0 +1,104 @@
+{
+  "checks": [
+    {
+      "check_id": "qwen_removal",
+      "finding": "Only historical diagnostic data exist; model-specific rates differ and prospective joint certificate requires all three.",
+      "question": "Does result disappear if Qwen is removed?",
+      "severity": "MAJOR"
+    },
+    {
+      "check_id": "category_leaveout",
+      "finding": "Historical leave-one-group outputs generated; prospective items absent.",
+      "question": "Does result disappear if one category is removed?",
+      "severity": "MAJOR"
+    },
+    {
+      "check_id": "family_leaveout",
+      "finding": "Historical group influence is non-negligible; prospective stability is unobserved.",
+      "question": "Does result disappear if one intervention family is removed?",
+      "severity": "MAJOR"
+    },
+    {
+      "check_id": "polarity_driver",
+      "finding": "Polarity heterogeneity is reported for historical items; no prospective confirmation.",
+      "question": "Is one polarity driving the result?",
+      "severity": "MAJOR"
+    },
+    {
+      "check_id": "visible_size_imbalance",
+      "finding": "Historical relevant/irrelevant low-level balance has material standardized differences.",
+      "question": "Are relevant edits visibly larger?",
+      "severity": "MAJOR"
+    },
+    {
+      "check_id": "endpoint_arm_detectability",
+      "finding": "Historical symmetric AUC=0.9988309562777647; this is diagnostic, not the prospective original/edited gate.",
+      "question": "Can a classifier detect endpoint arm from low-level features?",
+      "severity": "BLOCKER"
+    },
+    {
+      "check_id": "failure_concentration",
+      "finding": "Failure concentration artifact generated; prospective concentration unobserved.",
+      "question": "Are failures concentrated in a handful of items?",
+      "severity": "MAJOR"
+    },
+    {
+      "check_id": "parser_dependence",
+      "finding": "Complete-case and fail-closed ablations are generated.",
+      "question": "Do parser failures drive conclusions?",
+      "severity": "PASS"
+    },
+    {
+      "check_id": "complete_case",
+      "finding": "Historical complete-case and fail-closed decision rows agree where no parser failures occur.",
+      "question": "Does complete-case handling materially change conclusions?",
+      "severity": "PASS"
+    },
+    {
+      "check_id": "multiplicity",
+      "finding": "Decision reversal registry compares point, standard exact, bootstrap, CS, and multiplicity-corrected gates.",
+      "question": "Does multiplicity correction reverse a conclusion?",
+      "severity": "PASS"
+    },
+    {
+      "check_id": "naive_ranking",
+      "finding": "Historical model ranking reversals are explicitly recorded.",
+      "question": "Does a naive metric rank models differently?",
+      "severity": "MAJOR"
+    },
+    {
+      "check_id": "model_revisions",
+      "finding": "Authenticated 00B snapshot manifests bind all three primary provider identities.",
+      "question": "Are model revisions pinned?",
+      "severity": "PASS"
+    },
+    {
+      "check_id": "immutable_lineage",
+      "finding": "Historical pilot rows trace to local frozen bytes, but one consolidated row-level lineage table remains retrospective-only; prospective inputs absent.",
+      "question": "Can all result rows trace to immutable input bytes?",
+      "severity": "MAJOR"
+    },
+    {
+      "check_id": "human_origin",
+      "finding": "No genuine human labels are claimed; human_reviewed=true count remains zero.",
+      "question": "Are any human labels machine-generated?",
+      "severity": "PASS"
+    },
+    {
+      "check_id": "retrospective_contamination",
+      "finding": "Prospective evidence is absent and no prospective collision is recorded; V2 reuse is documented retrospective-only.",
+      "question": "Does retrospective evidence contaminate prospective evidence?",
+      "severity": "PASS"
+    }
+  ],
+  "counts": {
+    "BLOCKER": 1,
+    "MAJOR": 8,
+    "MINOR": 0,
+    "NOT_APPLICABLE": 0,
+    "PASS": 6
+  },
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.scientific_red_team.v1",
+  "status": "COMPLETE_WITH_OPEN_BLOCKERS"
+}

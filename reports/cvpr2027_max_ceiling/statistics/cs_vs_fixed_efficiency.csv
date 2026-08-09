@@ -1,0 +1,9 @@
+scenario,true_rate,threshold,method,iterations,horizon,probability_decision_by_n,median_stopping_time,mean_stopping_time,median_final_width,fixed_sample_optional_stopping_valid
+responsiveness_above,0.65,0.5,anytime_cs,10000,600,0.9988,314.0,320.64887865438527,0.18500568158954867,True
+responsiveness_above,0.65,0.5,fixed_sample_cp_peeked_diagnostic,10000,600,1.0,53.0,63.1522,0.09463952243080176,False
+responsiveness_below,0.35,0.5,anytime_cs,10000,600,0.9989,314.0,321.4961457603364,0.18500568158954867,True
+responsiveness_below,0.35,0.5,fixed_sample_cp_peeked_diagnostic,10000,600,1.0,53.0,63.3995,0.09463952243080176,False
+specificity_below,0.03,0.1,anytime_cs,10000,600,0.0001,594.0,594.0,0.12250284079477433,True
+specificity_below,0.03,0.1,fixed_sample_cp_peeked_diagnostic,10000,600,1.0,83.0,93.1174,0.03526618173721742,False
+specificity_above,0.2,0.1,anytime_cs,10000,600,0.7023,488.0,479.0650719065926,0.18500568158954867,True
+specificity_above,0.2,0.1,fixed_sample_cp_peeked_diagnostic,10000,600,1.0,54.0,67.4946,0.0796861136914554,False

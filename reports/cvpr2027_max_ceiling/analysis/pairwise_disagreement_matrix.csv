@@ -1,0 +1,7 @@
+endpoint,left_model,right_model,paired_n,disagreement_count,disagreement_rate
+responsiveness,internvl_8b,llava_onevision_7b,91,8,0.08791208791208792
+responsiveness,internvl_8b,qwen2_5_vl_7b,91,13,0.14285714285714285
+responsiveness,llava_onevision_7b,qwen2_5_vl_7b,91,13,0.14285714285714285
+specificity_failure,internvl_8b,llava_onevision_7b,94,4,0.0425531914893617
+specificity_failure,internvl_8b,qwen2_5_vl_7b,94,13,0.13829787234042554
+specificity_failure,llava_onevision_7b,qwen2_5_vl_7b,94,15,0.1595744680851064

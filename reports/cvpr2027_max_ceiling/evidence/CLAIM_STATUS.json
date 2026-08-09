@@ -1,0 +1,48 @@
+{
+  "claims": [
+    {
+      "blocking_reason": null,
+      "claim_id": "pilot_descriptive_gap",
+      "paper_evidence": false,
+      "status": "SATISFIED_RETROSPECTIVE_ONLY"
+    },
+    {
+      "blocking_reason": null,
+      "claim_id": "model_dependent_specificity_pilot",
+      "paper_evidence": false,
+      "status": "SATISFIED_RETROSPECTIVE_ONLY"
+    },
+    {
+      "blocking_reason": "No licensed source bytes, human labels, permissions, or GPU returns.",
+      "claim_id": "prospective_joint_certificate",
+      "paper_evidence": false,
+      "status": "BLOCKED"
+    },
+    {
+      "blocking_reason": "Prospective provider returns absent.",
+      "claim_id": "cross_model_specificity_difference",
+      "paper_evidence": false,
+      "status": "BLOCKED"
+    },
+    {
+      "blocking_reason": "Second domain not selected or licensed; execution unauthorized.",
+      "claim_id": "cross_domain_generalization",
+      "paper_evidence": false,
+      "status": "BLOCKED"
+    },
+    {
+      "blocking_reason": "Main is CONDITIONAL_NOT_AUTHORIZED and no confirmatory GO exists.",
+      "claim_id": "Main500_claim",
+      "paper_evidence": false,
+      "status": "BLOCKED"
+    },
+    {
+      "blocking_reason": null,
+      "claim_id": "anytime_valid_coverage_claim",
+      "paper_evidence": false,
+      "status": "SATISFIED_SOFTWARE_VALIDATION"
+    }
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.claim_status.v1"
+}

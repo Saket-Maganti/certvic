@@ -1,0 +1,92 @@
+{
+  "files": [
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/failure_concentration.json",
+      "sha256": "f9d5f6c80d679aed592a19d676bb167076f495f9f9bc6895b1cdb0819862952c",
+      "size_bytes": 352
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/heterogeneity_summary.csv",
+      "sha256": "3dff8cd5ba121e69f2eff74da1bba2611c0457a39b165b6e07e567a3bc22eae1",
+      "size_bytes": 8191
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/influence_items.csv",
+      "sha256": "6c01f0a0f0043f23d5193c3957b937a59c44d1767f820a40d22da38a0fd3d7fe",
+      "size_bytes": 81536
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/leave_one_group_out.csv",
+      "sha256": "3587ca29764daf498bfb8cd886f56ee82dc458508361347162903868eac492ce",
+      "size_bytes": 4820
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/pairwise_disagreement_matrix.csv",
+      "sha256": "66eca9be250735f0a097ba93ee09898d2e2bb13067d68ee4954fc8ba01c07933",
+      "size_bytes": 522
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/pilot_baseline_metrics.csv",
+      "sha256": "900408429f3c3c9caf2d4985c10dbf204c005e30d75b9e46f0ddca1b07b078dc",
+      "size_bytes": 2087
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/pilot_component_ablations.csv",
+      "sha256": "9349a94a3f1f9387e9247de72d425e52abfaa5395f0de3210f30d9f26e959b60",
+      "size_bytes": 2721
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/pilot_decision_reversals.json",
+      "sha256": "55488be2f16e0599fe31671884de00b886739163d8b40f7f8179969159dafe0e",
+      "size_bytes": 1711
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/pilot_model_rankings.csv",
+      "sha256": "8472a8af3fe3f65cd4f6ec0f02f49b05128cf64838bf47f7e9116781996cafd3",
+      "size_bytes": 1615
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/pilot_pairwise_comparisons.csv",
+      "sha256": "c1288c879b6a0ccb5a5be2056eb8b635039334cd9c1cbd3036bab5f2ab093a98",
+      "size_bytes": 1452
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/analysis/three_way_intersection_counts.json",
+      "sha256": "e60598b0b8443542ec0158d2431858976732cef087f2c6d4e4469f0d049f9919",
+      "size_bytes": 1219
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/evidence/certificate_coordinates.csv",
+      "sha256": "99b83075bccba967381a3f8e764323607771fc6f71fdac6b056886f32f1d1d8d",
+      "size_bytes": 692
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/evidence/certificate_regions.json",
+      "sha256": "30ec04e0e84b04b5ce463fd04e047c2a222119d31b48f96796c4a23c4f8aa63d",
+      "size_bytes": 709
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/evidence/model_certificates.json",
+      "sha256": "5cd98d1ae6c021ffda7a591a16fce3e095c6dfb89aad90fa7b98a3f066f4045b",
+      "size_bytes": 4814
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/tables/baseline_ablation_table.csv",
+      "sha256": "900408429f3c3c9caf2d4985c10dbf204c005e30d75b9e46f0ddca1b07b078dc",
+      "size_bytes": 2087
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/tables/heterogeneity_table.csv",
+      "sha256": "3dff8cd5ba121e69f2eff74da1bba2611c0457a39b165b6e07e567a3bc22eae1",
+      "size_bytes": 8191
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/tables/model_pairwise_table.csv",
+      "sha256": "c1288c879b6a0ccb5a5be2056eb8b635039334cd9c1cbd3036bab5f2ab093a98",
+      "size_bytes": 1452
+    }
+  ],
+  "identity_sha256": "3e18568a101d745bbc0693b88d7bbf1f4bfec52ab5d66a40dc7f5b9d5694714f",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.artifact_manifest.v1"
+}

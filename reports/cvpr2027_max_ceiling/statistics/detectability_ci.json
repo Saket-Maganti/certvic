@@ -1,0 +1,12 @@
+{
+  "bootstrap_95": [
+    0.9963768115942029,
+    1.0
+  ],
+  "bootstrap_draws": 2000,
+  "classifier": "logistic_regression_repeated_grouped_cv",
+  "cluster": "source_id",
+  "paper_evidence": false,
+  "seed": 12213,
+  "symmetric_auc": 0.9988309562777647
+}

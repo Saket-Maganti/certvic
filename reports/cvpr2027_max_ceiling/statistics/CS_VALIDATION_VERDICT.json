@@ -1,0 +1,17 @@
+{
+  "coverage_iterations_per_cell": 20000,
+  "evidence_class": "SOFTWARE_STATISTICAL_VALIDATION",
+  "fixed_sample_warning": "Clopper-Pearson intervals are not optional-stopping-valid.",
+  "maximum_noncoverage_plus_three_mc_se": 0.0055137264663414,
+  "method": "certvic_native_hoeffding_normal_mixture_closed_form",
+  "nominal_alpha": 0.05,
+  "optional_stopping_iterations_per_rate": 20000,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.cs_validation_verdict.v1",
+  "status": "PASS_EMPIRICAL_VALIDATION",
+  "tuning_scales": [
+    "0.5xhorizon",
+    "1xhorizon",
+    "2xhorizon"
+  ]
+}

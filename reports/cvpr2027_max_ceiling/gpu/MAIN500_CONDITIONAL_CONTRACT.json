@@ -1,0 +1,16 @@
+{
+  "execution_allowed": false,
+  "paper_evidence": false,
+  "required_chain": [
+    "prospective confirmatory signed GO",
+    "fresh task/source census",
+    "blind review",
+    "prospective detectability",
+    "freeze",
+    "provider permissions/nonces",
+    "transactional imports",
+    "locked analysis"
+  ],
+  "schema": "certvic.cvpr2027.main500_contract.v1",
+  "status": "CONDITIONAL_NOT_AUTHORIZED"
+}

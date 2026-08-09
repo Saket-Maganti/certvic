@@ -1,0 +1,8 @@
+{
+  "answer_key_separate_from_rater_packet": true,
+  "minimum_score_fraction": 0.8,
+  "outcome_blinding_required": true,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.qualification_policy.v1",
+  "two_distinct_raters_required": true
+}

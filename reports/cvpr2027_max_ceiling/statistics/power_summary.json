@@ -1,0 +1,28 @@
+{
+  "analysis_rule": {
+    "family_alpha": 0.05,
+    "family_size": 6,
+    "per_gate_alpha": 0.008333333333333333,
+    "responsiveness": "one-sided CP lower bound strictly above 0.50",
+    "specificity": "one-sided CP upper bound at most 0.10"
+  },
+  "evidence_class": "DESIGN_VALIDATION_NOT_MODEL_EVIDENCE",
+  "n_120_critical_values": {
+    "maximum_irrelevant_flips": 4,
+    "minimum_semantic_update_successes": 74
+  },
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.power_summary.v1",
+  "selected_operating_characteristics": {
+    "joint_three_model_independent_design_scenario": 0.333908,
+    "spurious_p_0_03_n_120": 0.7076286419347122,
+    "update_p_0_70_n_120": 0.9800285008063856
+  },
+  "simulation": {
+    "coverage_iterations_per_cell": 20000,
+    "familywise_iterations": 250000,
+    "mode": "full",
+    "seed": 12013,
+    "stopping_iterations_per_rate": 20000
+  }
+}

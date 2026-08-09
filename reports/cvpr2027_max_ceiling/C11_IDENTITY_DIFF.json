@@ -1,0 +1,108 @@
+{
+  "00A_00B_rerun_required": false,
+  "changed": [],
+  "common_identities_preserved": true,
+  "comparisons": [
+    {
+      "after": "f3d27703ed0e1d9a4792ba92ae1594bb6b22af562fe816efa5900e742fe444d8",
+      "artifact": "common_bundles.CODE.archive_sha256",
+      "before": "f3d27703ed0e1d9a4792ba92ae1594bb6b22af562fe816efa5900e742fe444d8",
+      "preserved": true
+    },
+    {
+      "after": "79d7fe9bc7f3778811071afdd1242241127ebaa182ac29cb092af87c13eacf33",
+      "artifact": "common_bundles.CODE.content_identity_sha256",
+      "before": "79d7fe9bc7f3778811071afdd1242241127ebaa182ac29cb092af87c13eacf33",
+      "preserved": true
+    },
+    {
+      "after": "64df5cb66455f72f56ebad0cc2c6575af4c183a6dcecfdcd4002c2adfd8d34f6",
+      "artifact": "common_bundles.CONFIGS.archive_sha256",
+      "before": "64df5cb66455f72f56ebad0cc2c6575af4c183a6dcecfdcd4002c2adfd8d34f6",
+      "preserved": true
+    },
+    {
+      "after": "a201eb25063d12241a1a3b6b5702071b77a7c6c78272e144ab5a24aff8147d66",
+      "artifact": "common_bundles.CONFIGS.content_identity_sha256",
+      "before": "a201eb25063d12241a1a3b6b5702071b77a7c6c78272e144ab5a24aff8147d66",
+      "preserved": true
+    },
+    {
+      "after": "731fd5b7d31e19b06fee1482e164d2ea4c9e9ca22acf3ef3653f4dfde2377397",
+      "artifact": "common_bundles.TOOLS.archive_sha256",
+      "before": "731fd5b7d31e19b06fee1482e164d2ea4c9e9ca22acf3ef3653f4dfde2377397",
+      "preserved": true
+    },
+    {
+      "after": "fd780f5416c17aecefd61abaa191fca340eca1f4aa7b6cf87c01c5a834c76a95",
+      "artifact": "common_bundles.TOOLS.content_identity_sha256",
+      "before": "fd780f5416c17aecefd61abaa191fca340eca1f4aa7b6cf87c01c5a834c76a95",
+      "preserved": true
+    },
+    {
+      "after": "05d942c10f09c8684faf7506294d8d3c7f4bf241bf47205880f2a1a21db11d36",
+      "artifact": "runtime_returns.00A.archive_sha256",
+      "before": "05d942c10f09c8684faf7506294d8d3c7f4bf241bf47205880f2a1a21db11d36",
+      "preserved": true
+    },
+    {
+      "after": "0a9c72e76ece0c2a62485069328154300d914d4d1bc1bcc087b085a077df8fba",
+      "artifact": "runtime_returns.00A.member_sha256",
+      "before": "0a9c72e76ece0c2a62485069328154300d914d4d1bc1bcc087b085a077df8fba",
+      "preserved": true
+    },
+    {
+      "after": "0014352b5f29eb8ed021427972f63676eec21fd96da5cd0b78fab81f8de9d683",
+      "artifact": "runtime_returns.00B_qwen2_5_vl_7b.archive_sha256",
+      "before": "0014352b5f29eb8ed021427972f63676eec21fd96da5cd0b78fab81f8de9d683",
+      "preserved": true
+    },
+    {
+      "after": "6c78c76309d774807c514b37c49e7cce8ced26daa7d0b429c60c61446fe88d0c",
+      "artifact": "runtime_returns.00B_qwen2_5_vl_7b.member_sha256",
+      "before": "6c78c76309d774807c514b37c49e7cce8ced26daa7d0b429c60c61446fe88d0c",
+      "preserved": true
+    },
+    {
+      "after": "78b4271eaf309c98fb5315281874df81ee91299793bb21fbaa93d55135bd49e5",
+      "artifact": "runtime_returns.00B_internvl_8b.archive_sha256",
+      "before": "78b4271eaf309c98fb5315281874df81ee91299793bb21fbaa93d55135bd49e5",
+      "preserved": true
+    },
+    {
+      "after": "c6bfecbdc68079fd66f04f5078385049a6d3018fe225dbaed771e8f31d3c5efa",
+      "artifact": "runtime_returns.00B_internvl_8b.member_sha256",
+      "before": "c6bfecbdc68079fd66f04f5078385049a6d3018fe225dbaed771e8f31d3c5efa",
+      "preserved": true
+    },
+    {
+      "after": "00e6fa2219604566d0aef7ae7242835b9f0e3068d8c368b915b112387879fab3",
+      "artifact": "runtime_returns.00B_llava_onevision_7b.archive_sha256",
+      "before": "00e6fa2219604566d0aef7ae7242835b9f0e3068d8c368b915b112387879fab3",
+      "preserved": true
+    },
+    {
+      "after": "fe187707e67ba9e961959925a56233f4fe5937b067aaac73eb7975024058f9ba",
+      "artifact": "runtime_returns.00B_llava_onevision_7b.member_sha256",
+      "before": "fe187707e67ba9e961959925a56233f4fe5937b067aaac73eb7975024058f9ba",
+      "preserved": true
+    },
+    {
+      "after": "bbe3d7b7cf56596dadcef3c2174d45108c5bed6f285de8d596f0a5091c7ae552",
+      "artifact": "wheelhouse.content_identity_sha256",
+      "before": "bbe3d7b7cf56596dadcef3c2174d45108c5bed6f285de8d596f0a5091c7ae552",
+      "preserved": true
+    },
+    {
+      "after": "0983b462d88e6bf58a0a0c39010b13dba54b6f866b045c81796d8c5d2b64ad37",
+      "artifact": "wheelhouse.archive_sha256",
+      "before": "0983b462d88e6bf58a0a0c39010b13dba54b6f866b045c81796d8c5d2b64ad37",
+      "preserved": true
+    }
+  ],
+  "paper_evidence": false,
+  "runtime_returns_preserved": true,
+  "schema": "certvic.cvpr2027.c11.identity_diff.v1",
+  "stale_external_runs": [],
+  "status": "ALL_AUTHENTICATED_IDENTITIES_PRESERVED"
+}

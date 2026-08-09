@@ -1,0 +1,644 @@
+{
+  "00c2_authorized": false,
+  "A_completed_locally": [
+    "full repository/gap audit",
+    "exact power/design and confidence-sequence validation",
+    "pilot baselines/ablations/pairwise/heterogeneity/stability",
+    "image quality/balance/detectability",
+    "duplicate/leakage/contamination",
+    "human-review infrastructure",
+    "outcome-blind selection tooling",
+    "certificate API",
+    "claim/evidence registry",
+    "scientific red team",
+    "compute ledger",
+    "deterministic tables/figures and manifests",
+    "GPU/resource/operator contracts",
+    "Main and second-domain conditional contracts",
+    "clean-room reproduction",
+    "identity comparison"
+  ],
+  "B_cpu_results": [
+    {
+      "evidence_class": "DESIGN_VALIDATION_NOT_MODEL_EVIDENCE",
+      "inputs": "frozen alpha=0.05, six gates, n/rate grids; no model outcomes used for thresholds",
+      "main_finding": "At n=120 the exact gates require >= 74 semantic updates and <= 4 flips. Design-scenario three-model joint power is 0.334.",
+      "outputs": "power/sample-size/FWER/boundary/missingness CSV+JSON+figures",
+      "package": "exact power/design/FWER/boundary/missingness",
+      "runtime_seconds": 55.98415383399697,
+      "scientific_interpretation": "The frozen marginal gates are exact, but simultaneous three-model certification has modest power under the declared 0.70/0.03 design scenario.",
+      "status": "COMPLETE"
+    },
+    {
+      "evidence_class": "SOFTWARE_STATISTICAL_VALIDATION",
+      "inputs": "20000 streams/cell; optional stopping and adversarial orderings",
+      "main_finding": "Maximum empirical noncoverage plus three Monte Carlo SE was 0.005514.",
+      "outputs": "coverage/optional-stopping/ordering/efficiency CSVs and CS verdict",
+      "package": "confidence-sequence validation",
+      "runtime_seconds": 55.98415383399697,
+      "scientific_interpretation": "No material undercoverage was detected in the declared Bernoulli simulation grid; fixed-sample CP intervals remain invalid for optional peeking.",
+      "status": "PASS_EMPIRICAL_VALIDATION"
+    },
+    {
+      "evidence_class": "RETROSPECTIVE_DIAGNOSTIC",
+      "inputs": "91 intervention and 94 specificity items for each of three frozen providers",
+      "main_finding": "qwen2_5_vl_7b: update=0.176, flip=0.128; internvl_8b: update=0.099, flip=0.011; llava_onevision_7b: update=0.143, flip=0.032",
+      "outputs": "baseline, ablation, ranking, paired, disagreement, leave-out, influence, and concentration artifacts",
+      "package": "pilot baselines/ablations/pairwise/heterogeneity/stability",
+      "runtime_seconds": 0.10051149997161701,
+      "scientific_interpretation": "All historical models fail the strict responsiveness gate; Qwen also fails specificity, and LLaVA's multiplicity-corrected upper bound narrowly exceeds 0.10. Naive metric rankings reverse across endpoints.",
+      "status": "COMPLETE_RETROSPECTIVE_DIAGNOSTIC"
+    },
+    {
+      "evidence_class": "RETROSPECTIVE_DIAGNOSTIC",
+      "inputs": "185 historical image pairs",
+      "main_finding": "Historical endpoint-arm symmetric AUC=0.998831, 95% bootstrap [0.996377, 1.000000], permutation p=0.000999.",
+      "outputs": "pair metrics, arm balance, repeated grouped CV, permutation, bootstrap, category leave-out, figures",
+      "package": "image quality/balance/detectability",
+      "runtime_seconds": 22.0640678749769,
+      "scientific_interpretation": "Historical relevant and irrelevant arms are highly distinguishable from low-level features. This is a reviewer-risk diagnostic and cannot satisfy the prospective original-vs-edited gate.",
+      "status": "COMPLETE_DIAGNOSTIC_WITH_GATE_FAILURE"
+    },
+    {
+      "evidence_class": "PROVENANCE_AUDIT",
+      "inputs": "215 task rows and 430 image records",
+      "main_finding": "0 prospective collisions; V1/V2 overlap=30 as documented retrospective reuse.",
+      "outputs": "collision table, prompt/path audit, reviewer-packet blindness audit",
+      "package": "duplicate/leakage/contamination",
+      "runtime_seconds": 2.0210551249911077,
+      "scientific_interpretation": "No absent prospective evidence was fabricated or contaminated; V2 remains retrospective-only.",
+      "status": "PASS_WITH_DOCUMENTED_RETROSPECTIVE_V2_REUSE"
+    },
+    {
+      "evidence_class": "INFRASTRUCTURE_ONLY",
+      "inputs": "no frozen prospective review packet and no genuine labels",
+      "main_finding": "State=WAITING_FOR_RATER_1; genuine human-reviewed count remains zero.",
+      "outputs": "qualification, assignment, raw-sheet, two-rater agreement, adjudication, status tooling",
+      "package": "human review infrastructure",
+      "runtime_seconds": 0.001728750008624047,
+      "scientific_interpretation": "Infrastructure is ready, but no human-validity claim is available.",
+      "status": "INFRASTRUCTURE_COMPLETE_EXECUTION_BLOCKED_HUMAN"
+    },
+    {
+      "evidence_class": "INFRASTRUCTURE_ONLY",
+      "inputs": "licensed ADE20K source manifest absent",
+      "main_finding": "CONFIRMATORY_SOURCE_BYTES_MISSING",
+      "outputs": "blocked census, feasibility, and selection trace",
+      "package": "prospective census and exact outcome-blind selection",
+      "runtime_seconds": 0.0008108329493552446,
+      "scientific_interpretation": "Selection code is ready and rejects provider outcomes, but cannot select without licensed source bytes.",
+      "status": "BLOCKED_LICENSE"
+    },
+    {
+      "evidence_class": "REPRODUCIBILITY_VALIDATION",
+      "inputs": "git archive of 24fb1b971f162a7d40f7f56ea7b0fca9b75287cb",
+      "main_finding": "mismatch_count=0",
+      "outputs": "18 semantic comparisons",
+      "package": "clean-room reproduction",
+      "runtime_seconds": 82.16694537497824,
+      "scientific_interpretation": "All selected deterministic CPU artifacts reproduce from committed immutable inputs in a clean checkout.",
+      "status": "CLEAN_REPRODUCTION_COMPLETE"
+    }
+  ],
+  "C_remaining_gpu_runs": [
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "60",
+      "estimated_min": "20",
+      "estimated_typical": "40",
+      "expected_output": "00C2_qwen2_5_vl_7b_real_model_smoke.zip",
+      "internet": "OFF",
+      "notebook": "runbooks/04_REAL_MODEL_SMOKE/00C2_qwen2_5_vl_7b_real_model_two_item_smoke.ipynb",
+      "paper_evidence": "False",
+      "parallel_group": "00C2_PROVIDERS_AFTER_SHARED_BYTES",
+      "prerequisites": "two licensed real items; current 00A/00B; distinct permission",
+      "provider": "qwen2_5_vl_7b",
+      "required_inputs": "COMMON;MODEL_SNAPSHOT;REAL_TWO_ITEM_SMOKE;PROVIDER_PERMISSION",
+      "retry_policy": "fresh permission unless prelaunch failure",
+      "stage": "00C2_REAL_MODEL_SMOKE"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "240",
+      "estimated_min": "60",
+      "estimated_typical": "150",
+      "expected_output": "confirmatory_qwen2_5_vl_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "runbooks/06_CONFIRMATORY_MODELS/02_qwen_specificity_confirmatory_T4x2.ipynb",
+      "paper_evidence": "conditional_true_only_after_valid_import",
+      "parallel_group": "CONFIRMATORY_PROVIDERS",
+      "prerequisites": "00C2 PASS; generation QA; human review; freeze; detectability PASS",
+      "provider": "qwen2_5_vl_7b",
+      "required_inputs": "COMMON;MODEL_SNAPSHOT;FROZEN_CONFIRMATORY_TASKS;PROVIDER_PERMISSION",
+      "retry_policy": "transactional resume only when contract permits; otherwise new permission",
+      "stage": "CONFIRMATORY_PROVIDER"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "90",
+      "estimated_min": "30",
+      "estimated_typical": "60",
+      "expected_output": "secondary_repeat_determinism_qwen2_5_vl_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "REPEAT_DETERMINISM_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "qwen2_5_vl_7b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "REPEAT_DETERMINISM"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "240",
+      "estimated_min": "60",
+      "estimated_typical": "150",
+      "expected_output": "secondary_prompt_robustness_qwen2_5_vl_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "PROMPT_ROBUSTNESS_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "qwen2_5_vl_7b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "PROMPT_ROBUSTNESS"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "240",
+      "estimated_min": "60",
+      "estimated_typical": "120",
+      "expected_output": "secondary_decoding_robustness_qwen2_5_vl_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "DECODING_ROBUSTNESS_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "qwen2_5_vl_7b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "DECODING_ROBUSTNESS"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "180",
+      "estimated_min": "60",
+      "estimated_typical": "120",
+      "expected_output": "secondary_natural_absence_control_qwen2_5_vl_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "NATURAL_ABSENCE_CONTROL_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "qwen2_5_vl_7b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "NATURAL_ABSENCE_CONTROL"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "60",
+      "estimated_min": "20",
+      "estimated_typical": "40",
+      "expected_output": "00C2_internvl_8b_real_model_smoke.zip",
+      "internet": "OFF",
+      "notebook": "runbooks/04_REAL_MODEL_SMOKE/00C2_internvl_8b_real_model_two_item_smoke.ipynb",
+      "paper_evidence": "False",
+      "parallel_group": "00C2_PROVIDERS_AFTER_SHARED_BYTES",
+      "prerequisites": "two licensed real items; current 00A/00B; distinct permission",
+      "provider": "internvl_8b",
+      "required_inputs": "COMMON;MODEL_SNAPSHOT;REAL_TWO_ITEM_SMOKE;PROVIDER_PERMISSION",
+      "retry_policy": "fresh permission unless prelaunch failure",
+      "stage": "00C2_REAL_MODEL_SMOKE"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "240",
+      "estimated_min": "60",
+      "estimated_typical": "150",
+      "expected_output": "confirmatory_internvl_8b_return.zip",
+      "internet": "OFF",
+      "notebook": "runbooks/06_CONFIRMATORY_MODELS/03_internvl_specificity_confirmatory_T4x2.ipynb",
+      "paper_evidence": "conditional_true_only_after_valid_import",
+      "parallel_group": "CONFIRMATORY_PROVIDERS",
+      "prerequisites": "00C2 PASS; generation QA; human review; freeze; detectability PASS",
+      "provider": "internvl_8b",
+      "required_inputs": "COMMON;MODEL_SNAPSHOT;FROZEN_CONFIRMATORY_TASKS;PROVIDER_PERMISSION",
+      "retry_policy": "transactional resume only when contract permits; otherwise new permission",
+      "stage": "CONFIRMATORY_PROVIDER"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "90",
+      "estimated_min": "30",
+      "estimated_typical": "60",
+      "expected_output": "secondary_repeat_determinism_internvl_8b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "REPEAT_DETERMINISM_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "internvl_8b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "REPEAT_DETERMINISM"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "240",
+      "estimated_min": "60",
+      "estimated_typical": "150",
+      "expected_output": "secondary_prompt_robustness_internvl_8b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "PROMPT_ROBUSTNESS_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "internvl_8b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "PROMPT_ROBUSTNESS"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "240",
+      "estimated_min": "60",
+      "estimated_typical": "120",
+      "expected_output": "secondary_decoding_robustness_internvl_8b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "DECODING_ROBUSTNESS_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "internvl_8b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "DECODING_ROBUSTNESS"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "180",
+      "estimated_min": "60",
+      "estimated_typical": "120",
+      "expected_output": "secondary_natural_absence_control_internvl_8b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "NATURAL_ABSENCE_CONTROL_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "internvl_8b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "NATURAL_ABSENCE_CONTROL"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "60",
+      "estimated_min": "20",
+      "estimated_typical": "40",
+      "expected_output": "00C2_llava_onevision_7b_real_model_smoke.zip",
+      "internet": "OFF",
+      "notebook": "runbooks/04_REAL_MODEL_SMOKE/00C2_llava_onevision_7b_real_model_two_item_smoke.ipynb",
+      "paper_evidence": "False",
+      "parallel_group": "00C2_PROVIDERS_AFTER_SHARED_BYTES",
+      "prerequisites": "two licensed real items; current 00A/00B; distinct permission",
+      "provider": "llava_onevision_7b",
+      "required_inputs": "COMMON;MODEL_SNAPSHOT;REAL_TWO_ITEM_SMOKE;PROVIDER_PERMISSION",
+      "retry_policy": "fresh permission unless prelaunch failure",
+      "stage": "00C2_REAL_MODEL_SMOKE"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "240",
+      "estimated_min": "60",
+      "estimated_typical": "150",
+      "expected_output": "confirmatory_llava_onevision_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "runbooks/06_CONFIRMATORY_MODELS/04_llava_specificity_confirmatory_T4x2.ipynb",
+      "paper_evidence": "conditional_true_only_after_valid_import",
+      "parallel_group": "CONFIRMATORY_PROVIDERS",
+      "prerequisites": "00C2 PASS; generation QA; human review; freeze; detectability PASS",
+      "provider": "llava_onevision_7b",
+      "required_inputs": "COMMON;MODEL_SNAPSHOT;FROZEN_CONFIRMATORY_TASKS;PROVIDER_PERMISSION",
+      "retry_policy": "transactional resume only when contract permits; otherwise new permission",
+      "stage": "CONFIRMATORY_PROVIDER"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "90",
+      "estimated_min": "30",
+      "estimated_typical": "60",
+      "expected_output": "secondary_repeat_determinism_llava_onevision_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "REPEAT_DETERMINISM_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "llava_onevision_7b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "REPEAT_DETERMINISM"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "240",
+      "estimated_min": "60",
+      "estimated_typical": "150",
+      "expected_output": "secondary_prompt_robustness_llava_onevision_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "PROMPT_ROBUSTNESS_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "llava_onevision_7b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "PROMPT_ROBUSTNESS"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "240",
+      "estimated_min": "60",
+      "estimated_typical": "120",
+      "expected_output": "secondary_decoding_robustness_llava_onevision_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "DECODING_ROBUSTNESS_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "llava_onevision_7b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "DECODING_ROBUSTNESS"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "180",
+      "estimated_min": "60",
+      "estimated_typical": "120",
+      "expected_output": "secondary_natural_absence_control_llava_onevision_7b_return.zip",
+      "internet": "OFF",
+      "notebook": "CONTRACT_PREPARED; executable notebook intentionally pending frozen secondary input",
+      "paper_evidence": "False",
+      "parallel_group": "NATURAL_ABSENCE_CONTROL_PROVIDERS",
+      "prerequisites": "primary frozen/completed; separate secondary task identity; no selection contamination",
+      "provider": "llava_onevision_7b",
+      "required_inputs": "SECONDARY_CONTRACT;FROZEN_TASK_SUBSET;MODEL_SNAPSHOT;SECONDARY_PERMISSION",
+      "retry_policy": "fresh secondary permission; never substitute for primary",
+      "stage": "NATURAL_ABSENCE_CONTROL"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "480",
+      "estimated_min": "120",
+      "estimated_typical": "300",
+      "expected_output": "confirmatory_generation_return.zip",
+      "internet": "OFF",
+      "notebook": "runbooks/05_CONFIRMATORY_GENERATION/01_specificity_confirmatory_generation_T4x2.ipynb",
+      "paper_evidence": "False",
+      "parallel_group": "",
+      "prerequisites": "00C2 PASS; license/source validation",
+      "provider": "shared",
+      "required_inputs": "COMMON;LICENSED_SOURCE_MANIFEST;LICENSED_SOURCE_BYTES;GENERATION_CONTRACT",
+      "retry_policy": "resume validated journal; preserve completed images",
+      "stage": "CONFIRMATORY_GENERATION"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "DERIVE",
+      "estimated_min": "DERIVE",
+      "estimated_typical": "DERIVE_FROM_CONFIRMATORY_THROUGHPUT",
+      "expected_output": "main_*_return.zip",
+      "internet": "OFF",
+      "notebook": "runbooks/07_MAIN_CONDITIONAL/10-13 provider suite",
+      "paper_evidence": "conditional",
+      "parallel_group": "MAIN_PROVIDERS",
+      "prerequisites": "CONDITIONAL_NOT_AUTHORIZED until genuine GO",
+      "provider": "all",
+      "required_inputs": "SIGNED_CONFIRMATORY_GO;FRESH_FREEZE;REVIEW;DETECTABILITY;PERMISSIONS",
+      "retry_policy": "fresh provider-specific permission",
+      "stage": "MAIN500_CONDITIONAL"
+    },
+    {
+      "accelerator": "T4x2",
+      "estimated_max": "DERIVE",
+      "estimated_min": "DERIVE",
+      "estimated_typical": "DERIVE_FROM_MEASURED_THROUGHPUT",
+      "expected_output": "second_domain_*_return.zip",
+      "internet": "OFF",
+      "notebook": "runbooks/08_SECOND_DOMAIN_CONDITIONAL/20-23 suite",
+      "paper_evidence": "conditional",
+      "parallel_group": "SECOND_DOMAIN_PROVIDERS",
+      "prerequisites": "dataset selection and execution authorization",
+      "provider": "all",
+      "required_inputs": "LICENSE;SOURCE_MANIFEST;DOMAIN_CONTRACT;REVIEW;PERMISSIONS",
+      "retry_policy": "fresh provider-specific permission",
+      "stage": "SECOND_DOMAIN_CONDITIONAL"
+    }
+  ],
+  "D_remaining_human_tasks": [
+    {
+      "action": "After licensed generation, freeze the blinded candidate packet and its byte manifest.",
+      "estimated_human_hours": "0.5-1 coordinator",
+      "order": 1
+    },
+    {
+      "action": "Qualify two distinct independent raters; preserve hashed identities and raw sheets.",
+      "estimated_human_hours": "0.5-1 per rater",
+      "order": 2
+    },
+    {
+      "action": "Each rater reviews every frozen candidate without provider outputs.",
+      "estimated_human_hours": "4-8 per rater, refine after timed pilot",
+      "order": 3
+    },
+    {
+      "action": "Adjudicate every disagreement and lock final inclusion before selection/model execution.",
+      "estimated_human_hours": "1-3 adjudicator/coordinator",
+      "order": 4
+    }
+  ],
+  "E_remaining_licensed_data_tasks": [
+    {
+      "artifact": "REAL_TWO_ITEM_SMOKE",
+      "priority": "P0",
+      "required": "two real original/edited pairs, optional masks, non-synthetic, license_eligible=true, concrete auditable license_id, zero historical overlap, frozen prompt/parser/run-contract bindings"
+    },
+    {
+      "artifact": "CONFIRMATORY_SOURCE",
+      "priority": "P0",
+      "required": "genuine ADE20K validation images/annotations at runtime plus auditable source/license manifest; do not redistribute where not cleared"
+    },
+    {
+      "artifact": "SECOND_DOMAIN_SOURCE",
+      "priority": "P1",
+      "required": "only after domain selection: license verification, source manifest, category mapping, endpoint compatibility, and review plan"
+    }
+  ],
+  "F_cvpr_scientific_blocker_ranking": [
+    {
+      "blocker": "Two real licensed non-synthetic smoke pairs absent",
+      "effect": "00C2 remains NOT_AUTHORIZED; no genuine primary GPU inference may start.",
+      "priority": "P0",
+      "rank": 1
+    },
+    {
+      "blocker": "Prospective licensed confirmatory source bytes absent",
+      "effect": "No candidate census, generation, review, freeze, or permission can complete.",
+      "priority": "P0",
+      "rank": 2
+    },
+    {
+      "blocker": "No genuine independent human review",
+      "effect": "Human validity and prospective paper-evidence promotion remain false.",
+      "priority": "P0",
+      "rank": 3
+    },
+    {
+      "blocker": "No prospective provider returns",
+      "effect": "No joint certificate, model comparison, or Main GO decision exists.",
+      "priority": "P0",
+      "rank": 4
+    },
+    {
+      "blocker": "Historical endpoint arms are low-level detectable",
+      "effect": "AUC ~0.999 exposes matching/confounding risk; prospective construction must pass its unchanged gate.",
+      "priority": "P0",
+      "rank": 5
+    },
+    {
+      "blocker": "Frozen three-model design-scenario joint power is modest",
+      "effect": "Monte Carlo joint power ~0.334 at update=0.70/flip=0.03; record larger-n design only as a future protocol idea.",
+      "priority": "P1",
+      "rank": 6
+    },
+    {
+      "blocker": "Strict historical semantic responsiveness is low",
+      "effect": "All three pilot models are below 0.18; scientific viability must be judged prospectively, not rescued by raw answer-change metrics.",
+      "priority": "P1",
+      "rank": 7
+    },
+    {
+      "blocker": "Secondary robustness notebooks are not yet executable",
+      "effect": "Contracts and estimates exist, but frozen secondary inputs/permissions and executable notebooks wait until primary freeze/completion.",
+      "priority": "P1",
+      "rank": 8
+    },
+    {
+      "blocker": "Single-domain and three-model scope",
+      "effect": "Cross-domain and broader-architecture claims remain blocked/optional.",
+      "priority": "P1",
+      "rank": 9
+    }
+  ],
+  "G_identity_impact": {
+    "00A_00B_rerun_required": false,
+    "changed": [],
+    "common_identities_preserved": true,
+    "runtime_returns_preserved": true,
+    "status": "ALL_AUTHENTICATED_IDENTITIES_PRESERVED"
+  },
+  "H_project_ceiling_scorecard": [
+    {
+      "dimension": "novelty clarity",
+      "evidence": "Clear certificate framing in infrastructure; manuscript wording was deliberately untouched.",
+      "score_0_to_5": 3.0
+    },
+    {
+      "dimension": "statistical rigor",
+      "evidence": "Exact six-gate rule, power/FWER/boundary/missingness and CS validation are implemented and tested.",
+      "score_0_to_5": 4.5
+    },
+    {
+      "dimension": "experimental design",
+      "evidence": "Prospective freeze/gates are strong, but joint power is modest and external execution is absent.",
+      "score_0_to_5": 3.0
+    },
+    {
+      "dimension": "human validation",
+      "evidence": "Complete tooling, but zero genuine human-reviewed rows.",
+      "score_0_to_5": 1.0
+    },
+    {
+      "dimension": "model breadth",
+      "evidence": "Three current open VLMs; two optional candidates scored but not run.",
+      "score_0_to_5": 3.0
+    },
+    {
+      "dimension": "domain breadth",
+      "evidence": "No executed second domain.",
+      "score_0_to_5": 1.0
+    },
+    {
+      "dimension": "baselines",
+      "evidence": "Historical accuracy/change/update/specificity baselines and exact bounds generated.",
+      "score_0_to_5": 4.0
+    },
+    {
+      "dimension": "ablations",
+      "evidence": "Gate, multiplicity, parser, missingness, estimator, and human-filter states represented.",
+      "score_0_to_5": 4.0
+    },
+    {
+      "dimension": "robustness",
+      "evidence": "Strong CPU red team and contracts; secondary GPU notebooks/results remain pending.",
+      "score_0_to_5": 3.0
+    },
+    {
+      "dimension": "reproducibility",
+      "evidence": "Full clean archive reproduction matched 18/18 semantic artifacts.",
+      "score_0_to_5": 4.5
+    },
+    {
+      "dimension": "artifact integrity",
+      "evidence": "Authenticated identities preserved; transactional and claim guards pass.",
+      "score_0_to_5": 5.0
+    },
+    {
+      "dimension": "compute transparency",
+      "evidence": "Per-stage runtime/RAM and NOT_MEASURED energy/carbon are explicit; GPU actuals absent.",
+      "score_0_to_5": 4.0
+    },
+    {
+      "dimension": "paper-readiness inputs",
+      "evidence": "Tables/figures are generated, but prospective, human, GPU, and cross-domain evidence is absent.",
+      "score_0_to_5": 2.0
+    }
+  ],
+  "I_next_exact_operator_action": "PROVIDE_TWO_REAL_LICENSED_SMOKE_ITEMS",
+  "explicit_nonclaims": [
+    "CVPR_READY",
+    "SUBMISSION_READY",
+    "PAPER_EVIDENCE_COMPLETE",
+    "CERTVIC_C11_GPU_RUNBOOKS_COMPLETE"
+  ],
+  "genuine_human_reviewed_true_count": 0,
+  "git_head_at_handoff_generation": "24fb1b971f162a7d40f7f56ea7b0fca9b75287cb",
+  "main_execution_allowed": false,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c11.max_ceiling_handoff.v1",
+  "second_domain_execution_allowed": false,
+  "status": "ALL_AVAILABLE_LOCAL_C11_WORK_COMPLETE",
+  "truth_markers": [
+    "CERTVIC_C11_ALL_AVAILABLE_CPU_WORK_COMPLETE",
+    "CERTVIC_C11_STATISTICAL_VALIDATION_COMPLETE",
+    "CERTVIC_C11_REPRODUCIBILITY_COMPLETE",
+    "CERTVIC_C11_SCIENTIFIC_RED_TEAM_COMPLETE",
+    "CERTVIC_C11_LOCAL_FAILURES_ZERO",
+    "CERTVIC_C11_COMMON_IDENTITIES_PRESERVED",
+    "CERTVIC_C11_00A_00B_RERUN_NOT_REQUIRED"
+  ],
+  "validation": {
+    "clean_reproduction": "CLEAN_REPRODUCTION_COMPLETE",
+    "commands": 17,
+    "compileall_all_scopes": "PASS",
+    "local_failure_count": 0,
+    "phase_b_status": "PASS",
+    "pytest_exit_code": 0,
+    "pytest_summary": "1013 passed, 5 skipped, 4 warnings in 131.18s (0:02:11)",
+    "red_team_status": "COMPLETE_WITH_OPEN_BLOCKERS",
+    "ruff_all_scopes": "PASS"
+  }
+}

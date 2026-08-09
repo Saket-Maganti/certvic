@@ -1,0 +1,38 @@
+{
+  "collision_counts": {
+    "AHASH_NEAR_DUPLICATE": 303,
+    "DHASH_NEAR_DUPLICATE": 206,
+    "EXACT_SHA256": 20,
+    "ITEM_ID": 30,
+    "PHASH_NEAR_DUPLICATE": 192,
+    "SOURCE_ID": 30
+  },
+  "confirmatory_bytes_present": false,
+  "datasets_present": [
+    "pilot_intervention_91",
+    "specificity_v1_94",
+    "specificity_v2_30"
+  ],
+  "image_records": 430,
+  "main_bytes_present": false,
+  "paper_evidence": false,
+  "perceptual_hamming_threshold": 6,
+  "prompt_filename_metadata_leakage": [],
+  "prospective_collision_count": 0,
+  "reviewer_packet": {
+    "declared_archive_sha256": "d6e777d035fa806d0b4ffb42cd6c140e08c1187a571770ba87b70c629c3f044f",
+    "packet": "reports/v11_full_ceiling_audit/human_review_packet/reviewer_bundle",
+    "packet_manifest_sha256": "e237e254a1936dd5612203414e8b8f9edeaca5186ab9f2006b1b2a1af4648792",
+    "paper_evidence": false,
+    "prohibited_fields_found": [],
+    "provider_outcome_blinding_pass": true,
+    "suspicious_member_names": []
+  },
+  "schema": "certvic.cvpr2027.duplicate_leakage_audit.v1",
+  "second_domain_bytes_present": false,
+  "status": "PASS_WITH_DOCUMENTED_RETROSPECTIVE_V2_REUSE",
+  "task_rows": 215,
+  "v1_v2_expected_overlap": 30,
+  "v1_v2_item_overlap": 30,
+  "v2_classification": "RETROSPECTIVE_ONLY"
+}

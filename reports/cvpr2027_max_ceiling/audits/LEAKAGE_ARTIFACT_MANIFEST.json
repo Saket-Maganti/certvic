@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "path": "reports/cvpr2027_max_ceiling/audits/DUPLICATE_LEAKAGE_AUDIT.json",
+      "sha256": "ea32d1606fd4c588b09a15acdef627593f34d69304bbf608406542b00fbc0625",
+      "size_bytes": 1271
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/audits/duplicate_pairs.csv",
+      "sha256": "0cc50cce6f018e09c26fc3409157f3d708b4e5ff2a4077bb67e959c987973749",
+      "size_bytes": 229252
+    }
+  ],
+  "identity_sha256": "9ea77cac8a568f2e0d10b5a1870ae2f178f66165aef0327f6d57b4526bb541fe",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.artifact_manifest.v1"
+}

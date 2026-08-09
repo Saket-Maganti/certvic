@@ -1,0 +1,27 @@
+{
+  "candidate_scoring_template": [
+    "license clarity",
+    "redistribution",
+    "endpoint fit",
+    "category breadth",
+    "image quality",
+    "human-review burden",
+    "compute",
+    "incremental validity"
+  ],
+  "dataset_selected": false,
+  "paper_evidence": false,
+  "requirements": [
+    "auditable license verification",
+    "byte-level source manifest",
+    "category mapping",
+    "endpoint compatibility",
+    "edit semantics",
+    "two-rater human validation",
+    "domain-specific quality and detectability gates",
+    "same certificate API",
+    "separate evidence class"
+  ],
+  "schema": "certvic.cvpr2027.second_domain_contract.v1",
+  "status": "CONDITIONAL_NOT_AUTHORIZED"
+}

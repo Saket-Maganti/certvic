@@ -1,0 +1,127 @@
+{
+  "files": [
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/cs_coverage.pdf",
+      "sha256": "6c3266921156c8e7c722aa7eaad5b3b7674472c6acf2b24ac962abb0037566c2",
+      "size_bytes": 14974
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/cs_coverage.png",
+      "sha256": "229dc9cfeb201ed7ae83475bbc5cdfa1fe71783ec2eaebe6117a19ce37ab9e34",
+      "size_bytes": 37744
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/cs_coverage.svg",
+      "sha256": "7b98ff455d9aa532e69710cc21757dcc6492759520535b5b98b3b786c2642f1d",
+      "size_bytes": 32348
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/fwer_validation.pdf",
+      "sha256": "fdca151ea33240c2158dda86657798ca6c74957972b459d362f956265bf2cce3",
+      "size_bytes": 13314
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/fwer_validation.png",
+      "sha256": "8b3017b6faf51a75992f22182be1106f58a655f17ece791ac30ad83fbef5ada8",
+      "size_bytes": 63171
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/fwer_validation.svg",
+      "sha256": "cee5c3407234a56cbf5fb1d3f57406f68f26ed1656128640234512d4eb2e5dbc",
+      "size_bytes": 31555
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/missingness_sensitivity.pdf",
+      "sha256": "4e375ceae90f760a4172c4a318ee71c32479b69005e9ea8a16796cf569f0459a",
+      "size_bytes": 15455
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/missingness_sensitivity.png",
+      "sha256": "a21d507a993404707486886ab543432e01c6abc9ebaafdf27a6c81d1aa13d70e",
+      "size_bytes": 80272
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/missingness_sensitivity.svg",
+      "sha256": "0f2f42a926f58933510b1d44221053c99f55c7302285c08ce303ccb44c33d96d",
+      "size_bytes": 49053
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/power_curves.pdf",
+      "sha256": "aa15e4de287ce66696cef0f3aef8628a6004c006086df20fc103dac3baf87eeb",
+      "size_bytes": 19091
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/power_curves.png",
+      "sha256": "fc37c86062ff3294e76d2baacc704267e9554dbb0bb4221e2b0e31b7057a20dc",
+      "size_bytes": 99911
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/figures/power_curves.svg",
+      "sha256": "1924ffc84d36f4fb6d09ba7677b49df004b21404a2e1c3439b068e0ba2edd5a4",
+      "size_bytes": 58555
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/CS_VALIDATION_VERDICT.json",
+      "sha256": "ac230eb3263223c8e5836e9921c1072f8a35e211e712c39f24af0fd803ccf1c6",
+      "size_bytes": 594
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/boundary_curves.csv",
+      "sha256": "aa6646a7dca4af1c86a769f9cfcf37332393eb39988f250edabd63466f009a0e",
+      "size_bytes": 77830
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/cs_adversarial_orderings.csv",
+      "sha256": "4cbcb94f093eafbad267e782c525ca94ed9e119f5be405fde5a24d3c7c1fbfe3",
+      "size_bytes": 1201
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/cs_coverage_simulation.csv",
+      "sha256": "d1dec04e17c2edad79f5df9636b805b0423a4f43e5f14fd321e9442e677d74e6",
+      "size_bytes": 6263
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/cs_vs_fixed_efficiency.csv",
+      "sha256": "403edaa6ad6ca9e9e8795a723f568fae8ee44c61a1d86c3678fd2413e927b48c",
+      "size_bytes": 1047
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/familywise_error_simulation.csv",
+      "sha256": "689655899584bd59ced64a94d9c950416deefcd04a6c645b86d9fe475c676edc",
+      "size_bytes": 1167
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/missingness_sensitivity.csv",
+      "sha256": "8cfd32d3f4e1a2d29aa0a0bb886659e5ee8ffa25e1f7514c9be4a915c06ce026",
+      "size_bytes": 11239
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/optional_stopping_stress.csv",
+      "sha256": "90a8e18492722c3122f406f7832fbdac994fa369ed712bfc6a8ce56b9e9da6bc",
+      "size_bytes": 1354
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/power_grid.csv",
+      "sha256": "4a8451a9a1fb9749b65e9e585fa4263df7622a0f19a9e8cb25c3f25677a54304",
+      "size_bytes": 36882
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/power_summary.json",
+      "sha256": "668708e3a28c325df088f26cbfd94736ce2674342b76b5a02871daa53a6e1bfd",
+      "size_bytes": 888
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/sample_size_sensitivity.csv",
+      "sha256": "29c816a0c2e5b72ae569dfa2ab95655665adc661191ad005fd493808a8e10171",
+      "size_bytes": 2403
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/statistics_design_validation.json",
+      "sha256": "271f9da4cde484acc92fe866d75cc314b6150030076f63839cdaa6d539186c8f",
+      "size_bytes": 351
+    }
+  ],
+  "identity_sha256": "1a201bad30e80642543c2414b9e78a75b12437310dca6d2c61ddad8427d0f318",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.artifact_manifest.v1"
+}
