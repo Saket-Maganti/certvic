@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "path": "reports/cvpr2027_max_ceiling/audits/IMAGE_QUALITY_AUDIT.json",
+      "sha256": "37832e848e8db7c5a973720c5ee80744af854f1bfa52c3f21d182f62be6f8e2b",
+      "size_bytes": 743
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/audits/image_pair_quality.csv",
+      "sha256": "abad94d85f1a502d88ed50249554a67cb15c7dff54ede221547dc0557a3542e2",
+      "size_bytes": 126545
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/audits/relevant_irrelevant_balance.csv",
+      "sha256": "565a5f86f6d8e04655f6cee101ea714384608bf6a99ecf41d699a15fb1fd2b59",
+      "size_bytes": 2392
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/DETECTABILITY_VERDICT.json",
+      "sha256": "c119145eddf277dce64f5fb0000177aeccce5d15d998aa4ec6be1103cabfe68b",
+      "size_bytes": 590
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/detectability_ci.json",
+      "sha256": "e8319f463b61d072ce335f5e9f75f0b77c3ede4c9e8cea4ddff6ffbbc78b8d04",
+      "size_bytes": 255
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/detectability_cv.csv",
+      "sha256": "e842fc21930d92b9d671d9e86ec937ef18e6c25973273e01a848a4e83d02624f",
+      "size_bytes": 14691
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/detectability_leave_category_out.csv",
+      "sha256": "d9f0e7110b912cb528b12e4954e185d66d7f3fa320fe14f8ec70ceaf75d63aa6",
+      "size_bytes": 212
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/statistics/detectability_permutation.csv",
+      "sha256": "896252832713b0f3dbabf7ba58f6a19c9cfcdee0a36fd18bead5cc447d36413c",
+      "size_bytes": 30843
+    },
+    {
+      "path": "reports/cvpr2027_max_ceiling/tables/image_quality_balance_table.csv",
+      "sha256": "565a5f86f6d8e04655f6cee101ea714384608bf6a99ecf41d699a15fb1fd2b59",
+      "size_bytes": 2392
+    }
+  ],
+  "identity_sha256": "a352d37f3757e00bd369926c9478e156c1d9201859e6bb18b1887e15468da29b",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.artifact_manifest.v1"
+}

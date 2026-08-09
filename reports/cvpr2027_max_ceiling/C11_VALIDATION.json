@@ -1,0 +1,40 @@
+{
+  "compileall": {
+    "command": "PYTHONPYCACHEPREFIX=<temporary> python3 -m compileall -q certvic scripts tests kagglefiles local_operator",
+    "exit_code": 0,
+    "status": "PASS"
+  },
+  "doctor": {
+    "state": "READY_FOR_00C2",
+    "study_execution_allowed": false
+  },
+  "identity": {
+    "00A_00B_rerun_required": false,
+    "status": "ALL_AUTHENTICATED_IDENTITIES_PRESERVED"
+  },
+  "local_resume": {
+    "commands_executed": 17,
+    "phase_b_status": "PASS"
+  },
+  "operator_pack": {
+    "errors": [],
+    "passed": true
+  },
+  "paper_evidence": false,
+  "pytest": {
+    "command": "python3 -m pytest -q",
+    "exit_code": 0,
+    "summary": "1013 passed, 5 skipped, 4 warnings in 131.18s (0:02:11)"
+  },
+  "reproduction": {
+    "mismatch_count": 0,
+    "status": "CLEAN_REPRODUCTION_COMPLETE"
+  },
+  "ruff": {
+    "command": "python3 -m ruff check --no-cache certvic scripts tests kagglefiles local_operator",
+    "exit_code": 0,
+    "status": "PASS"
+  },
+  "schema": "certvic.cvpr2027.c11.validation.v1",
+  "status": "PASS"
+}

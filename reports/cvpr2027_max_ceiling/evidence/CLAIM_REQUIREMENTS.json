@@ -1,0 +1,158 @@
+{
+  "claims": [
+    {
+      "allowed_evidence_classes": [
+        "RETROSPECTIVE_DIAGNOSTIC"
+      ],
+      "claim_id": "pilot_descriptive_gap",
+      "claim_type": "descriptive",
+      "domain_scope": "historical pilot",
+      "forbidden_evidence_classes": [],
+      "human_review_requirement": false,
+      "minimum_sample_requirements": "91 intervention and 94 specificity items",
+      "model_scope": "three frozen providers",
+      "required_artifacts": [
+        "pilot_baseline_metrics.csv"
+      ],
+      "required_gates": [
+        "genuine frozen historical predictions"
+      ]
+    },
+    {
+      "allowed_evidence_classes": [
+        "RETROSPECTIVE_DIAGNOSTIC"
+      ],
+      "claim_id": "model_dependent_specificity_pilot",
+      "claim_type": "comparative diagnostic",
+      "domain_scope": "historical pilot",
+      "forbidden_evidence_classes": [],
+      "human_review_requirement": false,
+      "minimum_sample_requirements": "94 shared specificity items",
+      "model_scope": "three frozen providers",
+      "required_artifacts": [
+        "pilot_pairwise_comparisons.csv"
+      ],
+      "required_gates": [
+        "paired model rows"
+      ]
+    },
+    {
+      "allowed_evidence_classes": [
+        "PROSPECTIVE_CONFIRMATORY"
+      ],
+      "claim_id": "prospective_joint_certificate",
+      "claim_type": "primary prospective",
+      "domain_scope": "frozen confirmatory domain",
+      "forbidden_evidence_classes": [
+        "RETROSPECTIVE_DIAGNOSTIC",
+        "SYNTHETIC_PROOF"
+      ],
+      "human_review_requirement": true,
+      "minimum_sample_requirements": "120 relevant and 120 irrelevant per model",
+      "model_scope": "all three primary models",
+      "required_artifacts": [
+        "prospective model certificates",
+        "frozen task manifest",
+        "human review",
+        "detectability verdict"
+      ],
+      "required_gates": [
+        "00C2 PASS",
+        "review PASS",
+        "detectability PASS",
+        "all six exact gates"
+      ]
+    },
+    {
+      "allowed_evidence_classes": [
+        "PROSPECTIVE_CONFIRMATORY"
+      ],
+      "claim_id": "cross_model_specificity_difference",
+      "claim_type": "prospective secondary",
+      "domain_scope": "confirmatory domain",
+      "forbidden_evidence_classes": [
+        "RETROSPECTIVE_DIAGNOSTIC"
+      ],
+      "human_review_requirement": true,
+      "minimum_sample_requirements": "120 shared irrelevant items per model",
+      "model_scope": "three primary models",
+      "required_artifacts": [
+        "three prospective provider returns",
+        "paired comparison"
+      ],
+      "required_gates": [
+        "primary freeze",
+        "multiplicity control"
+      ]
+    },
+    {
+      "allowed_evidence_classes": [
+        "PROSPECTIVE_CONFIRMATORY",
+        "PROSPECTIVE_SECOND_DOMAIN"
+      ],
+      "claim_id": "cross_domain_generalization",
+      "claim_type": "external validity",
+      "domain_scope": "at least two domains",
+      "forbidden_evidence_classes": [
+        "RETROSPECTIVE_DIAGNOSTIC"
+      ],
+      "human_review_requirement": true,
+      "minimum_sample_requirements": "predeclared adequate sample in each domain",
+      "model_scope": "same frozen providers",
+      "required_artifacts": [
+        "confirmatory certificate",
+        "second-domain certificate"
+      ],
+      "required_gates": [
+        "separate license/review/freeze/permission gates"
+      ]
+    },
+    {
+      "allowed_evidence_classes": [
+        "PROSPECTIVE_MAIN500"
+      ],
+      "claim_id": "Main500_claim",
+      "claim_type": "scaled prospective",
+      "domain_scope": "Main domain",
+      "forbidden_evidence_classes": [
+        "RETROSPECTIVE_DIAGNOSTIC",
+        "PROSPECTIVE_CONFIRMATORY"
+      ],
+      "human_review_requirement": true,
+      "minimum_sample_requirements": "500 frozen valid items as predeclared",
+      "model_scope": "three primary models",
+      "required_artifacts": [
+        "signed GO",
+        "Main freeze",
+        "Main review",
+        "Main detectability",
+        "Main provider returns"
+      ],
+      "required_gates": [
+        "prospective confirmatory GO",
+        "fresh permissions"
+      ]
+    },
+    {
+      "allowed_evidence_classes": [
+        "SOFTWARE_STATISTICAL_VALIDATION"
+      ],
+      "claim_id": "anytime_valid_coverage_claim",
+      "claim_type": "software validation",
+      "domain_scope": "Bernoulli simulations",
+      "forbidden_evidence_classes": [],
+      "human_review_requirement": false,
+      "minimum_sample_requirements": "declared simulation cells and seeds",
+      "model_scope": "not model-specific",
+      "required_artifacts": [
+        "CS_VALIDATION_VERDICT.json",
+        "cs_coverage_simulation.csv",
+        "optional_stopping_stress.csv"
+      ],
+      "required_gates": [
+        "no material empirical undercoverage"
+      ]
+    }
+  ],
+  "schema": "certvic.cvpr2027.claim_requirements.v1"
+}

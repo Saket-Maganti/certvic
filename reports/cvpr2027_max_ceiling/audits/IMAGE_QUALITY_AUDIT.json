@@ -1,0 +1,21 @@
+{
+  "all_decodable_rgb_equal_dimensions": true,
+  "balance_features_with_absolute_smd_above_0_2": [
+    "difference_area_fraction",
+    "mean_absolute_difference",
+    "psnr",
+    "ssim_global",
+    "edge_density_change",
+    "luminance_change",
+    "contrast_change"
+  ],
+  "evidence_class": "HISTORICAL_IMAGE_DIAGNOSTIC",
+  "irrelevant_pairs": 94,
+  "pairs": 185,
+  "paper_evidence": false,
+  "relevant_pairs": 91,
+  "schema": "certvic.cvpr2027.image_quality_audit.v1",
+  "status": "COMPLETE_HISTORICAL_DIAGNOSTIC",
+  "target_mask_note": "V1 target-mask overlap uses the frozen annotation-derived cache; the external ADE annotation tree is absent, so relevant-mask overlap is unavailable.",
+  "thresholds_tuned_from_model_outcomes": false
+}

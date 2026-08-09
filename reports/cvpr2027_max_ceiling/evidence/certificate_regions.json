@@ -1,0 +1,30 @@
+{
+  "boundary_semantics": {
+    "responsiveness": "strictly greater than threshold",
+    "specificity": "less than or equal to threshold"
+  },
+  "definitions": {
+    "INERT_AND_SPURIOUS": {
+      "responsiveness": "<= 0.5",
+      "spurious": "> 0.1"
+    },
+    "INERT_BUT_SPECIFIC": {
+      "responsiveness": "<= 0.5",
+      "spurious": "<= 0.1"
+    },
+    "RESPONSIVE_AND_SPECIFIC": {
+      "responsiveness": "> 0.5",
+      "spurious": "<= 0.1"
+    },
+    "RESPONSIVE_BUT_SPURIOUS": {
+      "responsiveness": "> 0.5",
+      "spurious": "> 0.1"
+    }
+  },
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.certificate_regions.v1",
+  "thresholds": {
+    "tau_spurious": 0.1,
+    "tau_update": 0.5
+  }
+}

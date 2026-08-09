@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "classification": "ACTIVE",
+      "item": "provider-specific runbooks under kagglefiles/runbooks",
+      "operator_action": "use only current provider-specific paths"
+    },
+    {
+      "classification": "DEPRECATED_OPERATOR_PATH",
+      "item": "generic historical 00B/00C2 names outside provider-specific operator paths",
+      "operator_action": "retain history; do not present as next action"
+    },
+    {
+      "classification": "HISTORICAL_EVIDENCE",
+      "item": "authenticated 00A and 00B returns",
+      "operator_action": "preserve unchanged; currently valid"
+    },
+    {
+      "classification": "HISTORICAL_EVIDENCE",
+      "item": "V2 30-item labels",
+      "operator_action": "retrospective diagnostic only; never prospective evidence"
+    },
+    {
+      "classification": "LEGACY_COMPATIBILITY",
+      "item": "legacy CPython 3.10 wheelhouse",
+      "operator_action": "not an active Kaggle input"
+    },
+    {
+      "classification": "DEPRECATED_OPERATOR_PATH",
+      "item": "old START_HERE provisioning instructions",
+      "operator_action": "replaced by live 00C2 external-byte boundary"
+    }
+  ],
+  "historical_bytes_deleted": false,
+  "schema": "certvic.cvpr2027.deprecation_registry.v1"
+}

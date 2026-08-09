@@ -1,0 +1,13 @@
+{
+  "events": [],
+  "paper_evidence": false,
+  "required_order": [
+    "PACKET_FROZEN",
+    "RATER_1_RECEIVED",
+    "RATER_2_RECEIVED",
+    "ADJUDICATION_COMPLETE",
+    "FINAL_INCLUSION_COMPILED",
+    "PROVIDER_OUTCOMES_UNBLINDED"
+  ],
+  "schema": "certvic.cvpr2027.review_timeline.v1"
+}

@@ -1,0 +1,6 @@
+scenario,n_per_endpoint,iterations,seed,update_rates,spurious_rates,update_critical_successes,spurious_maximum_flips,familywise_false_certification_rate,joint_six_gate_certification_power,monte_carlo_standard_error_joint,gate_1_pass_probability,gate_2_pass_probability,gate_3_pass_probability,gate_4_pass_probability,gate_5_pass_probability,gate_6_pass_probability
+global_null_boundary,120,250000,12013,"[0.5,0.5,0.5]","[0.1,0.1,0.1]",74,4,0.035636,0.0,0.0,0.006792,0.006712,0.006328,0.005468,0.005512,0.005404
+weak_alternative,120,250000,12013,"[0.6,0.6,0.6]","[0.075,0.075,0.075]",74,4,0.0,4e-06,3.999991999992e-06,0.391212,0.39158,0.393688,0.048332,0.04856,0.048372
+design_alternative,120,250000,12013,"[0.7,0.7,0.7]","[0.03,0.03,0.03]",74,4,0.0,0.333908,0.0009432146045010117,0.980024,0.980092,0.980488,0.708032,0.7073,0.708464
+heterogeneous_alternative,120,250000,12013,"[0.6,0.7,0.8]","[0.01,0.05,0.075]",74,4,0.0,0.005332,0.0001456512241761119,0.392092,0.980452,1.0,0.992544,0.278764,0.048756
+qwen_like_specificity,120,250000,12013,"[0.7,0.7,0.7]","[0.125,0.02,0.03]",74,4,0.0,0.000268,3.273702344441229e-05,0.979924,0.97976,0.979888,0.000464,0.90576,0.707856

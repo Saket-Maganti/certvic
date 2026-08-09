@@ -1,0 +1,18 @@
+{
+  "bootstrap_95": [
+    0.9963768115942029,
+    1.0
+  ],
+  "diagnostic_scope": "historical_relevant_vs_irrelevant_pair_features",
+  "evidence_class": "RETROSPECTIVE_DIAGNOSTIC",
+  "gate_classifier": "logistic_regression_repeated_grouped_cv",
+  "paper_evidence": false,
+  "permutation_p_value": 0.000999000999000999,
+  "prospective_gate_satisfied": false,
+  "schema": "certvic.cvpr2027.detectability_verdict.v1",
+  "source_group_leakage": false,
+  "status": "DETECTABILITY_GATE_FAIL",
+  "symmetric_auc": 0.9988309562777647,
+  "threshold": 0.8,
+  "threshold_changed_after_results": false
+}

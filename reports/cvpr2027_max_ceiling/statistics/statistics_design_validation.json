@@ -1,0 +1,12 @@
+{
+  "boundary_rows": 1276,
+  "cs_verdict": "PASS_EMPIRICAL_VALIDATION",
+  "frozen_rule_used": true,
+  "missingness_rows": 72,
+  "paper_evidence": false,
+  "post_outcome_threshold_tuning": false,
+  "power_rows": 242,
+  "sample_size_rows": 40,
+  "schema": "certvic.cvpr2027.statistics_design_validation.v1",
+  "status": "STATISTICAL_DESIGN_VALIDATED"
+}

@@ -98,7 +98,7 @@ def repository_gap_audit(root: Path) -> list[Path]:
         _capability("formal certificate API", "COMPLETE", "high", "BLOCKER", "Added exact gate computation with missing/parser regimes and machine-readable coordinates."),
         _capability("machine-readable claim gating", "COMPLETE", "high", "BLOCKER", "Added requirements/status registries with evidence-class restrictions."),
         _capability("scientific reviewer red team", "COMPLETE", "high", "MAJOR", "Added live artifact-backed adversarial checks."),
-        _capability("primary confirmatory GPU runbooks", "BLOCKED_GPU", "high", "BLOCKER", "Existing authenticated runbooks retained and mapped; execution remains gated by smoke, licensed bytes, review, and permissions.", gpu="generation 2-8 h; providers 1-4 h each", dependency="00C2 PASS and frozen confirmatory inputs"),
+        _capability("primary confirmatory GPU runbooks", "COMPLETE", "high", "BLOCKER", "Existing authenticated runbooks retained, statically validated, synthetically proved, and mapped; genuine execution remains gated by smoke, licensed bytes, review, and permissions.", gpu="generation 2-8 h; providers 1-4 h each", dependency="00C2 PASS and frozen confirmatory inputs"),
         _capability("secondary robustness GPU matrix", "PARTIAL", "medium", "MAJOR", "Prepared explicit secondary contracts and execution estimates without changing authenticated common bundles.", gpu="0.5-4 h/provider/arm", dependency="primary freeze or completion, task bundle, provider permissions"),
         _capability("optional architecture expansion", "PARTIAL", "medium", "MINOR", "Scored two architecture-diverse candidates; downloads and scientific runs intentionally not performed.", gpu="planning only", dependency="primary three-model path stable"),
         _capability("conditional Main-500 path", "BLOCKED_GPU", "high", "MAJOR", "Existing fail-closed notebooks retained; authorization stays CONDITIONAL_NOT_AUTHORIZED.", dependency="prospective confirmatory GO artifact and fresh freeze/review/detectability/permissions", gpu="derive from measured throughput"),
@@ -387,6 +387,9 @@ def _save_figure(fig: Any, base: Path) -> list[Path]:
         path.parent.mkdir(parents=True, exist_ok=True)
         metadata = {"Creator": "CertVIC C11", "CreationDate": None, "ModDate": None} if suffix == "pdf" else None
         fig.savefig(path, dpi=180, bbox_inches="tight", metadata=metadata)
+        if suffix == "svg":
+            payload = path.read_text(encoding="utf-8")
+            write_text(path, "\n".join(line.rstrip() for line in payload.splitlines()) + "\n")
         outputs.append(path)
     plt.close(fig)
     return outputs

@@ -1,0 +1,13 @@
+{
+  "decision": "NO_COMMON_IDENTITY_CHANGE_REQUIRED",
+  "paper_evidence": false,
+  "reason": "All currently safe CPU and planning work can remain outside authenticated common bundles; changing them would unnecessarily stale genuine 00A/00B returns.",
+  "schema": "certvic.cvpr2027.identity_change_plan.v1",
+  "track_a": [
+    "local_operator modules",
+    "C11 reports",
+    "operator CSV/docs",
+    "secondary planning contracts"
+  ],
+  "track_b": []
+}

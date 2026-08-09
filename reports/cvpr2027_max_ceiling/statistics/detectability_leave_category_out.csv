@@ -1,0 +1,5 @@
+left_out_category,train_n,test_n,raw_auc,symmetric_auc,status
+car,157,28,1.0,1.0,COMPLETE
+chair,148,37,1.0,1.0,COMPLETE
+sofa,120,65,0.991869918699187,0.991869918699187,COMPLETE
+table,130,55,1.0,1.0,COMPLETE

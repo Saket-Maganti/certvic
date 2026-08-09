@@ -1,0 +1,16 @@
+{
+  "paper_evidence": false,
+  "provider_output_fields_allowed": [],
+  "provider_outputs_used": false,
+  "schema": "certvic.cvpr2027.selection_trace.v1",
+  "selection_seed": 12013,
+  "sequence": [
+    "source_eligible",
+    "generation_qa",
+    "blinded_review",
+    "adjudication",
+    "same_stratum_replacement",
+    "final_primary_reserve"
+  ],
+  "status": "NOT_STARTED_SOURCE_BYTES_MISSING"
+}

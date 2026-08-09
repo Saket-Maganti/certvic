@@ -26,6 +26,7 @@ from local_operator.cvpr2027_common import (  # noqa: E402
     artifact_manifest,
     write_csv,
     write_json,
+    write_text,
 )
 
 
@@ -444,6 +445,9 @@ def _save_figure(figure: plt.Figure, stem: Path) -> list[Path]:
     for suffix in ["png", "svg", "pdf"]:
         path = stem.with_suffix(f".{suffix}")
         figure.savefig(path, bbox_inches="tight", dpi=180 if suffix == "png" else None)
+        if suffix == "svg":
+            payload = path.read_text(encoding="utf-8")
+            write_text(path, "\n".join(line.rstrip() for line in payload.splitlines()) + "\n")
         paths.append(path)
     plt.close(figure)
     return paths
