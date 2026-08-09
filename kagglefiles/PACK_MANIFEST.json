@@ -4,7 +4,7 @@
     "status": "CONDITIONAL_NOT_AUTHORIZED"
   },
   "active_runtime_profile": "kaggle_cp312_2026_07",
-  "deterministic_portion_sha256": "926498d87fd6c6b10edea206c818a636616faf3ad2a65206418bb6693e5994d4",
+  "deterministic_portion_sha256": "b9b669584e850de2b74bfd8fc7e628afd6dc8c89d94ed81bc06ce76b4cb2e564",
   "doctor_state": "READY_FOR_00A",
   "files": [
     {
@@ -49,9 +49,9 @@
       "role": "OPERATOR_PACK_FILE",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "markdown",
-      "sha256": "84850092fdab29d16ae5214f66d7a3f02b49088d577b6d4dcb96f26d1c386401",
-      "size": 11011,
-      "source_path": "certvic/cvpr/kagglefiles_pack.py#_start_here",
+      "sha256": "86f7a8641ad6eda32a87b010fea92eb56f2e1e18e0688e0c9aa627b335b6316b",
+      "size": 1535,
+      "source_path": "local_operator/cvpr2027_infrastructure.py#operator_pack",
       "stage": "pack",
       "study": "all"
     },

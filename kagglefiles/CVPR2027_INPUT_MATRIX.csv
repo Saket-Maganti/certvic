@@ -1,0 +1,5 @@
+input,status,required,consumer
+REAL_TWO_ITEM_SMOKE,MISSING_EXTERNAL,two real original/edited pairs; non-synthetic; license_eligible=true; concrete license_id; zero historical overlap; prompt/parser/run-contract bindings,all three 00C2 runbooks
+COMMON,CURRENT_AUTHENTICATED,CODE;CONFIGS;EXECUTION_TOOLS;CP312_WHEELHOUSE,all runbooks
+MODEL_SNAPSHOT,CURRENT_AUTHENTICATED_3_OF_3,provider-matched exact snapshot,provider runbook
+CONFIRMATORY_SOURCE,MISSING_LICENSED_BYTES,runtime-verifiable licensed source tree plus manifest,confirmatory generation after 00C2
