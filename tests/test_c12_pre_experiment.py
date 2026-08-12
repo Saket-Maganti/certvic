@@ -8,6 +8,8 @@ import pytest
 from PIL import Image
 
 from certvic.cvpr.smoke_input_builder import build_smoke_bundle
+from certvic.cvpr.notebook_runner import execute_notebook
+from certvic.cvpr.protocol_authority import validate_authority
 from certvic.cvpr.task_bundle import verify_bundle
 from local_operator.cvpr2027_c12_design import allocation_power
 from local_operator.cvpr2027_c12_matching import (
@@ -69,6 +71,11 @@ def test_protocol_v3_is_an_amendment_not_a_rewrite() -> None:
     assert "amends_verbatim_authority: configs/studies/specificity_confirmatory_cvpr.yaml" in text
     assert "prospective_provider_outcomes_observed_at_amendment: false" in text
     assert "relevant_intervention: 120, irrelevant_control: 240" in text
+    authority = validate_authority(ROOT)
+    assert authority["passed"] is True
+    assert authority["authoritative_protocol"] == (
+        "configs/studies/specificity_confirmatory_cvpr_v3.yaml"
+    )
 
 
 def test_matching_is_outcome_blind_and_exact_stratum() -> None:
@@ -192,3 +199,30 @@ def test_all_nine_primary_analysis_golden_cases_are_fail_closed() -> None:
         "wrong_permission",
     ):
         assert cases[name]["expected_disposition"].startswith("REJECT")
+
+
+def test_local_notebook_proof_imports_certvic_from_isolated_workdir(
+    tmp_path: Path,
+) -> None:
+    nbformat = pytest.importorskip("nbformat")
+    pytest.importorskip("nbclient")
+    notebook = nbformat.v4.new_notebook(cells=[
+        nbformat.v4.new_code_cell(
+            "from certvic.cvpr.t4x2 import EXPECTED_ACCELERATOR\n"
+            "assert EXPECTED_ACCELERATOR == 'NVIDIA T4'\n"
+        )
+    ])
+    source = tmp_path / "source" / "proof.ipynb"
+    source.parent.mkdir()
+    nbformat.write(notebook, source)
+    isolated = tmp_path / "isolated"
+    isolated.mkdir()
+    result = execute_notebook(
+        source,
+        tmp_path / "output",
+        config={"synthetic_fixture": True},
+        workdir=isolated,
+        timeout=60,
+    )
+    assert result["status"] == "PASS"
+    assert result["actual_execution_engine"] == "nbclient"

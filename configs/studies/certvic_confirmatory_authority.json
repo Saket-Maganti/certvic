@@ -1,9 +1,18 @@
 {
-  "schema": "certvic.confirmatory.protocol_authority.v1",
+  "schema": "certvic.confirmatory.protocol_authority.v2",
   "status": "AUTHORITATIVE_AND_FROZEN",
   "authoritative_config_path": "configs/studies/specificity_confirmatory_cvpr.yaml",
   "authoritative_schema_version": "certvic.cvpr.confirmatory_protocol.v2",
   "protocol_sha256": "bb82612e09346599b0cabe3d1876369a652fc56e3406cd98ac21ce699a62ca25",
+  "active_amendment_path": "configs/studies/specificity_confirmatory_cvpr_v3.yaml",
+  "active_amendment_schema_version": "certvic.cvpr.confirmatory_protocol.v3",
+  "active_amendment_sha256": "deb692082a591bd68b4a202cf11d1cce6986a49eb09584102fea5148905c8820",
+  "effective_protocol_version": 3,
+  "effective_allocation": {
+    "primary": {"relevant_intervention": 120, "irrelevant_control": 240},
+    "reserve": {"relevant_intervention": 30, "irrelevant_control": 60}
+  },
+  "amendment_evidence": "reports/cvpr2027_c12/design/C12_CONFIRMATORY_POWER_DECISION.json",
   "superseded_config_paths": [
     "configs/certvic_v11_protocol.yaml"
   ],

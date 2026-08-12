@@ -190,7 +190,16 @@ def execute_notebook(
             resources={"metadata": {"path": str(execution_root)}},
             allow_errors=False,
         )
-        client.execute()
+        kernel_environment = dict(os.environ)
+        root = str(repository_root())
+        existing_pythonpath = kernel_environment.get("PYTHONPATH", "")
+        pythonpath_entries = [
+            entry for entry in existing_pythonpath.split(os.pathsep) if entry
+        ]
+        if root not in pythonpath_entries:
+            pythonpath_entries.insert(0, root)
+        kernel_environment["PYTHONPATH"] = os.pathsep.join(pythonpath_entries)
+        client.execute(env=kernel_environment)
     except cell_execution_error as error:
         failed_index = next(
             (

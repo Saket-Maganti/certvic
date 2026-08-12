@@ -2,6 +2,9 @@ schema: certvic.cvpr.confirmatory_protocol.v3
 study_id: specificity_confirmatory_cvpr
 protocol_version: 3
 status: SCIENTIFIC_PROTOCOL_AMENDED_PRE_OUTCOME_EXTERNAL_SOURCE_BYTES_PENDING
+protocol_authority: configs/studies/certvic_confirmatory_authority.json
+prospective: true
+outcome_unseen: true
 amends_verbatim_authority: configs/studies/specificity_confirmatory_cvpr.yaml
 amendment_reason_artifact: reports/cvpr2027_c12/design/C12_CONFIRMATORY_POWER_DECISION.json
 amendment_timestamp_utc: "2026-08-12T00:00:00Z"
