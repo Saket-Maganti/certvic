@@ -70,7 +70,7 @@ def execute(out_dir: str | Path) -> dict[str, Any]:
         [python, "-m", "compileall", "-q", "certvic", "scripts", "tests"],
         [python, "-m", "certvic.cvpr.notebook_validation", "--out", str(out / "notebook_static_validation.json")],
         [python, "-m", "certvic.cvpr.notebook_runner", "--kaggle-runbook-suite", "--out-dir", str(out / "notebook_proof"), "--timeout", "180"],
-        [python, "-m", "certvic.cvpr.build_all_kaggle_inputs", "--local-only"],
+        [python, "-m", "certvic.cvpr.build_all_kaggle_inputs", "--validate-local-only"],
         [python, "-m", "certvic.cvpr.build_all_kaggle_inputs", "--status"],
         [python, "-m", "certvic.cvpr.doctor", "--json", "--out", str(out / "doctor.json")],
         [python, "-m", "certvic.cvpr.next_action"],
