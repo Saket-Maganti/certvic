@@ -85,7 +85,7 @@ def live_baseline(root: Path) -> list[Path]:
         ("SCIENTIFIC_P0", "prospective matching/detectability", "SOFTWARE_READY_EXTERNAL_BLOCKED"),
         ("SCIENTIFIC_P1", "human review", "SOFTWARE_READY_HUMAN_BLOCKED"),
         ("SCIENTIFIC_P1", "primary analysis and reviewer attacks", "SOFTWARE_READY_OUTPUT_BLOCKED"),
-        ("ENGINEERING_SUPPORT", "runbook and pack validation", "IN_PROGRESS"),
+        ("ENGINEERING_SUPPORT", "runbook and pack validation", "COMPLETE"),
         ("EXTERNAL_BLOCKED", "licensed ADE20K source census", "SOURCE_BYTES_MISSING"),
         ("HUMAN_BLOCKED", "two independent qualified raters", "NOT_STARTED"),
         ("GPU_BLOCKED", "00C2 and confirmatory inference", "NOT_AUTHORIZED"),
