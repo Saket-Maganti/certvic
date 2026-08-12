@@ -6,6 +6,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -58,6 +59,51 @@ def _semantic_hash(path: Path) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def _raw_hash(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def _mount_authenticated_externals(
+    clean_root: Path, baseline: dict[str, Any]
+) -> list[dict[str, Any]]:
+    expected: dict[str, str] = {}
+    for row in baseline["common_bundles"].values():
+        expected[str(row["path"])] = str(row["archive_sha256"])
+    wheelhouse = baseline["wheelhouse"]
+    expected[str(wheelhouse["path"])] = str(wheelhouse["archive_sha256"])
+    for row in baseline["runtime_returns"].values():
+        expected[str(row["archive_path"])] = str(row["archive_sha256"])
+        expected[str(row["member_path"])] = str(row["member_sha256"])
+    mounts = []
+    for relative, expected_hash in sorted(expected.items()):
+        source = REPOSITORY_ROOT / relative
+        if not source.is_file():
+            raise RuntimeError(f"authenticated external artifact is absent: {relative}")
+        observed_hash = _raw_hash(source)
+        if observed_hash != expected_hash:
+            raise RuntimeError(f"authenticated external artifact changed: {relative}")
+        destination = clean_root / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        if destination.exists() or destination.is_symlink():
+            destination.unlink()
+        try:
+            os.link(source, destination)
+            method = "AUTHENTICATED_IDENTITY_HARDLINK"
+        except OSError:
+            destination.symlink_to(source)
+            method = "AUTHENTICATED_IDENTITY_SYMLINK"
+        mounts.append({
+            "path": relative,
+            "sha256": observed_hash,
+            "method": method,
+        })
+    return mounts
+
+
 def _run(command: list[str], *, cwd: Path, timeout: int = 3600) -> dict[str, Any]:
     completed = subprocess.run(
         command,
@@ -88,6 +134,7 @@ def run(output_root: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
     clean_root: Path | None = None
     command_results: list[dict[str, Any]] = []
     comparisons: list[dict[str, Any]] = []
+    external_mounts: list[dict[str, Any]] = []
     cleanup_error = ""
     with tempfile.TemporaryDirectory(prefix="certvic-c12-clean-") as temporary:
         clean_root = Path(temporary) / "checkout"
@@ -99,6 +146,10 @@ def run(output_root: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
             text=True,
         )
         try:
+            baseline = json.loads(
+                (output_root / "C12_IDENTITY_BASELINE.json").read_text(encoding="utf-8")
+            )
+            external_mounts = _mount_authenticated_externals(clean_root, baseline)
             commands = [
                 [sys.executable, "local_operator/cvpr2027_c12_design.py"],
                 [sys.executable, "local_operator/cvpr2027_c12_matching.py"],
@@ -153,6 +204,7 @@ def run(output_root: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
         "committed_head": commit,
         "method": "detached_git_worktree",
         "commands": command_results,
+        "authenticated_external_mounts": external_mounts,
         "comparisons": comparisons,
         "mismatch_count": len(mismatches),
         "cleanup_error": cleanup_error,
