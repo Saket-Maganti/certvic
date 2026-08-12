@@ -1,0 +1,33 @@
+{
+  "checked_date": "2026-08-12",
+  "enters_primary_multiplicity_family": false,
+  "evidence_class": "SECONDARY_MODEL_EXPANSION",
+  "models": [
+    {
+      "adapter": "AutoProcessor plus AutoModelForImageTextToText/AutoModelForMultimodalLM",
+      "architecture": "Idefics3-derived image/multi-image/video/text",
+      "license": "Apache-2.0",
+      "model_id": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+      "official_card": "https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+      "recommendation": "FIRST_OPTIONAL_MODEL_AFTER_PRIMARY_FREEZE",
+      "reported_video_inference_gpu_ram_gb": 5.2,
+      "requirements": "latest compatible Transformers; card recommends num2words and flash-attn",
+      "runtime_profile": "SEPARATE_OPTIONAL_SMOLVLM2_PROFILE"
+    },
+    {
+      "adapter": "AutoProcessor plus AutoModelForCausalLM trust_remote_code",
+      "license": "MIT",
+      "model_id": "microsoft/Phi-4-multimodal-instruct",
+      "official_card": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
+      "parameters_billion": 5.6,
+      "recommendation": "DO_NOT_FORCE_INTO_AUTHENTICATED_CP312_PRIMARY_STACK",
+      "requirements": "Python 3.10, torch 2.6.0, transformers 4.48.2, flash-attn 2.7.4.post1 per official card",
+      "runtime_profile": "SEPARATE_OPTIONAL_PHI4MM_PROFILE",
+      "snapshot_size_gb_approx": 12.9
+    }
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c12.optional_model_expansion_readiness.v1",
+  "snapshots_downloaded": false,
+  "status": "SPECIFICATION_READY_IMPLEMENTATION_DEFERRED_NOT_PRIMARY"
+}

@@ -5,10 +5,13 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import tempfile
 from pathlib import Path
 from typing import Any, Iterable
 
 from certvic.cvpr.kaggle_bundle import build_bundle
+from certvic.cvpr.task_bundle import create_bundle
+from certvic.cvpr.task_schema import TASK_SCHEMA, convert_legacy_task, require_task_matrix
 
 
 class SmokeInputBuilderError(ValueError):
@@ -55,8 +58,7 @@ def build_smoke_bundle(
     if len(rows) != 2 or len({str(row.get("item_id")) for row in rows}) != 2:
         raise SmokeInputBuilderError("real smoke input must contain exactly two unique items")
     historical = _historical_identities(historical_manifests)
-    portable_rows: list[dict[str, Any]] = []
-    files: dict[str, Path | bytes] = {}
+    canonical_rows: list[dict[str, Any]] = []
     byte_identities: set[str] = set()
     for index, row in enumerate(rows):
         if not synthetic_fixture and (
@@ -69,7 +71,7 @@ def build_smoke_bundle(
         item_id = str(row["item_id"])
         if item_id in historical:
             raise SmokeInputBuilderError(f"historical item overlap: {item_id}")
-        portable = dict(row)
+        prepared = dict(row)
         for role in ("original_image_path", "edited_image_path", "mask_path"):
             raw_path = row.get(role)
             if role != "mask_path" and not raw_path:
@@ -85,42 +87,35 @@ def build_smoke_bundle(
             if digest in byte_identities:
                 raise SmokeInputBuilderError(f"duplicate asset bytes: {role} for {item_id}")
             byte_identities.add(digest)
-            archive_name = f"assets/{item_id}/{role.removesuffix('_path')}{source.suffix.lower()}"
-            files[archive_name] = source
-            portable[role] = archive_name
-            portable[role.removesuffix("_path") + "_sha256"] = digest
-        portable["synthetic_fixture"] = bool(synthetic_fixture)
-        portable["paper_evidence"] = False
-        portable_rows.append(portable)
-    portable_rows.sort(key=lambda row: str(row["item_id"]))
-    task_bytes = b"".join(
-        (json.dumps(row, sort_keys=True, separators=(",", ":")) + "\n").encode()
-        for row in portable_rows
-    )
-    files["task_manifest.jsonl"] = task_bytes
+            prepared[role.removesuffix("_path") + "_sha256"] = digest
+        prepared.setdefault("source_image_path", prepared["original_image_path"])
+        prepared.setdefault("source_image_hash", prepared["original_image_sha256"])
+        prepared.setdefault("source_dataset", "USER_OWNED_REAL_SMOKE")
+        prepared.setdefault("source_split", "operator_smoke")
+        prepared.setdefault("source_image_id", item_id)
+        prepared.setdefault("question", "Is the main visible content coherent? Answer yes or no.")
+        prepared.setdefault("original_expected_answer", "yes")
+        prepared.setdefault("edited_expected_answer", "yes")
+        prepared.setdefault("required_change", False)
+        prepared.setdefault("control_edit_family", "user_owned_smoke_edit")
+        prepared.setdefault("target_bbox", [0, 0, 1, 1])
+        prepared.setdefault("selected_engine", "user_supplied_edit")
+        prepared.setdefault("review_status", "HUMAN_REVIEW_PENDING")
+        prepared.setdefault("qa_status", "REAL_SMOKE_INTAKE_VERIFIED")
+        prepared.setdefault("license_status", "VERIFIED_ELIGIBLE")
+        prepared["synthetic_fixture"] = bool(synthetic_fixture)
+        prepared["paper_evidence"] = False
+        if prepared.get("task_schema_version") != TASK_SCHEMA:
+            prepared = convert_legacy_task(prepared, study="specificity_confirmatory_cvpr")
+        canonical_rows.append(prepared)
+    canonical_rows.sort(key=lambda row: str(row["task_id"]))
+    require_task_matrix(canonical_rows, verify_files=True)
     prompt_hashes = sorted({str(row.get("prompt_template_hash")) for row in rows if row.get("prompt_template_hash")})
     run_hashes = sorted({str(row.get("run_contract_hash")) for row in rows if row.get("run_contract_hash")})
     parser_versions = sorted({str(row.get("parser_version")) for row in rows if row.get("parser_version")})
     if not prompt_hashes or not run_hashes or not parser_versions:
         raise SmokeInputBuilderError("prompt, parser, and run-contract identities are mandatory")
-    task_bundle = {
-        "schema": "certvic.kaggle.real_smoke_task_bundle.v1",
-        "cardinality": 2,
-        "task_manifest_sha256": hashlib.sha256(task_bytes).hexdigest(),
-        "prompt_template_hashes": prompt_hashes,
-        "run_contract_hashes": run_hashes,
-        "parser_versions": parser_versions,
-        "asset_sha256": sorted(byte_identities),
-        "zero_historical_overlap": True,
-        "synthetic_fixture": bool(synthetic_fixture),
-        "paper_evidence": False,
-    }
-    task_bundle_bytes = (json.dumps(task_bundle, indent=2, sort_keys=True) + "\n").encode()
-    task_bundle["task_bundle_sha256"] = hashlib.sha256(task_bundle_bytes).hexdigest()
-    files["task_bundle_manifest.json"] = (
-        json.dumps(task_bundle, indent=2, sort_keys=True) + "\n"
-    ).encode()
-    files["smoke_contract.json"] = (
+    contract_bytes = (
         json.dumps({
             "schema": "certvic.kaggle.real_two_item_smoke_contract.v1",
             "cardinality": 2,
@@ -131,17 +126,17 @@ def build_smoke_bundle(
             "paper_evidence": False,
         }, indent=2, sort_keys=True) + "\n"
     ).encode()
-    files["licensing_metadata.json"] = (
+    licensing_bytes = (
         json.dumps({
             "schema": "certvic.kaggle.smoke_licensing.v1",
             "items": [{
                 "item_id": row["item_id"],
                 "license_id": row["license_id"],
                 "license_eligible": row["license_eligible"],
-            } for row in portable_rows],
+            } for row in canonical_rows],
         }, indent=2, sort_keys=True) + "\n"
     ).encode()
-    files["validation_report.json"] = (
+    validation_bytes = (
         json.dumps({
             "schema": "certvic.kaggle.smoke_input_validation.v1",
             "passed": True,
@@ -152,29 +147,54 @@ def build_smoke_bundle(
             "paper_evidence": False,
         }, indent=2, sort_keys=True) + "\n"
     ).encode()
-    return build_bundle(
-        output,
-        files,
-        bundle_type="REAL_TWO_ITEM_SMOKE_INPUT" if not synthetic_fixture else "SYNTHETIC_TWO_ITEM_SMOKE_PROOF",
-        study="pre_smoke",
-        stage="real_model_smoke",
-        provider=None,
-        required_notebook="ALL_3_PROVIDER_SPECIFIC_00C2_NOTEBOOKS",
-        dataset_slug="certvic/certvic-real-two-item-smoke",
-        mount_path="/kaggle/input/certvic-real-two-item-smoke",
-        external_dependency_status="EXTERNAL_BYTES_VERIFIED" if not synthetic_fixture else "SYNTHETIC_PROOF_ONLY",
-        evidence_class="REAL_MODEL_SMOKE_NON_EVIDENCE" if not synthetic_fixture else "SYNTHETIC_FIXTURE",
-        builder_command=(
-            "python3 -m certvic.cvpr.smoke_input_builder --task-manifest "
-            "<TRUSTED_TWO_ITEM_TASKS_JSONL>"
-        ),
-        readme=(
-            "# CertVIC two-item smoke input\n\nExactly two portable, hash-bound tasks. This bundle is "
-            "non-evidence and exists only to prove each real model/runtime contract before scientific "
-            "authorization."
-        ),
-        extra_manifest={"synthetic_fixture": bool(synthetic_fixture)},
-    )
+    with tempfile.TemporaryDirectory(prefix="certvic_real_smoke_bundle_") as temporary:
+        bundle_root = Path(temporary) / "task_bundle"
+        create_bundle(canonical_rows, bundle_root)
+        files: dict[str, Path | bytes] = {
+            f"task_bundle/{path.relative_to(bundle_root).as_posix()}": path
+            for path in bundle_root.rglob("*")
+            if path.is_file()
+        }
+        files.update({
+            "metadata/smoke_contract.json": contract_bytes,
+            "metadata/licensing_metadata.json": licensing_bytes,
+            "metadata/validation_report.json": validation_bytes,
+        })
+        return build_bundle(
+            output,
+            files,
+            bundle_type=(
+                "REAL_TWO_ITEM_SMOKE_INPUT"
+                if not synthetic_fixture
+                else "SYNTHETIC_TWO_ITEM_SMOKE_PROOF"
+            ),
+            study="pre_smoke",
+            stage="real_model_smoke",
+            provider=None,
+            required_notebook="ALL_3_PROVIDER_SPECIFIC_00C2_NOTEBOOKS",
+            dataset_slug="certvic/certvic-real-two-item-smoke",
+            mount_path="/kaggle/input/certvic-real-two-item-smoke",
+            external_dependency_status=(
+                "EXTERNAL_BYTES_VERIFIED" if not synthetic_fixture else "SYNTHETIC_PROOF_ONLY"
+            ),
+            evidence_class=(
+                "REAL_MODEL_SMOKE_NON_EVIDENCE" if not synthetic_fixture else "SYNTHETIC_FIXTURE"
+            ),
+            builder_command=(
+                "python3 -m certvic.cvpr.smoke_input_builder --task-manifest "
+                "<TRUSTED_TWO_ITEM_TASKS_JSONL>"
+            ),
+            readme=(
+                "# CertVIC two-item smoke input\n\nExactly two portable, hash-bound tasks. This "
+                "bundle is non-evidence and exists only to prove each real model/runtime "
+                "contract before scientific authorization."
+            ),
+            extra_manifest={
+                "synthetic_fixture": bool(synthetic_fixture),
+                "task_bundle_schema": "certvic.cvpr.task_bundle.v1",
+                "provider_run_contracts": "DERIVED_EXACTLY_AT_PERMISSION_ISSUE",
+            },
+        )
 
 
 def main(argv: list[str] | None = None) -> int:

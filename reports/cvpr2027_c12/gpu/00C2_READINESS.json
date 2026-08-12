@@ -1,0 +1,76 @@
+{
+  "execution_allowed": false,
+  "paper_evidence": false,
+  "providers": [
+    {
+      "checks": {
+        "account_independent_discovery": true,
+        "all_contract_tokens": true,
+        "canonical_return": true,
+        "cleared_outputs": true,
+        "deterministic_decoding": true,
+        "no_executable_placeholders": true,
+        "permission_before_hardware": true,
+        "syntax_valid": true,
+        "two_item_bound": true
+      },
+      "notebook": "runbooks/04_REAL_MODEL_SMOKE/00C2_qwen2_5_vl_7b_real_model_two_item_smoke.ipynb",
+      "notebook_sha256": "218860577fda73db28ab0f5899a839dc01146e4b6848d5d1c544e4cec1da4476",
+      "passed": true,
+      "provider": "qwen2_5_vl_7b",
+      "syntax_errors": []
+    },
+    {
+      "checks": {
+        "account_independent_discovery": true,
+        "all_contract_tokens": true,
+        "canonical_return": true,
+        "cleared_outputs": true,
+        "deterministic_decoding": true,
+        "no_executable_placeholders": true,
+        "permission_before_hardware": true,
+        "syntax_valid": true,
+        "two_item_bound": true
+      },
+      "notebook": "runbooks/04_REAL_MODEL_SMOKE/00C2_internvl_8b_real_model_two_item_smoke.ipynb",
+      "notebook_sha256": "bd104fb7783d50e970b313259d41492c1028c0035bc6342079e68df623d02b12",
+      "passed": true,
+      "provider": "internvl_8b",
+      "syntax_errors": []
+    },
+    {
+      "checks": {
+        "account_independent_discovery": true,
+        "all_contract_tokens": true,
+        "canonical_return": true,
+        "cleared_outputs": true,
+        "deterministic_decoding": true,
+        "no_executable_placeholders": true,
+        "permission_before_hardware": true,
+        "syntax_valid": true,
+        "two_item_bound": true
+      },
+      "notebook": "runbooks/04_REAL_MODEL_SMOKE/00C2_llava_onevision_7b_real_model_two_item_smoke.ipynb",
+      "notebook_sha256": "9f0f8c79fb94bc23a7f2a96415fbca7c1ec963c70fe7775e061331ef0c965d0f",
+      "passed": true,
+      "provider": "llava_onevision_7b",
+      "syntax_errors": []
+    }
+  ],
+  "real_smoke_items_present": false,
+  "schema": "certvic.cvpr2027.c12.00c2_readiness.v1",
+  "status": "SOFTWARE_READY_EXTERNAL_SMOKE_ITEMS_REQUIRED",
+  "synthetic_execution_proof": {
+    "paper_evidence": false,
+    "providers": [
+      "qwen2_5_vl_7b",
+      "internvl_8b",
+      "llava_onevision_7b"
+    ],
+    "status": "NOTEBOOK_DERIVED_SYNTHETIC_00C2_PASSED",
+    "strict_contract_verified": true,
+    "strict_gate_status": "SYNTHETIC_SMOKE_PASSED",
+    "synthetic_fixture": true
+  },
+  "synthetic_proof_is_model_evidence": false
+}

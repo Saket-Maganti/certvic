@@ -1,0 +1,19 @@
+{
+  "execution_allowed": false,
+  "exploratory_outputs_labeled": true,
+  "implemented_outputs": [
+    "raw and validity-filtered denominators",
+    "missing/unparseable/abstention counts",
+    "semantic-update successes and irrelevant flips",
+    "one-sided exact bounds and six-gate decisions",
+    "joint and model certificates",
+    "risk differences, exact McNemar, exploratory Holm",
+    "secondary confidence sequences",
+    "category/family/polarity/size/position strata",
+    "leave-one-category/family-out",
+    "failure concentration and cross-model disagreement"
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c12.primary_analysis_readiness.v1",
+  "status": "SOFTWARE_PATHS_READY_PROSPECTIVE_ZIPS_REQUIRED"
+}

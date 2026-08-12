@@ -1,0 +1,18 @@
+{
+  "authorization_requires": "hash-bound prospective confirmatory GO artifact",
+  "execution_allowed": false,
+  "manual_go_text_bypass_allowed": false,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c12.main500_readiness.v1",
+  "software_paths": [
+    "source census",
+    "task generation",
+    "review packet",
+    "quality and detectability gates",
+    "freeze and permissions",
+    "provider notebooks",
+    "transactional imports",
+    "analysis and recovery"
+  ],
+  "status": "CONDITIONAL_NOT_AUTHORIZED"
+}

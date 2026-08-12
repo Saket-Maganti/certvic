@@ -13,6 +13,7 @@ from certvic.cvpr.smoke_input_builder import (
 )
 from local_operator.pre_smoke_operator import (
     ACTIVE_PROFILE,
+    CANONICAL_PROMPT_TEMPLATE_HASH,
     PROVIDERS,
     PreSmokeOperatorError,
     create_00b_matrix,
@@ -62,8 +63,12 @@ def _authenticated_project(tmp_path: Path) -> Path:
     project = tmp_path / "project"
     common = project / "kagglefiles/inputs/00_COMMON"
     runtime = project / "data/runtime"
+    config_runtime = project / "configs/runtime"
+    config_models = project / "configs/models"
     common.mkdir(parents=True)
     runtime.mkdir(parents=True)
+    config_runtime.mkdir(parents=True)
+    config_models.mkdir(parents=True)
     shutil.copy2(
         ROOT / "kagglefiles/inputs/00_COMMON/certvic_code_bundle.zip",
         common / "certvic_code_bundle.zip",
@@ -71,6 +76,14 @@ def _authenticated_project(tmp_path: Path) -> Path:
     shutil.copy2(
         ROOT / "kagglefiles/.IMPORTED_RETURNS.json",
         project / "kagglefiles/.IMPORTED_RETURNS.json",
+    )
+    shutil.copy2(
+        ROOT / "configs/runtime/kaggle_t4x2_environment.lock.json",
+        config_runtime / "kaggle_t4x2_environment.lock.json",
+    )
+    shutil.copy2(
+        ROOT / "configs/models/certvic_immutable_model_registry.json",
+        config_models / "certvic_immutable_model_registry.json",
     )
     names = ["00A_environment", *(
         f"00B_{provider}_snapshot" for provider in PROVIDERS
@@ -103,8 +116,8 @@ def _real_tasks(project: Path) -> Path:
             "edited_image_path": str(edited),
             "license_eligible": True,
             "license_id": f"LICENSE-RECORD-{index}",
-            "prompt_template_hash": "b" * 64,
-            "parser_version": "certvic-parser-v1",
+            "prompt_template_hash": CANONICAL_PROMPT_TEMPLATE_HASH,
+            "parser_version": "certvic.parse.v2",
             "run_contract_hash": "c" * 64,
             "synthetic_fixture": False,
             "paper_evidence": False,
@@ -281,6 +294,7 @@ def test_permissions_bind_all_parents_and_keep_science_unauthorized(
     )
     children = aggregate["permissions"]
     assert len({child["one_run_nonce"] for child in children.values()}) == 3
+    assert len({child["run_contract_hash"] for child in children.values()}) == 3
     assert all(
         child["runtime_class"] == "REAL_MODEL_SMOKE"
         and child["model_registry_hash"] == matrix["matrix_identity_sha256"]

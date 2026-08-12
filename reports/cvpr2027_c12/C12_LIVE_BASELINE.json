@@ -1,0 +1,17 @@
+{
+  "authenticated_state": {
+    "00A": "COMPLETE",
+    "00B_internvl": "COMPLETE",
+    "00B_llava": "COMPLETE",
+    "00B_qwen": "COMPLETE",
+    "00C2": "NOT_AUTHORIZED"
+  },
+  "genuine_human_reviewed_count": 0,
+  "git_head": "1ee0fcd0d0b241a88ff7b57cf5277800c4552e10",
+  "head_matches_origin": true,
+  "main_execution_allowed": false,
+  "origin_main": "1ee0fcd0d0b241a88ff7b57cf5277800c4552e10",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c12.live_baseline.v1",
+  "second_domain_execution_allowed": false
+}

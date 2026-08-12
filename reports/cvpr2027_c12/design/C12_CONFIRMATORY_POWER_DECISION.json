@@ -1,0 +1,86 @@
+{
+  "amendment_precondition": {
+    "paper_evidence": false,
+    "prospective_prediction_artifacts_present": false,
+    "prospective_provider_outcomes_observed": false
+  },
+  "claim_regime_a": "ALL_THREE_MODELS_MUST_JOINTLY_CERTIFY",
+  "claim_regime_b": "MODEL_LEVEL_CERTIFICATES_WITH_FAMILYWISE_ERROR_CONTROL",
+  "decision": "AMEND_BEFORE_OUTCOME_EXECUTION",
+  "evidence_class": "PRE_OUTCOME_DESIGN_VALIDATION_NOT_MODEL_EVIDENCE",
+  "handoff_label": "AMENDED_BEFORE_PROSPECTIVE_OUTCOMES",
+  "new_allocation": {
+    "irrelevant": 240,
+    "relevant": 120,
+    "total": 360
+  },
+  "old_allocation": {
+    "irrelevant": 120,
+    "relevant": 120,
+    "total": 240
+  },
+  "operating_characteristics": {
+    "new_120_240": {
+      "claim_regime_a_all_three_six_gate_power": 0.9010361415743527,
+      "claim_regime_a_false_negative_probability": 0.09896385842564726,
+      "claim_regime_b_at_least_one_model_certificate_probability": 0.999960207621337,
+      "claim_regime_b_model_level_false_negative_probability": 0.03414024501179336,
+      "critical_maximum_irrelevant_flips": 13,
+      "critical_semantic_update_successes": 74,
+      "family_alpha": 0.05,
+      "irrelevant_n": 240,
+      "marginal_all_three_power_plus_30_controls": 0.017342644219208947,
+      "marginal_all_three_power_plus_60_controls": 0.02718308403541736,
+      "method": "exact_binomial_under_frozen_one_sided_clopper_pearson_rule",
+      "per_gate_alpha": 0.008333333333333333,
+      "per_model_joint_power": 0.9658597549882066,
+      "per_model_responsiveness_power": 0.9800285008063856,
+      "per_model_specificity_power": 0.9855425165630176,
+      "relevant_n": 120,
+      "sample_efficiency_all_three_power_per_item": 0.002502878171039869,
+      "total_n": 360,
+      "true_flip_rate": 0.03,
+      "true_update_rate": 0.7
+    },
+    "old_120_120": {
+      "claim_regime_a_all_three_six_gate_power": 0.33352802116705893,
+      "claim_regime_a_false_negative_probability": 0.6664719788329411,
+      "claim_regime_b_at_least_one_model_certificate_probability": 0.9712056398712932,
+      "claim_regime_b_model_level_false_negative_probability": 0.3065037629170654,
+      "critical_maximum_irrelevant_flips": 4,
+      "critical_semantic_update_successes": 74,
+      "family_alpha": 0.05,
+      "irrelevant_n": 120,
+      "marginal_all_three_power_plus_30_controls": 0.21250734907439506,
+      "marginal_all_three_power_plus_60_controls": 0.3661606698007509,
+      "method": "exact_binomial_under_frozen_one_sided_clopper_pearson_rule",
+      "per_gate_alpha": 0.008333333333333333,
+      "per_model_joint_power": 0.6934962370829346,
+      "per_model_responsiveness_power": 0.9800285008063856,
+      "per_model_specificity_power": 0.7076286419347122,
+      "relevant_n": 120,
+      "sample_efficiency_all_three_power_per_item": 0.001389700088196079,
+      "total_n": 240,
+      "true_flip_rate": 0.03,
+      "true_update_rate": 0.7
+    }
+  },
+  "paper_evidence": false,
+  "primary_claim_regime": "ALL_THREE_MODELS_MUST_JOINTLY_CERTIFY",
+  "rationale": "At the declared 0.70/0.03 design scenario, all-three six-gate power rises from 0.333528 to 0.901036; controls were the dominant false-negative bottleneck. Relevant n and every endpoint, threshold, and multiplicity rule remain unchanged.",
+  "reserve_allocation": {
+    "irrelevant": 60,
+    "relevant": 30,
+    "total": 90
+  },
+  "schema": "certvic.cvpr2027.c12.confirmatory_power_decision.v1",
+  "unchanged": {
+    "family_alpha": 0.05,
+    "family_size": 6,
+    "interval": "one_sided_exact_clopper_pearson",
+    "missing_unparseable_abstention": "fail_closed",
+    "per_gate_alpha": 0.008333333333333333,
+    "tau_spurious": 0.1,
+    "tau_update": 0.5
+  }
+}

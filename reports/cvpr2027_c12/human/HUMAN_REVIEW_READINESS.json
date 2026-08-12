@@ -1,0 +1,44 @@
+{
+  "agreement": [
+    "percent agreement",
+    "Cohen kappa",
+    "Krippendorff alpha nominal",
+    "bootstrap confidence intervals",
+    "field-level agreement",
+    "adjudication rate",
+    "confidence and reason-code distributions"
+  ],
+  "blindness": {
+    "V1_failure_identities_hidden": true,
+    "historical_outcomes_hidden": true,
+    "original_edited_presentation_randomized": true,
+    "packet_hash_locked": true,
+    "pair_order_randomized": true,
+    "provider_names_hidden": true,
+    "selection_scores_hidden": true
+  },
+  "current_state": "WAITING_FOR_RATER_1",
+  "genuine_human_reviewed_count": 0,
+  "independence_validators": [
+    "distinct hashed rater identifiers",
+    "separate non-identical sheets",
+    "exact row universe",
+    "no duplicates or missing rows",
+    "current qualification pass",
+    "immutable packet hash",
+    "timestamp ordering"
+  ],
+  "next_action": "Mount licensed source bytes and build/freeze the blind packet; do not synthesize labels.",
+  "paper_evidence": false,
+  "qualification_dimensions": [
+    "target unaffected",
+    "expected-answer invariance",
+    "perturbation acceptability",
+    "answerability",
+    "prompt ambiguity",
+    "retention logic",
+    "confidence calibration"
+  ],
+  "schema": "certvic.cvpr2027.c12.human_review_readiness.v1",
+  "status": "SOFTWARE_READY_SOURCE_PACKET_AND_GENUINE_RATERS_REQUIRED"
+}

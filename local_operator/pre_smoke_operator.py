@@ -12,7 +12,7 @@ import sys
 import tempfile
 import zipfile
 from datetime import datetime, timezone
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any, Mapping, Sequence
 
 sys.dont_write_bytecode = True
@@ -32,6 +32,8 @@ from certvic.cvpr.reconcile_provider_permissions import (  # noqa: E402
     verify_matrix_authorization,
     verify_provider_permission,
 )
+from certvic.cvpr.contracts import canonical_json_bytes, sha256_bytes  # noqa: E402
+from certvic.cvpr.run_contract import build_run_contract  # noqa: E402
 from certvic.cvpr.smoke_input_builder import (  # noqa: E402
     SmokeInputBuilderError,
     build_smoke_bundle,
@@ -50,6 +52,7 @@ PERMISSIONS_SCHEMA = "certvic.local_operator.pre_smoke_provider_permissions.v1"
 EXPECTED_CODE_IDENTITY = (
     "79d7fe9bc7f3778811071afdd1242241127ebaa182ac29cb092af87c13eacf33"
 )
+CANONICAL_PROMPT_TEMPLATE_HASH = hashlib.sha256(b"{prompt}\n").hexdigest()
 
 
 class PreSmokeOperatorError(ValueError):
@@ -368,8 +371,8 @@ def _zip_json_members(path: Path) -> dict[str, Any]:
     try:
         with zipfile.ZipFile(path) as archive:
             values = {}
-            for name in (
-                "task_manifest.jsonl",
+            for basename in (
+                "tasks.jsonl",
                 "task_bundle_manifest.json",
                 "smoke_contract.json",
                 "licensing_metadata.json",
@@ -378,23 +381,24 @@ def _zip_json_members(path: Path) -> dict[str, Any]:
                 matches = [
                     candidate
                     for candidate in archive.namelist()
-                    if candidate == name
+                    if PurePosixPath(candidate).name == basename
                 ]
                 if len(matches) != 1:
                     raise PreSmokeOperatorError(
-                        f"real smoke bundle member missing/duplicated: {name}"
+                        f"real smoke bundle member missing/duplicated: {basename}"
                     )
+                name = matches[0]
                 payload = archive.read(name)
-                if name.endswith(".jsonl"):
-                    values[name] = [
+                if basename.endswith(".jsonl"):
+                    values[basename] = [
                         json.loads(line)
                         for line in payload.decode("utf-8").splitlines()
                         if line
                     ]
-                    values[f"{name}:sha256"] = _sha256_bytes(payload)
+                    values[f"{basename}:sha256"] = _sha256_bytes(payload)
                 else:
-                    values[name] = json.loads(payload)
-                    values[f"{name}:sha256"] = _sha256_bytes(payload)
+                    values[basename] = json.loads(payload)
+                    values[f"{basename}:sha256"] = _sha256_bytes(payload)
             return values
     except (OSError, UnicodeDecodeError, json.JSONDecodeError, zipfile.BadZipFile) as error:
         raise PreSmokeOperatorError(f"real smoke bundle is unreadable: {error}") from error
@@ -426,7 +430,7 @@ def verify_real_smoke_bundle(
     ):
         raise PreSmokeOperatorError("real smoke bundle type/evidence boundary mismatch")
     members = _zip_json_members(bundle)
-    rows = members["task_manifest.jsonl"]
+    rows = members["tasks.jsonl"]
     if len(rows) != 2 or len({row.get("item_id") for row in rows}) != 2:
         raise PreSmokeOperatorError("real smoke bundle is not exactly two unique items")
     byte_hashes: list[str] = []
@@ -459,9 +463,8 @@ def verify_real_smoke_bundle(
     contract = members["smoke_contract.json"]
     validation = members["validation_report.json"]
     if (
-        task_bundle.get("cardinality") != 2
-        or task_bundle.get("zero_historical_overlap") is not True
-        or task_bundle.get("synthetic_fixture") is not False
+        task_bundle.get("schema") != "certvic.cvpr.task_bundle.v1"
+        or task_bundle.get("task_count") != 2
         or task_bundle.get("paper_evidence") is not False
         or contract.get("use_real_model") is not True
         or contract.get("providers") != list(PROVIDERS)
@@ -517,14 +520,15 @@ def _permission_sources(
     rows = smoke["rows"]
     prompt_hashes = {row["prompt_template_hash"] for row in rows}
     parser_versions = {row["parser_version"] for row in rows}
-    run_contract_hashes = {row["run_contract_hash"] for row in rows}
     if len(prompt_hashes) != 1 or len(parser_versions) != 1:
         raise PreSmokeOperatorError(
             "real smoke items must share one prompt-template and parser identity"
         )
-    if len(run_contract_hashes) != 1:
+    if prompt_hashes != {CANONICAL_PROMPT_TEMPLATE_HASH} or parser_versions != {
+        "certvic.parse.v2"
+    }:
         raise PreSmokeOperatorError(
-            "canonical builder currently requires one shared run-contract identity"
+            "real smoke prompt/parser identity differs from the frozen 00C2 notebooks"
         )
     members = smoke["members"]
     item_ids = sorted(str(row["item_id"]) for row in rows)
@@ -532,17 +536,58 @@ def _permission_sources(
     return {
         "prompt_hash": next(iter(prompt_hashes)),
         "parser_version": next(iter(parser_versions)),
-        "run_contract_hash": next(iter(run_contract_hashes)),
+        "task_manifest_sha256": sha256_bytes(canonical_json_bytes(rows)),
         "task_universe_sha256": _sha256_bytes(_canonical_bytes(item_ids)),
         "edited_image_hashes_hash": _sha256_bytes(_canonical_bytes(edited_hashes)),
-        "final_task_manifest_hash": members["task_manifest.jsonl:sha256"],
+        "final_task_manifest_hash": members["tasks.jsonl:sha256"],
         "review_hash": members["licensing_metadata.json:sha256"],
         "detectability_hash": members["validation_report.json:sha256"],
         "smoke_contract_hash": members["smoke_contract.json:sha256"],
         "task_bundle_manifest_hash": members["task_bundle_manifest.json:sha256"],
-        "environment_hash": authenticated["environment"]["runtime_record_sha256"],
+        "task_bundle_hash": members["task_bundle_manifest.json"]["bundle_hash"],
+        "environment_hash": authenticated["environment"]["record"]["environment_lock_hash"],
         "model_registry_hash": matrix["matrix_identity_sha256"],
     }
+
+
+def _provider_run_contract(
+    provider: str,
+    authenticated: Mapping[str, Any],
+    sources: Mapping[str, Any],
+) -> dict[str, Any]:
+    record = authenticated["snapshots"][provider]["record"]
+    environment = authenticated["environment"]["record"]
+    return build_run_contract(
+        {
+            "study": "pre_smoke",
+            "runtime_class": "REAL_MODEL_SMOKE",
+            "provider": provider,
+            "model_id": record["model_id"],
+            "processor_id": record["processor_id"],
+            "model_commit": record["model_commit"],
+            "processor_commit": record["processor_commit"],
+            "model_snapshot_manifest_hash": record["snapshot_manifest_file_sha256"],
+            "processor_snapshot_manifest_hash": record["snapshot_manifest_file_sha256"],
+            "snapshot_status": "LOCAL_SNAPSHOT_BYTES_VERIFIED",
+            "snapshot_contract": "UNIFIED_SNAPSHOT",
+            "environment_lock_hash": environment["environment_lock_hash"],
+            "runtime_profile_id": ACTIVE_PROFILE,
+            "runtime_profile_hash": environment["runtime_profile_hash"],
+            "wheelhouse_content_identity_sha256": environment[
+                "wheelhouse_content_identity_sha256"
+            ],
+            "prompt_template_id": "certification_yes_no_v1",
+            "prompt_template_hash": sources["prompt_hash"],
+            "parser_version": sources["parser_version"],
+            "output_schema": "certvic.cvpr.output.v2",
+            "run_tag": f"00C2_{provider}_real_model_two_item_smoke",
+            "code_bundle_hash": authenticated["code_content_identity_sha256"],
+            "seed": 12013,
+            "generation_parameters": {"do_sample": False, "max_new_tokens": 8},
+        },
+        task_manifest_sha256=sources["task_manifest_sha256"],
+        strict=True,
+    )
 
 
 def generate_pre_smoke_permissions(
@@ -565,7 +610,7 @@ def generate_pre_smoke_permissions(
     environment = authenticated["environment"]["record"]
     parent = create_matrix_authorization(
         study="pre_smoke",
-        task_bundle_hash=smoke["content_identity_sha256"],
+        task_bundle_hash=sources["task_bundle_hash"],
         final_task_manifest_hash=sources["final_task_manifest_hash"],
         task_universe_sha256=sources["task_universe_sha256"],
         edited_image_hashes_hash=sources["edited_image_hashes_hash"],
@@ -588,25 +633,34 @@ def generate_pre_smoke_permissions(
     rows_by_provider = {
         row["provider"]: row for row in matrix_complete["rows"]
     }
+    environment_lock_file_sha256 = _sha256_file(
+        project / "configs/runtime/kaggle_t4x2_environment.lock.json"
+    )
+    model_registry_file_sha256 = _sha256_file(
+        project / "configs/models/certvic_immutable_model_registry.json"
+    )
     children: dict[str, dict[str, Any]] = {}
     for provider in PROVIDERS:
         row = rows_by_provider[provider]
+        run_contract = _provider_run_contract(provider, authenticated, sources)
+        snapshot_record = authenticated["snapshots"][provider]["record"]
         active_input_hashes = {
-            "task_bundle_manifest": sources["final_task_manifest_hash"],
+            "task_bundle_manifest": sources["task_bundle_manifest_hash"],
             "freeze_manifest": sources["task_bundle_manifest_hash"],
             "final_review": sources["review_hash"],
             "smoke_gate": sources["detectability_hash"],
-            "environment_lock": sources["environment_hash"],
-            "model_registry": sources["model_registry_hash"],
-            "snapshot_manifest": row["runtime_record_sha256"],
+            "environment_lock": environment_lock_file_sha256,
+            "model_registry": model_registry_file_sha256,
+            "snapshot_manifest": snapshot_record["snapshot_manifest_file_sha256"],
             "code_bundle": authenticated["code_content_identity_sha256"],
             "study_config": sources["smoke_contract_hash"],
-            "matrix_authorization": parent["content_signature_sha256"],
+            "matrix_authorization": _sha256_bytes(_json_bytes(parent)),
         }
         active_scalars = {
             "schema_version": parent["output_schema"],
             "provider": provider,
             "run_tag": f"00C2_{provider}_real_model_two_item_smoke",
+            "prompt_template_hash": sources["prompt_hash"],
             "runtime_profile_id": ACTIVE_PROFILE,
             "runtime_profile_hash": environment["runtime_profile_hash"],
             "wheelhouse_content_identity_sha256": environment[
@@ -624,7 +678,7 @@ def generate_pre_smoke_permissions(
             snapshot_hash=row["snapshot_content_identity_sha256"],
             snapshot_root_hash=row["snapshot_root_hash"],
             environment_hash=sources["environment_hash"],
-            task_bundle_hash=smoke["content_identity_sha256"],
+            task_bundle_hash=sources["task_bundle_hash"],
             run_tag=active_scalars["run_tag"],
             code_hash=authenticated["code_content_identity_sha256"],
             parser_version=sources["parser_version"],
@@ -632,7 +686,7 @@ def generate_pre_smoke_permissions(
             active_input_hashes=active_input_hashes,
             active_scalars=active_scalars,
             runtime_class="REAL_MODEL_SMOKE",
-            run_contract_hash=sources["run_contract_hash"],
+            run_contract_hash=run_contract["run_contract_hash"],
             prompt_template_hash=sources["prompt_hash"],
             nonce=nonce,
         )
@@ -702,7 +756,7 @@ def verify_pre_smoke_permissions(
     expected_parent = {
         "study": "pre_smoke",
         "providers": sorted(PROVIDERS),
-        "task_bundle_hash": smoke["content_identity_sha256"],
+        "task_bundle_hash": sources["task_bundle_hash"],
         "environment_hash": sources["environment_hash"],
         "model_registry_hash": sources["model_registry_hash"],
         "code_hash": authenticated["code_content_identity_sha256"],
@@ -745,10 +799,11 @@ def verify_pre_smoke_permissions(
             raise PreSmokeOperatorError(
                 f"pre-smoke provider permission rejected: {provider}: {error}"
             ) from error
+        expected_contract = _provider_run_contract(provider, authenticated, sources)
         if (
             child.get("runtime_class") != "REAL_MODEL_SMOKE"
             or child.get("parser_version") != sources["parser_version"]
-            or child.get("run_contract_hash") != sources["run_contract_hash"]
+            or child.get("run_contract_hash") != expected_contract["run_contract_hash"]
             or child.get("paper_evidence") is not False
         ):
             raise PreSmokeOperatorError(

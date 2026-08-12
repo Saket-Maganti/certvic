@@ -1,0 +1,8 @@
+{
+  "dataset_selected": false,
+  "execution_allowed": false,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c12.second_domain_readiness.v1",
+  "selection_rule": "score evidence-backed candidates; convenience alone is insufficient",
+  "status": "FRAMEWORK_READY_DOMAIN_NOT_SELECTED"
+}

@@ -1,0 +1,11 @@
+{
+  "capture_date_optional": null,
+  "creator": "WITHHELD_FROM_PUBLIC_BUNDLE",
+  "declaration_date": "YYYY-MM-DD",
+  "item_id": "REQUIRED_LOCAL_ITEM_ID",
+  "license_id": "REQUIRED_STABLE_LOCAL_LICENSE_ID",
+  "notes": "Do not include private identifying information in a public bundle.",
+  "ownership_basis": "USER_DECLARED_CREATOR_OR_RIGHTSHOLDER",
+  "redistribution_permission": false,
+  "research_use_permission": false
+}

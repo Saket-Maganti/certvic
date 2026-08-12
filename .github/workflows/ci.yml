@@ -1,0 +1,46 @@
+name: lightweight-integrity
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  static-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install lightweight checker
+        run: python -m pip install --disable-pip-version-check ruff
+      - name: Ruff
+        run: python -m ruff check --no-cache certvic scripts tests kagglefiles local_operator
+      - name: Compile without repository bytecode
+        run: PYTHONPYCACHEPREFIX="$RUNNER_TEMP/certvic-pycache" python -m compileall -q certvic scripts tests kagglefiles local_operator
+      - name: Reject tracked secrets and notebook outputs
+        shell: bash
+        run: |
+          if git ls-files | grep -E '(^|/)(kaggle\.json|\.env|credentials[^/]*\.json|secrets?[^/]*\.json)$'; then
+            echo "Tracked credential-like file detected" >&2
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          import pathlib
+          errors = []
+          for path in pathlib.Path("kagglefiles/runbooks").rglob("*.ipynb"):
+              value = json.loads(path.read_text(encoding="utf-8"))
+              for index, cell in enumerate(value.get("cells", [])):
+                  if cell.get("cell_type") == "code" and (
+                      cell.get("outputs") or cell.get("execution_count") is not None
+                  ):
+                      errors.append(f"{path}: cell {index} contains execution state")
+          if errors:
+              raise SystemExit("\n".join(errors))
+          PY

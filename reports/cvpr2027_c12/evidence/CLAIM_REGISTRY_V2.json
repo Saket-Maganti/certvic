@@ -1,0 +1,347 @@
+{
+  "claims": [
+    {
+      "allowed_scope": "RETROSPECTIVE_DIAGNOSTIC",
+      "claim_id": "historical_answer_change_not_semantic_update",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "versioned diagnostic or software validation artifact"
+      ],
+      "required_evidence_class": "RETROSPECTIVE_DIAGNOSTIC",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": false,
+      "required_sample_size": null,
+      "status": "SATISFIED_DIAGNOSTIC_ONLY"
+    },
+    {
+      "allowed_scope": "RETROSPECTIVE_DIAGNOSTIC",
+      "claim_id": "historical_model_dependent_specificity",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "versioned diagnostic or software validation artifact"
+      ],
+      "required_evidence_class": "RETROSPECTIVE_DIAGNOSTIC",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": false,
+      "required_sample_size": null,
+      "status": "SATISFIED_DIAGNOSTIC_ONLY"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE",
+      "claim_id": "prospective_responsiveness_certificate",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": true,
+      "required_sample_size": {
+        "irrelevant": 240,
+        "relevant": 120
+      },
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE",
+      "claim_id": "prospective_specificity_certificate",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": true,
+      "required_sample_size": {
+        "irrelevant": 240,
+        "relevant": 120
+      },
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE",
+      "claim_id": "prospective_joint_certificate",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": true,
+      "required_sample_size": {
+        "irrelevant": 240,
+        "relevant": 120
+      },
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE_OR_RETROSPECTIVE_SCOPED",
+      "claim_id": "model_ranking_reversal",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE_OR_RETROSPECTIVE_SCOPED",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": false,
+      "required_sample_size": null,
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE",
+      "claim_id": "model_specific_failure_regime",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": false,
+      "required_sample_size": null,
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE",
+      "claim_id": "matched_control_validity",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": true,
+      "required_sample_size": null,
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE",
+      "claim_id": "human_validity",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": true,
+      "required_sample_size": null,
+      "status": "BLOCKED_HUMAN"
+    },
+    {
+      "allowed_scope": "SOFTWARE_STATISTICAL_VALIDATION",
+      "claim_id": "anytime_valid_software_claim",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "versioned diagnostic or software validation artifact"
+      ],
+      "required_evidence_class": "SOFTWARE_STATISTICAL_VALIDATION",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": false,
+      "required_sample_size": null,
+      "status": "SATISFIED_SOFTWARE_ONLY"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE",
+      "claim_id": "cross_model_difference",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": false,
+      "required_sample_size": null,
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "SECONDARY_PROMPT_ROBUSTNESS",
+      "claim_id": "secondary_prompt_robustness",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "SECONDARY_PROMPT_ROBUSTNESS",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": false,
+      "required_sample_size": null,
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "SECONDARY_DECODING_ROBUSTNESS",
+      "claim_id": "secondary_decoding_robustness",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "SECONDARY_DECODING_ROBUSTNESS",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": false,
+      "required_sample_size": null,
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "SECONDARY_MODEL_EXPANSION",
+      "claim_id": "secondary_model_expansion",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "SECONDARY_MODEL_EXPANSION",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": false,
+      "required_sample_size": null,
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE_PLUS_SECOND_DOMAIN",
+      "claim_id": "cross_domain_generalization",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE_PLUS_SECOND_DOMAIN",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": true,
+      "required_sample_size": null,
+      "status": "BLOCKED"
+    },
+    {
+      "allowed_scope": "PRIMARY_PROSPECTIVE_PLUS_MAIN500",
+      "claim_id": "Main500_scale_claim",
+      "forbidden_supporting_artifacts": [
+        "synthetic proof",
+        "00C2 smoke",
+        "historical V1/V2 for prospective claims",
+        "planned or contracts-only artifacts"
+      ],
+      "paper_evidence": false,
+      "required_artifacts": [
+        "frozen task bundle",
+        "permission-bound provider ZIPs",
+        "locked analysis"
+      ],
+      "required_evidence_class": "PRIMARY_PROSPECTIVE_PLUS_MAIN500",
+      "required_gate": "evidence_class_and_artifact_hashes_match",
+      "required_human_review": true,
+      "required_sample_size": null,
+      "status": "BLOCKED"
+    }
+  ],
+  "historical_can_satisfy_prospective": false,
+  "optional_models_enter_primary_family": false,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c12.claim_registry.v2"
+}

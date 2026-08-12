@@ -1,0 +1,67 @@
+{
+  "classes": [
+    {
+      "class": "SCIENTIFIC_P0",
+      "status": "COMPLETE",
+      "task": "prospective allocation optimization"
+    },
+    {
+      "class": "SCIENTIFIC_P0",
+      "status": "COMPLETE",
+      "task": "00C2 bundle and permission compatibility"
+    },
+    {
+      "class": "SCIENTIFIC_P0",
+      "status": "SOFTWARE_READY_EXTERNAL_BLOCKED",
+      "task": "prospective matching/detectability"
+    },
+    {
+      "class": "SCIENTIFIC_P1",
+      "status": "SOFTWARE_READY_HUMAN_BLOCKED",
+      "task": "human review"
+    },
+    {
+      "class": "SCIENTIFIC_P1",
+      "status": "SOFTWARE_READY_OUTPUT_BLOCKED",
+      "task": "primary analysis and reviewer attacks"
+    },
+    {
+      "class": "ENGINEERING_SUPPORT",
+      "status": "IN_PROGRESS",
+      "task": "runbook and pack validation"
+    },
+    {
+      "class": "EXTERNAL_BLOCKED",
+      "status": "SOURCE_BYTES_MISSING",
+      "task": "licensed ADE20K source census"
+    },
+    {
+      "class": "HUMAN_BLOCKED",
+      "status": "NOT_STARTED",
+      "task": "two independent qualified raters"
+    },
+    {
+      "class": "GPU_BLOCKED",
+      "status": "NOT_AUTHORIZED",
+      "task": "00C2 and confirmatory inference"
+    },
+    {
+      "class": "NOT_WORTH_DOING",
+      "status": "EXCLUDED",
+      "task": "paper prose and dashboards"
+    }
+  ],
+  "paper_evidence": false,
+  "priority_order": [
+    "design_power",
+    "real_smoke_intake",
+    "00C2",
+    "confirmatory_runbooks",
+    "matching_detectability",
+    "human_review",
+    "primary_analysis",
+    "secondary_paths",
+    "reproducibility"
+  ],
+  "schema": "certvic.cvpr2027.c12.work_plan.v1"
+}

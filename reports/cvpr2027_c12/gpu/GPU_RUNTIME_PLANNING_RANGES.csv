@@ -1,0 +1,7 @@
+provider,stage,items,optimistic_minutes,typical_minutes,conservative_minutes,basis
+qwen2_5_vl_7b,00C2,2,20,40,60,planning range pending measured real smoke
+qwen2_5_vl_7b,confirmatory_v3,360,DERIVE_AFTER_00C2,DERIVE_AFTER_00C2,DERIVE_AFTER_00C2,DERIVE_AFTER_CONFIRMATORY_CALIBRATION
+internvl_8b,00C2,2,20,40,60,planning range pending measured real smoke
+internvl_8b,confirmatory_v3,360,DERIVE_AFTER_00C2,DERIVE_AFTER_00C2,DERIVE_AFTER_00C2,DERIVE_AFTER_CONFIRMATORY_CALIBRATION
+llava_onevision_7b,00C2,2,20,40,60,planning range pending measured real smoke
+llava_onevision_7b,confirmatory_v3,360,DERIVE_AFTER_00C2,DERIVE_AFTER_00C2,DERIVE_AFTER_00C2,DERIVE_AFTER_CONFIRMATORY_CALIBRATION

@@ -1,0 +1,12 @@
+{
+  "errors": [],
+  "manifest_files": 94,
+  "paper_evidence": false,
+  "passed": true,
+  "root_subfolders": [
+    "inputs",
+    "runbooks"
+  ],
+  "runbooks": 23,
+  "schema": "certvic.kagglefiles.pack_verification.v1"
+}

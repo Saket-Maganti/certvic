@@ -1,0 +1,7 @@
+{
+  "artifacts": 31,
+  "manifest": "reports/cvpr2027_c12/C12_READINESS_ARTIFACT_MANIFEST.json",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c12.readiness_summary.v1",
+  "status": "LOCAL_READINESS_ARTIFACTS_BUILT"
+}
