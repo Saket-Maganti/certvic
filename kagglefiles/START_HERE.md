@@ -3,7 +3,7 @@ DO NOT NAVIGATE THE REST OF THE REPOSITORY.
 
 # CertVIC Kaggle operator pack
 
-- Repository source commit: `1ee0fcd0d0b241a88ff7b57cf5277800c4552e10`
+- Repository source commit: `8c56a7036f39cc98d9854c374f437a270d2cc592`
 - Origin/main at generation: `1ee0fcd0d0b241a88ff7b57cf5277800c4552e10`
 - Doctor state: `READY_FOR_00C2`
 - Active runtime profile: `kaggle_cp312_2026_07`
