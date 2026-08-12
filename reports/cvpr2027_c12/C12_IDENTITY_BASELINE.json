@@ -17,8 +17,8 @@
       "path": "kagglefiles/inputs/00_COMMON/certvic_execution_tools_bundle.zip"
     }
   },
-  "git_head": "1ee0fcd0d0b241a88ff7b57cf5277800c4552e10",
-  "git_head_subject": "Add C11 maximum-ceiling reports and handoff",
+  "git_head": "8c56a7036f39cc98d9854c374f437a270d2cc592",
+  "git_head_subject": "docs: close C12 readiness work plan",
   "identity_policy": {
     "authenticated_archives_are_immutable": true,
     "new_v3_protocol_is_external_to_authenticated_00C2_common_archives": true,

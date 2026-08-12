@@ -2,8 +2,8 @@
   "files": [
     {
       "path": "reports/cvpr2027_c12/C12_IDENTITY_BASELINE.json",
-      "sha256": "0dd2690166616874cd95bc995e0cf1e24619a7bfcbebb3e86a3691465d0e18a4",
-      "size_bytes": 3134
+      "sha256": "09dfc0cd17e487a23ef68b405172cabc623498caa69144c59a44c18b94aa14bd",
+      "size_bytes": 3126
     },
     {
       "path": "reports/cvpr2027_c12/C12_IDENTITY_DIFF.json",
@@ -12,18 +12,18 @@
     },
     {
       "path": "reports/cvpr2027_c12/C12_IDENTITY_FINAL.json",
-      "sha256": "d2216687e1f1d5f0eb93d07aee2fe9748b4f8beeabad6d63da3ae10e912c7414",
+      "sha256": "f2a735e394c334befd11d5802396b11b8ad3d4af7b254a369db482689c597197",
       "size_bytes": 2816
     },
     {
       "path": "reports/cvpr2027_c12/C12_LIVE_BASELINE.json",
-      "sha256": "02bfc9bfe190c2fbd9700082d4e14521d26ec38ddd71df9b29fb0bc9ca1f4bec",
-      "size_bytes": 522
+      "sha256": "f757414ce1ec62d0df411f75ad2c671d7e2e9eaec2bd6d6de69ca93d12a63748",
+      "size_bytes": 523
     },
     {
       "path": "reports/cvpr2027_c12/C12_WORK_PLAN.json",
-      "sha256": "f800c2dc9900e7bbedd38596654e9a1c0fda11624a76bfa0cdcc1ba3c72bf7cc",
-      "size_bytes": 1630
+      "sha256": "79b5ae3ed6c755b7a0016c5ec52f0e25500788d045f441dc75cf74e22fac0ca6",
+      "size_bytes": 1627
     },
     {
       "path": "reports/cvpr2027_c12/analysis/ANALYSIS_GOLDEN_FIXTURES.json",
@@ -151,7 +151,7 @@
       "size_bytes": 294
     }
   ],
-  "identity_sha256": "eed49e04d33e8bae4a009537e4df4a85d787bb207ac60b3dce7f61e68018a892",
+  "identity_sha256": "cb37613eda114fe55b9c496e002eaae9c29841cd81ca237c4181beaba5424cf8",
   "paper_evidence": false,
   "schema": "certvic.cvpr2027.artifact_manifest.v1"
 }
