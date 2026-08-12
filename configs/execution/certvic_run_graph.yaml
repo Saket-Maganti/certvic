@@ -120,7 +120,9 @@ nodes:
     id: confirmatory_candidates
     study: specificity_confirmatory_cvpr
     prerequisites: [smoke_handoff]
-    inputs: [configs/studies/specificity_confirmatory_cvpr.yaml]
+    inputs:
+      - configs/studies/specificity_confirmatory_cvpr.yaml
+      - configs/studies/specificity_confirmatory_cvpr_v3.yaml
     outputs: [data/studies/specificity_confirmatory_cvpr/candidates.jsonl]
     command: Kaggle 01_specificity_confirmatory_generation_T4x2.ipynb
     hardware: kaggle_t4x2

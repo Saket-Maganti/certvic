@@ -99,7 +99,18 @@ def _inspect_image(path: Path) -> dict[str, Any]:
 
 def _status() -> dict[str, Any]:
     current = operator_status(REPOSITORY_ROOT)
-    if current.get("operator_state") == "READY_FOR_00C2":
+    bundle_state = current.get("real_smoke_bundle")
+    permission_state = current.get("pre_smoke_permissions")
+    if bundle_state == "ABSENT":
+        status_value = "BLOCKED_BY_TWO_REAL_LICENSED_SMOKE_ITEMS"
+        operator_state = "READY_FOR_REAL_SMOKE_INPUTS"
+    elif permission_state == "ABSENT":
+        status_value = "BLOCKED_BY_PRE_SMOKE_PERMISSIONS"
+        operator_state = "READY_TO_BUILD_PRE_SMOKE_PERMISSIONS"
+    else:
+        status_value = current.get("preparation_status", current.get("operator_state"))
+        operator_state = current.get("operator_state")
+    if operator_state == "READY_FOR_00C2":
         action = (
             "Upload kaggle_uploads/03_smoke/certvic_real_two_item_smoke_bundle.zip and "
             "kaggle_uploads/04_permissions/certvic_pre_smoke_permissions.zip, then Run All on "
@@ -112,10 +123,10 @@ def _status() -> dict[str, Any]:
         )
     return {
         "schema": "certvic.cvpr2027.c12.real_smoke_intake_status.v1",
-        "status": current.get("preparation_status", current.get("operator_state")),
-        "operator_state": current.get("operator_state"),
-        "real_smoke_bundle": current.get("real_smoke_bundle"),
-        "pre_smoke_permissions": current.get("pre_smoke_permissions"),
+        "status": status_value,
+        "operator_state": operator_state,
+        "real_smoke_bundle": bundle_state,
+        "pre_smoke_permissions": permission_state,
         "exact_next_action": action,
         "paper_evidence": False,
     }
@@ -234,10 +245,10 @@ def prepare(args: argparse.Namespace) -> dict[str, Any]:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--status", action="store_true")
-    parser.add_argument("--item1-original", type=Path)
-    parser.add_argument("--item1-edited", type=Path)
-    parser.add_argument("--item2-original", type=Path)
-    parser.add_argument("--item2-edited", type=Path)
+    parser.add_argument("--item1-original", "--relevant-before", type=Path)
+    parser.add_argument("--item1-edited", "--relevant-after", type=Path)
+    parser.add_argument("--item2-original", "--irrelevant-before", type=Path)
+    parser.add_argument("--item2-edited", "--irrelevant-after", type=Path)
     parser.add_argument("--license-owner")
     parser.add_argument("--affirm-research-use", action="store_true")
     parser.add_argument("--affirm-redistribution", action="store_true")

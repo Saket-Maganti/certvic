@@ -18,7 +18,8 @@
     "rater_2_qualification": "data/studies/specificity_confirmatory_cvpr/review/rater_2_qualification.json",
     "rater_2_validation": "data/studies/specificity_confirmatory_cvpr/review/rater_2_validation.json",
     "smoke_gate": "reports/cvpr_final_integration/REAL_MODEL_SMOKE_GATE.json",
-    "study_config": "configs/studies/specificity_confirmatory_cvpr.yaml"
+    "study_config": "configs/studies/specificity_confirmatory_cvpr.yaml",
+    "active_pre_outcome_amendment": "configs/studies/specificity_confirmatory_cvpr_v3.yaml"
   },
   "providers": {
     "internvl_8b": {

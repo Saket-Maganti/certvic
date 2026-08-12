@@ -40,12 +40,18 @@ def _irrelevant(original: str, edited: str) -> dict:
     )
 
 
-def test_only_one_authoritative_prospective_protocol_and_v11_is_non_executable() -> None:
+def test_one_frozen_base_plus_pre_outcome_amendment_and_v11_is_non_executable() -> None:
     result = validate_authority(ROOT)
     assert result["passed"] is True
     assert result["live_prospective_protocols"] == [
-        "configs/studies/specificity_confirmatory_cvpr.yaml"
+        "configs/studies/specificity_confirmatory_cvpr.yaml",
+        "configs/studies/specificity_confirmatory_cvpr_v3.yaml",
     ]
+    assert result["authoritative_protocol"].endswith("_v3.yaml")
+    assert result["effective_allocation"]["primary"] == {
+        "relevant_intervention": 120,
+        "irrelevant_control": 240,
+    }
     old = yaml.safe_load((ROOT / "configs/certvic_v11_protocol.yaml").read_text())
     assert old["status"] == "DEPRECATED_NOT_FOR_EXECUTION"
     assert old["execution_allowed"] is False
