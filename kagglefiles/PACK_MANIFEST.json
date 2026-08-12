@@ -4,9 +4,57 @@
     "status": "CONDITIONAL_NOT_AUTHORIZED"
   },
   "active_runtime_profile": "kaggle_cp312_2026_07",
-  "deterministic_portion_sha256": "b9b669584e850de2b74bfd8fc7e628afd6dc8c89d94ed81bc06ce76b4cb2e564",
-  "doctor_state": "READY_FOR_00A",
+  "deterministic_portion_sha256": "c2952e0d2206b0f2427514d4fd9113450f18554fabb50eec97a7c882a910f74d",
+  "doctor_state": "READY_FOR_00C2",
   "files": [
+    {
+      "canonical_output": null,
+      "materialization_method": "GENERATED",
+      "paper_evidence": false,
+      "provider": null,
+      "readiness": "READY_NOW",
+      "relative_path": "CVPR2027_INPUT_MATRIX.csv",
+      "role": "OPERATOR_PACK_FILE",
+      "runtime_profile": "NOT_APPLICABLE",
+      "schema": "csv",
+      "sha256": "9f0987f6dc0402e3dc547cfca636c2fd8fc82c80f7231bc9df65a982af807bb3",
+      "size": 557,
+      "source_path": "certvic/cvpr/kagglefiles_pack.py",
+      "stage": "pack",
+      "study": "all"
+    },
+    {
+      "canonical_output": null,
+      "materialization_method": "GENERATED",
+      "paper_evidence": false,
+      "provider": null,
+      "readiness": "READY_NOW",
+      "relative_path": "CVPR2027_NEXT_RUNS.csv",
+      "role": "OPERATOR_PACK_FILE",
+      "runtime_profile": "NOT_APPLICABLE",
+      "schema": "csv",
+      "sha256": "9708780fd8b22f2c0a722686e297775d00f701f155f6c901a8f82f1011f411c2",
+      "size": 1318,
+      "source_path": "certvic/cvpr/kagglefiles_pack.py",
+      "stage": "pack",
+      "study": "all"
+    },
+    {
+      "canonical_output": null,
+      "materialization_method": "GENERATED",
+      "paper_evidence": false,
+      "provider": null,
+      "readiness": "READY_NOW",
+      "relative_path": "CVPR2027_RETURN_MATRIX.csv",
+      "role": "OPERATOR_PACK_FILE",
+      "runtime_profile": "NOT_APPLICABLE",
+      "schema": "csv",
+      "sha256": "4635f5c934c923195bf2debad6b9126869aae4c0c640c08bcd2424d552fb6e92",
+      "size": 772,
+      "source_path": "certvic/cvpr/kagglefiles_pack.py",
+      "stage": "pack",
+      "study": "all"
+    },
     {
       "canonical_output": null,
       "materialization_method": "GENERATED",
@@ -17,8 +65,8 @@
       "role": "OPERATOR_PACK_FILE",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "markdown",
-      "sha256": "64913ce4bc074920364e4dbcafe75c1d71be9c3dc46629216c6f3d1aadffcb0a",
-      "size": 1423,
+      "sha256": "938deb22ecabd84b0de38ee1292ec743fa378c6a7c871c60c45031df3b6c9ac5",
+      "size": 1436,
       "source_path": "certvic/cvpr/kagglefiles_pack.py#build_operator_pack",
       "stage": "pack",
       "study": "all"
@@ -49,9 +97,9 @@
       "role": "OPERATOR_PACK_FILE",
       "runtime_profile": "NOT_APPLICABLE",
       "schema": "markdown",
-      "sha256": "86f7a8641ad6eda32a87b010fea92eb56f2e1e18e0688e0c9aa627b335b6316b",
-      "size": 1535,
-      "source_path": "local_operator/cvpr2027_infrastructure.py#operator_pack",
+      "sha256": "05a561d0b2e3a21cf7dbd50867de246dcd61a2d8b724b441df10483f5b07e376",
+      "size": 11419,
+      "source_path": "certvic/cvpr/kagglefiles_pack.py#_start_here",
       "stage": "pack",
       "study": "all"
     },
@@ -67,7 +115,7 @@
       "schema": "python3",
       "sha256": "bb6126a52dd2a0732353dc7934ae6558d0485a4772fd8d4c43cd9cc560a0cc8b",
       "size": 2452,
-      "source_path": "kagglefiles/import_kaggle_return.py",
+      "source_path": "certvic/cvpr/kagglefiles_pack.py#_root_helper_sources",
       "stage": "pack",
       "study": "all"
     },
@@ -1043,7 +1091,7 @@
       "schema": "posix-shell",
       "sha256": "8577e9ea943bd080cfc650ec10ea107187d0f19c02847422dd26c3cbb4e951ca",
       "size": 354,
-      "source_path": "kagglefiles/run_local_resume.sh",
+      "source_path": "certvic/cvpr/kagglefiles_pack.py#_root_helper_sources",
       "stage": "pack",
       "study": "all"
     },
@@ -1201,8 +1249,8 @@
       "role": "REAL_MODEL_SMOKE",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "0468f96547381dcae0947c287ff57912d639a84404319076d08af1417719be16",
-      "size": 44225,
+      "sha256": "bd104fb7783d50e970b313259d41492c1028c0035bc6342079e68df623d02b12",
+      "size": 44319,
       "source_path": "notebooks/kaggle/cvpr/00C2_internvl_8b_real_model_two_item_smoke.ipynb",
       "stage": "REAL_MODEL_SMOKE",
       "study": "all"
@@ -1217,8 +1265,8 @@
       "role": "REAL_MODEL_SMOKE",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "22f04001d33c9918ada3274a17bc3bf20ab19b883b2b249d6854f334e719600c",
-      "size": 44274,
+      "sha256": "9f0f8c79fb94bc23a7f2a96415fbca7c1ec963c70fe7775e061331ef0c965d0f",
+      "size": 44368,
       "source_path": "notebooks/kaggle/cvpr/00C2_llava_onevision_7b_real_model_two_item_smoke.ipynb",
       "stage": "REAL_MODEL_SMOKE",
       "study": "all"
@@ -1233,8 +1281,8 @@
       "role": "REAL_MODEL_SMOKE",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "a3bb96d2e53f84b42558c8f822bd1af31bb1c3a95a33c9c18ca6352547b50451",
-      "size": 44239,
+      "sha256": "218860577fda73db28ab0f5899a839dc01146e4b6848d5d1c544e4cec1da4476",
+      "size": 44333,
       "source_path": "notebooks/kaggle/cvpr/00C2_qwen2_5_vl_7b_real_model_two_item_smoke.ipynb",
       "stage": "REAL_MODEL_SMOKE",
       "study": "all"
@@ -1249,8 +1297,8 @@
       "role": "GENERATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "d569729c2f4b47f0578926e476672221866414f35e9e7975be1ea89eec948db3",
-      "size": 45115,
+      "sha256": "0d5bc59fbedbf80ed5e01e25796333af785e7a96f3a8f7ba08ff0cac3cba72eb",
+      "size": 45117,
       "source_path": "notebooks/kaggle/cvpr/01_specificity_confirmatory_generation_T4x2.ipynb",
       "stage": "GENERATION",
       "study": "specificity_confirmatory_cvpr"
@@ -1265,8 +1313,8 @@
       "role": "EVALUATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "3401b6ef95a3c77193805057f6f432ba515b2d189d64e12252d5fdc42484af70",
-      "size": 51316,
+      "sha256": "3eeeb36dd0025de631a5708275a56eda6094fb16a7af26604c473a4b2b4d2ec5",
+      "size": 51318,
       "source_path": "notebooks/kaggle/cvpr/02_qwen_specificity_confirmatory_T4x2.ipynb",
       "stage": "EVALUATION",
       "study": "specificity_confirmatory_cvpr"
@@ -1281,8 +1329,8 @@
       "role": "EVALUATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "269d1a9ce74cf9487d2f44a503549fd30cf7a4a9eeda336f1c3e24c127fca939",
-      "size": 51324,
+      "sha256": "31860d9cd54770fa599b019e861d02ccbb6c90567a7dccef9d285dc9c4559ec4",
+      "size": 51326,
       "source_path": "notebooks/kaggle/cvpr/03_internvl_specificity_confirmatory_T4x2.ipynb",
       "stage": "EVALUATION",
       "study": "specificity_confirmatory_cvpr"
@@ -1297,8 +1345,8 @@
       "role": "EVALUATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "9b973c7e9409de5689aef43e0aa58967a8743d78d3f197fca1ea064665896725",
-      "size": 51340,
+      "sha256": "1f9a441c7b67c565235c5fbeec79e9938d3d746a83a06f7fd47c3c71cb6d2b18",
+      "size": 51342,
       "source_path": "notebooks/kaggle/cvpr/04_llava_specificity_confirmatory_T4x2.ipynb",
       "stage": "EVALUATION",
       "study": "specificity_confirmatory_cvpr"
@@ -1313,8 +1361,8 @@
       "role": "GENERATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "51954c1226ccaf38c89105b8cf49961517d969c099b7ed9dbfb847ae472f7f06",
-      "size": 45034,
+      "sha256": "fd49b82e160e87dd2b7001140ad6eb2cc0cbf14e25c74121f4c184ac61990977",
+      "size": 45036,
       "source_path": "notebooks/kaggle/cvpr/10_main_study_generation_T4x2.ipynb",
       "stage": "GENERATION",
       "study": "main_study_cvpr"
@@ -1329,8 +1377,8 @@
       "role": "EVALUATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "ba5286338a518d2b1000da8816780f36a4041407ee049ef78bb2db4c700c5b03",
-      "size": 51244,
+      "sha256": "83311eb52f8bdca1c164786179487e171a929ea65a7e2eb407be874642eff410",
+      "size": 51246,
       "source_path": "notebooks/kaggle/cvpr/11_qwen_main_study_T4x2.ipynb",
       "stage": "EVALUATION",
       "study": "main_study_cvpr"
@@ -1345,8 +1393,8 @@
       "role": "EVALUATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "3e7261a5ddb49a29f1198fde71a4a5177a15e3e1e96785ace4b873126781d366",
-      "size": 51252,
+      "sha256": "508c3bcf7d31e881ace642db7ef2297cec91453abdca5a4ec040bdb3a10dcb17",
+      "size": 51254,
       "source_path": "notebooks/kaggle/cvpr/12_internvl_main_study_T4x2.ipynb",
       "stage": "EVALUATION",
       "study": "main_study_cvpr"
@@ -1361,8 +1409,8 @@
       "role": "EVALUATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "0ec5549429d2eeb7f0c6fa7f18aa970a46f570088b6c5b794df8cea4ea92f2c7",
-      "size": 51268,
+      "sha256": "a331f8c706b049c308396cfcf71808ece30cf8ee155b56e3c63576f010e57e82",
+      "size": 51270,
       "source_path": "notebooks/kaggle/cvpr/13_llava_main_study_T4x2.ipynb",
       "stage": "EVALUATION",
       "study": "main_study_cvpr"
@@ -1377,8 +1425,8 @@
       "role": "GENERATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "f3a85977d2254e8917a01f6aeb8d75496b70042ac6e3944338094c300a58d943",
-      "size": 45070,
+      "sha256": "d93d6fe24155bbe68280a892d3f7050ea80c2348b2d288871664b9952bf5d3e7",
+      "size": 45072,
       "source_path": "notebooks/kaggle/cvpr/20_second_domain_generation_T4x2.ipynb",
       "stage": "GENERATION",
       "study": "second_domain_cvpr"
@@ -1393,8 +1441,8 @@
       "role": "EVALUATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "a3533f489ffef6ddf3452cf61cec856dfe41d8a9bb7eb1cc12b6159d8554c907",
-      "size": 51260,
+      "sha256": "0682bf745896a2bdc33556d8ea43f06a892e62ccc772e10f36aee7a215ba7fee",
+      "size": 51262,
       "source_path": "notebooks/kaggle/cvpr/21_second_domain_qwen_T4x2.ipynb",
       "stage": "EVALUATION",
       "study": "second_domain_cvpr"
@@ -1409,8 +1457,8 @@
       "role": "EVALUATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "c0a754ead13f88a2deb67c71eab041a261b9622bbe24418d14e26322bfa82354",
-      "size": 51268,
+      "sha256": "ede7f5af67fc5ee50e6e1b02d1b7ae2cbbece4d63e441739f43701deae44ed46",
+      "size": 51270,
       "source_path": "notebooks/kaggle/cvpr/22_second_domain_internvl_T4x2.ipynb",
       "stage": "EVALUATION",
       "study": "second_domain_cvpr"
@@ -1425,8 +1473,8 @@
       "role": "EVALUATION",
       "runtime_profile": "kaggle_cp312_2026_07",
       "schema": "nbformat.v4",
-      "sha256": "c902811aa784ce71bfe2f7a33dd5f6400953fc2bb4abd00aa51045a699a7a8ff",
-      "size": 51284,
+      "sha256": "3e4270853dee42902e66af039789dba7342185abea9eff69d732bfbee9938510",
+      "size": 51286,
       "source_path": "notebooks/kaggle/cvpr/23_second_domain_llava_T4x2.ipynb",
       "stage": "EVALUATION",
       "study": "second_domain_cvpr"
@@ -1473,7 +1521,7 @@
     "NO_MANUAL_REPOSITORY_NAVIGATION_REQUIRED",
     "FIRST_ACTION_EXPLICIT"
   ],
-  "generated_at_utc": "2026-07-23T12:06:32+05:30",
+  "generated_at_utc": "2026-08-09T15:20:21+05:30",
   "human_gate_status": {
     "genuine_human_reviewed_true_count": 0,
     "status": "WAITING_FOR_HUMAN_REVIEW"
@@ -1502,7 +1550,7 @@
     "certvic_coco_llava_input.zip"
   ],
   "notebook_validation_totals": "Phase B PASS: 17/17 commands",
-  "origin_main_commit": "b58ab7ee56ee6f86f2d91960c6acb08c42ac6fec",
+  "origin_main_commit": "1ee0fcd0d0b241a88ff7b57cf5277800c4552e10",
   "paper_evidence": false,
   "primary_subfolders": [
     "runbooks",
@@ -1525,7 +1573,7 @@
     "READY_TO_RETRY_CP312_THEN_QWEN"
   ],
   "repository": "Saket-Maganti/certvic",
-  "repository_commit": "b58ab7ee56ee6f86f2d91960c6acb08c42ac6fec",
+  "repository_commit": "1ee0fcd0d0b241a88ff7b57cf5277800c4552e10",
   "schema": "certvic.kagglefiles.pack_manifest.v1",
   "second_domain_authorization": {
     "execution_allowed": false,

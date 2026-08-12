@@ -1,0 +1,157 @@
+{
+  "files": [
+    {
+      "path": "reports/cvpr2027_c12/C12_IDENTITY_BASELINE.json",
+      "sha256": "0dd2690166616874cd95bc995e0cf1e24619a7bfcbebb3e86a3691465d0e18a4",
+      "size_bytes": 3134
+    },
+    {
+      "path": "reports/cvpr2027_c12/C12_IDENTITY_DIFF.json",
+      "sha256": "361c48f373d0201629c3ad6fe2c878dd0d30d2b32eadcf80970ea2f4f7ce0dac",
+      "size_bytes": 4643
+    },
+    {
+      "path": "reports/cvpr2027_c12/C12_IDENTITY_FINAL.json",
+      "sha256": "d2216687e1f1d5f0eb93d07aee2fe9748b4f8beeabad6d63da3ae10e912c7414",
+      "size_bytes": 2816
+    },
+    {
+      "path": "reports/cvpr2027_c12/C12_LIVE_BASELINE.json",
+      "sha256": "02bfc9bfe190c2fbd9700082d4e14521d26ec38ddd71df9b29fb0bc9ca1f4bec",
+      "size_bytes": 522
+    },
+    {
+      "path": "reports/cvpr2027_c12/C12_WORK_PLAN.json",
+      "sha256": "f800c2dc9900e7bbedd38596654e9a1c0fda11624a76bfa0cdcc1ba3c72bf7cc",
+      "size_bytes": 1630
+    },
+    {
+      "path": "reports/cvpr2027_c12/analysis/ANALYSIS_GOLDEN_FIXTURES.json",
+      "sha256": "3f8655c517ba979fc1e7d9af5d9b47cb9bca2b550b820febfa7bd364279484d8",
+      "size_bytes": 7999
+    },
+    {
+      "path": "reports/cvpr2027_c12/analysis/PRIMARY_ANALYSIS_READINESS.json",
+      "sha256": "c34cb4bacacd7dd37cd691d5c6eaf26a7b612265c5bbd3d522ccc2a29b98a79b",
+      "size_bytes": 735
+    },
+    {
+      "path": "reports/cvpr2027_c12/design/CONFIRMATORY_FEASIBILITY.json",
+      "sha256": "e0c21126098c0ee74909561bd6fd5b9a8aefc6e896e10ae044e7459681d1684e",
+      "size_bytes": 641
+    },
+    {
+      "path": "reports/cvpr2027_c12/design/source_census.csv",
+      "sha256": "ff04d45890c552a695e828b775906733134d5a2b96481ac8b41f3c9fb4f173d7",
+      "size_bytes": 85
+    },
+    {
+      "path": "reports/cvpr2027_c12/design/stratum_capacity.csv",
+      "sha256": "67df0d8b910fdea6d9a0957a8132def3d70bd915a913a40a4ffa2f665671ce7c",
+      "size_bytes": 170
+    },
+    {
+      "path": "reports/cvpr2027_c12/evidence/CLAIM_REGISTRY_V2.json",
+      "sha256": "1c92f2dbc22f27c346719dadbc75a541950909184f5bcf49cbc797bbc517eba8",
+      "size_bytes": 11678
+    },
+    {
+      "path": "reports/cvpr2027_c12/evidence/SCIENTIFIC_RED_TEAM_V2.json",
+      "sha256": "d8406c55eff181fed1c655609fcc5ebd16172be04477ae989afabd03d1492588",
+      "size_bytes": 2862
+    },
+    {
+      "path": "reports/cvpr2027_c12/gpu/00C2_READINESS.json",
+      "sha256": "7a576bcf488cd71fbe7448bec3632d545b1d7ba46805fcad6d0146abdf074287",
+      "size_bytes": 2595
+    },
+    {
+      "path": "reports/cvpr2027_c12/gpu/GPU_RUNTIME_PLANNING_RANGES.csv",
+      "sha256": "48b7b34e074e2482fb2f156248917a6e1438c1d026436b10d12553f79009a98e",
+      "size_bytes": 686
+    },
+    {
+      "path": "reports/cvpr2027_c12/gpu/KAGGLE_PACK_VERIFICATION.json",
+      "sha256": "0f7a1f3776d2a15a0570d612d14d0439066797d2f56188ab00d1965b9b635a49",
+      "size_bytes": 219
+    },
+    {
+      "path": "reports/cvpr2027_c12/gpu/OPTIONAL_MODEL_EXPANSION_READINESS.json",
+      "sha256": "84113618501a8ea1eda731a3412bc7be47ea33742d1d1aeca5c35ba5e6e7b871",
+      "size_bytes": 1565
+    },
+    {
+      "path": "reports/cvpr2027_c12/gpu/PRIMARY_RUNBOOK_READINESS.json",
+      "sha256": "8d03604e48019f236773e0539cd5443135e547880c410829da24175d57c7d6e9",
+      "size_bytes": 2510
+    },
+    {
+      "path": "reports/cvpr2027_c12/gpu/SECONDARY_RUNBOOK_READINESS.json",
+      "sha256": "2dd1009e40d533e7789b204a4972c56ccf63628b5493bf69605cf6e956989832",
+      "size_bytes": 7565
+    },
+    {
+      "path": "reports/cvpr2027_c12/gpu/secondary_provider_runbook_matrix.csv",
+      "sha256": "100249de5b14a4be0bdd916ef0621a882683031ae54a49f918d503a59091e460",
+      "size_bytes": 3688
+    },
+    {
+      "path": "reports/cvpr2027_c12/historical/HISTORICAL_DIAGNOSTIC_SUMMARY.json",
+      "sha256": "8ac41fdfdb8d6516381630cf944476b454cac1be00bd976896f37219dab270e4",
+      "size_bytes": 6089
+    },
+    {
+      "path": "reports/cvpr2027_c12/human/HUMAN_REVIEW_READINESS.json",
+      "sha256": "355c0d9e6bdb43aa8a97b109a9d2dd57f3e2a0a93673665335eb2142cda80109",
+      "size_bytes": 1378
+    },
+    {
+      "path": "reports/cvpr2027_c12/human/coordinator_qualification_answer_key.csv",
+      "sha256": "fae144d265f539b5a1cd197e5972b91515a764725cb15d37954f3c3d34e7a042",
+      "size_bytes": 250
+    },
+    {
+      "path": "reports/cvpr2027_c12/human/qualification_policy.json",
+      "sha256": "83d62b0e137ae25c0c31c0f31edba4172caf3c51207045772e60e4a4ac00f6cd",
+      "size_bytes": 245
+    },
+    {
+      "path": "reports/cvpr2027_c12/human/rater_qualification_packet.csv",
+      "sha256": "c4a59417edea022c795ca2c367cc15b3e3a9103ba00042cd67c5b357cefc7e79",
+      "size_bytes": 540
+    },
+    {
+      "path": "reports/cvpr2027_c12/human/raw_sheet_preservation_manifest.csv",
+      "sha256": "6e2283ff1481a7f937a06ab4e35934b3a3104de18d2a05351cce305713139f1d",
+      "size_bytes": 62
+    },
+    {
+      "path": "reports/cvpr2027_c12/human/review_assignment_template.csv",
+      "sha256": "514c6c711f30ba0cfe69674fe15d2064ef93b75a88a16cf813fb9262b7e48b78",
+      "size_bytes": 62
+    },
+    {
+      "path": "reports/cvpr2027_c12/human/review_timeline.template.json",
+      "sha256": "9df4815edaa5af91c50b168eae124444a18104a457eaeb05cfc28fc2bbfd36af",
+      "size_bytes": 288
+    },
+    {
+      "path": "reports/cvpr2027_c12/main/MAIN500_READINESS.json",
+      "sha256": "10751c05f57bdc8484a3892b0e3d6f1a09b1a0d1a10c3d67959e961d69e1a218",
+      "size_bytes": 524
+    },
+    {
+      "path": "reports/cvpr2027_c12/second_domain/DOMAIN_SELECTION_TEMPLATE.csv",
+      "sha256": "609581102182b09d459a5ed77fdeb6e0b5772cf07672ecad443b48a2cebd879d",
+      "size_bytes": 318
+    },
+    {
+      "path": "reports/cvpr2027_c12/second_domain/SECOND_DOMAIN_READINESS.json",
+      "sha256": "bf825364ee2265637a1e994226e8d4be6796b468d3e8731098dd1e2821f76a66",
+      "size_bytes": 294
+    }
+  ],
+  "identity_sha256": "eed49e04d33e8bae4a009537e4df4a85d787bb207ac60b3dce7f61e68018a892",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.artifact_manifest.v1"
+}

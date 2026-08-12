@@ -1,0 +1,27 @@
+{
+  "files": [
+    {
+      "path": "reports/cvpr2027_c12/design/C12_CONFIRMATORY_POWER_DECISION.json",
+      "sha256": "e04bc43b9c9de0a27f80ca07cbbbb09db88912d4e6c124b57f9997ee6cc35aaa",
+      "size_bytes": 3685
+    },
+    {
+      "path": "reports/cvpr2027_c12/design/C12_CONFIRMATORY_POWER_DECISION.md",
+      "sha256": "7e8473ebd956f7fa54e2f70c2a6d552df1a607a83ffa09f374f9aafafd8641b9",
+      "size_bytes": 1652
+    },
+    {
+      "path": "reports/cvpr2027_c12/design/allocation_pareto_frontier.csv",
+      "sha256": "4ee42c3c1d180dc3cea73dda7f4d7c9dc0cce44d855c2204dc6d2e1e475bf5f8",
+      "size_bytes": 7696
+    },
+    {
+      "path": "reports/cvpr2027_c12/design/allocation_power_grid.csv",
+      "sha256": "a003129424f3bfd182b23691809510a144f2966c8d3f4115fa8b2e212ab64cb0",
+      "size_bytes": 4714549
+    }
+  ],
+  "identity_sha256": "c6164d530bb9825dab7581da412ffa21de6a8cbdf4db4e9595bfb34a215fed1d",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.artifact_manifest.v1"
+}

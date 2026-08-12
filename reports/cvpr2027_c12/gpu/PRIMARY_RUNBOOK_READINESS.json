@@ -1,0 +1,85 @@
+{
+  "allocation": {
+    "irrelevant": 240,
+    "relevant": 120
+  },
+  "execution_allowed": false,
+  "paper_evidence": false,
+  "protocol": "specificity_confirmatory_cvpr_v3",
+  "remaining_gates": [
+    "00C2_PASS",
+    "LICENSED_SOURCE_BYTES",
+    "BLINDED_HUMAN_REVIEW",
+    "MATCHING_AND_DETECTABILITY_PASS",
+    "TASK_FREEZE",
+    "SCIENTIFIC_PROVIDER_PERMISSIONS"
+  ],
+  "runbooks": [
+    {
+      "checks": {
+        "canonical_return": true,
+        "cleared_outputs": true,
+        "content_authenticated": true,
+        "deterministic": true,
+        "full_frozen_task_universe": true,
+        "generation_outcome_blind": true,
+        "permission_binding": true,
+        "resume": true,
+        "syntax_valid": true
+      },
+      "notebook": "runbooks/05_CONFIRMATORY_GENERATION/01_specificity_confirmatory_generation_T4x2.ipynb",
+      "passed": true,
+      "role": "generation"
+    },
+    {
+      "checks": {
+        "canonical_return": true,
+        "cleared_outputs": true,
+        "content_authenticated": true,
+        "deterministic": true,
+        "full_frozen_task_universe": true,
+        "generation_outcome_blind": true,
+        "permission_binding": true,
+        "resume": true,
+        "syntax_valid": true
+      },
+      "notebook": "runbooks/06_CONFIRMATORY_MODELS/02_qwen_specificity_confirmatory_T4x2.ipynb",
+      "passed": true,
+      "role": "provider"
+    },
+    {
+      "checks": {
+        "canonical_return": true,
+        "cleared_outputs": true,
+        "content_authenticated": true,
+        "deterministic": true,
+        "full_frozen_task_universe": true,
+        "generation_outcome_blind": true,
+        "permission_binding": true,
+        "resume": true,
+        "syntax_valid": true
+      },
+      "notebook": "runbooks/06_CONFIRMATORY_MODELS/03_internvl_specificity_confirmatory_T4x2.ipynb",
+      "passed": true,
+      "role": "provider"
+    },
+    {
+      "checks": {
+        "canonical_return": true,
+        "cleared_outputs": true,
+        "content_authenticated": true,
+        "deterministic": true,
+        "full_frozen_task_universe": true,
+        "generation_outcome_blind": true,
+        "permission_binding": true,
+        "resume": true,
+        "syntax_valid": true
+      },
+      "notebook": "runbooks/06_CONFIRMATORY_MODELS/04_llava_specificity_confirmatory_T4x2.ipynb",
+      "passed": true,
+      "role": "provider"
+    }
+  ],
+  "schema": "certvic.cvpr2027.c12.primary_runbook_readiness.v1",
+  "status": "SOFTWARE_READY_EXTERNAL_GATES_REQUIRED"
+}

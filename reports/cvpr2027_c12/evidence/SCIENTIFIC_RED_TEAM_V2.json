@@ -1,0 +1,103 @@
+{
+  "checks": [
+    {
+      "attack": "remove_one_model",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "remove_one_category",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "remove_one_perturbation_family",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "polarity_concentration",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "spatial_stratum_concentration",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "size_stratum_concentration",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "arm_low_level_detectability",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "relevant_edit_magnitude",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "missingness_dominates_bounds",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "parser_failure_asymmetry",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "failure_item_concentration",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "naive_metric_ranking_reversal",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "multiplicity_changes_decision",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "human_filter_changes_conclusion",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "human_disagreement_concentrated_in_failures",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "candidate_rejection_by_arm",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    },
+    {
+      "attack": "secondary_contaminates_primary_selection",
+      "paper_evidence": false,
+      "status": "PASS_PRE_RESULTS_STATIC"
+    },
+    {
+      "attack": "exact_model_revisions",
+      "paper_evidence": false,
+      "status": "PASS_PRE_RESULTS_STATIC"
+    },
+    {
+      "attack": "row_to_source_task_model_code_hash_trace",
+      "paper_evidence": false,
+      "status": "WAITING_FOR_PROSPECTIVE_OUTPUT"
+    }
+  ],
+  "fake_passes": 0,
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c12.reviewer_attack_suite.v2",
+  "status": "PRE_RESULTS_CHECKS_PASS_OUTPUT_DEPENDENT_CHECKS_WAITING"
+}

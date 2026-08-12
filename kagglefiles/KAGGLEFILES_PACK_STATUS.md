@@ -1,8 +1,8 @@
 # CertVIC unified Kagglefiles pack status
 
-- Source commit: `b58ab7ee56ee6f86f2d91960c6acb08c42ac6fec`
+- Source commit: `1ee0fcd0d0b241a88ff7b57cf5277800c4552e10`
 - Active runtime profile: `kaggle_cp312_2026_07`
-- Doctor state: `READY_FOR_00A`
+- Doctor state: `READY_FOR_00C2`
 - Required operator runbooks: 23
 - Repository-derived common ZIPs: 3/3 verified
 - External/gated input stages: 18, truthfully represented by `STATUS.json` and `NOT_READY.md` when absent
@@ -12,7 +12,7 @@
 - Obsolete notebooks in pack: 0
 - Scientific GPU runs launched by refresh: 0
 
-First action: `BUILD_CP312_WHEELHOUSE`.
+First action: `PREPARE_TWO_REAL_LICENSED_SMOKE_PAIRS`.
 
 CERTVIC_UNIFIED_KAGGLEFILES_OPERATOR_PACK_COMPLETE
 KAGGLEFILES_RUNBOOKS_ORDERED_AND_VALIDATED
@@ -35,4 +35,4 @@ CERTVIC_HF_HEADER_IMPORT_PATCH_COMPLETE
 PINNED_HF_0262_IMPORT_PROBE_PASSED
 ALL_PROVISIONING_RUNBOOKS_REFRESHED
 UNIFIED_KAGGLEFILES_PACK_REFRESHED
-READY_TO_RETRY_CP312_THEN_QWEN
+READY_FOR_REAL_SMOKE_INPUTS

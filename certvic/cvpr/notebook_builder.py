@@ -894,7 +894,9 @@ PROMPT_TEMPLATE_HASH = hashlib.sha256(PROMPT_TEMPLATE.encode("utf-8")).hexdigest
 if permission.get("prompt_template_hash") != PROMPT_TEMPLATE_HASH:
     raise RuntimeError("KAGGLE_ZERO_EDIT_00C2_PROMPT_HASH_MISMATCH")
 
-permission_binding = derive_permission_binding(globals())
+permission_binding = derive_permission_binding({
+    key: value for key, value in globals().items() if key != "TASK_BUNDLE_ROOT"
+})
 active_runtime_contract_input = {
     "study": STUDY, "runtime_class": "REAL_MODEL_SMOKE", "provider": PROVIDER,
     "model_id": MODEL_ID, "processor_id": PROCESSOR_ID,
@@ -1126,8 +1128,8 @@ STUDY = {study!r}
 EXPECTED_GPUS = {0 if stage in {"code_smoke", "snapshot_smoke"} else 2}
 ALLOW_SINGLE_GPU_FALLBACK = True
 USE_REAL_MODEL = {stage in {"evaluation", "real_model_smoke"}!r}
-MAX_ITEMS = 2
-ALLOW_FULL_RUN = False
+MAX_ITEMS = {None if stage in {"generation", "evaluation"} else 2!r}
+ALLOW_FULL_RUN = {stage in {"generation", "evaluation"}!r}
 INITIAL_BATCH_SIZE = 4
 GLOBAL_SEED = 12013
 SCHEMA_VERSION = "certvic.cvpr.output.v2"
@@ -1482,7 +1484,9 @@ if STAGE in {"evaluation", "real_model_smoke"}:
         require_scientific_run_gate(SMOKE_GATE_JSON, PRIMARY_PROVIDERS)
     if PROVIDER_PERMISSION == "REQUIRED_USER_FILL":
         raise RuntimeError("model execution requires its provider-specific child permission")
-    permission_binding = derive_permission_binding(globals())
+    permission_binding = derive_permission_binding({
+        key: value for key, value in globals().items() if key != "TASK_BUNDLE_ROOT"
+    })
     active_runtime_contract_input = {
         "study": STUDY,
         "runtime_class": "SCIENTIFIC_RUN" if STAGE == "evaluation" else "REAL_MODEL_SMOKE",

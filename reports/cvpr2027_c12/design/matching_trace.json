@@ -1,0 +1,37 @@
+{
+  "features": [
+    "difference_area_fraction",
+    "mean_absolute_pixel_difference",
+    "ssim",
+    "psnr",
+    "histogram_distance",
+    "luminance_change",
+    "contrast_change",
+    "edge_density_change",
+    "spatial_distance_to_target",
+    "spatial_distance_to_protected_region",
+    "salience"
+  ],
+  "forbidden_fields": [
+    "correct",
+    "irrelevant_flip",
+    "model_output",
+    "parsed_answer",
+    "prediction",
+    "provider",
+    "provider_name",
+    "raw_output",
+    "semantic_update_success"
+  ],
+  "paper_evidence": false,
+  "provider_outputs_used": false,
+  "schema": "certvic.cvpr2027.c12.matching_trace.v1",
+  "status": "SOFTWARE_READY_SOURCE_BYTES_REQUIRED",
+  "strata": [
+    "category",
+    "expected_answer_polarity",
+    "target_size_stratum",
+    "target_position_stratum",
+    "perturbation_family"
+  ]
+}

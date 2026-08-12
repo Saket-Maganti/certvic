@@ -1,0 +1,8 @@
+{
+  "frozen_symmetric_auc_threshold": 0.8,
+  "model_execution_authorized": false,
+  "paper_evidence": false,
+  "provider_outputs_used": false,
+  "schema": "certvic.cvpr2027.c12.matching_detectability_readiness.v1",
+  "status": "SOFTWARE_READY_SOURCE_BYTES_REQUIRED"
+}

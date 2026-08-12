@@ -1,0 +1,61 @@
+{
+  "captured_date": "2026-08-12",
+  "common_bundles": {
+    "CODE": {
+      "archive_sha256": "f3d27703ed0e1d9a4792ba92ae1594bb6b22af562fe816efa5900e742fe444d8",
+      "content_identity_sha256": "79d7fe9bc7f3778811071afdd1242241127ebaa182ac29cb092af87c13eacf33",
+      "path": "kagglefiles/inputs/00_COMMON/certvic_code_bundle.zip"
+    },
+    "CONFIGS": {
+      "archive_sha256": "64df5cb66455f72f56ebad0cc2c6575af4c183a6dcecfdcd4002c2adfd8d34f6",
+      "content_identity_sha256": "a201eb25063d12241a1a3b6b5702071b77a7c6c78272e144ab5a24aff8147d66",
+      "path": "kagglefiles/inputs/00_COMMON/certvic_configs_bundle.zip"
+    },
+    "TOOLS": {
+      "archive_sha256": "731fd5b7d31e19b06fee1482e164d2ea4c9e9ca22acf3ef3653f4dfde2377397",
+      "content_identity_sha256": "fd780f5416c17aecefd61abaa191fca340eca1f4aa7b6cf87c01c5a834c76a95",
+      "path": "kagglefiles/inputs/00_COMMON/certvic_execution_tools_bundle.zip"
+    }
+  },
+  "git_head": "1ee0fcd0d0b241a88ff7b57cf5277800c4552e10",
+  "git_head_subject": "Add C11 maximum-ceiling reports and handoff",
+  "identity_policy": {
+    "authenticated_archives_are_immutable": true,
+    "new_v3_protocol_is_external_to_authenticated_00C2_common_archives": true,
+    "preferred_result": "NO_00A_OR_00B_RERUN_REQUIRED"
+  },
+  "paper_evidence": false,
+  "runtime_returns": {
+    "00A": {
+      "archive_path": "data/runtime/00A_environment_bundle.zip",
+      "archive_sha256": "05d942c10f09c8684faf7506294d8d3c7f4bf241bf47205880f2a1a21db11d36",
+      "member_path": "data/runtime/00A_environment.json",
+      "member_sha256": "0a9c72e76ece0c2a62485069328154300d914d4d1bc1bcc087b085a077df8fba"
+    },
+    "00B_internvl_8b": {
+      "archive_path": "data/runtime/00B_internvl_8b_snapshot_bundle.zip",
+      "archive_sha256": "78b4271eaf309c98fb5315281874df81ee91299793bb21fbaa93d55135bd49e5",
+      "member_path": "data/runtime/00B_internvl_8b_snapshot.json",
+      "member_sha256": "c6bfecbdc68079fd66f04f5078385049a6d3018fe225dbaed771e8f31d3c5efa"
+    },
+    "00B_llava_onevision_7b": {
+      "archive_path": "data/runtime/00B_llava_onevision_7b_snapshot_bundle.zip",
+      "archive_sha256": "00e6fa2219604566d0aef7ae7242835b9f0e3068d8c368b915b112387879fab3",
+      "member_path": "data/runtime/00B_llava_onevision_7b_snapshot.json",
+      "member_sha256": "fe187707e67ba9e961959925a56233f4fe5937b067aaac73eb7975024058f9ba"
+    },
+    "00B_qwen2_5_vl_7b": {
+      "archive_path": "data/runtime/00B_qwen2_5_vl_7b_snapshot_bundle.zip",
+      "archive_sha256": "0014352b5f29eb8ed021427972f63676eec21fd96da5cd0b78fab81f8de9d683",
+      "member_path": "data/runtime/00B_qwen2_5_vl_7b_snapshot.json",
+      "member_sha256": "6c78c76309d774807c514b37c49e7cce8ced26daa7d0b429c60c61446fe88d0c"
+    }
+  },
+  "schema": "certvic.cvpr2027.c12.identity_snapshot.v1",
+  "snapshot": "BASELINE_BEFORE_C12_EDITS",
+  "wheelhouse": {
+    "archive_sha256": "0983b462d88e6bf58a0a0c39010b13dba54b6f866b045c81796d8c5d2b64ad37",
+    "content_identity_sha256": "bbe3d7b7cf56596dadcef3c2174d45108c5bed6f285de8d596f0a5091c7ae552",
+    "path": "local_inputs/provisioning_cache/certvic_offline_wheelhouse_cp312.zip"
+  }
+}

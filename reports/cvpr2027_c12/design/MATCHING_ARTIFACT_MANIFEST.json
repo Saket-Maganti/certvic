@@ -1,0 +1,27 @@
+{
+  "files": [
+    {
+      "path": "reports/cvpr2027_c12/design/MATCHING_DETECTABILITY_READINESS.json",
+      "sha256": "c4ff2674a027ec7f1dbceda636a26ce2568566d050be675bf24d8ab94cda0edf",
+      "size_bytes": 268
+    },
+    {
+      "path": "reports/cvpr2027_c12/design/matching_trace.json",
+      "sha256": "bbb6d00ae542711224eb29eddb2efd81d66a56c2380699f8275594ef5c809f7a",
+      "size_bytes": 840
+    },
+    {
+      "path": "reports/cvpr2027_c12/design/selection_balance_after.csv",
+      "sha256": "0979902a09c03904f72681a904f75a46ba46f22cdd1babf7e60e67352d0fcd9e",
+      "size_bytes": 28
+    },
+    {
+      "path": "reports/cvpr2027_c12/design/selection_balance_before.csv",
+      "sha256": "0979902a09c03904f72681a904f75a46ba46f22cdd1babf7e60e67352d0fcd9e",
+      "size_bytes": 28
+    }
+  ],
+  "identity_sha256": "2d41b99e2725a194719ea3ea57dec4d24a9ec805b0bc5dee35d06ed18b3490c2",
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.artifact_manifest.v1"
+}

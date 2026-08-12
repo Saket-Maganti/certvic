@@ -872,23 +872,84 @@ if __name__ == "__main__":
     raise SystemExit(refresh_main())
 '''
     importer = '''#!/usr/bin/env python3
-"""Authenticate and import one unchanged Kaggle return into CertVIC."""
+"""Authenticate, import, and materialize one unchanged Kaggle return."""
+import argparse
+import json
 from pathlib import Path
 import sys
 
+sys.dont_write_bytecode = True
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
-from certvic.cvpr.kagglefiles_pack import import_main  # noqa: E402
+from certvic.cvpr.kagglefiles_pack import (  # noqa: E402
+    KagglefilesPackError,
+    identify_kaggle_return,
+    import_kaggle_return,
+)
+from local_operator.runtime_materializer import (  # noqa: E402
+    RuntimeMaterializationError,
+    inspect_runtime_archive,
+    materialize_runtime_archive,
+    validate_materialization_destination,
+)
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Authenticate and import one unchanged Kaggle return"
+    )
+    parser.add_argument("return_zip")
+    parser.add_argument("--pack-root", default=str(REPOSITORY_ROOT / "kagglefiles"))
+    parser.add_argument("--dry-run", action="store_true")
+    args = parser.parse_args(argv)
+    try:
+        identity = identify_kaggle_return(args.return_zip, pack_root=args.pack_root)
+        plan = None
+        if identity["return_type"] == "00A_ENVIRONMENT" or str(
+            identity["return_type"]
+        ).startswith("00B_SNAPSHOT_SMOKE:"):
+            plan = inspect_runtime_archive(
+                args.return_zip,
+                pack_root=args.pack_root,
+                expected_return_type=str(identity["return_type"]),
+            )
+            validate_materialization_destination(plan)
+        result = import_kaggle_return(
+            args.return_zip,
+            pack_root=args.pack_root,
+            dry_run=args.dry_run,
+        )
+        if plan is not None and not args.dry_run:
+            result["materialization"] = materialize_runtime_archive(
+                result["destination"],
+                pack_root=args.pack_root,
+            )
+    except (
+        KagglefilesPackError,
+        RuntimeMaterializationError,
+        OSError,
+        json.JSONDecodeError,
+    ) as error:
+        print(json.dumps({
+            "status": "RETURN_IMPORT_REJECTED",
+            "error": str(error),
+            "paper_evidence": False,
+        }, indent=2, sort_keys=True))
+        return 2
+    print(json.dumps(result, indent=2, sort_keys=True))
+    print(f"NEXT: {result['next_command']}")
+    return 0
 
 if __name__ == "__main__":
-    raise SystemExit(import_main())
+    raise SystemExit(main())
 '''
     resume = '''#!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 cd "$SCRIPT_DIR/.."
+python3 local_operator/runtime_materializer.py --clean-operator-metadata
 python3 scripts/run_all_cpu_workflows.py --resume
 python3 -m certvic.cvpr.doctor --json
 python3 -m certvic.cvpr.next_action
@@ -1061,6 +1122,15 @@ def _start_here(
     doctor_state: str,
     rows: list[dict[str, Any]],
 ) -> str:
+    smoke_rows = [row for row in rows if row["stage"] == "REAL_MODEL_SMOKE"]
+    smoke_authorized = bool(smoke_rows) and all(
+        row["readiness"] == "READY_NOW" for row in smoke_rows
+    )
+    current_action = (
+        "RUN_AUTHORIZED_00C2_SMOKES"
+        if smoke_authorized
+        else "PREPARE_TWO_REAL_LICENSED_SMOKE_PAIRS"
+    )
     lines = [
         "OPEN ONLY THIS FOLDER FOR KAGGLE EXECUTION.",
         "DO NOT NAVIGATE THE REST OF THE REPOSITORY.",
@@ -1075,35 +1145,34 @@ def _start_here(
         "- Main: `execution_allowed=false`.",
         "- Second domain: `execution_allowed=false`.",
         "",
-        "## C5 final live-provisioning retry",
+        "## Current checkpoint",
         "",
-        "DELETE THE FAILED CP312 AND QWEN KAGGLE DRAFTS.",
-        "PULL THE LATEST MAIN COMMIT.",
-        "UPLOAD THE REFRESHED COMMON INPUTS.",
+        "- The authenticated 00A environment and all three 00B snapshot records are already present.",
+        "- The 00C2 software route is statically and synthetically validated.",
+        "- No 00C2 GPU run is authorized until two distinct, real, licensed relevant/irrelevant image pairs are supplied and the provider-specific single-use permissions are built.",
         "",
-        "FIRST RUN ONLY:",
-        "`00_build_certvic_cp312_wheelhouse.ipynb`",
-        "ACCELERATOR OFF",
-        "INTERNET ON",
+        "## Exact next action",
         "",
-        "AFTER IT PASSES AND IS IMPORTED, RUN ONLY:",
-        "`01_build_qwen2_5_vl_7b_snapshot.ipynb`",
-        "ACCELERATOR OFF",
-        "INTERNET ON",
+        f"`{current_action}`",
         "",
-        "STOP AFTER EACH RESULT.",
-        "",
-        "## Exact first executable action",
-        "",
-        "`BUILD_CP312_WHEELHOUSE`",
-        "",
-        "Open `runbooks/00_PROVISIONING/00_build_certvic_cp312_wheelhouse.ipynb`, attach the three ZIPs from `inputs/00_COMMON/`, set **Accelerator OFF** and **Internet ON**, then click **Run All**. Download `certvic_offline_wheelhouse_cp312.zip` and import it unchanged with:",
+        "Check the intake state without creating evidence:",
         "",
         "```bash",
-        "python3 kagglefiles/import_kaggle_return.py /path/to/downloaded_return.zip",
+        "python3 local_operator/prepare_real_smoke_items.py --status",
         "```",
         "",
-        "The locally present CPython 3.10 wheelhouse is legacy and is not an active input.",
+        "When the four user-owned image files are available, build the canonical bundle and exact provider permissions with:",
+        "",
+        "```bash",
+        "python3 local_operator/prepare_real_smoke_items.py \\",
+        "  --relevant-before /absolute/path/relevant-before.png \\",
+        "  --relevant-after /absolute/path/relevant-after.png \\",
+        "  --irrelevant-before /absolute/path/irrelevant-before.png \\",
+        "  --irrelevant-after /absolute/path/irrelevant-after.png \\",
+        "  --license-owner USER_OWNED --affirm-research-use --affirm-redistribution",
+        "```",
+        "",
+        "Then refresh this pack and run only the three `00C2_*` rows marked `READY_NOW`. Stop after every return. The older provisioning rows remain below as authenticated lineage and disaster-recovery routes; do not rerun them for the current checkpoint.",
         "",
         "## Chronological run table",
         "",
@@ -1358,7 +1427,7 @@ def build_operator_pack(
 - Obsolete notebooks in pack: 0
 - Scientific GPU runs launched by refresh: 0
 
-First action: `BUILD_CP312_WHEELHOUSE`.
+First action: `PREPARE_TWO_REAL_LICENSED_SMOKE_PAIRS`.
 
 CERTVIC_UNIFIED_KAGGLEFILES_OPERATOR_PACK_COMPLETE
 KAGGLEFILES_RUNBOOKS_ORDERED_AND_VALIDATED
@@ -1381,7 +1450,7 @@ CERTVIC_HF_HEADER_IMPORT_PATCH_COMPLETE
 PINNED_HF_0262_IMPORT_PROBE_PASSED
 ALL_PROVISIONING_RUNBOOKS_REFRESHED
 UNIFIED_KAGGLEFILES_PACK_REFRESHED
-READY_TO_RETRY_CP312_THEN_QWEN
+READY_FOR_REAL_SMOKE_INPUTS
 """)
     source_map["KAGGLEFILES_PACK_STATUS.md"] = {
         "source_path": "certvic/cvpr/kagglefiles_pack.py#build_operator_pack",

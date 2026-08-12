@@ -1,0 +1,51 @@
+schema: certvic.cvpr.confirmatory_protocol.v3
+study_id: specificity_confirmatory_cvpr
+protocol_version: 3
+status: SCIENTIFIC_PROTOCOL_AMENDED_PRE_OUTCOME_EXTERNAL_SOURCE_BYTES_PENDING
+amends_verbatim_authority: configs/studies/specificity_confirmatory_cvpr.yaml
+amendment_reason_artifact: reports/cvpr2027_c12/design/C12_CONFIRMATORY_POWER_DECISION.json
+amendment_timestamp_utc: "2026-08-12T00:00:00Z"
+prospective_provider_outcomes_observed_at_amendment: false
+paper_evidence: false
+execution_allowed: false
+selection_allowed: true
+seed: 12013
+inherited_contract:
+  source_rules: configs/studies/specificity_confirmatory_cvpr.yaml#source_rules
+  endpoint_policies: configs/studies/specificity_confirmatory_cvpr.yaml#negative_item_policy,relevant_item_policy
+  exclusions: configs/studies/specificity_confirmatory_cvpr.yaml#exclusions
+  human_review: configs/studies/specificity_confirmatory_cvpr.yaml#human_review
+  analysis_lock: configs/statistics/certvic_confirmatory_primary_analysis.json
+design:
+  primary_items: 360
+  reserve_items: 90
+  endpoint_allocation:
+    primary: {relevant_intervention: 120, irrelevant_control: 240}
+    reserve: {relevant_intervention: 30, irrelevant_control: 60}
+  category_targets:
+    categories: [person, car, chair, table, dog, cat, tree, building, bicycle, bus, sofa, television]
+    per_category_primary: {relevant_intervention: 10, irrelevant_control: 20}
+    per_category_reserve: {relevant_intervention: 2_or_3_seeded, irrelevant_control: 5}
+    reserve_relevant_remainder_rule: first_six_categories_in_seeded_sha256_order_receive_3_other_six_receive_2
+  quota_rules:
+    expected_answer_polarity: balanced_as_nearly_as_integer_feasible_within_endpoint_category
+    target_size_strata: balanced_as_nearly_as_integer_feasible_within_endpoint_category
+    target_position_strata: balanced_as_nearly_as_integer_feasible_within_endpoint_category
+    perturbation_family: balanced_as_nearly_as_integer_feasible_within_endpoint_category
+    deterministic_tie_break: sha256_seed_12013_then_source_identity
+  replacement_rule: first_unused_same_locked_endpoint_category_polarity_size_position_family_stratum_only
+statistics:
+  tau_update: 0.50
+  tau_spurious: 0.10
+  family_alpha: 0.05
+  multiplicity_family: 3_models_x_2_primary_gates
+  per_model_per_gate_alpha: 0.008333333333333333
+  primary_interval: fixed_sample_one_sided_clopper_pearson
+  simultaneous_rule: all_six_bonferroni_bounds_must_pass
+  missing_or_unparseable: fail_closed_per_v2
+  confidence_sequences: secondary_operational_only_no_optional_stopping
+evidence_boundary:
+  optional_models_enter_primary_family: false
+  historical_artifacts_can_satisfy_prospective_claims: false
+  candidate_selection_can_read_provider_outcomes: false
+  protocol_may_change_after_first_prospective_output: false

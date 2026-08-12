@@ -1,0 +1,224 @@
+{
+  "fixtures": [
+    {
+      "expected_disposition": "ANALYZED",
+      "fixture": "all_pass",
+      "result": {
+        "abstention_count": 0,
+        "alpha": 0.008333333333333333,
+        "artifact_hashes": {
+          "synthetic_golden_fixture": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "coordinate_region": "RESPONSIVE_AND_SPECIFIC",
+        "evidence_class": "SYNTHETIC_SOFTWARE_GOLDEN_FIXTURE",
+        "evidence_eligible": true,
+        "family_alpha": 0.05,
+        "genuine_human_review": true,
+        "irrelevant_flips": 0,
+        "joint_certificate": true,
+        "missing_count": 0,
+        "model": "golden::all_pass",
+        "multiplicity_family": "three_models_by_two_primary_gates",
+        "n_irrelevant": 240,
+        "n_relevant": 120,
+        "paper_evidence": false,
+        "parse_failure_count": 0,
+        "prospective": true,
+        "responsiveness_gate": true,
+        "responsiveness_lower_bound": 0.9608895927173199,
+        "responsiveness_point_estimate": 1.0,
+        "schema": "certvic.cvpr2027.model_certificate.v1",
+        "semantic_update_successes": 120,
+        "specificity_gate": true,
+        "specificity_point_estimate": 0.0,
+        "spurious_upper_bound": 0.01975023962394161,
+        "statistical_joint_gate": true,
+        "thresholds": {
+          "tau_spurious": 0.1,
+          "tau_update": 0.5
+        }
+      }
+    },
+    {
+      "expected_disposition": "ANALYZED",
+      "fixture": "all_fail",
+      "result": {
+        "abstention_count": 0,
+        "alpha": 0.008333333333333333,
+        "artifact_hashes": {
+          "synthetic_golden_fixture": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "coordinate_region": "INERT_AND_SPURIOUS",
+        "evidence_class": "SYNTHETIC_SOFTWARE_GOLDEN_FIXTURE",
+        "evidence_eligible": true,
+        "family_alpha": 0.05,
+        "genuine_human_review": true,
+        "irrelevant_flips": 240,
+        "joint_certificate": false,
+        "missing_count": 0,
+        "model": "golden::all_fail",
+        "multiplicity_family": "three_models_by_two_primary_gates",
+        "n_irrelevant": 240,
+        "n_relevant": 120,
+        "paper_evidence": false,
+        "parse_failure_count": 0,
+        "prospective": true,
+        "responsiveness_gate": false,
+        "responsiveness_lower_bound": 0.0,
+        "responsiveness_point_estimate": 0.0,
+        "schema": "certvic.cvpr2027.model_certificate.v1",
+        "semantic_update_successes": 0,
+        "specificity_gate": false,
+        "specificity_point_estimate": 1.0,
+        "spurious_upper_bound": 1.0,
+        "statistical_joint_gate": false,
+        "thresholds": {
+          "tau_spurious": 0.1,
+          "tau_update": 0.5
+        }
+      }
+    },
+    {
+      "expected_disposition": "ANALYZED",
+      "fixture": "one_missing",
+      "result": {
+        "abstention_count": 0,
+        "alpha": 0.008333333333333333,
+        "artifact_hashes": {
+          "synthetic_golden_fixture": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "coordinate_region": "RESPONSIVE_AND_SPECIFIC",
+        "evidence_class": "SYNTHETIC_SOFTWARE_GOLDEN_FIXTURE",
+        "evidence_eligible": false,
+        "family_alpha": 0.05,
+        "genuine_human_review": true,
+        "irrelevant_flips": 0,
+        "joint_certificate": false,
+        "missing_count": 1,
+        "model": "golden::one_missing",
+        "multiplicity_family": "three_models_by_two_primary_gates",
+        "n_irrelevant": 240,
+        "n_relevant": 120,
+        "paper_evidence": false,
+        "parse_failure_count": 0,
+        "prospective": true,
+        "responsiveness_gate": true,
+        "responsiveness_lower_bound": 0.9608895927173199,
+        "responsiveness_point_estimate": 1.0,
+        "schema": "certvic.cvpr2027.model_certificate.v1",
+        "semantic_update_successes": 120,
+        "specificity_gate": true,
+        "specificity_point_estimate": 0.0,
+        "spurious_upper_bound": 0.01975023962394161,
+        "statistical_joint_gate": true,
+        "thresholds": {
+          "tau_spurious": 0.1,
+          "tau_update": 0.5
+        }
+      }
+    },
+    {
+      "expected_disposition": "ANALYZED",
+      "fixture": "parser_failures",
+      "result": {
+        "abstention_count": 0,
+        "alpha": 0.008333333333333333,
+        "artifact_hashes": {
+          "synthetic_golden_fixture": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "coordinate_region": "RESPONSIVE_AND_SPECIFIC",
+        "evidence_class": "SYNTHETIC_SOFTWARE_GOLDEN_FIXTURE",
+        "evidence_eligible": false,
+        "family_alpha": 0.05,
+        "genuine_human_review": true,
+        "irrelevant_flips": 0,
+        "joint_certificate": false,
+        "missing_count": 0,
+        "model": "golden::parser_failures",
+        "multiplicity_family": "three_models_by_two_primary_gates",
+        "n_irrelevant": 240,
+        "n_relevant": 120,
+        "paper_evidence": false,
+        "parse_failure_count": 1,
+        "prospective": true,
+        "responsiveness_gate": true,
+        "responsiveness_lower_bound": 0.9608895927173199,
+        "responsiveness_point_estimate": 1.0,
+        "schema": "certvic.cvpr2027.model_certificate.v1",
+        "semantic_update_successes": 120,
+        "specificity_gate": true,
+        "specificity_point_estimate": 0.0,
+        "spurious_upper_bound": 0.01975023962394161,
+        "statistical_joint_gate": true,
+        "thresholds": {
+          "tau_spurious": 0.1,
+          "tau_update": 0.5
+        }
+      }
+    },
+    {
+      "expected_disposition": "ANALYZED",
+      "fixture": "boundary_critical_count",
+      "result": {
+        "abstention_count": 0,
+        "alpha": 0.008333333333333333,
+        "artifact_hashes": {
+          "synthetic_golden_fixture": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "coordinate_region": "RESPONSIVE_AND_SPECIFIC",
+        "evidence_class": "SYNTHETIC_SOFTWARE_GOLDEN_FIXTURE",
+        "evidence_eligible": true,
+        "family_alpha": 0.05,
+        "genuine_human_review": true,
+        "irrelevant_flips": 13,
+        "joint_certificate": true,
+        "missing_count": 0,
+        "model": "golden::boundary_critical_count",
+        "multiplicity_family": "three_models_by_two_primary_gates",
+        "n_irrelevant": 240,
+        "n_relevant": 120,
+        "paper_evidence": false,
+        "parse_failure_count": 0,
+        "prospective": true,
+        "responsiveness_gate": true,
+        "responsiveness_lower_bound": 0.5036420635037503,
+        "responsiveness_point_estimate": 0.6166666666666667,
+        "schema": "certvic.cvpr2027.model_certificate.v1",
+        "semantic_update_successes": 74,
+        "specificity_gate": true,
+        "specificity_point_estimate": 0.05416666666666667,
+        "spurious_upper_bound": 0.09965466880729347,
+        "statistical_joint_gate": true,
+        "thresholds": {
+          "tau_spurious": 0.1,
+          "tau_update": 0.5
+        }
+      }
+    },
+    {
+      "enforced_by": "prediction identity uniqueness and transactional return validation",
+      "expected_disposition": "REJECT_BEFORE_ANALYSIS",
+      "fixture": "one_duplicate"
+    },
+    {
+      "enforced_by": "three-provider completion audit",
+      "expected_disposition": "REJECT_FAMILY_CERTIFICATE",
+      "fixture": "one_provider_missing"
+    },
+    {
+      "enforced_by": "task-bundle and run-contract hash binding",
+      "expected_disposition": "REJECT_BEFORE_ANALYSIS",
+      "fixture": "mixed_task_bundle"
+    },
+    {
+      "enforced_by": "single-use provider permission verification",
+      "expected_disposition": "REJECT_BEFORE_HARDWARE",
+      "fixture": "wrong_permission"
+    }
+  ],
+  "paper_evidence": false,
+  "schema": "certvic.cvpr2027.c12.analysis_golden_fixtures.v1",
+  "software_validation_only": true,
+  "status": "ALL_NINE_GOLDEN_CASES_RECORDED",
+  "synthetic_fixture": true
+}

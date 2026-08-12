@@ -1,0 +1,2 @@
+endpoint_arm,category,polarity,size_stratum,position_stratum,required_primary,required_reserve,observed_eligible,status
+ALL,ALL,ALL,ALL,ALL,360,90,0,SOURCE_BYTES_MISSING

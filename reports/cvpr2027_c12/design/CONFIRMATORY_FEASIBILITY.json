@@ -1,0 +1,24 @@
+{
+  "allocation": {
+    "primary_irrelevant": 240,
+    "primary_relevant": 120,
+    "reserve_irrelevant": 60,
+    "reserve_relevant": 30
+  },
+  "candidate_manifest_paths_found": [],
+  "counts_fabricated": false,
+  "paper_evidence": false,
+  "provider_outputs_used": false,
+  "required_checks": [
+    "license_eligibility",
+    "annotations",
+    "RGB_decode_minimum_short_side",
+    "category_polarity_size_position_capacity",
+    "protected_scene_geometry",
+    "zero_V1_V2_overlap",
+    "perceptual_duplicates",
+    "reserve_margin"
+  ],
+  "schema": "certvic.cvpr2027.c12.confirmatory_feasibility.v1",
+  "status": "SOURCE_BYTES_MISSING"
+}

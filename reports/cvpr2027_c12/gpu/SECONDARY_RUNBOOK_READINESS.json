@@ -1,0 +1,180 @@
+{
+  "execution_allowed": false,
+  "mandatory_gates": [
+    "PRIMARY_FROZEN_OR_COMPLETE",
+    "SECONDARY_TASK_BUNDLE_FROZEN",
+    "SEPARATE_PERMISSION",
+    "NO_PRIMARY_SELECTION_CONTAMINATION"
+  ],
+  "paper_evidence": false,
+  "paths": [
+    {
+      "arm": "repeat_determinism",
+      "decoding": "frozen_primary",
+      "evidence_class": "SECONDARY_REPEATABILITY",
+      "primary_task_mutation_allowed": false,
+      "provider": "qwen2_5_vl_7b",
+      "required_permission_class": "SECONDARY_REPEATABILITY_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "repeat_determinism",
+      "decoding": "frozen_primary",
+      "evidence_class": "SECONDARY_REPEATABILITY",
+      "primary_task_mutation_allowed": false,
+      "provider": "internvl_8b",
+      "required_permission_class": "SECONDARY_REPEATABILITY_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "repeat_determinism",
+      "decoding": "frozen_primary",
+      "evidence_class": "SECONDARY_REPEATABILITY",
+      "primary_task_mutation_allowed": false,
+      "provider": "llava_onevision_7b",
+      "required_permission_class": "SECONDARY_REPEATABILITY_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "prompt_robustness",
+      "decoding": "greedy",
+      "evidence_class": "SECONDARY_PROMPT_ROBUSTNESS",
+      "primary_task_mutation_allowed": false,
+      "provider": "qwen2_5_vl_7b",
+      "required_permission_class": "SECONDARY_PROMPT_ROBUSTNESS_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "prompt_robustness",
+      "decoding": "greedy",
+      "evidence_class": "SECONDARY_PROMPT_ROBUSTNESS",
+      "primary_task_mutation_allowed": false,
+      "provider": "internvl_8b",
+      "required_permission_class": "SECONDARY_PROMPT_ROBUSTNESS_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "prompt_robustness",
+      "decoding": "greedy",
+      "evidence_class": "SECONDARY_PROMPT_ROBUSTNESS",
+      "primary_task_mutation_allowed": false,
+      "provider": "llava_onevision_7b",
+      "required_permission_class": "SECONDARY_PROMPT_ROBUSTNESS_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "decoding_robustness",
+      "decoding": "predeclared_variant",
+      "evidence_class": "SECONDARY_DECODING_ROBUSTNESS",
+      "primary_task_mutation_allowed": false,
+      "provider": "qwen2_5_vl_7b",
+      "required_permission_class": "SECONDARY_DECODING_ROBUSTNESS_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "decoding_robustness",
+      "decoding": "predeclared_variant",
+      "evidence_class": "SECONDARY_DECODING_ROBUSTNESS",
+      "primary_task_mutation_allowed": false,
+      "provider": "internvl_8b",
+      "required_permission_class": "SECONDARY_DECODING_ROBUSTNESS_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "decoding_robustness",
+      "decoding": "predeclared_variant",
+      "evidence_class": "SECONDARY_DECODING_ROBUSTNESS",
+      "primary_task_mutation_allowed": false,
+      "provider": "llava_onevision_7b",
+      "required_permission_class": "SECONDARY_DECODING_ROBUSTNESS_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "natural_absence_control",
+      "decoding": "greedy",
+      "evidence_class": "SECONDARY_NATURAL_CONTROL",
+      "primary_task_mutation_allowed": false,
+      "provider": "qwen2_5_vl_7b",
+      "required_permission_class": "SECONDARY_NATURAL_CONTROL_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "natural_absence_control",
+      "decoding": "greedy",
+      "evidence_class": "SECONDARY_NATURAL_CONTROL",
+      "primary_task_mutation_allowed": false,
+      "provider": "internvl_8b",
+      "required_permission_class": "SECONDARY_NATURAL_CONTROL_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "natural_absence_control",
+      "decoding": "greedy",
+      "evidence_class": "SECONDARY_NATURAL_CONTROL",
+      "primary_task_mutation_allowed": false,
+      "provider": "llava_onevision_7b",
+      "required_permission_class": "SECONDARY_NATURAL_CONTROL_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "quantization_runtime",
+      "decoding": "greedy",
+      "evidence_class": "SECONDARY_DECODING_ROBUSTNESS",
+      "primary_task_mutation_allowed": false,
+      "provider": "qwen2_5_vl_7b",
+      "required_permission_class": "SECONDARY_DECODING_ROBUSTNESS_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "quantization_runtime",
+      "decoding": "greedy",
+      "evidence_class": "SECONDARY_DECODING_ROBUSTNESS",
+      "primary_task_mutation_allowed": false,
+      "provider": "internvl_8b",
+      "required_permission_class": "SECONDARY_DECODING_ROBUSTNESS_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    },
+    {
+      "arm": "quantization_runtime",
+      "decoding": "greedy",
+      "evidence_class": "SECONDARY_DECODING_ROBUSTNESS",
+      "primary_task_mutation_allowed": false,
+      "provider": "llava_onevision_7b",
+      "required_permission_class": "SECONDARY_DECODING_ROBUSTNESS_ONE_RUN",
+      "return_schema": "certvic.cvpr.output.v2 canonical provider ZIP",
+      "runner": "certvic.cvpr.worker plus certvic.cvpr.package_run",
+      "status": "BLOCKED_BY_PRIMARY_FREEZE"
+    }
+  ],
+  "schema": "certvic.cvpr2027.c12.secondary_runbook_readiness.v1",
+  "secondary_may_modify_primary_tasks": false,
+  "status": "SOFTWARE_READY_BLOCKED_BY_PRIMARY_FREEZE"
+}
