@@ -204,6 +204,33 @@ def build_local_bundles() -> list[dict[str, Any]]:
     return results
 
 
+def validate_local_bundles_without_promotion() -> list[dict[str, Any]]:
+    """Prove current-source determinism without replacing authenticated active ZIPs."""
+    results: list[dict[str, Any]] = []
+    with tempfile.TemporaryDirectory(prefix="certvic_kaggle_nonpromoting_validation_") as temporary:
+        root = Path(temporary)
+        for name, spec in _local_specs().items():
+            first_path = root / "first" / name
+            second_path = root / "second" / name
+            first = _build_local_one(name, spec, first_path)
+            second = _build_local_one(name, spec, second_path)
+            if first_path.read_bytes() != second_path.read_bytes():
+                raise KaggleInputFactoryError(
+                    f"bundle was not byte-identical in non-promoting validation: {name}"
+                )
+            results.append({
+                "name": name,
+                "sha256": first["sha256"],
+                "size": first["size"],
+                "member_count": first["member_count"],
+                "second_sha256": second["sha256"],
+                "status": "DETERMINISTIC_WITHOUT_PROMOTION",
+                "active_archive_replaced": False,
+                "paper_evidence": False,
+            })
+    return results
+
+
 def external_statuses() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     wheel_zip = UPLOAD_ROOT / "01_wheelhouse/certvic_offline_wheelhouse.zip"
@@ -710,11 +737,19 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--local-only", action="store_true")
+    group.add_argument("--validate-local-only", action="store_true")
     group.add_argument("--with-external-roots")
     group.add_argument("--status", action="store_true")
     args = parser.parse_args(argv)
     if args.status:
         result = status_report()
+    elif args.validate_local_only:
+        result = {
+            "schema": "certvic.kaggle.nonpromoting_local_validation.v1",
+            "status": "KAGGLE_LOCAL_BUNDLES_DETERMINISTIC_WITHOUT_PROMOTION",
+            "local_bundles": validate_local_bundles_without_promotion(),
+            "paper_evidence": False,
+        }
     else:
         local = build_local_bundles()
         external = external_statuses()
